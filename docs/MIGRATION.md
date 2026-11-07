@@ -203,9 +203,9 @@ a finite admissible resolution in any replete kernel-closed class containing
 zero. Lifting the resulting tower into an exact full subcategory retains all
 ambient maps and its length. Arbitrary small-model functoriality also retains
 the canonical K-maps. See the [G-localization and resolution scope](migration/scheme-kg/README.md).
-The native scheme K/G construction and canonical comparison are developed in a
-[separate geometric slice](migration/scheme-kg/native-scheme-comparison.md).
-The regular K/G equivalence remains a further obligation.
+The scheme-specific comparison is developed in the separate
+[native scheme K/G slice](migration/scheme-kg/native-scheme-comparison.md); it is not
+a conclusion of the bounded-resolution foundation alone.
 
 ## Actual-target and finite-module G-localization
 
@@ -230,13 +230,15 @@ smallKMap. The transported original boundary gives the full connective
 closed/open sequence, including G-zero. No regularity or nontriviality hypothesis
 is added. See the [precise native scope](migration/scheme-kg/principal-closed-localization.md).
 
-## Native scheme K/G-theory and canonical restriction
+## Native scheme K/G-theory and regular comparison
 
-Native vector bundles and coherent module sheaves carry the original upper
-small-model connective K-groups. Their literal inclusion gives the canonical
-K-to-G map. Actual open restriction obeys strict identity and composition laws
-and commutes with the comparison in every nonnegative degree, including zero.
-See the [precise scope and literature](migration/scheme-kg/native-scheme-comparison.md).
-The regular-scheme equivalence, perfect-complex comparison, general scheme-open
-K-localization and nonconnective theory are separate statements, not conclusions
-of this construction slice.
+Native vector bundles and coherent module sheaves now carry the original upper
+small-model connective K-groups. The literal inclusion gives the canonical K-to-G
+map, and actual open restriction obeys strict identity and composition laws and
+commutes with that comparison. On a quasi-compact regular scheme with the
+resolution property, native Stacks perfectness and bounded replacement discharge
+actual finite-resolution hypotheses, proving the canonical comparison is an
+equivalence in every nonnegative degree. No separatedness, uniform dimension or
+global projectivity assumption is added. See the
+[precise geometric scope and literature](migration/scheme-kg/native-scheme-comparison.md).
+This does not assert general scheme-open K-localization or nonconnective K-theory.
