@@ -66,6 +66,9 @@ theorem nonempty_finiteResolution_of_regular (hX : AlgebraicGeometry.IsRegular X
     Stacks.Perfect.BoundedLocallyFreeComplexes.exists_boundedFiniteLocallyFree_quasiIso
       X F hplus hqc hperf
   let := hf
+  let : (abelianExactStructure X.Modules).IsKernelClosed
+      (fun N : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} N) :=
+    finiteLocallyFree_isKernelClosed X
   exact E.nonempty_finiteResolution_of_quasiIso_single
     (fun N : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} N) M f hE.2 hE.1
 

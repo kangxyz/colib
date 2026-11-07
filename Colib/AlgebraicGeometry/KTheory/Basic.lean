@@ -40,8 +40,8 @@ explicit upper small universe. No noetherian hypothesis is needed. -/
 abbrev K (X : Scheme.{u}) (n : ℕ) : Type (u + 1) :=
   ExactStructure.SmallK.{u + 1} (Modules.vectorBundleExactStructure X) n
 
-/-- Coherent G-theory in the explicit upper small universe. -/
-abbrev G (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) : Type (u + 1) :=
+/-- Coherent G-theory in the explicit upper small universe, on every scheme. -/
+abbrev G (X : Scheme.{u}) (n : ℕ) : Type (u + 1) :=
   ExactStructure.SmallK.{u + 1} (Modules.coherentExactStructure X) n
 
 attribute [colib_tag "COL-0285",

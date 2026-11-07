@@ -38,19 +38,16 @@ def restrictK {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) :
     K X n →* K U n :=
   (Modules.vectorBundleExactRestrict j).smallKMap.{u + 1} n
 
-@[simp]
 theorem restrictK_eq_smallKMap {U X : Scheme.{u}} (j : U ⟶ X)
     [IsOpenImmersion j] (n : ℕ) :
     restrictK j n = (Modules.vectorBundleExactRestrict j).smallKMap.{u + 1} n := rfl
 
 /-- The canonical G-map of actual geometric open restriction. -/
-def restrictG {U X : Scheme.{u}} [IsLocallyNoetherian X] [IsLocallyNoetherian U]
+def restrictG {U X : Scheme.{u}}
     (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) : G X n →* G U n :=
   (Modules.coherentRestrictionExact j).smallKMap.{u + 1} n
 
-@[simp]
 theorem restrictG_eq_smallKMap {U X : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian U]
     (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) :
     restrictG j n = (Modules.coherentRestrictionExact j).smallKMap.{u + 1} n := rfl
 
@@ -76,7 +73,6 @@ theorem restrictK_comp {V U X : Scheme.{u}} (i : V ⟶ U) (j : U ⟶ X)
   exact ExactFunctor.smallKMap_eq_of_natIso.{u + 1} (Modules.vectorBundleRestrictComp i j) n
 
 /-- Elementwise identity restriction on scheme K-theory. -/
-@[simp]
 theorem restrictK_id_apply (X : Scheme.{u}) (n : ℕ) (x : K X n) :
     restrictK (𝟙 X) n x = x :=
   DFunLike.congr_fun (restrictK_id X n) x
@@ -89,7 +85,7 @@ theorem restrictK_comp_apply {V U X : Scheme.{u}} (i : V ⟶ U) (j : U ⟶ X)
 
 /-- Restriction along the identity is the identity on coherent G-theory in every degree. -/
 @[simp]
-theorem restrictG_id (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) :
+theorem restrictG_id (X : Scheme.{u}) (n : ℕ) :
     restrictG (𝟙 X) n = MonoidHom.id (G X n) := by
   change (Modules.coherentRestrictionExact (𝟙 X)).smallKMap.{u + 1} n = _
   calc
@@ -100,7 +96,6 @@ theorem restrictG_id (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) :
 /-- Actual open restriction is contravariantly functorial on coherent G-theory. -/
 @[simp]
 theorem restrictG_comp {V U X : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian U] [IsLocallyNoetherian V]
     (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j] (n : ℕ) :
     restrictG (i ≫ j) n = (restrictG i n).comp (restrictG j n) := by
   change (Modules.coherentRestrictionExact (i ≫ j)).smallKMap.{u + 1} n =
@@ -110,14 +105,12 @@ theorem restrictG_comp {V U X : Scheme.{u}}
   exact ExactFunctor.smallKMap_eq_of_natIso.{u + 1} (Modules.coherentRestrictComp i j) n
 
 /-- Elementwise identity restriction on coherent G-theory. -/
-@[simp]
-theorem restrictG_id_apply (X : Scheme.{u}) [IsLocallyNoetherian X]
+theorem restrictG_id_apply (X : Scheme.{u})
     (n : ℕ) (x : G X n) : restrictG (𝟙 X) n x = x :=
   DFunLike.congr_fun (restrictG_id X n) x
 
 /-- Elementwise composition of actual open restriction on coherent G-theory. -/
 theorem restrictG_comp_apply {V U X : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian U] [IsLocallyNoetherian V]
     (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j]
     (n : ℕ) (x : G X n) :
     restrictG (i ≫ j) n x = restrictG i n (restrictG j n x) :=

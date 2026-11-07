@@ -55,20 +55,18 @@ example {V U X : Scheme.{u}} (i : V ⟶ U) (j : U ⟶ X)
     restrictK (i ≫ j) 0 x = restrictK i 0 (restrictK j 0 x) :=
   restrictK_comp_apply i j 0 x
 
-example (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) :
+example (X : Scheme.{u}) (n : ℕ) :
     restrictG (𝟙 X) n = MonoidHom.id
       (ExactStructure.SmallK.{u + 1} (Modules.coherentExactStructure X) n) :=
   restrictG_id X n
 
 example {V U X : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian U] [IsLocallyNoetherian V]
-    (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j] (n : ℕ) :
+     (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j] (n : ℕ) :
     restrictG (i ≫ j) n = (restrictG i n).comp (restrictG j n) :=
   restrictG_comp i j n
 
 example {V U X : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian U] [IsLocallyNoetherian V]
-    (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j] (x : G X 0) :
+     (i : V ⟶ U) (j : U ⟶ X) [IsOpenImmersion i] [IsOpenImmersion j] (x : G X 0) :
     restrictG (i ≫ j) 0 x = restrictG i 0 (restrictG j 0 x) :=
   restrictG_comp_apply i j 0 x
 

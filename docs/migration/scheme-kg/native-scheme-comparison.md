@@ -12,17 +12,17 @@ No alternate category, compatibility shell or Aglib dependency is introduced.
 For `X : Scheme.{u}`, vector-bundle K-theory uses the native `X.Vect` category of
 finite locally free module sheaves. Its conflations are the actual ambient short
 exact sequences, not just globally split sequences. Coherent G-theory uses the
-native abelian category `SheafOfModules.CoherentModules X.ringCatSheaf`. The stated
-G-group interface retains the locally Noetherian hypothesis. Both constructions
+native abelian category `SheafOfModules.CoherentModules X.ringCatSheaf`, on every
+scheme. Both constructions
 use the existing `ExactStructure.SmallK.{u+1}` and Mathlib's actual `SmallModel`.
 No essential-smallness claim in the smaller universe is made.
 
-The comparison is the original K-map of the literal inclusion of vector bundles
-into coherent sheaves. Open restriction is the actual `Scheme.Modules.restrictFunctor`.
+On a locally Noetherian scheme, the comparison is the original K-map of the
+literal inclusion of vector bundles into coherent sheaves. Open restriction is the actual `Scheme.Modules.restrictFunctor`.
 Its identity and composition isomorphisms lift Mathlib's existing comparisons,
 with unchanged components. The induced K- and G-maps satisfy strict identity and
-composition equalities, and K-to-G commutes with those maps. Every group-level
-statement covers all natural degrees, including zero.
+composition equalities, and K-to-G commutes with those maps. Restriction of coherent G-theory itself needs no Noetherian hypothesis. Every
+group-level statement covers all natural degrees, including zero.
 
 ## Regular comparison: COL-0286
 

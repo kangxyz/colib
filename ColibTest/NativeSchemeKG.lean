@@ -24,6 +24,9 @@ example (X : Scheme.{u}) : ExactStructure (SheafOfModules.CoherentModules X.ring
   Modules.coherentExactStructure X
 
 example (X : Scheme.{u}) (n : ℕ) :
+    G X n = ExactStructure.SmallK.{u + 1} (Modules.coherentExactStructure X) n := rfl
+
+example (X : Scheme.{u}) (n : ℕ) :
     K X n = ExactStructure.SmallK.{u + 1} (Modules.vectorBundleExactStructure X) n := rfl
 
 example {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j] :
@@ -41,9 +44,6 @@ example {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) :
     restrictK j n = (Modules.vectorBundleExactRestrict j).smallKMap.{u + 1} n := rfl
 
 variable (X : Scheme.{u}) [IsLocallyNoetherian X]
-
-example (n : ℕ) :
-    G X n = ExactStructure.SmallK.{u + 1} (Modules.coherentExactStructure X) n := rfl
 
 example : KToG X 0 =
     (Modules.vectorBundleToCoherentExact X).smallKMap.{u + 1} 0 := rfl
