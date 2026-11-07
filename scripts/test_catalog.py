@@ -302,6 +302,7 @@ class LibraryTests(unittest.TestCase):
             "affine-open-pairs": "Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor",
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
+            "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",
