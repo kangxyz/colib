@@ -46,7 +46,8 @@ instance coherentVectorBundle_isClosedUnderIsomorphisms :
 instance coherentVectorBundle_containsZero : (coherentVectorBundle X).ContainsZero where
   exists_zero := ⟨0, isZero_zero _,
     Stacks.Perfect.BoundedLocallyFreeComplexes.finiteLocallyFree_of_isZero X _
-      ((ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)).map_isZero (isZero_zero _))⟩
+      ((ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)).map_isZero
+        (isZero_zero (SheafOfModules.CoherentModules X.ringCatSheaf)))⟩
 
 instance coherentVectorBundle_isExtensionClosed :
     (coherentExactStructure X).IsExtensionClosed (coherentVectorBundle X) where
