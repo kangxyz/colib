@@ -168,6 +168,7 @@ theorem vectorBundleSmall_factor :
       (Resolution.exactInclusion (coherentExactStructure X).smallModel.{u + 1}
         (coherentSmallVectorBundle X)) = (vectorBundleToCoherentExact X).smallModel.{u + 1} := rfl
 
+omit [IsLocallyNoetherian X] in
 /-- Actual finite resolutions descend with no uniform bound on their lengths. -/
 theorem coherentSmallResolutionHypothesis
     (h : (coherentExactStructure X).ResolutionHypothesis (coherentVectorBundle X)) :

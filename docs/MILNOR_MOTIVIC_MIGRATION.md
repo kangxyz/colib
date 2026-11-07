@@ -711,3 +711,27 @@ coprimality, not for the original-branch normal-subfield consumer. This is a
 finite field-theoretic reduction, not an infinite special-field construction
 or a Milnor norm, reciprocity or transfer theorem.
 See migration/motivic-sylow-branches.json for source comparison and checks.
+
+### Prime Galois Milnor norm-residue compatibility
+
+COL-0289 closes the actual chosen-norm/canonical-DVR-residue square for a finite
+torsion-free local DVR extension whose fraction-field extension is Galois of prime
+degree and whose actual base residue field has characteristic zero. The rings and fraction
+fields share one universe. Every natural degree, including the degree-one to
+residue-degree-zero case, is covered by both pointwise and additive-hom equality.
+
+The proof uses one actual finite coprime coefficient field for each class, its
+native tensor coordinates and every completed normalization branch. Residue norms
+retract the ramification-weighted branch errors; the original-base weight sum
+supplies the second annihilator. Together with the broader prime annihilation
+result COL-0261, native integer gcd cancellation gives equality. No Henselianity
+of the original rings, supplied auxiliary square or mixed witness, separate
+integer cancellation, or torsion-freeness of a Milnor group is assumed.
+
+This complete chain comprises 17 production modules and seven consumer modules
+with 30 examples. The field-specific sources use the native
+`Colib.RingTheory.KTheory.MilnorK` owner. Positive or mixed residue characteristic,
+arbitrary finite generic degree, independent endpoint universes and a general
+chosen-norm tower/independence theorem remain outside this milestone. Precise
+source correspondence, final-byte compilation and project-check scope are
+recorded in `migration/milnor-prime-galois-dvr-norm-residue.json`.
