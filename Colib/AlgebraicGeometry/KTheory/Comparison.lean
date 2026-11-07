@@ -34,22 +34,22 @@ namespace AlgebraicGeometry.Scheme
 
 /-- The canonical comparison induced by the actual exact inclusion. -/
 def KToG (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) : K X n →* G X n :=
-  (Modules.vectorBundleToCoherentExact X).smallKMap n
+  (Modules.vectorBundleToCoherentExact X).smallKMap.{u + 1} n
 
 @[simp]
 theorem KToG_eq_smallKMap (X : Scheme.{u}) [IsLocallyNoetherian X] (n : ℕ) :
-    KToG X n = (Modules.vectorBundleToCoherentExact X).smallKMap n := rfl
+    KToG X n = (Modules.vectorBundleToCoherentExact X).smallKMap.{u + 1} n := rfl
 
 /-- The canonical comparison commutes with actual open restriction. -/
 theorem KToG_restrict {U X : Scheme.{u}} [IsLocallyNoetherian X]
     [IsLocallyNoetherian U] (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) :
     (restrictG j n).comp (KToG X n) = (KToG U n).comp (restrictK j n) := by
-  change ((Modules.coherentRestrictionExact j).smallKMap n).comp
-      ((Modules.vectorBundleToCoherentExact X).smallKMap n) =
-    ((Modules.vectorBundleToCoherentExact U).smallKMap n).comp
-      ((Modules.vectorBundleExactRestrict j).smallKMap n)
-  rw [← ExactFunctor.smallKMap_comp, ← ExactFunctor.smallKMap_comp]
-  exact ExactFunctor.smallKMap_eq_of_natIso
+  change ((Modules.coherentRestrictionExact j).smallKMap.{u + 1} n).comp
+      ((Modules.vectorBundleToCoherentExact X).smallKMap.{u + 1} n) =
+    ((Modules.vectorBundleToCoherentExact U).smallKMap.{u + 1} n).comp
+      ((Modules.vectorBundleExactRestrict j).smallKMap.{u + 1} n)
+  rw [← ExactFunctor.smallKMap_comp.{u + 1}, ← ExactFunctor.smallKMap_comp.{u + 1}]
+  exact ExactFunctor.smallKMap_eq_of_natIso.{u + 1}
     (Modules.vectorBundleToCoherentRestrictIso j) n
 
 /-- Elementwise naturality of the canonical comparison. -/
