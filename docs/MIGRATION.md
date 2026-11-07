@@ -242,3 +242,16 @@ equivalence in every nonnegative degree. No separatedness, uniform dimension or
 global projectivity assumption is added. See the
 [precise geometric scope and literature](migration/scheme-kg/native-scheme-comparison.md).
 This does not assert general scheme-open K-localization or nonconnective K-theory.
+
+## Native perfect open support and scalar-cone inputs
+
+Actual restriction along any open immersion preserves native Stacks perfect
+complexes. Open-detected weak equivalences give the relative coarse structure
+without changing its ambient monomorphism cofibrations. Its genuine acyclic
+subcategory is exactly equivalent to the native supported category, preserving
+the original inclusion and all nonnegative K-maps. The actual scalar cone is
+supported when the scalar restricts to a specified unit; native rank-one and
+positive Laurent coordinate comparisons keep the forward T orientation.
+See the [source and exact scope](migration/scheme-laurent/native-open-support.md).
+This foundation does not yet prove the relative fiber theorem, fine-open
+localization, or the scalar/Laurent connecting-boundary formula.
