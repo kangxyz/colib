@@ -38,14 +38,15 @@ example {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
     ((Modules.vectorBundleRestrict j).map f).hom = (Modules.restrictFunctor j).map f.hom := rfl
 
 example {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j] (n : ℕ) :
-    restrictK j n = (Modules.vectorBundleExactRestrict j).smallKMap n := rfl
+    restrictK j n = (Modules.vectorBundleExactRestrict j).smallKMap.{u + 1} n := rfl
 
 variable (X : Scheme.{u}) [IsLocallyNoetherian X]
 
 example (n : ℕ) :
     G X n = ExactStructure.SmallK.{u + 1} (Modules.coherentExactStructure X) n := rfl
 
-example : KToG X 0 = (Modules.vectorBundleToCoherentExact X).smallKMap 0 := rfl
+example : KToG X 0 =
+    (Modules.vectorBundleToCoherentExact X).smallKMap.{u + 1} 0 := rfl
 
 example (M : X.Vect) : ((Modules.vectorBundleToCoherent X).obj M).obj = M.obj := rfl
 
@@ -54,7 +55,7 @@ example {M N : X.Vect} (f : M ⟶ N) :
 
 variable {X} {U : Scheme.{u}} [IsLocallyNoetherian U] (j : U ⟶ X) [IsOpenImmersion j]
 
-example : restrictG j 0 = (Modules.coherentRestrictionExact j).smallKMap 0 := rfl
+example : restrictG j 0 = (Modules.coherentRestrictionExact j).smallKMap.{u + 1} 0 := rfl
 
 example (M : X.Vect) : ((Modules.vectorBundleToCoherentRestrictIso j).hom.app M).hom =
     𝟙 ((Modules.restrictFunctor j).obj M.obj) := rfl
