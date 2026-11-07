@@ -7,6 +7,7 @@ module
 
 public import Colib.CategoryTheory.Waldhausen.SConstruction.BisimplexFamily
 public import Colib.Topology.Realization.ProductSimplex
+public import Colib.KTheory.Waldhausen.Map
 
 /-! # Realizing the two independent coordinates of an original quotient grid
 
@@ -73,6 +74,32 @@ theorem bisimplexRealization_congr {G : Grid₂ ⦋n⦌ ⦋m⦌ ⥤ C}
     (hG : IsSimplex₂ W.cof W.weq G) (h : F = G) :
     bisimplexRealization W F hF = bisimplexRealization W G hG := by
   cases h
+  rfl
+
+end CategoryTheory.Waldhausen
+
+/-!
+## Additional implementation provenance
+
+Adapted from `Quillen/Waldhausen/AutomorphismKOne.lean`, lines 142–151,
+at commit `c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+The original declarations, full coordinates, hypotheses and universes are retained.
+Only native namespaces, precise imports and line wrapping change. Source-only, UNCOMPILED.
+-/
+namespace CategoryTheory.Waldhausen
+variable {C D : Type u} [Category.{v} C] [Category.{v} D]
+  {V : Structure C} {W : Structure D} {F : C ⥤ D}
+  (hF : IsExact V.cof V.weq W.cof W.weq F)
+
+/-- Both independent simplex coordinates are retained by the original exact realization map. -/
+theorem bisimplexRealization_postcompose {n m : ℕ}
+    (G : Grid₂ ⦋n⦌ ⦋m⦌ ⥤ C) (hG : IsSimplex₂ V.cof V.weq G)
+    (z : StdSimplex ℝ (Fin (n + 1))) (t : StdSimplex ℝ (Fin (m + 1))) :
+    deloopingMap hF (bisimplexRealization V G hG (z, t)) =
+      bisimplexRealization W (G ⋙ F) (hG.postcomp V.cof V.weq hF) (z, t) := by
+  change (SSet.toTop.map (bisimplexFamily V G hG) ≫
+    SSet.toTop.map (sSetMap hF)) ((realizationProductSimplexHomeomorph n m).symm (z, t)) = _
+  rw [← Functor.map_comp, bisimplexFamily_postcompose]
   rfl
 
 end CategoryTheory.Waldhausen

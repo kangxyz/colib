@@ -102,3 +102,56 @@ theorem weakObjectCompositionRealization_vertex (e : Fin 2) (z : StdSimplex ℝ 
   simpa only [StdSimplex.map_single, hc, hi, StdSimplex.map_id] using h
 
 end CategoryTheory.Waldhausen.Structure
+
+/-!
+## Additional implementation provenance
+
+Adapted from `Quillen/Waldhausen/GrothendieckComparison/WeakObjectCompositionPrism.lean`,
+lines 109–145,
+at commit `c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+The original declarations, full coordinates, hypotheses and universes are retained.
+Only native namespaces, precise imports and line wrapping change. Source-only, UNCOMPILED.
+-/
+namespace CategoryTheory.Waldhausen.Structure
+variable {C : Type u} [Category.{v} C] (W : Structure C)
+  {A B D : C} (f : A ⟶ B) (g : B ⟶ D) (hf : W.weq f) (hg : W.weq g)
+
+/-- The second continuous face is the entire original weak-arrow square. -/
+theorem weakObjectCompositionRealization_second
+    (t z : StdSimplex ℝ (Fin 2)) :
+    W.weakObjectCompositionRealization f g hf hg (t, z.map (SimplexCategory.δ 0)) =
+      bisimplexRealization W (W.weakObjectSimplex g hg).val
+        ((isSimplex₂_diagonal_iff W.cof W.weq _).mpr
+          (W.weakObjectSimplex g hg).property) (t, z) := by
+  have h := bisimplexRealization_precomp W (W.weakObjectCompositionPrism f g hf hg)
+    (W.weakObjectCompositionPrism_isSimplex₂ f g hf hg) (𝟙 ⦋1⦌) (SimplexCategory.δ 0) t z
+  have he := bisimplexRealization_congr W _
+    ((W.weakObjectCompositionPrism_isSimplex₂ f g hf hg).precomp W.cof W.weq
+      (𝟙 ⦋1⦌) (SimplexCategory.δ 0))
+    ((isSimplex₂_diagonal_iff W.cof W.weq _).mpr
+      (W.weakObjectSimplex g hg).property)
+    (W.weakObjectCompositionPrism_second f g hf hg)
+  rw [he] at h
+  rw [weakObjectCompositionRealization_apply]
+  simpa using h
+
+/-- The composite continuous face is the entire original weak-arrow square. -/
+theorem weakObjectCompositionRealization_composite
+    (t z : StdSimplex ℝ (Fin 2)) :
+    W.weakObjectCompositionRealization f g hf hg (t, z.map (SimplexCategory.δ 1)) =
+      bisimplexRealization W (W.weakObjectSimplex (f ≫ g) (W.weq.comp_mem _ _ hf hg)).val
+        ((isSimplex₂_diagonal_iff W.cof W.weq _).mpr
+          (W.weakObjectSimplex (f ≫ g) (W.weq.comp_mem _ _ hf hg)).property) (t, z) := by
+  have h := bisimplexRealization_precomp W (W.weakObjectCompositionPrism f g hf hg)
+    (W.weakObjectCompositionPrism_isSimplex₂ f g hf hg) (𝟙 ⦋1⦌) (SimplexCategory.δ 1) t z
+  have he := bisimplexRealization_congr W _
+    ((W.weakObjectCompositionPrism_isSimplex₂ f g hf hg).precomp W.cof W.weq
+      (𝟙 ⦋1⦌) (SimplexCategory.δ 1))
+    ((isSimplex₂_diagonal_iff W.cof W.weq _).mpr
+      (W.weakObjectSimplex (f ≫ g) (W.weq.comp_mem _ _ hf hg)).property)
+    (W.weakObjectCompositionPrism_composite f g hf hg)
+  rw [he] at h
+  rw [weakObjectCompositionRealization_apply]
+  simpa using h
+
+end CategoryTheory.Waldhausen.Structure

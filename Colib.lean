@@ -687,6 +687,8 @@ public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.Transpose
 public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.TransposeExact
 public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.TriplePushout
 public import Colib.CategoryTheory.Waldhausen.Fibration.AcyclicSubcategory
+public import Colib.CategoryTheory.Waldhausen.Fibration.BisimplexChangeWeak
+public import Colib.CategoryTheory.Waldhausen.Fibration.CofiberObjectChangeWeak
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexChainReplacement
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexExtension
 public import Colib.CategoryTheory.Waldhausen.Fibration.Functoriality
@@ -820,6 +822,7 @@ public import Colib.CategoryTheory.Waldhausen.Rows.WeakObjectSimplex
 public import Colib.CategoryTheory.Waldhausen.SConstruction
 public import Colib.CategoryTheory.Waldhausen.SConstruction.BisimplexFamily
 public import Colib.CategoryTheory.Waldhausen.SConstruction.Bisimplicial
+public import Colib.CategoryTheory.Waldhausen.SConstruction.CofiberObjectSimplex
 public import Colib.CategoryTheory.Waldhausen.SConstruction.Iterated.Category
 public import Colib.CategoryTheory.Waldhausen.SConstruction.Iterated.Double
 public import Colib.CategoryTheory.Waldhausen.SConstruction.Iterated.Functoriality
@@ -1006,6 +1009,7 @@ public import Colib.KTheory.Waldhausen.AsSmall.Approximation
 public import Colib.KTheory.Waldhausen.AsSmall.Basic
 public import Colib.KTheory.Waldhausen.AsSmall.Connecting
 public import Colib.KTheory.Waldhausen.AsSmall.Fiber
+public import Colib.KTheory.Waldhausen.AutomorphismKOne
 public import Colib.KTheory.Waldhausen.Basic
 public import Colib.KTheory.Waldhausen.BisimplexRealization
 public import Colib.KTheory.Waldhausen.BisimplicialZero
@@ -1038,6 +1042,7 @@ public import Colib.KTheory.Waldhausen.Fibration.AllWeak.OrdinaryRows
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeContractible
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeInclusion
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.TotalFiberSquare
+public import Colib.KTheory.Waldhausen.Fibration.BisimplexChangeWeak
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberComponentTranslation
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberMap
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberNaturality
@@ -1045,6 +1050,7 @@ public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberObjectLoop
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberObjectPrefixTransport
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberObjectSquare
 public import Colib.KTheory.Waldhausen.Fibration.CofiberBoundaryTrack
+public import Colib.KTheory.Waldhausen.Fibration.CofiberObjectChangeWeak
 public import Colib.KTheory.Waldhausen.Fibration.CofiberPrismBoundary
 public import Colib.KTheory.Waldhausen.Fibration.CofiberPrismFiber
 public import Colib.KTheory.Waldhausen.Fibration.CofiberPrismLeftPrefix
@@ -1117,8 +1123,12 @@ public import Colib.KTheory.Waldhausen.GrothendieckComparison.Naturality
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ObjectCompatibility
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ObjectLoops
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ObjectNaturality
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectCompositionBased
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectCompositionCube
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectCompositionRealization
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectCompositionTrack
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectIdentitySquare
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectNaturality
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakObjectSquareTrack
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.WeakRelations
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ZeroTracks

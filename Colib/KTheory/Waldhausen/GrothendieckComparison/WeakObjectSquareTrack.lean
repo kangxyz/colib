@@ -153,3 +153,32 @@ def weakObjectSquareLoopPath : Path (W.kZeroObjectLoop A) (W.kZeroObjectLoop B) 
   target' := Path.Homotopy.eval_one _
 
 end CategoryTheory.Waldhausen.Structure
+
+/-!
+## Additional implementation provenance
+
+Adapted from `Quillen/Waldhausen/AutomorphismKOne.lean`, lines 43–50 and 87–92,
+at commit `c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+The original declarations, full coordinates, hypotheses and universes are retained.
+Only native namespaces, precise imports and line wrapping change. Source-only, UNCOMPILED.
+-/
+namespace CategoryTheory.Waldhausen.Structure
+variable {C : Type u} [Category.{v} C] (W : Structure C)
+
+/-- The identity weak-arrow loop is the literal constant path at the object loop. -/
+theorem weakObjectSquareLoopPath_id (A : C) :
+    W.weakObjectSquareLoopPath (𝟙 A) (W.weq.id_mem A) = Path.refl (W.kZeroObjectLoop A) := by
+  apply Path.ext
+  funext s
+  apply Path.ext
+  funext t
+  exact W.weakObjectIdentitySquare_realization A s t
+
+/-- The original square path respects equality of its arrow, independently of its certificate. -/
+theorem weakObjectSquareLoopPath_congr {A B : C} {f g : A ⟶ B}
+    (h : f = g) (hf : W.weq f) (hg : W.weq g) :
+    W.weakObjectSquareLoopPath f hf = W.weakObjectSquareLoopPath g hg := by
+  subst g
+  rfl
+
+end CategoryTheory.Waldhausen.Structure

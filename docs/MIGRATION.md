@@ -130,6 +130,21 @@ See the [exact construction and source cuts](migration/quillen/waldhausen-cofibe
 At preparation, the new sources and attributes had no native compilation evidence;
 validated publication requires the exact integrated candidate's native checks and CI.
 
+## Original automorphism K-one and whole change-of-weak transport
+
+COL-0299 retains the specified weak-object composition cube and whole-path
+homotopy, independently normalized weak-endomorphism and automorphism K-one
+classes, and both unrestricted canonical KMap naturality theorems. Composition
+keeps the original reversed multiplication order. Fine-to-coarse transport
+preserves entire bisimplex families, displayed cofiber tracks, weak-arrow squares
+and identity-cofiber suffixes, with component naturality in every degree.
+Independent parameters, universe bounds and both cofiber certificates remain;
+no scalar, Laurent or boundary-sign theorem is asserted. See the
+[exact construction and source scope](migration/quillen/waldhausen-automorphism-kone-transport.md).
+At metadata preparation, these sources and proposed attributes had no native
+compilation evidence; static source checks do not replace the exact integrated
+candidate's native validation and CI.
+
 ## Matsumoto's theorem for K₂ in characteristic zero
 
 The completed source chain gives characteristic-zero additive equivalences from

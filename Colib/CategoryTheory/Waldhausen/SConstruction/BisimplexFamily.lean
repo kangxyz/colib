@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.CategoryTheory.Waldhausen.SConstruction.Bisimplicial
+public import Colib.CategoryTheory.Waldhausen.SMap
 public import Mathlib.AlgebraicTopology.SimplicialSet.Monoidal
 
 
@@ -40,6 +41,28 @@ theorem bisimplexFamily_precomp {n' m' : ℕ} (α : ⦋n'⦌ ⟶ ⦋n⦌) (β : 
     (SSet.stdSimplex.map α ⊗ₘ SSet.stdSimplex.map β) ≫ bisimplexFamily W F hF =
       bisimplexFamily W (gridMap₂ α β ⋙ F) (hF.precomp W.cof W.weq α β) := by
   ext k z
+  rfl
+
+end CategoryTheory.Waldhausen
+
+/- Implementation provenance:
+   `Quillen/Waldhausen/AutomorphismKOne.lean`,
+   lines 129–140, at Quillen commit
+   `c561118b7795eb9780be9ed391c3251d6a4d0afd`. The original names, hypotheses,
+   maps and independent universe parameters are retained. Source-only adaptation;
+   native compilation remains pending. -/
+namespace CategoryTheory.Waldhausen
+variable {C D : Type u} [Category.{v} C] [Category.{v} D]
+  {V : Structure C} {W : Structure D} {F : C ⥤ D}
+  (hF : IsExact V.cof V.weq W.cof W.weq F)
+
+/-- Exact functors preserve the actual entire bisimplex family by postcomposition. -/
+theorem bisimplexFamily_postcompose {n m : ℕ}
+    (G : Grid₂ ⦋n⦌ ⦋m⦌ ⥤ C) (hG : IsSimplex₂ V.cof V.weq G) :
+    bisimplexFamily V G hG ≫ sSetMap hF =
+      bisimplexFamily W (G ⋙ F) (hG.postcomp V.cof V.weq hF) := by
+  ext k z
+  apply Subtype.ext
   rfl
 
 end CategoryTheory.Waldhausen
