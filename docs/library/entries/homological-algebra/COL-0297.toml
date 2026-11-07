@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0297"
+title = "Biexact external Ext products and graded interchange"
+kind = "theorem"
+section = "ext-products"
+order = 10
+statement = "A biexact additive bifunctor induces the original external Ext product. Reversing its two native exact-functor images introduces the sign (-1)^(p*q); the product is natural at all four endpoints and in the bifunctor, with the stated source connecting-map signs."
+scope = "Arbitrary abelian categories with independently declared Ext universes. No supply of injectives or projectives is assumed. Includes biadditive, scalar-linear and tensor constructions with the original endpoint maps. The connecting laws are contravariant/source laws, not a geometric cup-product or Künneth identification."
+review = "author_checked"
