@@ -175,7 +175,7 @@ theorem original_prefixed_first_half (s t : unitInterval) (h : (t : ℝ) ≤ 1 /
     (canonicalFiberObjectPrefixed N A X).val.2 s t =
       N.coarse.kZeroObjectLoop A
         ⟨2 * t, (unitInterval.mul_pos_mem_iff zero_lt_two).2 ⟨t.2.1, h⟩⟩ := by
-  rw [canonicalFiberObjectPrefixed_path, dif_pos h]
+  rw [canonicalFiberObjectPrefixed_path, dite_eq_left h]
 
 /-- The prefix's second half retains the full reversed nullhomotopy, at unchanged fiber time. -/
 theorem original_prefixed_second_half (s t : unitInterval) (h : ¬ (t : ℝ) ≤ 1 / 2) :
@@ -184,7 +184,7 @@ theorem original_prefixed_second_half (s t : unitInterval) (h : ¬ (t : ℝ) ≤
         (s, (acyclicStructure N).kZeroObjectLoop X
           ⟨2 * t - 1, unitInterval.two_mul_sub_one_mem_iff.2
             ⟨(not_le.1 h).le, t.2.2⟩⟩) := by
-  rw [canonicalFiberObjectPrefixed_path, dif_neg h, canonicalFiberObjectLoop_path]
+  rw [canonicalFiberObjectPrefixed_path, dite_eq_right h, canonicalFiberObjectLoop_path]
 
 /-- The forward equivalence takes the actual transposed loop to the prescribed full point. -/
 theorem original_prefix_object :
@@ -252,8 +252,13 @@ theorem arbitrary_component_path
         (basedLoopMap (changeWeakMap N) (changeWeakMap_basepoint N))
         ((N.coarse.kZeroObjectLoop A).trans (Path.refl N.coarse.kBasepoint))
         (canonicalFiberPrefixEquiv N A z)).trans
-          (N.coarse.identityCofiberSuffixPath A)).toContinuousMap :=
-  HomotopyFiber.basepointTransportEquiv_path _ _ _
+          (N.coarse.identityCofiberSuffixPath A)).toContinuousMap := by
+  change (HomotopyFiber.basepointTransportEquiv
+    (basedLoopMap (changeWeakMap N) (changeWeakMap_basepoint N))
+    (N.coarse.identityCofiberSuffixPath A) (canonicalFiberPrefixEquiv N A z)).val.2 = _
+  exact HomotopyFiber.basepointTransportEquiv_path
+    (basedLoopMap (changeWeakMap N) (changeWeakMap_basepoint N))
+    (N.coarse.identityCofiberSuffixPath A) (canonicalFiberPrefixEquiv N A z)
 
 /-- The particular transported object retains its original fine source loop. -/
 theorem original_transport_source :
@@ -295,7 +300,7 @@ theorem original_transport_first_half (s t : unitInterval) (h : (s : ℝ) ≤ 1 
     (canonicalFiberObjectPrefixTransport N A X).val.2 s t =
       (canonicalFiberObjectPrefixed N A X).val.2
         ⟨2 * s, (unitInterval.mul_pos_mem_iff zero_lt_two).2 ⟨s.2.1, h⟩⟩ t := by
-  rw [original_transport_path_apply, dif_pos h]
+  rw [original_transport_path_apply, dite_eq_left h]
 
 /-- The full final path retains the reversed zero track inside its prefixed first half. -/
 theorem original_transport_reversed_prefix_tail (s t : unitInterval)
@@ -320,7 +325,7 @@ theorem original_transport_second_half (s t : unitInterval) (h : ¬ (s : ℝ) �
         (N.coarse.cof.id_mem A) (QuotientRows.cofiberTwo_identity_square N.coarse)
         (⟨2 * s - 1, unitInterval.two_mul_sub_one_mem_iff.2
           ⟨(not_le.1 h).le, s.2.2⟩⟩, t) := by
-  rw [original_transport_path_apply, dif_neg h, Structure.identityCofiberSuffixPath_apply]
+  rw [original_transport_path_apply, dite_eq_right h, Structure.identityCofiberSuffixPath_apply]
 
 /-- The stored final path starts at the localization of the exact prefixed fine loop. -/
 theorem original_transport_zero :
