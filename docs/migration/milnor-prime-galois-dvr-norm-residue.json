@@ -1,7 +1,7 @@
 {
   "status": "complete_mathematical_endpoint_native_owner_compiled_branch_ci_pending",
   "library_id": "COL-0289",
-  "integration_baseline": "a7135ed3c370d02a1b7c67aacc538ae81e206115",
+  "integration_baseline": "53c57489d319664658ef1d2f0dd78595c28925ed",
   "original_local_compile_baseline": "0fd43f0253d6ff441fbc3e82420a0573ad694310",
   "toolchain": "leanprover/lean4:v4.35.0",
   "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
@@ -76,7 +76,8 @@
     "native_path_move_with_import_and_module_doc_link_changes": 1,
     "mathematical_bodies_and_public_namespaces_unchanged": true,
     "toolchain_and_package_pins_unchanged": true,
-    "candidate_paths": "All24 new paths are additions on the integration baseline. Eleven candidates move to RingTheory.KTheory with the current native source ownership. No old-path aliases or adapters are retained."
+    "candidate_paths": "All24 new paths are additions on the integration baseline. Eleven candidates move to RingTheory.KTheory with the current native source ownership. No old-path aliases or adapters are retained.",
+    "rechecked_after_concurrent_cone_excision": "All84 dependency Git blobs and package pins are unchanged from the locally validated native-owner baseline. Only the aggregate root overlaps the concurrent contribution; both import sets are retained."
   },
   "sources": [
     {
