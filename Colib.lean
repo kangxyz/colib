@@ -1063,6 +1063,8 @@ public import Colib.KTheory.Waldhausen.GrothendieckComparison.Generation
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.GradeMap
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.GridTriangles
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotient
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotientCone
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotientConeZero
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotientExact
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.Naturality
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ObjectCompatibility
@@ -1077,6 +1079,7 @@ public import Colib.KTheory.Waldhausen.GrothendieckGroup.Image
 public import Colib.KTheory.Waldhausen.HomotopyMap
 public import Colib.KTheory.Waldhausen.Iterated.Additivity
 public import Colib.KTheory.Waldhausen.Iterated.ConeFiberExcision
+public import Colib.KTheory.Waldhausen.Iterated.ConeStableSequence
 public import Colib.KTheory.Waldhausen.Iterated.EndotransformationContraction
 public import Colib.KTheory.Waldhausen.Iterated.ExactCoherence
 public import Colib.KTheory.Waldhausen.Iterated.ExactMaps
@@ -1085,6 +1088,7 @@ public import Colib.KTheory.Waldhausen.Iterated.FiniteConnectivity
 public import Colib.KTheory.Waldhausen.Iterated.Functoriality
 public import Colib.KTheory.Waldhausen.Iterated.HomotopyTransport
 public import Colib.KTheory.Waldhausen.Iterated.LoopMap
+public import Colib.KTheory.Waldhausen.Iterated.LoopWeakEquivalence
 public import Colib.KTheory.Waldhausen.Iterated.NaturalHomotopy
 public import Colib.KTheory.Waldhausen.Iterated.NaturalTriangle
 public import Colib.KTheory.Waldhausen.Iterated.OmegaSpectrum
@@ -1093,6 +1097,7 @@ public import Colib.KTheory.Waldhausen.Iterated.PointHEP
 public import Colib.KTheory.Waldhausen.Iterated.Prespectrum
 public import Colib.KTheory.Waldhausen.Iterated.PrespectrumCompositionHomotopy
 public import Colib.KTheory.Waldhausen.Iterated.PrespectrumHomotopy
+public import Colib.KTheory.Waldhausen.Iterated.RelativeCylinder
 public import Colib.KTheory.Waldhausen.Iterated.Separation
 public import Colib.KTheory.Waldhausen.Iterated.StableFunctoriality
 public import Colib.KTheory.Waldhausen.Iterated.StableHomotopy
@@ -2084,9 +2089,12 @@ public import Colib.Topology.PathSubdivision.SlabCover
 public import Colib.Topology.PathSubdivision.TailMaps
 public import Colib.Topology.PathSubdivision.TimePaths
 public import Colib.Topology.Prespectrum.ConeDescStableEquivalence
+public import Colib.Topology.Prespectrum.ConeDescZeroComparison
 public import Colib.Topology.Prespectrum.ConeFiberComparison
 public import Colib.Topology.Prespectrum.ConeFiberConnectivity
+public import Colib.Topology.Prespectrum.ConeStableCokernel
 public import Colib.Topology.Prespectrum.ConeStableExactness
+public import Colib.Topology.Prespectrum.ConeStableNaturality
 public import Colib.Topology.Prespectrum.FiberConnectingLevelOne
 public import Colib.Topology.Prespectrum.FiberConnectingStabilization
 public import Colib.Topology.Prespectrum.FiberConnectingStageZero
@@ -2101,6 +2109,7 @@ public import Colib.Topology.Prespectrum.Homotopy
 public import Colib.Topology.Prespectrum.HomotopyComposition
 public import Colib.Topology.Prespectrum.HomotopyFiber
 public import Colib.Topology.Prespectrum.HomotopyLoop
+public import Colib.Topology.Prespectrum.HomotopyTransport
 public import Colib.Topology.Prespectrum.Loop
 public import Colib.Topology.Prespectrum.MappingCone
 public import Colib.Topology.Prespectrum.Omega
