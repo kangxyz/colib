@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0293"
+title = "Actual distinguished-row stabilization and whole-track compatibility"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 51
+statement = "The original distinguished-row stabilization map is a levelwise weak homotopy equivalence and a stable equivalence in every integer degree. Its naturality retains the actual quotient-row transpose, and weak natural transformations commute with stabilization as entire coherent homotopies."
+scope = "The native strict chosen-zero subcategory of small Waldhausen categories is retained, with the original common small universe. The target uses the actual row-transposed structure and genuine double loop in degree zero. Structure, loop and homotopy times remain independent. The final equality includes the original postcomposition, precomposition and endpoint casts, rather than only equality of stable maps. No ordinary loop-tail replacement, point-set inverse, additional Omega hypothesis or nonconnective theory is asserted."
+review = "author_checked"
+provenance = "quillen"
