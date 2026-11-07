@@ -93,9 +93,12 @@ and three precise literature records were checked in one compiled environment.
 
 The original import-root check, Python tests and Library source catalog also
 passed. These focused local checks do not constitute a local whole-library
-`check.sh` pass. The final exact candidate still requires the original
-whole-repository CI; no kernel replay or separate downstream-client check is
-claimed. Internal validation records remain outside the repository.
+`check.sh` pass. The exact published commit
+[53c57489d319664658ef1d2f0dd78595c28925ed](https://github.com/kangxyz/colib/commit/53c57489d319664658ef1d2f0dd78595c28925ed)
+passed the original whole-repository
+[CI 42402395894](https://github.com/kangxyz/colib/actions/runs/42402395894)
+and is on main. No local whole-library pass, kernel replay or separate downstream-client
+check is claimed. Internal validation records remain outside the repository.
 
 This milestone does not assert Bass nonconnective K-theory or all-degree
 cofinality for an arbitrary exact functor. Image-quotient cone comparison in
