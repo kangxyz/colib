@@ -6,7 +6,7 @@ Authors: kangxyz
 
 module
 
-public import Colib.KTheory.Waldhausen.Additivity.RealizationHomotopy
+public import Colib.AlgebraicTopology.SimplicialSet.MixedOrdinalBisimplicial
 
 /-! # The actual simplicial homotopy between mixed-deformation endpoints
 

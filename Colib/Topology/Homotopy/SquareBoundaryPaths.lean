@@ -57,4 +57,28 @@ def squareBoundaryPathHomotopy {X : Type u} [TopologicalSpace X]
   exact ((unitSquarePathHomotopy p q).map F).cast
     (Path.map_trans _ _ _) (Path.map_trans _ _ _)
 
+/-! The following generic helper is extracted from
+`Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:29–47` at
+`c561118b7795eb9780be9ed391c3251d6a4d0afd`. -/
+
+/-- A full constant-zero square becomes a relative homotopy with its other time in the source. -/
+def transposedSquareHomotopyRel {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
+    (Q : C(unitInterval × (unitInterval × X), Y)) (f g : C(unitInterval × X, Y))
+    (h₀ : ∀ t x, Q (t, (0, x)) = f (t, x))
+    (h₁ : ∀ t x, Q (t, (1, x)) = g (t, x))
+    (x₀ : X) (y₀ : Y) (hz : ∀ t s, Q (t, (s, x₀)) = y₀) :
+    f.HomotopyRel g {p | p.2 = x₀} where
+  toHomotopy := {
+    toFun := fun z ↦ Q (z.2.1, (z.1, z.2.2))
+    continuous_toFun := by fun_prop
+    map_zero_left := fun p ↦ h₀ p.1 p.2
+    map_one_left := fun p ↦ h₁ p.1 p.2 }
+  prop' s p hp := by
+    change Q (p.1, (s, p.2)) = f p
+    have hx : p.2 = x₀ := hp
+    rcases p with ⟨t, x⟩
+    change x = x₀ at hx
+    subst x
+    exact (hz t s).trans ((hz t 0).symm.trans (h₀ t x₀))
+
 end Topology

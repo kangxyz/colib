@@ -8,8 +8,7 @@ module
 
 public import Colib.KTheory.Waldhausen.WeakNaturalTransformation
 
-public import Colib.CategoryTheory.Waldhausen.SConstruction.WeakGridHomotopy
-public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveCylinderZero
+public import Colib.CategoryTheory.Waldhausen.SConstruction.WeakGridBasedHomotopy
 
 /-! # Fixed-vertex weak-grid homotopies from actual zero diagrams
 
@@ -31,11 +30,6 @@ namespace CategoryTheory.Waldhausen
 
 variable {D : Type u} [Category.{v} D]
 
-/-- The actual chosen-zero vertex of the diagonal bisimplicial model. -/
-def diagonalZeroVertex (W : Structure D) :
-    (SSet.diagonalSSet (bisimplicialSSet W)).obj (op ⦋0⦌) :=
-  zeroSimplex₂ W.cof W.weq W.zero W.isZero (op ⦋0⦌) (op ⦋0⦌)
-
 variable (W : Structure D)
   {X : SimplexCategoryᵒᵖ ⥤ SSet.{max u v}}
   (f g : X ⟶ bisimplicialSSet W)
@@ -53,18 +47,6 @@ variable (W : Structure D)
     ((((g.app n).app n) ((SSet.yonedaEquiv.symm x).app n z)).1.obj p) = W.zero)
 
 include hf hg
-
-/-- Actual zero values of both endpoint grids force the entire vertex track
-to be literally the constant chosen-zero simplex. -/
-theorem weakGridFamilyCylinder_fixed_vertex :
-    SSet.yonedaEquiv.symm x ▷ Δ[1] ≫ weakGridFamilyCylinder W f g η hη hcompat =
-      CartesianMonoidalCategory.fst Δ[0] Δ[1] ≫
-        SSet.yonedaEquiv.symm (diagonalZeroVertex W) := by
-  ext n z
-  apply Subtype.ext
-  exact nerveCylinderDiagram_eq_const_of_zero
-    (η n n ((SSet.yonedaEquiv.symm x).app n z.1)) W.zero W.isZero
-    (hf n z.1) (hg n z.1) z.2.down
 
 /-- The actual realized homotopy is fixed at the specified source vertex,
 proved from endpoint zero diagrams rather than an assumed fixed-track condition. -/

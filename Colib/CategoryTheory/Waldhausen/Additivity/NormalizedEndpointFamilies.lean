@@ -6,7 +6,7 @@ Authors: kangxyz
 
 module
 
-public import Colib.KTheory.Waldhausen.CanonicalMap
+public import Colib.CategoryTheory.Waldhausen.ExactFunctorRebase
 
 public import Colib.CategoryTheory.Waldhausen.Additivity.NormalizedDeformationMap
 public import Colib.CategoryTheory.Waldhausen.Additivity.NormalizedSumMap

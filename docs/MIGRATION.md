@@ -203,6 +203,17 @@ and surjectivity give the exact original K-zero tail. No higher-degree
 image-quotient or spectrum conclusion is inferred. See the
 [canonical maps and verification scope](migration/quillen/waldhausen-grothendieck-kzero.md).
 
+## Whole based-additivity transformation square
+
+COL-0301 is an uncompiled source candidate for the actual parameterized square
+between the original based-additivity homotopies. Four complete faces and the
+entire chosen-zero surface retain independent times, the once-reversed prefix,
+half/quarter/quarter clock and quotient-first sum. The two cofibration sequences,
+three pointwise weak transformations, both commuting squares and binary
+coproducts are explicit; no extra fibration, cylinder or strict-zero premise is
+added. See the [source and verification boundary](migration/quillen/waldhausen-based-additivity-square.md).
+This is general theory, not a scalar, support, Laurent or Bass conclusion.
+
 ## Original S-construction composition triangles
 
 The actual two-transformation simplicial triangle retains the original cylinders
