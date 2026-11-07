@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0291"
+title = "Naturality of the original Waldhausen fibration boundary"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 52
+statement = "Every functor exact for both nested Waldhausen structures commutes with the original change-of-weak connecting homomorphisms in every nonnegative degree, including K-one to K-zero. The induced acyclic, fine and coarse maps retain the complete canonical fiber paths."
+scope = "The two original canonical acyclic-to-fiber comparison maps are explicitly assumed to be weak homotopy equivalences. This is not inferred from exactness; the existing structural fibration theorem can supply these hypotheses separately. Source and target share the original independent object and morphism universe pair. Canonical zero rebasing removes any strict preservation-of-chosen-zero premise from the final theorem. The original reversed nullhomotopy, actual path-space boundary and its sign are unchanged. No replacement boundary, naturality square, or new cylinder premise is supplied."
+review = "author_checked"
+provenance = "quillen"

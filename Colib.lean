@@ -677,6 +677,7 @@ public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.TriplePushout
 public import Colib.CategoryTheory.Waldhausen.Fibration.AcyclicSubcategory
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexChainReplacement
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexExtension
+public import Colib.CategoryTheory.Waldhausen.Fibration.Functoriality
 public import Colib.CategoryTheory.Waldhausen.Fibration.MixedChainReplacement
 public import Colib.CategoryTheory.Waldhausen.Fibration.MixedNerves.ChainCategories
 public import Colib.CategoryTheory.Waldhausen.Fibration.MixedNerves.ChainEvaluation
@@ -1011,7 +1012,10 @@ public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeContractible
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeInclusion
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.TotalFiberSquare
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberMap
+public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberNaturality
 public import Colib.KTheory.Waldhausen.Fibration.ConeComparison
+public import Colib.KTheory.Waldhausen.Fibration.ConnectingNaturality
+public import Colib.KTheory.Waldhausen.Fibration.Functoriality
 public import Colib.KTheory.Waldhausen.Fibration.GeneralComparison
 public import Colib.KTheory.Waldhausen.Fibration.GlobalComparison
 public import Colib.KTheory.Waldhausen.Fibration.LevelOneConnectingComparison
@@ -1088,6 +1092,7 @@ public import Colib.KTheory.Waldhausen.Iterated.FiberComparison
 public import Colib.KTheory.Waldhausen.Iterated.FiniteConnectivity
 public import Colib.KTheory.Waldhausen.Iterated.Functoriality
 public import Colib.KTheory.Waldhausen.Iterated.HomotopyTransport
+public import Colib.KTheory.Waldhausen.Iterated.LocalizedFunctoriality
 public import Colib.KTheory.Waldhausen.Iterated.LoopMap
 public import Colib.KTheory.Waldhausen.Iterated.LoopWeakEquivalence
 public import Colib.KTheory.Waldhausen.Iterated.NaturalHomotopy
@@ -2142,6 +2147,7 @@ public import Colib.Topology.Prespectrum.StableEquivalence
 public import Colib.Topology.Prespectrum.StableExactness
 public import Colib.Topology.Prespectrum.StableHomotopy
 public import Colib.Topology.Prespectrum.StableLevelOne
+public import Colib.Topology.Prespectrum.StableLocalization
 public import Colib.Topology.Prespectrum.StableOmega
 public import Colib.Topology.Prespectrum.StableShift
 public import Colib.Topology.Pushout.CompactParameter

@@ -265,3 +265,10 @@ label = "Published article, the first S-cylinder and delooping equivalence"
 locator_prefix = "Section 1.5,"
 url = "https://www.math.uni-bielefeld.de/~fw/LNM1126_318-419.pdf"
 sha256 = "09d6ad8705f8987e8f4a7667a60a3ba14c55d859f4ec6a66af07f7ad57ced2b2"
+
+[sources.mathlib_stable_localization_pin]
+kind = "software"
+title = "Mathlib categorical quotient and localization"
+authors = ["The mathlib community"]
+version = "Git commit 56a005855ea17e0b0958f73ec801ae140b0a1679; exact quotient and arbitrary-morphism-property localization sources inspected."
+url = "https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679"
