@@ -9,6 +9,7 @@ public import Colib.AlgebraicGeometry.Scheme.VectorBundle.KernelClosed
 public import Colib.CategoryTheory.ExactCategory.Resolution.BoundedComplex
 public import StacksFrontier.AlgebraicGeometry.Perfect.RegularCoherentPerfect
 public import StacksFrontier.AlgebraicGeometry.Perfect.BoundedLocallyFreeComplexes.FiniteLocallyFreeReplacement
+public import StacksFrontier.AlgebraicGeometry.Properties.RegularCharacterization
 
 /-!
 # Actual finite vector-bundle resolutions on regular schemes
