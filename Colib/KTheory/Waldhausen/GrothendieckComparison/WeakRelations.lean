@@ -6,7 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ObjectLoops
-public import Colib.CategoryTheory.Waldhausen.Rows.NerveBridge
+public import Colib.CategoryTheory.Waldhausen.Rows.WeakObjectSimplex
 public import Colib.Topology.ClassifyingSpace.ArrowPaths
 
 /-! # Original weak equivalences preserve actual Waldhausen object loops
@@ -36,16 +36,6 @@ namespace CategoryTheory.Waldhausen.Structure
 open QuotientRows
 variable {C : Type u} [Category.{v} C] (W : Structure C)
   {A B : C} (f : A ⟶ B) (hf : W.weq f)
-
-/-- The original weak arrow between the actual one-step quotient rows. -/
-def oneWeakArrow : (⟨(oneEmbedding W).obj A⟩ : WeakRows W ⦋1⦌) ⟶
-    ⟨(oneEmbedding W).obj B⟩ :=
-  ⟨(oneEmbedding W).map f, (oneEmbedding_exact W).weak f hf⟩
-
-/-- The original weak-arrow square, read as a diagonal one-simplex. -/
-def weakObjectSimplex : (sSet W.cof W.weq) _⦋1⦌ :=
-  ⟨weakChainToGrid W (ComposableArrows.mk₁ (W.oneWeakArrow f hf)),
-    (isSimplex₂_diagonal_iff W.cof W.weq _).mp (weakChainToGrid_isSimplex₂ W _)⟩
 
 /-- Independently degenerate the original weak-arrow square in its two directions. -/
 def weakObjectTriangle (i j : Fin 2) : (sSet W.cof W.weq) _⦋2⦌ :=

@@ -1,0 +1,11 @@
+[entry]
+id = "COL-0297"
+title = "Prescribed cofiber-prism boundary and degree-one normalization"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 84
+statement = "For a displayed cofiber square of a weak cofibration, the actual prism supplies a specified endpoint-relative homotopy from the forward quotient prefix followed by the cofiber triangle to the identity-cofiber suffix followed by the inclusion square. For nested weak equivalences, the displayed quotient's canonical-fiber path after source prefixing is exactly the reversed forward prefix; component transport appends the prescribed suffix. That suffix induces the same degree-one transport as standard right-unit removal, and its component equivalence agrees in degree one with standard left-component normalization."
+scope = "C : Type u with Category.{v} C and HasZeroMorphisms C, independent u and v and realization universe max u v; W : Structure C; displayed i : A ⟶ B and q : B ⟶ Q, W.cof i, W.weq i, and IsPushout i (0 : A ⟶ W.zero) q (0 : W.zero ⟶ Q). Fiber statements use W = N.coarse for nested weak equivalences N. Quotient acyclicity is derived from gluing. All complete prism faces, original chosen-zero equations, independent comparison/nerve/loop coordinates and the full canonical-fiber reversal are retained. Prefix concatenation splits loop time; boundary-route concatenation splits boundary time. The degree-n component equivalence is a construction; normalization compares only degree-one induced maps, not suffix paths. No SmallCategory, fibration, cylinder, canonical-comparison weakness, connectivity, saturation, extension or factorization assumption is added. No scalar, Laurent, supported-cone or boundary-sign theorem is asserted."
+# Source correspondence only; compilation and independent review have separate evidence.
+review = "author_checked"
+provenance = "quillen"
