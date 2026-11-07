@@ -94,7 +94,7 @@ def cofiberTwoComparison (hiq : i ≫ q = 0) :
           eqToHom_refl, cofiberTwoComparisonComponent, interval, Nat.reduceAdd,
           Subtype.mk.injEq, Prod.mk.injEq, Fin.reduceEq, and_false,
           and_self, Category.comp_id, Category.id_comp, and_true,
-          comp_zero, hiq] <;> exact Category.id_comp i
+          comp_zero, hiq]; exact Category.id_comp i
 
 /-- The original row transformation is a morphism between the two genuine quotient rows. -/
 def cofiberTwoRowComparison (hi : W.cof i)
