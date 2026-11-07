@@ -47,17 +47,17 @@ theorem nonempty_finiteResolution_of_regular (hX : AlgebraicGeometry.IsRegular X
     (M : X.Modules) [M.IsCoherent] :
     Nonempty ((sheafExactStructure X).FiniteResolution
       (fun N : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} N) M) := by
-  letI := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
+  let := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
   let F := (HomologicalComplex.single X.Modules (ComplexShape.up ℤ) 0).obj M
   have hMqc :=
     (Stacks.AlgebraicGeometry.CoherentTFAE.isQuasicoherent_isFiniteType_of_isCoherent M).1
-  have hzero := AlgebraicGeometry.containsZero_isQuasicoherent X
   have hqc : ∀ i : ℤ, (F.X i).IsQuasicoherent := fun i => by
     rcases eq_or_ne i 0 with rfl | hi
     · exact (_root_.SheafOfModules.isQuasicoherent X.ringCatSheaf).prop_of_iso
         (HomologicalComplex.singleObjXSelf (ComplexShape.up ℤ) 0 M).symm hMqc
-    · exact (_root_.SheafOfModules.isQuasicoherent X.ringCatSheaf).prop_of_isZero
-        (HomologicalComplex.isZero_single_obj_X _ _ _ _ hi)
+    · have := Stacks.Perfect.BoundedLocallyFreeComplexes.finiteLocallyFree_of_isZero X
+        (F.X i) (HomologicalComplex.isZero_single_obj_X _ _ _ _ hi)
+      infer_instance
   have hplus : CochainComplex.plus X.Modules F := ⟨0, inferInstance⟩
   have hperf : RingedSpace.IsPerfect (X := X.toRingedSpace) (DerivedCategory.Q.obj F) :=
     (AlgebraicGeometry.isPerfect_single_of_isCoherent_of_isRegular hX M).of_iso
@@ -65,7 +65,7 @@ theorem nonempty_finiteResolution_of_regular (hX : AlgebraicGeometry.IsRegular X
   obtain ⟨E, f, hE, hf⟩ :=
     Stacks.Perfect.BoundedLocallyFreeComplexes.exists_boundedFiniteLocallyFree_quasiIso
       X F hplus hqc hperf
-  letI := hf
+  let := hf
   exact E.nonempty_finiteResolution_of_quasiIso_single
     (fun N : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} N) M f hE.2 hE.1
 

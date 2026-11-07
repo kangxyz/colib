@@ -42,17 +42,17 @@ variable (X : Scheme.{u}) [IsLocallyNoetherian X]
 def coherentSmallVectorBundle :
     ObjectProperty (SmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)) :=
   fun M => coherentVectorBundle X
-    ((equivSmallModel (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.obj M)
+    ((equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.obj M)
 
 instance coherentSmallVectorBundle_isClosedUnderIsomorphisms :
     (coherentSmallVectorBundle X).IsClosedUnderIsomorphisms where
   of_iso e h := (coherentVectorBundle X).prop_of_iso
-    ((equivSmallModel (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.mapIso e) h
+    ((equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.mapIso e) h
 
 instance coherentSmallVectorBundle_containsZero :
     (coherentSmallVectorBundle X).ContainsZero where
   exists_zero := ⟨0, isZero_zero _, (coherentVectorBundle X).prop_of_isZero
-    ((equivSmallModel (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.map_isZero
+    ((equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)).inverse.map_isZero
       (isZero_zero _))⟩
 
 instance coherentSmallVectorBundle_isExtensionClosed :
@@ -77,9 +77,9 @@ def vectorBundleSmallLift : SmallModel.{u + 1} X.Vect ⥤
   (coherentSmallVectorBundle X).lift
     (vectorBundleToCoherentExact X).smallModel.{u + 1}.toFunctor
     (fun M => (coherentVectorBundle X).prop_of_iso
-      ((equivSmallModel (SheafOfModules.CoherentModules X.ringCatSheaf)).unitIso.app
-        ((vectorBundleToCoherent X).obj ((equivSmallModel X.Vect).inverse.obj M)))
-      (((equivSmallModel X.Vect).inverse.obj M).property))
+      ((equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)).unitIso.app
+        ((vectorBundleToCoherent X).obj ((equivSmallModel.{u + 1} X.Vect).inverse.obj M)))
+      (((equivSmallModel.{u + 1} X.Vect).inverse.obj M).property))
 
 instance vectorBundleSmallLift_full : (vectorBundleSmallLift X).Full := by
   dsimp [vectorBundleSmallLift, ExactFunctor.smallModel, ExactFunctor.comp,
@@ -104,7 +104,7 @@ instance vectorBundleSmallLift_essSurj : (vectorBundleSmallLift X).EssSurj where
     let EV := equivSmallModel.{u + 1} X.Vect
     let EC := equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)
     let V : X.Vect := ⟨(EC.inverse.obj Z.obj).obj, Z.property⟩
-    let e : ((vectorBundleToCoherentExact X).smallModel.toFunctor).obj (EV.functor.obj V) ≅
+    let e : ((vectorBundleToCoherentExact X).smallModel.{u + 1}.toFunctor).obj (EV.functor.obj V) ≅
         Z.obj :=
       EC.functor.mapIso ((vectorBundleToCoherent X).mapIso (EV.unitIso.app V).symm) ≪≫
         EC.counitIso.app Z.obj
@@ -118,7 +118,8 @@ def vectorBundleSmallLiftExact :
       (ExactSubcategory.exactStructure (coherentExactStructure X).smallModel.{u + 1}
         (coherentSmallVectorBundle X)) where
   toFunctor := vectorBundleSmallLift X
-  map_conflation S hS := (vectorBundleToCoherentExact X).smallModel.map_conflation S hS
+  map_conflation S hS :=
+    (vectorBundleToCoherentExact X).smallModel.{u + 1}.map_conflation S hS
 
 /-- The lifted equivalence reflects the actual inherited exact structure. -/
 theorem vectorBundleSmallLift_conflation_iff
@@ -175,7 +176,7 @@ theorem coherentSmallResolutionHypothesis
   intro M
   let E := equivSmallModel.{u + 1} (SheafOfModules.CoherentModules X.ringCatSheaf)
   obtain ⟨T⟩ := h (E.inverse.obj M)
-  let T' := (coherentExactStructure X).originalToSmallModel.mapFiniteResolution
+  let T' := (coherentExactStructure X).originalToSmallModel.{u + 1}.mapFiniteResolution
     (P' := coherentSmallVectorBundle X)
     (fun N hN => (coherentVectorBundle X).prop_of_iso (E.unitIso.app N) hN) T
   exact ⟨T'.ofIso (E.counitIso.app M)⟩

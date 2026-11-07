@@ -77,13 +77,13 @@ variable [CompactSpace X] [AlgebraicGeometry.HasResolutionProperty X]
 object has an actual finite resolution by vector bundles in the coherent category. -/
 theorem coherentResolutionHypothesis_of_regular (hX : AlgebraicGeometry.IsRegular X) :
     (coherentExactStructure X).ResolutionHypothesis (coherentVectorBundle X) := by
-  letI : IsLocallyNoetherian X := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
+  let : IsLocallyNoetherian X := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
   let Q : ObjectProperty X.Modules := fun M => M.IsCoherent
-  letI : (sheafExactStructure X).IsExtensionClosed Q :=
+  let : (sheafExactStructure X).IsExtensionClosed Q :=
     ⟨fun hS h₁ h₃ => CoherentAbelian.isCoherent_X₂_of_shortExact hS h₁ h₃⟩
-  letI : (sheafExactStructure X).IsKernelClosed Q :=
+  let : (sheafExactStructure X).IsKernelClosed Q :=
     ⟨fun hS h₂ h₃ => CoherentAbelian.isCoherent_X₁_of_shortExact hS h₂ h₃⟩
-  letI : Q.IsClosedUnderFiniteProducts :=
+  let : Q.IsClosedUnderFiniteProducts :=
     (sheafExactStructure X).extensionClosed_finiteProducts Q
   let F : ExactFunctor (ExactSubcategory.exactStructure (sheafExactStructure X) Q)
       (coherentExactStructure X) :=

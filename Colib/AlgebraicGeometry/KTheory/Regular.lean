@@ -40,9 +40,9 @@ theorem schemeKToG_bijective_of_finite_resolutions (X : Scheme.{u})
     Function.Bijective (KToG X n) := by
   have h₁ := (vectorBundleSmallLiftExact X).KMap_bijective_of_mapQ_isEquivalence n
   have h₂ := Resolution.inclusionKMap_bijective
-    (coherentExactStructure X).smallModel (coherentSmallVectorBundle X)
+    (coherentExactStructure X).smallModel.{u + 1} (coherentSmallVectorBundle X)
     (coherentSmallResolutionHypothesis X h) n
-  change Function.Bijective ((vectorBundleToCoherentExact X).smallModel.KMap n)
+  change Function.Bijective ((vectorBundleToCoherentExact X).smallModel.{u + 1}.KMap n)
   rw [← vectorBundleSmall_factor X, ExactFunctor.KMap_comp]
   exact h₂.comp h₁
 
@@ -62,7 +62,7 @@ Local noetherianity is derived from regularity. -/
 theorem KToG_regular_bijective (n : ℕ) :
     letI := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
     Function.Bijective (KToG X n) := by
-  letI := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
+  let := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
   exact Modules.schemeKToG_bijective_of_finite_resolutions X
     (Modules.coherentResolutionHypothesis_of_regular X hX) n
 
