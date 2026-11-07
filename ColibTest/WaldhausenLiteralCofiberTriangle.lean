@@ -96,6 +96,8 @@ example : cofiberTwoMap W i q
         i ≫ eqToHom (show B = cofiberTwoObject W (A := A) (B := B) (Q := Q)
           (interval 0 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
+  change (𝟙 A) ≫ i ≫ 𝟙 B = (𝟙 A) ≫ i
+  simp only [Category.comp_id]
 
 example : cofiberTwoMap W i q
     (homOfLE (show interval 0 2 (by decide) ≤ interval 1 2 (by decide) from by decide)) =
@@ -104,6 +106,8 @@ example : cofiberTwoMap W i q
         q ≫ eqToHom (show Q = cofiberTwoObject W (A := A) (B := B) (Q := Q)
           (interval 1 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
+  change (𝟙 B) ≫ q ≫ 𝟙 Q = (𝟙 B) ≫ q
+  simp only [Category.comp_id]
 
 example : cofiberTwoMap W i q
     (homOfLE (show interval 0 1 (by decide) ≤ interval 1 2 (by decide) from by decide)) =
@@ -112,6 +116,7 @@ example : cofiberTwoMap W i q
         (0 : A ⟶ Q) ≫ eqToHom (show Q = cofiberTwoObject W (A := A) (B := B) (Q := Q)
           (interval 1 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
+  rfl
 
 example : i ≫ q = 0 := cofiberTwo_comp_eq_zero W i q hQ
 
