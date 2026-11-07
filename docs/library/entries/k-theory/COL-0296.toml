@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0296"
+title = "Prescribed canonical-fiber component translation and literal object value"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 82
+statement = "Strict left translation by an object's fine and coarse loops gives a homotopy equivalence from the fiber of the actual localization loop map over the constant loop to its fiber over the coarse object loop followed by the constant loop. With zero morphisms, the specified identity-cofiber suffix gives a homotopy equivalence to the fiber over that coarse object loop. Both forward maps send the transposed original canonical-fiber object loop to their literal prescribed points."
+scope = "For C : Type u with Category.{v} C, nested weak-equivalence structures and any object A, with independent u and v. Only the suffix/component step needs HasZeroMorphisms C. The entire reversed zero-to-inclusion track, independent fiber and loop times, literal cofiber row and specified affine suffix are retained. The target is A's specified coarse object loop, not an arbitrary target loop; A need not be acyclic. No SmallCategory, joint-cylinder, fibration or canonical-fiber-map weakness hypothesis is added. Strict translation is followed by transport from the prefixed constant loop to the object loop, not by an assumed path from the constant loop to the object loop. No Laurent boundary or boundary-sign theorem is asserted."
+review = "author_checked"
+provenance = "quillen"

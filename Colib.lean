@@ -770,6 +770,8 @@ public import Colib.CategoryTheory.Waldhausen.QuillenComparison.RowFull
 public import Colib.CategoryTheory.Waldhausen.QuillenComparison.SimplicialMap
 public import Colib.CategoryTheory.Waldhausen.Rows.AdmissibleFlags
 public import Colib.CategoryTheory.Waldhausen.Rows.Basic
+public import Colib.CategoryTheory.Waldhausen.Rows.CofiberTwoFaces
+public import Colib.CategoryTheory.Waldhausen.Rows.CofiberTwoRow
 public import Colib.CategoryTheory.Waldhausen.Rows.Completion
 public import Colib.CategoryTheory.Waldhausen.Rows.Exact
 public import Colib.CategoryTheory.Waldhausen.Rows.ExtendedRows
@@ -1024,8 +1026,11 @@ public import Colib.KTheory.Waldhausen.Fibration.AllWeak.OrdinaryRows
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeContractible
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.RelativeInclusion
 public import Colib.KTheory.Waldhausen.Fibration.AllWeak.TotalFiberSquare
+public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberComponentTranslation
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberMap
 public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberNaturality
+public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberObjectLoop
+public import Colib.KTheory.Waldhausen.Fibration.CanonicalFiberObjectPrefixTransport
 public import Colib.KTheory.Waldhausen.Fibration.ConeComparison
 public import Colib.KTheory.Waldhausen.Fibration.ConnectingNaturality
 public import Colib.KTheory.Waldhausen.Fibration.Functoriality
@@ -1074,12 +1079,14 @@ public import Colib.KTheory.Waldhausen.GilletWaldhausen.GlobalEulerReduction
 public import Colib.KTheory.Waldhausen.GilletWaldhausen.SingleQuasiComparison
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.AsSmall
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ClassicalMap
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.CofiberObjectTrack
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.CofiberRelations
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.EdgeNormalization
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.Equivalence
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.Generation
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.GradeMap
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.GridTriangles
+public import Colib.KTheory.Waldhausen.GrothendieckComparison.IdentityCofiberSuffix
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotient
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotientCone
 public import Colib.KTheory.Waldhausen.GrothendieckComparison.ImageQuotientConeZero
@@ -2302,6 +2309,7 @@ public import Colib.Topology.Realization.SphericalFiniteFamily
 public import Colib.Topology.Realization.SplitFiber
 public import Colib.Topology.Realization.SplitFiberCartesian
 public import Colib.Topology.Realization.Triangle
+public import Colib.Topology.Realization.TriangleHomotopy
 public import Colib.Topology.Realization.TwoSidedBar.AugmentationEquivalence
 public import Colib.Topology.Realization.TwoSidedBar.Basic
 public import Colib.Topology.Realization.TwoSidedBar.Equivalence

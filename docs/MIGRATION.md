@@ -107,6 +107,17 @@ map in every nonnegative degree, including K-zero. It assumes no row-equivalence
 or homotopy-inverse premise. These results do not supply a strict S-model
 comparison, a Quillen-Waldhausen comparison or nonconnective K-theory.
 
+## Prescribed canonical-fiber component translation
+
+COL-0296 retains the strict left-translation equivalence on actual localization
+loop fibers and the specified identity-cofiber suffix, together with both literal
+values on the transposed original canonical-fiber object loop. The entire
+reversed fiber track and independent category universes remain. The prefix needs
+no zero-morphism instance; only the suffix/component step adds one. No fibration
+or canonical-fiber-map weakness premise is imposed. See the
+[exact construction and source crosswalk](migration/quillen/waldhausen-canonical-fiber-component.md).
+This records source correspondence; native validation belongs to the exact integrated candidate CI.
+
 ## Matsumoto's theorem for K₂ in characteristic zero
 
 The completed source chain gives characteristic-zero additive equivalences from
