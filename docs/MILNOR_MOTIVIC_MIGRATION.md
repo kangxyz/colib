@@ -735,3 +735,21 @@ arbitrary finite generic degree, independent endpoint universes and a general
 chosen-norm tower/independence theorem remain outside this milestone. Precise
 source correspondence, final-byte compilation and project-check scope are
 recorded in `migration/milnor-prime-galois-dvr-norm-residue.json`.
+
+### Native biexact external Ext products
+
+COL-0297 completes the external product of native Ext classes through an additive
+bifunctor exact in both variables. The all-degree interchange sign is
+`(-1)^(p*q)`, with the original degree-zero maps and degree-one minus sign.
+The product is natural at all four endpoints and in the bifunctor, retains both
+source connecting-map conventions, and has scalar-linear and tensor forms with
+the actual source and target arrows.
+
+The three abelian categories and their Ext universes remain independent. The
+linear layer adds an independently sized commutative scalar ring and component
+linearity. No supply of injectives or projectives, chosen resolutions, or
+invertibility of two is assumed. Existing native Stacks epimorphic effacement
+is used directly. This is not a geometric cup-product identification, a
+Künneth theorem, or a target/covariant connecting-map theorem. The two production
+modules, eighteen consumer examples and precise source correspondence form one
+complete milestone; see `migration/motivic-ext-bifunctor.json`.

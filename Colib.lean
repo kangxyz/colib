@@ -122,6 +122,8 @@ public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.Subcatego
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.SubcategoryFunctor
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.SubcategoryZero
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.ZeroEndpoint
+public import Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor
+public import Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor.Linear
 public import Colib.Algebra.Homology.DerivedCategory.Ext.Quotient
 public import Colib.Algebra.Homology.DerivedCategory.Ext.Regular
 public import Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived

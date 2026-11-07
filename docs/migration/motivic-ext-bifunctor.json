@@ -1,0 +1,306 @@
+{
+  "source_repository": "kangxyz/aglib",
+  "source_revision": "101dbb8564fb0e29f28cfcb79168d878b5ab489f",
+  "source_files": [
+    {
+      "path": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "revision": "101dbb8564fb0e29f28cfcb79168d878b5ab489f",
+      "sha256": "a7b5f05a49b7e6c8afb665973f00a121ebf4995fec57cab4b802d425f8167743",
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean"
+    },
+    {
+      "path": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "revision": "101dbb8564fb0e29f28cfcb79168d878b5ab489f",
+      "sha256": "030c823ad4e7cb6232242b8ecfc2dbf5b012d11ea3e6d6f9476cfbb2ce62aeba",
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean"
+    }
+  ],
+  "library_item": "COL-0297",
+  "target_baseline": "868ed72bf08b2d734e12ed75b2b12c79cc939d8c",
+  "declarations": [
+    {
+      "name": "CategoryTheory.Functor.extBifunctorLinearMap",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 47,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorLinearMap_apply_apply",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 56,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorLinearMapWithMaps",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 62,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorLinearMapWithMaps_apply_apply",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 73,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorTensorMap",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 82,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorTensorMap_tmul",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "line": 88,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 64,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorHom",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 70,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctorHom_apply_apply",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 78,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_mk₀_mk₀",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 83,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_mk₀_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 92,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_mk₀_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 100,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_extClass_extClass",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 161,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_extClass_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 291,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_comm",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 390,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_add_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 399,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_add_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 405,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_zsmul_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 410,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_zsmul_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 415,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_mk₀_comp_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 421,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_comp_mk₀_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 430,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_mk₀_comp_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 441,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_comp_mk₀_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 453,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_natTrans",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 463,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_extClass_comp_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 481,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_extClass_comp_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 493,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_δ_left",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 507,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    },
+    {
+      "name": "CategoryTheory.Functor.extBifunctor_δ_right",
+      "source": "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "line": 523,
+      "target": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "status": "Native Lean4.35 production compilation passed; precise source/API review separately recorded"
+    }
+  ],
+  "canonical_objects": [
+    "CategoryTheory.Abelian.Ext",
+    "CategoryTheory.Functor.mapExtAddHom",
+    "CategoryTheory.Abelian.Ext.mapExactFunctor",
+    "CategoryTheory.Abelian.Ext.comp",
+    "CategoryTheory.ShortComplex.ShortExact.extClass",
+    "CategoryTheory.Abelian.Ext.δ",
+    "TensorProduct.lift"
+  ],
+  "hypotheses": "Three arbitrary abelian categories with independent object, morphism and HasExt universes; F:C→D→E additive and preserving finite limits and finite colimits in each variable. The linear layer adds an independently sized commutative scalar ring and linearity of each category and both component functors. No injective/projective supply, resolutions, finiteness or invertibility of two.",
+  "closed_scope": [
+    "Native external Ext product and biadditive form",
+    "Degree-zero formulas and actual degree-(1,1) minus sign",
+    "Full (-1)^(p*q) interchange with explicit total-degree equality",
+    "Naturality at each of four endpoints and in natural transformations of the bifunctor",
+    "Unsigned source connecting formulas with factors +1 and (-1)^p",
+    "Native signed contravariant delta laws with extra factors (-1)^q and +1",
+    "Scalar-linear constructor with actual source and target arrows, and tensor evaluation"
+  ],
+  "scope_limits": [
+    "No target/covariant connecting-map theorem is asserted.",
+    "No geometric cup product, symmetric monoidal comparison, Künneth theorem or derived-tensor identification is asserted.",
+    "The underlying Ext carriers and maps are the original Mathlib objects; no alternate model or resolution is introduced."
+  ],
+  "native_reuse": {
+    "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks_revision": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7",
+    "effacement": {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.Ext.EpiEffacement",
+      "declaration": "CategoryTheory.Abelian.exists_epi_mk₀_comp_eq_zero",
+      "scope": "Resolution-free source effacement in any abelian category with HasExt; Aglib Effacement.lean is not copied."
+    },
+    "scalar_proof": "Native map_zsmul of Ext.precomp/postcomp, elaborated through explicitly typed local Ext.comp equalities. No replacement instance or scalar model.",
+    "signed_diagram": "Native IsPullback.shortComplex′, whose second map is biprod.desc q (-r), and native extClass_naturality."
+  },
+  "references": {
+    "key": "aglib_principal_euler_pin",
+    "relation": "adaptation",
+    "locators": [
+      "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean:62-534",
+      "Aglib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean:44-91"
+    ],
+    "scope": "Implementation source and exact statement correspondence. The native effacement ingredient retains its own Stacks/Yoneda provenance; no whole-product Stacks tag is inferred."
+  },
+  "validation": {
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "local_production_modules": 2,
+    "local_test_modules": 1,
+    "test_examples": 18,
+    "status": "The two production modules and eighteen examples passed local stock Lean 4.35 compilation with the final COL-0297 source bytes. Whole-repository acceptance is supplied by the normal CI run for the integrating revision.",
+    "command": [
+      "lake",
+      "--no-cache",
+      "--rehash",
+      "--log-level=error",
+      "--fail-fast",
+      "build",
+      "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
+      "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor.Linear",
+      "ColibTest.ExtBifunctor"
+    ],
+    "source_receipt_sha256": "e155be5db8f2fadf743014aea1d96a54d9066e49eae0672f0f97ed1a0a558b68",
+    "kernel_replay": "Not requested and not run",
+    "resource_guard": "One Lean process, -j1/-M4983; 7475MiB group RSS, 5GiB start /4GiB runtime disk guards. No limit or async override.",
+    "integration_tag_update": "Final COL-0297 source bytes passed native revalidation after the tag-only change; mathematical statements, proofs, imports and citations were unchanged.",
+    "final_native_manifest_sha256": "e8c4f0662f4c6a6cfbc0bb1525e1a00b679ad5804de82685f1850ed084f61b82",
+    "final_source_manifest_sha256": "9d4b54e81e78b5e557eca1ea063e89c9bae6b1131ad7b5854f11d168f2687433",
+    "latest_main_correspondence": "All local pins, existing Colib References and bibliography blobs are unchanged from the compiled baseline; concurrent regular-scheme sources are preserved. Only the aggregate production import root overlaps."
+  },
+  "source_review": "Separate read-only review checked original statements, full pinned Git-tree APIs, the signed pullback diagram, two effacement inductions, universes and connecting-map conventions. Consumer statements and proof arguments were separately rechecked after correcting extraction. This is not a whole-repository acceptance or an independent kernel replay.",
+  "final_sources": [
+    {
+      "path": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor/Linear.lean",
+      "sha256": "a58b902286c293317dc49e8f04d2792971fb5d62d14b02eb3dcf044391cad671",
+      "git_blob_sha1": "07de23e3429a411c368e9a49de126d408b7a7741"
+    },
+    {
+      "path": "Colib/Algebra/Homology/DerivedCategory/Ext/Bifunctor.lean",
+      "sha256": "4017c0649738d137635b25475229746d22bc35b4626fcf4dd6dd48c4e36359bc",
+      "git_blob_sha1": "94c8237a0402fc5ff865e977cc9256384ab738d9"
+    },
+    {
+      "path": "ColibTest/ExtBifunctor.lean",
+      "sha256": "bb3506ad2c877004e38a7f70b0dd48a1d930b071ee3f82d9f280ddaabc6eeb1c",
+      "git_blob_sha1": "c0e9d6f68c5b25dd98c8aefd5dfe4a8067904c0e"
+    }
+  ],
+  "local_source_baseline": "ac7600823ea7ba3ca2a4c205472e1ae2b954b7f4"
+}
