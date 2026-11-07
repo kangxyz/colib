@@ -40,25 +40,27 @@ def coherentVectorBundle :
 instance coherentVectorBundle_isClosedUnderIsomorphisms :
     (coherentVectorBundle X).IsClosedUnderIsomorphisms where
   of_iso e h := by
-    exact (fun M : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} M).prop_of_iso
-      ((ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)).mapIso e) h
+    exact SheafOfModules.IsFiniteLocallyFree.of_iso (h := h)
+      ((ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)).mapIso e)
 
 instance coherentVectorBundle_containsZero : (coherentVectorBundle X).ContainsZero where
   exists_zero := ⟨0, isZero_zero _,
-    (fun M : X.Modules => SheafOfModules.IsFiniteLocallyFree.{u, u, u} M).prop_of_isZero
+    Stacks.Perfect.BoundedLocallyFreeComplexes.finiteLocallyFree_of_isZero X _
       ((ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)).map_isZero (isZero_zero _))⟩
 
 instance coherentVectorBundle_isExtensionClosed :
     (coherentExactStructure X).IsExtensionClosed (coherentVectorBundle X) where
-  prop_middle hS h₁ h₃ :=
-    ExactStructure.IsExtensionClosed.prop_middle
-      (E := sheafExactStructure X) ((coherent_shortExact_iff_map X _).1 hS) h₁ h₃
+  prop_middle {S} hS h₁ h₃ :=
+    Stacks.FiniteLocallyFree.isFiniteLocallyFree_of_shortExact
+      (S.map (ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)))
+      ((coherent_shortExact_iff_map X S).1 hS) h₁ h₃
 
 instance coherentVectorBundle_isKernelClosed :
     (coherentExactStructure X).IsKernelClosed (coherentVectorBundle X) where
-  prop_kernel hS h₂ h₃ :=
-    ExactStructure.IsKernelClosed.prop_kernel
-      (E := sheafExactStructure X) ((coherent_shortExact_iff_map X _).1 hS) h₂ h₃
+  prop_kernel {S} hS h₂ h₃ :=
+    Stacks.Perfect.BoundedLocallyFreeComplexes.isFiniteLocallyFree_of_shortExact
+      (S.map (ObjectProperty.ι (fun M : X.Modules => M.IsCoherent)))
+      ((coherent_shortExact_iff_map X S).1 hS) h₂ h₃
 
 instance coherentVectorBundle_isClosedUnderFiniteProducts :
     (coherentVectorBundle X).IsClosedUnderFiniteProducts :=
@@ -79,6 +81,9 @@ theorem coherentResolutionHypothesis_of_regular (hX : AlgebraicGeometry.IsRegula
     (coherentExactStructure X).ResolutionHypothesis (coherentVectorBundle X) := by
   let : IsLocallyNoetherian X := AlgebraicGeometry.isLocallyNoetherian_of_isRegular hX
   let Q : ObjectProperty X.Modules := fun M => M.IsCoherent
+  let : Q.ContainsZero := CoherentAbelian.coherentModules_containsZero (R := X.ringCatSheaf)
+  let : Q.IsClosedUnderIsomorphisms :=
+    CoherentAbelian.coherentModules_isClosedUnderIsomorphisms (R := X.ringCatSheaf)
   let : (sheafExactStructure X).IsExtensionClosed Q :=
     ⟨fun hS h₁ h₃ => CoherentAbelian.isCoherent_X₂_of_shortExact hS h₁ h₃⟩
   let : (sheafExactStructure X).IsKernelClosed Q :=
@@ -92,7 +97,7 @@ theorem coherentResolutionHypothesis_of_regular (hX : AlgebraicGeometry.IsRegula
   intro M
   have := M.property
   obtain ⟨T⟩ := nonempty_finiteResolution_of_regular X hX M.obj
-  let T' := T.liftToSubcategory
+  let T' := T.liftToSubcategory (Q := Q)
     (fun N hN => by
       have := hN
       exact Stacks.AlgebraicGeometry.CoherenceCriteria.isCoherent_of_isFiniteLocallyFree X N)
