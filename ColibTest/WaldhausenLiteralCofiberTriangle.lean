@@ -88,19 +88,29 @@ variable {C : Type u} [Category.{v} C] [HasZeroMorphisms C]
   (W : Structure C) {A B Q : C} (i : A ⟶ B) (q : B ⟶ Q)
   (hi : W.cof i) (hQ : IsPushout i (0 : A ⟶ W.zero) q (0 : W.zero ⟶ Q))
 
+-- The transports are the concrete object equalities above, retaining the literal row arrows.
 example : cofiberTwoMap W i q
     (homOfLE (show interval 0 1 (by decide) ≤ interval 0 2 (by decide) from by decide)) =
-      i := by
+      eqToHom (show cofiberTwoObject W (A := A) (B := B) (Q := Q)
+        (interval 0 1 (by decide)) = A from rfl) ≫
+        i ≫ eqToHom (show B = cofiberTwoObject W (A := A) (B := B) (Q := Q)
+          (interval 0 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
 
 example : cofiberTwoMap W i q
     (homOfLE (show interval 0 2 (by decide) ≤ interval 1 2 (by decide) from by decide)) =
-      q := by
+      eqToHom (show cofiberTwoObject W (A := A) (B := B) (Q := Q)
+        (interval 0 2 (by decide)) = B from rfl) ≫
+        q ≫ eqToHom (show Q = cofiberTwoObject W (A := A) (B := B) (Q := Q)
+          (interval 1 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
 
 example : cofiberTwoMap W i q
     (homOfLE (show interval 0 1 (by decide) ≤ interval 1 2 (by decide) from by decide)) =
-      (0 : A ⟶ Q) := by
+      eqToHom (show cofiberTwoObject W (A := A) (B := B) (Q := Q)
+        (interval 0 1 (by decide)) = A from rfl) ≫
+        (0 : A ⟶ Q) ≫ eqToHom (show Q = cofiberTwoObject W (A := A) (B := B) (Q := Q)
+          (interval 1 2 (by decide)) from rfl) := by
   simp [cofiberTwoMap, interval]
 
 example : i ≫ q = 0 := cofiberTwo_comp_eq_zero W i q hQ

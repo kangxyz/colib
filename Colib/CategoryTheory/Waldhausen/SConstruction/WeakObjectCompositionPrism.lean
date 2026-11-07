@@ -8,6 +8,7 @@ module
 public import Colib.CategoryTheory.Waldhausen.Rows.NerveReindex
 public import Colib.CategoryTheory.Waldhausen.Rows.WeakObjectSimplex
 public import Colib.CategoryTheory.Waldhausen.SConstruction.BisimplexFamily
+public import Colib.CategoryTheory.Waldhausen.SConstruction.Zero
 public import Mathlib.AlgebraicTopology.SimplicialSet.Basic
 
 

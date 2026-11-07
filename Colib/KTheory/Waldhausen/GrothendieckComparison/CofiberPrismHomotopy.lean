@@ -93,7 +93,7 @@ theorem cofiberPrismRealization_homotopy
       (SimplexCategory.toTopHomeo ⦋2⦌).symm z := by
     apply (SimplexCategory.toTopHomeo ⦋2⦌).injective
     rw [Homeomorph.apply_symm_apply]
-    exact congrArg Prod.fst hp
+    exact congrArg _root_.Prod.fst hp
   have hp₂ : SSet.stdSimplex.toTopObjIsoI.hom
       (SSet.toTop.map (snd Δ[2] Δ[1]) p) = ULift.up t := by
     apply ULift.ext
@@ -101,7 +101,7 @@ theorem cofiberPrismRealization_homotopy
       (SimplexCategory.toTopHomeo ⦋1⦌ (SSet.toTop.map (snd Δ[2] Δ[1]) p)) = t
     have ht : SimplexCategory.toTopHomeo ⦋1⦌
         (SSet.toTop.map (snd Δ[2] Δ[1]) p) = StdSimplex.homeomorphI.symm t :=
-      congrArg Prod.snd hp
+      congrArg _root_.Prod.snd hp
     rw [ht, Homeomorph.apply_symm_apply]
   have hc : (realizationCylinderIso (Δ[2] : SSet.{max u v})).hom p =
       ((SimplexCategory.toTopHomeo ⦋2⦌).symm z, ULift.up t) :=

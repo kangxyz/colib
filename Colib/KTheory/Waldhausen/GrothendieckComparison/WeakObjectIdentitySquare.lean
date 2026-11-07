@@ -78,7 +78,7 @@ theorem weakObjectIdentitySquare_realization (s t : unitInterval) :
         SimplexCategory.toTopHomeo ⦋1⦌
           ((SimplexCategory.toTopHomeo ⦋1⦌).symm (StdSimplex.homeomorphI.symm t))
     rw [Homeomorph.apply_symm_apply]
-    exact congrArg Prod.fst hp
+    exact congrArg _root_.Prod.fst hp
   rw [bisimplexRealization_apply, weakObjectIdentitySquare_family, Functor.map_comp]
   change SSet.toTop.map (SSet.yonedaEquiv.symm (W.kZeroObjectSimplex A))
     (SSet.toTop.map (CartesianMonoidalCategory.fst Δ[1] Δ[1]) p) = _

@@ -85,7 +85,7 @@ theorem cofiberPrismCompositionCube_comparison_one (s t : unitInterval) :
         (Convexity.StdSimplex.homeomorphI.symm t,
           Convexity.StdSimplex.homeomorphI.symm s) := by
   change realizationSimplicialHomotopy _ (s, _) = _
-  dsimp only [Prod.fst, Prod.snd]
+  dsimp only [_root_.Prod.fst, _root_.Prod.snd]
   rw [ContinuousMap.HomotopyWith.apply_one]
   change realizationSimplicialHomotopy _
     (s, SSet.toTop.map (SSet.yonedaEquiv.symm _) (realizationInterval t)) = _
@@ -112,7 +112,7 @@ theorem cofiberPrismCompositionCube_comparison_zero (s t : unitInterval) :
             ⟨2 * t - 1, two_mul_sub_one_mem_iff.2 ⟨(not_le.1 h).le, t.2.2⟩⟩,
             Convexity.StdSimplex.homeomorphI.symm s) := by
   change realizationSimplicialHomotopy _ (s, _) = _
-  dsimp only [Prod.fst, Prod.snd]
+  dsimp only [_root_.Prod.fst, _root_.Prod.snd]
   rw [ContinuousMap.HomotopyWith.apply_zero]
   change realizationSimplicialHomotopy _
     (s, ((realizationEdgePath (simplexEdge.{max u v} 2 0 1 (by decide))).trans
@@ -132,7 +132,7 @@ theorem cofiberPrismCompositionCube_comparison_zero (s t : unitInterval) :
 theorem cofiberPrismCompositionCube_loop_zero (r s : unitInterval) :
     W.cofiberPrismCompositionCube i q hi hwi hQ (r, s, 0) = W.kBasepoint := by
   change realizationSimplicialHomotopy _ (s, _) = _
-  dsimp only [Prod.fst, Prod.snd]
+  dsimp only [_root_.Prod.fst, _root_.Prod.snd]
   rw [Path.Homotopy.source]
   exact W.cofiberPrismHomotopy_fixed_vertex i q hi hwi hQ 0 s
 
@@ -140,7 +140,7 @@ theorem cofiberPrismCompositionCube_loop_zero (r s : unitInterval) :
 theorem cofiberPrismCompositionCube_loop_one (r s : unitInterval) :
     W.cofiberPrismCompositionCube i q hi hwi hQ (r, s, 1) = W.kBasepoint := by
   change realizationSimplicialHomotopy _ (s, _) = _
-  dsimp only [Prod.fst, Prod.snd]
+  dsimp only [_root_.Prod.fst, _root_.Prod.snd]
   rw [Path.Homotopy.target]
   exact W.cofiberPrismHomotopy_fixed_vertex i q hi hwi hQ 2 s
 

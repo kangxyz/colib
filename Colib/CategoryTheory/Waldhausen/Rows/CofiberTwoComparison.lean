@@ -92,8 +92,8 @@ def cofiberTwoComparison (hiq : i ≫ q = 0) :
       | exact W.isZero.eq_of_tgt _ _
       | simp only [cofiberTwoDiagram, Fin.isValue, cofiberTwoMap, ↓reduceDIte,
           eqToHom_refl, cofiberTwoComparisonComponent, interval, Nat.reduceAdd,
-          Subtype.mk.injEq, Prod.mk.injEq, Fin.reduceEq, and_false, zero_ne_one,
-          and_self, Category.comp_id, Category.id_comp, one_ne_zero, and_true,
+          Subtype.mk.injEq, Prod.mk.injEq, Fin.reduceEq, and_false,
+          and_self, Category.comp_id, Category.id_comp, and_true,
           comp_zero, hiq] <;> exact Category.id_comp i
 
 /-- The original row transformation is a morphism between the two genuine quotient rows. -/
@@ -116,7 +116,7 @@ theorem cofiberTwoRowComparison_weak (hi : W.cof i) (hwi : W.weq i)
     | omega
     | simp only [cofiberTwoComparisonComponent, interval, Nat.reduceAdd,
         Subtype.mk.injEq, Prod.mk.injEq, Fin.reduceEq, and_false, and_true, and_self,
-        zero_ne_one, one_ne_zero, ↓reduceDIte, eqToHom_refl, Category.comp_id,
+        ↓reduceDIte, eqToHom_refl, Category.comp_id,
         Category.id_comp]
       first
       | exact W.weq.id_mem _
