@@ -253,5 +253,16 @@ the original inclusion and all nonnegative K-maps. The actual scalar cone is
 supported when the scalar restricts to a specified unit; native rank-one and
 positive Laurent coordinate comparisons keep the forward T orientation.
 See the [source and exact scope](migration/scheme-laurent/native-open-support.md).
-This foundation does not yet prove the relative fiber theorem, fine-open
-localization, or the scalar/Laurent connecting-boundary formula.
+This foundation by itself does not prove fine-open localization or the
+scalar/Laurent connecting-boundary formula. The relative fiber theorem is the
+next separate complete slice below.
+
+## Native relative-open perfect fiber and exact sequence
+
+The actual native `Cone(id K) ⊞ L` joint cylinder supplies the structural
+factorization and second endpoint section for arbitrary open immersions.
+Together with the proved extension axiom, this gives the original canonical
+fiber weak equivalence and all recurring positions of the connective supported
+long exact sequence. Degree zero surjects onto the relative coarse K-group,
+without identifying it with fine perfect-complex K-theory of the open. See the
+[exact scope and validation boundary](migration/scheme-laurent/native-open-fiber.md).

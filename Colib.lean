@@ -151,11 +151,16 @@ public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.KTheory.Basic
 public import Colib.AlgebraicGeometry.KTheory.Comparison
+public import Colib.AlgebraicGeometry.KTheory.PerfectOpenFibration
+public import Colib.AlgebraicGeometry.KTheory.PerfectOpenLongExactSequence
 public import Colib.AlgebraicGeometry.KTheory.PerfectOpenSupport
 public import Colib.AlgebraicGeometry.KTheory.PerfectRestriction
 public import Colib.AlgebraicGeometry.KTheory.Regular
 public import Colib.AlgebraicGeometry.KTheory.Restriction
 public import Colib.AlgebraicGeometry.Modules.PerfectGlobalScalar
+public import Colib.AlgebraicGeometry.Modules.PerfectJoint
+public import Colib.AlgebraicGeometry.Modules.PerfectOpenExtension
+public import Colib.AlgebraicGeometry.Modules.PerfectOpenJoint
 public import Colib.AlgebraicGeometry.Modules.PerfectOpenRestriction
 public import Colib.AlgebraicGeometry.Modules.PerfectOpenSupport
 public import Colib.AlgebraicGeometry.Modules.PerfectOpenWeak
@@ -673,6 +678,7 @@ public import Colib.CategoryTheory.Waldhausen.Cofinality.GradingRange
 public import Colib.CategoryTheory.Waldhausen.ComplexSubcategory
 public import Colib.CategoryTheory.Waldhausen.Complexes
 public import Colib.CategoryTheory.Waldhausen.Cylinder.AmbientRelative
+public import Colib.CategoryTheory.Waldhausen.Cylinder.CofibrationClosed
 public import Colib.CategoryTheory.Waldhausen.Cylinder.JointExact
 public import Colib.CategoryTheory.Waldhausen.Cylinder.JointFunctor
 public import Colib.CategoryTheory.Waldhausen.Cylinder.JointSource
@@ -698,6 +704,7 @@ public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.Transpose
 public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.TransposeExact
 public import Colib.CategoryTheory.Waldhausen.ExtensionCategory.TriplePushout
 public import Colib.CategoryTheory.Waldhausen.Fibration.AcyclicSubcategory
+public import Colib.CategoryTheory.Waldhausen.Fibration.CofibrationClosedExtension
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexChainReplacement
 public import Colib.CategoryTheory.Waldhausen.Fibration.ComplexExtension
 public import Colib.CategoryTheory.Waldhausen.Fibration.Functoriality
@@ -742,6 +749,7 @@ public import Colib.CategoryTheory.Waldhausen.Fibration.RelativeRows.TailSection
 public import Colib.CategoryTheory.Waldhausen.Fibration.RelativeRows.WeakChains
 public import Colib.CategoryTheory.Waldhausen.Fibration.RelativeRows.ZeroAugmentation
 public import Colib.CategoryTheory.Waldhausen.Fibration.Rows.BaseFactorization
+public import Colib.CategoryTheory.Waldhausen.Fibration.Rows.CofibrationClosedComplexJoint
 public import Colib.CategoryTheory.Waldhausen.Fibration.Rows.ComplexFactorization
 public import Colib.CategoryTheory.Waldhausen.Fibration.Rows.ComplexSecondEndpoint
 public import Colib.CategoryTheory.Waldhausen.Fibration.Rows.ExtensionAxiom
