@@ -49,8 +49,7 @@ sequences, and literal `Scheme.Modules.restrictFunctor`. Native regular
 coherent-perfectness and Stacks Tag 0F8E provide the bounded finite-locally-free
 complex and actual map to the coherent single object. The separate
 [native scheme slice](native-scheme-comparison.md) records the geometric instances,
-canonical comparison and all-degree restriction functoriality. The regular
-equivalence remains a separate continuation.
+canonical comparison, restriction functoriality and regular all-degree equivalence.
 
 ## Validation scope
 
