@@ -33,3 +33,9 @@ id = "derived-hom-comparisons"
 title = "Injective resolutions and derived Hom"
 order = 15
 introduction = "Supplied native injective resolutions identify Ext with the actual right-derived additive Hom functor. Comparisons retain independent Ext universes and are normalized on the original cocycles and degree-zero transformation."
+
+[[sections]]
+id = "ext-products"
+title = "External Ext products"
+order = 25
+introduction = "Biexact functors carry native Ext classes to their external Yoneda products. Graded interchange, endpoint naturality and the signs of source connecting maps are retained without choosing resolutions."
