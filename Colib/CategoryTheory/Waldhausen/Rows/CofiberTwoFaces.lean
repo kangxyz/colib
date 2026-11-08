@@ -64,7 +64,7 @@ theorem cofiberTwoDiagram_face (k : Fin 3) :
       simp
 
 attribute [colib_ref "Waldhausen1985"
-  "Section 1.3, definition of S_n C and face maps, pp. 328-329" "ingredient"
+  "Section 1.3, definition of $S_n C$ and face maps, pp. 328-329" "ingredient"
   "The quotient zeroth face and forgetful positive faces of S_2, in quotient-middle-source
     order; the native equality of literal diagrams retains the specified quotient and arrows"]
   cofiberTwoDiagram_face

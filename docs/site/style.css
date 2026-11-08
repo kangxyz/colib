@@ -176,8 +176,18 @@ li + li { margin-block-start: .4rem; }
 .relations strong { display: block; color: var(--muted); }
 .citations, .lean { margin-block-start: 1rem; padding-block-start: .8rem; border-block-start: 1px solid var(--line); }
 .citations h3 { margin: 0 0 .35rem; font: 700 .8125rem/1.4 var(--sans); }
-.citations ul { margin: 0; font-size: .8125rem; }
-.citations span, .review { color: var(--muted); }
+.reference-list, .reference-scopes { padding: 0; list-style: none; }
+.reference-list { margin: .6rem 0 0; font-size: .875rem; }
+.reference-list > li { padding-inline-start: .75rem; border-inline-start: 2px solid var(--line); }
+.reference-list > li + li { margin-block-start: .8rem; }
+.reference-heading { font-weight: 650; }
+.reference-location { font-size: .8125rem; }
+.reference-file { font-family: var(--mono); font-size: .94em; }
+.reference-lines { white-space: nowrap; }
+.reference-scopes { margin: .2rem 0 0; color: var(--muted); font-size: .8125rem; }
+.reference-relation { font-weight: 650; }
+.reference-declaration { font: 600 .875rem/1.45 var(--mono); }
+.review { color: var(--muted); }
 .review { margin: 1rem 0 0; font-size: .75rem; }
 details { margin-block: .85rem; }
 summary { color: var(--accent); font-size: .875rem; font-weight: 650; cursor: pointer; overflow-wrap: anywhere; }
@@ -188,6 +198,7 @@ details > p { margin-block-start: .65rem; font-size: .875rem; }
 .reading-nav a { font-size: .875rem; }
 
 /* Math, Lean and lookup pages */
+.tex-display { display: block; }
 .katex-display { overflow-x: auto; overflow-y: hidden; padding-block: .2em; }
 .katex-display > .katex { width: max-content; min-width: 100%; }
 code, pre { font-family: var(--mono); font-size: .875em; }
@@ -200,6 +211,7 @@ pre {
   background: var(--surface-muted);
 }
 pre code { font-size: inherit; }
+:not(pre) > code { padding: .08em .24em; border-radius: .2rem; background: var(--surface-muted); overflow-wrap: anywhere; }
 .import { display: flex; align-items: center; gap: .65rem; white-space: normal; }
 .import code { min-inline-size: 0; flex: 1; overflow-wrap: anywhere; }
 .copy {

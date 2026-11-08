@@ -93,7 +93,7 @@ attribute [colib_tag "COL-0265"]
   Koszul.koszulAugmentation_map_X_quasiIso_of_flat
 
 attribute [colib_ref "aglib_principal_euler_pin"
-  "Aglib/RingTheory/MvPolynomial/RegularSequence.lean:36-75"
+  "Aglib/RingTheory/MvPolynomial/RegularSequence.lean:36-71"
   "ingredient"
   "Source weak regularity; augmentations and flat-algebra endpoints are new native consequences"]
   Koszul.coefficientAugmentation_X_quasiIso

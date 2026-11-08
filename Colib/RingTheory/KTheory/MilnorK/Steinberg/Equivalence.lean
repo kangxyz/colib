@@ -44,7 +44,7 @@ theorem milnorToKernel_bijective_charZero : Function.Bijective (milnorToKernel F
     "adaptation" "The non-symplectic symbol presentation specialized to stable type A over \
       characteristic-zero fields; no Quillen homotopy identification is part of this result",
   colib_ref "WeibelKBook" "III, Theorem 6.1" "adaptation"
-    "The classical field K2 presentation, implemented with the native Milnor group and \
+    "The classical field $K_2$ presentation, implemented with the native Milnor group and \
       stable Steinberg kernel in characteristic zero"]
 def milnorKernelEquiv : MilnorKTheory F 2 ≃+ Additive ((toElementary F).ker) :=
   AddEquiv.ofBijective (milnorToKernel F) (milnorToKernel_bijective_charZero F)

@@ -125,8 +125,9 @@ attribute [colib_tag "COL-0299"] weakEndomorphismKOneClass_comp
 
 attribute [colib_ref "quillen"
   "Quillen/Waldhausen/AutomorphismKOne.lean:61-78" "adaptation"
-  "The actual composition track gives class(f ≫ g) = class(g) * class(f); native fundamental-
-    group End wrappers preserve the original order"]
+  "The actual composition track gives
+    $\\operatorname{class}(f\\gg g)=\\operatorname{class}(g)\\operatorname{class}(f)$.
+    Native fundamental-group `End` wrappers preserve the original order"]
   weakEndomorphismKOneClass_comp
 
 attribute [colib_tag "COL-0299"] automorphismKOneHom

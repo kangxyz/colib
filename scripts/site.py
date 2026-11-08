@@ -7,8 +7,10 @@ import json
 from pathlib import Path
 import re
 import shutil
+from unicodedata import normalize
 
 import catalog
+import library_text
 
 
 def anchor(text, path):
@@ -29,7 +31,80 @@ def build(library_path, output):
     chapters = library["chapters"]
     sections = library["sections"]
     entries = library["entries"]
+    sources = library["sources"]
     template = (catalog.ROOT / "docs/site/index.html").read_text()
+
+    def prose(text, root, *, links=True):
+        parts = []
+        for kind, value in library_text.tokens(text):
+            if kind in ("math", "display"):
+                display = kind == "display"
+                attrs = ' class="tex-display" data-display="true"' if display else ""
+                left, right = (r"\[", r"\]") if display else (r"\(", r"\)")
+                parts.append(
+                    f'<span data-tex="{escape(value, quote=True)}"{attrs}>'
+                    + escape(left + value + right)
+                    + "</span>"
+                )
+            elif kind == "code":
+                parts.append(f"<code>{escape(value)}</code>")
+            elif kind == "item" and links:
+                parts.append(anchor(value, root + "tag/" + value + "/"))
+            elif kind == "citation":
+                parts.append(" · ".join(
+                    anchor(link["label"], link["url"]) if links else escape(link["label"])
+                    for link in catalog.prose_citation_links(library, value, root)
+                ))
+            else:
+                parts.append(escape(value))
+        return "".join(parts)
+
+    def prose_link(text, path, root):
+        return f'<a href="{escape(path, quote=True)}">{prose(text, root, links=False)}</a>'
+
+    def location_links(citation, root):
+        locations = citation.get("locations", [{"label": citation["locator"], "url": citation["url"]}])
+        links = []
+        for target in locations:
+            label = target["label"]
+            if file := catalog.LEAN_FILE.match(label):
+                path = escape(file[1]).replace("/", "/<wbr>")
+                suffix = label[file.end():]
+                text = f'<span class="reference-file">{path}</span>'
+                if catalog.LINE_RANGES.fullmatch(suffix):
+                    text += f'<wbr><span class="reference-lines">{escape(suffix)}</span>'
+                else:
+                    text += prose(suffix, root, links=False)
+                links.append(f'<a href="{escape(target["url"], quote=True)}">{text}</a>')
+            else:
+                links.append(prose_link(label, target["url"], root))
+        return " · ".join(links)
+
+    def render_references(citations, root):
+        groups = {}
+        for citation in citations:
+            identity = (citation["source"], citation["locator"], citation["url"])
+            _, scopes = groups.setdefault(identity, (citation, {}))
+            scopes[citation["relation"], citation["scope"]] = None
+        rows = []
+        for citation, scopes in groups.values():
+            key = citation["source"]
+            row = [
+                '<li><div class="reference-heading">',
+                anchor(sources[key]["title"], root + "references/" + key + "/"),
+                '</div><div class="reference-location">',
+                location_links(citation, root),
+                '</div><ul class="reference-scopes">',
+            ]
+            for relation, scope in scopes:
+                label = "Stacks tag" if relation == "source_tag" else relation.capitalize()
+                row.append(
+                    '<li><span class="reference-relation">' + label + "</span>"
+                    + (" · " + prose(scope, root) if scope else "")
+                    + "</li>"
+                )
+            rows.append("".join(row) + "</ul></li>")
+        return '<ul class="reference-list">' + "".join(rows) + "</ul>"
     reading_order = [
         identifier
         for chapter in chapters
@@ -70,7 +145,7 @@ def build(library_path, output):
             navigation.append(
                 '<li class="nav-chapter">'
                 f'<a class="nav-chapter-link" href="{root}{chapter_path}"{current}>'
-                f'{escape(chapter["title"])}</a><ul class="section-nav">'
+                f'{prose(chapter["title"], root, links=False)}</a><ul class="section-nav">'
             )
             for section_id in chapter["sections"]:
                 section = sections[section_id]
@@ -82,15 +157,15 @@ def build(library_path, output):
                 )
                 navigation.append(
                     f'<li><a class="nav-section link-row" href="{root}{section_path}"{current}>'
-                    f'<span class="nav-section-title">{escape(section["title"])}</span> '
+                    f'<span class="nav-section-title">{prose(section["title"], root, links=False)}</span> '
                     f'<span class="count">{len(section["entries"])}</span></a></li>'
                 )
             navigation.append("</ul></li>")
         navigation.append("</ul>")
         trail = [anchor("Library", root)]
-        trail.extend(anchor(label, root + href) for label, href in breadcrumbs)
+        trail.extend(prose_link(label, root + href, root) for label, href in breadcrumbs)
         values = {
-            "title": escape(title + " — Colib Library"),
+            "title": escape(library_text.plain_text(title) + " — Colib Library"),
             "root": root,
             "home": "true" if path == "index.html" else "false",
             "navigation": "".join(navigation),
@@ -111,8 +186,8 @@ def build(library_path, output):
 
     def item_link(identifier):
         entry = entries[identifier]
-        return anchor(
-            identifier + " · " + entry["title"], "../../tag/" + identifier + "/"
+        return prose_link(
+            identifier + " · " + entry["title"], "../../tag/" + identifier + "/", "../../"
         )
 
     def render_item(identifier, root, heading="h2"):
@@ -126,9 +201,9 @@ def build(library_path, output):
             + " · "
             + anchor(identifier, root + "tag/" + identifier + "/")
             + "</div>",
-            "<" + heading + ">" + escape(entry["title"]) + "</" + heading + ">",
-            '<p class="statement">' + escape(entry["statement"]) + "</p>",
-            '<p class="scope">' + escape(entry["scope"]) + "</p>",
+            "<" + heading + ">" + prose(entry["title"], root, links=False) + "</" + heading + ">",
+            '<p class="statement">' + prose(entry["statement"], root) + "</p>",
+            '<p class="scope">' + prose(entry["scope"], root) + "</p>",
         ]
         for field, label in (
             ("used_by", "Referenced by"),
@@ -149,39 +224,17 @@ def build(library_path, output):
             pieces.extend(
                 [
                     '<details class="proof"><summary>Proof outline</summary><p>',
-                    escape(entry["proof"]),
+                    prose(entry["proof"], root),
                     "</p></details>",
                 ]
             )
-        pieces.append('<div class="citations"><h3>References</h3><ul>')
-        seen = set()
-        for citation in entry["references"]:
-            identity = (
-                citation["source"],
-                citation["locator"],
-                citation["relation"],
-                citation["scope"],
-            )
-            if identity in seen:
-                continue
-            seen.add(identity)
-            source = library["sources"][citation["source"]]
-            pieces.append(
-                "<li>"
-                + anchor(source["title"], citation["url"])
-                + ", "
-                + escape(citation["locator"])
-                + ". <span>"
-                + escape(
-                    "Scope"
-                    if citation["relation"] == "source_tag"
-                    else citation["relation"].title()
-                )
-                + (". " + escape(citation["scope"]) if citation["scope"] else "")
-                + "</span></li>"
-            )
         pieces.append(
-            '</ul></div><details class="lean"><summary>Lean declarations · '
+            '<div class="citations"><h3>References</h3>'
+            + render_references(entry["references"], root)
+            + "</div>"
+        )
+        pieces.append(
+            '<details class="lean"><summary>Lean declarations · '
             + str(len(entry["declarations"]))
             + "</summary>"
         )
@@ -216,9 +269,9 @@ def build(library_path, output):
     for index, chapter in enumerate(chapters, 1):
         home.append(
             '<section class="chapter-overview"><h3>'
-            + anchor(f'{index}. {chapter["title"]}', "chapters/" + chapter["id"] + "/")
+            + prose_link(f'{index}. {chapter["title"]}', "chapters/" + chapter["id"] + "/", "./")
             + "</h3><p>"
-            + escape(chapter["introduction"])
+            + prose(chapter["introduction"], "./")
             + "</p><ol>"
         )
         for section_id in chapter["sections"]:
@@ -226,7 +279,7 @@ def build(library_path, output):
             count = len(section["entries"])
             home.append(
                 '<li><div class="link-row">'
-                + anchor(section["title"], "sections/" + section_id + "/")
+                + prose_link(section["title"], "sections/" + section_id + "/", "./")
                 + f'<span class="count">{count} {"item" if count == 1 else "items"}</span></div></li>'
             )
         home.append("</ol></section>")
@@ -242,18 +295,18 @@ def build(library_path, output):
     for chapter_index, chapter in enumerate(chapters, 1):
         body = (
             f'<p class="eyebrow">Chapter {chapter_index}</p><h1>'
-            + escape(chapter["title"])
+            + prose(chapter["title"], "../../", links=False)
             + '</h1><p class="lede">'
-            + escape(chapter["introduction"])
+            + prose(chapter["introduction"], "../../")
             + "</p>"
         )
         for section_id in chapter["sections"]:
             section = sections[section_id]
             body += (
                 '<section class="chapter-overview"><h2>'
-                + anchor(section["title"], "../../sections/" + section_id + "/")
+                + prose_link(section["title"], "../../sections/" + section_id + "/", "../../")
                 + "</h2><p>"
-                + escape(section["introduction"])
+                + prose(section["introduction"], "../../")
                 + "</p><ol>"
             )
             body += (
@@ -269,17 +322,17 @@ def build(library_path, output):
         trail = [(chapter["title"], "chapters/" + chapter["id"] + "/")]
         body = (
             f'<p class="eyebrow">Section {section_numbers[section_id]}</p><h1>'
-            + escape(section["title"])
+            + prose(section["title"], "../../", links=False)
             + '</h1><p class="lede">'
-            + escape(section["introduction"])
+            + prose(section["introduction"], "../../")
             + "</p>"
         )
         body += (
             '<ol class="section-contents">'
             + "".join(
                 "<li>"
-                + anchor(
-                    identifier + " · " + entries[identifier]["title"], "#" + identifier
+                + prose_link(
+                    identifier + " · " + entries[identifier]["title"], "#" + identifier, "../../"
                 )
                 + "</li>"
                 for identifier in section["entries"]
@@ -323,9 +376,9 @@ def build(library_path, output):
     for identifier, item in library.get("retired", {}).items():
         previous_url = ("https://github.com/kangxyz/colib/blob/"
                         + item["previous_revision"] + "/" + item["previous_path"])
-        body = ("<h1>" + escape(identifier + " · " + item["title"])
+        body = ("<h1>" + prose(identifier + " · " + item["title"], "../../", links=False)
                 + '</h1><p class="lede">Retired Library item</p><p>'
-                + escape(item["reason"]) + "</p><p>"
+                + prose(item["reason"], "../../") + "</p><p>"
                 + anchor("Previous source record", previous_url) + "</p>")
         related = item.get("related_items", [])
         if related:
@@ -369,19 +422,17 @@ def build(library_path, output):
                 body += escape(declaration["type"]) + "</code></pre></details>"
         module_citations = citations_by_module.get(name, [])
         if module_citations:
-            body += "<h2>Literature references of declarations</h2><ul>"
+            body += "<h2>Literature references of declarations</h2>"
+            by_declaration = {}
             for citation in module_citations:
-                source = library["sources"][citation["source"]]
+                by_declaration.setdefault(citation["name"], []).append(citation)
+            for declaration_name, citations in by_declaration.items():
                 body += (
-                    "<li><code>"
-                    + escape(citation["name"])
-                    + "</code> · "
-                    + anchor(
-                        source["title"] + ", " + citation["locator"], citation["url"]
-                    )
-                    + "</li>"
+                    '<h3 class="reference-declaration">'
+                    + anchor(declaration_name, "#" + declaration_name)
+                    + "</h3>"
+                    + render_references(citations, "../../")
                 )
-            body += "</ul>"
         body += "<h2>Direct imports</h2><ul>"
         for imported in module["imports"]:
             if imported in library["modules"]:
@@ -432,6 +483,14 @@ def build(library_path, output):
 
     modules_index.append(render_module_tree(module_tree))
     render_page("modules/index.html", "Lean modules", "".join(modules_index))
+
+    def bibliography_line(source):
+        parts = [", ".join(source["authors"])]
+        for key, prefix in (("year", ""), ("journal", ""), ("volume", "vol. "), ("pages", "pp. ")):
+            if value := source.get(key):
+                parts.append(prefix + str(value))
+        return escape(" · ".join(parts))
+
     sources_body = [
         '<h1>References</h1><p class="lede">Books, papers and reference works, with the inspected editions and exact item cross-references.</p>'
     ]
@@ -459,14 +518,14 @@ def build(library_path, output):
             "<h1>"
             + escape(source["title"])
             + "</h1><p>"
-            + escape(", ".join(source["authors"]))
+            + bibliography_line(source)
             + "</p><p>"
             + escape(source["version"])
             + "</p>"
         )
         source_body += "<p>" + anchor("Source record ↗", source["url"]) + "</p>"
         if source.get("doi"):
-            source_body += "<p>DOI " + escape(source["doi"]) + "</p>"
+            source_body += "<p>DOI " + anchor(source["doi"], "https://doi.org/" + source["doi"]) + "</p>"
         for document in source.get("documents", []):
             source_body += (
                 "<details><summary>"
@@ -481,15 +540,16 @@ def build(library_path, output):
             source_body += "<h2>Library correspondence</h2><ul>"
             for entry in matched:
                 source_body += "<li>" + item_link(entry["id"]) + "<ul>"
-                locators = sorted(
-                    {
-                        ref["locator"]
-                        for ref in entry["references"]
-                        if ref["source"] == key
-                    }
-                )
+                locators = {
+                    (ref["locator"], ref["url"]): ref
+                    for ref in entry["references"]
+                    if ref["source"] == key
+                }
                 source_body += (
-                    "".join("<li>" + escape(locator) + "</li>" for locator in locators)
+                    "".join(
+                        "<li>" + location_links(locators[locator], "../../") + "</li>"
+                        for locator in sorted(locators)
+                    )
                     + "</ul></li>"
                 )
             source_body += "</ul>"
@@ -506,7 +566,7 @@ def build(library_path, output):
             '<section class="source"><h2>'
             + anchor(label, key + "/")
             + "</h2><p>"
-            + escape(", ".join(source["authors"]))
+            + bibliography_line(source)
             + "</p><p>"
             + escape(source["version"])
             + "</p>"
@@ -555,6 +615,13 @@ def build(library_path, output):
         })
     for record in search:
         record["path"] = "tag/" + record["id"] + "/"
+        record["title_html"] = prose(record["title"], "../", links=False)
+        record["statement_html"] = prose(record["statement"], "../")
+        record["section"] = library_text.plain_text(record["section"])
+        plain_terms = " ".join(
+            library_text.plain_text(record[field]).casefold() for field in ("title", "statement")
+        )
+        record["terms"] += f' {plain_terms} {normalize("NFKC", plain_terms)}'
     for name, module in library["modules"].items():
         search.append(
             {

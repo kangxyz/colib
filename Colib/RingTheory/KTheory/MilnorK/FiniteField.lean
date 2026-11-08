@@ -143,6 +143,6 @@ attribute [colib_tag "COL-0279",
     "The cyclic-unit and Steinberg-relation proof, directly in the native Milnor group",
   colib_ref "quillen"
   "Quillen/Aglib/KTheory/MilnorK/K2/FiniteField.lean, k2_eq_zero_of_finite"
-  "adaptation" "All finite fields, including F2 and F3, on native Stacks Milnor K-theory"]
+  "adaptation" "All finite fields, including $F_2$ and $F_3$, on native Stacks Milnor K-theory"]
   milnorKSymbol_mul_eq_zero_of_finite milnorKTupleSymbol_two_eq_zero_of_finite
   MilnorKTheory.eq_zero_of_finite MilnorKTheory.finiteField_two_subsingleton

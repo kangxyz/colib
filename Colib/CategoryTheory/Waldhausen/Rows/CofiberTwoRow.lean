@@ -229,7 +229,7 @@ theorem cofiberTwo_identity_square :
   exact W.isZero.eq_of_src _ _
 
 attribute [colib_ref "Waldhausen1985"
-  "Section 1.3, definition of S_n C and face maps, pp. 328-329" "ingredient"
+  "Section 1.3, definition of $S_n C$ and face maps, pp. 328-329" "ingredient"
   "The S_2 interval-functor construction for a displayed cofiber square; the native literal
     row retains its specified quotient, arrows and chosen-zero diagonal objects"]
   cofiberTwoRow

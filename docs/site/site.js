@@ -13,17 +13,14 @@ setContentsLayout();
 compactLayout.addEventListener("change", setContentsLayout);
 
 function typesetMath(element) {
-  window.renderMathInElement?.(element, {
-    delimiters: [
-      { left: "$$", right: "$$", display: true },
-      { left: "\\[", right: "\\]", display: true },
-      { left: "\\(", right: "\\)", display: false },
-      { left: "$", right: "$", display: false },
-    ],
-    ignoredClasses: ["katex"],
-    throwOnError: false,
-    trust: false,
-  });
+  if (!window.katex) return;
+  for (const formula of element.querySelectorAll("[data-tex]")) {
+    window.katex.render(formula.dataset.tex, formula, {
+      displayMode: formula.dataset.display === "true",
+      throwOnError: false,
+      trust: false,
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,13 +75,17 @@ if (results) {
       const title = document.createElement("h2");
       const link = document.createElement("a");
       link.href = root + item.path;
-      link.textContent = item.title;
+      // Only the generated prose fields carry escaped HTML fragments.
+      if (item.title_html !== undefined) link.innerHTML = item.title_html;
+      else link.textContent = item.title;
       title.append(link);
       const statement = document.createElement("p");
       if (item.kind === "declaration") {
         const code = document.createElement("code");
         code.textContent = item.statement;
         statement.append(code);
+      } else if (item.statement_html !== undefined) {
+        statement.innerHTML = item.statement_html;
       } else {
         statement.textContent = item.statement;
       }

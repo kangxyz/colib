@@ -1,7 +1,7 @@
 [entry]
 id = "COL-0009"
 title = "The ordered-pair comparison retains each tensor class"
-statement = "The equivalence from Stacks Milnor K₂ to the pair-symbol quotient sends every tensor class to its original quotient class."
+statement = 'The equivalence from Stacks Milnor \(K_{2}\) to the pair-symbol quotient sends every tensor class to its original quotient class.'
 scope = "A normalization of the actual forward map. All-degree tuple-symbol, norm and residue comparisons belong to subsequent migration."
 review = "author_checked"
 kind = "comparison"

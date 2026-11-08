@@ -234,5 +234,5 @@ attribute [colib_ref "mathlib_koszul_pin"
 attribute [colib_ref "aglib_principal_euler_pin"
   "Aglib/CategoryTheory/Abelian/Injective/ExtZero.lean:42-82"
   "ingredient"
-  "The augmented zero cocycle is Ext.mk₀, using Mathlib's standard derived category locally"]
+  "The augmented zero cocycle is `Ext.mk₀`, using Mathlib's standard derived category locally"]
   CategoryTheory.InjectiveResolution.extRightDerivedAddEquiv_mk₀

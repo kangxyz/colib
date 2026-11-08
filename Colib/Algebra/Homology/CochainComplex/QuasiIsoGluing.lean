@@ -77,7 +77,7 @@ private theorem pushout_shortExact {C : Type*} [Category* C] [Abelian C]
   epi_g := h.epi_shortComplex_g
 
 /-- Gluing quasi-isomorphisms across pushouts along monomorphisms. -/
-@[colib_ref "quillen" "Quillen/Aglib/Algebra/Homology/CochainComplex/QuasiIsoGluing.lean:76-101"
+@[colib_ref "quillen" "Quillen/Aglib/Algebra/Homology/CochainComplex/QuasiIsoGluing.lean:76-96"
   "adaptation" "The original four pushout comparison maps and all commuting equations"]
 theorem quasiIso_gluing
     {B D E P B' D' E' P' : CochainComplex A ℤ}

@@ -432,7 +432,10 @@ class LibraryTests(unittest.TestCase):
     def test_site_preserves_navigation_rows_and_tex_source(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         item = built["entries"]["COL-0004"]
-        item["statement"] = r"Inline \(x < y\) and display \[\text{{revision}}\]."
+        item["statement"] = (
+            r"Inline \(x < y\) and display \[\text{{revision}}\]. "
+            "See [@stacks, Tag 02MU] and COL-0001. The code is `f <x>`."
+        )
         section = built["sections"][item["section"]]
         count = len(section["entries"])
         output = self.render_site_fixture(built)
@@ -440,16 +443,47 @@ class LibraryTests(unittest.TestCase):
         self.assertIn('href="../../chapters/category-theory/">Category Theory</a>', page)
         self.assertIn(
             f'href="../../sections/{section["id"]}/" aria-current="location">'
-            f'<span class="nav-section-title">{section["title"]}</span> '
-            f'<span class="count">{count}</span>',
+            '<span class="nav-section-title">',
             page,
         )
-        self.assertIn(r"Inline \(x &lt; y\) and display \[\text{{revision}}\].", page)
+        self.assertIn(f'<span class="count">{count}</span>', page)
+        self.assertIn('data-tex="x &lt; y"', page)
+        self.assertIn(r'data-tex="\text{{revision}}"', page)
+        self.assertIn('href="https://stacks.math.columbia.edu/tag/02MU">Tag 02MU</a>', page)
+        self.assertIn('href="../../tag/COL-0001/">COL-0001</a>', page)
+        self.assertIn("<code>f &lt;x&gt;</code>", page)
         section_page = (output / "sections" / section["id"] / "index.html").read_text()
         self.assertIn(f'href="../../sections/{section["id"]}/" aria-current="page"', section_page)
         records = json.loads((output / "search.json").read_text())
         result = next(row for row in records if row.get("id") == item["id"])
         self.assertEqual(result["statement"], item["statement"])
+        self.assertIn('href="../tag/COL-0001/"', result["statement_html"])
+
+    def test_prose_rejects_unresolved_links_and_unpaired_math(self):
+        for text, message in (
+            ("See [@Unknown].", "Unknown bibliography key"),
+            ("See COL-9999.", "Unknown Library item"),
+            ("See [@stacks, 02MU].", "Use Tag XXXX"),
+            (r"Unclosed \(x", "closing delimiter"),
+        ):
+            with self.subTest(text=text):
+                with self.assertRaisesRegex(ValueError, message):
+                    catalog.check_prose(text, self.library, "fixture")
+        catalog.check_prose(r"`[@Unknown]` and \(\text{COL-9999}\)", self.library, "fixture")
+
+    def test_software_locators_link_each_span_at_the_recorded_commit(self):
+        source = self.library["sources"]["aglib_principal_euler_pin"]
+        locator = "Algebra/Homology/DerivedCategory/ExtRightDerived.lean:220-258,336-433"
+        locations = catalog.reference_locations("aglib_principal_euler_pin", source, locator)
+        base = source["url"].replace("/tree/", "/blob/") + "/Aglib/" + locator.split(":")[0]
+        self.assertEqual([item["url"] for item in locations], [
+            base + "#L220-L258",
+            base + "#L336-L433",
+        ])
+        with self.assertRaisesRegex(ValueError, "Invalid line range"):
+            catalog.reference_locations("aglib_principal_euler_pin", source, "Aglib/Test.lean:9-7")
+        with self.assertRaisesRegex(ValueError, "Invalid line range"):
+            catalog.reference_locations("aglib_principal_euler_pin", source, "Aglib/Test.lean:12-")
 
     def test_perfect_regressions_use_only_native_objects(self):
         root = catalog.ROOT
@@ -933,7 +967,8 @@ class LibraryTests(unittest.TestCase):
         )
         scripts = self.root / "scripts"
         scripts.mkdir()
-        shutil.copyfile(catalog.ROOT / "scripts/catalog.py", scripts / "catalog.py")
+        for name in ("catalog.py", "library_text.py"):
+            shutil.copyfile(catalog.ROOT / "scripts" / name, scripts / name)
         result = subprocess.run(
             [sys.executable, str(scripts / "catalog.py"), "show", "COL-0004"],
             check=True,

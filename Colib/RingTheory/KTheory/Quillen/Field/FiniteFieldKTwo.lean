@@ -66,14 +66,15 @@ theorem upperModuleKTwo_subsingleton :
 
 attribute [colib_tag "COL-0280",
   colib_ref "Milnor1970" "Section 1, Example 1.5 (Steinberg), p. 321" "ingredient"
-    "Integral Milnor K2 vanishing, passed through the original surjective comparison maps",
+    "Integral Milnor $K_2$ vanishing, passed through the original surjective comparison maps",
   colib_ref "WeibelKBook" "III, Corollary 6.1.1" "adaptation"
-    "Finite-field K2 vanishing on the existing right-projective and upper finite-module groups",
+    "Finite-field $K_2$ vanishing on the existing right-projective and upper finite-module groups",
   colib_ref "WeibelKBook" "IV, Corollary 1.7.1" "comparison"
-    "The separate identification of classical K2 with homotopy-defined K2",
+    "The separate identification of classical $K_2$ with homotopy-defined $K_2$",
   colib_ref "quillen"
   "Quillen/KTheory/Field/FiniteFieldKTwo.lean, rightProjectiveKTwo and upperModuleKTwo clauses"
-  "adaptation" "Original right-projective K2 and upper FGModuleCat SmallK2, for every finite field"]
+  "adaptation" "Original right-projective $K_2$ and upper `FGModuleCat SmallK2`, \
+    for every finite field"]
   rightProjectiveKTwo_eq_one rightProjectiveKTwo_subsingleton
   upperModuleKTwo_eq_one upperModuleKTwo_subsingleton
 

@@ -316,5 +316,5 @@ attribute [colib_tag "COL-0028",
   CategoryTheory.ExactCategory.SerreLocalization.grothendieckMap_ker
 
 attribute [colib_tag "COL-0028",
-  stacks 02MX "(1), surjectivity of the actual localization map on algebraic K0"]
+  stacks 02MX "(1), surjectivity of the actual localization map on algebraic $K_0$"]
   CategoryTheory.ExactCategory.SerreLocalization.grothendieckMap_surjective

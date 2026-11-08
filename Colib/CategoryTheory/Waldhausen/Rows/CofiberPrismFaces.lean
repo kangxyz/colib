@@ -157,7 +157,7 @@ attribute [colib_ref "quillen"
   cofiberTwoPrism_source_face cofiberTwoPrism_middle_face cofiberTwoPrism_quotient_face
 
 attribute [colib_ref "Waldhausen1985"
-  "Section 1.3, definition of S_n C and face maps, pp. 328-329" "ingredient"
+  "Section 1.3, definition of $S_n C$ and face maps, pp. 328-329" "ingredient"
   "The literal S-construction with chosen-zero diagonal and displayed cofibration/pushout
     sequences, and its source, middle and quotient faces; the specific prism formulas are
     adapted from the pinned implementation"]

@@ -124,7 +124,7 @@ attribute [colib_ref "quillen" "Quillen/Algebra/Group/StableSteinbergSymbols.lea
   StableSteinberg.milnorToKernel
 attribute [colib_ref "quillen"
   "Quillen/Algebra/Group/StableSteinbergSymbols.lean, milnorToKernel_pair"
-  "adaptation" "The ordered pair retains the positive original kernel word h(a) h(b) h(ab)^(-1)"]
+  "adaptation" "The ordered pair retains the positive original kernel word $h(a)h(b)h(ab)^{-1}$"]
   StableSteinberg.milnorToKernel_pair
 attribute [colib_ref "quillen"
   "Quillen/Algebra/Group/StableSteinbergSymbols.lean, milnorToKernel_naturality"

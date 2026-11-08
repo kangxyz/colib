@@ -78,7 +78,7 @@ theorem abelianGrothendieckEquiv_symm_naturality :
 end CategoryTheory.ExactCategory.ExactFunctor
 
 attribute [colib_tag "COL-0025",
-  stacks 02MV "comparison of abelian K0 maps on actual object generators",
+  stacks 02MV "comparison of abelian $K_0$ maps on actual object generators",
   colib_ref "WeibelKBook" "II, paragraph 6.1.5" "comparison"
     "Naturality of the generator-preserving comparison for canonical abelian exact structures"]
   CategoryTheory.ExactCategory.ExactFunctor.abelianGrothendieckEquiv_naturality

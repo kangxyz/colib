@@ -94,6 +94,6 @@ theorem perfectOpenKRestrict_comp_perfectOpenKMap_opens (X : Scheme.{u}) (U : X.
 end AlgebraicGeometry.Scheme.Modules
 
 attribute [colib_ref "quillen"
-  "Quillen/AlgebraicGeometry/PerfectComplexes/OpenSupport.lean:191-218" "adaptation"
+  "Quillen/AlgebraicGeometry/PerfectComplexes/OpenSupport.lean:180-200" "adaptation"
   "Exact acyclic/support flattening with native ambient-monomorphism cofibrations"]
   AlgebraicGeometry.Scheme.Modules.perfectAcyclicSupportedKEquiv

@@ -244,11 +244,11 @@ namespace MilnorKTheory
 
 attribute [colib_ref "Matsumoto1969" "Section 5, Theorem 5.10 and Corollary 5.11, pp. 30-31"
     "adaptation" "Stable type A specialization over characteristic-zero fields, followed by \
-      the separate identification with Quillen K2",
+      the separate identification with Quillen $K_2$",
   colib_ref "WeibelKBook" "III, Theorem 6.1" "adaptation"
-    "Matsumoto's field K2 presentation, restricted here to characteristic zero",
+    "Matsumoto's field $K_2$ presentation, restricted here to characteristic zero",
   colib_ref "WeibelKBook" "IV, Corollary 1.7.1" "comparison"
-    "Identification of classical Steinberg-kernel K2 with homotopy-defined K2, realized here \
+    "Identification of classical Steinberg-kernel $K_2$ with homotopy-defined $K_2$, realized here \
       in the existing exact-category models"]
   rightProjectiveKTwoEquivCharZero upperModuleKTwoEquivCharZero
 

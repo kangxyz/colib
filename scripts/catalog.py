@@ -3,6 +3,7 @@
 
 import argparse
 import hashlib
+from html import escape
 import json
 import os
 from pathlib import Path
@@ -11,6 +12,9 @@ import shutil
 import subprocess
 import sys
 import tomllib
+from urllib.parse import quote, urlsplit
+
+import library_text
 
 ROOT = Path(__file__).resolve().parents[1]
 RELATIONS = {
@@ -34,6 +38,38 @@ KINDS = {
     "comparison",
 }
 SLUG = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*")
+STACKS_TAG = re.compile(r"Tag ([A-Z0-9]{4})(?:\([0-9]+\))?")
+GITHUB_TREE = re.compile(r"https://github\.com/([^/?#]+/[^/?#]+)/tree/([0-9a-f]{40})")
+LEAN_FILE = re.compile(r"([A-Za-z0-9_][A-Za-z0-9_./-]*\.lean)(?=[:,; ]|$)")
+LINE_RANGES = re.compile(r"(?::\s*|,\s*lines?\s+)(\d+(?:[-–]\d+)?(?:,\s*\d+(?:[-–]\d+)?)*)")
+LINE_PREFIX = re.compile(r":\s*\d|,\s*lines?\b")
+LIBRARY_URL = "https://kangxyz.github.io/colib/"
+
+
+def check_url(url):
+    parsed = urlsplit(url)
+    if (
+        parsed.scheme != "https" or not parsed.hostname
+        or parsed.username or parsed.password or any(char.isspace() for char in url)
+    ):
+        raise ValueError(f"Expected an HTTPS source link, got {url!r}")
+
+
+def check_prose(text, library, label):
+    try:
+        for kind, value in library_text.tokens(text):
+            if kind == "item" and value not in library["entries"] and value not in library["retired"]:
+                raise ValueError(f"Unknown Library item {value}")
+            if kind == "citation":
+                key, locator = library_text.citation_parts(value)
+                if key not in library["sources"]:
+                    raise ValueError(f"Unknown bibliography key {key}")
+                if key == "stacks" and locator and not STACKS_TAG.fullmatch(locator):
+                    raise ValueError("Use Tag XXXX for a Stacks Project locator")
+                if locator:
+                    reference_locations(key, library["sources"][key], locator)
+    except ValueError as error:
+        raise ValueError(f"{label}: {error}") from error
 
 
 def load_library(root=ROOT):
@@ -45,9 +81,14 @@ def load_library(root=ROOT):
         for field in ("kind", "title", "authors", "version", "url"):
             if not source.get(field):
                 raise ValueError(f"Source {key} needs {field}")
+        check_url(source["url"])
+        roots = source.get("locator_roots", [])
+        if not isinstance(roots, list) or any(not re.fullmatch(r"[A-Za-z0-9_]+", root) for root in roots):
+            raise ValueError(f"Source {key} needs valid repository locator roots")
         for document in source.get("documents", []):
             if not re.fullmatch(r"[0-9a-f]{64}", document.get("sha256", "")):
                 raise ValueError(f"Source {key} needs an exact document hash")
+            check_url(document["url"])
     chapters, sections, entries = [], {}, {}
     for path in sorted((root / "docs/library/chapters").glob("*.toml")):
         data = tomllib.loads(path.read_text())
@@ -140,13 +181,24 @@ def load_library(root=ROOT):
             key=lambda identifier: (entries[identifier]["order"], identifier)
         )
     chapters.sort(key=lambda chapter: (chapter["order"], chapter["id"]))
-    return {
+    library = {
         "sources": sources,
         "chapters": chapters,
         "sections": sections,
         "entries": entries,
         "retired": retired,
     }
+    for records, fields in (
+        (chapters, ("title", "introduction")),
+        (sections.values(), ("title", "introduction")),
+        (entries.values(), ("title", "statement", "scope", "proof")),
+        (retired.values(), ("title", "reason")),
+    ):
+        for record in records:
+            for field in fields:
+                if value := record.get(field):
+                    check_prose(value, library, f"{record['id']} {field}")
+    return library
 
 
 def load_catalog(root=ROOT):
@@ -193,13 +245,56 @@ def source_link(module, pins, revision):
     return f"{pin['url'].removesuffix('.git')}/blob/{pin['rev']}/{relative}"
 
 
-def reference_url(source, locator):
-    for document in source.get("documents", []):
-        if document.get("locator_prefix") and locator.startswith(
-            document["locator_prefix"]
-        ):
-            return document["url"]
-    return source["url"]
+def reference_locations(key, source, locator):
+    """Resolve the recorded locator against its own source and pinned version."""
+    url = source["url"]
+    if key == "stacks" and (tag := STACKS_TAG.fullmatch(locator)):
+        return [{"label": locator, "url": f"{url.rstrip('/')}/tag/{tag[1]}"}]
+    if source["kind"] == "software" and (tree := GITHUB_TREE.fullmatch(url)) and (file := LEAN_FILE.match(locator)):
+        path = file[1]
+        if any(part in ("", ".", "..") for part in path.split("/")):
+            raise ValueError(f"Invalid repository path in {locator!r}")
+        roots = source.get("locator_roots", [])
+        if roots and path.split("/", 1)[0] not in roots:
+            path = f"{roots[0]}/{path}"
+        url = f"https://github.com/{tree[1]}/blob/{tree[2]}/{quote(path)}"
+        suffix = locator[file.end():]
+        if lines := LINE_RANGES.fullmatch(suffix):
+            ranges = [line.strip() for line in lines[1].split(",")]
+            locations = []
+            for index, line in enumerate(ranges):
+                first, _, last = line.replace("–", "-").partition("-")
+                if int(first) < 1 or (last and int(last) < int(first)):
+                    raise ValueError(f"Invalid line range in {locator!r}")
+                anchor = f"L{first}" + (f"-L{last}" if last else "")
+                if len(ranges) == 1:
+                    label = locator
+                else:
+                    label = f"{file[1]}:{line}" if index == 0 else f"Lines {line}"
+                locations.append({"label": label, "url": f"{url}#{anchor}"})
+            return locations
+        if LINE_PREFIX.match(suffix):
+            raise ValueError(f"Invalid line range in {locator!r}")
+        return [{"label": locator, "url": url}]
+    documents = [
+        document for document in source.get("documents", [])
+        if document.get("locator_prefix") and locator.startswith(document["locator_prefix"])
+    ]
+    if documents:
+        url = max(documents, key=lambda document: len(document["locator_prefix"]))["url"]
+    return [{"label": locator, "url": url}]
+
+
+def prose_citation_links(library, value, root):
+    key, locator = library_text.citation_parts(value)
+    source = library["sources"][key]
+    if not locator:
+        return [{"label": source["title"], "url": root + "references/" + key + "/"}]
+    locations = reference_locations(key, source, locator)
+    if key != "stacks":
+        short_title = source.get("short_title", source["title"])
+        locations[0]["label"] = f'{short_title}, {locations[0]["label"]}'
+    return locations
 
 
 def compile_library(library, native, pins, revision):
@@ -231,7 +326,6 @@ def compile_library(library, native, pins, revision):
             "locator": "Tag " + row["tag"],
             "relation": "source_tag",
             "scope": row["scope"],
-            "url": "https://stacks.math.columbia.edu/tag/" + row["tag"],
         }
         for row in native["stacks"]
     )
@@ -246,10 +340,17 @@ def compile_library(library, native, pins, revision):
             raise ValueError(
                 f"Invalid literature locator or relation on {citation['name']}"
             )
+        if citation["relation"] == "source_tag" and not STACKS_TAG.fullmatch(citation["locator"]):
+            raise ValueError(f"Invalid Stacks tag on {citation['name']}")
         citation = dict(citation)
-        citation["url"] = citation.get(
-            "url", reference_url(library["sources"][key], citation["locator"])
-        )
+        check_prose(citation["scope"], library, f"{citation['name']} citation scope")
+        if "url" in citation:
+            check_url(citation["url"])
+            locations = [{"label": citation["locator"], "url": citation["url"]}]
+        else:
+            locations = reference_locations(key, library["sources"][key], citation["locator"])
+        citation["url"] = locations[0]["url"]
+        citation["locations"] = locations
         resolved_citations.append(citation)
         for identifier in memberships.get(citation["name"], set()):
             entries[identifier]["references"].append(citation)
@@ -309,37 +410,83 @@ def source_hashes(root=ROOT):
     }
 
 
+def markdown_link(label, url):
+    label = escape(label).replace("[", r"\[").replace("]", r"\]")
+    return f"[{label}](<{url}>)"
+
+
+def markdown_prose(text, library):
+    parts = []
+    for kind, value in library_text.tokens(text):
+        if kind == "math":
+            parts.append(f"${value}$")
+        elif kind == "display":
+            parts.append(f"\n\n$$\n{value}\n$$\n\n")
+        elif kind == "code":
+            parts.append("`" + value + "`")
+        elif kind == "item":
+            parts.append(markdown_link(value, LIBRARY_URL + "tag/" + value + "/"))
+        elif kind == "citation":
+            parts.append(" · ".join(
+                markdown_link(link["label"], link["url"])
+                for link in prose_citation_links(library, value, LIBRARY_URL)
+            ))
+        else:
+            parts.append(escape(value, quote=False))
+    return "".join(parts)
+
+
 def render_markdown(library):
     lines = ["# Colib Library", "", f"Source revision `{library['revision']}`.", ""]
     for chapter in library["chapters"]:
-        lines.extend(["## " + chapter["title"], "", chapter["introduction"], ""])
+        lines.extend([
+            "## " + markdown_prose(chapter["title"], library), "",
+            markdown_prose(chapter["introduction"], library), "",
+        ])
         for section_id in chapter["sections"]:
             section = library["sections"][section_id]
-            lines.extend(["### " + section["title"], "", section["introduction"], ""])
+            lines.extend([
+                "### " + markdown_prose(section["title"], library), "",
+                markdown_prose(section["introduction"], library), "",
+            ])
             for identifier in section["entries"]:
                 entry = library["entries"][identifier]
                 lines.extend(
                     [
                         f'<a id="{identifier}"></a>',
                         "",
-                        f"#### {identifier} — {entry['kind'].title()}. {entry['title']}",
+                        f"#### {identifier} — {entry['kind'].title()}. "
+                        + markdown_prose(entry["title"], library),
                         "",
-                        entry["statement"],
+                        markdown_prose(entry["statement"], library),
                         "",
-                        entry["scope"],
+                        markdown_prose(entry["scope"], library),
                         "",
                         "Direct Lean references — "
-                        + (", ".join(entry["formal_dependencies"]) or "None"),
+                        + (", ".join(
+                            markdown_link(item, LIBRARY_URL + "tag/" + item + "/")
+                            for item in entry["formal_dependencies"]
+                        ) or "None"),
                         "",
                     ]
                 )
+                if entry.get("proof"):
+                    lines.extend(["Proof outline. " + markdown_prose(entry["proof"], library), ""])
+                seen = set()
                 for citation in entry["references"]:
-                    source = library["sources"][citation["source"]]
-                    lines.extend(
-                        [
-                            f"- [{source['title']}]({citation['url']}), {citation['locator']}. "
-                            f"{citation['relation']}. {citation['scope']}"
-                        ]
+                    key = citation["source"]
+                    identity = (key, citation["locator"], citation["url"], citation["relation"], citation["scope"])
+                    if identity in seen:
+                        continue
+                    seen.add(identity)
+                    source = library["sources"][key]
+                    locations = citation.get("locations", [{"label": citation["locator"], "url": citation["url"]}])
+                    relation = "Stacks tag" if citation["relation"] == "source_tag" else citation["relation"].capitalize()
+                    lines.append(
+                        "- " + markdown_link(source["title"], LIBRARY_URL + "references/" + key + "/")
+                        + " · " + " · ".join(markdown_link(link["label"], link["url"]) for link in locations)
+                        + " · " + relation
+                        + (" · " + markdown_prose(citation["scope"], library) if citation["scope"] else "")
                     )
                 lines.append("")
                 for name in entry["declarations"]:

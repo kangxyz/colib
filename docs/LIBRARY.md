@@ -75,6 +75,44 @@ A result proved in Colib can state its original contribution and cite background
 An unchecked attribution is marked `citation needed` in its mathematical draft. An unresolved
 mathematical premise is stated as an obligation in the owning source family.
 
+## Math and citations in Library prose
+
+Use English title case for chapter names. In titles, introductions, statements, scopes and
+proof outlines, use the same formatting for each kind of content.
+
+- Write inline mathematics as `\(...\)` or `$...$` and display mathematics as
+  `\[...\]` or `$$...$$`. For example, use `\(K_0\)` and `\((-1)^{pq}\)`.
+  Use KaTeX-supported commands and enclose an entire expression in one pair of delimiters.
+- Enclose literal Lean identifiers and expressions in backticks. Use a TOML literal
+  string for prose with TeX backslashes, or escape each backslash in a basic string.
+  In Lean reference scopes, a dollar-delimited formula can use the usual Lean string syntax.
+- Write an existing permanent ID such as `COL-0004` to link to its item page. Write
+  `[@WeibelKBook]` for the bibliography record or `[@WeibelKBook, II, Definition 6.1.1]`
+  for a specific locator. Use `[@stacks, Tag 02MU]` for a Stacks Project tag and
+  `[@stacks, Tag 02MX(1)]` when referring to a numbered clause.
+
+```toml
+statement = 'Dimension identifies \(K_0(k)\) with \(\mathbb{Z}\).'
+scope = 'The presentation is [@stacks, Tag 02MU], applied to `FGModuleCat k`.'
+```
+
+Prose citations are reading links. Compiled `@[stacks]` and `@[colib_ref]` attributes own
+declaration attribution and its precise scope. Use the existing bibliographic key for the
+inspected edition, and give the exact theorem, clause, page or code location. Use
+`short_title` for a concise inline label and `title` for the full bibliography heading.
+
+For software, use a repository-relative Lean file, with the exact line or inclusive range
+where available, such as `Aglib/RingTheory/MvPolynomial/RegularSequence.lean:36-71`.
+Separate disjoint line spans with commas. Check each path and line against the commit in
+the bibliography. The recorded `locator_roots` normalize existing paths relative to a
+source library. For books and papers, keep the printed locator and use the inspected
+document selected by that source record.
+
+Run `python3 scripts/catalog.py check` after editing prose. It checks delimiter pairing,
+bibliography keys, permanent IDs and source URL syntax. The native export also checks
+compiled citation scopes and resolves source locators. Preview a page with each new
+formula or citation pattern to check its KaTeX rendering and link destination.
+
 ## Dependencies and status
 
 Lean's module system owns code organization and imports. The native exporter reads defining
@@ -122,10 +160,6 @@ Use `python3 scripts/catalog.py show COL-0004` to locate the item and chapter. A
 native export also supplies its actual Lean declarations and defining modules. Use
 `rg 'colib_tag "COL-0004"' Colib` to find its compiled bindings. The website's reference
 index finds all items attached to a book, paper or Stacks locator.
-
-Use English title case for chapter names. In Library prose, enclose inline TeX in
-`$...$` or `\(...\)` and display TeX in `$$...$$` or `\[...\]`. TOML literal strings
-preserve backslashes in formulas.
 
 Place a new mathematical file under its native Mathlib-style subject. New chapters and sections
 need an introduction and an actual first item. Code ownership and imports are read from Lean.

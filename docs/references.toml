@@ -20,10 +20,12 @@ title = "The Stacks Project in Lean"
 authors = ["AxiomMath/Stacks contributors"]
 version = "Git commit f8e70c5dd04bfabcb423d5e325461f527c85a5d6"
 url = "https://github.com/AxiomMath/Stacks/tree/f8e70c5dd04bfabcb423d5e325461f527c85a5d6"
+locator_roots = ["StacksFrontier", "StacksCore"]
 
 [sources.WeibelKBook]
 kind = "book"
 title = "The K-book: An Introduction to Algebraic K-theory"
+short_title = "Weibel"
 authors = ["Charles A. Weibel"]
 year = 2013
 version = "Author's online chapters II, III, IV and V, inspected 2026-11-05"
@@ -82,6 +84,7 @@ url = "https://arxiv.org/pdf/0811.1480v2"
 [sources.HatcherAT]
 kind = "book"
 title = "Algebraic Topology"
+short_title = "Hatcher"
 authors = ["Allen Hatcher"]
 year = 2002
 version = "Author's online Chapters 0, 1, 2 and 4, Proposition 0.16 and Sections 1.1, 1.2, 2.1, 2.3 and 4.1 inspected 2026-11-05; Section 4.2, Theorem 4.23 and proof, pp. 360-363, inspected 2026-11-07"
@@ -120,6 +123,7 @@ sha256 = "3c390bac0b166d5e084bc723c8593dcc7fc6b9bef54dbcae0784a3d348c3c73e"
 [sources.MunkresTopology]
 kind = "book"
 title = "Topology"
+short_title = "Munkres"
 authors = ["James R. Munkres"]
 year = 2000
 version = "Second edition, Theorems 46.10-46.11 inspected 2026-11-05"
@@ -169,6 +173,7 @@ title = "Mathlib"
 authors = ["The mathlib community"]
 version = "Git commit 16edf57de7933555826307a3d81b4391a3657a09"
 url = "https://github.com/leanprover-community/mathlib4/tree/16edf57de7933555826307a3d81b4391a3657a09"
+locator_roots = ["Mathlib"]
 
 [sources.aglib_principal_euler_pin]
 kind = "software"
@@ -176,6 +181,7 @@ title = "Aglib migration source"
 authors = ["kangxyz and Aglib contributors"]
 version = "Git commit 101dbb8564fb0e29f28cfcb79168d878b5ab489f"
 url = "https://github.com/kangxyz/aglib/tree/101dbb8564fb0e29f28cfcb79168d878b5ab489f"
+locator_roots = ["Aglib"]
 
 [sources.quillen]
 kind = "software"
@@ -191,8 +197,9 @@ authors = ["R. W. Thomason", "Thomas Trobaugh"]
 year = 1990
 volume = "88"
 pages = "247-435"
+doi = "10.1007/978-0-8176-4576-2_10"
 version = "The Grothendieck Festschrift, Volume III, Progress in Mathematics 88; Sections 1.5.3-1.5.4, pages 260-261; Sections 1.5.6-1.5.7, page 261; Sections 1.8.1-1.8.2, page 263; Theorem 1.10.1 and Exercise 1.10.2, pages 275-277; Section 1.11.3.1 and Theorem 1.11.7, pages 278-281, inspected 2026-11-07"
-url = "https://stacks.math.columbia.edu/bibliography/TT"
+url = "https://doi.org/10.1007/978-0-8176-4576-2_10"
 
 [[sources.ThomasonTrobaugh1990.documents]]
 label = "Published article, Sections 1.5.6-1.5.7 and 1.10"
