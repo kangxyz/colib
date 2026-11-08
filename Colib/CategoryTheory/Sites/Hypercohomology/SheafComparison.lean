@@ -62,7 +62,7 @@ theorem singleHypercohomologyEquivCohomology_hom
     (F : Sheaf J AddCommGrpCat.{max v t}) (n : ℕ) (X : C)
     (x : (hypercohomologyPresheaf J
       ((CochainComplex.singleFunctor _ 0).obj F) (n : ℤ)).obj (op X)) :
-    (dsimp% only [Functor.op_obj]
+    (dsimp% only [Functor.op_obj, Functor.comp_obj, Functor.whiskeringRight_obj_obj]
       (singleHypercohomologyEquivCohomology J F n X x).hom) = x :=
   Ext.homAddEquiv.apply_symm_apply x
 
