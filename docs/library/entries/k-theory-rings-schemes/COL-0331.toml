@@ -1,0 +1,33 @@
+[entry]
+id = "COL-0331"
+title = "The relative-open fibration with prescribed support"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 111
+statement = '''
+For an arbitrary open immersion \(j: U \to X\) and auxiliary open \(T\), actual restriction
+of native perfect complexes supported outside \(T\) detects the relative weak class.
+The genuine joint cylinder and extension axiom prove the canonical fibration.
+Its acyclic category is exactly equivalent, by literal flattening, to perfect
+complexes supported outside \(T \cup j(U)\). The original union-support inclusion,
+canonical fiber map and oriented connecting homomorphism give all three positions
+of the connective long exact sequence, including degree zero. The relative \(K_0\)
+tail surjects onto the named `PerfectSupportedOpenCoarseK` relative model.
+'''
+scope = '''
+Arbitrary schemes, open immersions and auxiliary opens; no quasi-compactness,
+quasi-separatedness, Noetherian or support-compactness premise. Perfectness is the
+native Stacks predicate on actual complexes. Acyclicity on open unions is proved
+from native homology sheaves and stalks. This is the coarse supported relative
+fibration underlying TT 5.1.2, not its fine supported-open image-cover comparison.
+It does not assert surjectivity onto fine \(K_0\) of \(U\) with inverse-image support,
+identify \(K(X\text{ on }Z)\) with \(K(Z)\), or establish Bass TT 7.4. The fine supported-open
+geometric image-cover theorem, full open-pair naturality, excision and
+Mayer–Vietoris remain separate. The original auxiliary
+`perfectSupportedRestrict_op_exact` in SupportedOpen/Restriction.lean is not
+migrated here; only its forward restriction chain is claimed. The supported-union
+prespectrum transport and its stable/coherent chosen-zero comparisons also remain
+separate, rather than being inferred from the connective group sequence.
+'''
+review = "author_checked"
+provenance = "quillen"

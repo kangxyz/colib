@@ -684,3 +684,16 @@ localization naturality, TT 5.1 image-cover geometry and Bass TT 7.4 remain sepa
 The original source is Quillen c561118b7795eb9780be9ed391c3251d6a4d0afd.
 See COL-0322, COL-0326 and COL-0328 and their precise source crosswalks. Local
 compilation, independent integrated review and remote publication are separate gates.
+
+
+## Supported Relative-Open Coarse Fibration
+
+COL-0331 provides native support restriction and the forward/coarse fibration
+for any scheme, open immersion and arbitrary auxiliary open T. The literal fiber
+has support outside the union of T and the open image. Canonical inclusion,
+fiber, boundary and projection maps give all-natural-degree exactness, including
+the coarse relative K0 tail, with target PerfectSupportedOpenCoarseK.
+No qcqs or CompactSpace T assumption and no Aglib adapter is used.
+See [the source crosswalk](migration/quillen/supported-open-coarse-fibration.md).
+Opposite-exact auxiliary statements, prespectrum/stable/chosen-zero transport,
+fine supported-open TT 5.1.2 and Bass remain separate, unclaimed topics.

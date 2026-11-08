@@ -229,6 +229,10 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectScalarUnitTrack
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarUnitTrackOperation
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarUnitTrackTransport
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedFiberComparison
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenFibration
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenLongExactSequence
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenMaps
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenSupport
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedPrespectrum
 public import Colib.AlgebraicGeometry.KTheory.Pullback
 public import Colib.AlgebraicGeometry.KTheory.Regular
@@ -286,7 +290,11 @@ public import Colib.AlgebraicGeometry.Modules.PerfectScalarCofiberFunctor
 public import Colib.AlgebraicGeometry.Modules.PerfectScalarCone
 public import Colib.AlgebraicGeometry.Modules.PerfectScalarConeWaldhausen
 public import Colib.AlgebraicGeometry.Modules.PerfectSupport
+public import Colib.AlgebraicGeometry.Modules.PerfectSupportRestrictionVanishing
+public import Colib.AlgebraicGeometry.Modules.PerfectSupportUnion
 public import Colib.AlgebraicGeometry.Modules.PerfectSupportedCone
+public import Colib.AlgebraicGeometry.Modules.PerfectSupportedJoint
+public import Colib.AlgebraicGeometry.Modules.PerfectSupportedRestriction
 public import Colib.AlgebraicGeometry.Modules.PerfectWaldhausen
 public import Colib.AlgebraicGeometry.Modules.PullbackFlatQuotient
 public import Colib.AlgebraicGeometry.Modules.RelativeFlatFactorization
