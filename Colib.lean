@@ -1584,6 +1584,7 @@ public import Colib.RingTheory.Norm.UniformizerBinomial
 public import Colib.RingTheory.Polynomial.FactorContraction
 public import Colib.RingTheory.Polynomial.FactorMultiplicity
 public import Colib.RingTheory.Polynomial.PowerFactorCount
+public import Colib.StacksCacheTargets
 public import Colib.Topology.Category.TopCat.ColimitAcross
 public import Colib.Topology.Category.TopCat.CompactHausdorffPushout
 public import Colib.Topology.Category.TopCat.PushoutInteriors
