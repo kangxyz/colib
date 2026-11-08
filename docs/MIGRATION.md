@@ -532,7 +532,7 @@ COL-0317 constructs actual fine projection and canonical null tracks, distinct f
 subdivision restrictions, canonical pair and sum cylinders, the normalization square and actual
 normalized endpoint. The whole canonical fiber cube equals the canonical acyclic-to-fiber map.
 This closes the normalization/lift subtopic; COL-0320 below separately supplies actual
-prescribed return and connecting comparison. Prespectrum operation identification, input descent
+prescribed return and connecting comparison. COL-0324 below supplies prespectrum operation identification; input descent
 and the global higher scalar formula remain separate. See [the exact normalization
 crosswalk](migration/native-scalar-fiber-normalization.md).
 
@@ -569,8 +569,8 @@ supply an explicit whole-boundary homotopy to the canonical fiber map of the act
 scalar cone. The original connecting map sends this prescribed return class to the canonical
 fiber K-map of the scalar cone K-map, with positive cone sign, including n = 0. All endpoints,
 both times, full stored canonical-null paths and spatial boundary are retained. No filler or
-comparison is assumed. This is the prescribed return class, not yet identification with the
-prespectrum scalar operation or arbitrary-input descent. See [the complete return
+comparison is assumed. This constructs the prescribed return class. COL-0324 below identifies it with the
+prespectrum scalar operation; arbitrary-input descent remains separate. See [the complete return
 crosswalk](migration/native-scalar-return-comparison.md).
 
 ## Connective localization and scalar topic boundary
@@ -583,9 +583,50 @@ article](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Thomas
 is a source locator, not a claim of a newly downloaded or hashed PDF. Native negative-group
 vanishing is the existing actual Omega/stage-path-connected proof; integer grading alone is not
 Bass delooping. Actual qcqs roof/complement existence, comparison with a separately prescribed
-image-cover spectrum, global open-pair naturality, prespectrum scalar-operation identification
-and arbitrary-input descent/global formula remain separate. The relative boundary keeps
+image-cover spectrum, global open-pair naturality
+and arbitrary-input descent/global formula remain separate. COL-0321 and COL-0324 below
+supply the generic operation and its actual scalar identification. The relative boundary keeps
 +[signedCone], distinct from the T-first Bass forward Laurent-unit convention [T] = -[O]. Local
 native compilation, source correspondence and independent component review are distinct
-evidence. Shared union review and exact-tree remote lint, production axiom and Library checks
-remain pending for this candidate.
+evidence. COL-0315 through COL-0320 are published at
+[f0fbeb48b5b7cbd6bdebbfbf969921a827c112ec](https://github.com/kangxyz/colib/commit/f0fbeb48b5b7cbd6bdebbfbf969921a827c112ec);
+its exact-source candidate [CI run 42463812889](https://github.com/kangxyz/colib/actions/runs/42463812889)
+passed. That evidence does not validate the later scalar-operation topic below.
+
+
+## Actual generic self-track operations
+
+COL-0321 constructs the finite homotopy-class operation, its additivity in input degrees
+at least two, actual successor inverse sign including Pi-one, and signed stable-colimit
+operation in every integer degree. The actual Waldhausen K-operation includes K-zero,
+whole-track intertwining, exact-functor naturality, the inverse level-one formula and supplied
+path evaluation. Generic stable operations and null evaluation retain all integer degrees;
+stable interchange is stated in nonnegative degrees under the source Omega condition.
+The supplied-null factorization and actual cone transition are proved. See [the complete
+operation crosswalk](migration/native-self-track-operations.md).
+
+## Actual scalar tracks and return-to-operation identification
+
+COL-0324 constructs the raw and normalized scalar tracks, whole AsSmall path transport and
+genuine flat-unit restriction. Arbitrary flat-morphism termwise pullback preserves native
+perfectness and is Waldhausen exact on the same functor; the literal restriction isomorphisms
+retain their original unitors. Finite restriction includes Pi-one and stable restriction retains
+all integer degrees with its signs and canonical reindexing. The prescribed scalar return
+equals the actual K-operation: the level-one inverse and return inverse cancel. The original
+connecting map sends both raw and normalized operations to the positive canonical-fiber cone
+image on every original subdivision cube, including n = 0. The scalar-cone relative canonical
+null square and rotated prespectrum pasting are also constructed. See [the scalar-operation
+crosswalk](migration/scalar-track-operation.md).
+
+## Scalar-operation topic boundary
+
+The generic operation and its actual scalar identification are complete at these precise
+inputs. Arbitrary-input descent, subdivision coverage, global scalar boundary formulas,
+the independent flat-unit canonical-null family and the object/row K-one applications remain
+separate. A scalar-cone null square is not that independent flat-unit null family. Actual qcqs
+roof/complement existence remains a separate geometric blocker, not a target of this topic.
+The distinction between connective TT 5.1 and Bass nonconnective TT 7.4, and between the
+relative positive signed cone and the T-first negative structure-sheaf convention, is unchanged.
+No full TT localization, Bass formula, Nil vanishing or homotopy invariance is asserted.
+Local compilation, component source/mathematical review, independent integrated review and
+exact-tree remote lint, production axiom and Library checks are separate gates.

@@ -1,0 +1,34 @@
+[entry]
+id = "COL-0321"
+title = "Actual finite, stable and Waldhausen self-track operations"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 90
+statement = """
+A complete coherent based self-track of native loop-prespectrum maps determines
+an actual degree-raising finite homotopy operation. It is additive in input
+degree at least two and has the original inverse successor sign, also in input
+degree one. Alternating its genuine stage maps defines an integer-graded stable
+homomorphism with the exact original stage formula. Whole relative homotopies
+and intertwining squares preserve it; time reversal negates it, concatenation
+adds it, and independent complete self-tracks anti-commute in nonnegative
+stable degrees when the source is an Omega-spectrum. The actual iterated-S
+Waldhausen comparison transports it to every canonical nonnegative K-group,
+including K-zero, retaining the inverse level-one formula, original path
+normalization, exact-functor naturality and complete-level transport.
+"""
+scope = """
+The finite operation on Pi-one is constructed without assuming its additivity.
+Integer stable operations use actual sequential colimits and need no Omega
+hypothesis. The level-one comparison uses the actual Omega structures proved
+for the Waldhausen S-prespectra. Exact-functor specializations retain canonical
+zero rebasing, independent object and morphism universes, whole transformation
+tracks and relative composition. The supplied-null operation factors through
+the original stable self-track, with its actual loop-shift sign and reduced
+cone specialization; a trivial one-higher intermediate stable group implies
+vanishing. No scalar-unit track, scalar return-to-operation identification,
+input descent, global scalar formula, TT localization, Bass nonconnective
+formula, Nil vanishing or homotopy invariance is asserted.
+"""
+review = "author_checked"
+provenance = "quillen"
