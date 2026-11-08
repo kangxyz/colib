@@ -11,18 +11,54 @@ on:
         type: string
         default: ''
         description: Space-separated Stacks module names to build on EC2
+      stacks-cache-key:
+        type: string
+        default: ''
+        description: Exact Stacks cache key to export as an artifact without compiling
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ inputs.stacks-modules != '' && 'Colib Stacks EC2' || format('Colib CI-{0}', github.ref) }}
+  group: >-
+    ${{ inputs.stacks-cache-key != '' && format('Colib Stacks export-{0}', github.ref) ||
+        inputs.stacks-modules != '' && 'Colib Stacks EC2' || format('Colib CI-{0}', github.ref) }}
   cancel-in-progress: false
   queue: max
 
 jobs:
+  export-stacks:
+    name: Export Stacks cache
+    if: ${{ inputs.stacks-cache-key != '' && github.repository == 'kangxyz/colib' && github.actor == github.repository_owner }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      STACKS_ARCHIVE: .lake/ci-checkpoints/stacks.tar.zst
+    steps:
+      - name: Restore the requested Stacks checkpoint
+        id: restore
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: ${{ env.STACKS_ARCHIVE }}
+          key: ${{ inputs.stacks-cache-key }}
+          fail-on-cache-miss: true
+      - name: Verify the exact cache hit and record the archive digest
+        env:
+          CACHE_HIT: ${{ steps.restore.outputs.cache-hit }}
+        run: |
+          test "$CACHE_HIT" = true
+          sha256sum "$STACKS_ARCHIVE"
+      - name: Upload the Stacks checkpoint artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: build-stacks
+          path: ${{ env.STACKS_ARCHIVE }}
+          include-hidden-files: true
+          compression-level: 0
+          if-no-files-found: error
+
   warm-stacks:
-    if: ${{ inputs.stacks-modules != '' }}
+    if: ${{ inputs.stacks-cache-key == '' && inputs.stacks-modules != '' }}
     permissions:
       contents: write
       actions: read
@@ -39,7 +75,7 @@ jobs:
       build-compiler-minutes: 180
 
   probe:
-    if: inputs.stacks-modules == '' && vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main'
+    if: inputs.stacks-cache-key == '' && inputs.stacks-modules == '' && vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main'
     runs-on: [self-hosted, linux, x64, colib-ec2]
     timeout-minutes: 25
     outputs:

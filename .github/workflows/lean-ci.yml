@@ -660,8 +660,8 @@ jobs:
         with:
           path: ${{ env.CI_CHECKPOINT_PATH }}/stacks.tar.zst
           key: colib-layered-v2-stacks-${{ steps.cache-mode.outputs.stacks_context }}-${{ steps.pack-stacks.outputs.generation }}
-      - name: Upload this run's Stacks closure for Test
-        if: ${{ !inputs.stacks-only && steps.handoff-mode.outputs.enabled != 'true' && steps.build.outcome == 'success' && steps.pack-stacks.outcome == 'success' }}
+      - name: Upload the Stacks checkpoint artifact
+        if: ${{ steps.handoff-mode.outputs.enabled != 'true' && steps.build.outcome == 'success' && steps.pack-stacks.outcome == 'success' }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: build-stacks
