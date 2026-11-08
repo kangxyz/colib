@@ -30,9 +30,9 @@ introduction = "Canonical comparisons identify module homology across filtered c
 
 [[sections]]
 id = "derived-hom-comparisons"
-title = "Injective resolutions and derived Hom"
+title = "Derived Hom and sheaf cohomology"
 order = 15
-introduction = "Supplied native injective resolutions identify Ext with the actual right-derived additive Hom functor. Comparisons retain independent Ext universes and are normalized on the original cocycles and degree-zero transformation."
+introduction = "Supplied native injective resolutions identify Ext with the actual right-derived additive Hom functor. Comparisons retain independent Ext universes and are normalized on the original cocycles and degree-zero transformation. Unbounded sheaf hypercohomology uses native free representing sheaves, retaining signed shifts and the single-sheaf ordinary Ext comparison without an injective-resolution hypothesis."
 
 [[sections]]
 id = "ext-products"

@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0303"
+title = "Nisnevich distinguished-square descent"
+kind = "theorem"
+section = "nisnevich-sites"
+order = 20
+statement = "Every ordinary sheaf on the actual smooth separated finite-type Nisnevich site over an arbitrary base takes a geometric distinguished square to a pullback. The original two-arrow cover and the diagonal/double-overlap cover are derived from an open immersion, an etale neighborhood and its actual base-change isomorphism over the specified closed complement. With native sheafification for types, the same original square is a native MayerVietorisSquare."
+scope = "An actual pullback square; open first covering arrow; etale second covering arrow, without a monicity hypothesis; a specified closed immersion with range equal to the open complement; invertible pullback projection of the etale arrow over that complement. The coefficient category has independent object and hom universes. Native HasWeakSheafify for types is needed only for the MayerVietorisSquare bundle, not for sheaf gluing. No converse characterization of sheaves by distinguished squares, no noetherian-induction descent, no cohomological long exact sequence, and no transfer sheafification or correspondence category."
+review = "author_checked"

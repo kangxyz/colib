@@ -303,6 +303,7 @@ class LibraryTests(unittest.TestCase):
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
+            "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",

@@ -15,3 +15,9 @@ id = "perfect-complexes"
 title = "Perfect complexes"
 order = 20
 introduction = "Native Stacks perfect complexes carry the actual monomorphism/quasi-isomorphism Waldhausen structure. No legacy perfectness predicate or comparison layer is maintained."
+
+[[sections]]
+id = "nisnevich-sites"
+title = "Nisnevich sites and descent"
+order = 30
+introduction = "Native schemes and smooth separated finite-type objects carry the actual Nisnevich topology. Distinguished-square sheaf gluing and field evaluation preserve their original morphisms and coefficient categories."
