@@ -31,7 +31,8 @@ theorem polynomialScalarForwardKOneClass_restrict (R : CommRingCat.{u})
       (RingedSpace.IsPerfectComplex (X := (Spec (.of (Polynomial R))).toRingedSpace))) :
     perfectOpenKRestrict (laurentToPolynomial R) 1
         (perfectScalarForwardKOneClass (laurentToPolynomial R) K
-          (polynomialCoordinate R) (laurentCoordinate R) (laurentToPolynomial_appTop_coordinate R)) =
+          (polynomialCoordinate R) (laurentCoordinate R)
+          (laurentToPolynomial_appTop_coordinate R)) =
       perfectGlobalUnitKOneClass _ (laurentCoordinate R)
         ((perfectComplexesRestrictOpenImmersion (laurentToPolynomial R)).obj K) :=
   perfectScalarForwardKOneClass_restrict _ _ _ _ _
@@ -41,7 +42,8 @@ theorem polynomialScalarForwardKOneClass_restrict_rankOne (R : CommRingCat.{u}) 
     perfectOpenKRestrict (laurentToPolynomial R) 1
         (perfectScalarForwardKOneClass (laurentToPolynomial R)
           (rankOnePerfectComplex (Spec (.of (Polynomial R))))
-          (polynomialCoordinate R) (laurentCoordinate R) (laurentToPolynomial_appTop_coordinate R)) =
+          (polynomialCoordinate R) (laurentCoordinate R)
+          (laurentToPolynomial_appTop_coordinate R)) =
       perfectGlobalUnitKOneClass _ (laurentCoordinate R)
         (rankOnePerfectComplex (Spec (.of (LaurentPolynomial R)))) :=
   perfectScalarForwardKOneClass_restrict_rankOne _ _ _ _
