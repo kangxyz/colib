@@ -9,6 +9,8 @@ open CategoryTheory AlgebraicGeometry Scheme.Modules
 noncomputable section
 universe u
 variable {X Y : Scheme.{u}} (j : Y ⟶ X) [IsOpenImmersion j]
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.defeqAttrib.useBackward true in
 example {K L : ObjectProperty.FullSubcategory
     (RingedSpace.IsPerfectComplex (X := X.toRingedSpace))}
     (f : K ⟶ L) (hf : (perfectOpenWeakWaldhausen j).weq f) :

@@ -53,6 +53,7 @@ def cofibrationClosedComplexJointData : RowFactorization.JointData N where
     exact inclusion_projection f.hom.hom
   weak f := N.le_weq _ (projection_quasiIso f.hom.hom)
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] in
 /-- The target endpoint is a section of the unchanged projection. -/
 theorem cofibrationClosedComplexJointData_secondEndpointSection :
     RowFactorization.SecondEndpointSection N
@@ -69,6 +70,7 @@ def cofibrationClosedComplexRowFactorization (n : SimplexCategory) :
     FunctorialFactorization (RowWeakEquivalences.coarseStructure N n) :=
   RowFactorization.factorization N (cofibrationClosedComplexJointData P H hcone N) n
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] in
 @[simp] theorem cofibrationClosedComplexRowFactorization_inclusion_component
     {n : SimplexCategory} (f : Arrow (QuotientRows.Obj
       (CofibrationClosedSubcategory.waldhausenStructure (complexes A) P H) n)) (p : Interval n) :
@@ -77,6 +79,7 @@ def cofibrationClosedComplexRowFactorization (n : SimplexCategory) :
   change biprod.inl ≫ jointInclusion (f.hom.hom.app p).hom = _
   exact biprod.inl_desc _ _
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] in
 @[simp] theorem cofibrationClosedComplexRowFactorization_projection_component
     {n : SimplexCategory} (f : Arrow (QuotientRows.Obj
       (CofibrationClosedSubcategory.waldhausenStructure (complexes A) P H) n)) (p : Interval n) :

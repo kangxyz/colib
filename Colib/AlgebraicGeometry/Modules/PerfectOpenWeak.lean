@@ -13,7 +13,7 @@ public import Colib.CategoryTheory.Waldhausen.Fibration.InverseImageWeak
 Adapted from Quillen/AlgebraicGeometry/PerfectComplexes/OpenFibration.lean:53-95,
 c561118b7795eb9780be9ed391c3251d6a4d0afd. This uses an arbitrary open immersion,
 native Stacks perfectness, and ambient Mono cofibrations. No fiber or
-fine-open comparison theorem is asserted. Source-only; not elaborated.
+fine-open comparison theorem is asserted.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
@@ -50,6 +50,11 @@ def perfectOpenNested :=
 
 instance perfectOpenWeakWaldhausen_twoOutOfThree :
     (perfectOpenWeakWaldhausen j).weq.HasTwoOutOfThreeProperty := by
+  let : MorphismProperty.HasTwoOutOfThreeProperty
+      (Waldhausen.complexes (StrictlyPerfect.OXMod Y.toRingedSpace)).weq := by
+    change (HomologicalComplex.quasiIso (StrictlyPerfect.OXMod Y.toRingedSpace)
+      (ComplexShape.up ℤ)).HasTwoOutOfThreeProperty
+    infer_instance
   let : (RingedSpace.perfectComplexesWaldhausen Y.toRingedSpace).weq.HasTwoOutOfThreeProperty :=
     Waldhausen.CofibrationClosedSubcategory.twoOutOfThree _ _ _
   exact Waldhausen.Structure.withInverseImageWeak_twoOutOfThree

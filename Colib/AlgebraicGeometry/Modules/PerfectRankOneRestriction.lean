@@ -29,7 +29,7 @@ variable {X Y : Scheme.{u}} (j : Y ⟶ X) [IsOpenImmersion j]
 def rankOnePerfectComplexRestrictIso :
     (perfectComplexesRestrictOpenImmersion j).obj (rankOnePerfectComplex X) ≅
       rankOnePerfectComplex Y :=
-  (RingedSpace.IsPerfectComplex (X := Y.toRingedSpace)).isoMk
+  ObjectProperty.isoMk (P := RingedSpace.IsPerfectComplex (X := Y.toRingedSpace))
     (((HomologicalComplex.singleMapHomologicalComplex
       (restrictFunctor j) (.up ℤ) 0).app (SheafOfModules.unit X.ringCatSheaf)) ≪≫
       (CochainComplex.singleFunctor Y.Modules 0).mapIso (restrictUnitIso j))

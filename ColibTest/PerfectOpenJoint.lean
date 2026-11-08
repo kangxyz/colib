@@ -1,4 +1,4 @@
-/- Source-level regression client. Not run through Lean in this task. -/
+/- Regression client for the native perfect joint cylinder. -/
 module
 import Colib.AlgebraicGeometry.Modules.PerfectOpenJoint
 
@@ -19,26 +19,26 @@ example : Waldhausen.Fibration.RowFactorization.JointData
 example : Waldhausen.IsExact (Waldhausen.ArrowCategory.waldhausenStructure V).cof
     (Waldhausen.ArrowCategory.waldhausenStructure V).weq
     (Waldhausen.ExtensionCategory.waldhausenStructure V).cof
-    (Waldhausen.ExtensionCategory.waldhausenStructure V).weq D.joint := D.exact
+    (Waldhausen.ExtensionCategory.waldhausenStructure V).weq (D).joint := (D).exact
 
 example : Waldhausen.Fibration.RowFactorization.SecondEndpointSection
     (Scheme.Modules.perfectOpenNested j) D :=
   Scheme.Modules.perfectOpenJointData_secondEndpointSection j
 
 -- The original native ambient-monomorphism class is retained.
-example {K L : P.FullSubcategory} (f : K ⟶ L) : V.cof f ↔ Mono f.hom := Iff.rfl
+example {K L : (ObjectProperty.FullSubcategory P)} (f : K ⟶ L) : (V).cof f ↔ Mono f.hom := Iff.rfl
 
 -- The middle is literally Cone(id K) ⊞ L, not a derived-category replacement.
-example (f : Arrow P.FullSubcategory) :
-    (D.joint.obj f).obj.right.obj = CochainComplex.SplitFactorization.middle f.hom.hom := rfl
+example (f : Arrow (ObjectProperty.FullSubcategory P)) :
+    ((D).joint.obj f).obj.right.obj = CochainComplex.SplitFactorization.middle f.hom.hom := rfl
 
-example (f : Arrow P.FullSubcategory) :
-    (D.joint.obj f).obj.hom.hom = CochainComplex.SplitFactorization.jointInclusion f.hom.hom := rfl
+example (f : Arrow (ObjectProperty.FullSubcategory P)) :
+    ((D).joint.obj f).obj.hom.hom = CochainComplex.SplitFactorization.jointInclusion f.hom.hom := rfl
 
-example (f : Arrow P.FullSubcategory) :
-    (D.projection.app f).hom = CochainComplex.SplitFactorization.projection f.hom.hom := rfl
+example (f : Arrow (ObjectProperty.FullSubcategory P)) :
+    ((D).projection.app f).hom = CochainComplex.SplitFactorization.projection f.hom.hom := rfl
 
-example (f : Arrow P.FullSubcategory) :
-    (Scheme.Modules.perfectOpenNested j).coarse.weq (D.projection.app f) := D.weak f
+example (f : Arrow (ObjectProperty.FullSubcategory P)) :
+    (Scheme.Modules.perfectOpenNested j).coarse.weq ((D).projection.app f) := (D).weak f
 
 end NativePerfectJointRegression

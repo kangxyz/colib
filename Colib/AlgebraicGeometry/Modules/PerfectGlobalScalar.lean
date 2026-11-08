@@ -48,7 +48,7 @@ def complexGlobalScalar (r : Γ(X, ⊤)) :
 theorem complexGlobalScalar_mul (r s : Γ(X, ⊤)) :
     complexGlobalScalar X (r * s) = complexGlobalScalar X r ≫ complexGlobalScalar X s := by
   ext K n U m
-  simp [complexGlobalScalar, globalSmulCenter_app_app, mul_smul, mul_comm]
+  simp [complexGlobalScalar, globalSmulCenter_app_app, mul_smul]
 
 /-- The scalar natural transformation on the native full subcategory of perfect complexes. -/
 def perfectGlobalScalar (r : Γ(X, ⊤)) :
@@ -66,14 +66,14 @@ def perfectGlobalScalar (r : Γ(X, ⊤)) :
 
 @[simp] theorem perfectGlobalScalar_one : perfectGlobalScalar X 1 = 𝟙 _ := by
   apply NatTrans.ext
-  intro K
+  funext K
   apply ObjectProperty.hom_ext
   exact congrArg (fun t => t.app K.obj) (complexGlobalScalar_one X)
 
 theorem perfectGlobalScalar_mul (r s : Γ(X, ⊤)) :
     perfectGlobalScalar X (r * s) = perfectGlobalScalar X r ≫ perfectGlobalScalar X s := by
   apply NatTrans.ext
-  intro K
+  funext K
   apply ObjectProperty.hom_ext
   exact congrArg (fun t => t.app K.obj) (complexGlobalScalar_mul X r s)
 

@@ -28,14 +28,14 @@ attribute [local instance] Abelian.hasFiniteBiproducts
 
 /-- The chosen ambient zero belongs to the native perfect predicate. -/
 instance isPerfectComplex_containsZero :
-    (IsPerfectComplex (X := X)).ContainsZero where
+    ObjectProperty.ContainsZero (IsPerfectComplex (X := X)) where
   exists_zero := ⟨(Waldhausen.complexes (OXMod.{u, u, u} X)).zero,
     (Waldhausen.complexes (OXMod.{u, u, u} X)).isZero,
     (perfectComplexes_cofibrationClosed X).zero_mem⟩
 
 /-- Actual chain isomorphisms preserve native Stacks perfectness. -/
 instance isPerfectComplex_closedUnderIsomorphisms :
-    (IsPerfectComplex (X := X)).IsClosedUnderIsomorphisms where
+    ObjectProperty.IsClosedUnderIsomorphisms (IsPerfectComplex (X := X)) where
   of_iso e h := h.of_quasiIso e.hom (quasiIso_of_isIso e.hom)
 
 /-- Native perfectness is closed under actual short exact extensions. -/
@@ -58,7 +58,7 @@ instance isPerfectComplex_extensionClosed :
 
 /-- The actual finite products are perfect, by the preceding native closure facts. -/
 instance isPerfectComplex_closedUnderFiniteProducts :
-    (IsPerfectComplex (X := X)).IsClosedUnderFiniteProducts :=
+    ObjectProperty.IsClosedUnderFiniteProducts (IsPerfectComplex (X := X)) :=
   (abelianExactStructure (CochainComplex (OXMod.{u, u, u} X) ℤ)).extensionClosed_finiteProducts
     (IsPerfectComplex (X := X))
 

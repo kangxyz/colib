@@ -52,6 +52,8 @@ theorem perfectScalarConeFunctor_map (X : Scheme.{u}) (r : Γ(X, ⊤))
         ((complexGlobalScalar X r).app L.obj) g.hom g.hom
         ((complexGlobalScalar X r).naturality g.hom).symm := rfl
 
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.defeqAttrib.useBackward true in
 instance perfectScalarConeFunctor_additive (X : Scheme.{u}) (r : Γ(X, ⊤)) :
     (perfectScalarConeFunctor X r).Additive := by
   unfold perfectScalarConeFunctor
@@ -90,6 +92,8 @@ theorem perfectSupportedScalarConeFunctor_obj
     ((perfectSupportedScalarConeFunctor j r q hq).obj K).obj =
       mappingCone ((complexGlobalScalar X r).app K.obj) := rfl
 
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.defeqAttrib.useBackward true in
 instance perfectSupportedScalarConeFunctor_additive :
     (perfectSupportedScalarConeFunctor j r q hq).Additive := by
   unfold perfectSupportedScalarConeFunctor

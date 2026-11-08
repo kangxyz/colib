@@ -39,8 +39,8 @@ def perfectOpenKRestrict (n : ℕ) : PerfectOpenK j n →*
 theorem perfectOpenKRestrict_comp_perfectOpenKMap (n : ℕ) :
     (perfectOpenKRestrict j n).comp (perfectOpenKMap j n) =
       KMap (perfectComplexesRestrictOpenImmersion_isExact j) n := by
-  unfold perfectOpenKRestrict perfectOpenKMap
-  rw [KMap_comp_KMap]
+  exact KMap_comp_KMap (changeWeak_exact (perfectOpenNested j))
+    (perfectOpenRestrict_isExact j) n
 
 /-- Fine K-theory of the actual supported category. -/
 abbrev PerfectSupportedK (n : ℕ) := (perfectSupportedWaldhausen j).K n
@@ -63,9 +63,8 @@ theorem perfectAcyclicSupportedKEquiv_inclusion (n : ℕ) :
     (perfectSupportedKMap j n).comp
       (perfectAcyclicSupportedKEquiv j n).toMonoidHom =
       KMap (acyclicInclusion_exact (perfectOpenNested j)) n := by
-  change (KMap (perfectSupportedInclusion_isExact j) n).comp
-    (KMap (perfectAcyclicToSupported_exact j) n) = _
-  rw [KMap_comp_KMap]
+  exact KMap_comp_KMap (perfectAcyclicToSupported_exact j)
+    (perfectSupportedInclusion_isExact j) n
 
 /-- The inverse identifies the same canonical inclusion. -/
 theorem perfectAcyclicSupportedKEquiv_symm_inclusion (n : ℕ) :

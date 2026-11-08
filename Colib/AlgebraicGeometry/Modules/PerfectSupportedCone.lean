@@ -41,6 +41,8 @@ theorem perfectSupported_mappingCone {K L : CochainComplex X.Modules ℤ} (f : K
   ⟨RingedSpace.isPerfectComplex_mappingCone f hK hL,
     (mappingCone_restrict_acyclic_iff j f).2 hf⟩
 
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.defeqAttrib.useBackward true in
 /-- Relative weakness supplies the same supported cone, without changing its map or sign. -/
 theorem perfectOpenWeak_mappingCone_supported
     {K L : ObjectProperty.FullSubcategory (RingedSpace.IsPerfectComplex (X := X.toRingedSpace))}

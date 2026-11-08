@@ -44,6 +44,7 @@ variable {A : Type u} [Category.{v} A] [Abelian A]
   (hcone : ∀ {K L : CochainComplex A ℤ}, P K → P L →
     ∀ f : K ⟶ L, P (mappingCone f))
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 /-- The unchanged joint endpoint inclusion is an ambient monomorphism. -/
 theorem jointInclusion_cof (f : Arrow P.FullSubcategory) :
     (CofibrationClosedSubcategory.waldhausenStructure (complexes A) P H).cof
@@ -73,19 +74,23 @@ def jointFunctor : Arrow P.FullSubcategory ⥤ ExtensionCategory.Obj
       apply biprod.hom_ext <;> simp
     · exact (subcategoryMiddleFunctor P hcone).map_comp α β
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 @[simp] theorem jointFunctor_obj_hom (f : Arrow P.FullSubcategory) :
     ((jointFunctor P H hcone).obj f).obj.hom.hom = jointInclusion f.hom.hom := rfl
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 @[simp] theorem jointFunctor_comp_source :
     jointFunctor P H hcone ⋙ ExtensionCategory.source
       (CofibrationClosedSubcategory.waldhausenStructure (complexes A) P H) =
       subcategoryJointSourceFunctor P := rfl
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 @[simp] theorem jointFunctor_comp_middle :
     jointFunctor P H hcone ⋙ ExtensionCategory.middle
       (CofibrationClosedSubcategory.waldhausenStructure (complexes A) P H) =
       subcategoryMiddleFunctor P hcone := rfl
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 /-- Actual pointwise pushouts are preserved by the unchanged middle functor. -/
 theorem middle_map_isPushout
     {K L M N : Arrow P.FullSubcategory} {f : K ⟶ L} {g : K ⟶ M}
@@ -102,6 +107,7 @@ theorem middle_map_isPushout
     (CofibrationClosedSubcategory.inclusion_map_pushout (complexes A) P H hf.1 hL)
     (CofibrationClosedSubcategory.inclusion_map_pushout (complexes A) P H hf.2 hR)
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 /-- The relative map for the genuine Reedy cofibration condition is ambient monic.
 Only monicity of the source component is needed, in addition to the endpoint-sum cofibration. -/
 theorem jointFunctor_map_cof_of_source
@@ -132,6 +138,7 @@ theorem jointFunctor_map_cof_of_source
       (jointInclusion_cof P H hcone f) h)
     k.hom (congrArg (fun z ↦ z.hom) hi) (congrArg (fun z ↦ z.hom) hj)
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] in
 /-- Genuine exactness from pointwise ambient cofibrations to Reedy ambient cofibrations. -/
 theorem jointFunctor_exact :
     IsExact (ArrowCategory.waldhausenStructure (CofibrationClosedSubcategory.waldhausenStructure
@@ -174,6 +181,7 @@ def projection : jointFunctor P H hcone ⋙ ExtensionCategory.middle
   naturality _ _ α := ObjectProperty.hom_ext _
     (projection_naturality (P.ι.mapArrow.map α))
 
+omit [P.ContainsZero] [P.IsClosedUnderIsomorphisms] [P.IsClosedUnderFiniteProducts] in
 @[simp] theorem projection_app_hom (f : Arrow P.FullSubcategory) :
     ((projection P H hcone).app f).hom =
       CochainComplex.SplitFactorization.projection f.hom.hom := rfl

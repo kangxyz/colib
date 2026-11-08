@@ -65,7 +65,7 @@ theorem perfectSupported_cofibrationClosed :
     let j' : D' ⟶ Q' := P.homMk k
     have hp : IsPushout i' f' g' j' := IsPushout.of_map_of_faithful P.ι h
     exact ⟨hQ, (perfectOpenAcyclic_iff j Q').1
-      (acyclic_of_isPushout (perfectOpenWeakWaldhausen j) hi hp
+      (acyclic_of_isPushout (perfectOpenWeakWaldhausen j) (i := i') hi hp
         ((perfectOpenAcyclic_iff j A').2 hA.2)
         ((perfectOpenAcyclic_iff j B').2 hB.2)
         ((perfectOpenAcyclic_iff j D').2 hD.2))⟩

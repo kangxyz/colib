@@ -57,8 +57,12 @@ theorem multiplicativeGroupToAdditive_appTop_coordinate :
   have h := Scheme.ΓSpecIso_inv_naturality
     (CommRingCat.ofHom (Polynomial.toLaurent :
       Polynomial (ULift.{u} ℤ) →+* LaurentPolynomial (ULift.{u} ℤ)))
-  have hX := ConcreteCategory.congr_hom h Polynomial.X
-  simpa only [CommRingCat.comp_apply, CommRingCat.ofHom_apply, Polynomial.toLaurent_X,
+  have hX := congrArg (fun f => f.hom Polynomial.X) h
+  change (Scheme.ΓSpecIso (.of (LaurentPolynomial (ULift.{u} ℤ)))).inv.hom
+      (Polynomial.toLaurent Polynomial.X) =
+    (Spec.map (CommRingCat.ofHom Polynomial.toLaurent)).appTop.hom
+      ((Scheme.ΓSpecIso (.of (Polynomial (ULift.{u} ℤ)))).inv.hom Polynomial.X) at hX
+  simpa only [Polynomial.toLaurent_X,
     multiplicativeGroupToAdditive, additiveCoordinate, multiplicativeCoordinate,
     IsUnit.unit_spec] using hX.symm
 
