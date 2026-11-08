@@ -21,3 +21,9 @@ id = "nisnevich-sites"
 title = "Nisnevich sites and descent"
 order = 30
 introduction = "Native schemes and smooth separated finite-type objects carry the actual Nisnevich topology. Distinguished-square sheaf gluing and field evaluation preserve their original morphisms and coefficient categories."
+
+[[sections]]
+id = "algebraic-simplices"
+title = "Algebraic simplices and ordinary singular chains"
+order = 40
+introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."

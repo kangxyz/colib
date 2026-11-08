@@ -185,6 +185,13 @@ public import Colib.AlgebraicGeometry.Scheme.Regular.SmallModel
 public import Colib.AlgebraicGeometry.Scheme.Restriction
 public import Colib.AlgebraicGeometry.Scheme.VectorBundle.Exact
 public import Colib.AlgebraicGeometry.Scheme.VectorBundle.KernelClosed
+public import Colib.AlgebraicGeometry.Simplex.AlgebraicSimplexScheme
+public import Colib.AlgebraicGeometry.Simplex.BaseChange
+public import Colib.AlgebraicGeometry.Simplex.EndpointHomotopy
+public import Colib.AlgebraicGeometry.Simplex.HomotopyInvariance
+public import Colib.AlgebraicGeometry.Simplex.IntervalMultiplication
+public import Colib.AlgebraicGeometry.Simplex.OrdinaryChains
+public import Colib.AlgebraicGeometry.Simplex.Prism
 public import Colib.AlgebraicGeometry.Sites.Nisnevich.Basic
 public import Colib.AlgebraicGeometry.Sites.Nisnevich.FieldLifting
 public import Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.DistinguishedSquare
@@ -194,7 +201,10 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.DistinguishedSquare
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Evaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Pullbacks
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology
+public import Colib.AlgebraicGeometry.Sites.Smooth.Products
+public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.Basic
 public import Colib.AlgebraicTopology.SimplexCategory.EpiZero
+public import Colib.AlgebraicTopology.SimplexCategory.Prism
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.Latching
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.LatchingIntersections
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.Skeleton
@@ -1284,6 +1294,9 @@ public import Colib.RingTheory.AdicCompletion.OriginalBranch
 public import Colib.RingTheory.AdicCompletion.SemilocalBranches
 public import Colib.RingTheory.AdjoinRoot.Map
 public import Colib.RingTheory.AdjoinRoot.MapEquiv
+public import Colib.RingTheory.AlgebraicSimplex.Basic
+public import Colib.RingTheory.AlgebraicSimplex.CoefficientPushout
+public import Colib.RingTheory.AlgebraicSimplex.Polynomial
 public import Colib.RingTheory.Charpoly.Basic
 public import Colib.RingTheory.Charpoly.DVRBranchCount
 public import Colib.RingTheory.Charpoly.DVRResidue

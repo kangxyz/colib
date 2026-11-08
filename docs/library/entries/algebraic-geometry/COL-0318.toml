@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0318"
+title = "Algebraic simplices and Cartesian coefficient change"
+kind = "definition"
+section = "algebraic-simplices"
+order = 10
+statement = "Construct the actual all-degree barycentric algebraic simplex, its original finite-ordinal operators, polynomial chart and smooth cosimplicial spectrum. Every coefficient-ring homomorphism gives a categorical pushout square and an actual Cartesian spectrum square. The smooth category has literal relative products with their original projections and universal property."
+scope = "Arbitrary commutative rings, including nonreduced and trivial rings; every natural simplex degree. Ring coefficient maps permit independent ring universes; categorical ring pushouts and scheme pullbacks are within one universe. No injectivity, flatness or finite-type assumption on the coefficient map. The polynomial chart eliminates the last barycentric coordinate. Relative products do not assert arbitrary pullback closure of the smooth category. No finite-correspondence category, transfer action or duplicate simplex model."
+review = "author_checked"
+proof = "Use the canonical quotient universal property and original fiber-sum coordinate formulas. Eliminate the last coordinate, prove the literal coefficient pushout by its universal property, and use native Spec pushout/pullback results. Smooth membership and products use the native scheme morphism properties."

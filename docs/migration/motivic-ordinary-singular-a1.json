@@ -1,0 +1,317 @@
+{
+  "source": {
+    "repository": "https://github.com/kangxyz/motivic",
+    "revision": "a6805c4a87cdfd7717dd7a94039246a167f15380",
+    "bibliography_key": "motivic_source_a6805c4"
+  },
+  "development_base": {
+    "repository": "https://github.com/kangxyz/colib",
+    "revision": "997b1d39dae3d929e415da232ca60137ada558d3",
+    "scope": "Existing Nisnevich/hypercohomology work branch; this is not a main-merge claim."
+  },
+  "modules": [
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/AlgebraicSimplexScheme.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.AlgebraicSimplexScheme",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/AlgebraicGeometry/Simplex/AlgebraicSimplexScheme.lean:70-80",
+          "relation": "adaptation",
+          "scope": "The actual relative cosimplicial spectrum"
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/BaseChange.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.BaseChange",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Simplex/BaseChange.lean:81-85",
+          "relation": "adaptation",
+          "scope": "The literal coefficient-change square is Cartesian in every degree"
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/OrdinaryChains.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.OrdinaryChains",
+      "implementation_and_literature_references": [
+        {
+          "key": "MVW2006",
+          "locator": "Lecture 2, Definition 2.14, p. 16, ordinary-presheaf clause",
+          "relation": "generalization",
+          "scope": "Relative algebraic singular simplices over arbitrary commutative rings"
+        },
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/Algebra/Homology/SingularComplex/Presheaf.lean:35-47,85-95",
+          "relation": "adaptation",
+          "scope": "Ordinary relative singular chains via native alternatingFaceMapComplex"
+        },
+        {
+          "key": "MVW2006",
+          "locator": "Lecture 2, Definition 2.14, p. 16, alternating-chain clause",
+          "relation": "generalization",
+          "scope": "Ordinary presheaf singular chains over any commutative base ring"
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Products.lean",
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Products",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Products.lean:102-109",
+          "relation": "adaptation",
+          "scope": "The literal scheme fiber product is a product in the smooth site"
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Simplex/Basic.lean",
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Simplex.Basic",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Simplex/Basic.lean:61-71",
+          "relation": "adaptation",
+          "scope": "The barycentric algebraic simplex in the existing smooth category"
+        }
+      ]
+    },
+    {
+      "path": "Colib/RingTheory/AlgebraicSimplex/Basic.lean",
+      "module": "Colib.RingTheory.AlgebraicSimplex.Basic",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/RingTheory/AlgebraicSimplex/Basic.lean:58-60",
+          "relation": "adaptation",
+          "scope": "The actual barycentric quotient ring in every degree"
+        },
+        {
+          "key": "MVW2006",
+          "locator": "Lecture 2, p. 16, simplex paragraph preceding Definition 2.14",
+          "relation": "generalization",
+          "scope": "Barycentric coordinate rings over arbitrary commutative rings"
+        },
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/RingTheory/AlgebraicSimplex/Basic.lean:166-175",
+          "relation": "adaptation",
+          "scope": "The actual contravariant simplex coordinate maps"
+        },
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/RingTheory/AlgebraicSimplex/Basic.lean:256-257",
+          "relation": "adaptation",
+          "scope": "Arbitrary coefficient homomorphisms on the barycentric quotient"
+        }
+      ]
+    },
+    {
+      "path": "Colib/RingTheory/AlgebraicSimplex/CoefficientPushout.lean",
+      "module": "Colib.RingTheory.AlgebraicSimplex.CoefficientPushout",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Simplex/BaseChange.lean:37-79",
+          "relation": "adaptation",
+          "scope": "The exact barycentric coefficient square is a pushout for every ring map"
+        }
+      ]
+    },
+    {
+      "path": "Colib/RingTheory/AlgebraicSimplex/Polynomial.lean",
+      "module": "Colib.RingTheory.AlgebraicSimplex.Polynomial",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/RingTheory/AlgebraicSimplex/Polynomial.lean:98-102",
+          "relation": "adaptation",
+          "scope": "The explicit last-coordinate elimination algebra isomorphism"
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicTopology/SimplexCategory/Prism.lean",
+      "module": "Colib.AlgebraicTopology.SimplexCategory.Prism",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/Algebra/Homology/SingularComplex/Prism.lean",
+          "relation": "adaptation",
+          "scope": "Native SimplexCategory.toMk\u2081; no duplicate cut definition."
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/Prism.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.Prism",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/Algebra/Homology/SingularComplex/Endpoints.lean:49-118",
+          "relation": "adaptation",
+          "scope": "Existing actual algebraic simplex and relative SmoothSite products."
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/EndpointHomotopy.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.EndpointHomotopy",
+      "implementation_and_literature_references": [
+        {
+          "key": "motivic_source_a6805c4",
+          "locator": "Motivic/Aglib/Algebra/Homology/SingularComplex/Endpoints.lean:120-167",
+          "relation": "adaptation",
+          "scope": "Native SimplicialObject.Homotopy, toChainHomotopy, alternatingFaceMapComplexCompMapHomologicalComplexIso and the original singularChainsFunctor."
+        }
+      ]
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/IntervalMultiplication.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.IntervalMultiplication",
+      "implementation_and_literature_references": [
+        {
+          "key": "MVW2006",
+          "locator": "Lecture 2, Lemma 2.16, proof, p. 17",
+          "relation": "generalization",
+          "scope": "Actual multiplication and contraction via native Gamma-Spec and the barycentric universal property."
+        }
+      ],
+      "source_correspondence": "New native proof completing the ordinary geometric argument; not a copied source model or a claim about transfer-valued Corollary 2.24."
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/HomotopyInvariance.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.HomotopyInvariance",
+      "implementation_and_literature_references": [
+        {
+          "key": "MVW2006",
+          "locator": "Lecture 2, Lemmas 2.16 and 2.18; Corollary 2.19, pp. 17-18",
+          "relation": "generalization",
+          "scope": "Native chain homotopy equivalence for the original projection restriction and homology isomorphisms in every degree."
+        }
+      ],
+      "source_correspondence": "New native proof completing the ordinary geometric argument; not a copied source model or a claim about transfer-valued Corollary 2.24."
+    }
+  ],
+  "canonical_objects": [
+    "The barycentric quotient of a multivariable polynomial ring",
+    "Its native simplicial CommRingCat object and cosimplicial spectrum",
+    "The existing SmoothSite over Spec R and its literal relative products",
+    "The native alternatingFaceMapComplex of the actual ordinary simplicial presheaf",
+    "Native toMk1 and SimplicialObject.Homotopy.toChainHomotopy",
+    "Native Gamma-Spec adjunction, HomotopyEquiv and HomotopyEquiv.toHomologyIso"
+  ],
+  "conditions": [
+    "All commutative base rings, including nonreduced and trivial rings; all natural simplex degrees",
+    "Coordinate ring coefficient maps allow independent ring universes; categorical ring pushouts and scheme pullbacks are stated within a common universe",
+    "Ordinary coefficient categories have independent object and hom universes; chain construction needs only Preadditive",
+    "Native normalized-Moore homotopy equivalence is tested with Abelian coefficients",
+    "Arbitrary coefficient ring homomorphisms, without injectivity, flatness or finite-type assumptions",
+    "No homotopy-invariance, sheaf or transfer hypothesis on the presheaf",
+    "Homotopy equivalence needs Preadditive A; homology isomorphisms additionally need CategoryWithHomology A"
+  ],
+  "mathematical_scope": [
+    "Universal barycentric coordinate evaluation and uniqueness",
+    "All simplex operators with their original fiber-sum formula and simplicial identities",
+    "Explicit last-coordinate elimination and smooth-site membership",
+    "Literal coefficient square is a categorical pushout and its spectrum is Cartesian",
+    "Actual relative products and their universal property",
+    "Ordinary presheaf singular chains using native alternatingFaceMapComplex, original restrictions, signed differential and additive coefficient maps",
+    "Actual ordered barycentric endpoints and seven geometric prism identities",
+    "Native endpoint homotopy on the original evaluated singular-chain presheaf",
+    "Actual interval multiplication and contraction, without affineness of U",
+    "Projection restriction is a native chain homotopy equivalence with inverse the original zero-section restriction",
+    "Projection restriction induces an isomorphism on objectwise ordinary singular homology in every degree"
+  ],
+  "not_claimed": [
+    "Finite-correspondence category or transfer action",
+    "Transfer-preserving sheafification or transfer-valued Suslin complex",
+    "Covariant representable-presheaf-with-transfers assertion of MVW Corollary 2.24",
+    "Nisnevich cohomology invariance or motivic-derived comparison",
+    "Exactness of the singular-chain functor",
+    "Arbitrary pullback closure of the smooth category"
+  ],
+  "literature": [
+    {
+      "key": "MVW2006",
+      "locator": "Lecture 2, p. 16, simplex paragraph preceding Definition 2.14",
+      "relation": "generalization",
+      "scope": "The actual barycentric simplex over arbitrary commutative rings"
+    },
+    {
+      "key": "MVW2006",
+      "locator": "Lecture 2, Definition 2.14, p. 16",
+      "relation": "generalization",
+      "scope": "Ordinary simplicial presheaves and native alternating chains, with general preadditive coefficients"
+    },
+    {
+      "key": "MVW2006",
+      "locator": "Lecture 2, Definition 2.17 and Lemma 2.18, printed pp. 17-18",
+      "relation": "generalization",
+      "scope": "Geometric prism and endpoint chain homotopy; extended to commutative base rings and preadditive coefficients."
+    },
+    {
+      "key": "MVW2006",
+      "locator": "Lecture 2, Lemma 2.16 proof, p. 17; Corollary 2.19, p. 18",
+      "relation": "generalization",
+      "scope": "Actual multiplication contraction and ordinary homology-presheaf invariance. The implementation retains stronger chain homotopy equivalence data; the corollary itself states homology invariance."
+    }
+  ],
+  "validation": {
+    "native_lean": "All final registered 17 source files passed native Lean 4.35.0",
+    "production_modules": 13,
+    "consumer_files": 4,
+    "consumer_assertions": {
+      "ColibTest/AlgebraicSimplex.lean": 8,
+      "ColibTest/AlgebraicSingularChains.lean": 16,
+      "ColibTest/AlgebraicSimplexPrism.lean": 14,
+      "ColibTest/AlgebraicSingularHomotopyInvariance.lean": 10
+    },
+    "native_dependencies": "Pinned provider artifacts reused; no provider downloads or builds",
+    "full_topic_ci": "Pending exact-commit branch CI",
+    "main_publication": "Not performed",
+    "ordinary_axiom_bindings": 25,
+    "ordinary_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "official_mk_all_check": "Passed; no update necessary",
+    "full_production_axiom_auditor": "Pending CI",
+    "independent_mathematical_review": false
+  },
+  "topic": "Actual algebraic simplices and ordinary A1-invariant singular chains",
+  "conventions": {
+    "vertex_zero": [
+      1,
+      0
+    ],
+    "vertex_one": [
+      0,
+      1
+    ],
+    "retained_polynomial_coordinate": "t0, with values one and zero at the two vertices respectively",
+    "chain_homotopy": "The native negative alternating sum of geometric prism pullbacks."
+  },
+  "principal_endpoints": [
+    "AlgebraicSimplex.mapCoefficients_isPushout",
+    "AlgebraicSimplex.mapCoefficients_isPullback",
+    "AlgebraicSimplex.singularChainsFunctor",
+    "AlgebraicSimplex.ordinaryIntervalEndpointHomotopy",
+    "AlgebraicSimplex.intervalContraction",
+    "AlgebraicSimplex.ordinaryIntervalHomotopyEquiv",
+    "AlgebraicSimplex.ordinaryIntervalHomologyIso",
+    "AlgebraicSimplex.isIso_ordinaryInterval_homologyMap"
+  ],
+  "catalog_ids": [
+    "COL-0318",
+    "COL-0319",
+    "COL-0320"
+  ]
+}

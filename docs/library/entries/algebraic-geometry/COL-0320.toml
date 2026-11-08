@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0320"
+title = "Prism homotopy and ordinary A1 invariance"
+kind = "theorem"
+section = "algebraic-simplices"
+order = 30
+statement = "The two actual barycentric endpoint restrictions on the original ordinary singular-chain presheaf are chain homotopic. Actual interval multiplication and contraction give a native chain homotopy equivalence for projection U times Delta1 to U, with inverse the original vertex-zero restriction. The original projection restriction is therefore an isomorphism on ordinary singular homology in every degree."
+scope = "Every commutative base ring and every smooth separated finite-type U over its spectrum; U need not be affine. Ordinary category-valued presheaves suffice for the simplicial homotopy, Preadditive coefficients for chain homotopy equivalence, and CategoryWithHomology for homology isomorphisms. No homotopy-invariance or transfer assumption on the presheaf. Vertex zero is (1,0), vertex one is (0,1); multiplication uses t1 and the native homotopy keeps its negative alternating sum. This strengthens the ordinary argument behind MVW Corollary 2.19 to chain homotopy equivalence data. It is not the covariant representable-presheaf-with-transfers assertion of Corollary 2.24, nor a Nisnevich cohomology or motivic-derived comparison."
+review = "author_checked"
+proof = "Specialize native SimplexCategory.toMk1 and its face/degeneracy identities to the actual relative prism. Apply native SimplicialObject.Homotopy.toChainHomotopy and the genuine native evaluation interchange. Construct (1 minus s times t, s times t) by the native Gamma-Spec adjunction and barycentric lift; combine its two actual contraction endpoints with the prism. Use native HomotopyEquiv.toHomologyIso, retaining the original maps."
