@@ -29,10 +29,10 @@ Build-to-Test handoff; it cannot admit an EC2 job while the separate self-hosted
 gate is false. [Lean CI](../../../.github/LEAN_CI.md) owns the full optimized
 hosted and self-hosted execution flow.
 
-The repository variable gates both the caller and reusable workflow. Pushes and
-manual dispatches continue to use GitHub-hosted Ubuntu. PRs and non-main revisions
-use GitHub-hosted runners even after activation. The manual profile defaults to
-`hosted`; choosing `ec2` while disabled still uses the hosted runner.
+The repository variable gates both the caller and reusable workflow. Ordinary CI
+pushes and manual dispatches continue to use GitHub-hosted Ubuntu while the
+variable is false. PRs and non-main revisions use GitHub-hosted runners in
+ordinary CI even after activation. The manual CI profile defaults to `hosted`.
 
 The deployment creates control infrastructure and a launch template, with no
 EC2 instance resource or warm pool. Scheduled housekeeping and idle reclamation
@@ -114,3 +114,14 @@ To suspend admission again, set the repository variable false, deactivate the
 Colib hook, and apply `enabled=false`. Existing machines are reclaimed by idle
 scale-down or the watchdog; changing these controls does not interrupt an active
 machine immediately. Verify the Colib EC2 fleet and registered runners are empty.
+
+## Temporary Stacks warming
+
+For a Stacks dependency that exceeds hosted memory, prepare the fleet and
+webhook as in steps 1–3 above. Leave `COLIB_SELF_HOSTED_ENABLED` false and
+set `COLIB_STACKS_EC2_REF` to the authorized full branch ref
+(`refs/heads/<branch>`). The repository owner dispatches `ec2-pilot.yml` on
+that branch with the `stacks-modules` input. The run saves the portable
+Stacks layer for later CI on the branch. It uses the regular fleet watchdog
+and idle reclaimer. Remove the branch variable after the warming run, then
+suspend the fleet when it is no longer needed.

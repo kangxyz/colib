@@ -7,18 +7,38 @@ on:
         type: boolean
         default: false
         description: Verify workspace continuity across two jobs
+      stacks-modules:
+        type: string
+        default: ''
+        description: Space-separated Stacks module names to build on EC2
 
 permissions:
   contents: read
 
 concurrency:
-  group: Colib CI-${{ github.ref }}
+  group: ${{ inputs.stacks-modules != '' && 'Colib Stacks EC2' || format('Colib CI-{0}', github.ref) }}
   cancel-in-progress: false
   queue: max
 
 jobs:
+  warm-stacks:
+    if: ${{ inputs.stacks-modules != '' }}
+    permissions:
+      contents: write
+      actions: read
+      pull-requests: read
+    uses: ./.github/workflows/lean-ci.yml
+    with:
+      stacks-only: true
+      build-targets: ${{ inputs.stacks-modules }}
+      runner-labels: '["self-hosted","linux","x64","colib-ec2"]'
+      native-memory-mib: 57344
+      lake-threads: 4
+      build-job-timeout-minutes: 240
+      build-compiler-minutes: 180
+
   probe:
-    if: vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main'
+    if: inputs.stacks-modules == '' && vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main'
     runs-on: [self-hosted, linux, x64, colib-ec2]
     timeout-minutes: 25
     outputs:

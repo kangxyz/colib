@@ -35,6 +35,14 @@ webhook, GitHub App authorization and future activation. No EC2 trial is perform
 while disabled. The root-owned marker is `colib-ci-runner-v1` in
 `/etc/colib-ci-runner-mode`; Build restarts `colib-ci-expiry.timer`.
 
+The **EC2 runner pilot** workflow also accepts a space-separated list of
+`stacks-modules`. The repository owner can dispatch it on the branch named
+by `COLIB_STACKS_EC2_REF` while the fleet is enabled. This mode uses 56 GiB
+and four Lake threads to build the selected modules of the pinned Stacks
+package. It saves completed Stacks outputs to the same branch cache, including
+after a compiler failure or cutoff. The ordinary three-job CI and its runner
+selection are independent of this mode.
+
 ## Checkpoints and transport
 
 The workflow retains independent compilation, staging, verification, Test, text-style,
@@ -63,9 +71,12 @@ Mathlib production outputs are excluded from dependency packing and tools-layer
 scanning. The dependency/tools context binds this scope policy. The performance
 case in `docs/performance/ci-mathlib-checkpoint.md` records the measured regression.
 
-Build overlays optional checkpoints and uses native `lake build --rehash` for
-production roots. Available completed work is checkpointed after a compiler
-failure. On GitHub-hosted runners, Test must overlay this Build's complete non-Mathlib
+Build overlays optional checkpoints and enables native `--rehash` on production
+roots when it imports merge seed artifacts. For Stacks it first compares the
+cached manifest with a bounded preview of the published baseline. A validated
+cache covering the baseline needs one restore. A partial cache is applied after
+the baseline to preserve newer completed work. Available completed work is
+checkpointed after a compiler failure. On GitHub-hosted runners, Test must overlay this Build's complete non-Mathlib
 `build-dependencies`, separate `build-stacks`, and native `cache-staging`, even
 when optional caches hit. Native `--no-build --rehash` verifies the current inputs
 before checks. Stacks is excluded from the dependency and tools layers, including
@@ -91,10 +102,11 @@ selected upstream checks over declarations defined in Colib modules. It retains
 native fallback for unknown linter implementations; successful lint results are
 never cached. Local `scripts/check.sh` uses the same adapter.
 
-Both builtin lint replay and the declaration driver select by defining module,
-not declaration namespace. Stacks is outside the report scope. Lake's cached
-build warning logs are suppressed with `--log-level=error`; native lint reports
-remain visible and Colib retains `warningAsError=true`.
+Both builtin lint replay and the declaration driver select by defining module.
+Stacks is outside their report scope. Build shows Lake progress, including
+`Replayed` and `Built`, and omits diagnostics attached to successful Stacks
+jobs. Failures and diagnostics from other packages stay visible. Colib retains
+`warningAsError=true`.
 
 The structured Library export and website are additional Colib checks. The final
 Verification table requires every outcome, including that export, to succeed.
