@@ -360,7 +360,32 @@ This is not fine-open localization, a Laurent-coordinate or Bass-sign result,
 or an all-degree scalar boundary formula. See
 [the native construction, orientation and validation scope](migration/quillen-scalar-supported-boundary.md).
 
-The individual COL-0302, COL-0303 and COL-0304 sources have passed local native
-compilation and independent source reviews. Publication of the complete scalar
-topic requires its exact integrated local validation and remote CI; these checks
-do not assert any later fine-open or nonconnective result.
+The individual COL-0302, COL-0303 and COL-0304 sources passed local native
+compilation and independent source reviews. The complete integrated scalar topic at
+[`5eca54b0b939d2cd8ca2674c4bbd01e1f93528ab`](https://github.com/kangxyz/colib/commit/5eca54b0b939d2cd8ca2674c4bbd01e1f93528ab)
+passed the `Build` and `Test, lint and axiom audit` jobs in
+[CI run 42440827329](https://github.com/kangxyz/colib/actions/runs/42440827329).
+These checks do not assert any later fine-open or nonconnective result.
+
+## Native global-unit K-one and forward scalar restriction
+
+COL-0305 defines the independent fine K₁ class of the actual native global-unit
+automorphism and proves object-isomorphism invariance, inversion and compatibility
+with canonical fine restriction. For an arbitrary open immersion and a scalar
+restricting to a specified unit, the original coarse restriction K-map sends the
+independently defined forward scalar class to this fine unit class. Rank one uses
+the actual structure-sheaf restriction isomorphism.
+
+Affine polynomial/Laurent comparisons apply over every commutative ring, including
+the zero ring. Native relative Laurent comparisons apply over every scheme and
+retain the actual forward `T 1` coordinate in the existing Stacks base-change
+presentation. The scalar-cofiber class restricts to the inverse unit class; this
+inverse is not discarded. See
+[the actual maps, source correspondence and scope](migration/quillen-global-unit-comparison.md).
+
+This is a degree-one class comparison, not a coarse-to-fine K-equivalence,
+fine-open boundary, zero-section boundary, Bass sign or all-degree scalar formula.
+The COL-0305 source and its affected consumers have passed local native compilation
+with exact source and direct-dependency artifact verification. Independent source
+review has separate evidence; full style/lint and production axiom audit of this
+integrated topic remain pending remote CI.
