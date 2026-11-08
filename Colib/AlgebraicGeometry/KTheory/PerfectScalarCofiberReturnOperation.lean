@@ -111,7 +111,6 @@ theorem perfectOpenScalarCubeCompositionPath_smallModel_apply (t : unitInterval)
   · exact perfectOpenScalarFineProjectionCubePath_smallModel_apply j r n p _ z
 
 include r q hq in
-
 /-- The source comparison is derived from time zero of the same entire composition loop. -/
 theorem perfectOpenScalarCubeCompositionPath_smallModel_endpoint :
     GenLoop.postcomp (W).asSmallDeloopingHomeomorph.toHomotopyEquiv.toFun
