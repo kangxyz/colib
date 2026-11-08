@@ -192,6 +192,7 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberFiberComponent
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberFineCubeEdges
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberFineProjectionCubePath
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberInclusionDiagonal
+public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberInputDescent
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberIteratedFiber
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberKOneNormalization
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCofiberOperationConnecting
@@ -210,6 +211,7 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectScalarCone
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarForwardRelativeBoundary
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarKOne
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarPrespectrumHomotopy
+public import Colib.AlgebraicGeometry.KTheory.PerfectScalarSelfTrackRelativeBoundary
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarSupportedBoundary
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarTrackNormalization
 public import Colib.AlgebraicGeometry.KTheory.PerfectScalarUnitComparison
@@ -1174,6 +1176,7 @@ public import Colib.KTheory.Waldhausen.Additivity.NormalizedEndpointHomotopies
 public import Colib.KTheory.Waldhausen.Additivity.NormalizedMixedHomotopy
 public import Colib.KTheory.Waldhausen.Additivity.RealizationHomotopy
 public import Colib.KTheory.Waldhausen.Additivity.RealizedAdditivity
+public import Colib.KTheory.Waldhausen.Additivity.SeparatedFirstPiSurjectivity
 public import Colib.KTheory.Waldhausen.Additivity.SeparatedPairMap
 public import Colib.KTheory.Waldhausen.Additivity.SubdividedBasedHomotopy
 public import Colib.KTheory.Waldhausen.Additivity.SubdivisionBasepoint
