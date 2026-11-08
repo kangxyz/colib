@@ -62,12 +62,18 @@ journal = "Inventiones mathematicae"
 volume = "9"
 pages = "318-344"
 doi = "10.1007/BF01425486"
-version = "Published article (1970), section 1 inspected 2026-11-05; Example 1.5, p. 321, inspected 2026-11-07"
+version = "Published article (1970), section 1 inspected 2026-11-05; Example 1.5, p. 321, inspected 2026-11-07; Section 2, Theorem 2.3 and Lemmas 2.4-2.5, pp. 325-327, text inspected 2026-11-08"
 url = "https://doi.org/10.1007/BF01425486"
 
 [[sources.Milnor1970.documents]]
 label = "Published article, scanned copy"
 locator_prefix = "Section 1"
+url = "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/milnorktheoryforms.pdf"
+sha256 = "a588baab393966542c0a1cfed96a4bc09561f96838ed317fc25b7f9a39df84ff"
+
+[[sources.Milnor1970.documents]]
+label = "Published article, rational-function exact sequence"
+locator_prefix = "Section 2"
 url = "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/milnorktheoryforms.pdf"
 sha256 = "a588baab393966542c0a1cfed96a4bc09561f96838ed317fc25b7f9a39df84ff"
 

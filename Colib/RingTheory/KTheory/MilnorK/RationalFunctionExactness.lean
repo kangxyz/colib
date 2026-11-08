@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Util.References
+
 public import Mathlib.LinearAlgebra.Isomorphisms
 public import Mathlib.LinearAlgebra.Prod
 public import StacksFrontier.AlgebraicGeometry.Chow.MilnorNorm.MilnorExactSequence
@@ -170,3 +172,11 @@ theorem existsUnique_totalResidue_lift_zero_constantRetraction (n : ℕ)
     rw [LinearEquiv.apply_symm_apply, milnorKRationalDecomposition_apply, hx.1, hx.2]
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-0316",
+  colib_ref "Milnor1970" "Section 2, Theorem 2.3, p. 325, and proof conclusion, p. 327" "adaptation"
+    "Split exact sequence; native retraction and bounded normalized uniqueness are retained"]
+  Stacks.Chow.milnorKQuotientConstantsEquivResidues
+  Stacks.Chow.milnorKQuotientConstantsEquivResidues_mk
+  Stacks.Chow.milnorKRationalDecomposition
+  Stacks.Chow.milnorKRationalDecomposition_apply

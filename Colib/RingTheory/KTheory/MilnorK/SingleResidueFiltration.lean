@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Util.References
+
 public import Colib.RingTheory.KTheory.MilnorK.PolynomialFiltrationExactness
 public import StacksFrontier.AlgebraicGeometry.Chow.MilnorNorm.SimpleNorm
 
@@ -110,3 +112,9 @@ theorem existsUnique_bounded_singleResidue_quotient_class {d : ℕ}
   exact hz.milnorKPolyQuotientMk_zero_eq hy
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-0315",
+  colib_ref "Milnor1970" "Section 2, Lemmas 2.4-2.5, pp. 325-327" "adaptation"
+    "Native finite-degree descent; bounded and whole-ring statements are derived refinements"]
+  Stacks.Chow.exists_isSingleResidueLift_mem_milnorKPolyFiltration
+  Stacks.Chow.existsUnique_bounded_singleResidue_quotient_class

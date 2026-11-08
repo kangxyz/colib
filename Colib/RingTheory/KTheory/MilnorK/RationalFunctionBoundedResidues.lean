@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Util.References
+
 public import Colib.RingTheory.KTheory.MilnorK.PolynomialFiltrationExactness
 public import Colib.RingTheory.KTheory.MilnorK.RationalFunctionExactness
 
@@ -120,3 +122,8 @@ theorem existsUnique_mem_milnorKPolyFiltration_lift (n d : ℕ)
     rw [LinearEquiv.apply_symm_apply, milnorKRationalDecomposition_apply, hx.2.1, hx.2.2]
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-0316",
+  colib_ref "Milnor1970" "Section 2, Theorem 2.3, p. 325, and proof conclusion, p. 327" "adaptation"
+    "Split exact sequence; native retraction and bounded normalized uniqueness are retained"]
+  Stacks.Chow.existsUnique_mem_milnorKPolyFiltration_lift

@@ -1308,6 +1308,7 @@ public import Colib.RingTheory.KTheory.MilnorK.FiniteField
 public import Colib.RingTheory.KTheory.MilnorK.FiniteMixedGeneration
 public import Colib.RingTheory.KTheory.MilnorK.FiniteMixedWitnesses
 public import Colib.RingTheory.KTheory.MilnorK.FiniteRelationDescent
+public import Colib.RingTheory.KTheory.MilnorK.FiniteResiduePrescription
 public import Colib.RingTheory.KTheory.MilnorK.FiniteTensorDescent
 public import Colib.RingTheory.KTheory.MilnorK.FiniteTensorEquality
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AuxiliaryMixedBranchError
@@ -1343,10 +1344,14 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeInseparableTrace
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ScalarFactorBaseChange
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ScalarFactorReduction
 public import Colib.RingTheory.KTheory.MilnorK.Norm.SplitBaseChange
+public import Colib.RingTheory.KTheory.MilnorK.PolynomialFiltrationExactness
 public import Colib.RingTheory.KTheory.MilnorK.QuillenComparison
 public import Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence
 public import Colib.RingTheory.KTheory.MilnorK.QuillenNaturality
 public import Colib.RingTheory.KTheory.MilnorK.QuillenSurjectivity
+public import Colib.RingTheory.KTheory.MilnorK.RationalFunctionBoundedResidues
+public import Colib.RingTheory.KTheory.MilnorK.RationalFunctionExactness
+public import Colib.RingTheory.KTheory.MilnorK.RationalFunctionInfinity
 public import Colib.RingTheory.KTheory.MilnorK.Residue.Automorphism
 public import Colib.RingTheory.KTheory.MilnorK.Residue.BaseFieldProduct
 public import Colib.RingTheory.KTheory.MilnorK.Residue.CanonicalNormalization
@@ -1371,6 +1376,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Residue.Surjectivity
 public import Colib.RingTheory.KTheory.MilnorK.Residue.UnitProduct
 public import Colib.RingTheory.KTheory.MilnorK.Residue.UnramifiedMap
 public import Colib.RingTheory.KTheory.MilnorK.Residue.UnramifiedMapAcross
+public import Colib.RingTheory.KTheory.MilnorK.SingleResidueFiltration
 public import Colib.RingTheory.KTheory.MilnorK.Steinberg
 public import Colib.RingTheory.KTheory.MilnorK.Steinberg.Equivalence
 public import Colib.RingTheory.KTheory.MilnorK.Steinberg.Surjectivity

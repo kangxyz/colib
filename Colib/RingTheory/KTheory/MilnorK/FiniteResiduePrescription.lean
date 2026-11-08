@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Util.References
+
 public import Colib.RingTheory.KTheory.MilnorK.SingleResidueFiltration
 public import Colib.RingTheory.KTheory.MilnorK.Norm.FiniteReciprocity
 
@@ -149,3 +151,7 @@ theorem existsUnique_bounded_finiteResidue_quotient_class
     (fun i hi ↦ (hzres i hi).trans (hres i hi).symm) hzsupp hsupp
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-0317"]
+  Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff
+  Stacks.Chow.existsUnique_bounded_finiteResidue_quotient_class

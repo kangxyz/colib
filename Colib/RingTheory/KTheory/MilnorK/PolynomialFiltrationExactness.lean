@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Util.References
+
 public import StacksFrontier.AlgebraicGeometry.Chow.MilnorNorm.FullExactness
 
 /-!
@@ -74,3 +76,8 @@ theorem mem_milnorKPolyFiltration_iff_residue_eq_zero_above (d : ℕ)
     mem_milnorKPolyFiltration_of_forall_monicIrreducibleResidue_eq_zero_above d⟩
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-0315",
+  colib_ref "Milnor1970" "Section 2, Lemmas 2.4-2.5, pp. 325-327" "adaptation"
+    "Native finite-degree descent; bounded and whole-ring statements are derived refinements"]
+  Stacks.Chow.mem_milnorKPolyFiltration_iff_residue_eq_zero_above
