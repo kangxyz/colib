@@ -47,11 +47,13 @@ theorem mem_milnorKPolyFiltration_iff_totalResidue_eq_zero_above (n d : ℕ)
   constructor
   · intro hx p hp
     apply Subtype.ext
-    change (milnorKTotalResidue k n x p : MilnorKRing _) = 0
+    change (milnorKTotalResidue k n x p :
+      MilnorKRing (Polynomial k ⧸ Ideal.span {poly p.2})) = 0
     rw [coe_milnorKTotalResidue_apply]
     exact hx p.1 p.2 hp
   · intro hx e ψ hde
-    have hzero : (milnorKTotalResidue k n x ⟨e, ψ⟩ : MilnorKRing _) = 0 :=
+    have hzero : (milnorKTotalResidue k n x ⟨e, ψ⟩ :
+        MilnorKRing (Polynomial k ⧸ Ideal.span {poly ψ})) = 0 :=
       congrArg Subtype.val (hx ⟨e, ψ⟩ hde)
     rw [coe_milnorKTotalResidue_apply] at hzero
     exact hzero

@@ -13,7 +13,8 @@ example (d : ℕ) (x : MilnorKRing (RatFunc k)) :
     x ∈ milnorKPolyFiltration k d ↔
       ∀ (e : ℕ) (ψ : MonicIrreducibleOfDegree k e),
         d < e → monicIrreducibleResidue ψ x = 0 :=
-  mem_milnorKPolyFiltration_iff_residue_eq_zero_above d x
+  mem_milnorKPolyFiltration_iff_residue_eq_zero_above (k := k) d
+    (x : MilnorKRing (RatFunc k))
 
 -- The degree-zero filtration stage is retained, not replaced by the zero group.
 example (x : MilnorKRing (RatFunc k))
@@ -27,7 +28,8 @@ example (n d : ℕ) (x : MilnorKTheory (RatFunc k) (n + 1)) :
     (x : MilnorKRing (RatFunc k)) ∈ milnorKPolyFiltration k d ↔
       ∀ (e : ℕ) (ψ : MonicIrreducibleOfDegree k e),
         d < e → monicIrreducibleResidue ψ x = 0 :=
-  mem_milnorKPolyFiltration_iff_residue_eq_zero_above d x
+  mem_milnorKPolyFiltration_iff_residue_eq_zero_above (k := k) d
+    (x : MilnorKRing (RatFunc k))
 
 -- The native weak bound d corresponds to a strict source bound d + 1.
 example (d e : ℕ) (ψ : MonicIrreducibleOfDegree k e) (hde : d + 1 ≤ e)

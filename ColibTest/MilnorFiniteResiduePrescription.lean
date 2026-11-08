@@ -32,7 +32,7 @@ example (n : ℕ) (β : MilnorKRing k) :
       (∀ (e : ℕ) (χ : MonicIrreducibleOfDegree k e), monicIrreducibleResidue χ y = 0) ∧
       infinityResidueRing k y = β) ↔ β = 0 := by
   simpa using exists_bounded_finiteResidue_lift_with_infinity_iff
-    (k := k) (∅ : Finset PEmpty) (fun i ↦ i.elim) (fun i ↦ i.elim)
+    (k := k) (∅ : Finset Empty) (fun i ↦ i.elim) (fun i ↦ i.elim)
     (fun i ↦ i.elim) n 0 (fun i ↦ i.elim) (fun i ↦ i.elim) β
 
 -- Compatible data determine a quotient class, not a unique rational-function class.
