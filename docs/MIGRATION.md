@@ -502,5 +502,90 @@ on geometric roofs, not the final geometric localization theorem. COL-0307 geome
 complement/density, strict-to-perfect K-equivalence, Q/S and Gillet-Waldhausen comparisons, and
 final qcqs fine-open localization remain outside this topic. The explicit global-perfect-model
 roof input is not asserted to have been discharged. Local native compilation and independent
-component mathematical/source reviews are separate evidence. Shared integration review and
-remote native lint, production axiom audit and Library checks remain pending for this candidate.
+component mathematical/source reviews are separate evidence. The integrated native topic is
+now in main at [42c036f91db8f594ca100d74a3afe5bef4fefdd6](https://github.com/kangxyz/colib/commit/42c036f91db8f594ca100d74a3afe5bef4fefdd6).
+Its candidate [CI run 42451971044](https://github.com/kangxyz/colib/actions/runs/42451971044)
+and main [CI run 42453718671](https://github.com/kangxyz/colib/actions/runs/42453718671)
+completed successfully. Those checks do not validate the subsequent topic below.
+
+## Conditional native honest-image cofinality
+
+COL-0315 constructs actual chosen-coproduct comparisons, zero-pushout short exact sequences,
+dense closure and exact flattening. Under precisely HasDerivedRoofs and actual-complex
+HasPerfectComplements, the original inclusion and relative restriction are injective in every
+connective degree and bijective in positive degrees. Degree zero identifies the actual fine
+restriction range, not all K-zero of the open. No density, joint-data, approximation or
+K-equivalence premise replaces those constructions. See [the exact source
+crosswalk](migration/native-open-image-cofinality.md).
+
+## Actual higher scalar cubes
+
+COL-0316 constructs the original two-time scalar additivity cube on each positive-dimensional
+generalized loop. Four whole faces, actual fine paths, their four corners, and the once-reversed
+oriented boundary interpolation are proved on the unchanged coordinates. No scalarTheta is
+supplied as an input. See [the actual cube
+crosswalk](migration/native-scalar-cube-coherence.md).
+
+## Actual scalar normalization and canonical fiber
+
+COL-0317 constructs actual fine projection and canonical null tracks, distinct first and right
+subdivision restrictions, canonical pair and sum cylinders, the normalization square and actual
+normalized endpoint. The whole canonical fiber cube equals the canonical acyclic-to-fiber map.
+This closes the normalization/lift subtopic; COL-0320 below separately supplies actual
+prescribed return and connecting comparison. Prespectrum operation identification, input descent
+and the global higher scalar formula remain separate. See [the exact normalization
+crosswalk](migration/native-scalar-fiber-normalization.md).
+
+## Conditional connective localization and image prespectrum
+
+COL-0318 retains the actual fine boundary, its relative composite and uniqueness, three
+recurring exact positions, the K1-to-K0 tail and its surjective actual-image endpoint. The
+actual coarse-to-fine prespectrum map has positive stable bijections, degree-zero injectivity
+with exactly the global restriction image, and negative vanishing. The canonical
+acyclic-to-coarse-fiber map is a stable equivalence. HasDerivedRoofs and actual-complex
+HasPerfectComplements remain the exact geometric inputs. COL-0319 below separately supplies
+coherent supported-spectrum transport. Global open-pair naturality and the complete TT Section
+5.1 assembly are not asserted by COL-0318. See [the original maps and literature
+crosswalk](migration/native-connective-open-localization.md).
+
+## Actual supported-spectrum transport
+
+COL-0319 constructs strict chosen-zero inverse prespectrum maps between the original supported
+and acyclic categories, then transports the actual canonical fiber map. Projection, every
+original nullhomotopy path and both structure parameters are retained. Canonical zero rebasing
+has an actual coherent comparison, and the whole level-one map recovers the original supported
+fiber K-map through the existing homeomorphisms. This supported-to-relative-coarse-fiber theorem
+requires only an arbitrary open immersion, with no geometric roof/complement premise. The
+support category consists of native perfect complexes on X acyclic on U, not perfect complexes
+on the closed complement. See [the full supported-spectrum
+crosswalk](migration/native-supported-spectrum-transport.md).
+
+## Actual scalar return and connecting comparison
+
+COL-0320 constructs the actual fine return and exact reversed terminal word on every original
+subdivision cube. The original square proves its inverse inclusion/projection class, while the
+two inverse-prefix cancellations, constructive associators, source transport and unpadding
+supply an explicit whole-boundary homotopy to the canonical fiber map of the actual acyclic
+scalar cone. The original connecting map sends this prescribed return class to the canonical
+fiber K-map of the scalar cone K-map, with positive cone sign, including n = 0. All endpoints,
+both times, full stored canonical-null paths and spatial boundary are retained. No filler or
+comparison is assumed. This is the prescribed return class, not yet identification with the
+prespectrum scalar operation or arbitrary-input descent. See [the complete return
+crosswalk](migration/native-scalar-return-comparison.md).
+
+## Connective localization and scalar topic boundary
+
+TT Section 5.1, printed pages 337-338, is connective proto-localization with the corrected
+K-zero-image target; Section 5.2.2 records the K-zero extension obstruction. TT Section 7.4,
+printed page 365, is the later Bass nonconnective theorem, with K-theory on X supported away
+from U rather than K-theory of the closed complement. The verified [published
+article](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Thomason-Trobaugh.pdf)
+is a source locator, not a claim of a newly downloaded or hashed PDF. Native negative-group
+vanishing is the existing actual Omega/stage-path-connected proof; integer grading alone is not
+Bass delooping. Actual qcqs roof/complement existence, comparison with a separately prescribed
+image-cover spectrum, global open-pair naturality, prespectrum scalar-operation identification
+and arbitrary-input descent/global formula remain separate. The relative boundary keeps
++[signedCone], distinct from the T-first Bass forward Laurent-unit convention [T] = -[O]. Local
+native compilation, source correspondence and independent component review are distinct
+evidence. Shared union review and exact-tree remote lint, production axiom and Library checks
+remain pending for this candidate.
