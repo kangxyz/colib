@@ -4,6 +4,12 @@ variable "enabled" {
   default     = false
 }
 
+variable "warmup_only" {
+  description = "Use the fleet for owner-dispatched dependency warmup with one job per runner."
+  type        = bool
+  default     = false
+}
+
 variable "github_app_key_ssm_name" {
   description = "Existing GitHub App private-key SecureString. Only the parameter reference enters state."
   type        = string

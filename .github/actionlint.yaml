@@ -1,2 +1,2 @@
 self-hosted-runner:
-  labels: [colib-ec2]
+  labels: [colib-ec2, colib-dependency-warmup]

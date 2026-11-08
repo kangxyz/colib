@@ -114,3 +114,29 @@ To suspend admission again, set the repository variable false, deactivate the
 Colib hook, and apply `enabled=false`. Existing machines are reclaimed by idle
 scale-down or the watchdog; changing these controls does not interrupt an active
 machine immediately. Verify the Colib EC2 fleet and registered runners are empty.
+
+## On-demand dependency warmup
+
+Use the existing fleet with `enabled=true` and `warmup_only=true` for the
+owner-dispatched **Dependency warmup** workflow on `main`. The webhook
+routes only the queued warmup job to this fleet. The runner registers with
+the single `colib-dependency-warmup` label and verifies the workflow path,
+event, ref and actors before executing job steps. It exits after one job.
+
+Set up this mode once.
+
+1. Run `bash fetch-lambdas.sh` to verify the pinned upstream bundles and
+   package the warmup webhook filter. Verify the GitHub App installation
+   and runner distribution as above.
+2. Keep `COLIB_SELF_HOSTED_ENABLED=false` and apply a reviewed Terraform
+   plan with `-var enabled=true -var warmup_only=true`.
+3. Activate the Colib `workflow_job` hook and set
+   `COLIB_DEPENDENCY_WARMUP_ENABLED=true` after the workflow is available on
+   `main`. Dispatch a small module and verify the artifact and instance
+   termination before relying on the entry point.
+
+Keep the webhook and scale-up function available between jobs. This mode
+has a single-runner cap and an empty idle pool. To suspend it, remove
+`COLIB_DEPENDENCY_WARMUP_ENABLED`, deactivate the hook and apply
+`enabled=false`. Clear `warmup_only` before switching back to the persistent
+Build-to-Test profile.

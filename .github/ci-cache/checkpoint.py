@@ -367,7 +367,7 @@ def snapshot(root, layer, native, production, guards=None, directories=None):
 
 
 @contextmanager
-def archive_stream(path, writing):
+def archive_stream(path, writing, *, header_only=False):
     """Stream zstd on Linux; no simultaneous expanded tar is required."""
     if path.name.endswith('.tar.zst'):
         if writing:
@@ -383,13 +383,14 @@ def archive_stream(path, writing):
                     if code:
                         raise ValueError('checkpoint zstd compression failed')
         else:
-            process = subprocess.Popen(['zstd', '-q', '-d', '-c', str(path)], stdout=subprocess.PIPE)
+            process = subprocess.Popen(['zstd', '-q', '-d', '-c', str(path)], stdout=subprocess.PIPE,
+                                       stderr=subprocess.DEVNULL if header_only else None)
             try:
                 yield process.stdout
             finally:
                 process.stdout.close()
                 code = process.wait()
-                if code:
+                if code and not header_only:
                     raise ValueError('checkpoint zstd decompression failed')
     else:
         with path.open('wb' if writing else 'rb') as stream:
@@ -532,6 +533,14 @@ def validate_metadata(data, args, checked_parents=None):
     return entries
 
 
+def read_metadata(archive, members):
+    header = next(members, None)
+    if header is None or header.name != 'checkpoint.json' or not header.isreg() or header.size > 256 * 1024**2:
+        raise ValueError('missing/oversized checkpoint manifest')
+    with archive.extractfile(header) as stream:
+        return json.load(stream)
+
+
 def restore(args):
     """Validate the entire archive before any overlay; atomically replace files.
 
@@ -545,10 +554,7 @@ def restore(args):
         checked_parents = set()
         with archive_stream(args.input, False) as stream, tarfile.open(fileobj=stream, mode='r|') as archive:
             members = iter(archive)
-            header = next(members, None)
-            if header is None or header.name != 'checkpoint.json' or not header.isreg() or header.size > 256 * 1024**2:
-                raise ValueError('missing/oversized checkpoint manifest')
-            current = json.loads(archive.extractfile(header).read())
+            current = read_metadata(archive, members)
             entries = validate_metadata(current, args, checked_parents)
             if metadata is not None and current != metadata:
                 raise ValueError('archive manifest changed during restore')

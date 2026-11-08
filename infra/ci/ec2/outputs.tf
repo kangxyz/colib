@@ -11,5 +11,5 @@ output "region" {
 }
 
 output "github_runner_labels" {
-  value = ["self-hosted", "linux", "x64", "colib-ec2"]
+  value = var.warmup_only ? ["colib-dependency-warmup"] : ["self-hosted", "linux", "x64", "colib-ec2"]
 }

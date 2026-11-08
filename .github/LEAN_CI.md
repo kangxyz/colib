@@ -35,6 +35,25 @@ webhook, GitHub App authorization and future activation. No EC2 trial is perform
 while disabled. The root-owned marker is `colib-ci-runner-v1` in
 `/etc/colib-ci-runner-mode`; Build restarts `colib-ci-expiry.timer`.
 
+## Dependency warmup
+
+The repository owner can run **Dependency warmup** from `main` to build
+modules from one pinned dependency. Set `dependency` to `Mathlib` or `Stacks`
+and enter the space-separated Lean module names in `modules`. After the
+[one-time fleet setup](../infra/ci/ec2/README.md#on-demand-dependency-warmup),
+each request starts an EC2 runner with the standard 57,344 MiB memory budget
+and eight Lake threads. The compiler cutoff leaves time for cache packing
+before the one-job runner shuts down.
+
+- Stacks restores compatible checkpoints and uploads `build-stacks` in the
+  existing `stacks.tar.zst` format. A compiler failure or cutoff can save
+  completed work to the cache and upload `build-stacks-partial`.
+- Mathlib fetches the official cache for the requested modules and their
+  imports, compiles missing outputs, and uploads the selected closure in
+  `build-mathlib`. Extract `mathlib-cache.tar` into a directory in a workspace
+  with the same pins and run `lake exe cache unstage --staging-dir=DIR`,
+  then `lake exe cache get MODULES` with the original module list.
+
 ## Checkpoints and transport
 
 The workflow retains independent compilation, staging, verification, Test, text-style,

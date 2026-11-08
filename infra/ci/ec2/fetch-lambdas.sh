@@ -16,3 +16,4 @@ for line in Path('lambdas.sha256').read_text().splitlines():
         raise SystemExit(f'Lambda archive digest mismatch: {name}')
 print('Verified the three pinned v8.0.0 Lambda archives.')
 PY
+python3 build-warmup-webhook.py

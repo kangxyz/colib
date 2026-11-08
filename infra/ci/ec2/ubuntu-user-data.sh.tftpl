@@ -32,7 +32,13 @@ ln -sf /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
 user_name=ubuntu
 ${install_runner}
 ${post_install}
-
+%{ if hook_job_started != "" }
+cat > /opt/actions-runner/hook_job_started.sh <<'COLIB_JOB_HOOK'
+${hook_job_started}
+COLIB_JOB_HOOK
+chmod 0755 /opt/actions-runner/hook_job_started.sh
+printf '%s\n' ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/actions-runner/hook_job_started.sh >> /opt/actions-runner/.env
+%{ endif }
 # Deliberately reuse the pinned upstream JIT/SSM/CloudWatch implementation.
 ${replace(start_runner, "  ./svc.sh start\n", "  install -o root -g root -m 0644 /dev/null /etc/colib-ci-runner-mode\n  printf '%s\\n' colib-ci-runner-v1 > /etc/colib-ci-runner-mode\n  ./svc.sh start\n")}
 
