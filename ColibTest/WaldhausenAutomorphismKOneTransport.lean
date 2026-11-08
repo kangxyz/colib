@@ -174,8 +174,10 @@ example :
     ((V.identityCofiberSuffixPath A).map
       (basedLoopMap (changeWeakMap N) (changeWeakMap_basepoint N)).continuous).cast
       (by
-        rw [basedLoopMap_trans, basedLoopMap_refl,
-          deloopingMap_kZeroObjectLoop (changeWeak_exact N) N.zero_eq.symm A])
+        have hA : basedLoopMap (changeWeakMap N) (changeWeakMap_basepoint N)
+            (V.kZeroObjectLoop A) = N.coarse.kZeroObjectLoop A :=
+          deloopingMap_kZeroObjectLoop (changeWeak_exact N) N.zero_eq.symm A
+        rw [basedLoopMap_trans, basedLoopMap_refl, hA])
       (deloopingMap_kZeroObjectLoop (changeWeak_exact N) N.zero_eq.symm A).symm =
         N.coarse.identityCofiberSuffixPath A := by
   apply Path.ext

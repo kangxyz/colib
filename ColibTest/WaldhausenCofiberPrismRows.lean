@@ -108,15 +108,16 @@ example (p : Interval ⦋2⦌) (h02 : p ≠ interval 0 2 (by decide))
       cofiberTwoObject W (A := A) (B := B) (Q := Q) p :=
   cofiberTwoComparison_object_eq W p h02 h12
 
-example : cofiberTwoComparisonComponent W (Q := Q) i (interval 0 1 (by decide)) =
-    𝟙 A := by
-  simp [cofiberTwoComparisonComponent, cofiberTwoComparison_object_eq, interval]
+example : HEq (cofiberTwoComparisonComponent W (Q := Q) i (interval 0 1 (by decide)))
+    (𝟙 A) := by
+  simp [cofiberTwoComparisonComponent, interval]
+  rfl
 
-example : cofiberTwoComparisonComponent W (Q := Q) i (interval 0 2 (by decide)) =
+example : HEq (cofiberTwoComparisonComponent W (Q := Q) i (interval 0 2 (by decide)))
     i := by
   simp [cofiberTwoComparisonComponent, interval]
 
-example : cofiberTwoComparisonComponent W (Q := Q) i (interval 1 2 (by decide)) =
+example : HEq (cofiberTwoComparisonComponent W (Q := Q) i (interval 1 2 (by decide)))
     (0 : W.zero ⟶ Q) := by
   simp [cofiberTwoComparisonComponent, interval]
 
@@ -310,7 +311,7 @@ example (A : C) : HEq (η.app V.zero)
   oneDiagram_transformation_app V W hF η hF0 hG0 A (interval 0 0 (by decide))
 
 example (A : C) : HEq (η.app A)
-    (((oneEmbedding W).map (η.app A)).hom.app (interval 0 1 (by decide))) := rfl
+    (((oneEmbedding W).map (η.app A)).hom.app (interval 0 1 (by decide))) := by rfl
 
 include hF hF0 hG0 in
 example (A : C) : HEq (η.app V.zero)

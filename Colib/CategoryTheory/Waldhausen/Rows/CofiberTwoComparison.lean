@@ -86,7 +86,7 @@ def cofiberTwoComparison (hiq : i ≫ q = 0) :
     have hf : a.val ≤ c.val ∧ b.val ≤ d.val := leOfHom f
     fin_cases a <;> fin_cases b <;> fin_cases c <;> fin_cases d <;>
       dsimp at hab hcd hf ⊢ <;>
-      solve
+      first
       | omega
       | exact W.isZero.eq_of_src _ _
       | exact W.isZero.eq_of_tgt _ _
@@ -95,6 +95,7 @@ def cofiberTwoComparison (hiq : i ≫ q = 0) :
           Subtype.mk.injEq, Prod.mk.injEq, Fin.reduceEq, and_false,
           and_self, Category.comp_id, Category.id_comp, and_true,
           comp_zero, hiq]
+    exact Category.id_comp i
 
 /-- The original row transformation is a morphism between the two genuine quotient rows. -/
 def cofiberTwoRowComparison (hi : W.cof i)
