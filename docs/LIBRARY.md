@@ -123,6 +123,10 @@ native export also supplies its actual Lean declarations and defining modules. U
 `rg 'colib_tag "COL-0004"' Colib` to find its compiled bindings. The website's reference
 index finds all items attached to a book, paper or Stacks locator.
 
+Use English title case for chapter names. In Library prose, enclose inline TeX in
+`$...$` or `\(...\)` and display TeX in `$$...$$` or `\[...\]`. TOML literal strings
+preserve backslashes in formulas.
+
 Place a new mathematical file under its native Mathlib-style subject. New chapters and sections
 need an introduction and an actual first item. Code ownership and imports are read from Lean.
 Native tag bindings must resolve to maintained item IDs. Every published item has a

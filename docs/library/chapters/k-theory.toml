@@ -1,6 +1,6 @@
 [chapter]
 id = "k-theory"
-title = "General algebraic K-theory"
+title = "General Algebraic K-Theory"
 order = 10
 introduction = "The general theory of exact and Waldhausen categories: Grothendieck presentations, Quillen and Waldhausen K-groups, functoriality, comparison, resolution, devissage, localization and cofinality. These results use the actual categorical objects and canonical maps. Ring, field and scheme specializations have a separate chapter."
 

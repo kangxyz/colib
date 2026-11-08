@@ -1,6 +1,6 @@
 [chapter]
 id = "algebraic-geometry"
-title = "Algebraic geometry"
+title = "Algebraic Geometry"
 order = 40
 introduction = "Scheme constructions retain their actual morphisms and geometric hypotheses."
 

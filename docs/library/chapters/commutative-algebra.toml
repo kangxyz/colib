@@ -1,6 +1,6 @@
 [chapter]
 id = "commutative-algebra"
-title = "Commutative algebra"
+title = "Commutative Algebra"
 order = 15
 introduction = "Native module lengths, supports and localizations provide the local algebra used in multiplicity and cohomological constructions."
 

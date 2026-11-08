@@ -1,6 +1,6 @@
 [chapter]
 id = "k-theory-rings-schemes"
-title = "Algebraic K-theory of rings and schemes"
+title = "Algebraic K-Theory of Rings and Schemes"
 order = 12
 introduction = "Ring, field and scheme applications of general algebraic K-theory. Separate sections cover dimension, native Milnor K-theory, Quillen K-theory of module categories, and geometric K-theory. Abstract exact-category and Waldhausen theorems remain in the general chapter."
 

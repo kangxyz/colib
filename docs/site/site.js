@@ -2,6 +2,34 @@
 
 const root = document.body.dataset.root;
 const input = document.querySelector("#library-search");
+const contents = document.querySelector(".contents");
+const compactLayout = window.matchMedia("(max-width: 880px)");
+
+function setContentsLayout() {
+  contents.open = !compactLayout.matches;
+}
+
+setContentsLayout();
+compactLayout.addEventListener("change", setContentsLayout);
+
+function typesetMath(element) {
+  window.renderMathInElement?.(element, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "\\[", right: "\\]", display: true },
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$", right: "$", display: false },
+    ],
+    ignoredClasses: ["katex"],
+    throwOnError: false,
+    trust: false,
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  typesetMath(document.querySelector(".layout"));
+});
+
 if (document.body.dataset.home === "true" && /^#COL-[0-9]{4,}$/.test(location.hash)) {
   location.replace(root + "tag/" + location.hash.slice(1) + "/");
 }
@@ -53,10 +81,17 @@ if (results) {
       link.textContent = item.title;
       title.append(link);
       const statement = document.createElement("p");
-      statement.textContent = item.statement;
+      if (item.kind === "declaration") {
+        const code = document.createElement("code");
+        code.textContent = item.statement;
+        statement.append(code);
+      } else {
+        statement.textContent = item.statement;
+      }
       article.append(label, title, statement);
       results.append(article);
     }
+    typesetMath(results);
   }
   document.querySelector("form.search").addEventListener("submit", (event) => {
     event.preventDefault();

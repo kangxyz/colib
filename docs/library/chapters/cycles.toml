@@ -1,6 +1,6 @@
 [chapter]
 id = "cycles"
-title = "Cycles and correspondences"
+title = "Cycles and Correspondences"
 order = 20
 introduction = "Cycle constructions depend on precise local multiplicities and pushforward degrees. The first section establishes the affine length-degree calculation that will supply finite-flat correspondence coefficients. Geometric correspondence and composition constructions have their subsequent source owners."
 

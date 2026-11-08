@@ -406,16 +406,20 @@ class LibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "previous Library path"):
             catalog.load_library(self.root)
 
-    def test_retired_item_keeps_page_and_search_record(self):
+    def render_site_fixture(self, built):
         spec = importlib.util.spec_from_file_location("colib_site", catalog.ROOT / "scripts/site.py")
         site = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(site)
-        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         built["source_hashes"] = catalog.source_hashes()
         library_path = self.root / "library.json"
         library_path.write_text(json.dumps(built))
         output = self.root / "site"
         site.build(library_path, output)
+        return output
+
+    def test_retired_item_keeps_page_and_search_record(self):
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
         page = (output / "tag/COL-0176/index.html").read_text()
         self.assertIn("Retired Library item", page)
         self.assertIn("5c0a7ab9c060b7482a3c49056bb9b3284fc47829", page)
@@ -424,6 +428,28 @@ class LibraryTests(unittest.TestCase):
         retired = next(row for row in records if row.get("id") == "COL-0176")
         self.assertEqual(retired["kind"], "retired")
         self.assertEqual(retired["path"], "tag/COL-0176/")
+
+    def test_site_preserves_navigation_rows_and_tex_source(self):
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        item = built["entries"]["COL-0004"]
+        item["statement"] = r"Inline \(x < y\) and display \[\text{{revision}}\]."
+        section = built["sections"][item["section"]]
+        count = len(section["entries"])
+        output = self.render_site_fixture(built)
+        page = (output / "tag/COL-0004/index.html").read_text()
+        self.assertIn('href="../../chapters/category-theory/">Category Theory</a>', page)
+        self.assertIn(
+            f'href="../../sections/{section["id"]}/" aria-current="location">'
+            f'<span class="nav-section-title">{section["title"]}</span> '
+            f'<span class="count">{count}</span>',
+            page,
+        )
+        self.assertIn(r"Inline \(x &lt; y\) and display \[\text{{revision}}\].", page)
+        section_page = (output / "sections" / section["id"] / "index.html").read_text()
+        self.assertIn(f'href="../../sections/{section["id"]}/" aria-current="page"', section_page)
+        records = json.loads((output / "search.json").read_text())
+        result = next(row for row in records if row.get("id") == item["id"])
+        self.assertEqual(result["statement"], item["statement"])
 
     def test_perfect_regressions_use_only_native_objects(self):
         root = catalog.ROOT

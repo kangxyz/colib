@@ -5,6 +5,7 @@ import argparse
 from html import escape
 import json
 from pathlib import Path
+import re
 import shutil
 
 import catalog
@@ -37,14 +38,17 @@ def build(library_path, output):
     ]
     positions = {identifier: index for index, identifier in enumerate(reading_order)}
     chapter_lookup = {chapter["id"]: chapter for chapter in chapters}
-    numbers, module_items, source_items, citations_by_module = {}, {}, {}, {}
+    numbers, section_numbers = {}, {}
+    module_items, source_items, citations_by_module = {}, {}, {}
     declarations_by_module, citations_by_declaration = {}, {}
     for declaration in library["declarations"].values():
         declarations_by_module.setdefault(declaration["module"], []).append(declaration)
     for chapter_index, chapter in enumerate(chapters, 1):
         for section_index, section_id in enumerate(chapter["sections"], 1):
+            section_number = f"{chapter_index}.{section_index}"
+            section_numbers[section_id] = section_number
             for item_index, identifier in enumerate(sections[section_id]["entries"], 1):
-                numbers[identifier] = f"{chapter_index}.{section_index}.{item_index}"
+                numbers[identifier] = f"{section_number}.{item_index}"
     for identifier, entry in entries.items():
         for name in entry["declarations"]:
             module = library["declarations"][name]["module"]
@@ -59,25 +63,30 @@ def build(library_path, output):
     def render_page(path, title, content, active_section="", breadcrumbs=()):
         depth = len(Path(path).parts) - 1
         root = "../" * depth if depth else "./"
-        navigation = []
+        navigation = ['<ul class="chapter-nav">']
         for chapter in chapters:
+            chapter_path = f'chapters/{chapter["id"]}/'
+            current = ' aria-current="page"' if path == chapter_path + "index.html" else ""
             navigation.append(
-                '<div class="nav-chapter">'
-                + anchor(chapter["title"], root + "chapters/" + chapter["id"] + "/")
+                '<li class="nav-chapter">'
+                f'<a class="nav-chapter-link" href="{root}{chapter_path}"{current}>'
+                f'{escape(chapter["title"])}</a><ul class="section-nav">'
             )
             for section_id in chapter["sections"]:
                 section = sections[section_id]
-                active = (
-                    ' class="active" aria-current="page"'
-                    if section_id == active_section
+                section_path = f"sections/{section_id}/"
+                current = (
+                    ' aria-current="page"' if path == section_path + "index.html"
+                    else ' aria-current="location"' if section_id == active_section
                     else ""
                 )
                 navigation.append(
-                    f'<a{active} href="{root}sections/{section_id}/">'
-                    + escape(section["title"])
-                    + f'<span>{len(section["entries"])}</span></a>'
+                    f'<li><a class="nav-section link-row" href="{root}{section_path}"{current}>'
+                    f'<span class="nav-section-title">{escape(section["title"])}</span> '
+                    f'<span class="count">{len(section["entries"])}</span></a></li>'
                 )
-            navigation.append("</div>")
+            navigation.append("</ul></li>")
+        navigation.append("</ul>")
         trail = [anchor("Library", root)]
         trail.extend(anchor(label, root + href) for label, href in breadcrumbs)
         values = {
@@ -86,15 +95,16 @@ def build(library_path, output):
             "home": "true" if path == "index.html" else "false",
             "navigation": "".join(navigation),
             "content": content,
-            "breadcrumbs": '<nav class="breadcrumbs" aria-label="Breadcrumb">'
-            + '<span aria-hidden="true">/</span>'.join(trail)
-            + "</nav>",
+            "breadcrumbs": (
+                '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'
+                + "".join(f"<li>{link}</li>" for link in trail)
+                + "</ol></nav>"
+                if path != "index.html" else ""
+            ),
             "revision": library["revision"],
             "short_revision": library["revision"][:7],
         }
-        text = template
-        for key, value in values.items():
-            text = text.replace("{{" + key + "}}", value)
+        text = re.sub(r"\{\{([a-z_]+)\}\}", lambda match: values[match[1]], template)
         target = output / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text)
@@ -197,7 +207,6 @@ def build(library_path, output):
         return "".join(pieces)
 
     home = [
-        '<p class="eyebrow">COHOMOLOGY · HOMOTOPY · ALGEBRAIC GEOMETRY</p>',
         "<h1>Colib Library</h1>",
         '<p class="lede">The mathematical organization of Colib, from definitions and prerequisites '
         "to theorems, comparisons and their precise literature references.</p>",
@@ -214,10 +223,11 @@ def build(library_path, output):
         )
         for section_id in chapter["sections"]:
             section = sections[section_id]
+            count = len(section["entries"])
             home.append(
-                "<li>"
+                '<li><div class="link-row">'
                 + anchor(section["title"], "sections/" + section_id + "/")
-                + f' <span class="count">{len(section["entries"])} items</span></li>'
+                + f'<span class="count">{count} {"item" if count == 1 else "items"}</span></div></li>'
             )
         home.append("</ol></section>")
     home.append(
@@ -229,9 +239,9 @@ def build(library_path, output):
         + ".</p>"
     )
     render_page("index.html", "Contents", "".join(home))
-    for chapter in chapters:
+    for chapter_index, chapter in enumerate(chapters, 1):
         body = (
-            "<h1>"
+            f'<p class="eyebrow">Chapter {chapter_index}</p><h1>'
             + escape(chapter["title"])
             + '</h1><p class="lede">'
             + escape(chapter["introduction"])
@@ -258,7 +268,7 @@ def build(library_path, output):
         chapter = chapter_lookup[section["chapter"]]
         trail = [(chapter["title"], "chapters/" + chapter["id"] + "/")]
         body = (
-            "<h1>"
+            f'<p class="eyebrow">Section {section_numbers[section_id]}</p><h1>'
             + escape(section["title"])
             + '</h1><p class="lede">'
             + escape(section["introduction"])
@@ -286,18 +296,22 @@ def build(library_path, output):
             section_id,
             trail,
         )
-        for index, identifier in enumerate(section["entries"]):
+        for identifier in section["entries"]:
             body = render_item(identifier, "../../", heading="h1")
             neighbors = []
             position = positions[identifier]
             if position:
-                neighbors.append("Previous · " + item_link(reading_order[position - 1]))
+                neighbors.append(
+                    '<li><span>Previous</span>' + item_link(reading_order[position - 1]) + '</li>'
+                )
             if position + 1 < len(reading_order):
-                neighbors.append("Next · " + item_link(reading_order[position + 1]))
+                neighbors.append(
+                    '<li><span>Next</span>' + item_link(reading_order[position + 1]) + '</li>'
+                )
             body += (
-                '<nav class="reading-nav" aria-label="Reading order">'
-                + "<br>".join(neighbors)
-                + "</nav>"
+                '<nav class="reading-nav" aria-label="Reading order"><ul>'
+                + "".join(neighbors)
+                + "</ul></nav>"
             )
             render_page(
                 "tag/" + identifier + "/index.html",
@@ -407,12 +421,12 @@ def build(library_path, output):
             else:
                 count = len(module_items.get(name, set()))
                 parts.append(
-                    "<li>"
+                    '<li><div class="link-row">'
                     + title
                     + '<span class="count">'
                     + str(count)
                     + (" item" if count == 1 else " items")
-                    + "</span></li>"
+                    + "</span></div></li>"
                 )
         return "".join(parts) + "</ul>"
 

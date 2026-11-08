@@ -1,6 +1,6 @@
 [chapter]
 id = "category-theory"
-title = "Category theory"
+title = "Category Theory"
 order = 5
 introduction = "Categorical foundations retain their chosen objects, universal properties and admissible maps. Exact structures supply the conflations used by algebraic K-theory without requiring an ambient abelian category."
 
