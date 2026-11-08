@@ -709,3 +709,17 @@ No Aglib or Quillen adapter is used. See [the exact source crosswalk](migration/
 
 COL-0307 proves actual perfect derived roofs and perfect complements for a quasi-compact quasi-separated scheme X and quasi-compact open U, allowing a quasi-coherent-cohomology target that need not be perfect and any chosen open derived model. COL-0330 uses these geometric results to establish fixed-pair TT Theorem 5.1.1: the actual coarse connective Omega spectrum realizes the K0 restriction-image cover, with positive-degree isomorphisms and exactly the K0 restriction image, together with actual supported fiber, projection, nullhomotopy, canonical rebase and boundary compatibility. COL-0332 supplies supported-cover excision under image(j) union T = X without compactness. Full additional-support TT 5.1.2, arbitrary global-pair naturality and Bass 7.4 remain separate and are not claimed.
 See the [geometry crosswalk](migration/native-perfect-roofs.md), [fixed-pair endpoint crosswalk](migration/native-qcqs-connective-localization.md), and [supported-cover excision crosswalk](migration/quillen/supported-cover-excision.md). No additional preselected cover-spectrum comparison is required for this fixed-pair statement.
+
+## Fixed-pair supported connective image cover (COL-0335)
+
+The actual supported coarse S-prespectrum is now assembled as the connective image
+cover for the fixed additional-support pair under qcqs ambient and compact-union
+hypotheses. Literal union-support/acyclic transport preserves the original inclusion,
+whole nullhomotopy, independent structure/time parameters, level-one fiber K-map and
+all-integer stable equivalence. The original exact supported restriction factors
+coherently through the coarse model, and COL-0334 supplies the positive comparison
+and exact K-zero image. See [the source crosswalk](SUPPORTED_CONNECTIVE_IMAGE_COVER.md).
+Support-forgetting boundary compatibility, arbitrary global-pair naturality,
+general two-piece supported gluing and Bass TT 7.4 remain separate obligations.
+
+The supporting components have separate source crosswalks: [supported qcqs geometry](migration/native-supported-qcqs-geometry.md) (COL-0333) and [supported fine comparison](migration/native-supported-fine-comparison.md) (COL-0334).
