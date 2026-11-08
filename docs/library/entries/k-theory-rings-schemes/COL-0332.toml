@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0332"
+title = "Supported open-cover excision"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 112
+statement = '''
+For an open immersion j: U → X and an auxiliary open T with j(U) ∪ T = X,
+actual restriction and extension by zero on native supported perfect complexes
+are exact adjoint functors. Their genuine unit and counit are quasi-isomorphisms.
+The induced original S-realization maps are homotopy inverses, and their K-maps
+are mutually inverse in every natural degree, including zero. The normalized
+original restriction prespectrum map is a stable equivalence in every integer
+degree and its nonnegative stable maps retain the original restriction K-maps.
+'''
+scope = '''
+Arbitrary schemes and open immersions. No quasi-compactness, separation,
+Noetherian, termwise-quasicoherent or compact-support premise is imposed.
+Perfectness is native Stacks perfectness on actual complexes, cofibrations are
+ambient monomorphisms and weak equivalences are genuine quasi-isomorphisms.
+This is supported cover excision for the original connective prespectra, not
+full fine Thomason–Trobaugh localization, a Bass-telescope comparison, or a
+nonconnective theorem. Opposite exactness is not asserted or consumed.
+'''
+review = "author_checked"
+provenance = "quillen"

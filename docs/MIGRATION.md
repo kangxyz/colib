@@ -697,3 +697,15 @@ No qcqs or CompactSpace T assumption and no Aglib adapter is used.
 See [the source crosswalk](migration/quillen/supported-open-coarse-fibration.md).
 Opposite-exact auxiliary statements, prespectrum/stable/chosen-zero transport,
 fine supported-open TT 5.1.2 and Bass remain separate, unclaimed topics.
+
+
+## Supported-Cover Excision
+
+COL-0332 adds supported-cover excision for an open immersion j and auxiliary open T with image(j) union T = X: genuine extension-by-zero adjunction, stalkwise exactness, supported perfectness by two-open descent, actual S-realization inverse, literal restriction K-equivalence including K0, and normalized connective prespectrum stability in every integer degree. No qcqs, compactness, separation or supplied-equivalence premise is used. Negative stable degrees are connective vanishing, not Bass. COL-0331 retains its coarse target and stated limitations; fine TT localization and opposite exactness remain unclaimed.
+No Aglib or Quillen adapter is used. See [the exact source crosswalk](migration/quillen/supported-cover-excision.md).
+
+
+## Native Qcqs Scheme Localization
+
+COL-0307 proves actual perfect derived roofs and perfect complements for a quasi-compact quasi-separated scheme X and quasi-compact open U, allowing a quasi-coherent-cohomology target that need not be perfect and any chosen open derived model. COL-0330 uses these geometric results to establish fixed-pair TT Theorem 5.1.1: the actual coarse connective Omega spectrum realizes the K0 restriction-image cover, with positive-degree isomorphisms and exactly the K0 restriction image, together with actual supported fiber, projection, nullhomotopy, canonical rebase and boundary compatibility. COL-0332 supplies supported-cover excision under image(j) union T = X without compactness. Full additional-support TT 5.1.2, arbitrary global-pair naturality and Bass 7.4 remain separate and are not claimed.
+See the [geometry crosswalk](migration/native-perfect-roofs.md), [fixed-pair endpoint crosswalk](migration/native-qcqs-connective-localization.md), and [supported-cover excision crosswalk](migration/quillen/supported-cover-excision.md). No additional preselected cover-spectrum comparison is required for this fixed-pair statement.
