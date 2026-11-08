@@ -330,30 +330,9 @@ jobs:
       - name: Configure Lean
         id: lean-setup
         working-directory: ${{ inputs.package-directory }}
-        run: |
-          installer="$RUNNER_TEMP/elan-init.sh"
-          curl --fail --silent --show-error --location --retry 2 --retry-all-errors \
-            --connect-timeout 20 --max-time 120 \
-            https://elan.lean-lang.org/elan-init.sh \
-            --output "$installer"
-          chmod +x "$installer"
-          "$installer" -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-          export PATH="$HOME/.elan/bin:$PATH"
-
-          for attempt in 1 2 3; do
-            if LAKE_PATH=$(elan which lake); then
-              lean --version
-              "$LAKE_PATH" --version
-              exit 0
-            fi
-            if test "$attempt" -lt 3; then
-              echo "::warning::Lean toolchain acquisition failed (attempt $attempt/3); retrying."
-              sleep "$((attempt * 5))"
-            fi
-          done
-          echo '::error::Lean toolchain acquisition failed after 3 attempts.'
-          exit 1
+        env: &lean-setup-env
+          GH_TOKEN: ${{ github.token }}
+        run: &configure-lean bash "$GITHUB_WORKSPACE/.github/ci-cache/configure-lean.sh"
       - name: First-main native no-build readiness before cache tools or production build
         if: ${{ inputs.first-ci-cache != '' }}
         working-directory: ${{ inputs.package-directory }}
@@ -916,30 +895,8 @@ jobs:
         if: ${{ needs.build.outputs.local-handoff != 'true' }}
         id: lean-setup
         working-directory: ${{ inputs.package-directory }}
-        run: |
-          installer="$RUNNER_TEMP/elan-init.sh"
-          curl --fail --silent --show-error --location --retry 2 --retry-all-errors \
-            --connect-timeout 20 --max-time 120 \
-            https://elan.lean-lang.org/elan-init.sh \
-            --output "$installer"
-          chmod +x "$installer"
-          "$installer" -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-          export PATH="$HOME/.elan/bin:$PATH"
-
-          for attempt in 1 2 3; do
-            if LAKE_PATH=$(elan which lake); then
-              lean --version
-              "$LAKE_PATH" --version
-              exit 0
-            fi
-            if test "$attempt" -lt 3; then
-              echo "::warning::Lean toolchain acquisition failed (attempt $attempt/3); retrying."
-              sleep "$((attempt * 5))"
-            fi
-          done
-          echo '::error::Lean toolchain acquisition failed after 3 attempts.'
-          exit 1
+        env: *lean-setup-env
+        run: *configure-lean
       - name: First-main native no-build readiness before recovery or checker preparation
         if: ${{ inputs.first-ci-cache != '' }}
         working-directory: ${{ inputs.package-directory }}

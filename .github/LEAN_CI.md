@@ -102,6 +102,11 @@ Pages consumes the resulting `colib-site` artifact from a trusted main push.
 
 ## Pin-specific adaptations
 
+GitHub-hosted Linux x64 jobs try the standard Elan setup first. If it fails,
+they obtain the official Lean distribution named in `lean-toolchain` through
+the Release Asset API. The fallback checks the asset size, SHA-256 digest and
+Lean version before putting the distribution on PATH.
+
 The checkpoint and staging helpers admit the pinned Lean 4.35.0 toolchain and
 verify the exact Mathlib and ProofWidgets configuration bytes. The lint adapter
 binds Batteries `66e4691` and the known Mathlib linter implementations for that
