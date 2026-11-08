@@ -1444,7 +1444,6 @@ jobs:
       CI_NATIVE_MEMORY_MIB: 13824
       CI_LAKE_THREADS: 1
       CI_LINT_WORKERS: 4
-      LAKE_CACHE_DIR: ${{ runner.temp }}/one-time-native-lake-cache
     defaults: *native-resource-defaults
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -1452,7 +1451,9 @@ jobs:
           persist-credentials: false
       - name: Establish cache-safe compiler deadline
         shell: bash
-        run: echo "NATIVE_DEADLINE=$(( $(date +%s) + 330 * 60 ))" >> "$GITHUB_ENV"
+        run: |
+          echo "LAKE_CACHE_DIR=$RUNNER_TEMP/one-time-native-lake-cache" >> "$GITHUB_ENV"
+          echo "NATIVE_DEADLINE=$(( $(date +%s) + 330 * 60 ))" >> "$GITHUB_ENV"
       - name: Retrieve the exact existing official artifact
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
         with:
