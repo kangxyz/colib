@@ -44,17 +44,21 @@ theorem Complex.isPerfectComplex_restrictOpenImmersion (K : CochainComplex X.Mod
   let e₂ := (NatIso.mapHomologicalComplex
     ((restrictFunctorCongr (morphismRestrict_ι j U')) ≪≫
       restrictFunctorComp V.ι j) (ComplexShape.up ℤ)).app K
+  have : (show StrictlyPerfect.OXMod.{u, u, u} Y.toRingedSpace ⥤
+      StrictlyPerfect.OXMod.{u, u, u} (Y.toRingedSpace.restrict V.isOpenEmbedding) from
+        restrictFunctor V.ι).PreservesZeroMorphisms :=
+    ⟨fun _ _ => by ext _ _; rfl⟩
   let e₃ := (NatIso.mapHomologicalComplex
     (RingedSpace.restrictModulesIsoRestrictFunctor Y V)
       (ComplexShape.up ℤ)).app (F.obj K)
   let e : G.obj (RingedSpace.restrictComplex K U') ≅
       RingedSpace.restrictComplex (F.obj K) V := e₁ ≪≫ e₂ ≪≫ e₃.symm
-  have : QuasiIso α := hα
   have : QuasiIso (G.map α) := by
     rw [quasiIso_iff]
     intro n
     rw [quasiIsoAt_iff_isIso_homologyMap]
-    exact isIso_homologyMap_restrictFunctor k α n inferInstance
+    exact isIso_homologyMap_restrictFunctor k α n
+      ((quasiIsoAt_iff_isIso_homologyMap α n).mp ((quasiIso_iff α).mp hα n))
   exact ⟨V, hy, G.obj P, isStrictlyPerfect_restrictFunctor k hP,
     G.map α ≫ e.hom, inferInstance⟩
 

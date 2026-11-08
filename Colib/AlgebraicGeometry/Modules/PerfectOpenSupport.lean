@@ -36,7 +36,7 @@ def perfectSupportedToAcyclic :
   obj K := ⟨⟨K.obj, K.property.1⟩,
     (perfectOpenAcyclic_iff j ⟨K.obj, K.property.1⟩).2 K.property.2⟩
   map f := (acyclicObjects (perfectOpenNested j)).homMk
-    ((RingedSpace.IsPerfectComplex (X := X.toRingedSpace)).homMk f.hom)
+    (ObjectProperty.homMk (P := RingedSpace.IsPerfectComplex (X := X.toRingedSpace)) f.hom)
   map_id _ := rfl
   map_comp _ _ := rfl
 

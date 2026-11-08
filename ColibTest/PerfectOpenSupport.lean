@@ -7,7 +7,7 @@ module
 
 import Colib.AlgebraicGeometry.KTheory.PerfectOpenSupport
 
-/-! Source-only regression clients: literal maps/classes and existing canonical K-map. -/
+/-! Regression clients: literal maps/classes and existing canonical K-map. -/
 open CategoryTheory AlgebraicGeometry
 open Scheme.Modules Waldhausen Fibration
 noncomputable section
@@ -22,6 +22,8 @@ example {K L : (perfectSupported j).FullSubcategory} (f : K ⟶ L) :
     (perfectSupportedWaldhausen j).weq f ↔ QuasiIso f.hom := Iff.rfl
 example {K L : AcyclicCategory (perfectOpenNested j)} (f : K ⟶ L) :
     ((perfectAcyclicToSupported j).map f).hom = f.hom.hom := rfl
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.defeqAttrib.useBackward true in
 example : perfectAcyclicToSupported j ⋙ perfectSupportedInclusion j =
     acyclicInclusion (perfectOpenNested j) := rfl
 example : perfectSupportedToAcyclic j ⋙ acyclicInclusion (perfectOpenNested j) =
