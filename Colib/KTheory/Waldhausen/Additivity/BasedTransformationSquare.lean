@@ -259,43 +259,50 @@ theorem subdividedBasedAdditivityTransformationSquare_transformation_one
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:157-165" "adaptation"
-    "Actual relative pasting with one prefix reversal and half/quarter/quarter times; native owners, original hypotheses and parameters retained"]
+    "Actual relative pasting with one prefix reversal and half/quarter/quarter times; \
+      native owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationHomotopy
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:168-173" "adaptation"
-    "Actual continuous square with independent transformation and additivity times; native owners, original hypotheses and parameters retained"]
+    "Actual continuous square with independent transformation and additivity times; \
+      native owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:188-196" "adaptation"
-    "Whole initial additivity face equals the actual horizontally restricted middle track; native owners, original hypotheses and parameters retained"]
+    "Whole initial additivity face equals the actual horizontally restricted middle \
+      track; native owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare_additivity_zero
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:199-206" "adaptation"
-    "Whole terminal additivity face equals the actual quotient-first sum track; native owners, original hypotheses and parameters retained"]
+    "Whole terminal additivity face equals the actual quotient-first sum track; native \
+      owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare_additivity_one
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:209-228" "adaptation"
-    "Entire two-time subdivision zero surface equals the actual target zero point; native owners, original hypotheses and parameters retained"]
+    "Entire two-time subdivision zero surface equals the actual target zero point; native \
+      owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare_fixed_zero
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:231-250" "adaptation"
-    "Whole initial transformation face equals the original based-additivity homotopy; native owners, original hypotheses and parameters retained"]
+    "Whole initial transformation face equals the original based-additivity homotopy; \
+      native owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare_transformation_zero
 
 attribute [colib_tag "COL-0301",
   colib_ref "quillen"
     "Quillen/Waldhausen/Additivity/BasedTransformationSquare.lean:253-272" "adaptation"
-    "Whole terminal transformation face equals the original based-additivity homotopy; native owners, original hypotheses and parameters retained"]
+    "Whole terminal transformation face equals the original based-additivity homotopy; \
+      native owners, original hypotheses and parameters retained"]
   subdividedBasedAdditivityTransformationSquare_transformation_one
 
 end CategoryTheory.Waldhausen.Additivity

@@ -8,6 +8,7 @@ module
 
 public import Colib.CategoryTheory.Waldhausen.Additivity.NormalizedZeroMaps
 public import Colib.KTheory.Waldhausen.Additivity.DiagonalNaturality
+public import Colib.KTheory.Waldhausen.CanonicalMap
 public import Colib.Topology.Homotopy.HomotopyGroup.Homeomorph
 public import Colib.Topology.Realization.EdgePath
 

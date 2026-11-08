@@ -59,8 +59,8 @@ example (e : Fin 2) (z : StdSimplex ℝ (Fin 3)) :
     W.weakObjectCompositionRealization f g hf hg (StdSimplex.single e, z) = W.kBasepoint :=
   W.weakObjectCompositionRealization_vertex f g hf hg e z
 
-/-- Complete original API: `weakObjectCompositionCube`. -/
 include f g hf hg in
+/-- Complete original API: `weakObjectCompositionCube`. -/
 example : C(unitInterval × (unitInterval × unitInterval), W.Delooping) :=
   W.weakObjectCompositionCube f g hf hg
 
@@ -112,8 +112,8 @@ example (r s : unitInterval) :
     W.weakObjectCompositionCube f g hf hg (r, s, 1) = W.kBasepoint :=
   W.weakObjectCompositionCube_loop_one f g hf hg r s
 
-/-- Complete original API: `weakObjectCompositionLoops`. -/
 include f g hf hg in
+/-- Complete original API: `weakObjectCompositionLoops`. -/
 example :
     C(unitInterval × unitInterval, Path W.kBasepoint W.kBasepoint) :=
   W.weakObjectCompositionLoops f g hf hg

@@ -71,7 +71,8 @@ theorem mixedIntervalArrows_one {n m : SimplexCategory}
     intervalArrows (firstIndex (oneCut n)) (switchedIndex (oneCut n))
         (firstIndex_le_switchedIndex (oneCut n))
         (gridMap₂ (inclusion (oneCut n)) (𝟙 m) ⋙ A) =
-      intervalArrows (SSet.OrdinalJoin.left n n) (SSet.OrdinalJoin.right n n) (left_le_right n) A := by
+      intervalArrows (SSet.OrdinalJoin.left n n) (SSet.OrdinalJoin.right n n)
+        (left_le_right n) A := by
   rw [intervalArrows_input]
   exact intervalArrows_congr (firstIndex_inclusion (oneCut n))
     (switchedIndex_one_inclusion n) A
@@ -159,7 +160,8 @@ theorem normalizedMixedTransformation_one {n m : SimplexCategory}
     HEq ((normalizedMixedTransformation V W a a' b b' hs hs' ηF ηG haη (oneCut n)
         (gridMap₂ (inclusion (oneCut n)) (𝟙 m) ⋙ A)).app x)
       ((Functor.whiskerLeft
-        (intervalArrows (SSet.OrdinalJoin.left n n) (SSet.OrdinalJoin.right n n) (left_le_right n) A)
+        (intervalArrows (SSet.OrdinalJoin.left n n) (SSet.OrdinalJoin.right n n)
+          (left_le_right n) A)
         (normalizedPushoutTransformation W a a' ηF ηG haη b b' V hs hs')).app x) :=
   normalizedPushoutTransformation_app_heq V W a a' b b' hs hs' ηF ηG haη
     (congrArg (fun T ↦ T.obj x) (mixedIntervalArrows_one A))

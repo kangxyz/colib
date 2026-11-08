@@ -139,6 +139,7 @@ theorem suffix_apply (s t : unitInterval) :
         (cofiberTwo_identity_square W) (s, t) :=
   W.identityCofiberSuffixPath_apply A s t
 
+omit [HasZeroMorphisms C] in
 /-- The curried inclusion square retains both nerve time and object-loop time. -/
 theorem inclusion_path_apply (s t : unitInterval) :
     W.weakObjectSquareLoopPath i hwi s t = W.weakObjectSquareTrack i hwi (s, t) := rfl
@@ -235,7 +236,7 @@ theorem component_source :
       (canonicalFiberObjectLoopTranspose N
         (cofiberPrismAcyclicQuotient N i q hi hwi hQ))).val.1 =
       (V.kZeroObjectLoop A).trans (V.kZeroObjectLoop Q) := by
-  simpa only [canonicalFiberComponentEquiv_object] using
+  simpa only [canonicalFiberComponentEquiv_object, cofiberPrismAcyclicQuotient] using
     (canonicalFiberObjectPrefixTransport_source N A (cofiberPrismAcyclicQuotient N i q hi hwi hQ))
 
 end CanonicalFiber
