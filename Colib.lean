@@ -236,6 +236,7 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedExcision
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedExcisionSpectrum
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedFiberComparison
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenFibration
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenForget
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenImagePrespectrum
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenLongExactSequence
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenMaps
@@ -251,6 +252,7 @@ public import Colib.AlgebraicGeometry.KTheory.Restriction
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenDerivedImageApproximation
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenDerivedImageCofinality
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenFineComparison
+public import Colib.AlgebraicGeometry.KTheory.SupportedOpenFineForget
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenFineLocalization
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenKZeroImage
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenQcqsComparison

@@ -719,7 +719,18 @@ whole nullhomotopy, independent structure/time parameters, level-one fiber K-map
 all-integer stable equivalence. The original exact supported restriction factors
 coherently through the coarse model, and COL-0334 supplies the positive comparison
 and exact K-zero image. See [the source crosswalk](SUPPORTED_CONNECTIVE_IMAGE_COVER.md).
-Support-forgetting boundary compatibility, arbitrary global-pair naturality,
-general two-piece supported gluing and Bass TT 7.4 remain separate obligations.
+Support-forgetting boundary compatibility is handled separately by COL-0336 below.
+Arbitrary global-pair naturality, general two-piece supported gluing and Bass TT 7.4
+remain separate obligations.
 
 The supporting components have separate source crosswalks: [supported qcqs geometry](migration/native-supported-qcqs-geometry.md) (COL-0333) and [supported fine comparison](migration/native-supported-fine-comparison.md) (COL-0334).
+
+## Auxiliary-support forgetting (COL-0336)
+
+The original supported positive inverse and fine boundary now commute with actual
+support forgetting. All fixed-pair group-level localization squares retain their original
+maps, supports and signs, explicitly including K1 to K0. The fine statements require
+compact U and compact union; compact U/T gives the original corollaries. See
+[the source correspondence](SUPPORT_FORGETTING_NATURALITY.md). Whole-prespectrum
+nullhomotopy preservation remains a separate obligation, as do arbitrary pair
+naturality and Bass localization.
