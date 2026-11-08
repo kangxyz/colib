@@ -630,3 +630,57 @@ relative positive signed cone and the T-first negative structure-sheaf conventio
 No full TT localization, Bass formula, Nil vanishing or homotopy invariance is asserted.
 Local compilation, component source/mathematical review, independent integrated review and
 exact-tree remote lint, production axiom and Library checks are separate gates.
+
+
+## Bounded Above Flat Perfect Comparison
+
+COL-0323 and COL-0325 complete the genuine bounded-above flat perfect comparison.
+The model uses termwise stalkwise-flat sheaves and native locally perfect complexes,
+with an upper bound only, not finite amplitude or globally finite free terms. Its
+inherited exact/Waldhausen structure uses actual quotient cofibrations and
+quasi-isomorphisms, constructed joint cylinders and the literal inclusion into
+native perfect complexes. The strict-to-flat-to-perfect composite is the original
+strict inclusion.
+
+Relative bounded-above projective factorization, exact sheafification and the native
+counits construct the strict triangle and actual quasi-isomorphism with a genuinely
+flat perfect quotient. This supplies App2 under CompactSpace alone. The canonical
+K-map of the literal inclusion is bijective in every natural degree, including zero,
+and is the forward map of the group equivalence. COL-0325 discharges the relative
+factorization and K-comparison obligations left open by COL-0323. See the individual
+COL-0323 and COL-0325 Library entries and source crosswalks for exact statements.
+
+Arbitrary bounded-flat morphism pullback, all-perfect transport, supported/relative
+comparison and global open-pair localization naturality remain separate topics.
+Actual qcqs geometric roof/complement existence remains blocked by native geometric
+prerequisites. This does not obstruct the completed bounded-flat comparison.
+TT 5.1 connective K0-image-cover localization and TT 7.4 Bass nonconnective localization
+remain distinct; neither global localization nor the Bass theorem is claimed here.
+Local compilation, independent integrated review and exact-tree remote checks are
+separate validation gates.
+
+
+## Arbitrary Perfect Pullback and Restriction Compatibility
+
+COL-0322 constructs actual arbitrary scheme pullback of bounded finite locally free
+complexes, inherited conflations and quasi-isomorphisms, and their original canonical
+K-maps with identity, composition, vector-bundle compatibility and open-pair squares.
+COL-0326 extends this to bounded-above stalkwise-flat locally-perfect complexes and
+transports their genuine canonical K-map along the literal inclusion K-equivalence
+to arbitrary perfect K-pullback. For a morphism X to Y only CompactSpace Y is needed;
+there is no flatness, quasi-separatedness or resolution-property hypothesis.
+Identity, composition and contravariant functors retain their actual comparison maps.
+
+COL-0328 identifies this transported map with the independently constructed original
+flat-morphism exact K-map, ordinary open restriction and open-subset maps, in every
+natural degree including zero. Its literal-inclusion natural-isomorphism square
+proves these identifications. The open-pair square needs compactness only on the
+target scheme and target open, not on the source scheme or source open. The coarse
+perfectOpenKRestrict map is compared only after composition with perfectOpenKMap;
+it is not identified directly with fine perfect-complex restriction.
+
+Supported/relative-pair maps, whole-prespectrum comparison, supported global
+localization naturality, TT 5.1 image-cover geometry and Bass TT 7.4 remain separate.
+The original source is Quillen c561118b7795eb9780be9ed391c3251d6a4d0afd.
+See COL-0322, COL-0326 and COL-0328 and their precise source crosswalks. Local
+compilation, independent integrated review and remote publication are separate gates.

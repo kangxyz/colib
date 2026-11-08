@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0322"
+title = "Arbitrary pullback of bounded vector-bundle complexes"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 3220
+statement = "Actual geometric pullback preserves bounded finite locally free complexes, their inherited exact sequences and quasi-isomorphisms. Its canonical K-map is contravariantly functorial, agrees with actual open restriction and commutes with degree-zero vector-bundle inclusion."
+scope = "Every morphism of schemes, in every nonnegative K-degree. Arbitrary commutative open-pair squares are allowed. The source object predicate is native boundedFiniteLocallyFreeComplex, with globally bounded terms that are locally finite free, not global finite-free retracts. No flatness, cartesianness, affineness, quasi-compactness or resolution property is assumed. Pullback of all locally perfect K-groups and supported localization naturality remain separate."
+review = "author_checked"
