@@ -4,8 +4,8 @@ This complete endpoint adapts the specified construction at Quillen commit
 [`c561118b7795eb9780be9ed391c3251d6a4d0afd`](https://github.com/kangxyz/quillen-k-theory/tree/c561118b7795eb9780be9ed391c3251d6a4d0afd).
 It includes both genuine homotopy equivalences and their literal values on the
 original canonical-fiber object loop. Independent source and mathematical/API
-review established source correspondence before native compilation. Native validation
-belongs to the original whole-repository CI on the exact integrated candidate.
+review established source correspondence before native compilation. The integrated
+sources and tests subsequently passed the native CI recorded below.
 
 ## The actual equivalences and their hypotheses
 
@@ -123,8 +123,14 @@ identities.
 Source/static checks and independent source/mathematical reviews found no
 blocker in the selected construction. Those checks are not Lean elaboration.
 
-At preparation, the new leaves, tests and proposed attributes are uncompiled.
-Native elaboration, applicable lint/axiom/Library checks and exact integrated
-candidate CI remain required before a validated-publication claim. Prior
-baseline CI does not cover this slice. No local full-check or kernel-replay
-pass is claimed.
+At the earlier preparation stage, the new leaves, tests and proposed attributes
+had no native compilation evidence; prior baseline CI did not cover this slice.
+
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.

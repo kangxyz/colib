@@ -269,16 +269,23 @@ of original application proofs does not enlarge this contribution's scope.
 
 ## Preparation and validation boundary
 
-At metadata preparation, these 18 production paths, three regression leaves
-and proposed COL-0299 attributes had no native compilation evidence. The
+At the earlier metadata-preparation stage, these 18 production paths, three
+regression leaves and proposed COL-0299 attributes had no native compilation
+evidence. The
 selected source bodies and reference scope were compared with the original;
 `author_checked` records that source correspondence only. Static inventories,
 source comparisons and import-graph checks do not certify elaboration,
 executed tests, axiom closure or native Library export. Independent mathematical
 review has separate evidence and a separately identified checked span.
 
-A validated-publication claim requires the exact integrated candidate's
-ordinary native build, tests, applicable lint, axiom and Library checks and CI.
-Evidence for earlier items or a different candidate does not validate these
-additions. This historical preparation record claims no native check, local
-full-check or kernel-replay pass for this milestone.
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.
+
+This exact integrated validation covers the additions; evidence for earlier
+items or a different candidate alone would not do so.

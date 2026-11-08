@@ -115,7 +115,12 @@ reversed fiber track and independent category universes remain. The prefix needs
 no zero-morphism instance; only the suffix/component step adds one. No fibration
 or canonical-fiber-map weakness premise is imposed. See the
 [exact construction and source crosswalk](migration/quillen/waldhausen-canonical-fiber-component.md).
-This records source correspondence; native validation belongs to the exact integrated candidate CI.
+The integrated COL-0296--COL-0301 sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991).
+Native validation, `author_checked` source correspondence and independent
+mathematical review remain distinct facts.
 
 ## Prescribed cofiber-prism boundary and normalization
 
@@ -126,8 +131,8 @@ parameters and their distinct boundary-time and loop-time concatenations.
 Normalization compares only degree-one induced maps, not equality of suffix
 paths; no fibration, canonical-comparison weakness or Laurent-sign claim is added.
 See the [exact construction and source cuts](migration/quillen/waldhausen-cofiber-boundary.md).
-At preparation, the new sources and attributes had no native compilation evidence;
-validated publication requires the exact integrated candidate's native checks and CI.
+The integrated sources, tests and attributes passed the native CI recorded above;
+this supersedes their uncompiled preparation status.
 
 ## Original automorphism K-one and whole change-of-weak transport
 
@@ -140,9 +145,8 @@ and identity-cofiber suffixes, with component naturality in every degree.
 Independent parameters, universe bounds and both cofiber certificates remain;
 no scalar, Laurent or boundary-sign theorem is asserted. See the
 [exact construction and source scope](migration/quillen/waldhausen-automorphism-kone-transport.md).
-At metadata preparation, these sources and proposed attributes had no native
-compilation evidence; static source checks do not replace the exact integrated
-candidate's native validation and CI.
+The integrated sources, tests and attributes passed the native CI recorded above.
+The earlier source-only preparation record is not the current validation status.
 
 ## Matsumoto's theorem for K₂ in characteristic zero
 
@@ -204,14 +208,29 @@ image-quotient or spectrum conclusion is inferred. See the
 
 ## Whole based-additivity transformation square
 
-COL-0301 is an uncompiled source candidate for the actual parameterized square
+COL-0301 retains the actual parameterized square
 between the original based-additivity homotopies. Four complete faces and the
 entire chosen-zero surface retain independent times, the once-reversed prefix,
 half/quarter/quarter clock and quotient-first sum. The two cofibration sequences,
 three pointwise weak transformations, both commuting squares and binary
 coproducts are explicit; no extra fibration, cylinder or strict-zero premise is
 added. See the [source and verification boundary](migration/quillen/waldhausen-based-additivity-square.md).
-This is general theory, not a scalar, support, Laurent or Bass conclusion.
+The integrated sources and tests passed the native CI recorded above. This is
+general theory, not a scalar, support, Laurent or Bass conclusion.
+
+## Compact coproduct cubes and whole null coherence
+
+COL-0302 retains the actual unique compact product lifts, complete cube boundaries,
+based coproduct unit paths, quotient-first spatial separation and supplied-null
+coherence. Change of weak equivalences preserves whole paths and independent
+times. The normalized endpoint retains its original explicitly supplied whole
+Theta comparison; this does not construct geometric scalar data or prove a
+scalar boundary formula.
+
+The seven original source files have twelve native production owners and seven
+original regression modules. The [precise hypotheses, source correspondence and
+validation scope](migration/quillen/waldhausen-compact-coproduct-coherence.md)
+record the complete contribution and its separation from the later scalar topic.
 
 ## Original S-construction composition triangles
 

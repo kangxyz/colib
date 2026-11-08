@@ -1,0 +1,3217 @@
+{
+  "source_repository": "kangxyz/quillen-k-theory",
+  "source_commit": "c561118b7795eb9780be9ed391c3251d6a4d0afd",
+  "base_commit": "ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01",
+  "item": "COL-0302",
+  "original_declarations": 120,
+  "directly_adapted_declarations": 119,
+  "absorbed_helpers": 1,
+  "modules": [
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+      "source_sha256": "948621bb4b647fa50be51577cc2d1c6375ab6cc06f86035dcdf2071af72bfad2",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "coproductProductNested",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              28,
+              32
+            ]
+          },
+          "target": {
+            "name": "nestedWeakEquivalences",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              34,
+              38
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Product/NestedWeakEquivalences.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Product.NestedWeakEquivalences",
+            "lexical_name": "CategoryTheory.Waldhausen.Product.nestedWeakEquivalences",
+            "sha256": "8cccfb6a68f5fe6288644a23e60402fd673a8b7f1836e7305ff10e969bf7cad2"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductProductComparison_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              35,
+              48
+            ]
+          },
+          "target": {
+            "name": "coproductProductComparison_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              38,
+              51
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductProductComparison_changeWeak",
+            "sha256": "dd7becc385172512c377fe9dfad5993163a3ae8bf8db29358d43296fb7f8f0c9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductChangeWeakCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              53,
+              56
+            ]
+          },
+          "target": {
+            "name": "coproductChangeWeakCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              56,
+              59
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductChangeWeakCubeMap",
+            "sha256": "dd7becc385172512c377fe9dfad5993163a3ae8bf8db29358d43296fb7f8f0c9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              59,
+              70
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              62,
+              73
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_changeWeak",
+            "sha256": "dd7becc385172512c377fe9dfad5993163a3ae8bf8db29358d43296fb7f8f0c9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductBasedMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              75,
+              88
+            ]
+          },
+          "target": {
+            "name": "coproductBasedMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              78,
+              91
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductBasedMap_changeWeak",
+            "sha256": "dd7becc385172512c377fe9dfad5993163a3ae8bf8db29358d43296fb7f8f0c9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              91,
+              101
+            ]
+          },
+          "target": {
+            "name": "coproductCube_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              94,
+              104
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductChangeWeak.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube_changeWeak",
+            "sha256": "dd7becc385172512c377fe9dfad5993163a3ae8bf8db29358d43296fb7f8f0c9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductCube.lean",
+      "source_sha256": "322003dd3d30ea0834c0b05d0b8874abb695d746a5138a494e1031bfc8a86037",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "productCubeLift",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              30,
+              40
+            ]
+          },
+          "target": {
+            "name": "productCubeLift",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              37,
+              47
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_projection",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              43,
+              49
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_projection",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              50,
+              56
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_projection",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_unique",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              52,
+              61
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_unique",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              59,
+              68
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_unique",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              64,
+              68
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              71,
+              75
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_boundary",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              71,
+              74
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              78,
+              81
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_const",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "continuous_productCubeLift",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              77,
+              90
+            ]
+          },
+          "target": {
+            "name": "continuous_productCubeLift",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              84,
+              97
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.continuous_productCubeLift",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              93,
+              97
+            ]
+          },
+          "target": {
+            "name": "productCubeFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              100,
+              104
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeFamily",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeFamily_face",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              100,
+              106
+            ]
+          },
+          "target": {
+            "name": "productCubeFamily_face",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              107,
+              113
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeFamily_face",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductBasedMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              111,
+              112
+            ]
+          },
+          "target": {
+            "name": "coproductBasedMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              118,
+              119
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductBasedMap",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductBasedMap_basepoint",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              115,
+              117
+            ]
+          },
+          "target": {
+            "name": "coproductBasedMap_basepoint",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              122,
+              124
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductBasedMap_basepoint",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              120,
+              123
+            ]
+          },
+          "target": {
+            "name": "coproductCube",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              127,
+              130
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              126,
+              128
+            ]
+          },
+          "target": {
+            "name": "coproductCube_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              133,
+              135
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube_apply",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCubeFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              131,
+              135
+            ]
+          },
+          "target": {
+            "name": "coproductCubeFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              138,
+              142
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCubeFamily",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCubeFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              138,
+              140
+            ]
+          },
+          "target": {
+            "name": "coproductCubeFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              145,
+              147
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCubeFamily_apply",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCubeFamily_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              143,
+              147
+            ]
+          },
+          "target": {
+            "name": "coproductCubeFamily_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              150,
+              154
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCubeFamily_boundary",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCubePath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              150,
+              157
+            ]
+          },
+          "target": {
+            "name": "coproductCubePath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              157,
+              164
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCubePath",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCubePath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              160,
+              163
+            ]
+          },
+          "target": {
+            "name": "coproductCubePath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              167,
+              170
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductCube.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCubePath_apply",
+            "sha256": "095b106e68994586ff972aaa7198d38a3aad538fc801a3f4797808d01c3108c8"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+      "source_sha256": "4ea1d45f21032023804db8cf6ccffde04bdab6349e29c24d1d5b90da4175d6a8",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "removeSuffix",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              30,
+              36
+            ]
+          },
+          "target": {
+            "name": "removeSuffix",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              29,
+              35
+            ],
+            "path": "Colib/Topology/Path/Homotopy/ThetaWord.lean",
+            "module": "Colib.Topology.Path.Homotopy.ThetaWord",
+            "lexical_name": "Path.Homotopy.removeSuffix",
+            "sha256": "a8d1f755b951c34c7500be90bfaf0a01be25c348b96bad3e5e705b1109713747"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "thetaWord",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              39,
+              63
+            ]
+          },
+          "target": {
+            "name": "thetaWord",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              38,
+              62
+            ],
+            "path": "Colib/Topology/Path/Homotopy/ThetaWord.lean",
+            "module": "Colib.Topology.Path.Homotopy.ThetaWord",
+            "lexical_name": "Path.Homotopy.thetaWord",
+            "sha256": "a8d1f755b951c34c7500be90bfaf0a01be25c348b96bad3e5e705b1109713747"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "zeroLeft_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              73,
+              76
+            ]
+          },
+          "target": {
+            "name": "zeroLeft_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              47,
+              50
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.zeroLeft_map",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "thetaZero",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              79,
+              81
+            ]
+          },
+          "target": {
+            "name": "thetaZero",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              53,
+              55
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.thetaZero",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "thetaOne",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              84,
+              86
+            ]
+          },
+          "target": {
+            "name": "thetaOne",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              58,
+              60
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.thetaOne",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "gamma",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              89,
+              90
+            ]
+          },
+          "target": {
+            "name": "gamma",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              63,
+              64
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.gamma",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "nu",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              93,
+              96
+            ]
+          },
+          "target": {
+            "name": "nu",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              67,
+              70
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.nu",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "separation",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              99,
+              100
+            ]
+          },
+          "target": {
+            "name": "separation",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              73,
+              74
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.separation",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "delta",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              103,
+              107
+            ]
+          },
+          "target": {
+            "name": "delta",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              77,
+              81
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.delta",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "terminal",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              111,
+              112
+            ]
+          },
+          "target": {
+            "name": "terminal",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              85,
+              86
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.terminal",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "prefix_source",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              116,
+              118
+            ]
+          },
+          "target": {
+            "name": "prefix_source",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              90,
+              92
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.prefix_source",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "normalizedNull",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              122,
+              125
+            ]
+          },
+          "target": {
+            "name": "normalizedNull",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              96,
+              99
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.normalizedNull",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "gamma_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              128,
+              142
+            ]
+          },
+          "target": {
+            "name": "gamma_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              102,
+              116
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.gamma_map",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "separation_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              145,
+              155
+            ]
+          },
+          "target": {
+            "name": "separation_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              119,
+              129
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.separation_map",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coarseNu",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              158,
+              162
+            ]
+          },
+          "target": {
+            "name": "coarseNu",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              132,
+              136
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.coarseNu",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "nu_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              165,
+              173
+            ]
+          },
+          "target": {
+            "name": "nu_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              139,
+              147
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.nu_map_apply",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coarseTail",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              176,
+              178
+            ]
+          },
+          "target": {
+            "name": "coarseTail",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              150,
+              152
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.coarseTail",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "inverseAssociator_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              182,
+              192
+            ]
+          },
+          "target": {
+            "name": "inverseAssociator_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              156,
+              166
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.inverseAssociator_map_apply",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "tail_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              195,
+              210
+            ]
+          },
+          "target": {
+            "name": "tail_map_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              169,
+              184
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.tail_map_apply",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coarseDelta",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              213,
+              219
+            ]
+          },
+          "target": {
+            "name": "coarseDelta",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              187,
+              193
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.coarseDelta",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "delta_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              222,
+              233
+            ]
+          },
+          "target": {
+            "name": "delta_map",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              196,
+              207
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.delta_map",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "terminalHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              236,
+              255
+            ]
+          },
+          "target": {
+            "name": "terminalHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              210,
+              229
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.terminalHomotopy",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "normalizedNullHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              258,
+              297
+            ]
+          },
+          "target": {
+            "name": "normalizedNullHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              232,
+              271
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.normalizedNullHomotopy",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "normalizedNullHomotopy_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              300,
+              310
+            ]
+          },
+          "target": {
+            "name": "normalizedNullHomotopy_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              274,
+              284
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNormalizedEndpoint.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.CompactCoproductEndpoint.normalizedNullHomotopy_boundary",
+            "sha256": "9ffea9a98140efce10d2892d1e5e7fbb1ac8cba4ba10f6af1a951ddeb8aacbb1"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+      "source_sha256": "79e51835ef5dcb58d36c7edd7574ba46747ac0fee48f618cb286594640a8565f",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "coproductSquareEdgeHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              27,
+              53
+            ]
+          },
+          "target": {
+            "name": "squareEdgeHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              29,
+              55
+            ],
+            "path": "Colib/Topology/Homotopy/SquareEdges.lean",
+            "module": "Colib.Topology.Homotopy.SquareEdges",
+            "lexical_name": "Topology.squareEdgeHomotopy",
+            "sha256": "11e8d2caaa452cd9224b23a3d4a2e6bfe8d1ec9fb2905c1afc68aa70b9cf041d"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "leftUnit_delay_right",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              57,
+              62
+            ]
+          },
+          "target": {
+            "name": "leftUnit_delay_right",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              37,
+              42
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.leftUnit_delay_right",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "leftUnit_trans_const",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              64,
+              70
+            ]
+          },
+          "target": {
+            "name": "leftUnit_trans_const",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              44,
+              50
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.leftUnit_trans_const",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductUnitCoherenceSquare",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              73,
+              79
+            ]
+          },
+          "target": {
+            "name": "coproductUnitCoherenceSquare",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              53,
+              59
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductUnitCoherenceSquare",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductUnitCoherenceSquare_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              82,
+              85
+            ]
+          },
+          "target": {
+            "name": "coproductUnitCoherenceSquare_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              62,
+              65
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductUnitCoherenceSquare_apply",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationZeroLeftHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              88,
+              115
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationZeroLeftHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              68,
+              95
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationZeroLeftHomotopy",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationUnitCoherence",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              118,
+              128
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationUnitCoherence",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              98,
+              108
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationUnitCoherence",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopLeftConcatPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              132,
+              136
+            ]
+          },
+          "target": {
+            "name": "genLoopLeftConcatPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              112,
+              116
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.genLoopLeftConcatPath",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductNullCoherenceSquare",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              139,
+              145
+            ]
+          },
+          "target": {
+            "name": "coproductNullCoherenceSquare",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              119,
+              125
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductNullCoherenceSquare",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductNullCoherenceSquare_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              148,
+              153
+            ]
+          },
+          "target": {
+            "name": "coproductNullCoherenceSquare_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              128,
+              133
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductNullCoherenceSquare_apply",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationNullCoherence",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              156,
+              180
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationNullCoherence",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              136,
+              160
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationNullCoherence",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationNullCoherence_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              183,
+              189
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationNullCoherence_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              163,
+              169
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductNullCoherence.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationNullCoherence_boundary",
+            "sha256": "f5c36fdd186330d3cfc2f0779a51252cface9d464a86a2a159f7318bf46daab9"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+      "source_sha256": "14cb879dda7917c4be418400d757b5855c3cca29ff3b3d201162ae87c4720d72",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "realizationCylinderSquare",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              29,
+              46
+            ]
+          },
+          "target": {
+            "name": "realizationSimplicialHomotopy_square",
+            "lexical_name": "SSet.realizationSimplicialHomotopy_square",
+            "path": "Colib/Topology/Realization/HomotopySquare.lean",
+            "module": "Colib.Topology.Realization.HomotopySquare",
+            "visibility": "public",
+            "sha256": "32446603fcf355d4800e3cbf02f8ae8d69703a08774f1c89123f6a1995ad16d4",
+            "span": [
+              29,
+              45
+            ]
+          },
+          "relation": "absorbed_into_existing_native_theorem",
+          "scope": "Use the symmetric commuting-square equality; the existing theorem and entire module remain byte-identical to baseline."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitHomotopy_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              52,
+              72
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitHomotopy_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              42,
+              62
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitHomotopy_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitHomotopy_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              75,
+              95
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitHomotopy_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              65,
+              85
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitHomotopy_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitCubeMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              100,
+              105
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitCubeMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              90,
+              95
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitCubeMap_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitCubeMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              108,
+              113
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitCubeMap_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              98,
+              103
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitCubeMap_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayLeft_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              117,
+              122
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayLeft_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              107,
+              112
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.genLoopDelayLeft_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayRight_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              126,
+              131
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayRight_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              116,
+              121
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.genLoopDelayRight_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductChangeWeakCubeMap_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              135,
+              140
+            ]
+          },
+          "target": {
+            "name": "coproductChangeWeakCubeMap_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              125,
+              130
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductChangeWeakCubeMap_transAt",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationPath_changeWeak_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              143,
+              160
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationPath_changeWeak_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              133,
+              150
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationPath_changeWeak_apply",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationPath_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              163,
+              172
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationPath_changeWeak",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              153,
+              162
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationPath_changeWeak",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductChangeWeakCubeMap_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              176,
+              178
+            ]
+          },
+          "target": {
+            "name": "coproductChangeWeakCubeMap_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              166,
+              168
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductChangeWeakCubeMap_const",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductChangeWeakNullPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              182,
+              186
+            ]
+          },
+          "target": {
+            "name": "coproductChangeWeakNullPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              172,
+              176
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSeparationNaturality.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductChangeWeakNullPath",
+            "sha256": "2a520fba4ddd10a029e968c049f8774fd008e948bd281c848364f851a16243d7"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+      "source_sha256": "4dd388f15b3261078314cd98e066f6b7f2dae5339b7a451b6a7067e3a92c829d",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "genLoopDelayLeft",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              29,
+              34
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayLeft",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              31,
+              36
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayLeft",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayRight",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              37,
+              42
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayRight",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              39,
+              44
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayRight",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "toLoop_const_zero",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              44,
+              47
+            ]
+          },
+          "target": {
+            "name": "toLoop_const_zero",
+            "kind": "theorem",
+            "visibility": "private",
+            "span": [
+              46,
+              49
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.toLoop_const_zero",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayLeft_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              50,
+              53
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayLeft_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              52,
+              55
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayLeft_zero",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayLeft_one",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              56,
+              60
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayLeft_one",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              58,
+              62
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayLeft_one",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayRight_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              63,
+              66
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayRight_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              65,
+              68
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayRight_zero",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayRight_one",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              69,
+              73
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayRight_one",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              71,
+              75
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayRight_one",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayLeft_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              76,
+              79
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayLeft_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              78,
+              81
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayLeft_const",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopDelayRight_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              82,
+              85
+            ]
+          },
+          "target": {
+            "name": "genLoopDelayRight_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              84,
+              87
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopDelayRight_const",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopRightUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              88,
+              94
+            ]
+          },
+          "target": {
+            "name": "genLoopRightUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              90,
+              96
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopRightUnitPath",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "genLoopRightUnitPath_original",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              97,
+              105
+            ]
+          },
+          "target": {
+            "name": "genLoopRightUnitPath_original",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              99,
+              107
+            ],
+            "path": "Colib/Topology/Homotopy/HomotopyGroup/GenLoopUnitPaths.lean",
+            "module": "Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths",
+            "lexical_name": "Topology.genLoopRightUnitPath_original",
+            "sha256": "4648b6ca74268e605f6f6447a5c59e74a4274076cad01ef7785c4bcd75f036dd"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              113,
+              121
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              39,
+              47
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_transAt",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              124,
+              129
+            ]
+          },
+          "target": {
+            "name": "coproductCube_transAt",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              50,
+              55
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube_transAt",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationDelayFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              132,
+              143
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationDelayFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              58,
+              69
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationDelayFamily",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationDelayFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              146,
+              150
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationDelayFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              72,
+              76
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationDelayFamily_apply",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationMiddleFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              153,
+              158
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationMiddleFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              79,
+              84
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationMiddleFamily",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationDelayHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              161,
+              175
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationDelayHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              87,
+              101
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationDelayHomotopy",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              178,
+              193
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              104,
+              119
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationUnitHomotopy",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              196,
+              200
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationFamily",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              122,
+              126
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationFamily",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationDelayPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              203,
+              209
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationDelayPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              129,
+              135
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationDelayPath",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              212,
+              217
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              138,
+              143
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationUnitPath",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              220,
+              224
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              146,
+              150
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationPath",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationPath_eq",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              227,
+              231
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationPath_eq",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              153,
+              157
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationPath_eq",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              234,
+              236
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationFamily_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              160,
+              162
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationFamily_apply",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductSeparationFamily_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              239,
+              244
+            ]
+          },
+          "target": {
+            "name": "coproductSeparationFamily_boundary",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              165,
+              170
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductSpatial.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductSeparationFamily_boundary",
+            "sha256": "50d8a6a12d55e82d0fbdbbe1d8b8c87254d39d9b7f7fe307c37be4ffcafe8314"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    },
+    {
+      "source_path": "Quillen/Waldhausen/Additivity/CompactCoproductUnits.lean",
+      "source_sha256": "51fc58101d693c7eeca9577cd62de8d938cc9fe9eee48be70a37792fc4a80c60",
+      "declarations": [
+        {
+          "source_declaration": {
+            "name": "coproductRebasedFunctor",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              28,
+              30
+            ]
+          },
+          "target": {
+            "name": "coproductRebasedFunctor",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              34,
+              36
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRebasedFunctor",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRebasedFunctor_exact",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              33,
+              35
+            ]
+          },
+          "target": {
+            "name": "coproductRebasedFunctor_exact",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              39,
+              41
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRebasedFunctor_exact",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRebaseIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              38,
+              40
+            ]
+          },
+          "target": {
+            "name": "coproductRebaseIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              44,
+              46
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRebaseIso",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRebasedFunctor_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              43,
+              45
+            ]
+          },
+          "target": {
+            "name": "coproductRebasedFunctor_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              49,
+              51
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRebasedFunctor_zero",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              48,
+              50
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              54,
+              56
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitIso",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              53,
+              55
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitIso",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              59,
+              61
+            ],
+            "path": "Colib/CategoryTheory/Waldhausen/Additivity/RebasedCoproduct.lean",
+            "module": "Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitIso",
+            "sha256": "d1fe0518377daa6dd478b91ab83f91ff72fc8262f470e9f1024347a2a3bf5029"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "deloopingComparison_secondEmbedding",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              59,
+              72
+            ]
+          },
+          "target": {
+            "name": "deloopingComparison_secondEmbedding",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              38,
+              51
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.deloopingComparison_secondEmbedding",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "deloopingComparison_firstEmbedding",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              76,
+              89
+            ]
+          },
+          "target": {
+            "name": "deloopingComparison_firstEmbedding",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              55,
+              68
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.deloopingComparison_firstEmbedding",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_zero_left",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              95,
+              101
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_zero_left",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              74,
+              80
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_zero_left",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "productCubeLift_zero_right",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              105,
+              111
+            ]
+          },
+          "target": {
+            "name": "productCubeLift_zero_right",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              84,
+              90
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.productCubeLift_zero_right",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube_zero_left_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              114,
+              122
+            ]
+          },
+          "target": {
+            "name": "coproductCube_zero_left_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              93,
+              101
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube_zero_left_apply",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductCube_zero_right_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              125,
+              133
+            ]
+          },
+          "target": {
+            "name": "coproductCube_zero_right_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              104,
+              112
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductCube_zero_right_apply",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              136,
+              141
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              115,
+              120
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitHomotopy",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              144,
+              149
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitHomotopy",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              123,
+              128
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitHomotopy",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitHomotopy_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              152,
+              157
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitHomotopy_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              131,
+              136
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitHomotopy_zero",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitHomotopy_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              160,
+              165
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitHomotopy_zero",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              139,
+              144
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitHomotopy_zero",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              168,
+              186
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              147,
+              165
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitCubeMap",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              189,
+              207
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitCubeMap",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              168,
+              186
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitCubeMap",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              210,
+              222
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              189,
+              201
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitPath",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              225,
+              237
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitPath",
+            "kind": "def",
+            "visibility": "public",
+            "span": [
+              204,
+              216
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitPath",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitPath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              240,
+              243
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitPath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              219,
+              222
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitPath_apply",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitPath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              246,
+              249
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitPath_apply",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              225,
+              228
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitPath_apply",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductLeftUnitPath_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              252,
+              255
+            ]
+          },
+          "target": {
+            "name": "coproductLeftUnitPath_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              231,
+              234
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductLeftUnitPath_const",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        },
+        {
+          "source_declaration": {
+            "name": "coproductRightUnitPath_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              258,
+              261
+            ]
+          },
+          "target": {
+            "name": "coproductRightUnitPath_const",
+            "kind": "theorem",
+            "visibility": "public",
+            "span": [
+              237,
+              240
+            ],
+            "path": "Colib/KTheory/Waldhausen/Additivity/CompactCoproductUnits.lean",
+            "module": "Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits",
+            "lexical_name": "CategoryTheory.Waldhausen.Additivity.coproductRightUnitPath_const",
+            "sha256": "2c30b43f38eb632c10f0478293c3d390603c50fecdaf256a4370735d6a271a88"
+          },
+          "relation": "native_owner_adaptation",
+          "scope": "Imports and native namespace/owner names change; the original construction, hypotheses, coordinates, casts and proof are retained."
+        }
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "source_path": "QuillenTest/CompactCoproductNullCoherence.lean",
+      "source_sha256": "a36fdd552581ce2129fb53266ac5209732c493c80eb90de3d8ea4a03a329fd6d",
+      "target_path": "ColibTest/CompactCoproductNullCoherence.lean",
+      "target_sha256": "e8dd4a6779307d506b5fe49082e4bf28e89673ccd7a77e74cbedc398938e0ded"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductUnits.lean",
+      "source_sha256": "e30a4ebf546cd12b4bf4991361ff6a9b63761427fc0a2b3c823e4e6eaa558531",
+      "target_path": "ColibTest/CompactCoproductUnits.lean",
+      "target_sha256": "9105933616ce5bc6f71566266dd9c0b7fa2fb97573e7e09a04a15843ebc397bb"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductCube.lean",
+      "source_sha256": "008c3ee3abeb6f6d7d355b353ef8c6511db2cd68f2f832954be679ccc7208eb5",
+      "target_path": "ColibTest/CompactCoproductCube.lean",
+      "target_sha256": "f4e11b24094aca178be6bf6e4ff0db6081b1f8d2ef6923ae0d173a9957f9a28c"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductSeparationNaturality.lean",
+      "source_sha256": "4e9f61b22326a291beb8bfa27b451343bfa5efd2e60f44ccab012a5cc0d3abfc",
+      "target_path": "ColibTest/CompactCoproductSeparationNaturality.lean",
+      "target_sha256": "a2a3ab39cde8ae8b02924a5d39d2b1d0376a6aa7fc6d6f2219ad3c79d728dbff"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductSpatial.lean",
+      "source_sha256": "eaf3ccf24adca81033de8a1f497024d06bbebcd59200f11df5534c6bf450fa44",
+      "target_path": "ColibTest/CompactCoproductSpatial.lean",
+      "target_sha256": "8a71087434b8d7e6e23ca0107f769e4263587b9b1bf10f64f3e2d64b4d2298dc"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductNormalizedEndpoint.lean",
+      "source_sha256": "9148df3f4df52b2ca36a5f025e03a1659d4d731939044f78c8b0e68f1b3a0012",
+      "target_path": "ColibTest/CompactCoproductNormalizedEndpoint.lean",
+      "target_sha256": "837884328ba99c4fa054c5641752abb502e55f3192ebbb669ea40cf656c125b5"
+    },
+    {
+      "source_path": "QuillenTest/CompactCoproductChangeWeak.lean",
+      "source_sha256": "b371883e9a56ead8b654414879d57f8e0b10b9c728e2490f8fb63861a9754f70",
+      "target_path": "ColibTest/CompactCoproductChangeWeak.lean",
+      "target_sha256": "64865561bb8ef3b8e6cda7f6d71b2679c59a7e5eea0db1324d9f6f505a5022c3"
+    }
+  ],
+  "limits": "Source correspondence only. Final native compilation, independent review and exact-commit remote CI are distinct evidence."
+}

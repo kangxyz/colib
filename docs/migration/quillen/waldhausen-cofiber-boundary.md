@@ -220,16 +220,23 @@ slice; their existence is not an open source obligation of the present result.
 
 ## Preparation and validation boundary
 
-At metadata preparation, the 27 new leaves, four overrides, three focused
-regression leaves and proposed attributes had no native compilation evidence.
+At the earlier metadata-preparation stage, the 27 new leaves, four overrides,
+three focused regression leaves and proposed attributes had no native compilation
+evidence.
 The author checked the selected source correspondence and reference scope;
 `author_checked` records that comparison only. Static source checks do not
 certify Lean elaboration, executed tests, axiom closure or Library export, and
 independent review has its own evidence and checked span.
 
-A validated-publication claim requires the exact integrated candidate's ordinary
-native build, tests, applicable lint/axiom/Library checks and CI. Baseline or
-COL-0296-candidate results alone do not validate these new sources. This page
-records no local full-check or kernel-replay pass. The preparatory counts and
-source cut describe this milestone, not a substitute for the final validation
-record.
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.
+
+The preparatory counts and source cut describe the earlier milestone. The
+integrated validation above covers this slice rather than relying on baseline
+or COL-0296-only candidate results.

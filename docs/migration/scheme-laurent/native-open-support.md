@@ -64,13 +64,21 @@ The cone criterion is the existing public Stacks
 ## Verification and remaining scope
 
 The source and immediate native APIs received independent read-only review.
-That review is distinct from compilation. The submitted candidate requires the
-unmodified native CI build, tests, declaration/text lint, axiom audit and Library
-checks; no local whole-library check is claimed for this slice.
+That review is distinct from compilation.
 
-A genuine ambient-monomorphism joint cylinder and the actual relative fiber
-theorem remain separate obligations. Fine K-theory of the open is not identified
-with the coarse K-group. The independent [T] K-one class, the full cofiber/weak-
-composition track, the inverse-loop comparison and the connecting-sign
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.
+
+COL-0300 separately supplies the genuine ambient-monomorphism joint cylinder
+and the actual relative fiber theorem; see the
+[native open-support fiber result](native-open-fiber.md). Fine K-theory of the
+open is not identified with the coarse K-group. The independent [T] K-one class,
+the full cofiber/weak-composition track, the inverse-loop comparison and the connecting-sign
 cancellation are later consumers. No Bass boundary sign, zero-section
 devissage, Nil vanishing or nonconnective statement is asserted.

@@ -1,11 +1,10 @@
 # Whole based-additivity transformation square
 
 COL-0301 records the complete transformation square, not a release of its
-supporting nerve or pushout helpers. This is an **UNCOMPILED source candidate**.
-Native elaboration, native Library export, applicable CI and independent review
-must have their own evidence before an established-status claim is made.
-COL-0296, COL-0297 and COL-0299 are separate candidates; this page does not
-assert that any of them is green or integrated into main.
+supporting nerve or pushout helpers. COL-0296--COL-0301 were integrated into main
+at the commit recorded below, whose sources and tests passed native CI.
+Compilation and source correspondence remain distinct from independent
+mathematical review; the CI result does not confer established review status.
 
 ## Actual statement and hypotheses
 
@@ -48,7 +47,8 @@ original quotient-first coproduct order, H before F.
 These are equalities of the actual parameterized maps, not merely equalities
 of induced K-group maps. The final regression source includes four full-face
 function equalities, a full-zero function equality and the literal pasting
-identity. They have not been run.
+identity. These regression modules were included in the successful integrated
+native CI recorded below.
 
 ## Source and native owners
 
@@ -82,12 +82,20 @@ classical paper. No new bibliography entry is needed.
 
 ## Verification boundary
 
-Frozen native input: 09c26aeb9905eea82fe3382373d3cedac798a52d, tree e8c4fbfb.
-This metadata packet adds no mathematical proof, changes no source overlay,
-and performs no Lean, Lake, cache, view, network or Git-write operation.
-The source workers report normalized body correspondence and text-level import
-closure checks. These cannot establish elaboration, definitional reduction,
-simp behavior, universe inference, a native axiom audit or CI success.
-The coordinated lower-owner extractions must be applied together and compiled.
+Historical preparation input: 09c26aeb9905eea82fe3382373d3cedac798a52d, tree e8c4fbfb.
+That metadata-preparation stage recorded normalized body correspondence and
+text-level import closure checks, without running native checks. Such source
+checks do not establish elaboration, definitional reduction, simp behavior,
+universe inference, a native axiom audit or CI success.
+
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.
+The coordinated lower-owner extractions were included in that integrated build.
 No ring/scheme ownership moves or scalar, support, Laurent, Bass or
 nonconnective consequences follow from this general result alone.

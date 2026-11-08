@@ -648,6 +648,7 @@ public import Colib.CategoryTheory.Waldhausen.Additivity.PushoutEndpoints
 public import Colib.CategoryTheory.Waldhausen.Additivity.PushoutFunctor
 public import Colib.CategoryTheory.Waldhausen.Additivity.PushoutPreservation
 public import Colib.CategoryTheory.Waldhausen.Additivity.PushoutTransformation
+public import Colib.CategoryTheory.Waldhausen.Additivity.RebasedCoproduct
 public import Colib.CategoryTheory.Waldhausen.Additivity.SplitSequence
 public import Colib.CategoryTheory.Waldhausen.Additivity.SubdivisionZeroVertex
 public import Colib.CategoryTheory.Waldhausen.Additivity.SumDiagrams
@@ -787,6 +788,7 @@ public import Colib.CategoryTheory.Waldhausen.GilletWaldhausen.FiniteCycleFiltra
 public import Colib.CategoryTheory.Waldhausen.GilletWaldhausen.FiniteTermFiltration
 public import Colib.CategoryTheory.Waldhausen.GilletWaldhausen.TruncationCofibrationSequence
 public import Colib.CategoryTheory.Waldhausen.NormalizedWeakTransformation
+public import Colib.CategoryTheory.Waldhausen.Product.NestedWeakEquivalences
 public import Colib.CategoryTheory.Waldhausen.Product.SSet
 public import Colib.CategoryTheory.Waldhausen.Product.Structure
 public import Colib.CategoryTheory.Waldhausen.QuillenComparison.BisimplicialMap
@@ -1023,6 +1025,13 @@ public import Colib.KTheory.Quillen.SmallModel.Functoriality
 public import Colib.KTheory.Waldhausen.Additivity.BasedHomotopyTools
 public import Colib.KTheory.Waldhausen.Additivity.BasedTransformationSquare
 public import Colib.KTheory.Waldhausen.Additivity.Basic
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductChangeWeak
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductCube
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductNormalizedEndpoint
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductNullCoherence
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductSeparationNaturality
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductSpatial
+public import Colib.KTheory.Waldhausen.Additivity.CompactCoproductUnits
 public import Colib.KTheory.Waldhausen.Additivity.Conditional
 public import Colib.KTheory.Waldhausen.Additivity.DiagonalKMap
 public import Colib.KTheory.Waldhausen.Additivity.DiagonalNaturality
@@ -1810,6 +1819,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackSpatial
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackSpatialProduct
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackTimeOperations
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackTransport
+public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths
 public import Colib.Topology.Homotopy.HomotopyGroup.Homeomorph
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.ComponentTranslation
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.DegreeShift
@@ -1901,6 +1911,7 @@ public import Colib.Topology.Homotopy.PointCylinder
 public import Colib.Topology.Homotopy.RelativeCylinder
 public import Colib.Topology.Homotopy.RelativeInverse
 public import Colib.Topology.Homotopy.SquareBoundaryPaths
+public import Colib.Topology.Homotopy.SquareEdges
 public import Colib.Topology.Homotopy.ThreeSideSquare
 public import Colib.Topology.Homotopy.ThreeSideSquareLift
 public import Colib.Topology.Homotopy.TimeChange
@@ -2205,6 +2216,7 @@ public import Colib.Topology.OpenGluing.GlobalWeakComparison
 public import Colib.Topology.OpenGluing.RightChart
 public import Colib.Topology.Path.CarrierSquareDescent
 public import Colib.Topology.Path.DoubleLoopTranspose
+public import Colib.Topology.Path.Homotopy.ThetaWord
 public import Colib.Topology.Path.InSubset
 public import Colib.Topology.Path.PointHEP
 public import Colib.Topology.Path.Separation

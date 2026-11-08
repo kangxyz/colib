@@ -45,7 +45,15 @@ models are used.
 
 ## Validation boundary
 
-This source-only continuation is independently reviewed but has not yet been
-elaborated or compiled. Its eventual publication requires the exact candidate's
-original native build, tests, declaration lint, axiom audit and Library checks.
-Source review and static checks are not proof-compilation claims.
+At the earlier source-only preparation stage, independent review had been
+reported but native elaboration and compilation had not yet been run. That
+review retains its recorded scope and is distinct from native validation.
+
+The integrated sources and tests at
+[`ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01`](https://github.com/kangxyz/colib/commit/ea4dc640a5bec4e7eb49e0268c08c9f1fed1fc01)
+passed the repository's native checks in
+[CI run 42435539991](https://github.com/kangxyz/colib/actions/runs/42435539991):
+the `Build` and `Test, lint and axiom audit` jobs both succeeded. This
+supersedes the uncompiled preparation status. `author_checked` continues to record source
+correspondence only; independent mathematical review retains its own evidence
+and checked span. No kernel-replay pass is claimed.
