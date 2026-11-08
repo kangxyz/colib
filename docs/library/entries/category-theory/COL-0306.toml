@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0306"
+title = "Coarse exactness of the original joint cylinder"
+kind = "theorem"
+section = "waldhausen-categories"
+order = 1520
+statement = "For nested Waldhausen weak equivalences N with coarse two-out-of-three, an existing fine-exact joint cylinder D with actual endpoint coproducts and coarse-weak projections becomes genuinely coarse-exact. The resulting JointData for the reflexive coarse structure retains the original joint arrow, every map, both endpoint inclusions, coproduct witness and projection."
+scope = "An arbitrary category C : Type u with Category.{v} C, independent object and morphism universes, and the original NestedWeakEquivalences data. Coarse gluing proves weakness of source maps from weakness of both endpoint maps, without two-out-of-three. Projection naturality and coarse two-out-of-three prove weakness of middle maps from weakness of the target component alone. Native exact extension postcomposition preserves cofibrations and actual pushouts. The existing row factorization consumes the resulting data without a new factorization structure. No geometric, approximation, saturation, localization or K-equivalence conclusion is asserted."
+review = "author_checked"
+provenance = "quillen"

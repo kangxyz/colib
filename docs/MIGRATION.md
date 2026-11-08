@@ -387,5 +387,64 @@ This is a degree-one class comparison, not a coarse-to-fine K-equivalence,
 fine-open boundary, zero-section boundary, Bass sign or all-degree scalar formula.
 The COL-0305 source and its affected consumers have passed local native compilation
 with exact source and direct-dependency artifact verification. Independent source
-review has separate evidence; full style/lint and production axiom audit of this
-integrated topic remain pending remote CI.
+review has separate evidence. Candidate
+[`d67b69cc1289c326508f481f8aca2758946c7f19`](https://github.com/kangxyz/colib/commit/d67b69cc1289c326508f481f8aca2758946c7f19)
+passed the `Build` and `Test, lint and axiom audit` jobs in
+[CI run 42444372165](https://github.com/kangxyz/colib/actions/runs/42444372165).
+Its planned batch merge into main remains pending.
+
+## Native coarse exactness of the original joint cylinder
+
+COL-0306 constructs JointData for the reflexive coarse structure from the existing fine-exact
+joint data and coarse two-out-of-three. Actual endpoint pushouts and coarse gluing prove source
+weakness; the actual projection square proves middle weakness. Native extension postcomposition
+preserves cofibrations and pushouts, retaining the entire original functor, endpoints and
+projection. Generic and actual native perfect-open regressions exercise the existing coarse row
+factorization. This is a general prerequisite, not dual approximation or fine-open localization.
+See [the source crosswalk and exact scope](migration/native-coarse-joint.md).
+
+## Native dual approximation
+
+COL-0308 constructs the full original S-grid reversal for structurally compatible dual
+Waldhausen categories and transfers ordinary approximation to the original dual K-map. The
+inverse-image theorem preserves the literal functor and strict fine incoming equations without
+assuming fine reflection; genuine coarse joint exactness comes from COL-0306. This is a general
+categorical prerequisite, not a geometric qcqs fine-localization theorem. See [the exact source
+crosswalk and scope](migration/native-dual-approximation.md).
+
+## Native comma and weak-arrow factorization
+
+COL-0309 migrates all nine original comma, opposite and weak-arrow files in its source crosswalk
+to their distinct category-theory and K-theory owners. The actual fine weak-arrow objects,
+stored arrows, component pushouts and relative inverse-image structures are retained. The
+identity-arrow diagonal and source induce inverse canonical KMaps in every nonnegative degree,
+including K-zero; the unchanged original KMap factors through the actual target map. This proves
+the first-leg equivalence, not target approximation or geometric fine localization. The generic
+opposite joint-cylinder continuation is COL-0310 below; scheme-specific compatibility and
+geometric incoming lifts remain open. See [the source crosswalk and exact
+scope](migration/native-weak-arrow-factorization.md).
+
+## Native opposite weak-arrow joint data
+
+COL-0310 retains the original generic construction of exact joint data on actual opposite weak
+arrows from two component joint functors, their given natural isomorphism and the three endpoint
+coherence equations. Source, middle, component cofibrations, endpoint maps and the original
+factorization are unchanged. This does not supply a scheme-specific comparison or strict
+preservation of independently chosen cofibers. See [the source crosswalk and exact
+scope](migration/native-weak-arrow-joint.md).
+
+## Dual and weak-arrow topic boundary
+
+COL-0306, COL-0308, COL-0309 and COL-0310 together supply generic categorical machinery. The
+compatible dual S-construction and realization, strict incoming dual approximation,
+inverse-image lift KMap bijection, actual weak-arrow factorization and coherent opposite joint
+data retain their original hypotheses and maps. The component joint data, given natural
+isomorphism and all three endpoint equations remain explicit inputs. A comparison between
+independently chosen cofibers requires its canonical isomorphism and is not asserted to be
+definitional equality.
+
+This topic does not establish actual perfect-complex duality, scheme-specific joint
+compatibility, derived-image approximation or qcqs fine localization. COL-0307 geometry and its
+drafts are not included. The source crosswalks, local Lean compilation and independent component
+reviews are separate evidence; shared integration review and remote native lint, axiom and
+Library checks remain pending for this final topic tree.

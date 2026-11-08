@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0310"
+title = "Coherent joint data on opposite weak arrows"
+kind = "definition"
+section = "waldhausen-categories"
+order = 1540
+statement = "Given exact F : C → D and its opposite, compatible dual weak classes on D, actual component JointData on the dual categories, a coherent natural isomorphism between their joint functors after exact postcomposition, and its three original endpoint/projection equations, the literal opposite weak-arrow category has genuine exact JointData for its reflexive dual structure."
+scope = "Independent object and morphism universes for C and D. The original stored weak arrow and reversed commuting squares define the actual objects and morphisms. Both component joint functors, source, middle, original cofibration and all endpoint/projection maps are retained. Genuine relative-cofibration detection uses the actual mapped relative pushouts and permits two targets in different universes. Componentwise reflection proves actual zeros, pushouts and endpoint coproducts. No replacement category, comparison hypothesis beyond the original natural isomorphism, cylinder/factorization assumption beyond the two given component JointData, strict preservation of chosen cofibers, scheme compatibility, localization or K-equivalence is asserted."
+review = "author_checked"
+provenance = "quillen"
