@@ -10,8 +10,6 @@ public import Colib.CategoryTheory.ExactCategory.Subcategory
 public import Colib.CategoryTheory.ExactCategory.Functor.Pushouts
 public import Colib.CategoryTheory.Waldhausen.Complexes
 public import Colib.CategoryTheory.Waldhausen.ExactCategory
-public import Colib.KTheory.Waldhausen.Map
-public import Colib.CategoryTheory.Waldhausen.SMap
 public import Colib.CategoryTheory.Waldhausen.ExactFunctor
 public import Colib.CategoryTheory.ExactCategory.Abelian
 

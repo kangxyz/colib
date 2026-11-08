@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0313"
+title = "Native bounded vector-bundle complexes and their actual inclusions"
+kind = "definition"
+section = "perfect-complexes"
+order = 40
+statement = "The native boundedFiniteLocallyFreeComplex property consists exactly of globally term-bounded cochain complexes of finite locally free scheme modules. It is closed under actual zeros, chain isomorphisms, short exact extensions, every integer shift and signed mapping cones. Its actual full category has the inherited admissible-cofibration, quasi-isomorphism Waldhausen structure; native vector bundles enter in degree zero and the literal inclusion into native perfect complexes is exact."
+scope = "Arbitrary schemes, with no affine, Noetherian, quasi-compactness, global projectivity or resolution hypothesis. The native plus/minus bounds concern terms, not cohomology. The predicate is not identified with Stacks' stronger global finite-free-retract IsStrictlyPerfect. Cofibrations retain a bounded finite locally free actual quotient. The actual joint cylinder, compatible dual structure, opposite exact inclusion and common-cylinder endpoint/projection equations are constructed from the established generic machinery. Connective S-construction K-groups and canonical normalized inclusion maps are constructed; no Gillet-Waldhausen, Q/S, strict-to-perfect K-equivalence, geometric approximation, fine open localization or nonconnective conclusion is claimed."
+review = "author_checked"
+provenance = "quillen"

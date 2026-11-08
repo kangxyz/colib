@@ -391,7 +391,7 @@ review has separate evidence. Candidate
 [`d67b69cc1289c326508f481f8aca2758946c7f19`](https://github.com/kangxyz/colib/commit/d67b69cc1289c326508f481f8aca2758946c7f19)
 passed the `Build` and `Test, lint and axiom audit` jobs in
 [CI run 42444372165](https://github.com/kangxyz/colib/actions/runs/42444372165).
-Its planned batch merge into main remains pending.
+It is included in main at the later generic-topic commit recorded below.
 
 ## Native coarse exactness of the original joint cylinder
 
@@ -446,5 +446,61 @@ definitional equality.
 This topic does not establish actual perfect-complex duality, scheme-specific joint
 compatibility, derived-image approximation or qcqs fine localization. COL-0307 geometry and its
 drafts are not included. The source crosswalks, local Lean compilation and independent component
-reviews are separate evidence; shared integration review and remote native lint, axiom and
-Library checks remain pending for this final topic tree.
+reviews are separate evidence. The integrated generic topic at
+[`8fc02d4a4fdd9b82b610166143b75310184b624e`](https://github.com/kangxyz/colib/commit/8fc02d4a4fdd9b82b610166143b75310184b624e)
+passed the `Build` and `Test, lint and axiom audit` jobs in
+[CI run 42447592408](https://github.com/kangxyz/colib/actions/runs/42447592408)
+and is now included in main. These checks cover the generic topic, not the later native
+perfect-complex foundations below.
+
+## Native opposite perfect-complex coherence
+
+COL-0311 constructs the actual opposite complex and exact-category structures, original
+degree-reversing joint cylinder, and coherent natural comparisons under exact additive functors.
+Native perfect open restriction has all six endpoint equations and actual opposite weak-arrow
+joint data. The old complex-subcategory source loses only two unused K-theory imports; its four
+declarations are unchanged. No scheme-specific coherence hypothesis remains. See [the exact
+source crosswalk](migration/native-opposite-complex-coherence.md).
+
+## Native honest open-derived image
+
+COL-0312 uses the honest native derived image of actual globally perfect complexes.
+Derived-isomorphism invariance, perfectness, weak cospans and literal corestriction require no
+roof hypothesis. With the explicitly stated `OpenDerivedImage.HasDerivedRoofs j` input, actual
+triangles and short exact sequences supply closure, the ambient Mono/QuasiIso Waldhausen
+structure, exact inclusion and corestriction, and strict incoming factorization. Two actual
+homotopy pullbacks preserve the chain-map equations and kernel endpoints. No derived equality is
+silently treated as chain-map equality. The separate unconditional K-zero theorem identifies
+coarse and fine restriction ranges; it does not prove surjectivity onto K-zero of the open. See
+[the exact source crosswalk](migration/native-open-derived-image.md).
+
+## Native bounded finite locally free foundations
+
+COL-0313 uses native `boundedFiniteLocallyFreeComplex` for the original global term bounds and
+termwise finite local freeness. Actual zero, isomorphism, short exact extension, shift, single
+and signed-cone closure give its exact/Waldhausen structures, vector-bundle single inclusion,
+native perfect inclusion, canonical KMaps, actual joint cylinders and compatible opposite
+inclusion endpoints. All schemes are allowed. The distinct global finite-free-retract
+`IsStrictlyPerfect` predicate is not substituted. See [the exact source
+crosswalk](migration/native-bounded-vector-bundle-complexes.md).
+
+## Native relative corestriction approximation
+
+COL-0314 constructs the honest image opposite structures, coherent joint comparison with all six
+endpoints, actual opposite weak-arrow joint data and genuine strict incoming lifts. Given
+exactly `OpenDerivedImage.HasDerivedRoofs j`, the original relative corestriction K-map is
+bijective in every nonnegative degree. Its induced multiplicative equivalence has that literal
+K-map as forward function, and actual image inclusion recovers `perfectOpenKRestrict`. No
+categorical approximation or joint-compatibility premise remains. This is not ordinary outgoing
+App2 or a proof of geometric roofs, complement/density, or qcqs fine localization. See [the
+actual maps and source crosswalk](migration/native-open-image-approximation.md).
+
+## Native perfect-foundations and image-approximation topic boundary
+
+COL-0311 through COL-0314 supply native foundations and actual image approximation conditional
+on geometric roofs, not the final geometric localization theorem. COL-0307 geometric roofs and
+complement/density, strict-to-perfect K-equivalence, Q/S and Gillet-Waldhausen comparisons, and
+final qcqs fine-open localization remain outside this topic. The explicit global-perfect-model
+roof input is not asserted to have been discharged. Local native compilation and independent
+component mathematical/source reviews are separate evidence. Shared integration review and
+remote native lint, production axiom audit and Library checks remain pending for this candidate.

@@ -1,0 +1,17 @@
+[entry]
+id = "COL-0314"
+title = "Relative restriction onto the honest derived image"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 90
+statement = """
+Given global-perfect-model derived roofs, the actual relative restriction corestriction induces
+an equivalence of K-groups with its honest derived image in every connective degree.
+"""
+scope = """
+Arbitrary open immersion; native Stacks perfect complexes, original chain maps and ambient Mono
+cofibrations. Actual opposite joint data and strict incoming lifts are proved. HasDerivedRoofs
+remains explicit; no qcqs localization or surjectivity onto all K-zero of the open is claimed.
+"""
+review = "author_checked"
+provenance = "quillen"

@@ -14,4 +14,4 @@ introduction = "Chosen pullbacks retain the coefficient functor and quasi-compac
 id = "perfect-complexes"
 title = "Perfect complexes"
 order = 20
-introduction = "Native Stacks perfect complexes carry the actual monomorphism/quasi-isomorphism Waldhausen structure. No legacy perfectness predicate or comparison layer is maintained."
+introduction = "Native Stacks perfect complexes carry the actual monomorphism/quasi-isomorphism Waldhausen structure. No legacy perfectness predicate or comparison layer is maintained. The honest open-derived image uses actual chain complexes and derived isomorphisms. Its triangle and short-exact closure, Waldhausen structure, exact corestriction and strict incoming factorization retain the explicit global-perfect-model roof input. Bounded finite locally free complexes retain global term bounds, actual extensions, shifts, signed cones, vector-bundle inclusion, native perfect inclusion and compatible opposite joint data over arbitrary schemes. Finite local freeness is not replaced by global finite-free retraction."
