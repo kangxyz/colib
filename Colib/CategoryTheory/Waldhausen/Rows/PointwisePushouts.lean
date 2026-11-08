@@ -6,7 +6,6 @@ Authors: kangxyz
 
 module
 
-public import Colib.KTheory.Waldhausen.Map
 public import Colib.CategoryTheory.Waldhausen.SMap
 public import Colib.CategoryTheory.Waldhausen.ExactFunctor
 public import Mathlib.CategoryTheory.Limits.FunctorCategory.Basic

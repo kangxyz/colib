@@ -118,6 +118,18 @@ or canonical-fiber-map weakness premise is imposed. See the
 [exact construction and source crosswalk](migration/quillen/waldhausen-canonical-fiber-component.md).
 This records source correspondence; native validation belongs to the exact integrated candidate CI.
 
+## Prescribed cofiber-prism boundary and normalization
+
+COL-0297 retains the full data-valued cofiber-prism boundary, the exact reversed
+canonical-fiber quotient prefix and the prescribed identity-cofiber suffix.
+Gluing proves quotient acyclicity. The boundary and prefix retain independent
+parameters and their distinct boundary-time and loop-time concatenations.
+Normalization compares only degree-one induced maps, not equality of suffix
+paths; no fibration, canonical-comparison weakness or Laurent-sign claim is added.
+See the [exact construction and source cuts](migration/quillen/waldhausen-cofiber-boundary.md).
+At preparation, the new sources and attributes had no native compilation evidence;
+validated publication requires the exact integrated candidate's native checks and CI.
+
 ## Matsumoto's theorem for K₂ in characteristic zero
 
 The completed source chain gives characteristic-zero additive equivalences from

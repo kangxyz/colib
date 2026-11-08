@@ -5,6 +5,7 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.KTheory.Waldhausen.Basic
 public import Colib.KTheory.Waldhausen.Cofinality.GradedGroupRealization
 public import Colib.Topology.ClassifyingSpace.FundamentalGroup
 
