@@ -73,7 +73,7 @@ def perfectSupportedOpenAcyclicSupportedKEquiv (n : ℕ) :
     (perfectSupportedOpenAcyclicToSupported_exact j T) (perfectSupportedUnionToAcyclic_exact j T) n
 
 /-- The forward equivalence is the actual K-map of literal flattening. -/
-@[simp] theorem perfectSupportedOpenAcyclicSupportedKEquiv_toMonoidHom (n : ℕ) :
+theorem perfectSupportedOpenAcyclicSupportedKEquiv_toMonoidHom (n : ℕ) :
     (perfectSupportedOpenAcyclicSupportedKEquiv j T n).toMonoidHom =
       KMap (perfectSupportedOpenAcyclicToSupported_exact j T) n := rfl
 
