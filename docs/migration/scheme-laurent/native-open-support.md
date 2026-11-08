@@ -78,7 +78,12 @@ and checked span. No kernel-replay pass is claimed.
 COL-0300 separately supplies the genuine ambient-monomorphism joint cylinder
 and the actual relative fiber theorem; see the
 [native open-support fiber result](native-open-fiber.md). Fine K-theory of the
-open is not identified with the coarse K-group. The independent [T] K-one class,
-the full cofiber/weak-composition track, the inverse-loop comparison and the connecting-sign
-cancellation are later consumers. No Bass boundary sign, zero-section
-devissage, Nil vanishing or nonconnective statement is asserted.
+open is not identified with the coarse K-group. COL-0303 now supplies the
+[native scalar cofiber and whole based-additivity square](../native-scalar-cofiber-square.md),
+and COL-0304 proves the [forward scalar supported boundary](../quillen-scalar-supported-boundary.md)
+for arbitrary open immersions. The independently defined forward scalar K₁ class
+maps to the positive supported K₀ class of its actual signed cone; the proof
+retains the full cofiber track and the two inverse signs that cancel.
+The separate Laurent-coordinate [T] specialization and T-first Bass sign remain
+outside this topic. No fine-open identification, zero-section devissage, Nil
+vanishing, all-degree scalar formula or nonconnective statement is asserted.

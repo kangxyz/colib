@@ -333,3 +333,34 @@ fiber weak equivalence and all recurring positions of the connective supported
 long exact sequence. Degree zero surjects onto the relative coarse K-group,
 without identifying it with fine perfect-complex K-theory of the open. See the
 [exact scope and validation boundary](migration/scheme-laurent/native-open-fiber.md).
+
+## Native scalar cofiber and whole based-additivity square
+
+COL-0303 proves the original scalar cofibration sequence on native perfect complexes
+and specializes the full based-additivity transformation square to its literal
+identity-to-scalar sequence map. The actual signed quotient, categorical cofiber
+comparison, four whole faces and two-time chosen-zero surface are retained.
+No scalar regularity is assumed. This square alone does not identify fine-open
+localization or compute the connecting boundary; the relative scalar boundary is
+the separate COL-0304 result below. See
+[the native objects and source scope](migration/native-scalar-cofiber-square.md).
+
+## Native forward scalar supported boundary
+
+COL-0304 identifies the original relative connecting homomorphism on the
+independently defined forward scalar K₁ class with the positive supported K₀
+object class of its actual signed mapping cone. The data are an arbitrary open
+immersion, a native perfect complex, a global scalar, a specified unit on the
+open, and equality of the restricted scalar with that unit. The actual cofiber
+prism, fine return path, iterated fiber and component transport retain the first
+inverse, which cancels the existing transpose inverse in the connecting map.
+No quasi-compactness, quasi-separatedness, regularity, Noetherianity,
+nonzerodivisor or supplied boundary-compatibility hypothesis is added.
+This is not fine-open localization, a Laurent-coordinate or Bass-sign result,
+or an all-degree scalar boundary formula. See
+[the native construction, orientation and validation scope](migration/quillen-scalar-supported-boundary.md).
+
+The individual COL-0302, COL-0303 and COL-0304 sources have passed local native
+compilation and independent source reviews. Publication of the complete scalar
+topic requires its exact integrated local validation and remote CI; these checks
+do not assert any later fine-open or nonconnective result.

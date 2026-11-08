@@ -43,6 +43,16 @@ constructions belong to AlgebraicGeometry/Modules, and the K-theory endpoints
 belong to AlgebraicGeometry/KTheory. No Aglib imports or parallel perfect-complex
 models are used.
 
+## Subsequent relative scalar boundary
+
+The relative sequence here is the unchanged one used by
+[COL-0304](../quillen-scalar-supported-boundary.md). For an arbitrary open immersion,
+a native perfect complex and a scalar restricting to a specified unit, its
+original K₁-to-K₀ connecting map sends the independent forward scalar class to
+the positive supported class of the actual signed cone. This separate result
+does not identify fine-open K-theory, specialize the Laurent-coordinate or
+T-first Bass sign, or assert an all-degree scalar boundary formula.
+
 ## Validation boundary
 
 At the earlier source-only preparation stage, independent review had been
