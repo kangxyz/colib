@@ -1,0 +1,1249 @@
+{
+  "native_pin": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7",
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "lean": "4.35.0",
+  "exact_modules": 308,
+  "sink_targets": [
+    "StacksFrontier.Algebra.Category.ModuleCat.ExtendScalarsAlongSurjection",
+    "StacksFrontier.AlgebraicGeometry.Chow.CoherentCycle.SupportGenericPointLength",
+    "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TorSheafMultiplicity",
+    "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TripleProductAssociativity",
+    "StacksFrontier.AlgebraicGeometry.Modules.DerivedAffineSystem",
+    "StacksFrontier.AlgebraicGeometry.Morphisms.Affine.FiberMaximalSpectrum"
+  ],
+  "context": "9845031f79bc7a61f7dbb6e27f1a12150a1eb35aae1effb4cf01a27c9a8cf840",
+  "modules": [
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.ExtendScalarsAlongSurjection",
+      "sha256": "ecd11c1ff9c2945e8ab8cdda86e80331cb53ad3527e65733560337711f36664f"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Presheaf.FlatSliceExtension",
+      "sha256": "b5845c9f8b56400a780b882950238f73c707075c7175a5e63bdbec952183b6a8"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Presheaf.InternalHomMonoidalComparison",
+      "sha256": "c21261c8ec1db29d75c5ed468f6f4c71765e4a194a76457be4ca978910a02601"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Presheaf.PullbackEssentiallySmallUnivLE",
+      "sha256": "44caa079b067fbbbeed3481e36e68febfc5e2a396bb4faa16332e4f91c75e62c"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Presheaf.SheafInternalHomFirstVariable",
+      "sha256": "7a9734e7c0a96da7578586e3ebe88a7ec2e87ef8171ac49d9e4c28f05d6cc974"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Presheaf.SliceExtensionFormula",
+      "sha256": "0a413a1e4f0580a9aa30a1b4d03aa57d13dd84054c75463b31fafbd9f1803d1f"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.ExtensionByZeroSheafification",
+      "sha256": "4f20a71418255a21ca6f847e2de665f663780bfef3aebc2acb5a7fbadfbd07cc"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.GeneratedByGlobalSections",
+      "sha256": "6b88ecda0a12d52c09487c2f3264e4d24450d2c11ae1d3a2f1badfc8c92641ad"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.IdealTorsionFree",
+      "sha256": "acd308e77a782740056b2668e168257d12e5a666f66bdb87753660db15f8030c"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.InternalHomVariance",
+      "sha256": "05898a20c5a8b6cc67152477e808d6093b922be1ba27e9e6b046c61d8e85ada0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.PullbackEssentiallySmall",
+      "sha256": "4bb74d544c4fcf54934ade291499133f21ee09f02947471835cf5b523c1e3b73"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.RankDecomposition",
+      "sha256": "c4e526951b8e30819c58b5b395833cd0d38f8bbeaf20cfb103b8e8d89579833b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Category.ModuleCat.Sheaf.TensorHomAdjunction",
+      "sha256": "39b0e5b3c27750f463464c118fe9864968c0dec48deacfcc9cb5763b57a23f20"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Abelian",
+      "sha256": "1aa72fcfad45ffff1498eeb9f3fedb9c91b8a395bd91b91923872960f76338b0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Abelian.AbelianComplete",
+      "sha256": "e56b117dc415726c6d00358987de138856236a0a3f54eecdd97919c21bab567c"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Abelian.Basic",
+      "sha256": "adc2d091b1cb4112e1281a82cbf56d04d95ea8071dc58e005ca328602147e68d"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Abelian.KernelCokernel",
+      "sha256": "42ab097d4ff67680be4fe19e30895030008aac7d4b75d04a9ae9299fe83a5b1b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Abelian.ProductCoproduct",
+      "sha256": "83a50c27298bfbf2e530361859be8f01fa4ec777c49f18467b45963bce2fab09"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Cone",
+      "sha256": "1a4a59a8e0e946bbb5f3be103e429a38ff2c4e1898dada6ad2b7b26f59618a62"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.ConeMap",
+      "sha256": "b9738db0f257d1021a28d6bb55c36852d00b43a6c35097690d76724ac04f87fb"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.ConeRotate",
+      "sha256": "18b28e6ef910d8205a42506e7b19ef1eb097e1d90a9af1f5714c7fcdc484a295"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.ConeShift",
+      "sha256": "b5d6c6b491857e9184d92aaeb842ec560619ffcfae7dfca192759abfdb46bf8b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.ConeTriangle",
+      "sha256": "1d3f59662946481dca63d37b17e26d23077fa0aaca6644bb95a79deff309cf2f"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.DerivedCategory",
+      "sha256": "2b97b4113c1c73ec65619ff295a62ebf631385a8b9d0e30bcc3923a35aa856a3"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.HomotopyCategoryShift",
+      "sha256": "5a0dfe53571d50a49047c33f6832de945420bc6d4fc8cb8b5264962a9071d2f0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Octahedron",
+      "sha256": "4c3a99f9dd8b05eca854ac7cf28cc08c50a2310c670d9a77950502d2bf93dc1c"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.Pretriangulated",
+      "sha256": "5e351570f364543c4c6c4a011a1d93d1d48db2c8c47d3d3fbcd48f92e38d26da"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DGA.QuasiIsomorphisms",
+      "sha256": "47a6f77ccfddb70907d5ce7e3b5dd41fab94de80d3ad2eec7b836ae2246663ca"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.Abelian",
+      "sha256": "915fa23bc136489c69f8a50e7f93c6625509745e007a3a07617d1dc3b563ac70"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.Admissible",
+      "sha256": "0f0cc6fc2c30032180d65c87ca1ae9ad449487955c24d2f31302dd3315dae6b0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.AdmissibleCokernel",
+      "sha256": "c8da954e1054bab134b8da80a1522f92394c577641044485540a9ab0ddbac599"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.AdmissibleFactorization",
+      "sha256": "01d2c8e47f1e205db8c9c460bc77f25f1cc60c602352ca174a1e4a168200bdbe"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.CanonicalDeltaFunctor",
+      "sha256": "c10b08b551f4766e57f6bf7ffb39aaf37554c8ea1d494c958a01c85d84c26766"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.CochainComplex",
+      "sha256": "e1eb54d5ce55a262a0a0eacd29789f0a40a157e36676258f845f7f7c707e7cf4"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.ConnectingHom",
+      "sha256": "a06c72cb7fd07da3ecbd1504139c00038fbb542de286c716738b4fa1ff500b39"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.DistinguishedTriangle",
+      "sha256": "6abe1fea0a26f408c90d638b8c8655a1adb413fdbc684ca0fc8c56c0468f5db9"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.HasShift",
+      "sha256": "814295b832887bb707b7421f87736819c478ccd9f1f0fa1c94ca3fcdeb3fad4b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.Homotopy",
+      "sha256": "ba36c398d22816d04f93f902635efba43981a28afa0756ea2a655453ed86b2c3"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.HomotopyCategory",
+      "sha256": "6f41853e31d8f9e0935fc5d00fea0f8b75297f43882c925f9a5cf47995f69df8"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.HomotopyRectification",
+      "sha256": "3599fb3157c1d66e9f2920c1e4ec089b3f2fcb268521f24f368dd757f19359f0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.LongExactSequence",
+      "sha256": "4cdb33ed462845481bd5424f2245414648e985724e5227686b541dd5e47e7675"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.MappingConeAdmissible",
+      "sha256": "56f666e0009dc9f5fe7df0a1c40acf4676818acfd5c5c570bae3c0544b1f6823"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.MappingConeFunctorial",
+      "sha256": "7e9956f7816d20e3016263a95273d0140e9b6c95394725f0972ba139ac1832ac"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.MappingConeHomotopyEquivalence",
+      "sha256": "6267c741f30b148c04ff32ebdf6b677f186322678fd379714eeba756e5e3321b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.MappingConeTriangle",
+      "sha256": "b6350cbd8812a360c320e8096c61dea59e92621e631962ce3019e751ae7da914"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.Shift",
+      "sha256": "37155a844f10d5c921cb1ce504d4d8e8333bbbe778062d1f795864cc153dcf8a"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DifferentialGraded.Module.Subquotient",
+      "sha256": "3f9e071d8aa8d1e919488b5141b4b24445c4c24edc1ee564785cbffecf4b9fd6"
+    },
+    {
+      "module": "StacksFrontier.Algebra.DirectSum.GradedSubmodule",
+      "sha256": "37f123296f51258497241ccb6c3a4831431fcf041906b954fe6cd29db5d9516b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.ComponentIso",
+      "sha256": "af2d31eae473b5428b265998dd0f8687d3e99a60afcfa54507fda9a6d6e20ce0"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.DerivedLimitHomologySequence",
+      "sha256": "be904212df6ca66f038490a73ca18256fd168ea8aa545b121b447eb6f7d71925"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.ExistsKInjectiveResolution",
+      "sha256": "b83c2f14a1b45bfeb25395a80a3ac23eb584a6ad450aa722871229acf1029745"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.ShiftedSumIsProduct",
+      "sha256": "ecde378a5a27ef96d1df5db1a8ee609772306a4d5c42b510aad2fdb4fd13e017"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.SubcategoryLocalization",
+      "sha256": "6d0261a32d6a0b344758d05bde82510b02f3f5999c92baca847eac8f6071fc59"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.TruncationLevelHomology",
+      "sha256": "3dc623c51c24ebfffb3f1e79a92e58a2b16d975ca1f64ac20c08d6bffe031331"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.DerivedCategory.TruncationTower",
+      "sha256": "137e98fc20a03e198c97ead00bcc809f9f4c4552c069503d38b025fd1d0812cd"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.HomologyFunctorLinear",
+      "sha256": "bfdaa4e15640c9b994dc98bee13aeeae3e63ee44630ec039001efebff5d96f5b"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.HomotopyCategory.ExactFunctorHomology",
+      "sha256": "4061c9808e0f63197133cfe1b45e7ce894161e5cf575b4a2fd0c426462ca3146"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.HomotopyCategory.HomComplexQuasiIso",
+      "sha256": "4480bb7a5237b9b4b269661d2f16baf4f8a8eb1fe0aff144707acc5411e49c37"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.ShortComplex.MapHomologyComp",
+      "sha256": "19a50f44bf1b0d0652b5cd3572f0d7081a77516a80f31187de7b2799d4e218c5"
+    },
+    {
+      "module": "StacksFrontier.Algebra.Homology.SpectralSequence.DerivedTensor",
+      "sha256": "649d8ba7829ac8abc8230ef31ec79a30485fd93e1155addcc1102bb47d464eed"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.AffineVanishingBoundedBelow",
+      "sha256": "baf9396640e9575d5212e60cd5c74a47f9b6275b2a83184d769582f08b871235"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.AffineVanishingQuasicoherentComplex",
+      "sha256": "c9ba0ce159397f38eef08e50ad19e61bf5161c110c4335b339c03c3b17fa2368"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.AffineVanishingUnbounded",
+      "sha256": "277eae56abf8109e5ac2eefce0b243e7a7a93e92b7c911a942af7e4c49b911b8"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.AffineVanishingUnbounded.Tower",
+      "sha256": "64ce31ce9ee5292c2cbd5540a97cad53610dc68c3f4d2d69cebd46f4cb2a084e"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Chow.CoherentCycle.SupportGenericPointLength",
+      "sha256": "9a1092e8b31dfef62abf6e6c8c25d7ed2b9db451e7c001ff9653300fcf1b8fc1"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Chow.DenominatorQuotients.ComponentLength",
+      "sha256": "0e4d2b4ff67a3f773435e266842d22ce94e67f981b7b13947e2f07b39fb78afe"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Chow.FibreCycles.CoherentFibreStalk",
+      "sha256": "e62f5c92e148c57dceca1a7fc7524f1b97f351dededf7870fca639c3070a1a91"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Chow.GysinCoherentSheaf",
+      "sha256": "a8d16a4aa904d6290b428272c2e9b23ff665b74b84076b0c9cf06ae3c0019ed3"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Crystalline.Differentials.Connection",
+      "sha256": "6148fd2501777f04e8834a97622abc73802e81e724119847b0aed3740bdc3a19"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedGlobalSections",
+      "sha256": "1353bd7bbf2e66132466c0e7c651cdd0f7605774b6fde27e92b84be36797dff9"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedQCoh.AffineDerivedEquivalence",
+      "sha256": "9b98fec17f9048732a50f151f4fd683bccb977300388de32f0fa6ed552cd9f6a"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedQCoh.Basic",
+      "sha256": "4fd4d20b547d393731b7778ea80a8a2bbfce207696ceef46afc1f876a530471a"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedQCoh.DerivedEquivalence",
+      "sha256": "82f25d9fd25128919dae956d14cea5b1f7a551f26cf01250be457c1e747b8a82"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedQCoh.Inclusion",
+      "sha256": "e57f8284208838929321b3dc3e6174a403119b6e27a244613272f3c498330d06"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedQCoh.TildeFactorization",
+      "sha256": "afe7d519204246f9242ce18a47560d942bc14afc15e7805ed444f67cf4800dde"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedTilde",
+      "sha256": "39822509cd15b97f38cc1ad106cd221f6c621e4343140cd603502b8c3b42e445"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedTildeEquivalence",
+      "sha256": "44fe629c8588f27d261624378bcfd010f40c1371aaf033e95b172e389a9e2065"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedTildeEquivalence.AbsoluteRightDerived",
+      "sha256": "28f6deb8ef93134c016efd5f29fc5f0002784de1fcf33ccb1ed79367c2c547b0"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedTildeEquivalence.Basic",
+      "sha256": "495d4350db0fdfc4c4906cbfcc47891b76724d4cd235ca8dcb6d051234d5b5dd"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.DerivedTildeEquivalence.DerivedAdjunction",
+      "sha256": "d6f287b9a7fd381e4e30938bb259d3d2017afa2df2b338a3d130357a47ed0f26"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.AffineQuasicoherentHoms",
+      "sha256": "e2958352c8af980d4c6d4b4818a3e751f4c96a5056c90633ddd9e31120fa710c"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.DescentBaseChangeMate",
+      "sha256": "edf1f89ec8e521c1303414fa19b9924b40eb507a0e028e5f4939ab94c135cda6"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.FpqcHomSheaf",
+      "sha256": "fa710de6e71da695dcd7651fbbd415c2e9a64ab4ca76dda8ac1784be92e4c374"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.LocalProperties.Nagata",
+      "sha256": "b0fc8bc74a64516641528b638c9263a86310162a842a9127ce77b76cbb11adde"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.LocalProperties.Regular",
+      "sha256": "1a627e98afbe9d696f3394dbcb78c69798791578a347db0970256e2f6f3d77ec"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.ModuleBaseChange",
+      "sha256": "2a6d7f343b995566774ca9a6d90b236238fdb605dc1fe3c22d7edaa65d9859a0"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.MorphismProperty.StandardFpqcRefinement",
+      "sha256": "9d9cdef285b69ba041bea129595b2979b70f0cbfeaca1831ae9479c8eb042a4a"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.PullbackSectionsSheaf.Basic",
+      "sha256": "200c9503a35f42dd711f0a0646d1531a948f7f91382ae7aed35595d0de7066a7"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.PullbackSectionsSheaf.HomPresheaf",
+      "sha256": "41f06d9deec055b3f69b8cea5830e796ae1a404130e8308b6fd8fce9f52ecd73"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.QcohCoalgebraTransfer",
+      "sha256": "fa584f90be92881d5040141366f712a5615f5b728408feef593e679c92144a7f"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.SchemeProperty.Regular",
+      "sha256": "a41e67ae59e317f45eb3045b3fc78be95ad5d97b0ac5b208e53217105649370c"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.ZariskiHomAmalgamation",
+      "sha256": "c2a61011af37085275b838ca270b09e4d6927f2aebad92481b6aaee85334de75"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.ZariskiHomSheaf",
+      "sha256": "a9cba1ae5b46a0f34ee1bca9bcbe68c2c609735acc163264450925c0d398a143"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Descent.ZariskiQuasicoherentDescent",
+      "sha256": "a633742e292e05de5535d2adc491462371076cbacc81b190f18e59dad026375f"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.AffineVanishing.DerivedBounds",
+      "sha256": "8e68a91da358db238a96bd909c2754dff30600f2a87d1024b06715408e83749d"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.AffineVanishing.UpperBounds",
+      "sha256": "d8098912e205e138535cdb9e49d6affeeb79647390591108ac9cde02788575c0"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.DerivedTilde.AffineDerivedTensor",
+      "sha256": "5ccabc63c24ba6fe4871d61fd0daf0b45019013928b25486f4d4b0f7fd8b1456"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.DerivedTilde.QuasiCoherentDerivedTensor",
+      "sha256": "be1f71be63dfb991267ef7b5e3cf889a18f56f11ab84b943fd9fcf65337a9da0"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.QuasiCoherentPushforwardAdjoint",
+      "sha256": "9a9908e3df823e9c6e5063374fbb7b6527ac75641f2c63953cc5c2ff05c49b63"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Duality.SpaltensteinCriterion.QuasicoherentTruncationConvergence",
+      "sha256": "8477ed3031dea662aace0789e77bfd60fddaf413cb2fa470b6eb3ca7c47b0815"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.EventualLimitProperties.Basic",
+      "sha256": "da3d252e9ec30b9721ff0af90a4b77c98411b6381782b8baf4375ad9ed93d7fc"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.FiniteLocallyFree.RankDecomposition",
+      "sha256": "e13ba32bf4f2df90f46c756129e5641efbf12411cc1f1bb07e071df95c637602"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.FiniteLocallyFree.StalkRank",
+      "sha256": "b988f55375bd78cdc966d910933dd90ec5daf0ee75c84dbd44d9116dc1b50097"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.FormalGeometry.CoherentAdicSystem.AffineComparison",
+      "sha256": "34e27622bfb82905a56d31429742d5c1801a454e66f32db66b1f39e84f1bef73"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.FormalGeometry.CoherentAdicSystem.ModuleTower",
+      "sha256": "bffe1318f30748b6c6549a568622924160d845a8a76e37dd8a8be751de64ef81"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.GlobalSectionsOverRingCatSheaf",
+      "sha256": "245d578b50a3bd330cd750eec07cdb8bd2428187087fc3299fe57d2f01000209"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.HigherDirectImageAffine.BasisVanishing",
+      "sha256": "3cbe8845b938ea39272acb5793df837a3cf134b6168644d878d005f12c7c8242"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.InternalHomTilde.Basic",
+      "sha256": "b15f9815d4f97f46dd8e13de9dd9c3b50799b9b0931c9a92064bb56ae36fd5ba"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.ReductionToTheDiagonal.SerreMultiplicity",
+      "sha256": "6e6eb28dd2c26eb9ac27689d6920c1cea2d4c1f08657e093e47cd4c15cca4679"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.CoherentTorSheaves",
+      "sha256": "30899f83c50364287fed894adab5e045761db39a2cb36282915eddeee279e4bd"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.StalkRingComparison",
+      "sha256": "a9c029fd9d78ecd4f7c7af8c0817300ffd376de042740d6e7ac46a5e16f57f6f"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TorSheafMultiplicity",
+      "sha256": "9fd22502f05ba3a440590330d3dba90cc4736943d5c7cdb28971464c19724670"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TorSheafStalk",
+      "sha256": "a4ea9730795dd2a1ae530b1de7a46846d0ef4bd98ec5ca5a611b6f5cf7c7b6e8"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TorSheafVanishing",
+      "sha256": "e23e8f06ce80909e0df774df29012cd48386615c59ae949e825f624af62462fd"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Intersection.TorFormula.TripleProductAssociativity",
+      "sha256": "e42b297e92abe71932524c41634471c1162aa9623913018f265b61d0d575fdc4"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Limits.IndexHomUniverse",
+      "sha256": "f8d7b487876c81bd125b4ec417b8e9731ac2c55efacc0300b77a0cb6762f3c78"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ModuleLimits.AffineTilde",
+      "sha256": "175eebb2b46223e1eb771f70f334e1dd7ca179f6342ef9cabe1451929bdd3d5c"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ModuleLimits.EventualMapEq",
+      "sha256": "91b0b0184ebb5e6195943347fb81cf421531e55cbc5f6c305be605e98dd64eab"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ModuleLimits.ExtendScalarsCancel",
+      "sha256": "47096e78572fb014c3b3ff4177b513f69b175100afb2fa05b000816fb10aeaa6"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ModuleLimits.MapDescent",
+      "sha256": "e28c34a690fea5b0abed6337c24f9386e7356614a5a0769f721c44be899db802"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ModuleLimits.MorphismLimit",
+      "sha256": "b52008d1a74a298ae41a745ef99ed552fd0dc6d95c2fa24a975645185a552d6d"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.AffineChartSheaf",
+      "sha256": "68a3ff688fd22d6c026ecf68279b4ed6162b1a11057dec45e34debd1a2cc7657"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.AffineSystem",
+      "sha256": "d60144e1bc50106fa094ee6583df1e826946058525d20a9190881e2cbfa83d89"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.BasisSectionExtension",
+      "sha256": "02c881e4fb48334d1af0dfa8ba9d58ceb3f79d5424a27a7c031df584c33c5101"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.ChartSheafFiniteType",
+      "sha256": "e5b23f2873473cccfaa90e27027d50938f4065b7485e18d2857c1a010a07bb37"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.DerivedAffineSystem",
+      "sha256": "ee2f97fa6ccd16c86f0f7b4ff4454a1ce0ad563ad50b7c002dc97563477b5c18"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.GlueDataOfBasis",
+      "sha256": "3432497ef8eb7088c7cf8e9752ff1358b4fd314afed685680a4039c3159b7d18"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.GluedQuasicoherent",
+      "sha256": "cc0e14877e8ad0526cb4bafa2fec1769bc976eec9fa195688181db81bb69ccdf"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.SpecFieldDerivedPullback",
+      "sha256": "f71dfbe6217cfd5482efaccc15123d7f9a7a2650ce8da4488ef0ae2a45b78a0c"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.SpecFieldModules",
+      "sha256": "52b1cbcad5d2605a48e360f2353b691bd9c74e23f31d5c95cc42ebc4ba9675cb"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.TildeAssociatedSheaf",
+      "sha256": "eef548ad7587514523bbe2448a96264bc9f3c483d44ffdacb5f4ca2867d9fc56"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Modules.TildeKFlat",
+      "sha256": "db34112b9dcc3c975ab6cb7ecb7d9acdca0f25a663c6d17d97f9fa1e961920de"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.Affine.Fiber",
+      "sha256": "211ad2ba730cf4927508db97119749845e33e194be30c705f1bd6d733e7def01"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.Affine.FiberMaximalSpectrum",
+      "sha256": "9b118d7f49f433a3258ed70ddd40c1e7e93d44b8bf1c0a048330e50427772511"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.NormalizationQuotient.Defs",
+      "sha256": "6c724ab0a10ae2119e9246a97ce1c1f8cb8bad9bab8aa30e2240ee4498472d9a"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.PseudoCoherentComplex.Locality",
+      "sha256": "172bd7a72ac0dba7465ff031ee7f13c6f6ddd9ca00b9f756c0608b1b96dad8a4"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.PseudoCoherentComplex.LocallyFiniteCohomology",
+      "sha256": "ef24304527c16f91e569b75f1a70bd764f3ddcdd8786a824b0a4f5fc8ae19b49"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.PseudoCoherentComplex.PerfectBoundedCoherent",
+      "sha256": "ba0f30964e37e461160a36c6aefaa6a390ebb9e7415e63966ec26878febbb5f5"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.PseudoCoherentComplex.RegularPerfect",
+      "sha256": "6605a5d20809009e9d2ae1b49de6f6ba6d9a19219e75e75400169de70734e7ba"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.SupportClosedSubset.AugmentationDerivedMap",
+      "sha256": "43655ea57946ad630aabee3462bdf3e38e13d2aad8873a79a8b88713de91c893"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.SupportClosedSubset.AugmentationInvertedByDerivedFunctor",
+      "sha256": "5e0cbefa944efa75770ac0973b678ee6fb2cf45dad0b1baf27878abdded7e6fb"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Perfect.SupportClosedSubset.GlobalEquationsComplexData",
+      "sha256": "6163cdca1284e0689c645a148bf42b154a9dc75d887fdc95ffbe987cce2cbfb0"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Properties.CardinalGeneratedSmall",
+      "sha256": "bb2645ffad9ca4b24e0740deaa0c6136c83c9c06f379ef8ab8603f2c6c716414"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Properties.GabberResult.Grothendieck",
+      "sha256": "a24a6f899acf655d619e17395c0c89c7a81a069681d5533aa1163a9da3adcde5"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.PseudoCoherent.TorAmplitudeStalkwise",
+      "sha256": "417dd01e79d9d06a0f818d21c4869ea60880224ee57cbc1f858da39c42a8a442"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.QuasiCoherent.Coherator.AffinePushforwardBounds",
+      "sha256": "1b65f2fd8fc7cbf276039808f07feb81e016b0dcc09b6a63317d12c5a0ab88b8"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.QuasiCoherent.Coherator.AffinePushforwardQuasiCoherence",
+      "sha256": "cb1fd93d7122d4e514d8cc050514ed6e71e054ee155e99e888260cfc5d7c76c1"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.QuasiCoherent.Coherator.GabberSubmodule",
+      "sha256": "2daf5d6688ff78041ff3d661f6e3e061ac45456937fc4807ba7427ee4e8fb245"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.QuasiCoherent.Coherator.Grothendieck",
+      "sha256": "a051cdb711333f54951386280fe7cb8cb2c538f6be1f7b215d218d027ef0db2c"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ReflexiveHull.CoherentDual",
+      "sha256": "2a941755a3cb311dc60e5ccebebbf217eeff597c6d5cfdeeb138de49811965ad"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.ReflexiveHull.LocalKernelPresentation",
+      "sha256": "21270802b3ce7fec79bf1b8dd8c4a11db8a87d0d4657f623aa9add9e20e78112"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Scheme.QuasiCoherent.TensorProduct",
+      "sha256": "f640f4e06336d3ffabab108553cf0a5f6953aefb8a81f89ce19aba3e9281cc7f"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Scheme.QuasiCoherentSheaves.Basic",
+      "sha256": "0a54ebe3404fd25bb46496e58aa1c2a06dfc8ffda6923c2f157ee37aaebbf17f"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Scheme.QuasicoherentSubobjectGluing.FiniteTypeLocal",
+      "sha256": "329ef88f670e7358b17371a9c9945cc67d6bcaa6b00686dc95d959abe858ab1b"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Schemes.ZariskiAndSeparation.AffineTensor",
+      "sha256": "d7f413d7a31a62753ec059ea51f1ccd5992c471f143a5113aacfca54f1aaf14d"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.TotalDirectImage.TruncationTower",
+      "sha256": "fc975f8f0de506c40e118b6f7213e54bb41eb7b4d2c97d00648b9c53cce50767"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.CechNerve",
+      "sha256": "e188b3cca42732091bc17bdce1754aa31d2f3baad7981466597020034d4407c4"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.Decalage",
+      "sha256": "2e27f493a0961f27179bccb88b14cf93ee75075b7e7fe59c684ad02267c14624"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialHomotopyTensor",
+      "sha256": "a22a08bf89673e41fcf8da5b3c8495939bc09cdef37f6a2466ab9f8063aa823a"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialObject.ChainHomotopyLift",
+      "sha256": "94faf3520016f79811c9f9247bb96268234941f7299be29a59693b3148dfa646"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialObject.Homotopy.Equivalence",
+      "sha256": "e4e7849caf9b4a2a4d2fc1304c80cdb7392bd7fd4220bca8bd39ce0b2772a1fd"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialObject.HomotopyEquivalenceProjectivity",
+      "sha256": "98a12d6225b60035dd6161525fb0a0afd07992fb90695cbd2b0401accce3fafc"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialTensorConnectivity",
+      "sha256": "0a4503314edae1a93dcb1682be65895a7fdd9a91ec01e6b46add2c501e660f28"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicTopology.SimplicialTensorShortExact",
+      "sha256": "a2729b58016f7d0e3f65c3c5e2e16838d369cf73ccec529f819d8d76c817e6d5"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.EssentiallyConstant.Defs",
+      "sha256": "a07efbd201b76b993e61b1b8ea0bcf361d9d0047abc35be264758e1dcbb5dc48"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.MorphismProperty.NatIsoTransport",
+      "sha256": "61ece09602290235c1d82ae612add974141d13f9782b86e09f7e69f58e76a422"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.CechNerveHomology",
+      "sha256": "ba1a700de22de48f3e458ec50d585a1ebf3fc62e4bf172f0aa1c44f80016459e"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Acyclicity.TotallyAcyclicGlobalSections",
+      "sha256": "96d9bf09449c33dea7609e0135ff14f62602f59eafafe54ea31ac51e710cb92b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Acyclicity.TotallyAcyclicSheaves",
+      "sha256": "e024b01b4b4cea91cbb5782319d0c522995ed6ec0327d236d4127944555e5b92"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedLimit.CohomologyOfInverseLimits",
+      "sha256": "1fa96a2020db405e9793b7c752d78038677166694030227214424ac2ec51a981"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedLimit.DerivedSectionsAndInverseLimits",
+      "sha256": "87ebe2e73343061056353b0beda556e334d1030ab23ac25db8b97bc4a8a57cd2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedLimit.OlssonLaszloSituation",
+      "sha256": "c38c83e6eb62cf6e9f15bdef9998a801015a561ea49bca8d2cd1e4b6fe9ad85c"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedLimit.TruncationConvergenceAcyclicCover",
+      "sha256": "a907061432f15b4ab1ae619ea618932157802b7f8ee2d283f2ce654b9be9581b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedLimit.TruncationTowerConvergence",
+      "sha256": "0dcdb4c90995ee85ae34f6af53f669067d0c9c7f0ef98d382f4a0ad4e88ae26d"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.DerivedGlobalSectionsOfModules",
+      "sha256": "d9ea37f7c57da36cef8c4fd07c882d6af7f28409207868b7045eb3520dc7adef"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.SectionsKInjectiveNaturality",
+      "sha256": "fe18dc7d500e3b014e4edfe7bf207a61a65fe7c8033a74080e242b3fc3b8b3e2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.SheafificationOfTheCohomologyPresheaf",
+      "sha256": "2aeae688403eca59c3029d7f9c2f2d714fa2cd9b9f3e07c576eddbf15f0ebfbb"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.Assembly",
+      "sha256": "527c2ad7cce9b7ffbf6655836dd57270179c041e30b1c35d098c3da3b598bb2b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.Bifunctor",
+      "sha256": "d05c14449f8d5fd5f283b765ea7f93dc8fd95724babdb4cd3ff247ba2c3fb4ec"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.BifunctorCommShiftTwo",
+      "sha256": "314e08e2ca1b1227fc4eb6cabdd1d629b30b76d7e4296ff343b09e3e16af2ce2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.BoundedAbove",
+      "sha256": "cd705fc99412439b7126e7d557127677cc35c79681fd70c616b07a593b686084"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.Exactness",
+      "sha256": "ea76c05fe562fee4b6dada620f77cf14c15cb12a6129c3025f1ade2929237ce3"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.Existence",
+      "sha256": "58afbc323078bbf535791235438e9c90dea5eaa032cb26eb372a8218f99eca6a"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.FlatTransport",
+      "sha256": "ecdba1bdb1ec4940f2a5c47c940f9a7f5e29c1a9133de224b913417ab036cd5e"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.Interface",
+      "sha256": "7e1453969e042e95ad6d5afbd1053568196949e9266ae5c1d486a617f6de41e3"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.ResolutionByExtensionsByZero",
+      "sha256": "e5bfbb19ef83d213beb69cbff91ffdbe52a56409cde5b6b025a0aca7f4f734a2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedTensor.ToOrdinaryTensor",
+      "sha256": "e6003e5900e449347aecddfddca424c10805cc1b4fc9b308fd007a7616d46ab5"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.AcyclicObject",
+      "sha256": "4d50246ab6735712c9144b48370967d1546930889b3fe7fe9e4be73d3cfb6ff5"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.BoundedBelowObjects",
+      "sha256": "cfc1e2f2a23145bc00de1ea80c82183c582293ea938f07337f3c0a2b66024df7"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.EdgeMorphism",
+      "sha256": "97e87a070a538bb096478eecf0e9f44d2111537465988ddaecc352ac8562a890"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.MilnorSequence",
+      "sha256": "afc25bf04ef73e55b061689ccf9ddf7ac7b937bbcbec7dd5e00688adaf017db0"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.SingleSheaf",
+      "sha256": "e06d8f7276a38484e0ea4312dc33030e194ce743d788c30b1498ebac5027994e"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.HypercohomologyEdge.TruncationTowerConstancy",
+      "sha256": "c4aa7c4aed4b090760658535e21aa2eafd6adc864c1f970ff9778a140b63956f"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.Bifunctor",
+      "sha256": "9f202a569b9563a5973e91771647a6c8a5b9ff2cafe40861276984bf6d2e7339"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.CompositionFunctoriality",
+      "sha256": "77f2e7cf7b0adb9a22aef2e94a6fd3faf2b05224360299209a2cbe2a284ccf24"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.CompositionMorphism",
+      "sha256": "d9a347381dec22360537b55db5f5494f9cc519cc6256e9a22b53442b2833bb64"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.CurryingIsomorphism",
+      "sha256": "6b47297b8ba865b4fa4435d6ad35986d8eafc5854a8c7f00716ae41d77fe456d"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.CurryingOnASlice",
+      "sha256": "9fca83cb2f99317f99743732e36e14ca0b692570a4f7a14129b076e1718701ef"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedComposition",
+      "sha256": "b2775753305e693c16299dad83a6b5ccda09a90f99118271a441cc68d4a52d36"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedCurrying",
+      "sha256": "31854e5b13ecf86deabfdd0825876ad502418fefdfdf910ab2c68dc6bbb7cf41"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedEvaluationSource",
+      "sha256": "9965ed8cb524ee32db9efe99deb6d62622d0e4e3a0e4daaaddc1dcf4205f3c86"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedInternalHom",
+      "sha256": "ae8878db353be1285c9f0432eba639c16f8a606eedf2ded204775c808d6d0b7b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedSectionsFromAKFlatSource",
+      "sha256": "36fe212e821c5d0d04ed498da4487f0eed7edfc2e2e2bc25cc4f6c38b47454e4"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedSectionsNaturality",
+      "sha256": "998f11d9fea2ab5c144f7cb84f52fc7a3779e95f87d6be24dcc88fa8f76aec79"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedSectionsOnDerivedObjects",
+      "sha256": "22ad21fb80e01023e13087d6a603ebd96ca9f314265b43a1922ec0e482cca0bd"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedSectionsOverAnObjectNaturality",
+      "sha256": "527962d4eeac127e8791a12f8acfb8e8bc65a611ea8f664f819e6ef41c791363"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DerivedSectionsViaAKInjectiveModel",
+      "sha256": "adc271841b14174a579b56f3c4e6347d396b6aa7f231f80be9fa0adcdc600f08"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.DiagonalMorphism",
+      "sha256": "a8d0083b339b5207e5eeb7c57f19d659f5132bead951ecb68128880c05135567"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.EvaluatingSections",
+      "sha256": "6de0f2c48cfe452f98d8b1e606d73e3b7ebc47259f1e66d3686625360fe0395b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.EvaluationCochain",
+      "sha256": "7e19b941d606e44e757b52d6be47b3a5c3aa9eac1d95c94e7feff89eaa5ed0e5"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.EvaluationMorphism",
+      "sha256": "e811ef312aa333224601e85dccf135f8389fda884d4b9cfa7204d671bdcbe802"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.FromKFlatIntoKInjective",
+      "sha256": "d06562f9299b1a9856885328b0b220044ab2bb49ea98ee755d4902e0f310a0ca"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalDerivedHom",
+      "sha256": "37616d5d8ce468fb9e14c3b6a527b66a5f132eaa557e5cf33d242e2c727da15a"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalDerivedHomLocalization",
+      "sha256": "9ad862037046d043b8687b1b80ded115d0c9f16586e25fe0876e4a9383636e6d"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalDerivedHomModelIndependence",
+      "sha256": "6a334d7862966597cac48c15fc7a5a2dedb6a0a7e2ca2100e9364af426f05d30"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalDerivedHomRepresentativePair",
+      "sha256": "128f0ca475bc08d4c2da60b02052906625529c3d44cf0a82594a53353eec2a9b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalDerivedHomTransport",
+      "sha256": "38dfce11b635bfe377b3b3ce6bd094be885ad53ccab5bc5402cc46131357e8c8"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.GlobalHomNaturality",
+      "sha256": "6f7ae3590a175be788781bf07ec68833bb8580526f89cd61755a87383e8e770d"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.HomComplex",
+      "sha256": "bb0de592df3025677f39a0fe6463f1532bcdd120253ed3a09c2611291b4c30df"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.HomComplexFunctoriality",
+      "sha256": "c8bc4fe5df8603bd15c0ea5469556b025305e2e12109ffa2e0107ea454460b15"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.IntoAKInjectiveComplex",
+      "sha256": "3629c43cdab51da444e0cc29364bca027dd4b5bb46d8b7ae0c3e537c644d6eda"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.IntoAKInjectiveComplexGlobalNaturality",
+      "sha256": "b2df11e03bf6986af0d3d51d27147ca9c713a333f69a34b18c3a8c51875ab4d6"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.KFlatIntoKInjectiveIsKInjective",
+      "sha256": "418771cb0fd4ec1a47343f6b1884c53a5b6f0ba166b6765184913f7c5e836e60"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.InternalHom.QuasiIsoInvariance",
+      "sha256": "71afa38c9fc6fb4a4d55f595182a169eed872ba4b7f42bda377aba5e2ba6d5f0"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.DerivedCategoryAsLocalization",
+      "sha256": "5e6f78c2c60f5655bfb73be1d0117127c608652aa33b6a39d163e761329e321c"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.Resolution",
+      "sha256": "328ba20ca81f1884c51bdda332d7dbfdbf6c2aaa28546920974d91dd1bc46d09"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.ResolutionExists",
+      "sha256": "fd2875d56b08294263313c8012c49932816963115632b0ee202f1e34d6047119"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.ResolutionIndependence",
+      "sha256": "8e109c9b9a09b711f1ffa3ffb7ca8a21aa82dcd3f051c503fb4ddedb6993226a"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.TensorPreservesQuasiIso",
+      "sha256": "6419ee9dca544d961e29e36e8b58d7270a92b45950a42f9169b790eeb2595c8e"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.KFlat.TriangulatedSubcategory",
+      "sha256": "6dd40c454aa3cedb026d3c771c7e5b9aad8fcbde6a41d16ba0aec131dd1e587f"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Localization.RestrictionKInjectiveEssentiallySmall",
+      "sha256": "599d15990a023696c271f51435a39dc3e502725ea399d90f0c934f271c58ccf4"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Localization.RestrictionPreservesInjectivesEssentiallySmall",
+      "sha256": "416eafd18f4ad25504ed44f6c66c5b4f421d3a1104ee2f5d22e7a2d359aa62dd"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.LowerShriek.DerivedExistence",
+      "sha256": "5d778d6639b9c26b0f4303e895cf16986a9ce44dd63346db9772be4c6922c318"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.MayerVietorisAndHom.HomComplexMaps",
+      "sha256": "4fda4973d4a7edc1e0b22ba6ceb5d8547afa167487ea632378f6e4c888da598a"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.MayerVietorisAndHom.HomComplexQuasiIso",
+      "sha256": "3208f815c210de9a34b81b0e3550875897c8733a47b2993399a10b22e1697361"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Modules.CohomologyOfModules",
+      "sha256": "567f37bdcc10fe9d159d00994a40105bb2261153929e326926e46857c9b8e8a2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Slice.MorphismsOutOfASheafifiedPresheaf",
+      "sha256": "ca82fb98b17452fb543575dd8f09bb9a21d0b9daee8dc47c4e9a4e280ed887e3"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.Slice.QuasiIsomorphismLocality",
+      "sha256": "39ec28c412d819aaad4875d9b7d3da924a5419c421df6bc4213386ba043d2189"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.LocalSections",
+      "sha256": "d5ff8f1c7a746579ea1c956e062982553612f5a50781050b5784863c9b0c183b"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.MonoidalStructureOnPresheaves",
+      "sha256": "9cd327ccc93f6ac5aa4771c8b8705d1981632994390ec263bf011ca60d4dbd93"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.MorphismsOnASlice",
+      "sha256": "b15c13a72db57619f8cdd18ff2f7a93ba1a847ac2c37fe8c97c3ef9e1cdcf119"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.TotalComplex",
+      "sha256": "059ab3a6a42077100513d72ac91cece8c943bcc5f1827158aa6098acbd0f18e3"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.TotalComplexComparison",
+      "sha256": "54d0389d213ed95b760b2997ce304878a3a2523cd654f102c85895bdad8fe297"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TensorComplex.TotalComplexShift",
+      "sha256": "ed39368fa82827259c3d495f1b5428ddf3a37e31a6dbcf389a8f48177d5423d2"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.TorsorsAndColimits.KFlatResolution",
+      "sha256": "0677c7ff11b9df986620f66dfe53dd68ecd5005b7d0e544e23e44e5a6a637cbd"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Cohomology.UnboundedDerivedFunctor.SingleObject",
+      "sha256": "b6a601e75515dd986ab76a660a7673b28c364010fb7bf099998e800ac7bf3f0e"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Descent.SingletonCoalgebra",
+      "sha256": "401b321bac426654e0bcdd5a454256538bb0047c1c94adae69872cd0112623e9"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.GlobalSections",
+      "sha256": "8ca51e0bcef8c5adeb818fe8c8b50548b103a097aaa2a1b4f46d18deaad21aef"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Modules.AdicQuotientModuleTower",
+      "sha256": "5a1b536220e661fc984461625e839e6232705a4a7c0971eb1e43a0b2d2e8b5fa"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Modules.ExtensionByZeroUnitSections",
+      "sha256": "4956a9409ff1220eced19b9c2f3957995514527f583c78ec22a6565a4a057243"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Modules.GrothendieckAbelianSmall",
+      "sha256": "fd2899ae9a315c814e2520524188b3aee7acaf20f761d9a66866bb743512db46"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Sites.Modules.TensorUnit",
+      "sha256": "166e1882f25e340f358191011649f445958c23f24f1f7ab3e51223d20889eee0"
+    },
+    {
+      "module": "StacksFrontier.CategoryTheory.Triangulated.AdjointsForExactFunctors",
+      "sha256": "9bc60bca0e029026e9fc7f99c7c2ce53a788e1272f3e15c69a75a2e11a8517a0"
+    },
+    {
+      "module": "StacksFrontier.Homology.DerivedCategory.InverseSystem.EventuallyConstantDifference",
+      "sha256": "7f03402e45178a99c5b58675c19524fd1d7436f15e6a5b81d67634aa75289495"
+    },
+    {
+      "module": "StacksFrontier.Homology.DerivedCategory.InverseSystem.MilnorTriangleOfTower",
+      "sha256": "ace90a4799f828318df0fffd4c740e39db7af9d29c23522ebc5e262fbe79034f"
+    },
+    {
+      "module": "StacksFrontier.Homology.DerivedCategory.InverseSystem.MilnorTriangleShortExact",
+      "sha256": "800762235c7cf408adabdc33a48fa45db034824b2c3d6552b3d426a0d89e9025"
+    },
+    {
+      "module": "StacksFrontier.Homology.DerivedCategory.InverseSystem.MonoHomologyProjection",
+      "sha256": "7320f325a1306f8fdf2715bce39f7eeea910e048ac61b5e04e958a10078f1111"
+    },
+    {
+      "module": "StacksFrontier.Homology.ExtendScalars.Localization",
+      "sha256": "12342e88817298ba17a5b773071486a23bc261c560b574e6fea2afe50676ef90"
+    },
+    {
+      "module": "StacksFrontier.Homology.Injectives.DerivedCategory.DerivedLimit",
+      "sha256": "83ea1553816a878cc98ee2e4235c43c5970b300ec5e1bb9790696852a720cf39"
+    },
+    {
+      "module": "StacksFrontier.Homology.Injectives.DerivedCategory.KInjectiveProducts",
+      "sha256": "937342835c7bb9dd8c088086e4b5d69ab996e08c8862867fdab89d590d11d814"
+    },
+    {
+      "module": "StacksFrontier.Homology.Injectives.DerivedCategory.ProductsAndCoproducts",
+      "sha256": "92cbacd0c39bf3a1c54effe1a4f0f07308d5c6271af2b07e7170ce7fb0803521"
+    },
+    {
+      "module": "StacksFrontier.Homology.KFlat.ChosenResolution",
+      "sha256": "868f655dfb5c0beabf0ac23065634ed8df695b36dea61339becd6b18cd6c5a04"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.BaseChange",
+      "sha256": "0d50ad50acc7aab0557b558f281d48fb23f016387cd34af4d11d37eb6b817392"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.DerivedSquare",
+      "sha256": "43415c293aa3075f335fc5789354f9ebf6023713f9e21b97f8f6c55cd1354ceb"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.DerivedSquareBaseChange",
+      "sha256": "3ad6b159c52a2cd1ea97ac847e6911df2c215f7cd7dae367faad7f7a5da55938"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.DerivedSquareCrossEffect",
+      "sha256": "d44f76f2cf7d58452bc81b44f48cbf1b6d111a34423f71f0a3b327130a45f1f0"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.DivisibleRetraction",
+      "sha256": "0e8bb4596c212042914e538218761ecf84c8385e0d2cac986d75430d158f93fb"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.Projective",
+      "sha256": "24d21b7e2c007aa2be781585becbe5bca9c7261fd7da0094df2f583541d9dac9"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.SemilinearDerived",
+      "sha256": "7eeebc374076df521779a6a1d659a842be704a584b6e818029a2dc295ec4b9f7"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.SemilinearDerivedLongExact",
+      "sha256": "f83bbc5ff91e261d8fea50854c3d9dde7f79e2f62479df5955dc2c885ff05b76"
+    },
+    {
+      "module": "StacksFrontier.LinearAlgebra.ExteriorPower.SquareFiltration",
+      "sha256": "d4728941ba56c57dd79efc8339e40dc5e9a6a5035206ad5509d12e0edd6c6673"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.AdicCompletion.InverseLimit",
+      "sha256": "94b692653bb8105793b54f07579e9d2be23f374ef02e1f1930135d07d6dc44ce"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.AdicCompletion.Noetherian",
+      "sha256": "684dea0d2b9904fee7d554d5d496fc7158ea44b068ae1c771547d39aa4b69fd1"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.DeRham.Basic",
+      "sha256": "7a20e5aae6a47e8bf9023308f91f8c26766c7970db30d460ae66e1a98e49fe42"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.DeRham.Complex",
+      "sha256": "a58124cd36a960549ca0a98dac62818b719be4a8bfbc372f492316a9458ca2f6"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.DeRham.PolynomialHomotopy",
+      "sha256": "505b21904d7a635b4706db7e895f77f1b114df86b2fb6cb3e2b2116cbf05f5f0"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.DeRham.PolynomialQuasiIso",
+      "sha256": "a9b1e98b4fbcfc9be20e6a740568d8503b7cf9895bb16a7bcb034e54bfb51b58"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.FibreProduct",
+      "sha256": "514ce7dd6e5b69d795b29d7710db09488328ec1c1a2bbce50172454a09a56b40"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.GradedAlgebra.Nakayama",
+      "sha256": "18cab1b462124a1f4c90548bf3bbad28140ea7be4322a8465aad76b056ba7ce3"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.MilnorPatching.Adjunction",
+      "sha256": "38a97a803bbd08300b63abb3b5c44976916f13e9d162b8c0fd46c05f310bacae"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.MilnorPatching.AdjunctionUnit",
+      "sha256": "267eb71fb16417125c97741041802bda86a1a60fb39fa95d426188d30866a153"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.MilnorPatching.Relative",
+      "sha256": "ca5c55c4ad43012767945994c2621cb64a61749f1b16cbbb629e13d1e57ce894"
+    },
+    {
+      "module": "StacksFrontier.RingTheory.Nagata.SmoothDescent",
+      "sha256": "a80d88f87a62be71f7600e43c91fe4a321fc453297b7bf31808ba9c0c5414ccf"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Basis.ModuleHomOnBasis",
+      "sha256": "865b4f0a44cf750fa92075d6b9c08d38816ab609e357c4f8abe126edda3c348d"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Basis.ModuleRestriction",
+      "sha256": "cfd594f962cec32d12bcf78c7eae2fd8b523d34005a48a59b213e53ed3f5d113"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedCategory.ConnectiveCohomologyPresheaf",
+      "sha256": "0099c2f06dcef23ca0810c35f22dbd11136430710e06a5c35cd95983d208058d"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedCategory.ConnectiveHypercohomology",
+      "sha256": "11fa8f01bcd78ccb535df63d999883108e27183a8a3b8598dbd679f2b42359a1"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPullback.CompositionUnconditional",
+      "sha256": "6bc083606bc3014754190248d9a3a1257f12108c6ad441edca872599dd106fe6"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPushforward.AdjunctionAlongAComposite",
+      "sha256": "3e07214139f5e87d19063d19653425a9e34114853f7503b98647e8880bdbdbc1"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPushforward.CohomologySheavesOfADerivedPushforward",
+      "sha256": "edae5fc2b068143ed0d8882d3d722ca9263ece2e8393fd428b32d9f189b6c161"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPushforward.CompositionUnconditional",
+      "sha256": "7da94614e783fc29632169e8c16244d5137fb830af8075feca84fd47f1d9f868"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPushforward.ConnectivityOnABasis",
+      "sha256": "b76199f7b4d42846b991bc8284ab9d10e08d5df9dd3621a58b66ce1260dc01d0"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.DerivedPushforward.LerayForDerivedSections",
+      "sha256": "6b4f5b200931e9b3067b766113939e63b095005d0ebeb24f88544a7f7302bd02"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.HomComplexAndStrictPerfection.InternalHomComplexQuasiIso",
+      "sha256": "4fc75878eb700cf313a56c165d5b9d207873f19beab844a958f48bdcc1ce22a6"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.InternalHom.Defs",
+      "sha256": "f3bbae6ec0358a37cd57afbcd707ca7c12dadafb56ccddbb5bf6899e1deb40c6"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.InternalHom.DerivedCategorySections",
+      "sha256": "d541f951f8f37d31fc2d6d4858f92d89968bd1d802b89a225cfe22840df88be2"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.InternalHom.DerivedExtOnAnOpen",
+      "sha256": "fb12200b31492decbc9a4b7fa1f66ab400254f3a608753113609f7c9ff7a4146"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.InternalHom.DerivedInternalHom",
+      "sha256": "49f71b60ab3c1fcb552295d6a8226652c882ae15bd37b9f8a52c40f89adccf18"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.InternalHom.KFlatIntoKInjective",
+      "sha256": "db1b0aeae327349e7968de506587cba76fda0d697beb7f384c64ccbaec877f70"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.KFlat.SequentialColimits",
+      "sha256": "7c115c10b88d71ec9f2693235f33d5da9c3dd28850595717f4c5bd98ccbd5657"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.MayerVietorisAndLimits.InverseSystemsOnASpace",
+      "sha256": "4d995bfa61b108e43e1414ecacef1f6b4586fe523080d1f768d4f1f9ea6ecb7b"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.PerfectComplexes.TensorProduct",
+      "sha256": "0fbd436f0f327efa2b04c08a63d0b74e632d3d30efbadcfc25068baa6d0d1daa"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.PseudoCoherence.DerivedTensorProduct",
+      "sha256": "113fdf2cbe57dfd3e07839ca086efa73240fe23d99c1856b817156a05e7d3346"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.PseudoCoherence.Representative",
+      "sha256": "8358644f81f7c51583f2898c268a19560c9fb6b8aee86ca7e7ef97615b635436"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.PseudoCoherence.TensorProduct",
+      "sha256": "9481799a6e97be2869b84715c3c9ee151c10f1d9aadb05e8c645decfa58328c6"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.StrictlyPerfect.TensorOfFiniteFreeSummands",
+      "sha256": "40044f1be7a70e311938c6adfbeb0e9a9b3f650715e6063f69796467582d12ce"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Cohomology.StrictlyPerfect.TensorProduct",
+      "sha256": "6f9f61c94f9ed43ff678f23d00a86c62ba622785788fe0d120077377da86d783"
+    },
+    {
+      "module": "StacksFrontier.Topology.Sheaves.Modules.ModuleGlueing.Basic",
+      "sha256": "64e9608a2de19ae17666838bc648cfddbff652b0c37ec7d6a8c794b56922c30c"
+    }
+  ]
+}

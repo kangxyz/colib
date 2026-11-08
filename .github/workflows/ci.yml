@@ -29,6 +29,8 @@ jobs:
     uses: ./.github/workflows/lean-ci.yml
     with:
       package-directory: .
+      # Temporary provider-only run. Ordinary commits keep all normal checks.
+      one-time-native-cache: ${{ github.event_name == 'push' && github.ref == 'refs/heads/work/native-simple-norm-base-change' && contains(github.event.head_commit.message, '[one-time-native-cache-20261108]') }}
       build-targets: Colib
       # The repo-only autoscaler requires this complete label set.
       runner-labels: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && '["self-hosted","linux","x64","colib-ec2"]' || '["ubuntu-24.04"]' }}

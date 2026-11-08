@@ -5,6 +5,9 @@ name: Lean CI
 on:
   workflow_call:
     inputs:
+      one-time-native-cache:
+        type: boolean
+        default: false
       package-directory:
         type: string
         default: .
@@ -77,6 +80,7 @@ defaults:
 jobs:
   build:
     name: Build
+    if: ${{ !inputs.one-time-native-cache }}
     runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
     timeout-minutes: ${{ inputs.build-job-timeout-minutes != 0 && inputs.build-job-timeout-minutes || inputs.job-timeout-minutes }}
     permissions:
@@ -1427,3 +1431,198 @@ jobs:
           else
             gh release create "$tag" "$ASSET" --repo "$REPOSITORY" --target "$REVISION" --latest=false               --title "Stacks compilation checkpoint" --notes 'Independent Stacks working-build checkpoint from successful Colib native checks.'
           fi
+
+  one_time_native_cache:
+    name: One-time exact native provider cache
+    if: ${{ inputs.one-time-native-cache && github.event_name == 'push' && github.ref == 'refs/heads/work/native-simple-norm-base-change' && github.run_attempt == 1 }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    permissions:
+      contents: read
+      actions: read
+    env:
+      CI_NATIVE_MEMORY_MIB: 13824
+      CI_LAKE_THREADS: 1
+      CI_LINT_WORKERS: 4
+      LAKE_CACHE_DIR: ${{ runner.temp }}/one-time-native-lake-cache
+    defaults: *native-resource-defaults
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Establish cache-safe compiler deadline
+        shell: bash
+        run: echo "NATIVE_DEADLINE=$(( $(date +%s) + 330 * 60 ))" >> "$GITHUB_ENV"
+      - name: Retrieve the exact existing official artifact
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          github-token: ${{ github.token }}
+          repository: kangxyz/colib
+          run-id: 42488350434
+          artifact-ids: 13619929911
+          merge-multiple: true
+          path: ${{ runner.temp }}/one-time-native
+      - name: Verify archive, manifest and exact coverage before any compilation
+        id: seed
+        run: python3 .github/ci-cache/one-time-native.py inspect
+      - name: Upload verified seed manifest before native work
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-seed-manifest
+          path: |
+            ${{ runner.temp }}/one-time-native/checkpoint.json
+            ${{ runner.temp }}/one-time-native/seed-coverage.json
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 7
+      - name: Configure pinned Lean for the native no-build validity gate
+        run: |
+          installer="$RUNNER_TEMP/elan-init.sh"
+          curl --fail --silent --show-error --location --retry 2 --retry-all-errors \
+            --connect-timeout 20 --max-time 120 \
+            https://elan.lean-lang.org/elan-init.sh \
+            --output "$installer"
+          chmod +x "$installer"
+          "$installer" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+
+          for attempt in 1 2 3; do
+            if LAKE_PATH=$(elan which lake); then
+              lean --version
+              "$LAKE_PATH" --version
+              exit 0
+            fi
+            if test "$attempt" -lt 3; then
+              echo "::warning::Lean toolchain acquisition failed (attempt $attempt/3); retrying."
+              sleep "$((attempt * 5))"
+            fi
+          done
+          echo '::error::Lean toolchain acquisition failed after 3 attempts.'
+          exit 1
+      - name: Materialize and verify pinned sources
+        run: |
+          lake env true
+          python3 .github/ci-cache/checkpoint.py supported --root . --materialized
+          python3 .github/ci-cache/one-time-native.py sources
+          python3 .github/ci-cache/checkpoint.py restore --root . --layer stacks \
+            --input "$RUNNER_TEMP/one-time-native/stacks.tar.zst" --native-cache "$LAKE_CACHE_DIR"
+      - name: Fetch standard pinned Mathlib cache
+        run: lake exe cache get
+      - name: Native no-build validity gate for the six exact targets
+        id: ready
+        continue-on-error: true
+        run: |
+          mapfile -t targets < "$RUNNER_TEMP/one-time-native/targets.txt"
+          test "${#targets[@]}" = 6
+          LAKE_RESTORE_ARTIFACTS=true lake --log-level=error build --no-build --rehash "${targets[@]}"
+      - name: Native build of only the six exact provider targets
+        id: native-build
+        if: ${{ steps.seed.outputs.covered != 'true' || steps.ready.outcome != 'success' }}
+        run: |
+          mapfile -t targets < "$RUNNER_TEMP/one-time-native/targets.txt"
+          test "${#targets[@]}" = 6
+          remaining=$(( NATIVE_DEADLINE - $(date +%s) ))
+          test "$remaining" -gt 0
+          timeout --signal=INT --kill-after=60s "${remaining}s" \
+            lake --log-level=error build "${targets[@]}" -o "$RUNNER_TEMP/one-time-native/outputs.jsonl"
+      - name: Quiesce compiler scopes before checkpoint export
+        if: ${{ always() }}
+        shell: bash
+        timeout-minutes: 3
+        run: *quiesce-native-scopes
+      - name: Pack independent Stacks checkpoint only after a successful native build
+        if: ${{ success() && (steps.seed.outputs.covered != 'true' || steps.ready.outcome != 'success') }}
+        run: |
+          python3 .github/ci-cache/checkpoint.py pack --root . --layer stacks \
+            --output "$RUNNER_TEMP/one-time-native/stacks.tar.zst" --native-cache "$LAKE_CACHE_DIR"
+      - name: Validate exact outputs and split the checkpoint into bounded pieces
+        id: export
+        env:
+          NATIVE_READY_OUTCOME: ${{ steps.ready.outcome }}
+          NATIVE_BUILD_OUTCOME: ${{ steps.native-build.outcome }}
+        run: python3 .github/ci-cache/one-time-native.py split
+      - name: Upload standalone manifest and provenance
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-manifest
+          path: ${{ runner.temp }}/one-time-native/*.json
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 7
+      - name: Upload checkpoint piece 00
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 0 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-00
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-00
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 01
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 1 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-01
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-01
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 02
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 2 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-02
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-02
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 03
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 3 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-03
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-03
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 04
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 4 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-04
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-04
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 05
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 5 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-05
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-05
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 06
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 6 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-06
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-06
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Upload checkpoint piece 07
+        if: ${{ success() && fromJSON(steps.export.outputs.parts) > 7 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: one-time-native-part-07
+          path: ${{ runner.temp }}/one-time-native/stacks.tar.zst.part-07
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Record provider-only scope
+        run: |
+          echo 'Resource scope: min(13824 MiB, physical RAM minus 2048 MiB); no swap; LEAN_NUM_THREADS=1. Normal CI resources unchanged.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Exact native provider checkpoint exported. No Colib build, test, lint, axiom audit, kernel replay or release publication was requested or performed by this job.' >> "$GITHUB_STEP_SUMMARY"
