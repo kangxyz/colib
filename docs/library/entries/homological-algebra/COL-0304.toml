@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0304"
+title = "Unbounded sheaf hypercohomology and its native comparisons"
+kind = "comparison"
+section = "derived-hom-comparisons"
+order = 20
+statement = "Derived Hom from the native free representing sheaf defines hypercohomology in every integer degree on actual unbounded cochain complexes. It preserves quasi-isomorphisms and the original site and coefficient maps. For a single sheaf, nonnegative-degree hypercohomology identifies additively with the native ordinary Ext cohomology, naturally in both variables. The actual signed cochain shift gives a presheaf isomorphism H^p(K[q]) ≅ H^(q+p)(K)."
+scope = "An arbitrary category C : Type u with Category.{v} C, a Grothendieck topology J, and HasSheafify J AddCommGrpCat.{max v t}. The unbounded construction uses an explicit HasDerivedCategory instance in an independent universe. The single-sheaf comparison additionally uses an independently chosen HasExt universe and n : Nat; its additive equivalences need not be isomorphisms of group objects in one common universe. The complex and shift indices are integers. No boundedness, enough-injectives or enough-projectives hypothesis is imposed. The native free representing sheaf is also projective whenever evaluation at the object sends every epimorphism to a surjection. No whole-unbounded-derived-sections comparison, transfer action or motivic-complex identification is asserted."
+review = "author_checked"
+proof = "Use Stacks' existing FreeYonedaUnivLE object and ordinary Ext presheaf, Mathlib's unbounded localization Q and preadditive coyoneda, Ext.homAddEquiv, and the genuine localization/shift isomorphisms. Explicit naturality equations retain the original restriction and coefficient maps."

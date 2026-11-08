@@ -272,3 +272,18 @@ title = "Mathlib categorical quotient and localization"
 authors = ["The mathlib community"]
 version = "Git commit 56a005855ea17e0b0958f73ec801ae140b0a1679; exact quotient and arbitrary-morphism-property localization sources inspected."
 url = "https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[sources.motivic_source_a6805c4]
+kind = "software"
+title = "Motivic Cohomology migration source"
+authors = ["kangxyz and Motivic Cohomology contributors"]
+version = "Git commit a6805c4a87cdfd7717dd7a94039246a167f15380"
+url = "https://github.com/kangxyz/motivic/tree/a6805c4a87cdfd7717dd7a94039246a167f15380"
+
+[sources.MVW2006]
+kind = "book"
+title = "Lecture Notes on Motivic Cohomology"
+authors = ["Carlo Mazza", "Vladimir Voevodsky", "Charles Weibel"]
+year = 2006
+version = "Clay Mathematics Monographs, volume 2, published edition"
+url = "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/Lecture_notes_on_motivic_cohology_published.pdf"

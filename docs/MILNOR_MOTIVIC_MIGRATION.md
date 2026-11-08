@@ -753,3 +753,32 @@ is used directly. This is not a geometric cup-product identification, a
 Künneth theorem, or a target/covariant connecting-map theorem. The two production
 modules, eighteen consumer examples and precise source correspondence form one
 complete milestone; see `migration/motivic-ext-bifunctor.json`.
+
+### Actual Nisnevich sites, descent and sheaf cohomology
+
+This milestone comes from the separate `kangxyz/motivic` repository at
+`a6805c4a87cdfd7717dd7a94039246a167f15380` and its locked Aglib dependency,
+not merely the motivic-related modules of the earlier Aglib migration.
+COL-0302 constructs the actual big and smooth separated finite-type Nisnevich
+sites over arbitrary bases, using native completely decomposed families and
+Mathlib's precoverage machinery. COL-0303 proves distinguished-square ordinary
+sheaf gluing and supplies the actual native MayerVietorisSquare. The etale
+arrow is not assumed monic, and the converse sheaf criterion and cohomological
+long exact sequence are not asserted.
+
+COL-0304 constructs unbounded sheaf hypercohomology as derived Hom from the
+native free representing sheaf, with original site/coefficient naturality,
+single-sheaf ordinary Ext comparison and signed integer shifts. COL-0305
+proves exact evaluation at the actual smooth base object Spec k, identifies
+the sheafification unit there, and proves positive ordinary cohomology vanishes.
+The field is arbitrary; the original coefficient and independent Ext universes
+are retained. No enough-injectives or boundedness hypothesis is added to the
+unbounded construction. This does not assert a whole-unbounded-derived-sections
+comparison, transfer action, correspondence category, or motivic-cohomology
+vanishing.
+
+The complete site/descent/cohomology package has thirteen production modules
+and three consumer modules. Precise implementation and inspected MVW 2006
+locators distinguish source adaptations, literature generalizations and native
+proof inputs. See `migration/motivic-nisnevich.md` and
+`migration/motivic-hypercohomology.md` for the exact scope and remaining work.
