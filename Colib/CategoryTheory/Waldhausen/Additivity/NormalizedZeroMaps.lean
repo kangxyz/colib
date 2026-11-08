@@ -6,11 +6,11 @@ Authors: kangxyz
 
 module
 
-public import Colib.KTheory.Waldhausen.CanonicalMap
+public import Colib.CategoryTheory.Waldhausen.ExactFunctorRebase
 
 public import Colib.CategoryTheory.Waldhausen.Additivity.NormalizedDeformationMap
 public import Colib.CategoryTheory.Waldhausen.Additivity.NormalizedSumMap
-public import Colib.KTheory.Waldhausen.WeakGridBasedHomotopy
+public import Colib.CategoryTheory.Waldhausen.SConstruction.WeakGridBasedHomotopy
 
 /-! # Exact chosen-zero values of all normalized deformation endpoints
 

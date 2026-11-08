@@ -7,8 +7,7 @@ Authors: kangxyz
 module
 
 public import Colib.KTheory.Waldhausen.Map
-public import Colib.CategoryTheory.Waldhausen.ExactFunctorIso
-public import Colib.CategoryTheory.Functor.Rebase
+public import Colib.CategoryTheory.Waldhausen.ExactFunctorRebase
 
 /-!
 # Canonical chosen-zero maps for the unnormalized Waldhausen model
@@ -26,12 +25,6 @@ universe v u
 namespace CategoryTheory.Waldhausen
 variable {C D : Type u} [Category.{v} C] [Category.{v} D]
   {W : Structure C} {W' : Structure D}
-
-/-- Exactness of the canonically rebased functor. -/
-theorem IsExact.rebase {F : C ⥤ D} (hF : IsExact W.cof W.weq W'.cof W'.weq F) :
-    IsExact W.cof W.weq W'.cof W'.weq
-      (CategoryTheory.rebaseFunctor F W.zero W'.zero ((hF.zero W.isZero).iso W'.isZero)) :=
-  hF.of_iso (CategoryTheory.rebaseFunctorIso F W.zero W'.zero ((hF.zero W.isZero).iso W'.isZero))
 
 /-- The K-homomorphism induced by an exact functor, at the specified zero
 objects of the two Waldhausen structures. -/

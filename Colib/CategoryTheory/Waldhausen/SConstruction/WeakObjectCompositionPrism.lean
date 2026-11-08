@@ -80,3 +80,35 @@ theorem weakObjectCompositionFamily_vertex (e : Fin 2) :
   exact hz.eq_of_src _ _
 
 end CategoryTheory.Waldhausen.Structure
+
+/- Implementation provenance:
+   `Quillen/Waldhausen/GrothendieckComparison/WeakObjectCompositionPrism.lean`,
+   lines 57–75, at Quillen commit
+   `c561118b7795eb9780be9ed391c3251d6a4d0afd`. The original names, hypotheses,
+   maps and independent universe parameters are retained. Source-only adaptation;
+   native compilation remains pending. -/
+namespace CategoryTheory.Waldhausen.Structure
+variable {C : Type u} [Category.{v} C] (W : Structure C)
+  {A B D : C} (f : A ⟶ B) (g : B ⟶ D) (hf : W.weq f) (hg : W.weq g)
+
+/-- The second nerve edge is the entire original second weak-arrow square. -/
+theorem weakObjectCompositionPrism_second :
+    gridMap₂ (𝟙 ⦋1⦌) (SimplexCategory.δ 0) ⋙ W.weakObjectCompositionPrism f g hf hg =
+      (W.weakObjectSimplex g hg).val := by
+  rw [weakObjectCompositionPrism, weakChainToGrid_precomp_nerve]
+  change weakChainToGrid W ((nerve (WeakRows W ⦋1⦌)).δ 0
+    (ComposableArrows.mk₂ (W.oneWeakArrow f hf) (W.oneWeakArrow g hg))) = _
+  rw [nerve.δ₀_mk₂_eq]
+  rfl
+
+/-- The long nerve edge is the original literal composite weak-arrow square. -/
+theorem weakObjectCompositionPrism_composite :
+    gridMap₂ (𝟙 ⦋1⦌) (SimplexCategory.δ 1) ⋙ W.weakObjectCompositionPrism f g hf hg =
+      (W.weakObjectSimplex (f ≫ g) (W.weq.comp_mem _ _ hf hg)).val := by
+  rw [weakObjectCompositionPrism, weakChainToGrid_precomp_nerve]
+  change weakChainToGrid W ((nerve (WeakRows W ⦋1⦌)).δ 1
+    (ComposableArrows.mk₂ (W.oneWeakArrow f hf) (W.oneWeakArrow g hg))) = _
+  rw [nerve.δ₁_mk₂_eq, oneWeakArrow_comp]
+  rfl
+
+end CategoryTheory.Waldhausen.Structure

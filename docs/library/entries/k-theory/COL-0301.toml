@@ -1,0 +1,12 @@
+[entry]
+id = "COL-0301"
+title = "Whole based-additivity transformation square"
+kind = "theorem"
+section = "waldhausen-k-theory"
+order = 87
+statement = "A commuting pointwise weak transformation between two cofibration sequences gives the actual continuous based-additivity square on the subdivided S-model. Its two transformation faces are the whole original based-additivity homotopies; its two additivity faces are the original rebased middle and quotient-first sum transformation tracks. The entire two-time chosen-zero surface is constant. The construction retains exactly one reversal of the identity prefix and the original half/quarter/quarter concatenation."
+scope = "C D : Type u with Category.{v} C and Category.{v} D, independent object and morphism universes u and v shared by C and D, Waldhausen structures V and W, and HasBinaryCoproducts D. Two IsCofibrationSequence witnesses for a,b and a',b', three pointwise W-weak natural transformations etaF, etaG, etaH, and both commuting squares a >> etaG = etaF >> a' and b >> etaH = etaG >> b' are retained. Both interval times and every spatial input remain arbitrary. No extra fibration, cylinder or strict chosen-zero equality premise is imposed. General theory only: no scalar, support, Laurent, Bass or nonconnective conclusion."
+# Author source comparison only; all proposed source is UNCOMPILED.
+# Native CI and independent mathematical review are separate obligations.
+review = "author_checked"
+provenance = "quillen"

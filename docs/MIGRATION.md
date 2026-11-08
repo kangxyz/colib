@@ -31,7 +31,6 @@ Source correspondence and mathematical review retain their own status.
 The first Library release demonstrates this process on twelve entries. The amount of
 further migration is measured by the actual proof and interface repairs for subsequent slices.
 
-
 ## Waldhausen additivity milestone
 
 The actual unnormalized S-construction now supports the complete original
@@ -130,6 +129,21 @@ See the [exact construction and source cuts](migration/quillen/waldhausen-cofibe
 At preparation, the new sources and attributes had no native compilation evidence;
 validated publication requires the exact integrated candidate's native checks and CI.
 
+## Original automorphism K-one and whole change-of-weak transport
+
+COL-0299 retains the specified weak-object composition cube and whole-path
+homotopy, independently normalized weak-endomorphism and automorphism K-one
+classes, and both unrestricted canonical KMap naturality theorems. Composition
+keeps the original reversed multiplication order. Fine-to-coarse transport
+preserves entire bisimplex families, displayed cofiber tracks, weak-arrow squares
+and identity-cofiber suffixes, with component naturality in every degree.
+Independent parameters, universe bounds and both cofiber certificates remain;
+no scalar, Laurent or boundary-sign theorem is asserted. See the
+[exact construction and source scope](migration/quillen/waldhausen-automorphism-kone-transport.md).
+At metadata preparation, these sources and proposed attributes had no native
+compilation evidence; static source checks do not replace the exact integrated
+candidate's native validation and CI.
+
 ## Matsumoto's theorem for K₂ in characteristic zero
 
 The completed source chain gives characteristic-zero additive equivalences from
@@ -187,6 +201,17 @@ with the unchanged changeWeak KMap is the literal quotient, and its kernel
 and surjectivity give the exact original K-zero tail. No higher-degree
 image-quotient or spectrum conclusion is inferred. See the
 [canonical maps and verification scope](migration/quillen/waldhausen-grothendieck-kzero.md).
+
+## Whole based-additivity transformation square
+
+COL-0301 is an uncompiled source candidate for the actual parameterized square
+between the original based-additivity homotopies. Four complete faces and the
+entire chosen-zero surface retain independent times, the once-reversed prefix,
+half/quarter/quarter clock and quotient-first sum. The two cofibration sequences,
+three pointwise weak transformations, both commuting squares and binary
+coproducts are explicit; no extra fibration, cylinder or strict-zero premise is
+added. See the [source and verification boundary](migration/quillen/waldhausen-based-additivity-square.md).
+This is general theory, not a scalar, support, Laurent or Bass conclusion.
 
 ## Original S-construction composition triangles
 
@@ -276,5 +301,16 @@ the original inclusion and all nonnegative K-maps. The actual scalar cone is
 supported when the scalar restricts to a specified unit; native rank-one and
 positive Laurent coordinate comparisons keep the forward T orientation.
 See the [source and exact scope](migration/scheme-laurent/native-open-support.md).
-This foundation does not yet prove the relative fiber theorem, fine-open
-localization, or the scalar/Laurent connecting-boundary formula.
+This foundation by itself does not prove fine-open localization or the
+scalar/Laurent connecting-boundary formula. The relative fiber theorem is the
+next separate complete slice below.
+
+## Native relative-open perfect fiber and exact sequence
+
+The actual native `Cone(id K) ⊞ L` joint cylinder supplies the structural
+factorization and second endpoint section for arbitrary open immersions.
+Together with the proved extension axiom, this gives the original canonical
+fiber weak equivalence and all recurring positions of the connective supported
+long exact sequence. Degree zero surjects onto the relative coarse K-group,
+without identifying it with fine perfect-complex K-theory of the open. See the
+[exact scope and validation boundary](migration/scheme-laurent/native-open-fiber.md).
