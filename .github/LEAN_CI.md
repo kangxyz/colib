@@ -51,8 +51,8 @@ before the one-job runner shuts down.
 - Mathlib fetches the official cache for the requested modules and their
   imports, compiles missing outputs, and uploads the selected closure in
   `build-mathlib`. Extract `mathlib-cache.tar` into a directory in a workspace
-  with the same pins and run `lake exe cache unstage --staging-dir=DIR`,
-  then `lake exe cache get MODULES` with the original module list.
+  with the same pins and run `lake exe cache unstage --staging-dir=DIR`
+  followed by `lake exe cache unpack` to expand the local archives.
 
 ## Checkpoints and transport
 
