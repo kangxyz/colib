@@ -165,18 +165,30 @@ private theorem intervalMultiplication_pullback :
 
 @[simp]
 theorem intervalMultiplication_coordinate_one :
-    (intervalMultiplication R).left.appTop (intervalCoordinate R 1) =
-      (SmoothSite.productFst I I).left.appTop (intervalCoordinate R 1) *
-        (SmoothSite.productSnd I I).left.appTop (intervalCoordinate R 1) := by
+    (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+      (Spec (.of (CoordinateRing R 1))) (intervalMultiplication R).left)
+        (intervalCoordinate R 1) =
+      (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+        (Spec (.of (CoordinateRing R 1))) (SmoothSite.productFst I I).left)
+          (intervalCoordinate R 1) *
+        (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+        (Spec (.of (CoordinateRing R 1))) (SmoothSite.productSnd I I).left)
+          (intervalCoordinate R 1) := by
   change intervalPullback R (intervalMultiplication R) (coordinate R 1 1) = _
   rw [intervalMultiplication_pullback]
   exact (lift_coordinate _ _ _ 1).trans (ite_eq_right (by decide))
 
 @[simp]
 theorem intervalMultiplication_coordinate_zero :
-    (intervalMultiplication R).left.appTop (intervalCoordinate R 0) =
-      1 - (SmoothSite.productFst I I).left.appTop (intervalCoordinate R 1) *
-        (SmoothSite.productSnd I I).left.appTop (intervalCoordinate R 1) := by
+    (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+      (Spec (.of (CoordinateRing R 1))) (intervalMultiplication R).left)
+        (intervalCoordinate R 0) =
+      1 - (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+        (Spec (.of (CoordinateRing R 1))) (SmoothSite.productFst I I).left)
+          (intervalCoordinate R 1) *
+        (@Scheme.Hom.appTop (CategoryTheory.Limits.pullback (I).hom (I).hom)
+        (Spec (.of (CoordinateRing R 1))) (SmoothSite.productSnd I I).left)
+          (intervalCoordinate R 1) := by
   change intervalPullback R (intervalMultiplication R) (coordinate R 1 0) = _
   rw [intervalMultiplication_pullback]
   exact (lift_coordinate _ _ _ 0).trans (ite_eq_left rfl)
@@ -186,9 +198,8 @@ private theorem intervalValue_comp_intervalMultiplication
     intervalValue R (f ≫ intervalMultiplication R) =
       intervalValue R (f ≫ SmoothSite.productFst I I) *
         intervalValue R (f ≫ SmoothSite.productSnd I I) := by
-  change f.left.appTop ((intervalMultiplication R).left.appTop (intervalCoordinate R 1)) = _
-  rw [intervalMultiplication_coordinate_one, map_mul]
-  rfl
+  exact (congrArg f.left.appTop (intervalMultiplication_coordinate_one R)).trans
+    (map_mul f.left.appTop.hom _ _)
 
 @[reassoc (attr := simp)]
 theorem intervalInclusion_zero_comp_intervalMultiplication :

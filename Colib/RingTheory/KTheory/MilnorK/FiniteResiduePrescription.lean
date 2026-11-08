@@ -155,3 +155,9 @@ end Stacks.Chow
 attribute [colib_tag "COL-0317"]
   Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff
   Stacks.Chow.existsUnique_bounded_finiteResidue_quotient_class
+
+attribute [colib_ref "axiom_stacks_milnor_norm_5ed82d14"
+  "SimpleNorm.lean, exists_isSingleResidueLift' and simpleMilnorNorm_eq" "ingredient"
+  "Native homogeneous single-residue lifts and the norm = negative infinity identity;
+   finite prescription, bound and compatibility are derived here."]
+  Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff

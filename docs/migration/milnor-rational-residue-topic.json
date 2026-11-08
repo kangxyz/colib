@@ -102,7 +102,13 @@
         "Stacks.Chow.existsUnique_bounded_normalized_totalResidue_lift_with_infinity"
       ],
       "id": "COL-0317",
-      "order": 350
+      "order": 350,
+      "formal_ingredient_reference": {
+        "declaration": "Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff",
+        "source": "axiom_stacks_milnor_norm_5ed82d14",
+        "locator": "SimpleNorm.lean, exists_isSingleResidueLift' and simpleMilnorNorm_eq",
+        "relation": "ingredient"
+      }
     }
   ],
   "reference_boundary": "Milnor1970 Section 2 supplies split exactness and finite-degree descent. Stacks 0EAY is tame-symbol background only. Infinity formulas use the actual native formal inputs, not an asserted direct literature theorem.",
@@ -123,6 +129,18 @@
     "full_declaration_lint": "pending",
     "independent_axiom_auditor": "pending",
     "exact_commit_ci": "pending",
-    "main_merge": false
+    "main_merge": false,
+    "repair": {
+      "prior_ci_commit": "8245349a0d63b4af7ce429f1110d43b16433fad5",
+      "prior_ci_run": 42457268539,
+      "prior_final_gate": "lint and Library failed; full build, tests and production axiom audit passed",
+      "affected_native_targets": 8,
+      "native_simpNF_declarations": 33,
+      "native_simpNF": "pass",
+      "ordinary_axiom_declarations": 33,
+      "ordinary_axioms": "standard three only",
+      "compiled_item_reference": "asserted in actual Lean environment",
+      "final_repaired_ci": "pending"
+    }
   }
 }

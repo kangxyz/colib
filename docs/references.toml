@@ -293,3 +293,10 @@ authors = ["Carlo Mazza", "Vladimir Voevodsky", "Charles Weibel"]
 year = 2006
 version = "Clay Mathematics Monographs, volume 2, published edition"
 url = "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/Lecture_notes_on_motivic_cohology_published.pdf"
+
+[sources.axiom_stacks_milnor_norm_5ed82d14]
+kind = "software"
+title = "Native polynomial Milnor norms in the Stacks Project in Lean"
+authors = ["AxiomMath/Stacks contributors"]
+version = "Git commit 5ed82d14634e8d9576bb844c7bd4e3da66d450e7; SimpleNorm.lean declarations inspected 2026-11-08"
+url = "https://github.com/AxiomMath/Stacks/blob/5ed82d14634e8d9576bb844c7bd4e3da66d450e7/StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/SimpleNorm.lean"

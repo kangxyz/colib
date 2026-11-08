@@ -91,3 +91,22 @@ prescription proves solvability and quotient uniqueness by combining that exact
 theorem with bounded native single lifts. It does not rename reciprocity or
 claim new norm independence.
 
+
+## CI repair validation
+
+The first exact-commit CI completed the full build, package tests and independent
+production axiom audit. Its final gate found two simp-normal-form issues and a missing
+compiled reference for COL-0317. The repair uses the definitionally equal native
+constant-image submodule and removes a redundant simp registration while retaining
+its theorem. Eight affected production/consumer leaves were recompiled. Native simpNF
+checks of the original 33 mathematical declarations and the quotient compatibility
+regressions passed; no linter was disabled. The 33 ordinary axiom closures remain
+within the standard three axioms. Full repaired-tree CI is still pending.
+
+COL-0317 now has an actual compiled `ingredient` citation on its finite-infinity
+solvability theorem. It refers precisely to `exists_isSingleResidueLift'` and
+`simpleMilnorNorm_eq` in pinned Stacks
+[SimpleNorm.lean](https://github.com/AxiomMath/Stacks/blob/5ed82d14634e8d9576bb844c7bd4e3da66d450e7/StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/SimpleNorm.lean).
+These are formal ingredients, not a claim that the source states the finite bounded
+prescription theorem verbatim. The version-specific software key is separate from
+the older Stacks bibliography record, which is unchanged.

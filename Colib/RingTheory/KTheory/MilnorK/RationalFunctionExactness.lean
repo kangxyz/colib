@@ -74,7 +74,7 @@ theorem ker_totalResidue_linear (n : ℕ) :
 native residue-field classes, via the original total residue. -/
 def milnorKQuotientConstantsEquivResidues (n : ℕ) :
     (MilnorKTheory (RatFunc k) (n + 1) ⧸
-      LinearMap.range (constantInclusion (k := k) (n + 1)).toIntLinearMap) ≃ₗ[ℤ]
+      (constantInclusion (k := k) (n + 1)).range.toIntSubmodule) ≃ₗ[ℤ]
       DirectSum (MonicIrreduciblePoint k)
         (fun p ↦ MilnorKTheory (Polynomial k ⧸ Ideal.span {poly p.2}) n) :=
   (Submodule.quotEquivOfEq _ _ (ker_totalResidue_linear k n).symm).trans
@@ -135,7 +135,7 @@ def milnorKRationalDecomposition (n : ℕ) :
       (constantRetraction (n + 1) x, milnorKTotalResidue k n x) := rfl
 
 /-- A constant class has itself as first component and zero finite residues. -/
-@[simp] theorem milnorKRationalDecomposition_constantInclusion (n : ℕ)
+theorem milnorKRationalDecomposition_constantInclusion (n : ℕ)
     (x : MilnorKTheory k (n + 1)) :
     milnorKRationalDecomposition k n (constantInclusion (n + 1) x) = (x, 0) := by
   rw [milnorKRationalDecomposition_apply, constantRetraction_constantInclusion,

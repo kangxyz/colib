@@ -43,7 +43,6 @@ variable {A : Type v} [Category.{w} A] [Preadditive A]
 variable (P : (SmoothSite (Spec (.of R)))ᵒᵖ ⥤ A)
 
 /-- Identity restriction on the existing chain presheaf is the identity chain map. -/
-@[simp]
 theorem singularChains_restriction_id (U : SmoothSite (Spec (.of R))) :
     (NatTrans.mapHomologicalComplex ((evaluation _ A).map (𝟙 U).op)
       (ComplexShape.down ℕ)).app ((singularChainsFunctor R).obj P) = 𝟙 _ := by

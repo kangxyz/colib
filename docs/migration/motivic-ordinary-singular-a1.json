@@ -284,7 +284,22 @@
     ],
     "official_mk_all_check": "Passed; no update necessary",
     "full_production_axiom_auditor": "Pending CI",
-    "independent_mathematical_review": false
+    "independent_mathematical_review": false,
+    "ci_repair": {
+      "prior_commit": "e543d7ea78382883912a254d72147d2ce9fe1ad2",
+      "prior_run": 42458945902,
+      "prior_outcome": "full Build, consumers and production axiom audit passed; lint and Library failed",
+      "source_replacements": 2,
+      "native_affected_production": 2,
+      "native_consumer_examples": 10,
+      "native_simpNF_public_declarations": 299,
+      "native_simpNF_active_rules": 82,
+      "native_simpNF_failures": 0,
+      "original_statement_regressions": "pass",
+      "actual_compiled_catalog_references": "pass all three items",
+      "ordinary_axiom_bindings": 25,
+      "full_repaired_ci": "pending"
+    }
   },
   "topic": "Actual algebraic simplices and ordinary A1-invariant singular chains",
   "conventions": {

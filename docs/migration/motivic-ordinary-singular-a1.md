@@ -44,3 +44,19 @@ COL-0319 (ordinary chains), and COL-0320 (prism and A¹ invariance). These are s
 local checks and author source comparisons, not independent mathematical review or the
 full production axiom auditor. Full-root build, declaration lint and exact-commit CI remain
 pending. No main merge is claimed.
+
+## CI normalization repair
+
+The first complete CI passed the full production build, all consumers and the
+production axiom audit, but found three ordinary-topic simp-normal-form issues.
+The repair retains the identity-restriction theorem without its redundant simp
+registration and writes the two multiplication-coordinate formulas with explicit
+native pullback and spectrum parameters. Their original statement forms still
+accept the repaired theorems directly. No linter or mathematical hypothesis changed.
+
+The two affected production modules and their ten-example consumer passed native
+recompilation. Native simpNF inspected all 299 public declarations in the thirteen
+owned production modules, including the 82 remaining active simp rules, with no
+failures. Actual compiled bindings and precise references for all three Library
+items were checked, as were the 25 bound declarations' standard axiom closures.
+These targeted checks are not the full repaired-tree CI, which remains pending.
