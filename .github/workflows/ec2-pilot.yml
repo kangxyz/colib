@@ -33,7 +33,8 @@ jobs:
       build-targets: ${{ inputs.stacks-modules }}
       runner-labels: '["self-hosted","linux","x64","colib-ec2"]'
       native-memory-mib: 57344
-      lake-threads: 4
+      lake-threads: 8
+      lint-workers: 8
       build-job-timeout-minutes: 240
       build-compiler-minutes: 180
 

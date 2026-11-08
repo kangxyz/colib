@@ -37,8 +37,8 @@ while disabled. The root-owned marker is `colib-ci-runner-v1` in
 
 The **EC2 runner pilot** workflow also accepts a space-separated list of
 `stacks-modules`. The repository owner can dispatch it on the branch named
-by `COLIB_STACKS_EC2_REF` while the fleet is enabled. This mode uses 56 GiB
-and four Lake threads to build the selected modules of the pinned Stacks
+by `COLIB_STACKS_EC2_REF` while the fleet is enabled. This mode uses the
+standard EC2 Build resources to compile selected modules of the pinned Stacks
 package. It saves completed Stacks outputs to the same branch cache, including
 after a compiler failure or cutoff. The ordinary three-job CI and its runner
 selection are independent of this mode.
