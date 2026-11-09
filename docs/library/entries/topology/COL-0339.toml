@@ -1,0 +1,24 @@
+[entry]
+id = "COL-0339"
+title = "The actual reduced telescope of loop prespectra"
+kind = "definition"
+section = "homotopy-colimits"
+order = 90
+statement = """
+Every sequential system of native loop prespectra has its actual reduced mapping telescope:
+the quotient of disjoint stage cylinders by consecutive-face gluing and all basepoint rays.
+Its continuous loop structure descends through those relations. Canonical stage inclusions
+carry coherent adjacent-stage homotopies. Coherent maps out descend continuously, and strict
+maps of sequences induce telescope maps preserving identities and compositions. Strictly
+compatible stage homotopies induce based prespectrum homotopies on the actual quotient.
+"""
+scope = """
+The construction retains the original topological quotient, continuous structure maps and
+all independent cylinder, homotopy and structure-loop parameters. Homotopy continuity uses
+compact-open currying before quotient descent, not an assumption that products preserve
+arbitrary quotient maps. Compatibility of stage homotopies is an explicit input condition.
+No stable homotopy-group colimit, stable parameter-loop commutation, telescope cone/fiber
+excision, Bass localization or Thomason--Trobaugh 7.4 is asserted.
+"""
+review = "author_checked"
+provenance = "quillen"

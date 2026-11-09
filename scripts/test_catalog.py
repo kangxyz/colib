@@ -298,6 +298,7 @@ class LibraryTests(unittest.TestCase):
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
+            "bass-construction": "Colib.KTheory.Bass.StrictDiagram",
             "homology-colimits": "Colib.Algebra.Category.ModuleCat.FilteredColimits",
             "affine-open-pairs": "Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor",
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",

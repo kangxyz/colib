@@ -2573,6 +2573,8 @@ public import Colib.Topology.Prespectrum.StableShift
 public import Colib.Topology.Prespectrum.StrictSquareCone
 public import Colib.Topology.Prespectrum.StrictSquareNull
 public import Colib.Topology.Prespectrum.StrictSquareSeedNaturality
+public import Colib.Topology.Prespectrum.Telescope
+public import Colib.Topology.Prespectrum.TelescopeHomotopy
 public import Colib.Topology.Pushout.CompactParameter
 public import Colib.Topology.Pushout.Homotopy
 public import Colib.Topology.Pushout.HomotopyEquivalence
