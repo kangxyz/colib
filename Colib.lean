@@ -427,6 +427,7 @@ public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectComparison
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPrespectrumComparison
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPrespectrumPullback
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPullback
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectSupportedComparison
 public import Colib.AlgebraicGeometry.KTheory.Comparison
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageApproximation
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageCofinality
@@ -547,6 +548,7 @@ public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectPullbackLaws
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectQuasiCompact
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectReplacement
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectSupport
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectSupportedApproximation
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatPerfectWaldhausen
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZero
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroComplex

@@ -632,6 +632,14 @@ Normalize its actual categorical inverse at the chosen zero. The original
 unit and counit then give whole inverse homotopies, hence level equivalences
 and isomorphisms of stable homotopy groups in every integer degree.
 '''
+COL-0382 = '''
+The supported evaluation of COL-0380 lands in bounded-flat perfect complexes.
+For a quasi-compact scheme \(X\), bounded-flat replacement preserves acyclicity
+on any open \(U\), including that of the admissible quotient. Thus the literal
+inclusion into all supported perfect complexes satisfies approximation. Its
+original \(K\)-map determines a stable equivalence, and the support-forgetting
+square retains a whole coherent homotopy.
+'''
 COL-0359 = '''
 Fully faithful identity evaluation lifts a global-unit
 automorphism to the actual affine cocartesian sections.
