@@ -89,7 +89,7 @@ theorem correspondenceAffineAmbientIso_fst :
   simp [correspondenceAffineAmbientIso]
 
 /-- The second four-factor coordinate is the original right adjacent product. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceAffineAmbientIso_snd :
     (correspondenceAffineAmbientIso k A B C).hom ≫
       Spec.map (CommRingCat.ofHom
@@ -99,7 +99,7 @@ theorem correspondenceAffineAmbientIso_snd :
   simp [correspondenceAffineAmbientIso]
 
 /-- The left adjacent projection is the spectrum of the actual `leftMap`. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceAffineTripleIso_fst :
     (correspondenceAffineTripleIso k A B C).hom ≫
       Spec.map (CommRingCat.ofHom (leftMap k A B C).toRingHom) =
@@ -111,7 +111,7 @@ theorem correspondenceAffineTripleIso_fst :
   simp [correspondenceAffineTripleIso]
 
 /-- The outer right coordinate is the original projection to `Spec C`. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceAffineTripleIso_snd_snd :
     (correspondenceAffineTripleIso k A B C).hom ≫
       Spec.map (CommRingCat.ofHom
@@ -138,7 +138,7 @@ private theorem correspondenceAffineRightMap_snd :
 /-- The right adjacent projection is the spectrum of the actual `rightMap`.
 In particular, it retains the middle coordinate, rather than substituting the
 outer `C` projection for the right adjacent product. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceAffineTripleIso_snd :
     (correspondenceAffineTripleIso k A B C).hom ≫
       Spec.map (CommRingCat.ofHom (rightMap k A B C).toRingHom) =

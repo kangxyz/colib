@@ -46,7 +46,7 @@ private theorem map_idealStalk_stalkCongr {X : Scheme.{u}} (I : X.IdealSheafData
 
 private theorem ker_stalkMap_eq_map_idealStalk_of_isPullback
     {X X' S S' : Scheme.{u}} {iX : X ⟶ X'} {gX : X ⟶ S}
-    {gX' : X' ⟶ S'} {iS : S ⟶ S'} [IsClosedImmersion iX] [IsClosedImmersion iS]
+    {gX' : X' ⟶ S'} {iS : S ⟶ S'}  [IsClosedImmersion iS]
     (H : IsPullback iX gX gX' iS) (x : X) :
     RingHom.ker (iX.stalkMap x).hom =
       (IdealSheafData.stalk iS.ker (gX' (iX x))).map (gX'.stalkMap (iX x)).hom := by

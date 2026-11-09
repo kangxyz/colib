@@ -56,9 +56,11 @@ variable (k A B C : Type u) [Field k] [CommRing A] [CommRing B] [CommRing C]
   [Algebra k A] [Algebra k B] [Algebra k C]
 variable (q : Ideal (tripleRing k A B C)) [q.IsPrime]
 
+/-- The ring structure on the localized triple ring, projected from its commutative ring. -/
 local instance : Ring (Localization.AtPrime q) :=
   (inferInstance : CommRing (Localization.AtPrime q)).toRing
 
+/-- The ring structure at the induced ambient prime, projected from its commutative ring. -/
 local instance : Ring (Localization.AtPrime (ambientPrime k A B C q)) :=
   (inferInstance : CommRing (Localization.AtPrime (ambientPrime k A B C q))).toRing
 

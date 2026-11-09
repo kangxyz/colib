@@ -79,7 +79,7 @@ example
       ((correspondenceIncidenceInclusion f f g δ z).stalkMap t).hom).obj
       (ModuleCat.of ((correspondenceIncidence f f g δ z).presheaf.stalk t)
         ((correspondenceIncidence f f g δ z).presheaf.stalk t)) :=
-  correspondencePulledStalkTorZeroIso_diagonal_left f g z s t
+  correspondencePulledStalkTorZeroIsoDiagonalLeft f g z s t
 
 -- 6. Full ENat local-ring length is retained without a finite-length hypothesis.
 example

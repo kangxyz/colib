@@ -50,7 +50,7 @@ def PresheafWithTransfers.IsNisnevichSheaf (k : Type u) [Field k] :
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Sheaf/Basic.lean: SheafWithTransfers"
   "adaptation" "full subcategory defined by the native graph-restricted Nisnevich sheaf condition",
-  colib_tag "COL-0357",
+  colib_tag "COL-0369",
   colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Sheaf/Basic.lean"
   "adaptation" "Ordinary Nisnevich sheaves with transfers"]

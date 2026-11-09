@@ -53,7 +53,7 @@ theorem Hom.stalkMap_square_of_eq
 stalk, is unchanged. All scalar actions are literal native stalk maps. -/
 def stalkModuleIsoOfOpenSquare
     (i : Y ⟶ X) (i' : Y' ⟶ X') (a : X' ⟶ X) (b : Y' ⟶ Y)
-    [IsOpenImmersion a] [IsOpenImmersion b]
+    [IsOpenImmersion b]
     (h : b ≫ i = i' ≫ a) (x' : X') (y' : Y')
     (h' : x' = i' y') (hx : a x' = i (b y')) :
     (ModuleCat.restrictScalars

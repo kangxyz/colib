@@ -107,7 +107,7 @@ example
         ((correspondenceIncidence f g h z (correspondenceGraphMap g h ψ hψ s.val)).presheaf.stalk t)
         ((correspondenceIncidence f g h z
           (correspondenceGraphMap g h ψ hψ s.val)).presheaf.stalk t)) :=
-  correspondencePulledStalkTorZeroIso_graph_right f g h z ψ hψ s t
+  correspondencePulledStalkTorZeroIsoGraphRight f g h z ψ hψ s t
 
 -- 6. Full local-ring length, including infinity, rather than an assumed coefficient one.
 example

@@ -42,7 +42,9 @@ namespace AlgebraicGeometry.Scheme
 variable {X Y Z : Scheme.{u}} {R S T : Type u}
   [CommRing R] [CommRing S] [CommRing T]
 
-local instance (p : Ideal R) [p.IsPrime] : Ring (Localization.AtPrime p) :=
+/-- The ring structure on a prime localization, projected from its commutative ring. -/
+local instance affineTorStalkAtPrimeRing (p : Ideal R) [p.IsPrime] :
+    Ring (Localization.AtPrime p) :=
   (inferInstance : CommRing (Localization.AtPrime p)).toRing
 
 /-- Tor of the two actual stalk modules is coordinate Tor with its actual ambient action. -/

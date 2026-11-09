@@ -116,7 +116,6 @@ def correspondenceTripleIncidenceRightFirstStageStalkQuotientEquiv [IsSeparated 
         (correspondenceTripleIncidenceRightFirstStageStalkMap_surjective f g h i z w v x))
 
 /-- The first-stage quotient comparison retains the original map on every ambient germ. -/
-@[simp]
 theorem correspondenceTripleIncidenceRightFirstStageStalkQuotientEquiv_mk [IsSeparated h]
     (x : correspondenceTripleIncidence f g h i z w v)
     (a : correspondenceTripleIncidenceAmbientStalk f g h i z w v x) :

@@ -139,7 +139,7 @@ def comapStalkTorZeroIso
           ((I.comap (i ≫ p)).subscheme.presheaf.stalk j))) :=
   (((Tor (ModuleCat (T.presheaf.stalk (i c))) 0).mapIso
     (comapStalkIsoExtendOpenSection i p I c d j hd hj)).app _) ≪≫
-    openSectionStalkTorZeroIso_flip i p c _
+    openSectionStalkTorZeroIsoFlip i p c _
 
 /-- Actual inverse-image support stalks have zero positive Tor against an open section
 of a flat projection. No support module is assumed flat. -/

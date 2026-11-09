@@ -265,8 +265,7 @@ theorem correspondenceRemainingPairImageSupportStalkMap_middle
 
 /-- The same ordered original list is regular and defines the original pair diagonal. -/
 theorem correspondenceRemainingPairMiddleList_regular
-    (y : correspondenceIncidence f h i (correspondenceIncidenceMap f g h z w t) v)
-    [IsSeparated h] :
+    (y : correspondenceIncidence f h i (correspondenceIncidenceMap f g h z w t) v) :
     let q := correspondenceIncidenceMap f g h z w t
     let mT := correspondenceLeftImageMiddlePair f g h i z w v
     let mP := correspondenceMiddlePair f h i

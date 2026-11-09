@@ -154,7 +154,7 @@ theorem isZero_correspondencePulledStalkTor_succ_of_open_right [Flat h]
     (correspondenceIncidence_rightRestriction_point_eq f g h z w t) n
 
 /-- Degree zero is the actual incidence stalk with its literal triple-product action. -/
-def correspondencePulledStalkTorZeroIso_of_open_right
+def correspondencePulledStalkTorZeroIsoOfOpenRight
     (t : correspondenceIncidence f g h z w) :
     (((Tor (ModuleCat ((correspondenceTripleProduct f g h).presheaf.stalk
       (correspondenceIncidenceInclusion f g h z w t))) 0).obj
@@ -235,7 +235,7 @@ theorem isZero_correspondencePulledStalkTor_succ_graph_right [Flat h]
   exact isZero_correspondencePulledStalkTor_succ_of_open_right f g h z _ t n
 
 /-- Genuine graph-component degree zero is the actual incidence stalk, without flatness. -/
-def correspondencePulledStalkTorZeroIso_graph_right
+def correspondencePulledStalkTorZeroIsoGraphRight
     (t : correspondenceIncidence f g h z (correspondenceGraphMap g h ψ hψ s.val)) :
     (((Tor (ModuleCat ((correspondenceTripleProduct f g h).presheaf.stalk
       (correspondenceIncidenceInclusion f g h z
@@ -252,7 +252,7 @@ def correspondencePulledStalkTorZeroIso_graph_right
         ((correspondenceIncidence f g h z
           (correspondenceGraphMap g h ψ hψ s.val)).presheaf.stalk t)) := by
   have := isOpenImmersion_integralComponentAt_graphMap_fst g h ψ hψ s
-  exact correspondencePulledStalkTorZeroIso_of_open_right f g h z _ t
+  exact correspondencePulledStalkTorZeroIsoOfOpenRight f g h z _ t
 
 /-- Degree-zero length is the full actual incidence local-ring length, including infinity. -/
 theorem length_correspondencePulledStalkTor_zero_graph_right
@@ -271,7 +271,7 @@ theorem length_correspondencePulledStalkTor_zero_graph_right
       ((correspondenceIncidence f g h z (correspondenceGraphMap g h ψ hψ s.val)).presheaf.stalk t)
       ((correspondenceIncidence f g h z
         (correspondenceGraphMap g h ψ hψ s.val)).presheaf.stalk t) := by
-  rw [(correspondencePulledStalkTorZeroIso_graph_right f g h z ψ hψ s t).toLinearEquiv.length_eq]
+  rw [(correspondencePulledStalkTorZeroIsoGraphRight f g h z ψ hψ s t).toLinearEquiv.length_eq]
   let inc := correspondenceIncidenceInclusion f g h z (correspondenceGraphMap g h ψ hψ s.val)
   let q := (inc.stalkMap t).hom
   let A := (correspondenceIncidence f g h z

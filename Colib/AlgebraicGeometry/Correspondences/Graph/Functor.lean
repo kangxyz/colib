@@ -40,7 +40,7 @@ variable (k : Type u) [Field k]
   "adaptation" "the actual native graph sum with proved Tor composition",
   colib_ref "MVW2006" "Lecture 1, printed p. 6, graph functor Sm to Cor"
   "adaptation" "ordinary morphisms over an arbitrary field, including disconnected objects",
-  colib_tag "COL-0355"]
+  colib_tag "COL-0367"]
 def graphFunctor : Scheme.SmoothSite (Spec (.of k)) ⥤ Cor k where
   obj X := ⟨X⟩
   map {X Y} φ := graphCorrespondenceOfComponents X.hom Y.hom φ.left

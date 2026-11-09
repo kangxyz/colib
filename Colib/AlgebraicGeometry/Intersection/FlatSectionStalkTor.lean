@@ -84,7 +84,7 @@ theorem isZero_openSectionStalkTor_succ [Flat p]
     (flat_openSectionStalkExtension i p c) M n
 
 /-- The degree-zero identification also preserves the support-first Tor ordering. -/
-def openSectionStalkTorZeroIso_flip (M : ModuleCat (C.presheaf.stalk c)) :
+def openSectionStalkTorZeroIsoFlip (M : ModuleCat (C.presheaf.stalk c)) :
     (((Tor (ModuleCat (T.presheaf.stalk (i c))) 0).obj
       ((ModuleCat.extendScalars (openSectionStalkExtension i p c)).obj M)).obj
       ((ModuleCat.restrictScalars (i.stalkMap c).hom).obj

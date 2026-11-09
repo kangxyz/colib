@@ -169,7 +169,7 @@ theorem correspondenceTripleSupport_right_isPullback :
         pullback.congrHom_hom, pullback.map, Category.assoc]
 
 /-- Z-first inclusion retains the first factor. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceSecondAmbientInclusion_firstFactor :
     correspondenceSecondAmbientInclusion f g h i ≫
         correspondenceSixfoldFirstFactorProjection f g h i =
@@ -189,7 +189,7 @@ theorem correspondenceSecondAmbientInclusion_rightPair :
       correspondenceSecondAmbientRightPairProjection, Category.assoc]
 
 /-- The unchanged full support inclusion retains its first actual support. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceTripleSupportProductInclusion_firstFactor :
     correspondenceTripleSupportProductInclusion f g h i z w v ≫
         correspondenceSixfoldFirstFactorProjection f g h i =

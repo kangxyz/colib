@@ -48,6 +48,7 @@ namespace Stacks.Chow
 variable (k A B C : Type u) [Field k] [CommRing A] [CommRing B] [CommRing C]
   [Algebra k A] [Algebra k B] [Algebra k C]
 
+/-- The ring structure on a prime localization, projected from its commutative ring. -/
 local instance affinePulledStalkAtPrimeRing {R : Type u} [CommRing R]
     (p : Ideal R) [p.IsPrime] :
     Ring (Localization.AtPrime p) := (inferInstance : CommRing (Localization.AtPrime p)).toRing

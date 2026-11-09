@@ -1,0 +1,186 @@
+name: Colib split CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: Colib EC2
+  cancel-in-progress: false
+  queue: max
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI_CHECKPOINT_PATH: .lake/ci-checkpoints
+  LAKE_NO_CACHE: 'true'
+  LAKE_ARTIFACT_CACHE: 'false'
+
+jobs:
+  dependencies:
+    name: Build dependencies
+    if: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && vars.COLIB_STANDARD_RUNNER_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner }}
+    runs-on: colib-dependency-warmup
+    timeout-minutes: 240
+    env:
+      COMPILER_SCOPE: colib-dependencies-${{ github.run_id }}-${{ github.run_attempt }}.scope
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Initialize paths and validate pinned checkpoint context
+        id: context
+        run: |
+          mkdir -p "$CI_CHECKPOINT_PATH"
+          printf 'LAKE_CACHE_DIR=%s/.lake/ci-host-handoff/native-cache\nMATHLIB_CACHE_DIR=%s/mathlib-cache\nBUILD_DEADLINE=%s\n' \
+            "$GITHUB_WORKSPACE" "$RUNNER_TEMP" "$(( $(date +%s) + 200 * 60 ))" >> "$GITHUB_ENV"
+          sudo systemctl restart colib-ci-expiry.timer
+          python3 .github/ci-cache/checkpoint.py context --root . --github-output "$GITHUB_OUTPUT"
+          revision=$(jq -er '.packages[] | select(.name == "Stacks") | .rev' lake-manifest.json)
+          printf 'revision=%s\n' "$revision" >> "$GITHUB_OUTPUT"
+      - name: Restore previous dependency checkpoint
+        id: restore-dependencies
+        continue-on-error: true
+        uses: ./.github/actions/restore-checkpoint
+        with:
+          directory: ${{ env.CI_CHECKPOINT_PATH }}
+          layer: dependencies
+          key: colib-layered-v2-dependencies-${{ steps.context.outputs.dependencies_context }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: colib-layered-v2-dependencies-${{ steps.context.outputs.dependencies_context }}-
+      - name: Restore previous Stacks checkpoint
+        id: restore-stacks
+        continue-on-error: true
+        uses: ./.github/actions/restore-checkpoint
+        with:
+          directory: ${{ env.CI_CHECKPOINT_PATH }}
+          layer: stacks
+          key: colib-layered-v2-stacks-${{ steps.context.outputs.stacks_context }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: colib-layered-v2-stacks-${{ steps.context.outputs.stacks_context }}-
+      - name: Configure Lean
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/ci-cache/configure-lean.sh
+      - name: Materialize pinned dependency sources
+        timeout-minutes: 10
+        run: |
+          lake env true
+          python3 .github/ci-cache/checkpoint.py supported --root . --materialized
+      - name: Apply the previous dependency checkpoint
+        continue-on-error: true
+        run: |
+          archive="$CI_CHECKPOINT_PATH/dependencies.tar.zst"
+          if test -f "$archive"; then
+            python3 .github/ci-cache/checkpoint.py restore --root . --layer dependencies --input "$archive"
+          fi
+      - name: Apply the Stacks checkpoint and published baseline
+        continue-on-error: true
+        timeout-minutes: 8
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STACKS_REVISION: ${{ steps.context.outputs.revision }}
+          STACKS_CONTEXT: ${{ steps.context.outputs.stacks_context }}
+        run: python3 -u .github/ci-cache/restore_stacks.py
+      - name: Compile the external imports and native check tools
+        id: build
+        continue-on-error: true
+        run: |
+          seconds=$(( BUILD_DEADLINE - $(date +%s) ))
+          (( seconds > 0 ))
+          if (( seconds > 180 * 60 )); then seconds=$((180 * 60)); fi
+          available=$(( $(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE) / 1048576 - 2048 ))
+          (( available > 0 ))
+          memory=57344
+          if (( available < memory )); then memory=$available; fi
+          printf 'Compiler memory %s MiB, Lake threads 8, cutoff %s seconds.\n' "$memory" "$seconds"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          sudo --preserve-env systemd-run --scope --quiet --collect --unit="$COMPILER_SCOPE" \
+            --uid="$(id -u)" --gid="$(id -g)" --property="MemoryMax=${memory}M" --property=MemorySwapMax=0 \
+            /usr/bin/env "PATH=$PATH" LEAN_NUM_THREADS=8 CI_LINT_WORKERS=8 \
+            timeout --signal=INT --kill-after=60s "$seconds" \
+            bash .github/ci-cache/build-split-dependencies.sh "$CI_CHECKPOINT_PATH"
+      - name: Stop the compiler scope before packing outputs
+        id: quiesce
+        if: ${{ always() && steps.build.outputs.attempted == 'true' }}
+        timeout-minutes: 3
+        run: |
+          if [[ "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" != not-found ]]; then
+            sudo systemctl stop "$COMPILER_SCOPE" ||
+              test "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" = not-found
+          fi
+      - name: Pack completed dependency outputs
+        id: pack-dependencies
+        if: ${{ always() && !cancelled() && steps.quiesce.outcome == 'success' }}
+        run: |
+          python3 .github/ci-cache/checkpoint.py pack --root . --layer dependencies \
+            --output "$CI_CHECKPOINT_PATH/dependencies.tar.zst" --metadata .lake/ci-cache/dependencies.json \
+            --github-output "$GITHUB_OUTPUT"
+      - name: Save dependency progress
+        if: ${{ always() && !cancelled() && steps.pack-dependencies.outcome == 'success' && (steps.pack-dependencies.outputs.changed == 'true' || steps.restore-dependencies.outputs.cache-matched-key == '') }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: ${{ env.CI_CHECKPOINT_PATH }}/dependencies.tar.zst
+          key: colib-layered-v2-dependencies-${{ steps.context.outputs.dependencies_context }}-${{ steps.pack-dependencies.outputs.generation }}
+      - name: Pack completed Stacks outputs
+        id: pack-stacks
+        if: ${{ always() && !cancelled() && steps.quiesce.outcome == 'success' }}
+        run: |
+          python3 .github/ci-cache/checkpoint.py pack --root . --layer stacks \
+            --output "$CI_CHECKPOINT_PATH/stacks.tar.zst" --github-output "$GITHUB_OUTPUT"
+      - name: Save Stacks progress
+        if: ${{ always() && !cancelled() && steps.pack-stacks.outcome == 'success' && (steps.pack-stacks.outputs.changed == 'true' || steps.restore-stacks.outputs.cache-matched-key == '') }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: ${{ env.CI_CHECKPOINT_PATH }}/stacks.tar.zst
+          key: colib-layered-v2-stacks-${{ steps.context.outputs.stacks_context }}-${{ steps.pack-stacks.outputs.generation }}
+      - name: Stage checker tools and the Mathlib cache delta
+        if: steps.build.outcome == 'success' && steps.quiesce.outcome == 'success'
+        run: |
+          python3 .github/ci-cache/checkpoint.py pack --root . --layer tools \
+            --output "$CI_CHECKPOINT_PATH/tools.tar.zst"
+          delta_files="$RUNNER_TEMP/mathlib-delta-files"
+          python3 .github/ci-cache/dependency-targets.py --mathlib-delta \
+            "$RUNNER_TEMP/mathlib-before.json" > "$delta_files"
+          printf 'Transporting %s changed Mathlib files.\n' "$(wc -l < "$delta_files")"
+          tar -I 'zstd -T2 -1' --hard-dereference -cf "$CI_CHECKPOINT_PATH/mathlib-delta.tar.zst" \
+            --verbatim-files-from --files-from "$delta_files"
+          cd "$CI_CHECKPOINT_PATH"
+          printf '%s\n' "$GITHUB_REPOSITORY" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$RUNNER_NAME" > split-identity
+          sha256sum dependencies.tar.zst stacks.tar.zst tools.tar.zst mathlib-delta.tar.zst \
+            split-targets split-identity > split-sha256
+      - name: Upload the current dependency build
+        if: steps.build.outcome == 'success' && steps.quiesce.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: prepared-dependencies-${{ github.run_attempt }}
+          path: |
+            ${{ env.CI_CHECKPOINT_PATH }}/dependencies.tar.zst
+            ${{ env.CI_CHECKPOINT_PATH }}/stacks.tar.zst
+            ${{ env.CI_CHECKPOINT_PATH }}/tools.tar.zst
+            ${{ env.CI_CHECKPOINT_PATH }}/mathlib-delta.tar.zst
+            ${{ env.CI_CHECKPOINT_PATH }}/split-*
+          include-hidden-files: true
+          compression-level: 0
+          if-no-files-found: error
+      - name: Require successful dependency compilation
+        if: ${{ always() && !cancelled() }}
+        env:
+          RESULT: ${{ steps.build.outcome }}
+        run: test "$RESULT" = success
+
+  lean:
+    needs: dependencies
+    permissions:
+      contents: write
+      actions: read
+      pull-requests: read
+    uses: ./.github/workflows/lean-ci.yml
+    with:
+      build-targets: Colib
+      runner-labels: '["colib-standard-ec2"]'
+      reuse-build-host: true
+      prepared-dependencies: true

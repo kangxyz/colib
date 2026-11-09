@@ -101,7 +101,7 @@ theorem correspondenceRightRemainingFiniteClosedEquivExterior_val
 
 /-- The remaining Cartesian square identifies the original triple and exterior fibres. -/
 def correspondenceRightRemainingTripleEquivExterior
-    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated g] :
+    (x : correspondenceRightImageIncidence f g h i z w v) :
     correspondenceRightRemainingTripleFibre f g h i z w v x ≃
       {q : correspondenceRightIntermediateSupportProduct f g h i z w v //
         correspondenceRightIntermediateImageMap f g h i z w v q =
@@ -255,7 +255,7 @@ theorem correspondenceRightRemainingFiniteMaximalEquivTriple_germPrime
       p)).symm
 
 /-- Closing the remaining incidence does not alter the actual finite-map residue degree. -/
-theorem residueDegree_correspondenceTripleToRightImageIncidence [IsSeparated g]
+theorem residueDegree_correspondenceTripleToRightImageIncidence
     (y : correspondenceTripleIncidence f g h i z w v) :
     (correspondenceTripleToRightImageIncidence f g h i z w v).residueDegree y =
       (correspondenceRightIntermediateImageMap f g h i z w v).residueDegree

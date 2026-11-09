@@ -39,7 +39,7 @@ variable (f : X ⟶ Spec (.of k)) (g : Y ⟶ Spec (.of k)) (h : Z ⟶ Spec (.of 
 variable [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
 
 /-- The actual incidence Tor correspondence extended additively in both variables. -/
-@[colib_tag "COL-0351",
+@[colib_tag "COL-0363",
   colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Incidence/TorCycle.lean"
   "adaptation" "Actual incidence Tor composition"]
@@ -64,7 +64,6 @@ theorem incidenceTorPairing_single
     (singleFiniteCorrespondence g h w hw n)) = _
   rw [liftFiniteCorrespondence_single, smul_smul]
 
-@[simp]
 theorem incidenceTorPairing_single_one
     (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
     (hz : IsFiniteCorrespondencePoint f g z) (hw : IsFiniteCorrespondencePoint g h w) :
@@ -85,7 +84,6 @@ theorem incidenceTorPairing_add_right (a : finiteCorrespondences f g)
       incidenceTorPairing f g h a b + incidenceTorPairing f g h a c :=
   (incidenceTorPairing f g h a).map_add b c
 
-@[simp]
 theorem incidenceTorPairing_zero_left (b : finiteCorrespondences g h) :
     incidenceTorPairing f g h 0 b = 0 := by
   exact congrArg (fun F : finiteCorrespondences g h →+ finiteCorrespondences f h => F b)
@@ -96,7 +94,6 @@ theorem incidenceTorPairing_zero_right (a : finiteCorrespondences f g) :
     incidenceTorPairing f g h a 0 = 0 :=
   (incidenceTorPairing f g h a).map_zero
 
-@[simp]
 theorem incidenceTorPairing_neg_left (a : finiteCorrespondences f g)
     (b : finiteCorrespondences g h) :
     incidenceTorPairing f g h (-a) b = -incidenceTorPairing f g h a b := by

@@ -101,7 +101,7 @@ theorem isRegularImmersion_correspondenceFirstDiagonal [Flat f] [Smooth g] [IsSe
 
 /-- The second actual inclusion is regular on the full first-diagonal scheme. -/
 theorem isRegularImmersion_correspondenceSecondDiagonal [Flat f] [Flat g] [Smooth h]
-    [IsSeparated h] [Flat i] :
+    [Flat i] :
     IsRegularImmersion (correspondenceSecondDiagonalInclusion f g h i) :=
   Stacks.AlgebraicGeometry.isRegularImmersion_of_isPullback_of_flat
     (correspondenceSecondDiagonal_isPullback f g h i).flip

@@ -57,7 +57,7 @@ instance isClosedImmersion_correspondenceTripleIncidenceToLeftSupportProduct [Is
   dsimp only [correspondenceTripleIncidenceToLeftSupportProduct]
   infer_instance
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceTripleIncidenceToLeftSupportProduct_fst :
     correspondenceTripleIncidenceToLeftSupportProduct f g h i z w v ≫
       pullback.fst _ _ = correspondenceTripleIncidenceFst f g h i z w v := by
@@ -299,7 +299,7 @@ instance : IsClosedImmersion (correspondenceTripleIncidenceFourfoldInclusion f g
       pullback.lift_snd _ _ _
 
 /-- The remaining-diagonal support embedding keeps the original third support. -/
-@[reassoc (attr := simp)] theorem correspondenceTripleIncidenceToLeftSupportProduct_snd :
+@[reassoc] theorem correspondenceTripleIncidenceToLeftSupportProduct_snd :
     (correspondenceTripleIncidenceToLeftSupportProduct f g h i z w v) ≫
       pullback.snd ((correspondenceIncidenceRight f g h z w) ≫ h) (((integralComponentAt
         v).subschemeι ≫ pullback.fst h i) ≫ h) =

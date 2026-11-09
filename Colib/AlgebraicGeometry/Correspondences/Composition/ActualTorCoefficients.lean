@@ -150,7 +150,6 @@ theorem finite_support_length_correspondenceIncidenceTor [Smooth f] [Smooth g] [
 
 /-- The signed actual Tor length in one degree at a genuine generic incidence point. -/
 def correspondenceIncidenceTorTerm
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) (n : ℕ) : ℤ :=
   (-1 : ℤ) ^ n *
     ((Module.length ((correspondenceIntersectionAmbient f g h).presheaf.stalk

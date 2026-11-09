@@ -36,6 +36,7 @@ namespace AlgebraicGeometry.Scheme
 variable {X Y : Scheme.{u}} {R S T : Type u}
   [CommRing R] [CommRing S] [CommRing T] [Algebra R S] [Algebra R T]
 
+/-- The ring structure on a prime localization, projected from its commutative ring. -/
 local instance affineTensorStalkAtPrimeRing
     (p : Ideal S) [p.IsPrime] : Ring (Localization.AtPrime p) :=
   (inferInstance : CommRing (Localization.AtPrime p)).toRing

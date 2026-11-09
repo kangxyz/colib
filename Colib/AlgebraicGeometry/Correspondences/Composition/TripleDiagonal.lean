@@ -93,7 +93,7 @@ instance [IsSeparated h] : IsClosedImmersion (correspondenceSecondDiagonalInclus
     Category.comp_id]
 
 /-- The second diagonal keeps the first three coordinates. -/
-@[reassoc (attr := simp)] theorem correspondenceSecondDiagonalInclusion_fst :
+@[reassoc] theorem correspondenceSecondDiagonalInclusion_fst :
     correspondenceSecondDiagonalInclusion f g h i ≫
       pullback.fst (correspondenceTripleTarget f g h ≫ h) (pullback.fst h i ≫ h) =
     pullback.fst (correspondenceTripleTarget f g h) (pullback.fst h i) := by
@@ -101,7 +101,7 @@ instance [IsSeparated h] : IsClosedImmersion (correspondenceSecondDiagonalInclus
     pullback.lift_fst, Category.comp_id]
 
 /-- The second diagonal keeps the last adjacent product. -/
-@[reassoc (attr := simp)] theorem correspondenceSecondDiagonalInclusion_snd :
+@[reassoc] theorem correspondenceSecondDiagonalInclusion_snd :
     correspondenceSecondDiagonalInclusion f g h i ≫
       pullback.snd (correspondenceTripleTarget f g h ≫ h) (pullback.fst h i ≫ h) =
     pullback.snd (correspondenceTripleTarget f g h) (pullback.fst h i) := by
@@ -209,7 +209,7 @@ def correspondenceFourfoldToSecondAmbient : correspondenceFourfoldProduct f g h 
     Category.comp_id]
 
 /-- The second ambient diagonal keeps the first ambient coordinate. -/
-@[reassoc (attr := simp)] theorem correspondenceSecondAmbientInclusion_fst :
+@[reassoc] theorem correspondenceSecondAmbientInclusion_fst :
     correspondenceSecondAmbientInclusion f g h i ≫
       pullback.fst (correspondenceAmbientTarget f g h ≫ h) (pullback.fst h i ≫ h) =
     pullback.fst (correspondenceAmbientTarget f g h) (pullback.fst h i) := by
@@ -217,7 +217,7 @@ def correspondenceFourfoldToSecondAmbient : correspondenceFourfoldProduct f g h 
     pullback.lift_fst, Category.comp_id]
 
 /-- The second ambient diagonal keeps the last adjacent-product coordinate. -/
-@[reassoc (attr := simp)] theorem correspondenceSecondAmbientInclusion_snd :
+@[reassoc] theorem correspondenceSecondAmbientInclusion_snd :
     correspondenceSecondAmbientInclusion f g h i ≫
       pullback.snd (correspondenceAmbientTarget f g h ≫ h) (pullback.fst h i ≫ h) =
     pullback.snd (correspondenceAmbientTarget f g h) (pullback.fst h i) := by

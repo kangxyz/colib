@@ -73,7 +73,7 @@ theorem mem_genericPoints_correspondenceRemainingPairToImageIncidence
 /-- Every actual labelled remaining Tor pushforward is zero at a nongeneric whole-image
 point, before taking its signed first-stage weight. -/
 theorem remainingPairTorPushforward_eq_zero_of_not_generic
-    [Smooth f] [Smooth g] [Smooth h] [Smooth i] [IsSeparated g] [IsSeparated h]
+    [Smooth f] [Smooth g] [Smooth h] [Smooth i] [IsSeparated h]
     (hz : IsFiniteCorrespondencePoint f g z) (hw : IsFiniteCorrespondencePoint g h w)
     (hv : IsFiniteCorrespondencePoint h i v)
     (t : genericPoints (correspondenceIncidence f g h z w))

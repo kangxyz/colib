@@ -67,7 +67,7 @@ theorem incidenceTorPairing_assoc_single_one
   "adaptation" "actual signed associativity by independently proved common triple Tor comparisons",
   colib_ref "MVW2006" "Lecture 1, printed pp. 4-6, composition and the category Cor"
   "adaptation" "arbitrary-field smooth schemes with native signed cycle coefficients",
-  colib_tag "COL-0352",
+  colib_tag "COL-0364",
   colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Incidence/TorAssociativity.lean"
   "adaptation" "Associativity of signed Tor composition"]

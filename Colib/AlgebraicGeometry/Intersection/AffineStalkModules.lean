@@ -85,7 +85,8 @@ namespace ModuleCat
 
 variable {R S : Type u} [CommRing R] [CommRing S]
 
-local instance {T : Type u} [CommRing T] (p : Ideal T) [p.IsPrime] :
+/-- The ring structure on a prime localization, projected from its commutative ring. -/
+local instance affineStalkAtPrimeRing {T : Type u} [CommRing T] (p : Ideal T) [p.IsPrime] :
     Ring (Localization.AtPrime p) :=
   (inferInstance : CommRing (Localization.AtPrime p)).toRing
 

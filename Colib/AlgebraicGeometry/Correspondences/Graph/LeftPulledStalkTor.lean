@@ -160,7 +160,7 @@ theorem isZero_correspondencePulledStalkTor_succ_of_open_left [Flat f]
       (((torFlip_iso_Tor' A (n + 1)).app L).app R).symm)
 
 /-- Degree zero is the actual incidence stalk with its literal triple-product action. -/
-def correspondencePulledStalkTorZeroIso_of_open_left
+def correspondencePulledStalkTorZeroIsoOfOpenLeft
     (t : correspondenceIncidence f g h z w) :
     (((Tor (ModuleCat ((correspondenceTripleProduct f g h).presheaf.stalk
       (correspondenceIncidenceInclusion f g h z w t))) 0).obj
@@ -265,7 +265,7 @@ theorem isZero_correspondencePulledStalkTor_succ_diagonal_left [Flat f]
 
 /-- Left identity degree zero is the original incidence stalk with its actual ambient action.
 This isomorphism requires no flatness assumption. -/
-def correspondencePulledStalkTorZeroIso_diagonal_left
+def correspondencePulledStalkTorZeroIsoDiagonalLeft
     (t : correspondenceIncidence f f g δ z) :
     (((Tor (ModuleCat ((correspondenceTripleProduct f f g).presheaf.stalk
       (correspondenceIncidenceInclusion f f g δ z t))) 0).obj
@@ -276,7 +276,7 @@ def correspondencePulledStalkTorZeroIso_diagonal_left
       (ModuleCat.of ((correspondenceIncidence f f g δ z).presheaf.stalk t)
         ((correspondenceIncidence f f g δ z).presheaf.stalk t)) := by
   have := isOpenImmersion_integralComponentAt_diagonal_snd f s
-  exact correspondencePulledStalkTorZeroIso_of_open_left f f g δ z t
+  exact correspondencePulledStalkTorZeroIsoOfOpenLeft f f g δ z t
 
 /-- Left identity degree-zero length is the full actual incidence local-ring length. -/
 theorem length_correspondencePulledStalkTor_zero_diagonal_left
@@ -289,7 +289,7 @@ theorem length_correspondencePulledStalkTor_zero_diagonal_left
         (correspondenceIncidenceRightPulledStalkModule f f g δ z t)) =
     Module.length ((correspondenceIncidence f f g δ z).presheaf.stalk t)
       ((correspondenceIncidence f f g δ z).presheaf.stalk t) := by
-  rw [(correspondencePulledStalkTorZeroIso_diagonal_left f g z s t).toLinearEquiv.length_eq]
+  rw [(correspondencePulledStalkTorZeroIsoDiagonalLeft f g z s t).toLinearEquiv.length_eq]
   let inc := correspondenceIncidenceInclusion f f g δ z
   let q := (inc.stalkMap t).hom
   let A := (correspondenceIncidence f f g δ z).presheaf.stalk t

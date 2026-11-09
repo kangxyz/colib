@@ -83,10 +83,12 @@ theorem productQuotientMap_ker (I : Ideal U) (J : Ideal V) :
     (Ideal.Quotient.mkₐ_surjective k I) (Ideal.Quotient.mkₐ_surjective k J), hI, hJ]
   rfl
 
-/- Keep this instance restricted to quotient factors. Installing the general
+/-- The exterior module structure on the tensor product of quotient factors.
+
+Keep this instance restricted to quotient factors. Installing the general
 exterior instance here would also compete with a tensor product ring's action
 on itself, which is used by the native `kerQuotIso`. -/
-local instance (I : Ideal U) (J : Ideal V) :
+local instance exteriorQuotientModule (I : Ideal U) (J : Ideal V) :
     Module (U ⊗[k] V) ((U ⧸ I) ⊗[k] (V ⧸ J)) :=
   Stacks.Intersection.Diagonal.exteriorModule (U ⧸ I) (V ⧸ J)
 
@@ -122,12 +124,10 @@ def exteriorQuotientRestrictIso (I : Ideal U) (J : Ideal V) :
       map_add' := fun _ _ => rfl
       map_smul' := fun r x => productQuotient_smul_eq_mul I J r x }
 
-@[simp]
 theorem exteriorQuotientRestrictIso_hom_apply (I : Ideal U) (J : Ideal V)
     (x : (U ⧸ I) ⊗[k] (V ⧸ J)) :
     (exteriorQuotientRestrictIso (k := k) I J).hom x = x := rfl
 
-@[simp]
 theorem exteriorQuotientRestrictIso_inv_apply (I : Ideal U) (J : Ideal V)
     (x : (U ⧸ I) ⊗[k] (V ⧸ J)) :
     (exteriorQuotientRestrictIso (k := k) I J).inv x = x := rfl

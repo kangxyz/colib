@@ -200,9 +200,11 @@ variable (k A B C : Type u) [Field k] [CommRing A] [CommRing B] [CommRing C]
 variable (q : Ideal (tripleRing k A B C)) [q.IsPrime]
 
 -- Normalize the native ring projection for categorical instance search on localizations.
+/-- The ring structure on the localized triple ring, projected from its commutative ring. -/
 local instance : Ring (Localization.AtPrime q) :=
   (inferInstance : CommRing (Localization.AtPrime q)).toRing
 
+/-- The ring structure at the induced ambient prime, projected from its commutative ring. -/
 local instance : Ring (Localization.AtPrime (ambientPrime k A B C q)) :=
   (inferInstance : CommRing (Localization.AtPrime (ambientPrime k A B C q))).toRing
 

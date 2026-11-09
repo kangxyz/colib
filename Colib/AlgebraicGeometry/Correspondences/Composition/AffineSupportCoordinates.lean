@@ -129,7 +129,7 @@ theorem correspondenceAffineSupportProductIso_fst :
   simp [correspondenceAffineSupportProductIso]
 
 /-- The product chart preserves the actual second support projection. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correspondenceAffineSupportProductIso_snd :
     (correspondenceAffineSupportProductIso k A B C z w I J eI eJ hI hJ).hom ≫
       Spec.map (CommRingCat.ofHom (S := ((A ⊗[k] B) ⧸ I) ⊗[k] ((B ⊗[k] C) ⧸ J))

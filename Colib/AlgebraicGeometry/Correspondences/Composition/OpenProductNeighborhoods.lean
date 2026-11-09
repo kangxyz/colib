@@ -41,12 +41,12 @@ variable {S X Y Z X' Y' Z' : Scheme.{u}}
   (uX : X' ⟶ X) (uY : Y' ⟶ Y) (uZ : Z' ⟶ Z)
 
 /-- The first adjacent coordinate is the original first neighborhood map. -/
-@[reassoc (attr := simp)] theorem productMap_fst :
+@[reassoc] theorem productMap_fst :
     productMap f g uX uY ≫ pullback.fst f g =
       pullback.fst (uX ≫ f) (uY ≫ g) ≫ uX := pullback.lift_fst _ _ _
 
 /-- The second adjacent coordinate is the original second neighborhood map. -/
-@[reassoc (attr := simp)] theorem productMap_snd :
+@[reassoc] theorem productMap_snd :
     productMap f g uX uY ≫ pullback.snd f g =
       pullback.snd (uX ≫ f) (uY ≫ g) ≫ uY := pullback.lift_snd _ _ _
 

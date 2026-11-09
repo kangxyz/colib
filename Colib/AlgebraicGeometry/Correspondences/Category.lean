@@ -52,7 +52,7 @@ theorem finite_genericPoints (X : Cor k) : (genericPoints X.toSmoothSite.left).F
   "adaptation" "native signed cycles, full diagonal identity and actual incidence Tor pairing",
   colib_ref "MVW2006" "Lecture 1, printed pp. 4-6, finite-correspondence category"
   "adaptation" "arbitrary fields and all smooth separated finite-type objects",
-  colib_tag "COL-0354"]
+  colib_tag "COL-0366"]
 instance category : Category.{u} (Cor k) where
   Hom X Y := finiteCorrespondences X.toSmoothSite.hom Y.toSmoothSite.hom
   id X := graphCorrespondenceOfComponents X.toSmoothSite.hom X.toSmoothSite.hom
@@ -70,7 +70,7 @@ instance category : Category.{u} (Cor k) where
     X.toSmoothSite.hom Y.toSmoothSite.hom Z.toSmoothSite.hom W.toSmoothSite.hom α β γ
 
 /-- The existing additive cycle groups and biadditivity make the actual category preadditive. -/
-@[colib_tag "COL-0354"]
+@[colib_tag "COL-0366"]
 instance preadditive : Preadditive (Cor k) where
   homGroup X Y := inferInstanceAs
     (AddCommGroup (finiteCorrespondences X.toSmoothSite.hom Y.toSmoothSite.hom))
