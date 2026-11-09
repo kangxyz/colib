@@ -2,7 +2,7 @@
 id = "COL-0012"
 title = "The length-degree sum for a finite scheme over a field"
 statement = "The dimension of a finite algebra equals the sum of its local-ring lengths multiplied by the corresponding residue-field degrees."
-scope = "The affine coefficient formula over a field, expressed through prime localizations. The full finite-flat correspondence category is a subsequent migration target."
+scope = "The affine coefficient formula over a field, expressed through prime localizations. Finite correspondences and their category are treated in COL-0374 and COL-0366."
 review = "author_checked"
 kind = "theorem"
 section = "finite-algebra-coefficients"
