@@ -1,0 +1,58 @@
+[entry]
+id = "COL-0377"
+title = "Scalar operations and the original Serre boundary"
+kind = "theorem"
+section = "quillen-k-theory"
+order = 330
+statement = '''
+Let \(R\) be a ring, \(\mathcal C\) and \(\mathcal D\) small abelian \(R\)-linear
+categories, \(\mathcal C_P\) a Serre full subcategory, and
+\(L:\mathcal C\to\mathcal D\) an additive \(R\)-linear localization at the
+morphisms whose kernel and cokernel belong to \(\mathcal C_P\). Write
+\(\delta_i:K_{i+1}(\mathcal D)\to K_i(\mathcal C_P)\) for the original Serre
+connecting maps. The normalized identity-automorphism track defines the scalar
+operations \(\rho_r:K_i\to K_{i+1}\), for \(r\in R^\times\) and \(i=0,1\).
+The degree-zero operation is a homomorphism in both the input and the scalar unit,
+and for every \(a\in K_1(\mathcal D)\),
+\[\delta_1(\rho_r(a))=\rho_r(\delta_0(a))^{-1}.\]
+
+The same equation holds on the original chosen small models of an exact Serre
+localization between essentially small abelian categories. For a commutative
+Noetherian ring and any multiplicative set, it applies to localization of finite
+modules with the actual kernel support term and base-ring scalar action.
+'''
+scope = '''
+The initial Serre theorem uses a common small universe for both categories.
+The chosen-model theorem allows independent source and target object and morphism
+universes with one common small-model universe. Its actual exact functor preserves
+finite limits and colimits and localizes at the morphisms whose kernel and cokernel
+belong to its actual kernel subcategory.
+
+Source additivity uses the proved triviality of loop transport on the actual
+Q-space, detected by the genuine Q/S and iterated-S maps. The Serre comparison
+retains the entire epsilon cylinder and every point of its stored fiber paths.
+The actual-target theorem constructs the canonical quotient automorphism by
+full faithfulness, with no linear structure assumed on the formal quotient.
+The small-model formula uses the actual exact identity comparison and literal
+kernel support subcategory, without a linear structure on the chosen models.
+The finite-module specialization retains the existing `FGModuleCat.Localization.connectingHom`, the original
+base-ring scalars through localization, and multiplicative sets containing zero.
+No boundary-compatibility conclusion is assumed. This does not identify an
+ordered symbol, a product marking, a plus construction or TT localization.
+'''
+proof = '''
+The genuine Q/S and iterated-S maps detect trivial loop transport on the Q-space,
+which proves source additivity of the original degree-zero operation. The complete
+composition prism gives its unit group law. Zero-target hom-set thinness makes
+the epsilon double cylinders invariant in both parameters. Thus the Serre
+comparison intertwines the entire supported track with the fiber track, and the
+original loop-shift calculation supplies the inverse sign. Full faithfulness of
+the canonical target lift constructs the required quotient automorphism. The
+actual exact identity comparison and lifted scalar automorphisms transport the
+formula to the chosen models. Linearity of module localization follows from its
+scalar-extended linear map on morphisms.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+primary = "CategoryTheory.ExactCategory.SerreBoundary.actualConnectingHom_scalar"
+provenance = "quillen"

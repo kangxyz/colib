@@ -204,6 +204,15 @@ and singleton inclusions. On positive K-groups, these maps give
 the coordinates and the finite sum that identify the direct sum.
 '''
 
+COL-0377 = '''
+An identity natural automorphism acts by its complete normalized Q-track.
+Trivial loop transport on the Q-space gives the degree-zero source group law.
+The Serre comparison intertwines this track with every point of the original
+fiber path, so the loop-shift sign gives the inverse in the boundary formula.
+Target and chosen-model comparisons carry it to the original localization maps.
+'''
+
+
 [[sections]]
 id = "waldhausen-k-theory"
 title = "Waldhausen K-theory"

@@ -4,6 +4,7 @@ public import Colib.Algebra.Category.FGModuleCat.FractionLocalization
 public import Colib.Algebra.Category.FGModuleCat.IsFG
 public import Colib.Algebra.Category.FGModuleCat.Localization
 public import Colib.Algebra.Category.FGModuleCat.Localization.EssSurj
+public import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
 public import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
 public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
 public import Colib.Algebra.Category.ModuleCat.Annihilator
@@ -61,6 +62,7 @@ public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveMonoidal
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEntry
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEquivalence
 public import Colib.Algebra.Category.ModuleCat.IdempotentMatrix
+public import Colib.Algebra.Category.ModuleCat.LocalizationLinear
 public import Colib.Algebra.Category.ModuleCat.MatrixAutomorphisms
 public import Colib.Algebra.Category.ModuleCat.MatrixBaseChange
 public import Colib.Algebra.Category.ModuleCat.MatrixImageFunctor
@@ -1569,7 +1571,11 @@ public import Colib.KTheory.Quillen.Localization.SmallModel
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.BiproductLoopFamilies
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.ExactNaturality
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.IdentityAutomorphism
+public import Colib.KTheory.Quillen.LowDegreeScalarAction.IdentityAutomorphismZero
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.ScalarUnit
+public import Colib.KTheory.Quillen.LowDegreeScalarAction.ScalarUnitZero
+public import Colib.KTheory.Quillen.LowDegreeScalarAction.SerreBoundary
+public import Colib.KTheory.Quillen.LowDegreeScalarAction.SmallModelBoundary
 public import Colib.KTheory.Quillen.Map.Basic
 public import Colib.KTheory.Quillen.Map.CommonAmbient
 public import Colib.KTheory.Quillen.Map.Functoriality
@@ -1588,6 +1594,7 @@ public import Colib.KTheory.Quillen.SmallModel.Abelian
 public import Colib.KTheory.Quillen.SmallModel.CommonAmbientNaturality
 public import Colib.KTheory.Quillen.SmallModel.Exact
 public import Colib.KTheory.Quillen.SmallModel.Functoriality
+public import Colib.KTheory.Quillen.SpaceAction
 public import Colib.KTheory.Waldhausen.Additivity.BasedHomotopyTools
 public import Colib.KTheory.Waldhausen.Additivity.BasedTransformationSquare
 public import Colib.KTheory.Waldhausen.Additivity.Basic
@@ -1900,6 +1907,7 @@ public import Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedFunctor
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalSupport
+public import Colib.RingTheory.KTheory.GTheory.FiniteModules.ScalarBoundary
 public import Colib.RingTheory.KTheory.GrothendieckGroup.Field
 public import Colib.RingTheory.KTheory.GrothendieckGroup.FieldExact
 public import Colib.RingTheory.KTheory.MilnorK.DegreeTwo
@@ -2453,6 +2461,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackSpatialProdu
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackTimeOperations
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopSelfTrackTransport
 public import Colib.Topology.Homotopy.HomotopyGroup.GenLoopUnitPaths
+public import Colib.Topology.Homotopy.HomotopyGroup.HSpaceAction
 public import Colib.Topology.Homotopy.HomotopyGroup.Homeomorph
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.ComponentTranslation
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.ConstantNormalization
@@ -2466,6 +2475,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.Loop.NormalizedSelfTrackNatu
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.Reversal
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.TransposeSign
 public import Colib.Topology.Homotopy.HomotopyGroup.Loop.WeakEquivalence
+public import Colib.Topology.Homotopy.HomotopyGroup.LoopNormalizationProduct
 public import Colib.Topology.Homotopy.HomotopyGroup.Map
 public import Colib.Topology.Homotopy.HomotopyGroup.MovingBasepoint
 public import Colib.Topology.Homotopy.HomotopyGroup.Nullhomotopy
@@ -2484,6 +2494,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.Product
 public import Colib.Topology.Homotopy.HomotopyGroup.ProductWeakEquivalence
 public import Colib.Topology.Homotopy.HomotopyGroup.SelfTrackLoopShift
 public import Colib.Topology.Homotopy.HomotopyGroup.SelfTrackOperation
+public import Colib.Topology.Homotopy.HomotopyGroup.SelfTrackOperationZero
 public import Colib.Topology.Homotopy.HomotopyGroup.SphericalFaces
 public import Colib.Topology.Homotopy.HomotopyGroup.SphericalHomotopyAddition
 public import Colib.Topology.Homotopy.HomotopyGroup.SphericalHorn
@@ -2620,6 +2631,7 @@ public import Colib.Topology.HomotopyFiber.PeriodicConnecting
 public import Colib.Topology.HomotopyFiber.PointComparison
 public import Colib.Topology.HomotopyFiber.Product
 public import Colib.Topology.HomotopyFiber.ProjectionFibration
+public import Colib.Topology.HomotopyFiber.SelfHomotopy
 public import Colib.Topology.HomotopyFiber.Sequence
 public import Colib.Topology.HomotopyFiber.SourceContraction
 public import Colib.Topology.HomotopyFiber.SourceEquivalence
