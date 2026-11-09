@@ -717,3 +717,11 @@ Sequential colimits preserve the three finite exactness positions.
 The stage formula identifies this descended map with the original
 signed cone boundary, and coefficient squares preserve that formula.
 '''
+
+COL-0384 = '''
+The relative-acyclic objects are precisely the bounded-flat perfect complexes
+supported outside the union of the two opens. Their exact equivalence preserves
+the original admissible quotient. The canonical coarse-fiber comparison then
+retains the original K-theory boundary and the whole null path, with chosen-zero
+normalization made explicit at the spectrum level and no compactness hypothesis.
+'''

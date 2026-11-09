@@ -1,0 +1,49 @@
+[entry]
+id = "COL-0384"
+title = "The supported bounded-flat relative fiber"
+kind = "comparison"
+section = "k-theory-of-schemes"
+order = 3467
+statement = '''
+Let \(X\) be a scheme, \(j\colon U\hookrightarrow X\) an open immersion, and
+\(T\subseteq X\) an open subset. The relative-acyclic category of bounded-above flat
+perfect complexes acyclic on \(T\), with weak equivalences detected on \(U\), is
+exactly equivalent to bounded-above flat perfect complexes acyclic on
+\(T\cup j(U)\). The original canonical comparison from relative-acyclic K-theory
+to the homotopy fiber of changing weak equivalences is a weak homotopy equivalence.
+Transport through the exact equivalence gives bijections on all \(K_n\), including
+\(K_0\), with the original inclusion and connecting maps. Canonical normalization
+of the inverse equivalence gives an integer-graded stable equivalence to the
+actual connective prespectrum fiber, retaining its complete original null path.
+'''
+scope = '''
+No compactness, separation, Noetherianity, regularity or resolution assumption is
+required. The fiber support is \(X\setminus(T\cup j(U))\); the middle category is
+acyclic on \(T\), and the right endpoint is the actual coarse relative category
+on \(X\). The admissible quotient remains the same bounded-above flat complex
+in the original exact sequence. Independently chosen zeros are not identified:
+the spectrum transport explicitly uses canonical normalization, and its projected
+map agrees with the normalized literal inclusion by a whole coherent homotopy.
+This is a connective coarse-fiber comparison. It does not identify the geometric
+image-cover of [@ThomasonTrobaugh1990, 5.1.1], complete arbitrary supported-pair
+naturality in [@ThomasonTrobaugh1990, 5.1.2], or establish the nonconnective
+localization theorem [@ThomasonTrobaugh1990, 7.4].
+'''
+proof = '''
+Restriction acyclicity on a union identifies the actual relative-acyclic objects.
+Flattening the nested full subcategories and restoring their support proofs give
+inverse exact functors. Forward exactness uses restriction of the original short
+exact sequence to prove acyclicity of its same admissible quotient on the second
+open. Restriction also proves the coarse extension axiom, and the original joint
+cylinder supplies the second endpoint section, so the canonical fiber theorem
+applies. Exact K-functoriality retains the original inclusion and boundary maps.
+Canonical chosen-zero and composition homotopies compare the projected normalized
+spectrum map with the literal inclusion. The fiber coordinate is the original
+acyclic null path precomposed with the normalized inverse. Stable equivalence
+follows from the original K-equivalence and canonical fiber comparison; negative
+degrees use the established connectivity rather than an added hypothesis.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedOpen_canonicalFiberMap_isWeakHomotopyEquivalence"
