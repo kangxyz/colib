@@ -650,6 +650,14 @@ followed by cone inclusion. The loop is the reverse of
 right-associated concatenation. Naturality of both tracks
 gives the coefficient-natural one-step Bass seed.
 '''
+COL-0379 = '''
+To use the Laurent square of COL-0361 with a fixed affine open over
+\(R\), retain the specified structure arrow \(R\to A\) at every corner.
+Both routes from \(A\) to \(A[t,t^{-1}]\) are the coefficient inclusion,
+although the two polynomial charts have opposite coordinates. Forgetting
+\(R\) recovers the ring square, while its actual algebra arrows also
+induce the contravariant maps between the chosen open pullbacks.
+'''
 COL-0362 = '''
 Iterate the strict polynomial and Laurent Bass functor
 on the affine section prespectrum, carrying the proved
