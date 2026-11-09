@@ -618,6 +618,20 @@ zero. These exact restrictions give the strict
 coefficient prespectrum after small models and
 iteration of \(S\).
 '''
+COL-0380 = '''
+For an open immersion \(j\colon U\hookrightarrow\operatorname{Spec}R\), impose
+acyclicity after \(j^*\) on identity evaluation in COL-0355. Restricting its
+categorical equivalence preserves the original sections and complexes. Their
+independently chosen zeros are compared by a canonical normalization isomorphism,
+which makes the actual evaluation a strict model map with coherent inverse tracks.
+'''
+COL-0358 = '''
+For a fixed commutative ring \(R\), the evaluation equivalence of COL-0355,
+followed by the small-model lift, gives the specified prespectrum map.
+Normalize its actual categorical inverse at the chosen zero. The original
+unit and counit then give whole inverse homotopies, hence level equivalences
+and isomorphisms of stable homotopy groups in every integer degree.
+'''
 COL-0359 = '''
 Fully faithful identity evaluation lifts a global-unit
 automorphism to the actual affine cocartesian sections.
