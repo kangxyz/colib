@@ -51,8 +51,8 @@ theorem finite_genericPoints (X : Cor k) : (genericPoints X.toSmoothSite.left).F
   "Motivic/AlgebraicGeometry/Correspondences/Basic.lean: Cor.category"
   "adaptation" "native signed cycles, full diagonal identity and actual incidence Tor pairing",
   colib_ref "MVW2006" "Lecture 1, printed pp. 4-6, finite-correspondence category"
-  "adaptation" "arbitrary fields and all smooth separated finite-type objects"]
-@[colib_tag "COL-0354"]
+  "adaptation" "arbitrary fields and all smooth separated finite-type objects",
+  colib_tag "COL-0354"]
 instance category : Category.{u} (Cor k) where
   Hom X Y := finiteCorrespondences X.toSmoothSite.hom Y.toSmoothSite.hom
   id X := graphCorrespondenceOfComponents X.toSmoothSite.hom X.toSmoothSite.hom

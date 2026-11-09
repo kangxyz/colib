@@ -188,8 +188,8 @@ theorem isSheaf_correspondenceTopology_iff_restriction
 
 /-- The project's actual full-subcategory condition for sheaves with transfers
 is exactly sheafness on the actual correspondence Nisnevich site. -/
-@[colib_tag "COL-0359"]
-@[colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0359",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/NisnevichComparison.lean"
   "adaptation" "Comparison of Nisnevich sheaf conditions"]
 theorem isNisnevichSheaf_iff_correspondenceTopology (P : PresheafWithTransfers.{v} k) :

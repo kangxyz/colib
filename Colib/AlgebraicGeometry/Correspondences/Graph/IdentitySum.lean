@@ -117,9 +117,9 @@ and disconnected or empty smooth schemes with finite identity support. -/
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Identity/Units.lean"
   "adaptation" "full right identity sum and additive extension on native finite cycles",
   colib_ref "MVW2006" "Lecture 1, printed pp. 3-4, graph sum and diagonal identity"
-  "adaptation" "right unit over arbitrary fields, with finite generic identity support explicit"]
-@[colib_tag "COL-0353"]
-@[colib_ref "motivic_source_a6805c4"
+  "adaptation" "right unit over arbitrary fields, with finite generic identity support explicit",
+  colib_tag "COL-0353",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Identity/Units.lean"
   "adaptation" "Full componentwise identity laws"]
 theorem incidenceTorPairing_graphIdentity_right (c : finiteCorrespondences f g) :
@@ -173,9 +173,9 @@ restriction is introduced when the componentwise prime identities are extended a
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Identity/Units.lean"
   "adaptation" "full left identity sum and additive extension in the native subgroup",
   colib_ref "MVW2006" "Lecture 1, printed pp. 3-4, graph sum and diagonal identity"
-  "adaptation" "left unit over arbitrary fields with actual finite identity support"]
-@[colib_tag "COL-0353"]
-@[colib_ref "motivic_source_a6805c4"
+  "adaptation" "left unit over arbitrary fields with actual finite identity support",
+  colib_tag "COL-0353",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Identity/Units.lean"
   "adaptation" "Full componentwise identity laws"]
 theorem incidenceTorPairing_graphIdentity_left (c : finiteCorrespondences f g) :

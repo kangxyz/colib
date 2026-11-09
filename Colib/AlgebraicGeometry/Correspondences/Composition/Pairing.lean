@@ -39,8 +39,8 @@ variable (f : X ⟶ Spec (.of k)) (g : Y ⟶ Spec (.of k)) (h : Z ⟶ Spec (.of 
 variable [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
 
 /-- The actual incidence Tor correspondence extended additively in both variables. -/
-@[colib_tag "COL-0351"]
-@[colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0351",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Composition/Incidence/TorCycle.lean"
   "adaptation" "Actual incidence Tor composition"]
 def incidenceTorPairing : finiteCorrespondences f g →+

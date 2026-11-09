@@ -44,9 +44,9 @@ namespace AlgebraicGeometry
 /-- Abelian presheaves with transfers on the actual correspondence category. -/
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/Basic.lean: PresheafWithTransfers"
-  "adaptation" "actual additive transfer presheaves, arbitrary field and coefficient universe"]
-@[colib_tag "COL-0356"]
-@[colib_ref "motivic_source_a6805c4"
+  "adaptation" "actual additive transfer presheaves, arbitrary field and coefficient universe",
+  colib_tag "COL-0356",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/Basic.lean"
   "adaptation" "Additive presheaves with transfers"]
 abbrev PresheafWithTransfers (k : Type u) [Field k] :=

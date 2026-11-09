@@ -161,9 +161,9 @@ composition, signed coefficients, and finite-image residue degrees are unchanged
 @[colib_ref "motivic_source_a6805c4"
   "Correspondences/Nisnevich/Cech/LocalExactness.lean: exists_nisnevich_cech_boundary"
   "adaptation" "native signed correspondence relations and one pointed whole-support \
-Nisnevich lift over an arbitrary field"]
-@[colib_tag "COL-0358"]
-@[colib_ref "motivic_source_a6805c4"
+Nisnevich lift over an arbitrary field",
+  colib_tag "COL-0358",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Nisnevich/Cech/LocalExactness.lean"
   "adaptation" "Signed Nisnevich Cech local exactness"]
 theorem exists_nisnevich_cech_boundary

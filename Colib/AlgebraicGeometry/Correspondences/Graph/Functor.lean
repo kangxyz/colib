@@ -39,8 +39,8 @@ variable (k : Type u) [Field k]
   "Motivic/AlgebraicGeometry/Correspondences/Graph/Functor.lean: Cor.graphFunctor"
   "adaptation" "the actual native graph sum with proved Tor composition",
   colib_ref "MVW2006" "Lecture 1, printed p. 6, graph functor Sm to Cor"
-  "adaptation" "ordinary morphisms over an arbitrary field, including disconnected objects"]
-@[colib_tag "COL-0355"]
+  "adaptation" "ordinary morphisms over an arbitrary field, including disconnected objects",
+  colib_tag "COL-0355"]
 def graphFunctor : Scheme.SmoothSite (Spec (.of k)) ⥤ Cor k where
   obj X := ⟨X⟩
   map {X Y} φ := graphCorrespondenceOfComponents X.hom Y.hom φ.left

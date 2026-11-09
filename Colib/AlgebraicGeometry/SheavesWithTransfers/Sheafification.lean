@@ -59,8 +59,8 @@ theorem nisnevichSheafify_additive (P : PresheafWithTransfers.{u + 1} k) :
 
 /-- Sheafification of a transfer presheaf, with actual signed transfers and
 ordinary smooth-site Nisnevich descent. -/
-@[colib_tag "COL-0360"]
-@[colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0360",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/NisnevichSheafification.lean"
   "adaptation" "Transfer-preserving Nisnevich sheafification"]
 def nisnevichSheafify : PresheafWithTransfers.{u + 1} k ⥤ SheafWithTransfers.{u + 1} k where
@@ -157,8 +157,8 @@ def nisnevichSheafificationHomEquiv (P : PresheafWithTransfers.{u + 1} k)
 
 /-- Transfer-preserving Nisnevich sheafification is left adjoint to the
 original inclusion of sheaves with transfers into presheaves with transfers. -/
-@[colib_tag "COL-0360"]
-@[colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0360",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/NisnevichSheafification.lean"
   "adaptation" "Transfer-preserving Nisnevich sheafification"]
 def nisnevichSheafificationAdjunction :
@@ -310,8 +310,8 @@ instance isIso_nisnevichSheafifyUnderlyingComparison
 
 /-- Forgetting transfers after transfer sheafification is canonically
 isomorphic to genuine ordinary smooth-site Nisnevich sheafification. -/
-@[colib_tag "COL-0361"]
-@[colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0361",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/NisnevichSheafification.lean"
   "adaptation" "Underlying ordinary sheafification comparison"]
 def nisnevichSheafificationUnderlyingIso :
@@ -322,9 +322,9 @@ def nisnevichSheafificationUnderlyingIso :
     (fun η => nisnevichSheafifyUnderlyingComparison_naturality k η)
 
 /-- The natural comparison agrees with the canonical unit on the nose. -/
-@[reassoc (attr := simp)]
-@[colib_tag "COL-0361"]
-@[colib_ref "motivic_source_a6805c4"
+@[reassoc (attr := simp),
+  colib_tag "COL-0361",
+  colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/NisnevichSheafification.lean"
   "adaptation" "Underlying ordinary sheafification comparison"]
 theorem toSheafify_nisnevichSheafificationUnderlyingIso
