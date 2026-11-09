@@ -42,6 +42,7 @@ variable {S X Y Z W : Scheme.{u}}
   (f : X ⟶ S) (g : Y ⟶ S) (h : Z ⟶ S) (i : W ⟶ S)
   [Flat f] [Smooth g] [IsSeparated g] [Smooth h] [IsSeparated h] [Flat i]
 
+omit [IsSeparated h] in
 /-- Native regular-immersion geometry constructs the literal combined stalk equations. -/
 theorem exists_regular_kernel_correspondenceFourfoldDiagonal
     (q : correspondenceFourfoldProduct f g h i) :

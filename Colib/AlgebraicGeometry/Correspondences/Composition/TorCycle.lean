@@ -65,7 +65,7 @@ theorem finite_genericPoints_correspondenceIncidence_of_smooth [Smooth g]
   let : IsLocallyNoetherian Y := LocallyOfFiniteType.isLocallyNoetherian g
   exact finite_genericPoints_correspondenceIncidence f g h z w hw
 
-variable [Smooth f] [Smooth g] [Smooth h] [IsSeparated g]
+variable [Smooth g]
 variable (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
 
 /-- The native cycle with the actual finite alternating categorical Tor coefficient
@@ -127,6 +127,8 @@ theorem incidenceTorCycle_eq_zero_of_genericPoints_eq_empty
   apply Function.locallyFinsuppWithin.ext
   intro t
   exact incidenceTorCycle_apply_of_notMem f g h z w hw t (by simp [ht])
+
+variable [Smooth f] [Smooth h] [IsSeparated g]
 
 /-- Actual dominance, not a caller hypothesis, makes every nonzero Tor support
 cover the source component of the first correspondence. -/
