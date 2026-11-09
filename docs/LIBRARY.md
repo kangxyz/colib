@@ -115,16 +115,20 @@ into the statement, scope or proof as appropriate.
 
 Separate paragraphs with blank lines. A `proof` can be a proof outline or a complete
 argument. Set `proof_kind = "proof"` for a complete argument displayed with the statement.
-Place the Lean declaration immediately after the mathematical statement. The site reads
-the declaration name, defining import and compiled type from the native export. For a Colib
+Keep the proof or proof outline before the Lean information. Place the Lean declaration
+name and import together, followed by links to the defining module and source.
+The site reads the declaration data from the native export. For a Colib
 declaration with a Lean source range it also shows the corresponding text from the checked
 source and links to that line range. Upstream bindings show their compiled types and link
 to the defining modules at the pinned revisions. A result with several bindings can
 select its primary declaration with `primary`, which must name one of its compiled bindings.
-Open **Scope and conventions** in a grouped section to read the same scope as on the
-permanent item page. **Lean source**, **Compiled type**, **More Lean declarations**,
-**Referenced by** and **Direct Lean references** are available as disclosures where
-the corresponding data exists. The disclosures start closed.
+Place **Scope and conventions** after the source links, directly above **Lean details**.
+Both start closed. Open **Lean details** for the implementation and related declarations.
+The additional declarations appear by name and open individually. **Lean source**,
+**Compiled type**, **Referenced by** and **Direct Lean references** start closed where
+the corresponding data exists. **References** is a single disclosure that starts closed.
+It contains the works, precise locators and correspondence scopes. Locators for the same
+work with the same scope and relation share one entry.
 Use `source_checked_on` for a previously recorded author source-check date in YYYY-MM-DD
 format. The page displays the date with the correspondence status.
 

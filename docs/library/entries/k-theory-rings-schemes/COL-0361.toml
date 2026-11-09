@@ -26,3 +26,4 @@ Bass telescope identification, or Thomason--Trobaugh 7.4 is asserted.
 """
 review = "author_checked"
 provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSectionBassSeed"

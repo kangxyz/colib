@@ -1,0 +1,19 @@
+[entry]
+id = "COL-0376"
+title = "Signed cone exactness of the affine-section Bass telescope"
+kind = "comparison"
+section = "k-theory-of-schemes"
+order = 3530
+statement = '''Let \(D_i\) be the finite affine-section Bass stages of COL-0362, with their Laurent-seed transitions, and let \(T\) be their reduced quotient telescope. For commutative rings \(R,S\) and a homomorphism \(f\colon R\to S\), put \(f_i=D_i(f)\), \(C_i(f)=\operatorname{Cone}(f_i)\), and \(C(f)=\operatorname{Cone}(T(f))\). There is a canonical prespectrum isomorphism \(C(f)\cong\operatorname{Tel}_i C_i(f)\). For every \(d\in\mathbb Z\), the resulting isomorphism \(\operatorname*{colim}_i\pi_d^{\mathrm{st}}C_i(f)\cong\pi_d^{\mathrm{st}}C(f)\) sends the colimit leg from stage \(i\) to the map induced by the original stage-cone inclusion \(c_i\colon C_i(f)\to C(f)\).
+
+The canonical comparison \(T(R)\to\operatorname{hofib}(T(S)\to C(f))\), with the original cone-cylinder path, is a stable equivalence. Its signed boundary \(\delta_{f,d}\colon\pi_{d+1}^{\mathrm{st}}C(f)\to\pi_d^{\mathrm{st}}T(R)\) gives the exact sequence
+\[
+\pi_{d+1}^{\mathrm{st}}T(S)\longrightarrow\pi_{d+1}^{\mathrm{st}}C(f)\xrightarrow{\delta_{f,d}}\pi_d^{\mathrm{st}}T(R)\xrightarrow{\pi_d^{\mathrm{st}}T(f)}\pi_d^{\mathrm{st}}T(S)\longrightarrow\pi_d^{\mathrm{st}}C(f).
+\]
+The unlabeled maps are induced by the original cone inclusion. If \(j_i^R\colon D_i(R)\to T(R)\) is the original stage inclusion, the boundary is determined by \(\delta_{f,d}\circ\pi_{d+1}^{\mathrm{st}}(c_i)=\pi_d^{\mathrm{st}}(j_i^R)\circ\delta_{f_i,d}\), with the unchanged signed finite-stage boundary \(\delta_{f_i,d}\). Every commuting coefficient square preserves these cone maps and boundaries. If both side maps induce stable equivalences of telescopes, the induced cone map is a stable equivalence.'''
+scope = '''The generic interchange has no separation premise and constructs its inverse by compact-open currying before quotient descent. The generic signed colimit and excision theorems assume only \(T_1\) at every level of both finite towers and finite-stage cone-to-fiber stable equivalences. Actual affine section towers discharge these using COL-0362 and COL-0375. Cone time, telescope height and structure-loop time remain independent, including the degree-zero path input. No telescope point HEP, uniform telescope connectivity, arbitrary comparison isomorphism, caller proof profile, evaluation comparison or open-immersion localization is asserted. In particular this is not [@ThomasonTrobaugh1990, 7.4] or an identification with classical negative K-theory.'''
+proof = '''Descend the full stage nullhomotopies to construct the forward cone map. Curry each entire telescope-height track into a compact-open mapping space, descend it through the finite cone, and evaluate to build the reverse map. Quotient induction proves both composites are identities on the target face and double cylinders. Apply the canonical stable-colimit theorem to the \(T_1\) cone tower. Transport the existing signed finite boundaries through the resulting source and cone colimit isomorphisms; sequential exactness proves all three positions. Compare with the actual fiber sequence to prove that the unchanged cone-to-fiber map is stable, then identify the transported boundary with its original signed boundary. Apply this to the actual affine Bass stages and use strict-square cone boundary naturality.'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSectionBassTelescopeConeLongExactSequence"

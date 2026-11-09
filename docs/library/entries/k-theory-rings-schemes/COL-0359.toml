@@ -4,22 +4,20 @@ title = "Global and Laurent units on actual affine sections"
 kind = "theorem"
 section = "k-theory-of-schemes"
 order = 3470
-statement = """
-Global units act on actual bounded-above-flat affine cocartesian sections by the unique lift
+statement = '''Global units act on actual bounded-above-flat affine cocartesian sections by the unique lift
 through fully faithful identity evaluation. Every coefficient-arrow evaluation identifies both
 directions with the actual pulled-back global scalar on every complex term. Literal coefficient
 reindexing commutes strictly with the whole natural isomorphism. The existing Laurent coordinate
 specializes this action; along every morphism from the Laurent ring, its forward and inverse
-terms are multiplication by the actual images of T and T inverse. Laurent coefficient change
+terms are multiplication by the actual images of \(T\) and \(T^{-1}\). Laurent coefficient change
 preserves this action strictly.
-"""
-scope = """
-Arbitrary commutative rings, ring morphisms, sections and cohomological degrees. Arbitrary
+'''
+scope = '''Arbitrary commutative rings, ring morphisms, sections and cohomological degrees. Arbitrary
 geometric pullback compatibility is proved from the actual sheaf adjunction without assuming
-flatness of the scheme map. The scalar is Stacks.RegularSequence.globalSmulCenter and the
-coordinate is the existing laurentCoordinate. No supplied compatibility bundle, legacy scalar,
+flatness of the scheme map. The scalar is `Stacks.RegularSequence.globalSmulCenter` and the
+coordinate is the existing `laurentCoordinate`. No supplied compatibility bundle, legacy scalar,
 replacement section model, support condition, prespectrum homotopy, Bass seed, negative
-localization or TT 7.4 conclusion is assumed or asserted.
-"""
+localization or [@ThomasonTrobaugh1990, 7.4] conclusion is assumed or asserted.
+'''
 review = "author_checked"
 provenance = "quillen"

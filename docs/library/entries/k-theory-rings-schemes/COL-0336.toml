@@ -4,21 +4,19 @@ title = "Auxiliary-support forgetting for the actual localization sequence"
 kind = "theorem"
 section = "k-theory-of-schemes"
 order = 250
-statement = """
-For a fixed open immersion j and auxiliary open T, the actual support inclusions commute
+statement = '''For a fixed open immersion j and auxiliary open T, the actual support inclusions commute
 with change of weak equivalences, coarse restriction, acyclic/support flattening, the
 union-to-base inclusion and the original coarse connecting homomorphism in every
 connective degree. Over a quasi-compact quasi-separated scheme, compact U and compact
-j.opensRange union T give the actual positive comparison inverse square and fine
+\(j(U)\cup T\) give the actual positive comparison inverse square and fine
 boundary square. Compact U and compact T recover the original two endpoints.
-The n = 0 boundary is explicitly K1 to K0, with the original sign and support labels.
-"""
-scope = """
-The full fixed-pair group-level localization squares use the native perfect complexes,
-actual exact functors and OpenDerivedImage.relativeKRestrictEquiv. Compact U is required
+The \(n=0\) boundary is explicitly \(K_1\) to \(K_0\), with the original sign and support labels.
+'''
+scope = '''The full fixed-pair group-level localization squares use the native perfect complexes,
+actual exact functors and `OpenDerivedImage.relativeKRestrictEquiv`. Compact U is required
 for the ordinary fine comparison even when compactness of the union is supplied separately.
-No full-target K0 inverse or surjectivity, whole-prespectrum nullhomotopy coherence,
+No full-target \(K_0\) inverse or surjectivity, whole-prespectrum nullhomotopy coherence,
 arbitrary global-pair naturality or Bass localization is asserted.
-"""
+'''
 review = "author_checked"
 provenance = "quillen"

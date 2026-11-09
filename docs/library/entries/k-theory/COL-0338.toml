@@ -14,13 +14,12 @@ explicit equality of the scalar tracks at every time. A strictly natural square 
 objects gives an endofunctor on prespectrum diagrams, its finite iterates and natural
 transition squares for a supplied seed transformation, including stage zero.
 """
-scope = """
-All maps use native Topology.LoopPrespectrum and Mathlib Arrow and functor categories.
+scope = '''All maps use native `Topology.LoopPrespectrum` and Mathlib Arrow and functor categories.
 Cylinder time, structure-loop time and scalar-track time are independent. The source null
 is constructed, not assumed. The scalar track and its naturality, evaluation-square functor
 and diagram seed transformation are explicit inputs. This does not construct scheme
 coefficient squares or units, rectify homotopy-commuting diagrams, build a telescope,
-identify nonconnective K-theory, prove Bass localization or prove Thomason-Trobaugh 7.4.
-"""
+identify nonconnective K-theory, prove Bass localization or prove [@ThomasonTrobaugh1990, 7.4].
+'''
 review = "author_checked"
 provenance = "quillen"
