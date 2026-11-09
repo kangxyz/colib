@@ -46,7 +46,7 @@ theorem mem_genericPoints_correspondenceRightRemainingTripleFibre [IsSeparated i
     (correspondenceTripleToRightImageIncidence f g h i z w v) y.1 (y.2.symm ▸ hx)
 
 /-- Every maximal ideal retains its actual generic triple point in the right fibre. -/
-def correspondenceRightRemainingFiniteMaximalEquivGenericTriple [IsSeparated g] [IsSeparated i]
+def correspondenceRightRemainingFiniteMaximalEquivGenericTriple [IsSeparated i]
     (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
     (x : correspondenceRightImageIncidence f g h i z w v)
     (hx : x ∈ genericPoints (correspondenceRightImageIncidence f g h i z w v)) :
@@ -63,7 +63,7 @@ def correspondenceRightRemainingFiniteMaximalEquivGenericTriple [IsSeparated g] 
 
 /-- The actual prime degree equals the original right triple-to-image degree at the same label. -/
 theorem primeResidueDegree_correspondenceRightRemainingFiniteMaximalEquivGenericTriple
-    [IsSeparated g] [IsSeparated i]
+    [IsSeparated i]
     (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
     (x : correspondenceRightImageIncidence f g h i z w v)
     (hx : x ∈ genericPoints (correspondenceRightImageIncidence f g h i z w v))

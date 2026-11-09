@@ -97,7 +97,6 @@ theorem finiteAlgebraResidueDegree_correspondenceRightRemainingFiniteRing_eq_pri
 
 /-- The finite-pushforward degree is exactly the degree of the original triple-to-image map. -/
 theorem finiteAlgebraResidueDegree_correspondenceRightRemainingFiniteMaximalEquivGenericTriple
-    [IsSeparated g]
     (x : correspondenceRightImageIncidence f g h i z w v)
     (hx : x ∈ genericPoints (correspondenceRightImageIncidence f g h i z w v))
     (q : MaximalSpectrum (correspondenceRightRemainingFiniteRing f g h i z w v x)) :
