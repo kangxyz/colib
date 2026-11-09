@@ -77,7 +77,7 @@ defaults:
 jobs:
   build:
     name: Build
-    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
+    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
     timeout-minutes: ${{ inputs.build-job-timeout-minutes != 0 && inputs.build-job-timeout-minutes || inputs.job-timeout-minutes }}
     permissions:
       contents: read
@@ -773,7 +773,7 @@ jobs:
     name: Test, lint and axiom audit
     needs: build
     if: ${{ needs.build.result == 'success' }}
-    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
+    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
     timeout-minutes: ${{ inputs.job-timeout-minutes }}
     env: *native-resource-env
     defaults: *native-resource-defaults

@@ -10,6 +10,12 @@ variable "warmup_only" {
   default     = false
 }
 
+variable "guarded_ci" {
+  description = "Use a guarded persistent runner for the Build-to-Test workspace handoff."
+  type        = bool
+  default     = false
+}
+
 variable "github_app_key_ssm_name" {
   description = "Existing GitHub App private-key SecureString. Only the parameter reference enters state."
   type        = string

@@ -12,14 +12,14 @@ permissions:
   contents: read
 
 concurrency:
-  group: Colib CI-${{ github.ref }}
+  group: Colib EC2
   cancel-in-progress: false
   queue: max
 
 jobs:
   probe:
-    if: vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main'
-    runs-on: [self-hosted, linux, x64, colib-ec2]
+    if: vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner
+    runs-on: colib-dependency-warmup
     timeout-minutes: 25
     outputs:
       host-runner: ${{ runner.name }}
@@ -95,7 +95,7 @@ jobs:
     name: Verify runner-local handoff
     needs: probe
     if: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && inputs.verify-handoff }}
-    runs-on: [self-hosted, linux, x64, colib-ec2]
+    runs-on: colib-dependency-warmup
     timeout-minutes: 5
     steps:
       - name: Check the runner and workspace from the first job

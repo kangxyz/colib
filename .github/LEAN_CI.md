@@ -11,7 +11,7 @@ both runner profiles; the mathematical dependency pins are unchanged.
 
 | Setting | GitHub-hosted | EC2 |
 |---|---|---|
-| Labels | `ubuntu-24.04` | `self-hosted,linux,x64,colib-ec2` |
+| Labels | `ubuntu-24.04` | `colib-dependency-warmup` |
 | Native scope memory request | 13,824 MiB | 57,344 MiB |
 | Lake threads / declaration lint workers | 4 / 4 | 8 / 8 |
 | Build job / compiler cap | 360 minutes / remaining safe window | 240 / 180 minutes |
@@ -23,12 +23,12 @@ reserve and disables swap. Compiler and staging scopes stop before checkpoints
 are read. A job deadline reserves time for staging and saving completed work after
 compiler failure. Resource samples are retained as workflow artifacts.
 
-`COLIB_SELF_HOSTED_ENABLED=false` keeps every ordinary run on GitHub-hosted
-runners. The manual profile defaults to `hosted`. Once explicitly enabled, only
-main-branch pushes and main-branch manual `ec2` dispatches use EC2. PRs and other
-revisions use GitHub-hosted runners. `COLIB_EC2_SHARED_HOST=true` prepares the
-optimized EC2 handoff; it cannot enable EC2 without the independent admission gate.
-The main workflow and manual EC2 probe share `Colib CI-<ref>` with ordered queuing.
+With `COLIB_SELF_HOSTED_ENABLED=true`, owner pushes and manual runs on
+Colib repository branches default to the high-memory EC2 runner. Pull request
+runs and the explicit `hosted` profile use GitHub-hosted runners.
+`COLIB_EC2_SHARED_HOST=true` keeps Build and Test in the same checkout.
+EC2 CI, the pilot, and dependency warmup share the ordered `Colib EC2` queue
+so another branch cannot replace the checkout between Build and Test.
 
 The [EC2 operating guide](../infra/ci/ec2/README.md) owns the deployed fleet,
 webhook, GitHub App authorization and future activation. No EC2 trial is performed
@@ -37,13 +37,13 @@ while disabled. The root-owned marker is `colib-ci-runner-v1` in
 
 ## Dependency warmup
 
-The repository owner can run **Dependency warmup** from `main` to build
+The repository owner can run **Dependency warmup** from a Colib branch to build
 modules from one pinned dependency. Set `dependency` to `Mathlib` or `Stacks`
 and enter the space-separated Lean module names in `modules`. After the
 [one-time fleet setup](../infra/ci/ec2/README.md#on-demand-dependency-warmup),
 each request starts an EC2 runner with the standard 57,344 MiB memory budget
 and eight Lake threads. The compiler cutoff leaves time for cache packing
-before the one-job runner shuts down.
+before the runner becomes idle.
 
 - Stacks restores compatible checkpoints and uploads `build-stacks` in the
   existing `stacks.tar.zst` format. A compiler failure or cutoff can save
