@@ -389,9 +389,9 @@ class LibraryTests(unittest.TestCase):
     def test_exact_equivalence_keeps_canonical_maps(self):
         item = self.library["entries"]["COL-0179"]
         self.assertEqual(item["section"], "waldhausen-k-theory")
-        self.assertIn("canonical KMap", item["statement"])
+        self.assertIn("canonical `KMap`", item["statement"])
         self.assertIn("strict chosen-zero preservation is not required", item["scope"])
-        self.assertIn("No equality with archived named PerfectK", item["scope"])
+        self.assertIn("No equality with archived named `PerfectK`", item["scope"])
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertTrue(result["entries"]["COL-0179"]["references"])
 

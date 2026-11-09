@@ -4,8 +4,7 @@ title = "Supported open-cover excision"
 kind = "theorem"
 section = "k-theory-of-schemes"
 order = 210
-statement = '''
-For an open immersion j: U → X and an auxiliary open T with j(U) ∪ T = X,
+statement = '''For an open immersion \(j\colon U\to X\) and an auxiliary open \(T\) with \(j(U)\cup T=X\),
 actual restriction and extension by zero on native supported perfect complexes
 are exact adjoint functors. Their genuine unit and counit are quasi-isomorphisms.
 The induced original S-realization maps are homotopy inverses, and their K-maps

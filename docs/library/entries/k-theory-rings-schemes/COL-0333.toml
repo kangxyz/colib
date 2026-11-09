@@ -4,34 +4,32 @@ title = "Supported perfect roofs and stabilized extensions"
 kind = "theorem"
 section = "k-theory-of-schemes"
 order = 220
-statement = '''
-Let j: U → X be an open immersion with X quasi-compact and quasi-separated,
-and the union W = j(U) ∪ T quasi-compact. No quasi-compactness of U is needed
+statement = '''Let \(j\colon U\to X\) be an open immersion with X quasi-compact and quasi-separated,
+and the union \(W=j(U)\cup T\) quasi-compact. No quasi-compactness of U is needed
 for this union-compact form. For original global
 complexes A and B, with A perfect and acyclic on T and B having quasi-coherent
 cohomology, each derived arrow from A restricted to U to B restricted to U
-admits actual global chain maps q: R → A and a: R → B from a perfect complex
+admits actual global chain maps \(q\colon R\to A\) and \(a\colon R\to B\) from a perfect complex
 R acyclic on T. The restriction of q is a quasi-isomorphism and its derived
 composite with the given arrow is the restriction of a. For a perfect complex
 E on U acyclic on the inverse image of T, a global perfect complex R acyclic
-on T restricts in the derived category to the actual complex E plus E[1],
-with the actual complement E[1] also perfect and acyclic on the inverse image
+on T restricts in the derived category to the actual complex \(E\oplus E[1]\),
+with the actual complement \(E[1]\) also perfect and acyclic on the inverse image
 of T. If U is also quasi-compact, compactness of T suffices for compactness
 of W.
 '''
-scope = '''
-Native Stacks perfectness and actual Scheme.Modules restriction on complexes.
+scope = '''Native Stacks perfectness and actual `Scheme.Modules` restriction on complexes.
 The roof allows any chosen derived-category model on U, retains both original
 global endpoints, and imposes no support or perfectness condition on B.
 The stabilized construction uses genuine extension by zero and its counit on
 W, then COL-0307 ordinary qcqs geometry; COL-0332 supplies supported cover
 geometry. Its specified shift is essential to preserve support. The actual
-supported complement is C = E[1], with the native shift and biproduct comparison
+supported complement is \(C=E[1]\), with the native shift and biproduct comparison
 in any chosen local derived-category model. This item is a geometric component,
 not full fine localization,
 supported-image closure or cofinality, a positive or degree-zero K-image
 comparison, general two-nonzero-piece cover reflection, or Bass localization.
-Endpoint validation is tracked separately in the migration note; author_checked
+Endpoint validation is tracked separately in the migration note; `author_checked`
 records source correspondence, not completed compilation or independent review.
 '''
 review = "author_checked"

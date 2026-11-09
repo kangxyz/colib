@@ -4,8 +4,7 @@ title = "Whole-prespectrum auxiliary-support forgetting and signed boundary"
 kind = "theorem"
 section = "k-theory-of-schemes"
 order = 260
-statement = """
-An exact functor for nested fine and coarse Waldhausen structures, preserving the chosen
+statement = '''An exact functor for nested fine and coarse Waldhausen structures, preserving the chosen
 zero literally, preserves the entire original acyclic prespectrum nullhomotopy at every
 stage and time. Its strict inclusion and change-weak squares therefore induce the actual
 canonical fiber-lift square and signed stable boundary naturality. For any open immersion
@@ -13,15 +12,14 @@ j and auxiliary open T, the actual auxiliary-support inclusions specialize this 
 without compactness or separation assumptions. The union-supported null, its fiber lift,
 projection and complete path are retained. Restriction to U commutes by the constructed
 canonical-zero rebase homotopy. The intrinsic supported stable boundary commutes in every
-integer degree and is the negative of the original connective boundary, including K1 to K0.
-"""
-scope = """
-Actual original prespectrum maps and native perfect-complex functors are used. Null time
+integer degree and is the negative of the original connective boundary, including \(K_1\) to \(K_0\).
+'''
+scope = '''Actual original prespectrum maps and native perfect-complex functors are used. Null time
 and structure time are independent. Connective and level-one comparisons recover the
 existing COL-0336 K-maps and COL-0335 fiber maps. Only the original supported fiber lifts
-are inverted stably, not support-forgetting maps. No full-target fine K0 inverse, arbitrary
+are inverted stably, not support-forgetting maps. No full-target fine \(K_0\) inverse, arbitrary
 coefficient or global-pair prespectrum functor, Bass iteration or telescope, or Bass
 nonconnective localization is asserted.
-"""
+'''
 review = "author_checked"
 provenance = "quillen"

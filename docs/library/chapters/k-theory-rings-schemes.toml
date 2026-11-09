@@ -647,8 +647,29 @@ COL-0362 = '''
 Iterate the strict polynomial and Laurent Bass functor
 on the affine section prespectrum, carrying the proved
 Laurent seed at every transition. Each original stage
-is T1, and finite Bass separation propagates this to
+is \(T_1\), and finite Bass separation propagates this to
 all stages. The reduced quotient telescope therefore
 has the canonical signed stable-group colimit comparison
 of COL-0350, now natural for every coefficient map.
+'''
+
+COL-0375 = '''
+The finite stages in COL-0362 retain more than \(T_1\) separation.
+Their chosen points have the homotopy extension property. At level
+\(n+i+2\), stage \(i\) has singleton homotopy sets in degrees below
+\(n+2\), at every point. For a map from stage \(i\) to stage \(j\),
+finite cone-fiber excision gives connectivity \(2n+2\) at level
+\(n+\max(i,j)+2\). This increasing bound makes the original
+source-to-cone-fiber comparison a stable equivalence.
+'''
+COL-0376 = '''
+For a coefficient map \(f\colon R\to S\), apply COL-0375 to
+\(f_i=D_i(f)\) at each finite Bass stage. The actual cone of the
+telescope map identifies with the telescope of these cones. Their
+\(T_1\) separation permits the stable-colimit comparison, so the
+finite signed boundaries descend to
+\(\delta_{f,d}\colon\pi_{d+1}^{\mathrm{st}}C(f)\to\pi_d^{\mathrm{st}}T(R)\).
+Sequential colimits preserve the three finite exactness positions.
+The stage formula identifies this descended map with the original
+signed cone boundary, and coefficient squares preserve that formula.
 '''

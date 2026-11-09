@@ -12,13 +12,12 @@ open K-theory by the original restriction, is connective, is bijective on positi
 and identifies stable degree zero with the actual global restriction image. The actual
 acyclic-to-coarse-fiber comparison is a stable equivalence.
 """
-scope = """
-Arbitrary open immersion, a chosen derived-category model on the open, HasDerivedRoofs and
-HasPerfectComplements. No geometric qcqs existence is claimed. The acyclic-to-coarse-fiber theorem
+scope = '''Arbitrary open immersion, a chosen derived-category model on the open, `HasDerivedRoofs` and
+`HasPerfectComplements`. No geometric qcqs existence is claimed. The acyclic-to-coarse-fiber theorem
 and stable-zero range characterization do not require those geometric inputs. This is conditional
 connective localization, not a completed coherent supported-spectrum identification with the
 fine restriction-image target and not TT nonconnective localization. No surjectivity onto all
 fine open K-zero, Bass spectrum, or global pair-pullback naturality is asserted.
-"""
+'''
 review = "author_checked"
 provenance = "quillen"
