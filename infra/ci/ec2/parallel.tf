@@ -204,6 +204,7 @@ resource "aws_lambda_function" "parallel_controller" {
   filename                       = local.parallel_archive
   source_code_hash               = filebase64sha256(local.parallel_archive)
   reserved_concurrent_executions = 1
+  memory_size                    = 256
   timeout                        = 50
 
   environment {
