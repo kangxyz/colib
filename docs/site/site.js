@@ -1,9 +1,18 @@
 "use strict";
 
 const root = document.body.dataset.root;
+const header = document.querySelector(".site-header");
 const input = document.querySelector("#library-search");
 const contents = document.querySelector(".contents");
 const compactLayout = window.matchMedia("(max-width: 880px)");
+
+function updateHeaderHeight() {
+  const height = header.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--site-header-height", `${height}px`);
+}
+
+updateHeaderHeight();
+if (window.ResizeObserver) new ResizeObserver(updateHeaderHeight).observe(header);
 
 function setContentsLayout() {
   contents.open = !compactLayout.matches;

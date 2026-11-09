@@ -1,15 +1,18 @@
 """Regression tests for Library ownership, permanent IDs and compiled reference integrity."""
 
+from html import unescape
 from pathlib import Path
 import shutil
 import json
 import importlib.util
+import re
 import subprocess
 import sys
 import tempfile
 import unittest
 
 import catalog
+import lean_code
 import lint_style
 
 
@@ -501,6 +504,8 @@ class LibraryTests(unittest.TestCase):
             if line.startswith("def fgModuleRankEquiv ")
         )
         declaration["source_range"] = [line, 0, line, len(code)]
+        citation = next(ref for ref in native["citations"] if ref["name"] == name)
+        citation["locator"] = "Tag 02MU"
         built = catalog.compile_library(self.library, native, {}, "main")
         item = built["entries"]["COL-0004"]
         item["statement"] = (
@@ -535,16 +540,36 @@ class LibraryTests(unittest.TestCase):
             "<p>Second proof paragraph.</p></section>",
             page,
         )
-        correspondence = '<div class="lean" aria-label="Lean declarations">'
+        correspondence = '<div class="item-details-body detail-stack">'
         self.assertEqual(page.count(correspondence), 1)
-        self.assertLess(page.index('<div class="statement">'), page.index(correspondence))
-        self.assertLess(page.index(correspondence), page.index('<section class="proof">'))
+        identity = '<dl class="declaration-identity">'
+        details = '<details class="item-details"><summary>Lean details</summary>'
+        scope = '<details class="scope-details"><summary>Scope and conventions</summary>'
+        order = [
+            '<div class="item-statement"><header class="item-heading">',
+            '<div class="statement">',
+            '<section class="proof">',
+            identity,
+            '<p class="source-links">',
+            scope,
+            details,
+            correspondence,
+            '<footer class="item-references"><details><summary>References</summary>',
+        ]
+        positions = [page.index(element) for element in order]
+        self.assertEqual(positions, sorted(positions))
+        self.assertIn("</div></details>" + details, page)
+        references = page.split('<footer class="item-references">', 1)[1].split("</footer>", 1)[0]
+        self.assertIn('href="https://stacks.math.columbia.edu/tag/02MU">Tag 02MU</a>', references)
+        self.assertIn('Metadata-validation fixture', references)
+        self.assertEqual(references.count("<details"), 1)
+        self.assertIn(f'data-copy="import {module}"', page)
         self.assertIn('<details class="source-code"><summary>Lean source</summary>', page)
         self.assertIn('<details class="relations"><summary>Referenced by</summary><p>', page)
         self.assertIn('<details class="relations"><summary>Direct Lean references</summary><p>', page)
         self.assertIn(f'Field.lean#L{line}"', page)
         self.assertIn(f'href="../../modules/{module}/#{name}"', page)
-        self.assertIn("<code>def fgModuleRankEquiv ", page)
+        self.assertIn('<code><span class="lean-keyword">def</span> fgModuleRankEquiv ', page)
         self.assertIn("Source correspondence · author-checked · 2026-11-05", page)
         section_page = (output / "sections" / section["id"] / "index.html").read_text()
         self.assertIn(f'href="../../sections/{section["id"]}/" aria-current="page"', section_page)
@@ -562,11 +587,20 @@ class LibraryTests(unittest.TestCase):
             exact,
             r'(?s)</article><div class="section-transition">.*?</div><article class="item" id="COL-0073">',
         )
-        self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>', exact)
+        self.assertIn(details, exact)
+        self.assertIn(scope, exact)
         records = json.loads((output / "search.json").read_text())
         result = next(row for row in records if row.get("id") == item["id"])
         self.assertEqual(result["statement"], item["statement"])
         self.assertIn('href="../tag/COL-0001/"', result["statement_html"])
+
+    def test_lean_highlighting_preserves_source_text(self):
+        source = '/- outer /- inner -/ end -/\n  def A.foo := "<x> -- /-"\n'
+        rendered = lean_code.highlight(source)
+        self.assertIn('<span class="lean-comment">/- outer /- inner -/ end -/</span>', rendered)
+        self.assertIn('<span class="lean-keyword">def</span>', rendered)
+        self.assertIn('<span class="lean-string">&quot;&lt;x&gt; -- /-&quot;</span>', rendered)
+        self.assertEqual(unescape(re.sub(r"</?span\b[^>]*>", "", rendered)), source)
 
     def test_modules_tree_lists_colib_and_preserves_upstream_item_links(self):
         native = self.native_fixture()
