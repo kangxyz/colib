@@ -27,8 +27,11 @@ With `COLIB_SELF_HOSTED_ENABLED=true`, owner pushes and manual runs on
 Colib repository branches default to the high-memory EC2 runner. Pull request
 runs and the explicit `hosted` profile use GitHub-hosted runners.
 `COLIB_EC2_SHARED_HOST=true` keeps Build and Test in the same checkout.
-EC2 CI, the pilot, and dependency warmup share the ordered `Colib EC2` queue
-so another branch cannot replace the checkout between Build and Test.
+With `COLIB_PARALLEL_RUNNER_ENABLED=true`, ordinary Colib CI queues by branch.
+Each attempt uses a private runner label shared by Build and Test. The EC2
+controller holds the instance until the attempt finishes. Without the
+parallel profile, EC2 CI shares the ordered `Colib EC2` queue with the pilot
+and dependency warmup.
 
 The [EC2 operating guide](../infra/ci/ec2/README.md) owns the deployed fleet,
 webhook, GitHub App authorization and future activation. No EC2 trial is performed

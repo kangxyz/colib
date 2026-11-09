@@ -68,7 +68,9 @@ def homotopyFamily (k : ℕ) : C(Space E f k, C(I, Space E' f' k)) where
     (continuous_sigma (fun i ↦ (homotopyPiece E E' f' a b H k i).continuous))
 
 /-- Strictly compatible stage homotopies induce a homotopy of telescope maps. -/
-@[colib_tag "COL-0339"]
+@[colib_tag "COL-0339",
+  colib_ref "quillen" "Quillen/Topology/Prespectrum/TelescopeHomotopy.lean:69" "adaptation"
+    "Strictly compatible stage homotopies give a based homotopy on the reduced quotient."]
 def mapHomotopy : Homotopy (map E f E' f' a ha) (map E f E' f' b hb) where
   level k := ⟨fun z ↦ homotopyFamily E f E' f' a b H hH k z.2 z.1,
     (homotopyFamily E f E' f' a b H hH k).uncurry.continuous.comp continuous_swap⟩

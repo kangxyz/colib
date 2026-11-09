@@ -69,7 +69,9 @@ instance stableColimitComparison_isIso (d : ℤ) : IsIso (stableColimitCompariso
       ConcreteCategory.congr_hom (stableColimitComparison_ι E f d i) x⟩
 
 /-- The canonical filtered-colimit isomorphism onto the unchanged original stable group. -/
-@[colib_tag "COL-0350"]
+@[colib_tag "COL-0350",
+  colib_ref "quillen" "Quillen/Topology/Prespectrum/TelescopeStableColimit.lean:74"
+    "adaptation" "The canonical stable-group colimit isomorphism for levelwise T1 stages."]
 def stableColimitIso (d : ℤ) :
     colimit (stageStableDiagram E f d) ≅ stableHomotopyGroup (prespectrum E f) d :=
   asIso (stableColimitComparison E f d)

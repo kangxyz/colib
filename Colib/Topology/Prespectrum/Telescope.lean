@@ -97,7 +97,9 @@ def structureMap (k : ℕ) : C(Space E f k, Path (point E f (k + 1)) (point E f 
   exact cylinder_point E f (k + 1) 0 0
 
 /-- The constructed sequential reduced mapping telescope as an actual prespectrum. -/
-@[colib_tag "COL-0339"]
+@[colib_tag "COL-0339",
+  colib_ref "quillen" "Quillen/Topology/Prespectrum/Telescope.lean:96" "adaptation"
+    "The actual reduced quotient telescope and its loop-prespectrum structure."]
 def prespectrum : LoopPrespectrum.{u} where
   space k := TopCat.of (Space E f k)
   point := point E f

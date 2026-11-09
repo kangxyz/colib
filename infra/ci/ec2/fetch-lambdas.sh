@@ -17,3 +17,4 @@ for line in Path('lambdas.sha256').read_text().splitlines():
 print('Verified the three pinned v8.0.0 Lambda archives.')
 PY
 python3 build-warmup-webhook.py
+python3 -m zipfile -c lambdas/parallel-controller.zip parallel-controller.mjs
