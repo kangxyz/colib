@@ -1,0 +1,57 @@
+[entry]
+id = "COL-0378"
+title = 'Projective-completion \(\pi_0\) and the original \(K_0\)'
+kind = "comparison"
+section = "quillen-k-theory-of-rings"
+order = 300
+primary = "ModuleCat.FiniteProjective.completionPiZeroGrothendieckEquiv"
+statement = '''
+Let \(R\) be a ring, let \(\mathcal P(R)\) be its category of finite projective modules
+with the inherited exact structure, and let \(\mathcal S(R)=\operatorname{iso}\mathcal P(R)\)
+with direct sum. For the actual simultaneous-translation category
+\(\mathcal G_R=\mathcal S(R)^{-1}\mathcal S(R)\), grading induces an additive equivalence
+\[
+\pi_0^{\mathrm{cat}}(\mathcal G_R)\cong K_0(\mathcal P(R)),
+\qquad [(A,B)]\longmapsto [B]-[A].
+\]
+Its inverse sends \([P]\) to the component of \((0,P)\). The original vertex map
+identifies categorical components with the path components of the nerve realization,
+giving \(\pi_0(B\mathcal G_R)\cong K_0(\mathcal P(R))\) with the same formula.
+Consequently two original vertices are joined precisely when their virtual classes agree.
+
+For every ring homomorphism \(f\colon R\to S\), these comparisons commute with the
+original right-module scalar-extension functor, applied to both completion coordinates,
+and with its exact-functor homomorphism on \(K_0\).
+'''
+scope = '''
+The target is the preexisting `ExactStructure.GrothendieckGroup` for
+`ModuleCat.FiniteProjective.exactStructure`, with its original object generators and
+conflation relations. Categorical components are Mathlib's `CategoryTheory.ConnectedComponents`;
+topological path components are Mathlib's `ZerothHomotopy` of the actual `ClassifyingSpace`.
+Addition is induced by direct sum of pairs and negation by coordinate exchange, independently
+of the comparison. All finite-projective conflations split by the existing theorem.
+The ring and its modules use the same universe; ring-change naturality uses right modules,
+represented as modules over the opposite rings, in one common universe.
+
+The denominator is the first coordinate, so the displayed sign is the reverse of the
+coordinate convention in [@WeibelKBook, IV, Lemma 4.3.1]. Split-exact and projective
+Grothendieck groups are compared as in [@WeibelKBook, II, Examples 7.1.1 and 7.1.2].
+This result identifies path components, without asserting a higher-homotopy, plus-construction
+or homology comparison.
+'''
+proof = '''
+The completion associator, unitors and braiding descend to the categorical component quotient.
+Coordinate exchange is an inverse because the original diagonal-translation arrow joins zero
+to a pair plus its switched pair. The original denominator arrow gives
+\([(A,B)]=[(0,B)]-[(0,A)]\).
+
+Every projective conflation has a proved splitting, whose actual biproduct isomorphism makes
+unit-entry components additive. The existing Grothendieck universal property therefore gives
+a homomorphism in the reverse direction. The two composites fix, respectively, every object
+generator and every pair component. The existing component decomposition of the nerve
+realization identifies its path-component quotient with categorical components. Finally,
+scalar extension acts on both entries of a pair, so the naturality square follows on those
+representatives and hence on both native quotients.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"

@@ -310,9 +310,16 @@ The finite-field calculation gives zero for each such symbol.
 id = "quillen-k-theory-of-rings"
 title = "Quillen K-theory of rings and fields"
 order = 30
-introduction = '''The original Milnor comparison identifies degree-two Quillen K-theory in characteristic zero. Over finite fields the degree-two groups vanish.'''
+introduction = '''Projective completion identifies its actual path components with the original exact \(K_0\). The original Milnor comparison identifies degree-two Quillen K-theory in characteristic zero. Over finite fields the degree-two groups vanish.'''
 
 [sections.transitions]
+COL-0378 = '''
+Direct sum makes the isomorphism groupoid of finite projective modules symmetric monoidal.
+Simultaneous translation of pairs then gives the actual completion category.
+Its components record virtual projective classes; splitting of the inherited conflations
+compares these classes with the original exact Grothendieck group.
+'''
+
 COL-0280 = '''
 Over finite fields the original Milnor comparison is
 surjective. The integral vanishing of the source in

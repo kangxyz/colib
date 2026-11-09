@@ -886,6 +886,8 @@ public import Colib.CategoryTheory.GroupCompletion.ActionTranslationNaturality
 public import Colib.CategoryTheory.GroupCompletion.ActionTranslations
 public import Colib.CategoryTheory.GroupCompletion.ActorChange
 public import Colib.CategoryTheory.GroupCompletion.CommonDenominator
+public import Colib.CategoryTheory.GroupCompletion.ConnectedComponents
+public import Colib.CategoryTheory.GroupCompletion.ConnectedComponentsMap
 public import Colib.CategoryTheory.GroupCompletion.DiagonalAction
 public import Colib.CategoryTheory.GroupCompletion.FirstCoordinateAction
 public import Colib.CategoryTheory.GroupCompletion.FirstCoordinateAssociativity
@@ -926,6 +928,8 @@ public import Colib.CategoryTheory.GroupCompletion.StableFreeBaseChange
 public import Colib.CategoryTheory.GroupCompletion.StableFreeDiagram
 public import Colib.CategoryTheory.GroupCompletion.StableGeneralLinearCharacter
 public import Colib.CategoryTheory.GroupCompletion.StableGeneralLinearMap
+public import Colib.CategoryTheory.GroupCompletion.Switch
+public import Colib.CategoryTheory.GroupCompletion.Symmetric
 public import Colib.CategoryTheory.GroupCompletion.TelescopeDiagram
 public import Colib.CategoryTheory.GroupCompletion.TelescopeIndex
 public import Colib.CategoryTheory.GroupCompletion.TelescopeInterchange
@@ -1989,6 +1993,9 @@ public import Colib.RingTheory.KTheory.MilnorK.Symbols.SplitMixed
 public import Colib.RingTheory.KTheory.MilnorK.Symbols.Surjectivity
 public import Colib.RingTheory.KTheory.MilnorK.Symbols.SymbolMap
 public import Colib.RingTheory.KTheory.MilnorK.Symbols.Transport
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionGrothendieck
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZero
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZeroNaturality
 public import Colib.RingTheory.KTheory.Plus.ProjectiveGroupCompletion
 public import Colib.RingTheory.KTheory.Quillen.Field.ElementaryProjectiveKOne
 public import Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo
@@ -2248,6 +2255,7 @@ public import Colib.Topology.ClassifyingSpace.UniverseLift
 public import Colib.Topology.ClassifyingSpace.UniverseMap
 public import Colib.Topology.ClassifyingSpace.UniverseNaturality
 public import Colib.Topology.ClassifyingSpace.ZeroSkeleton
+public import Colib.Topology.ClassifyingSpace.ZerothHomotopy
 public import Colib.Topology.Compactness.CountableFinal
 public import Colib.Topology.ContinuousMap
 public import Colib.Topology.Covering.FiberBundlePullback
