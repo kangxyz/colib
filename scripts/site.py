@@ -466,7 +466,7 @@ def build(library_path, output):
             body += "<p>Related maintained items: " + ", ".join(item_link(i) for i in related) + "</p>"
         render_page("tag/" + identifier + "/index.html", identifier + " · Retired", body)
     modules_index = [
-        '<h1>Lean modules</h1><p class="lede">Code ownership and direct imports are read from the compiled Lean module system.</p>'
+        '<h1>Lean modules</h1><p class="lede">Browse Colib modules, their declarations and direct imports.</p>'
     ]
     for name, module in sorted(library["modules"].items()):
         matched = [
@@ -526,6 +526,8 @@ def build(library_path, output):
         )
     module_tree = {}
     for name in sorted(library["modules"]):
+        if name.partition(".")[0] != "Colib":
+            continue
         branch = module_tree
         for part in name.split("."):
             branch = branch.setdefault(part, {})

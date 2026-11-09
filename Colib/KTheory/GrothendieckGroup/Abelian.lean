@@ -19,6 +19,15 @@ The equivalence below identifies the actual object generators in both directions
 It makes no identification with a homotopy group of the Q-construction.
 -/
 
+attribute [colib_tag "COL-0001",
+  colib_ref "WeibelKBook" "II, Definition 6.1.1" "generalization"
+    "The source abelian-category case; Lean permits any category with zero morphisms"]
+  CategoryTheory.GrothendieckGroup
+
+attribute [colib_tag "COL-0002",
+  colib_ref "WeibelKBook" "II, Definition 6.1.1, defining relation" "clause"
+    "Additivity on a short exact sequence"] CategoryTheory.GrothendieckGroup.additivity
+
 @[expose] public noncomputable section
 
 universe v u

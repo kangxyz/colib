@@ -532,6 +532,31 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(result["statement"], item["statement"])
         self.assertIn('href="../tag/COL-0001/"', result["statement_html"])
 
+    def test_modules_tree_lists_colib_and_preserves_upstream_item_links(self):
+        native = self.native_fixture()
+        upstream = {
+            "COL-0010": "Mathlib.RingTheory.LocalRing.Length",
+            "COL-0001": "StacksCore.CategoryTheory.GrothendieckGroup.Basic",
+            "COL-0005": "StacksFrontier.AlgebraicGeometry.Chow.KeyLemma.MilnorKTheory",
+        }
+        names = {binding["id"]: binding["name"] for binding in native["bindings"]}
+        declarations = {row["name"]: row for row in native["declarations"]}
+        for identifier, module in upstream.items():
+            declarations[names[identifier]]["module"] = module
+            native["modules"].append({"name": module, "imports": []})
+        manifest = json.loads((catalog.ROOT / "lake-manifest.json").read_text())
+        pins = {package["name"]: package for package in manifest["packages"]}
+        built = catalog.compile_library(self.library, native, pins, "main")
+        output = self.render_site_fixture(built)
+        index = (output / "modules/index.html").read_text()
+        self.assertIn('href="Colib.CategoryTheory.ExactCategory.Basic/"', index)
+        for identifier, module in upstream.items():
+            self.assertNotIn(f'href="{module}/"', index)
+            page = (output / "tag" / identifier / "index.html").read_text()
+            self.assertIn(f'href="../../modules/{module}/#{names[identifier]}"', page)
+            detail = (output / "modules" / module / "index.html").read_text()
+            self.assertIn(f'id="{names[identifier]}"', detail)
+
     def test_transition_requires_an_item_of_its_section(self):
         chapter = self.root / "docs/library/chapters/category-theory.toml"
         chapter.write_text(chapter.read_text() + '\nCOL-0015 = "A misplaced transition."\n')

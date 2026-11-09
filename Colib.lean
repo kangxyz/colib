@@ -1563,7 +1563,6 @@ public import Colib.KTheory.Waldhausen.WeakNaturalTransformation
 public import Colib.KTheory.Waldhausen.WeakNaturalTransformationBased
 public import Colib.KTheory.Waldhausen.WeakRowHomotopy
 public import Colib.KTheory.Waldhausen.ZeroFunctor
-public import Colib.Library.Upstream
 public import Colib.LinearAlgebra.Determinant.FiniteLength
 public import Colib.LinearAlgebra.Matrix.Bruhat.Coordinates
 public import Colib.LinearAlgebra.Matrix.Bruhat.Decomposition

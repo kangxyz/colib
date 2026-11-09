@@ -19,6 +19,11 @@ standard abelian conflations. No separate preservation-of-limits assumptions
 are used. Both maps send the class of `X` to the class of `F.obj X` (Stacks 02MV).
 -/
 
+attribute [colib_tag "COL-0003",
+  colib_ref "WeibelKBook" "II, paragraph 6.1.5" "generalization"
+    "The source exact functor between abelian categories supplies the required hypothesis"]
+  CategoryTheory.GrothendieckGroup.map
+
 @[expose] public noncomputable section
 
 universe v₁ v₂ u₁ u₂

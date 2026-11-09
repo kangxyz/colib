@@ -1,5 +1,5 @@
 /-
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 Motivic Cohomology contributors and Colib contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
@@ -21,6 +21,16 @@ The underlying tensor-algebra quotient and list symbols are those of Stacks Proj
 Tag 0EAY, first paragraph. The tuple notation and coordinate formulas are consequences
 of that tensor-algebra presentation. All statements allow arbitrary characteristic.
 -/
+
+attribute [colib_tag "COL-0005",
+  colib_ref "WeibelKBook" "III, Definition 7.1" "clause"
+    "The graded tensor-algebra quotient and its homogeneous groups",
+  colib_ref "Milnor1970" "Section 1, pp. 318-319, definition of the graded ring"
+    "clause" "The tensor-algebra Steinberg quotient for a field"] MilnorKRing MilnorKTheory
+
+attribute [colib_tag "COL-0006",
+  colib_ref "WeibelKBook" "III, Definition 7.1, homogeneous components" "ingredient"
+    "The induced internal grading on the Steinberg quotient"] milnorKGrading_isInternal
 
 @[expose] public noncomputable section
 

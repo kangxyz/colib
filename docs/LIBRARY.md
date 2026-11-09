@@ -20,8 +20,9 @@ The chapter structure and source dependency graph express their respective mathe
 | Reading pages, reverse references, search and links | Generated Library website |
 
 One item can have several implementing declarations and several literature references.
-An implementation can serve several explicitly registered items. Upstream declarations are
-registered in Colib/Library/Upstream.lean. The upstream object and theorem keep their native owner.
+An implementation can serve several explicitly registered items. When a Library item uses
+an upstream declaration directly, attach its attributes in the Colib module that develops
+the corresponding mathematics. The declaration keeps its original defining module.
 
 ## Structure and permanent links
 
@@ -29,8 +30,8 @@ Chapters contain sections. Each section has an introduction and an ordered seque
 items such as definitions, lemmas, theorems and comparisons. The homepage presents the table of
 contents. A chapter page lists its sections with a short description of the mathematical
 work in each. The section page presents the results in reading order, with a local
-chapter and topic navigation. The Modules view reads
-actual defining modules and imports from Lean. Each item has its own page at
+chapter and topic navigation. The Modules tree lists Colib modules. Declaration and
+import links can open indexed upstream modules. Each item has its own page at
 `tag/COL-0004/`, with exact citations, Lean declarations and automatically exported code
 references. Existing
 `#COL-0004` bookmarks redirect to the permanent item page.

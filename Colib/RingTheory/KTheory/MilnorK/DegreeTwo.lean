@@ -16,6 +16,13 @@ the generator used in Stacks. The comparison retains the class of each ordered t
 See Stacks Project, Tag 0EAY, for the graded Steinberg quotient.
 -/
 
+attribute [colib_tag "COL-0007",
+  colib_ref "WeibelKBook" "III, Definition 7.1, degree two" "clause"
+    "The tensor-square quotient by the degree-two Steinberg relations",
+  colib_ref "Milnor1970" "Section 1, p. 319, tensor-quotient presentation"
+    "clause" "The degree-two part of the presentation"]
+  milnorKTwoEquivTensorProductQuotient
+
 @[expose] public noncomputable section
 
 universe u

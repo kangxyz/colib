@@ -8,7 +8,8 @@ module
 public import Colib.Util.References
 public import Mathlib.RingTheory.Spectrum.Prime.Noetherian
 public import Mathlib.RingTheory.Length
-import Mathlib.RingTheory.LocalRing.Length
+public import Mathlib.RingTheory.LocalRing.Length
+public import StacksCore.Tactic.StacksAttribute
 
 /-!
 # The length-degree formula over a field
@@ -17,6 +18,10 @@ The contribution of a point of a finite scheme over a field is the length of its
 times the degree of its residue field. The sum is the dimension of the finite algebra.
 See Stacks Project, Tags 02M0 and 02RH.
 -/
+
+attribute [colib_tag "COL-0010"] IsLocalRing.length_restrictScalars
+add_to_stacks 02M0 "single-local-ring length formula with extended lengths"
+  IsLocalRing.length_restrictScalars
 
 @[expose] public noncomputable section
 
