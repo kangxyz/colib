@@ -640,6 +640,13 @@ inclusion into all supported perfect complexes satisfies approximation. Its
 original \(K\)-map determines a stable equivalence, and the support-forgetting
 square retains a whole coherent homotopy.
 '''
+COL-0383 = '''
+Keep acyclicity on an auxiliary open \(T\), but test weak equivalences after
+restriction to a second open \(U\). The same supported replacement of COL-0382
+still gives approximation, with its original admissible quotient. Retargeting
+the actual cylinder to this larger weak class compares the relative K-groups;
+canonical zero normalization retains the whole change-of-weak square.
+'''
 COL-0359 = '''
 Fully faithful identity evaluation lifts a global-unit
 automorphism to the actual affine cocartesian sections.

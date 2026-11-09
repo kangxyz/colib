@@ -428,6 +428,8 @@ public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPrespectrumCompa
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPrespectrumPullback
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectPullback
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectSupportedComparison
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectSupportedOpen
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectSupportedOpenComparison
 public import Colib.AlgebraicGeometry.KTheory.Comparison
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageApproximation
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageCofinality
