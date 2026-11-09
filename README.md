@@ -5,6 +5,10 @@ motivic and algebraic K-theoretic interfaces. It pins its mathematical dependenc
 commits of [Mathlib](https://github.com/leanprover-community/mathlib4) and
 [Stacks](https://github.com/AxiomMath/Stacks).
 
+Colib began by integrating work from [Quillen](https://github.com/kangxyz/quillen-k-theory)
+and [Motivic](https://github.com/kangxyz/motivic), two libraries that depended on
+[Aglib](https://github.com/kangxyz/aglib).
+
 ## Library
 
 The [Colib Library](https://kangxyz.github.io/colib/) connects results through mathematical
