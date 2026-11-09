@@ -1,0 +1,161 @@
+name: Publish retained Stacks checkpoint
+
+'on':
+  push:
+    branches: ['cache-release/stacks-42579319413']
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: publish-retained-stacks-42579319413
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/cache-release/stacks-42579319413' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Verify and publish the existing Stacks artifact without compilation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path, PurePosixPath
+          import subprocess
+          import tarfile
+          import zipfile
+          
+          REPO = 'kangxyz/colib'
+          RUN = 42579319413
+          HEAD = 'bd838f93b5767ee58554b8c7374fd6239463ec20'
+          ARTIFACT = 13658551579
+          ZIP_BYTES = 1456199323
+          ZIP_SHA = '75e368ab5a25c6534b70cead22c5b2d24cc4b213fe8d71f9fefa3bc68a6c20ac'
+          ARCHIVE_BYTES = 1456199181
+          STACKS = '5ed82d14634e8d9576bb844c7bd4e3da66d450e7'
+          MATHLIB = '56a005855ea17e0b0958f73ec801ae140b0a1679'
+          CONTEXT = '9845031f79bc7a61f7dbb6e27f1a12150a1eb35aae1effb4cf01a27c9a8cf840'
+          GENERATION = 'fc9b00526131ecdcf4b77f1f9e5465adc548e7a9d0b5923ae79d0f39e4944cc0'
+          TAG = f'stacks-checkpoint-{STACKS}-{CONTEXT[:16]}'
+          ASSET = f'stacks-checkpoint-{RUN}-1.tar.zst'
+          
+          def api(path):
+              return json.loads(subprocess.check_output(['gh', 'api', f'repos/{REPO}/{path}'], text=True))
+          
+          def digest(path):
+              with path.open('rb') as stream:
+                  return hashlib.file_digest(stream, 'sha256').hexdigest()
+          
+          repository = api('')
+          assert repository['full_name'] == REPO and repository['private'] is False
+          run = api(f'actions/runs/{RUN}')
+          assert run['id'] == RUN and run['head_sha'] == HEAD
+          assert run['head_branch'] == 'main' and run['status'] == 'completed'
+          assert run['conclusion'] == 'success' and run['repository']['full_name'] == REPO
+          artifact = api(f'actions/artifacts/{ARTIFACT}')
+          assert artifact['id'] == ARTIFACT and artifact['name'] == 'stacks-cache-staging'
+          assert artifact['workflow_run']['id'] == RUN and artifact['workflow_run']['head_sha'] == HEAD
+          assert artifact['expired'] is False and artifact['size_in_bytes'] == ZIP_BYTES
+          assert artifact['digest'] == f'sha256:{ZIP_SHA}'
+          manifest = json.loads(base64.b64decode(api(f'contents/lake-manifest.json?ref={HEAD}')['content']))
+          pins = {item['name']: item['rev'] for item in manifest['packages']}
+          assert pins['Stacks'] == STACKS and pins['mathlib'] == MATHLIB
+          toolchain = base64.b64decode(api(f'contents/lean-toolchain?ref={HEAD}')['content']).decode().strip()
+          assert toolchain == 'leanprover/lean4:v4.35.0'
+          release = api(f'releases/tags/{TAG}')
+          assert release['draft'] is False and release['tag_name'] == TAG
+          old_assets = {item['id']: (item['name'], item['size'], item.get('digest')) for item in release['assets']}
+          
+          root = Path(os.environ['RUNNER_TEMP']) / 'publish-stacks-42579319413'
+          root.mkdir(exist_ok=False)
+          zip_path = root / 'source.zip'
+          with zip_path.open('xb') as stream:
+              subprocess.run(['gh', 'api', f'repos/{REPO}/actions/artifacts/{ARTIFACT}/zip'], stdout=stream, check=True)
+          assert zip_path.stat().st_size == ZIP_BYTES and digest(zip_path) == ZIP_SHA
+          archive = root / ASSET
+          with zipfile.ZipFile(zip_path) as package:
+              assert package.namelist() == ['stacks.tar.zst']
+              item = package.getinfo('stacks.tar.zst')
+              assert item.file_size == ARCHIVE_BYTES and not item.is_dir()
+              with package.open(item) as source, archive.open('xb') as target:
+                  while chunk := source.read(1024 * 1024):
+                      target.write(chunk)
+          assert archive.stat().st_size == ARCHIVE_BYTES
+          archive_sha = digest(archive)
+          subprocess.run(['zstd', '-q', '-t', str(archive)], check=True)
+          
+          required = {
+              'StacksFrontier/AlgebraicGeometry/ProperLimitStage/AffineModel.olean',
+              'StacksFrontier/AlgebraicGeometry/Adequate/HigherExtsBase/AdequateCategory.olean',
+          }
+          seen = set()
+          proc = subprocess.Popen(['zstd', '-dc', str(archive)], stdout=subprocess.PIPE)
+          try:
+              with tarfile.open(fileobj=proc.stdout, mode='r|', ignore_zeros=True) as bundle:
+                  members = iter(bundle)
+                  first = next(members)
+                  assert first.name == 'checkpoint.json' and first.isreg() and first.size < 128 * 1024 * 1024
+                  metadata = json.load(bundle.extractfile(first))
+                  assert metadata['schema'] == 2 and metadata['layer'] == 'stacks'
+                  assert metadata['context'] == CONTEXT and metadata['generation'] == GENERATION
+                  entries = metadata['entries']
+                  assert len(entries) == 102750
+                  paths = set()
+                  for entry in entries:
+                      path = entry['path']
+                      assert entry['area'] == 'workspace'
+                      p = PurePosixPath(path)
+                      assert not p.is_absolute() and '..' not in p.parts and '\\' not in path
+                      assert path.startswith(('.lake/packages/Stacks/.lake/build/', '.lake/packages/Stacks/.lake/config/'))
+                      assert path not in paths
+                      paths.add(path)
+                      member = next(members)
+                      assert member.isreg() and member.name == f'payload/workspace/{path}'
+                      assert member.size == entry['size']
+                      assert hashlib.file_digest(bundle.extractfile(member), 'sha256').hexdigest() == entry['sha256']
+                      for module in required:
+                          if path == f'.lake/packages/Stacks/.lake/build/lib/lean/{module}':
+                              seen.add(module)
+                  assert next(members, None) is None
+              assert proc.wait() == 0
+          finally:
+              if proc.poll() is None:
+                  proc.terminate()
+                  proc.wait()
+              proc.stdout.close()
+          assert seen == required
+          
+          # Add only this verified generated archive. Never replace or delete existing assets.
+          current = api(f'releases/tags/{TAG}')
+          assert current['id'] == release['id'] and current['draft'] is False
+          matches = [item for item in current['assets'] if item['name'] == ASSET]
+          if matches:
+              assert len(matches) == 1 and matches[0]['size'] == ARCHIVE_BYTES
+              assert matches[0].get('digest') == f'sha256:{archive_sha}'
+          else:
+              subprocess.run(['gh', 'release', 'upload', TAG, str(archive), '--repo', REPO], check=True)
+          after = api(f'releases/tags/{TAG}')
+          assert after['id'] == release['id']
+          new_assets = {item['id']: (item['name'], item['size'], item.get('digest')) for item in after['assets']}
+          assert all(new_assets.get(key) == value for key, value in old_assets.items())
+          published = [item for item in after['assets'] if item['name'] == ASSET]
+          assert len(published) == 1
+          published = published[0]
+          assert published['state'] == 'uploaded' and published['size'] == ARCHIVE_BYTES
+          assert published.get('digest') == f'sha256:{archive_sha}'
+          print(json.dumps({'source_run': RUN, 'source_artifact': ARTIFACT, 'source_zip_sha256': ZIP_SHA,
+              'release': after['html_url'], 'asset': ASSET, 'asset_id': published['id'],
+              'bytes': ARCHIVE_BYTES, 'sha256': archive_sha, 'url': published['browser_download_url'],
+              'context': CONTEXT, 'generation': GENERATION, 'verified_entries': len(entries),
+              'required_modules': sorted(seen), 'existing_assets_preserved': len(old_assets),
+              'compilation_requested': False}, indent=2))
+          PY

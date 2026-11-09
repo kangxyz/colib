@@ -2,6 +2,7 @@ name: Colib CI
 
 on:
   push:
+    branches-ignore: ['cache-release/stacks-42579319413']
   pull_request:
   workflow_dispatch:
     inputs:
