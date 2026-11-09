@@ -158,7 +158,7 @@ def correspondenceIncidenceTorTerm
 
 /-- No signed coefficient occurs above the actual local dimension. -/
 theorem correspondenceIncidenceTorTerm_eq_zero_of_lt
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
+    [Smooth f] [Smooth g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) (n : ℕ)
     (hn : correspondenceIncidenceTorDegreeBound k f g h z w t.val < n) :
     correspondenceIncidenceTorTerm k f g h z w t n = 0 := by
@@ -183,7 +183,6 @@ support is finite by `finite_support_correspondenceIncidenceTorTerm`. -/
 triple-product local rings at a generic point of their actual intersection; this specializes \
 the Tor formula using 056S and the generic-support finite-length criterion"]
 def correspondenceIncidenceTorCoefficient
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) : ℤ :=
   ∑ᶠ n : ℕ, correspondenceIncidenceTorTerm k f g h z w t n
 

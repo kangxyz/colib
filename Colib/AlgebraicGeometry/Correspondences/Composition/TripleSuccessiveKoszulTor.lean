@@ -45,7 +45,7 @@ variable {S X Y Z W : Scheme.{u}}
 
 /-- Actual first-kernel generators and lifts from the actual second quotient are jointly regular. -/
 theorem exists_correspondenceSuccessiveDiagonalLists [Flat f] [Smooth g] [IsSeparated g]
-    [Smooth h] [IsSeparated h] [Flat i] (q : correspondenceFourfoldProduct f g h i) :
+    [Smooth h] [Flat i] (q : correspondenceFourfoldProduct f g h i) :
     let A := (correspondenceSixfoldAmbient f g h i).presheaf.stalk
       (correspondenceFourfoldDiagonalInclusion f g h i q)
     let B := (correspondenceFirstDiagonal f g h i).presheaf.stalk

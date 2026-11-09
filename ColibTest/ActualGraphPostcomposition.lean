@@ -12,7 +12,7 @@ import Colib.AlgebraicGeometry.Correspondences.Graph.Postcomposition
 
 The target morphism is arbitrary, while the literal support map is proved finite.
 Tests retain actual generic images, residue degrees, signed cycles, empty middle
-schemes, and compact middle graph support. 
+schemes, and compact middle graph support.
 -/
 
 noncomputable section

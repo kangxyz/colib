@@ -697,3 +697,60 @@ No qcqs or CompactSpace T assumption and no Aglib adapter is used.
 See [the source crosswalk](migration/quillen/supported-open-coarse-fibration.md).
 Opposite-exact auxiliary statements, prespectrum/stable/chosen-zero transport,
 fine supported-open TT 5.1.2 and Bass remain separate, unclaimed topics.
+
+
+## Supported-Cover Excision
+
+COL-0332 adds supported-cover excision for an open immersion j and auxiliary open T with image(j) union T = X: genuine extension-by-zero adjunction, stalkwise exactness, supported perfectness by two-open descent, actual S-realization inverse, literal restriction K-equivalence including K0, and normalized connective prespectrum stability in every integer degree. No qcqs, compactness, separation or supplied-equivalence premise is used. Negative stable degrees are connective vanishing, not Bass. COL-0331 retains its coarse target and stated limitations; fine TT localization and opposite exactness remain unclaimed.
+No Aglib or Quillen adapter is used. See [the exact source crosswalk](migration/quillen/supported-cover-excision.md).
+
+
+## Native Qcqs Scheme Localization
+
+COL-0307 proves actual perfect derived roofs and perfect complements for a quasi-compact quasi-separated scheme X and quasi-compact open U, allowing a quasi-coherent-cohomology target that need not be perfect and any chosen open derived model. COL-0330 uses these geometric results to establish fixed-pair TT Theorem 5.1.1: the actual coarse connective Omega spectrum realizes the K0 restriction-image cover, with positive-degree isomorphisms and exactly the K0 restriction image, together with actual supported fiber, projection, nullhomotopy, canonical rebase and boundary compatibility. COL-0332 supplies supported-cover excision under image(j) union T = X without compactness. Full additional-support TT 5.1.2, arbitrary global-pair naturality and Bass 7.4 remain separate and are not claimed.
+See the [geometry crosswalk](migration/native-perfect-roofs.md), [fixed-pair endpoint crosswalk](migration/native-qcqs-connective-localization.md), and [supported-cover excision crosswalk](migration/quillen/supported-cover-excision.md). No additional preselected cover-spectrum comparison is required for this fixed-pair statement.
+
+## Fixed-pair supported connective image cover (COL-0335)
+
+The actual supported coarse S-prespectrum is now assembled as the connective image
+cover for the fixed additional-support pair under qcqs ambient and compact-union
+hypotheses. Literal union-support/acyclic transport preserves the original inclusion,
+whole nullhomotopy, independent structure/time parameters, level-one fiber K-map and
+all-integer stable equivalence. The original exact supported restriction factors
+coherently through the coarse model, and COL-0334 supplies the positive comparison
+and exact K-zero image. See [the source crosswalk](SUPPORTED_CONNECTIVE_IMAGE_COVER.md).
+Support-forgetting boundary compatibility is handled separately by COL-0336 below.
+Arbitrary global-pair naturality, general two-piece supported gluing and Bass TT 7.4
+remain separate obligations.
+
+The supporting components have separate source crosswalks: [supported qcqs geometry](migration/native-supported-qcqs-geometry.md) (COL-0333) and [supported fine comparison](migration/native-supported-fine-comparison.md) (COL-0334).
+
+## Auxiliary-support forgetting (COL-0336)
+
+The original supported positive inverse and fine boundary now commute with actual
+support forgetting. All fixed-pair group-level localization squares retain their original
+maps, supports and signs, explicitly including K1 to K0. The fine statements require
+compact U and compact union; compact U/T gives the original corollaries. See
+[the source correspondence](SUPPORT_FORGETTING_NATURALITY.md). Whole-prespectrum
+nullhomotopy preservation remains a separate obligation, as do arbitrary pair
+naturality and Bass localization.
+
+## Whole-prespectrum support forgetting (COL-0337)
+
+The actual auxiliary-support forgetting square now preserves the entire original
+nullhomotopy, its canonical fiber lift and the signed stable boundary at every
+stage and degree. Null time and structure time remain independent. Restriction
+uses the constructed coherent zero-rebase homotopy, and original connective
+K-maps, level-one fiber maps and the K1-to-K0 minus sign are retained. No
+compactness is needed for this naturality. See [the source correspondence](SUPPORT_PRESPECTRUM_NATURALITY.md). This closes the whole-prespectrum seam left
+by COL-0336; coefficient naturality, Bass iteration/telescopes and TT 7.4 remain
+separate. No stable equivalence of support forgetting or full-target fine K0
+inverse is asserted.
+
+## Strict-square cone-loop foundation (COL-0338)
+
+The actual reduced double cylinder, strict-square comparison, cone-loop functor and whole
+canonical source-null naturality are native. Scalar-track seed naturality and finite
+iteration of strict evaluation diagrams retain their explicit supplied-track/seed inputs.
+See [the exact source crosswalk and exclusions](STRICT_SQUARE_BASS.md). Scheme coefficient
+seeds, telescopes, nonconnective identifications and TT 7.4 are not included.

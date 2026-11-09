@@ -110,7 +110,7 @@ theorem isRegularImmersion_correspondenceSecondDiagonal [Flat f] [Flat g] [Smoot
 
 /-- The actual combined diagonal is regular by genuine successive regular immersions. -/
 theorem isRegularImmersion_correspondenceFourfoldDiagonal [Flat f] [Smooth g] [IsSeparated g]
-    [Smooth h] [IsSeparated h] [Flat i] :
+    [Smooth h] [Flat i] :
     IsRegularImmersion (correspondenceFourfoldDiagonalInclusion f g h i) :=
   Stacks.AlgebraicGeometry.isRegularImmersion_comp
     (correspondenceSecondDiagonalInclusion f g h i)

@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0307"
+title = "Native perfect restriction roofs and complements"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 64
+statement = "For a quasi-compact open immersion into a quasi-compact quasi-separated scheme, every restricted derived morphism from a global native perfect complex to a global complex with quasi-coherent cohomology has a roof by actual chain maps from a native perfect complex. Its denominator becomes a quasi-isomorphism on the open, and its equation retains the original restricted derived morphism and both target complexes. Every native perfect complex on the open has an actual native perfect complementary complex whose direct sum is derived-isomorphic to the restriction of an actual global native perfect complex."
+scope = "The source scheme is quasi-compact and quasi-separated and the open scheme is quasi-compact. Perfectness is the native Stacks IsPerfectComplex predicate; restriction is the actual Scheme.Modules.restrictFunctor on complexes; the public chain-map roof and complement endpoints allow any chosen derived-category model on the open. The intermediate compact localization gives a derived roof and a restriction isomorphism with P plus P[1]. No supplied roof, density, strictly perfect global representative, Noetherianity, regularity, separatedness or resolution property is assumed. The two actual existence results discharge HasDerivedRoofs and HasPerfectComplements for the native honest restriction image. This item does not by itself assert a strict outgoing App2 factorization, supported-source tensor presentation, a connective image-cover localization theorem or a nonconnective theorem."
+review = "author_checked"
+provenance = "quillen"

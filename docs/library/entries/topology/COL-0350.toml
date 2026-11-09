@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0350"
+title = "Finite representatives and stable colimits of reduced telescopes"
+kind = "theorem"
+section = "homotopy-colimits"
+order = 100
+statement = """
+For a sequential diagram of loop prespectra with T1 spaces, compact maps to its actual
+reduced telescope admit finite-stage representatives up to homotopy relative to any
+subset mapped to the basepoint. Relative homotopies between stage maps imply equality
+up to relative homotopy after their exact finite transitions to a common stage.
+The canonical inclusion cocone computes every homotopy-set colimit in Type, including
+degree zero. In every integer degree the actual stable-group comparison is an
+isomorphism in AddCommGrpCat, naturally for strict maps of sequential diagrams.
+"""
+scope = """
+Compactness uses a countable final cover and closed discrete escaping sets, not a height
+on the reduced quotient. Stage embeddings require T1. Whole homotopies have a uniform
+finite support bound; no closedness or cofibration condition on the relative subset is
+needed. Stable injectivity uses eventual equality as well as representatives, with
+stabilization index distinct from telescope stage. Stagewise stable equivalences induce
+stable equivalences. No arbitrary parameter-looping commutation, nonbasepoint transport,
+cone/fiber excision, Bass localization or Thomason--Trobaugh 7.4 is asserted.
+"""
+review = "author_checked"
+provenance = "quillen"

@@ -130,7 +130,7 @@ def correspondenceRightRemainingTripleEquivExterior
 
 /-- The triple-fibre comparison keeps the original full exterior support point. -/
 theorem correspondenceRightRemainingTripleEquivExterior_val
-    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated g]
+    (x : correspondenceRightImageIncidence f g h i z w v)
     (y : correspondenceRightRemainingTripleFibre f g h i z w v x) :
     (correspondenceRightRemainingTripleEquivExterior f g h i z w v x y).1 =
       correspondenceTripleIncidenceToRightSupportProduct f g h i z w v y.1 := rfl
@@ -208,7 +208,7 @@ theorem correspondenceRightRemainingFiniteClosedEquivMaximal_asIdeal
 
 /-- Every maximal label of the whole finite ring is exactly one actual triple-fibre point. -/
 def correspondenceRightRemainingFiniteMaximalEquivTriple
-    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated g] [IsSeparated i]
+    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated i]
     (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v) :
     MaximalSpectrum (correspondenceRightRemainingFiniteRing f g h i z w v x) ≃
       correspondenceRightRemainingTripleFibre f g h i z w v x :=

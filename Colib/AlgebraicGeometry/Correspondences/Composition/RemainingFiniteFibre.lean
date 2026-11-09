@@ -129,7 +129,7 @@ def correspondenceRemainingTripleEquivExterior
 
 /-- The triple-fibre comparison keeps the original full exterior support point. -/
 theorem correspondenceRemainingTripleEquivExterior_val
-    (x : correspondenceLeftImageIncidence f g h i z w v) [IsSeparated h]
+    (x : correspondenceLeftImageIncidence f g h i z w v)
     (y : correspondenceRemainingTripleFibre f g h i z w v x) :
     (correspondenceRemainingTripleEquivExterior f g h i z w v x y).1 =
       correspondenceTripleIncidenceToLeftSupportProduct f g h i z w v y.1 := rfl
