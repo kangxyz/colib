@@ -1,0 +1,146 @@
+{
+  "topic": "native-rational-milnor-residues",
+  "status": "final_local_source_complete_branch_ci_pending",
+  "source_revision": "101dbb8564fb0e29f28cfcb79168d878b5ab489f",
+  "source_path": "Aglib/KTheory/MilnorK/RationalExactness.lean",
+  "source_blob": "6ac8e24267eef4da8c30990341db7f04f6bd75e1",
+  "pins": {
+    "lean": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+  },
+  "production_modules": [
+    "Colib/RingTheory/KTheory/MilnorK/FiniteResiduePrescription.lean",
+    "Colib/RingTheory/KTheory/MilnorK/PolynomialFiltrationExactness.lean",
+    "Colib/RingTheory/KTheory/MilnorK/RationalFunctionBoundedResidues.lean",
+    "Colib/RingTheory/KTheory/MilnorK/RationalFunctionExactness.lean",
+    "Colib/RingTheory/KTheory/MilnorK/SingleResidueFiltration.lean",
+    "Colib/RingTheory/KTheory/MilnorK/RationalFunctionInfinity.lean"
+  ],
+  "consumer_modules": [
+    "ColibTest/MilnorFiniteResiduePrescription.lean",
+    "ColibTest/MilnorPolynomialFiltrationExactness.lean",
+    "ColibTest/MilnorRationalFunctionBoundedResidues.lean",
+    "ColibTest/MilnorRationalFunctionExactness.lean",
+    "ColibTest/MilnorSingleResidueFiltration.lean",
+    "ColibTest/MilnorRationalFunctionInfinity.lean"
+  ],
+  "consumer_examples": 24,
+  "ordinary_axiom_declarations": 33,
+  "ordinary_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "catalog_items": [
+    {
+      "key": "filtration",
+      "title": "Native polynomial filtration and bounded single-residue lifting",
+      "statement": "A whole-ring rational-function Milnor class belongs to the native polynomial stage F_d exactly when all residues at points of degree greater than d vanish. A homogeneous single-residue datum at a degree-d polynomial has a lift in that same stage, unique as a class modulo F_0.",
+      "scope": "Arbitrary fields and all nonnegative residue degrees, including degree zero. The whole-ring criterion allows inhomogeneous classes. Native F_0 contains constants. The single-residue polynomial degree zero is vacuous because no monic irreducible has that degree. This uses the existing filtration and quotient, not another model or unique representatives.",
+      "bindings": [
+        "mem_milnorKPolyFiltration_iff_residue_eq_zero_above",
+        "exists_isSingleResidueLift_mem_milnorKPolyFiltration",
+        "existsUnique_bounded_singleResidue_quotient_class"
+      ],
+      "locator": "Section 2, Lemmas 2.4-2.5, pp. 325-327",
+      "relation": "adaptation",
+      "reference_scope": "Finite degree descent on native groups; the bounded whole-ring and single-residue APIs are derived refinements, not verbatim source statements.",
+      "fully_qualified_bindings": [
+        "Stacks.Chow.mem_milnorKPolyFiltration_iff_residue_eq_zero_above",
+        "Stacks.Chow.exists_isSingleResidueLift_mem_milnorKPolyFiltration",
+        "Stacks.Chow.existsUnique_bounded_singleResidue_quotient_class"
+      ],
+      "id": "COL-0344",
+      "order": 330
+    },
+    {
+      "key": "decomposition",
+      "title": "Native rational Milnor decomposition and bounded normalized lifting",
+      "statement": "The original total residue identifies the quotient by the actual constant image with the native direct sum of residue-field Milnor groups. Together with the original constant retraction it gives an integer-linear product decomposition. A residue vector supported in degrees at most d has a unique lift in F_d after its constant component is prescribed.",
+      "scope": "Every field and every positive source degree n+1, including degree-zero residues. The native point index, literal polynomial quotient fields, constant inclusion, constant retraction and total residue are unchanged. No equality with Aglib origin specialization is asserted. The residue map alone is not injective on F_d. No perfectness, separability or characteristic assumptions are added.",
+      "bindings": [
+        "milnorKQuotientConstantsEquivResidues",
+        "milnorKQuotientConstantsEquivResidues_mk",
+        "milnorKRationalDecomposition",
+        "milnorKRationalDecomposition_apply",
+        "existsUnique_mem_milnorKPolyFiltration_lift"
+      ],
+      "locator": "Section 2, Theorem 2.3, p. 325, and proof conclusion, p. 327",
+      "relation": "adaptation",
+      "reference_scope": "The split exact sequence yields the quotient and product equivalences; this implementation retains its specific native retraction and proves bounded normalized uniqueness.",
+      "fully_qualified_bindings": [
+        "Stacks.Chow.milnorKQuotientConstantsEquivResidues",
+        "Stacks.Chow.milnorKQuotientConstantsEquivResidues_mk",
+        "Stacks.Chow.milnorKRationalDecomposition",
+        "Stacks.Chow.milnorKRationalDecomposition_apply",
+        "Stacks.Chow.existsUnique_mem_milnorKPolyFiltration_lift"
+      ],
+      "id": "COL-0345",
+      "order": 340
+    },
+    {
+      "key": "finite-infinity",
+      "title": "Bounded Milnor residue prescription including infinity",
+      "statement": "Finite homogeneous residue data admit bounded simultaneous lifts, and a prescribed infinity value is possible exactly when its sum with the original simple norms is zero. For the native residue vector, the infinity coordinate of the rational decomposition is the negative norm sum over its exact support. Prescribing the actual constant component strengthens uniqueness modulo F_0 to a unique actual bounded homogeneous lift.",
+      "scope": "Arbitrary fields and all nonnegative residue degrees. Indexed data allow an independent universe, empty support and bound zero, with distinctness only on the supplied finite set. Global data use the original direct sum and its actual finite support. The infinity value is an arbitrary native Milnor-ring element; the norm equation enforces compatibility. No total-norm map, replacement coordinates, specialization comparison or chosen-norm independence is introduced.",
+      "bindings": [
+        "exists_bounded_finiteResidue_lift_with_infinity_iff",
+        "existsUnique_bounded_finiteResidue_quotient_class",
+        "infinityResidueRing_milnorKRationalDecomposition_symm",
+        "exists_bounded_normalized_totalResidue_lift_with_infinity_iff",
+        "existsUnique_bounded_normalized_totalResidue_lift_with_infinity"
+      ],
+      "locator": null,
+      "relation": null,
+      "reference_scope": "No direct Milnor1970 assertion of the infinity formula is claimed. Exact formal inputs are native single-residue lifting, the existing decomposition, and maintained Norm.FiniteReciprocity on the original total-residue support.",
+      "fully_qualified_bindings": [
+        "Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff",
+        "Stacks.Chow.existsUnique_bounded_finiteResidue_quotient_class",
+        "Stacks.Chow.infinityResidueRing_milnorKRationalDecomposition_symm",
+        "Stacks.Chow.exists_bounded_normalized_totalResidue_lift_with_infinity_iff",
+        "Stacks.Chow.existsUnique_bounded_normalized_totalResidue_lift_with_infinity"
+      ],
+      "id": "COL-0346",
+      "order": 350,
+      "formal_ingredient_reference": {
+        "declaration": "Stacks.Chow.exists_bounded_finiteResidue_lift_with_infinity_iff",
+        "source": "axiom_stacks_milnor_norm_5ed82d14",
+        "locator": "SimpleNorm.lean, exists_isSingleResidueLift' and simpleMilnorNorm_eq",
+        "relation": "ingredient"
+      }
+    }
+  ],
+  "reference_boundary": "Milnor1970 Section 2 supplies split exactness and finite-degree descent. Stacks 0EAY is tame-symbol background only. Infinity formulas use the actual native formal inputs, not an asserted direct literature theorem.",
+  "not_claimed": [
+    "norm independence",
+    "equality with origin specialization",
+    "unique representatives without constant normalization",
+    "independent mathematical review",
+    "full project acceptance before CI"
+  ],
+  "validation": {
+    "final_native_source_files": 12,
+    "final_native_status": "pass",
+    "ordinary_axiom_declarations": 33,
+    "ordinary_axiom_status": "pass_standard_three_only",
+    "official_mk_all_check": "pass_no_update_necessary",
+    "full_root_build": "pending",
+    "full_declaration_lint": "pending",
+    "independent_axiom_auditor": "pending",
+    "exact_commit_ci": "pending",
+    "main_merge": false,
+    "repair": {
+      "prior_ci_commit": "8245349a0d63b4af7ce429f1110d43b16433fad5",
+      "prior_ci_run": 42457268539,
+      "prior_final_gate": "lint and Library failed; full build, tests and production axiom audit passed",
+      "affected_native_targets": 8,
+      "native_simpNF_declarations": 33,
+      "native_simpNF": "pass",
+      "ordinary_axiom_declarations": 33,
+      "ordinary_axioms": "standard three only",
+      "compiled_item_reference": "asserted in actual Lean environment",
+      "final_repaired_ci": "pending"
+    }
+  }
+}

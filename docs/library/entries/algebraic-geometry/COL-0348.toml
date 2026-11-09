@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0348"
+title = "Ordinary algebraic singular chains"
+kind = "definition"
+section = "algebraic-simplices"
+order = 20
+statement = "Construct the original simplicial presheaf with values P(U times the algebraic n-simplex) and its ordinary singular-chain functor using Mathlib alternatingFaceMapComplex. Retain the actual restriction maps, coefficient maps and signed differential, including the degree-one face difference."
+scope = "Ordinary presheaves on the actual smooth separated finite-type category over Spec R, for any commutative R. Coefficient categories have independent object and morphism universes; simplicial objects need only Category and chains need Preadditive. The functor is additive. Consumers exercise the native normalized Moore homotopy equivalence for Abelian coefficients without introducing another chain model. No sheaf, homotopy-invariance or transfer hypothesis, no transfer-valued Suslin complex, and no exactness claim for the singular-chain functor."
+review = "author_checked"
+proof = "Apply the genuine relative product maps to the existing cosimplicial simplex, then apply the native alternating-face functor directly. Compute components and differentials from these original functors."

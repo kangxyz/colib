@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0343"
+title = "Exact base-field evaluation and ordinary Nisnevich acyclicity"
+kind = "theorem"
+section = "nisnevich-sites"
+order = 30
+statement = "Every Nisnevich covering sieve of the actual smooth base object Spec k is maximal. Local surjectivity and injectivity therefore become actual surjectivity and injectivity on its sections. The original abelian sheafification unit is an isomorphism there, and the native section-evaluation functor preserves epimorphisms, homology and exact sequences. The native free representing sheaf at this object is projective, and every positive-degree ordinary Ext cohomology group of every ordinary abelian coefficient sheaf is zero."
+scope = "An arbitrary field k : Type u, on its own smooth separated finite-type Nisnevich site over Spec k, with all actual morphisms over the base. The local-surjectivity and local-injectivity clauses allow an arbitrary concrete coefficient category with independent universes. The abelian clauses retain coefficients AddCommGrpCat.{u + 1}; their sheafification is available on the actual site. Cohomology uses an explicit independent HasExt.{w} instance and degree n + 1 for n : Nat. No perfection, characteristic or separable-closedness hypothesis is imposed. This is evaluation at the base field itself, not a claim that arbitrary extension fields lie in its smooth finite-type site, nor an affine-line or henselian-stalk computation. No transfers or motivic-cohomology vanishing is asserted."
+review = "author_checked"
+proof = "Lift the genuine split Nisnevich cover of Spec k to a morphism in the actual smooth over-category. Maximal covering sieves turn Mathlib's local image and equalizer criteria into global ones. Reuse native sheafSections, its finite-limit comparison and the projectivity criterion for Stacks freeYoneda; apply Mathlib's Ext.eq_zero_of_projective."

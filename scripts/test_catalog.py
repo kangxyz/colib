@@ -286,6 +286,28 @@ class LibraryTests(unittest.TestCase):
             for path in ("scripts/check.sh", ".github/workflows/lean-ci.yml"):
                 self.assert_test_in_checks(test, path)
 
+    def test_ordinary_singular_topic_keeps_native_maps_and_scope(self):
+        expected = {"COL-0347", "COL-0348", "COL-0349"}
+        for identifier in expected:
+            self.assertEqual(self.library["entries"][identifier]["section"],
+                             "algebraic-simplices")
+        result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        self.assertTrue(expected.issubset(result["entries"]))
+        root = catalog.ROOT
+        ledger = json.loads((root / "docs/migration/motivic-ordinary-singular-a1.json")
+                            .read_text())
+        self.assertEqual(len(ledger["modules"]), 13)
+        imports = (root / "Colib.lean").read_text()
+        for item in ledger["modules"]:
+            self.assertIn("public import " + item["module"], imports)
+            self.assertTrue((root / item["path"]).is_file())
+        endpoint = (root / "Colib/AlgebraicGeometry/Simplex/HomotopyInvariance.lean").read_text()
+        self.assertIn("ordinaryIntervalHomotopyEquiv", endpoint)
+        self.assertIn("ordinaryIntervalHomologyIso", endpoint)
+        self.assertIn('colib_tag "COL-0349"', endpoint)
+        self.assertIn("No homotopy-invariance or transfer assumption",
+                      self.library["entries"]["COL-0349"]["scope"])
+
     def native_fixture(self):
         native = {
             "bindings": [],
@@ -303,6 +325,8 @@ class LibraryTests(unittest.TestCase):
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
+            "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
+            "algebraic-simplices": "Colib.RingTheory.AlgebraicSimplex.Basic",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",

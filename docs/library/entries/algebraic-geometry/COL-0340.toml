@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0340"
+title = "Nisnevich sites and smooth restriction"
+kind = "definition"
+section = "nisnevich-sites"
+order = 10
+statement = "Construct the big Nisnevich pretopology and Grothendieck topology using etale covers with unchanged-residue-field lifts. Arbitrarily indexed families are stable under base change and composition. For small index types the covering criterion uses precisely the native Stacks completely decomposed family. Prove the Zariski-Nisnevich-etale inclusions, field-valued lifting, splitting of covers over arbitrary field spectra, maximality of their covering sieves, and the actual site point Hom(Spec K,-). Construct the corresponding smooth separated finite-type site over any base, with its etale pullbacks and continuous sheaf restriction from schemes over that base."
+scope = "Schemes and fields have universe u. Cover indices may have an independent universe; the native coproduct-based family equivalence assumes Small.{u} on that index. Smooth objects have smooth, separated, quasi-compact structure maps over an arbitrary base. No perfection, separable closedness, connectedness or nonemptiness assumptions are imposed. No correspondence category or transfer sheafification; no assertion of arbitrary pullbacks in the smooth category; no cohomological vanishing, enough injectives, distinguished-square descent, or motivic derived category."
+review = "author_checked"

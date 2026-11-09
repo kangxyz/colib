@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0346"
+title = "Bounded Milnor residue prescription including infinity"
+kind = "theorem"
+section = "milnor-k-theory"
+order = 350
+statement = "Finite homogeneous residue data admit bounded simultaneous lifts, and a prescribed infinity value is possible exactly when its sum with the original simple norms is zero. For the native residue vector, the infinity coordinate of the rational decomposition is the negative norm sum over its exact support. Prescribing the actual constant component strengthens uniqueness modulo F_0 to a unique actual bounded homogeneous lift."
+scope = "Arbitrary fields and all nonnegative residue degrees. Indexed data allow an independent universe, empty support and bound zero, with distinctness only on the supplied finite set. Global data use the original direct sum and its actual finite support. The infinity value is an arbitrary native Milnor-ring element; the norm equation enforces compatibility. No total-norm map, replacement coordinates, specialization comparison or chosen-norm independence is introduced."
+review = "author_checked"
