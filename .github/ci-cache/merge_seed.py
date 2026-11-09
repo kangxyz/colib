@@ -52,11 +52,14 @@ def source_commits(api, head, target, repository_id, parents):
 def find_seed(api, head, tree, target, repository_id, run_id, parents):
     seen = set()
     started = None
+    merge_parent = parents[1] if len(parents) == 2 else None
     for commit in source_commits(api, head, target, repository_id, parents):
         if not COMMIT.fullmatch(commit) or commit in seen:
             continue
         seen.add(commit)
-        if commit != head and api(f'git/commits/{commit}')['tree']['sha'] != tree:
+        # The Git parent identifies the merged revision. Lake rehashes the
+        # merge inputs before using any of its cached outputs.
+        if commit not in (head, merge_parent) and api(f'git/commits/{commit}')['tree']['sha'] != tree:
             continue
         for run in api('actions/workflows/ci.yml/runs', head_sha=commit,
                        event='push', status='success', per_page=10)['workflow_runs']:

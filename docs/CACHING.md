@@ -74,11 +74,13 @@ optimized workflow does not normally save those source-tree caches.
 ### Reuse after merging a branch
 
 A default-branch push can warm Build from a successful earlier push run of the
-same repository's Colib CI. A fast-forward can use a run at the same commit. A
-merge commit or a GitHub-recorded pull request merge can use a branch commit
-whose Git tree exactly matches the target checkout. The workflow verifies the
-run, immutable artifact digests and native producer metadata before importing
-the branch stage. The dependency and Stacks checkpoints are optional overlays.
+same repository's Colib CI. A fast-forward can use a run at the same commit.
+A two-parent merge can use a run at its second parent even when the target
+branch contributes other changes. When GitHub pull request metadata supplies
+a different source revision, its Git tree must match the target checkout.
+The workflow verifies the run, immutable artifact digests and native producer
+metadata before importing the branch stage. The dependency and Stacks
+checkpoints are optional overlays.
 
 On EC2, a successful branch push uploads the verified native stage after Test
 from the preserved workspace. It also uploads the existing dependency or Stacks

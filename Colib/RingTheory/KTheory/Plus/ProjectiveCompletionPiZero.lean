@@ -41,7 +41,7 @@ def completionPiZeroGrothendieckEquiv :
   rfl
 
 /-- The original pair vertex retains the numerator-minus-denominator convention. -/
-@[simp] theorem completionPiZeroGrothendieckEquiv_pair (A B : IsoCategory R) :
+theorem completionPiZeroGrothendieckEquiv_pair (A B : IsoCategory R) :
     completionPiZeroGrothendieckEquiv R
       (ZerothHomotopy.mk (classifyingSpacePoint (completionPair R A B))) =
         coreClass R B - coreClass R A := by

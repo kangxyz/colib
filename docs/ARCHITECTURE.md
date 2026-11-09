@@ -21,9 +21,10 @@ The initial K-group uses CategoryTheory.GrothendieckGroup on Mathlib's FGModuleC
 canonical Milnor group is Stacks' MilnorKTheory. The earlier pair-symbol relation occurs
 only at its comparison boundary. The affine cycle coefficient uses Mathlib's module length
 and prime localizations. Its actual statement is about fields, rings and modules, so its
-source owner is `Colib.RingTheory.Length.FiniteAlgebra`. The cycle chapter consumes that
-result in its mathematical reading route. The initial cycle import provides a compatibility
-reexport to the canonical ring-theoretic implementation.
+source owner is `Colib.RingTheory.Length.FiniteAlgebra`. The Commutative Algebra chapter
+owns the length and norm results; the Cycles and Correspondences chapter refers to the
+local length formulas before using their multiplicities. The initial cycle import
+provides a compatibility reexport to the canonical ring-theoretic implementation.
 
 The Library is the mathematical organization centre described in [LIBRARY.md](LIBRARY.md).
 Chapters contain sections and typed permanent items. Defining modules and code imports come from Lean; the chapter and section sequence supplies
