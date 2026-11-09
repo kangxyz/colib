@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0354"
+title = "T1 separation of actual finite strict Bass towers"
+kind = "theorem"
+section = "bass-construction"
+order = 20
+statement = """
+The actual reduced mapping cone of a continuous based map between T1 spaces and the actual
+reduced double mapping cylinder of two strict loop-prespectrum maps are T1 at every level.
+Parameter looping preserves T1 separation. Therefore each finite iterate of the strict Bass
+diagram functor has T1 levels if the initial diagram does, including level and stage zero.
+The original quotient fibers retain all endpoint-map inverse images of the basepoints.
+"""
+scope = """
+No injectivity, Hausdorff, point HEP, cofibration, or closed-map hypothesis is imposed.
+Quotient normal forms compute fibers without replacing their topologies. A checked consumer
+forms the literal tower from an arbitrary supplied seed, applies COL-0350 in every integer
+stable degree, and retains the actual stage inclusion equality. Original small-Waldhausen
+rows discharge the initial T1 premise using the existing native realization and path proofs.
+A supplied proved seed square gives actual comparison naturality, not stable equivalence of
+iterated maps. No seed existence, geometric Laurent coefficient row, point HEP, excision,
+nonbasepoint transport, Bass localization or Thomason-Trobaugh 7.4 is asserted.
+"""
+review = "author_checked"
+provenance = "quillen"

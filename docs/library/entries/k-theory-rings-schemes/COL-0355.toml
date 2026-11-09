@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0355"
+title = "The strict affine bounded-above-flat section prespectrum"
+kind = "definition"
+section = "k-theory-of-schemes"
+order = 3450
+statement = "Actual cocartesian sections over Under R of the native bounded-above-flat affine pullback pseudofunctor have canonical evaluation equivalence to the original perfect-complex fiber. A source-independent pointwise chosen zero evaluates and reindexes literally. Pointwise cofibrations and weak equivalences are exactly the identity-evaluated classes. Genuine Waldhausen pushout transport makes all evaluations and all coefficient restrictions exact. Literal restriction and chosen-zero preservation give a strict native small-Waldhausen functor on commutative rings, and composition with the actual iterated-S prespectrum functor gives the strict coefficient prespectrum row. Its zero-space map retains the original coefficient K-map in every natural degree, including zero."
+scope = "Every commutative ring and ring map in universe u, including nonflat maps. The actual section category has object and hom universe u + 1, while the geometric fiber has object universe u + 1 and hom universe u. Fibers use native IsPerfectComplex, a global upper term bound and termwise sheaf flatness; no lower bound, compactness, flat coefficient premise or supplied geometric profile. Pushouts are preserved along cofibrations. Evaluation stable equivalence, mixed-universe evaluation K-maps, whole coefficient comparison homotopies and their route laws, supported sections, actual Laurent seeds, negative Bass localization and TT 7.4 remain separate."
+review = "author_checked"
+provenance = "quillen"

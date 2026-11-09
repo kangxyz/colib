@@ -26,7 +26,7 @@ introduction = "Restricted spans compose by mixed pullbacks and become ordinary 
 id = "functor-constructions"
 title = "Functor constructions"
 order = 40
-introduction = "Specified object isomorphisms can replace selected functor values while retaining an explicit natural-isomorphism comparison."
+introduction = "Specified object isomorphisms can replace selected functor values while retaining an explicit natural-isomorphism comparison. Actual cocartesian sections over a coslice recover the original pseudofunctor fiber by identity evaluation. Canonical sections prove essential surjectivity, cocartesian extension proves full faithfulness, and literal reindexing retains identities, composites and preserved chosen zeros."
 
 [[sections]]
 id = "waldhausen-categories"

@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0356"
+title = "Grothendieck section coefficient coherence"
+kind = "theorem"
+section = "functor-constructions"
+order = 21
+statement = """
+For a Cat-valued pseudofunctor, actual Grothendieck fiber extraction preserves
+composition and identities with the original pseudofunctor constraints and
+respects endpoint equality transports. Actual cocartesian section transitions
+therefore satisfy composition and unit equations. Identity evaluation has a
+canonical coefficient comparison whose forward two-arrow route and unit retain
+all associators and literal coslice restriction transports.
+"""
+scope = """
+Target normalization by genuine natural isomorphisms preserves these proved
+coherence equations. In particular the actual chosen-zero rebasing isomorphisms
+give normalized coefficient comparisons with derived composition and identity
+constraints. Independent base and fiber universes are retained. No evaluation
+equivalence profile, independent coherence premise, equality of parametrized
+paths, geometric coefficient prespectrum, derived pullback or Bass claim is
+assumed or asserted. The unit normalization proof is new native categorical work.
+"""
+review = "author_checked"
+provenance = "quillen"

@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0353"
+title = "Cocartesian sections and identity evaluation"
+kind = "theorem"
+section = "functor-constructions"
+order = 20
+statement = """
+For a Cat-valued pseudofunctor on a category, evaluation at the identity arrow is
+an equivalence from actual cocartesian sections of its Grothendieck projection
+over a coslice to the original fiber category. Canonical sections send an arrow
+to its actual pseudofunctor image. Literal coslice restriction satisfies identity
+and composition as functor equalities. Pointwise chosen zero objects preserved
+by transition functors define compatible zero sections.
+"""
+scope = """
+Strict sections are native functor fibers, and cocartesian sections form their
+full subcategory. Full faithfulness is proved by cocartesian extension and
+uniqueness; canonical pullback sections establish essential surjectivity.
+Evaluation transitions are natural isomorphisms with their actual fiber maps.
+Chosen zero evaluation and reindexing retain literal equality. This generic
+foundation assumes only an actual pseudofunctor and the stated zero-preservation
+hypotheses, not an evaluation equivalence profile. It does not construct the
+geometric bounded-flat coefficient row, its Waldhausen structure or spectra.
+"""
+review = "author_checked"
+provenance = "quillen"
