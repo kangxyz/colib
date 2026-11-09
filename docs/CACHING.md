@@ -80,6 +80,12 @@ whose Git tree exactly matches the target checkout. The workflow verifies the
 run, immutable artifact digests and native producer metadata before importing
 the branch stage. The dependency and Stacks checkpoints are optional overlays.
 
+On EC2, a successful branch push uploads the verified native stage after Test
+from the preserved workspace. It also uploads the existing dependency or Stacks
+archive if the latest matching default-branch cache has a different generation
+or cannot be checked. These artifacts supply later merge builds. The same-run
+handoff continues to use the local workspace.
+
 Build keeps the regular target-branch checkpoints and uses Lake's artifact
 store for the imported native outputs. A successful native import adds
 `--rehash` to that Build invocation. If a matching branch run or usable artifact
