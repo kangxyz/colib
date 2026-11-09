@@ -734,3 +734,23 @@ compact U and compact union; compact U/T gives the original corollaries. See
 [the source correspondence](SUPPORT_FORGETTING_NATURALITY.md). Whole-prespectrum
 nullhomotopy preservation remains a separate obligation, as do arbitrary pair
 naturality and Bass localization.
+
+## Whole-prespectrum support forgetting (COL-0337)
+
+The actual auxiliary-support forgetting square now preserves the entire original
+nullhomotopy, its canonical fiber lift and the signed stable boundary at every
+stage and degree. Null time and structure time remain independent. Restriction
+uses the constructed coherent zero-rebase homotopy, and original connective
+K-maps, level-one fiber maps and the K1-to-K0 minus sign are retained. No
+compactness is needed for this naturality. See [the source correspondence](SUPPORT_PRESPECTRUM_NATURALITY.md). This closes the whole-prespectrum seam left
+by COL-0336; coefficient naturality, Bass iteration/telescopes and TT 7.4 remain
+separate. No stable equivalence of support forgetting or full-target fine K0
+inverse is asserted.
+
+## Strict-square cone-loop foundation (COL-0338)
+
+The actual reduced double cylinder, strict-square comparison, cone-loop functor and whole
+canonical source-null naturality are native. Scalar-track seed naturality and finite
+iteration of strict evaluation diagrams retain their explicit supplied-track/seed inputs.
+See [the exact source crosswalk and exclusions](STRICT_SQUARE_BASS.md). Scheme coefficient
+seeds, telescopes, nonconnective identifications and TT 7.4 are not included.
