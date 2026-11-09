@@ -29,10 +29,9 @@ Build-to-Test handoff; it cannot admit an EC2 job while the separate self-hosted
 gate is false. [Lean CI](../../../.github/LEAN_CI.md) owns the full optimized
 hosted and self-hosted execution flow.
 
-The repository variable gates both the caller and reusable workflow. Pushes and
-manual dispatches continue to use GitHub-hosted Ubuntu. PRs and non-main revisions
-use GitHub-hosted runners even after activation. The manual profile defaults to
-`hosted`; choosing `ec2` while disabled still uses the hosted runner.
+The repository variable gates both the caller and reusable workflow. The
+guarded EC2 profile is the default for owner pushes and manual runs on Colib
+branches when enabled. Pull request runs use GitHub-hosted runners.
 
 The deployment creates control infrastructure and a launch template, with no
 EC2 instance resource or warm pool. Scheduled housekeeping and idle reclamation
@@ -117,26 +116,26 @@ machine immediately. Verify the Colib EC2 fleet and registered runners are empty
 
 ## On-demand dependency warmup
 
-Use the existing fleet with `enabled=true` and `warmup_only=true` for the
-owner-dispatched **Dependency warmup** workflow on `main`. The webhook
-routes only the queued warmup job to this fleet. The runner registers with
-the single `colib-dependency-warmup` label and verifies the workflow path,
-event, ref and actors before executing job steps. It exits after one job.
+Use `enabled=true` and `guarded_ci=true` to serve Colib CI and the
+owner-dispatched **Dependency warmup** workflow on Colib branches. The
+runner registers only the `colib-dependency-warmup` label and checks the
+workflow path, event, ref and actors before executing job steps. It stays
+available through the Build-to-Test handoff and scales down after the idle
+grace period. A standalone `warmup_only=true` fleet can use one-job runners.
 
 Set up this mode once.
 
 1. Run `bash fetch-lambdas.sh` to verify the pinned upstream bundles and
    package the warmup webhook filter. Verify the GitHub App installation
    and runner distribution as above.
-2. Keep `COLIB_SELF_HOSTED_ENABLED=false` and apply a reviewed Terraform
-   plan with `-var enabled=true -var warmup_only=true`.
+2. Keep `COLIB_SELF_HOSTED_ENABLED=false` during deployment and apply a
+   reviewed plan with `-var enabled=true -var guarded_ci=true`.
 3. Activate the Colib `workflow_job` hook and set
-   `COLIB_DEPENDENCY_WARMUP_ENABLED=true` after the workflow is available on
-   `main`. Dispatch a small module and verify the artifact and instance
-   termination before relying on the entry point.
+   `COLIB_DEPENDENCY_WARMUP_ENABLED=true` and `COLIB_SELF_HOSTED_ENABLED=true`
+   after the workflow is available on `main`. A branch must contain the
+   current workflow to select the guarded runner.
 
 Keep the webhook and scale-up function available between jobs. This mode
-has a single-runner cap and an empty idle pool. To suspend it, remove
-`COLIB_DEPENDENCY_WARMUP_ENABLED`, deactivate the hook and apply
-`enabled=false`. Clear `warmup_only` before switching back to the persistent
-Build-to-Test profile.
+has a single-runner cap and an empty idle pool. To suspend it, set
+`COLIB_SELF_HOSTED_ENABLED=false`, remove `COLIB_DEPENDENCY_WARMUP_ENABLED`,
+deactivate the hook and apply `enabled=false`.

@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: Colib dependency warmup
+  group: Colib EC2
   cancel-in-progress: false
   queue: max
 
@@ -33,7 +33,7 @@ env:
 jobs:
   prepare:
     name: Check warmup request
-    if: ${{ github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner }}
+    if: ${{ github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner }}
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     outputs:

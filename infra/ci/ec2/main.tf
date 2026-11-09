@@ -9,6 +9,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
+  guarded_runner       = var.guarded_ci || var.warmup_only
   app_key_name         = var.github_app_key_ssm_name
   webhook_name         = "/${var.prefix}/app/webhook-secret"
   parameter_arn_prefix = "arn:aws:ssm:${var.aws_region}:${var.aws_account_id}:parameter"
@@ -70,17 +71,17 @@ module "runners" {
 
   enable_organization_runners             = false
   repository_white_list                   = ["kangxyz/colib"]
-  runner_extra_labels                     = var.warmup_only ? ["colib-dependency-warmup"] : ["colib-ec2"]
-  runner_disable_default_labels           = var.warmup_only
+  runner_extra_labels                     = local.guarded_runner ? ["colib-dependency-warmup"] : ["colib-ec2"]
+  runner_disable_default_labels           = local.guarded_runner
   enable_runner_bidirectional_label_match = true
   enable_dynamic_labels                   = false
 
   # One repository and one runner lane do not need a separate event bus/archive.
   eventbridge = { enable = false }
 
-  enable_ephemeral_runners                = var.warmup_only
+  enable_ephemeral_runners                = var.warmup_only && !var.guarded_ci
   enable_jit_config                       = false
-  runner_hook_job_started                 = var.warmup_only ? file("${path.module}/warmup-runner-hook.sh") : ""
+  runner_hook_job_started                 = local.guarded_runner ? file("${path.module}/warmup-runner-hook.sh") : ""
   enable_job_queued_check                 = true
   runners_maximum_count                   = var.enabled ? 1 : 0
   scale_up_reserved_concurrent_executions = var.enabled ? 1 : 0
@@ -127,7 +128,7 @@ module "runners" {
     instance_metadata_tags      = "enabled"
   }
 
-  webhook_lambda_zip                = "${path.module}/lambdas/${var.warmup_only ? "warmup-webhook" : "webhook"}.zip"
+  webhook_lambda_zip                = "${path.module}/lambdas/${local.guarded_runner ? "warmup-webhook" : "webhook"}.zip"
   runner_binaries_syncer_lambda_zip = "${path.module}/lambdas/runner-binaries-syncer.zip"
   runners_lambda_zip                = "${path.module}/lambdas/runners.zip"
 
