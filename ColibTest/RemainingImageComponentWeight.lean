@@ -46,7 +46,8 @@ example
       flatPullbackWeight C sT π'
         (relativeDimension (C).dimensionFunction (q ≫ sJ) t +
           (correspondenceThirdSupportDimension K h i v : ℤ)) ((T).fromSpecStalk x₀ p.1) :=
-  length_correspondenceRemainingImageComponentStalk_eq_originalGradeWeight K f g h i z w v x t hz hw p hp
+  length_correspondenceRemainingImageComponentStalk_eq_originalGradeWeight
+    K f g h i z w v x t hz hw p hp
 
 open Classical in
 example

@@ -42,7 +42,8 @@ integer supplier. No second Tor, local-ring, or cycle model is introduced here.
 Native mathematical inputs: Stacks 056S (smooth schemes over any field are regular),
 02IT (regular local rings of a regular scheme), 00OC (regular local global
 dimension), and native Tor vanishing above projective dimension. The finite-length inputs are
-recorded in `GenericTorLength`. Native leaf acceptance is recorded separately; no independent review is claimed.
+recorded in `GenericTorLength`.
+Native leaf acceptance is recorded separately; no independent review is claimed.
 -/
 
 @[expose] public noncomputable section

@@ -61,7 +61,8 @@ example
             (correspondenceLeftExteriorFiberLength f g h i z w v η.1.1 : ℤ) *
               ((q').residueDegree η.1.1 : ℤ)
           else 0) * Koszul.seqEuler (fun j => α (s j)) (R ⧸ p.1.asIdeal) :=
-  residueDegree_mul_seqEuler_correspondenceRemainingImageComponentStalk K f g h i z w v x t hz hw hx s hs
+  residueDegree_mul_seqEuler_correspondenceRemainingImageComponentStalk
+    K f g h i z w v x t hz hw hx s hs
 
 #check correspondenceRemainingImageComponent_stalk_le_iff_projection
 #check residueDegree_mul_seqEuler_correspondenceRemainingImageComponentStalk

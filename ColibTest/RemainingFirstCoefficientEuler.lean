@@ -55,6 +55,7 @@ example
               (correspondenceLeftExteriorFiberLength f g h i z w v η.1.1 : ℤ)) *
             ((q').residueDegree η.1.1 : ℤ) *
               Koszul.seqEuler (fun j => α (s j)) (R ⧸ p.1.asIdeal) :=
-  sum_firstTorCoefficient_mul_seqEuler_correspondenceRemainingImageComponentStalk K f g h i z w v x hz hw hx s hs
+  sum_firstTorCoefficient_mul_seqEuler_correspondenceRemainingImageComponentStalk
+    K f g h i z w v x hz hw hx s hs
 
 #check sum_firstTorCoefficient_mul_seqEuler_correspondenceRemainingImageComponentStalk

@@ -25,7 +25,8 @@ Implementation provenance: motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
 `Correspondences/Nisnevich/GeneratorLift.lean`,
 `supportLiftImageGenerator_graph`. This native version works directly with the
 image point and the existing component-restriction map instead of packaging a
-custom integral-image generator. Native leaf acceptance is recorded separately; no independent review is claimed.
+custom integral-image generator.
+Native leaf acceptance is recorded separately; no independent review is claimed.
 -/
 
 @[expose] public noncomputable section
