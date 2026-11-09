@@ -117,3 +117,72 @@ and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
 extends it to an isomorphism, with the direction and unit identity fixed by
 that extension.
 '''
+
+[[sections]]
+id = "transfer-homological-algebra"
+title = "Homological algebra of transfers"
+order = 30
+introduction = 'The sectionwise quotient description first concerns additive presheaves. Passing through the Nisnevich reflection gives an abelian category with enough injectives. Sheafified signed representables then provide the first variable of transfer Ext; comparison with ordinary cohomology is a separate question.'
+
+[sections.transitions]
+COL-0380 = '''
+For a morphism of the additive presheaves in COL-0368, evaluation preserves its
+cokernel. The resulting group quotient keeps the transfer action because the
+cokernel projection is natural for every signed correspondence.
+'''
+COL-0381 = '''
+Cokernels in the sheaf category require the reflection of COL-0372. Its
+finite-limit preservation gives an abelian category; exact filtered colimits
+and a separator descend through the same adjunction, giving enough injectives.
+'''
+COL-0382 = '''
+For a smooth scheme, lift its signed correspondence representable to the
+coefficient universe and apply the reflector. The adjunction reduces maps out
+of this sheaf to additive Yoneda, with evaluation at the full identity cycle.
+'''
+COL-0383 = '''
+Use the sheafified representable of COL-0382 as the first Ext variable.
+Covariance of that representable and contravariance of Ext give restriction
+along each signed correspondence. This defines transfer Ext without identifying
+it with the cohomology of an underlying ordinary sheaf.
+'''
+
+[[sections]]
+id = "reduced-transfer-tori"
+title = "Split tori and their reduced transfer quotients"
+order = 40
+introduction = 'Relative powers of the native multiplicative group have actual identity-coordinate inclusions. Their graph correspondences define the relations in the reduced torus presheaf of [@MVW2006, Lecture 2, Definition 2.12, pp. 15–16].'
+
+[sections.transitions]
+COL-0384 = '''
+Before forming a quotient of correspondence groups, fix the geometric maps:
+the multiplicative group is the native base change, its base point represents
+one, and its powers are relative products of smooth-site objects.
+'''
+COL-0385 = '''
+Over a field, apply the graph functor to each identity-coordinate inclusion
+from COL-0384 and then postcompose signed correspondences with that graph.
+The cokernel of the sum of these maps has, section by section, the quotient
+by all their images. Naturality of the projection fixes its transfer action.
+'''
+
+[[sections]]
+id = "exterior-parameters"
+title = "Exterior parameters and graph incidence"
+order = 50
+introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Changing that parameter gives a comparison of actual graph-incidence schemes on a compatible source component. The section stops before a matched-component Tor calculation or a general composition law.'
+
+[sections.transitions]
+COL-0386 = '''
+For an integral correspondence support, take its relative product with the
+parameter and use the same parameter coordinate on both sides. Geometric
+integrality makes this a single integral support; its finite source projection
+and component image allow the integer-linear extension of COL-0374.
+'''
+COL-0387 = '''
+Now change the parameter by a morphism. Choose a component of its graph whose
+source image contains the exterior source image. The graph projection is an
+open immersion, so the source map lifts uniquely into it. Together with the
+parameter map on the exterior support, this lift identifies the actual incidence
+scheme and retains its source-target finite map.
+'''

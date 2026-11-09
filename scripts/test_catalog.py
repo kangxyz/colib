@@ -322,6 +322,9 @@ class LibraryTests(unittest.TestCase):
         module_names = {
             "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
             "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
+            "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
+            "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
+            "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -418,7 +421,9 @@ class LibraryTests(unittest.TestCase):
     def test_cycle_algebra_and_scheme_chapters_keep_distinct_owners(self):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
-                         ["finite-correspondences", "transfers-nisnevich"])
+                         ["finite-correspondences", "transfers-nisnevich",
+                          "transfer-homological-algebra", "reduced-transfer-tori",
+                          "exterior-parameters"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
                           "algebraic-simplices"])
@@ -436,6 +441,37 @@ class LibraryTests(unittest.TestCase):
                              f"docs/library/entries/commutative-algebra/{identifier}.toml")
         self.assertEqual(self.library["entries"]["COL-0362"]["section"],
                          "k-theory-of-schemes")
+
+    def test_native_transfer_torus_exterior_items_keep_owners_and_scope(self):
+        expected = {
+            "transfer-homological-algebra": ["COL-0380", "COL-0381", "COL-0382", "COL-0383"],
+            "reduced-transfer-tori": ["COL-0384", "COL-0385"],
+            "exterior-parameters": ["COL-0386", "COL-0387"],
+        }
+        for section_id, identifiers in expected.items():
+            section = self.library["sections"][section_id]
+            self.assertEqual(section["chapter"], "cycles")
+            self.assertEqual(section["entries"], identifiers)
+            self.assertEqual(set(section["transitions"]), set(identifiers))
+            for identifier in identifiers:
+                item = self.library["entries"][identifier]
+                self.assertTrue(item["primary"])
+                self.assertEqual(item["path"], f"docs/library/entries/cycles/{identifier}.toml")
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        for section_id in expected:
+            page = (output / f"sections/{section_id}/index.html").read_text()
+            self.assertIn('class="section-transition"', page)
+            for identifier in expected[section_id]:
+                self.assertTrue((output / f"tag/{identifier}/index.html").is_file())
+        quotient = self.library["entries"]["COL-0380"]
+        self.assertIn("surjective", quotient["statement"])
+        self.assertIn("sheaf cokernel", quotient["scope"])
+        ext = self.library["entries"]["COL-0383"]
+        self.assertIn("cohomology", ext["scope"])
+        incidence = self.library["entries"]["COL-0387"]
+        self.assertIn(r"\operatorname{im}(s_T)\subseteq", incidence["statement"])
+        self.assertIn("Tor", incidence["scope"])
 
     def test_cor_transfer_section_renders_maps_and_scope(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")

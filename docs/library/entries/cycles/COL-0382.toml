@@ -1,0 +1,16 @@
+[entry]
+id = "COL-0382"
+title = "Sheafified signed representables and sections"
+kind = "comparison"
+section = "transfer-homological-algebra"
+order = 30
+primary = "AlgebraicGeometry.SheafWithTransfers.transferSectionsEquiv"
+statement = '''
+Let \(k\) be a field in universe \(u\), \(X\in\operatorname{Cor}(k)\), and \(F\in\operatorname{NST}(k)\) with coefficients in universe \(u+1\). Write \(R_X=a_{\mathrm{tr}}\mathbb Z_{\mathrm{tr}}(X)\), where the representable is the universe lift of the signed correspondence groups. There is an additive equivalence
+\[ \operatorname{Hom}_{\operatorname{NST}(k)}(R_X,F)\simeq F(X),\qquad f\longmapsto f_X(\eta_X(1_X)). \]
+Here \(\eta\) is the sheafification unit and \(1_X\) is the full identity correspondence. For \(\alpha:X\to Y\) and \(f:R_Y\to F\), evaluation sends \(f\circ R(\alpha)\) to \(F(\alpha)\) applied to the section of \(f\). Postcomposition by \(g:F\to G\) acts by \(g_X\) on sections.
+'''
+scope = '''
+The equivalence is the actual transfer-sheafification adjunction followed by lifted additive Yoneda. It uses signed correspondence groups, not free abelian groups on ordinary morphisms. It is the sheafified-representable form of [@MVW2006, Lecture 13, Lemma 13.4(2), p. 99; proof, p. 100]. No identification with a separate ordinary cohomology source is included.
+'''
+review = "author_checked"

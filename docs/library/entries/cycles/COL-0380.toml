@@ -1,0 +1,18 @@
+[entry]
+id = "COL-0380"
+title = "Sections of transfer-presheaf cokernels"
+kind = "comparison"
+section = "transfer-homological-algebra"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers.cokernelSectionsIsoQuotient"
+statement = '''
+Let \(k\) be a field, let \(\eta:P\to Q\) be a morphism of additive presheaves with transfers, and let \(X\in\operatorname{Cor}(k)\). Evaluation of the categorical cokernel gives the canonical isomorphism
+\[ (\operatorname{coker}\eta)(X)\simeq Q(X)/\operatorname{im}(\eta_X). \]
+Under this isomorphism, the cokernel projection \(\pi_X:Q(X)\to(\operatorname{coker}\eta)(X)\) sends each \(b\in Q(X)\) to its class \([b]\). In particular, \(\pi_X\) is surjective. For every signed correspondence \(\alpha:X\to Y\),
+\[ (\operatorname{coker}\eta)(\alpha)\circ\pi_Y=\pi_X\circ Q(\alpha). \]
+Thus the quotient carries the original contravariant transfer action.
+'''
+scope = '''
+The field lies in universe \(u\) and the abelian-group coefficients in an independent universe \(v\). This is a presheaf cokernel, computed by evaluation and Mathlib's abelian-group cokernel quotient. It is not a sectionwise description of a sheaf cokernel, nor a geometric contraction. Compare the abelian presheaf category in [@MVW2006, Lecture 2, Theorem 2.3, p. 13].
+'''
+review = "author_checked"

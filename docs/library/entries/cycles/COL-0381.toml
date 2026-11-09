@@ -1,0 +1,14 @@
+[entry]
+id = "COL-0381"
+title = "Abelian transfer sheaves and enough injectives"
+kind = "theorem"
+section = "transfer-homological-algebra"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers.enoughInjectives"
+statement = '''
+Let \(k\) be a field in universe \(u\). The category \(\operatorname{NST}(k)\) of Nisnevich sheaves with transfers with abelian-group coefficients in universe \(u+1\) is Grothendieck abelian and has enough injectives. In particular, every object admits a monomorphism into an injective object. Transfer-preserving Nisnevich sheafification preserves finite limits; together with its left adjoint structure, this gives the abelian reflection used here.
+'''
+scope = '''
+The Nisnevich condition and the ordinary smooth site are those of COL-0369 and COL-0340. Colimits are obtained by the reflector; no objectwise formula for sheaf colimits is asserted. The finite-limit and abelian constructions retain the explicit correspondence-site `HasSheafify`, `HasSheafCompose` and `PreservesSheafification` hypotheses, supplied by the imported abelian-group instances. Exact filtered colimits and a separator descend through this reflection, and Mathlib supplies enough injectives. This realizes the abelian/enough-injectives clauses of [@MVW2006, Lecture 13, Theorem 13.1, p. 99]. It does not establish acyclicity of underlying ordinary sheaves.
+'''
+review = "author_checked"
