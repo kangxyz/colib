@@ -3,7 +3,7 @@ id = "COL-0316"
 title = "Coherent scalar additivity cubes and fine boundary routes"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 64
+order = 70
 statement = "For every positive cube dimension, the actual scalar based-additivity square induces a continuous square in the original generalized-loop space. Its four whole faces, both independently varying times, and full spatial boundary are preserved. The original fine identity and signed scalar-cofiber additivity paths map to the two coarse edges at every time. Their four actual endpoint equations transport the specified once-reversed square interpolation to the fine-edge boundary routes, without replacing any path by an existence witness."
 scope = "Any open immersion j : U ⟶ X, global scalar r, and specified unit q on U with j.appTop r = q; every original based subdivision cube of dimension n + 1, n : Nat. The objects are native Stacks perfect complexes, the scalar quotient remains the signed cone, and restriction detects the coarse weak equivalences. Generic native normalized-pushout, minimum-cut cylinder, simplicial endpoint, realization and three-stage based-additivity naturality are proved below the scheme application. No quasi-compactness, quasi-separatedness, regularity, scalarTheta, supplied cube filler or extra comparison hypothesis is used. This complete coherent-cube comparison does not yet construct the canonical-sum fiber map, identify the all-positive-degree scalar connecting boundary, or prove a global, Laurent, Bass or integer-indexed formula."
 review = "author_checked"

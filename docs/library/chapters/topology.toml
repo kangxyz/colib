@@ -8,7 +8,96 @@ introduction = "Geometric realizations and based homotopy groups retain their ac
 id = "classifying-spaces"
 title = "Classifying spaces"
 order = 10
-introduction = "The realized nerve of a category has a point for every object. Based homotopy groups provide the topological constructions later specialized to Quillen's Q-category. The original groupoid-completion comparison computes the fundamental group, using actual graph representatives and relative homotopies in finite skeleta. Quillen Theorems A and B retain the actual realized functor and comma-to-fiber comparison. Theorem B covers both comma conventions and all path components under the original transition homotopy-equivalence hypothesis."
+introduction = "The realized nerve provides based homotopy groups, the comparison with groupoid completion, and the realized functors and comma-to-fiber maps of Quillen's Theorems A and B."
+
+[[sections.topics]]
+id = "based-nerve-maps"
+title = "Vertices and based nerve maps"
+start = "COL-0043"
+
+[[sections.topics]]
+id = "realized-groupoid-completion"
+title = "Arrow paths and groupoid completion"
+start = "COL-0084"
+
+[[sections.topics]]
+id = "comma-categories-and-fibers"
+title = "Adjunctions, comma categories and fibers"
+start = "COL-0231"
+
+[sections.transitions]
+COL-0053 = '''
+If \(F\colon\mathcal C\to\mathcal D\) is a functor, the vertex of
+\(X\) maps to the vertex of \(F(X)\). Thus the realized nerve map has the
+basepoint equality required to act on the shifted homotopy groups.
+'''
+COL-0054 = '''
+A target vertex may be specified independently of \(F(X)\). An isomorphism
+\(F(X)\cong Y\) gives the transport to \(Y\), which fixes the basepoint
+of the resulting homotopy-group map.
+'''
+COL-0058 = '''
+A natural transformation gives maps at both ends of a simplicial cylinder.
+At \(X\), the cylinder follows its component at \(X\). If that component
+is the equality transport, the realized homotopy fixes the specified
+vertex and can be used on based groups.
+'''
+COL-0084 = '''
+A morphism \(u\colon X\to Y\) is a simplex of dimension one in the nerve.
+Its realization, parametrized by the standard interval, gives a path
+whose endpoints are the vertices of \(X\) and \(Y\).
+'''
+COL-0085 = '''
+For composable arrows the nerve gives a two-simplex. Its triangle homotopy
+identifies the concatenation of the two arrow paths with the path of the
+composite, relative to the two outer vertices.
+'''
+COL-0092 = '''
+Arrow-path classes are invertible in the fundamental groupoid. The
+universal property of localization at all arrows therefore extends
+the arrow-path functor from the original category to its groupoid completion.
+'''
+COL-0093 = '''
+The localization functor also has a realized nerve map. On an original
+arrow this map sends the arrow path to the path of the localized arrow,
+so the two routes to the fundamental groupoid agree by the corresponding
+comparison on these generators.
+'''
+COL-0161 = '''
+To compare paths between original vertices, it helps to identify the
+zero-skeleton inside the realization. In degree \(n\) its simplices
+are the degenerate simplices of the original vertices, giving the
+constant simplicial set on the objects.
+'''
+COL-0160 = '''
+A path between vertices is represented up to endpoint-fixed homotopy
+in a finite skeleton. The graph representatives express its class by
+original arrows and their inverses, which are morphisms in the completion.
+'''
+COL-0239 = '''
+Surjectivity identifies every path class with a completed arrow.
+To test equality of two completed representatives, factor the relative
+homotopy through a finite skeleton and use the decoder there. This gives
+faithfulness and makes the comparison on based loops an isomorphism.
+'''
+COL-0231 = '''
+The unit and counit of an adjunction are natural transformations from
+an identity to one composite and from the other composite to an identity.
+Realizing their nerve homotopies exhibits the adjoint functors as
+homotopy inverses on the two classifying spaces.
+'''
+COL-0232 = '''
+Comma categories measure the comparison for a general functor. If their
+classifying spaces are contractible on the specified side, the realized
+functor itself is the forward map of Quillen's Theorem A.
+'''
+COL-0248 = '''
+For a target arrow, the comma construction has a transition functor.
+When all of these transitions are realization homotopy equivalences, the
+realized comma category at each target object compares to the homotopy
+fiber of the realized map. The identity arrow specifies the vertex
+for the based version of the comparison.
+'''
 
 [[sections]]
 id = "homotopy-groups"
@@ -16,14 +105,320 @@ title = "Homotopy groups"
 order = 20
 introduction = "Pointed continuous maps act on actual generalized-loop homotopy quotients. Their group homomorphisms retain the existing multiplication and degree conventions."
 
+[[sections.topics]]
+id = "based-loop-maps"
+title = "Based maps and homotopies"
+start = "COL-0052"
+
+[[sections.topics]]
+id = "local-paths-and-stages"
+title = "Local paths and sequential stages"
+start = "COL-0087"
+
+[[sections.topics]]
+id = "pushout-paths"
+title = "Paths in topological pushouts"
+start = "COL-0094"
+
+[sections.transitions]
+COL-0071 = '''
+A homotopy fixed at the specified basepoint gives a homotopy after
+postcomposing any generalized loop. On the entire cube boundary the loop
+is at that point, so the new homotopy is relative to the boundary and
+gives equality in the based quotient.
+'''
+COL-0217 = '''
+For an unbased homotopy equivalence, an equality of the chosen image
+basepoint with the target basepoint specifies the forward homomorphism.
+The inverse at the level of homotopy groups uses the equivalence data.
+'''
+COL-0087 = '''
+Given an open cover of the image of a path, a subordinate subdivision
+expresses the path as a concatenation of paths in single cover members.
+This reduces generation of the path groupoid to the local arrows.
+'''
+COL-0088 = '''
+In a sequential colimit, the compact image of a path is contained in
+one stage under the \(T_1\) and injectivity hypotheses. With closed
+successor embeddings, the factorization into a stage is continuous.
+'''
+COL-0089 = '''
+For endpoints already in stage \(k\), factor the path continuously
+through a stage at least \(k\). Fullness of the transition functors
+then gives a path class in stage \(k\) with the same image.
+'''
+COL-0094 = '''
+A cellular step is a pushout along an attaching locus. When the
+attaching map is a closed embedding, its cobase change gives the
+closed embedding of the other summand needed for a sequential tower.
+'''
+COL-0095 = '''
+Away from the embedded attaching locus, a point of the attaching
+summand is untouched by the identifications of the pushout. Its open
+complement chart is therefore represented injectively, with image
+disjoint from the opposite summand.
+'''
+COL-0097 = '''
+For paths covered by \(U\) and disjoint simply connected charts,
+subdivide into pieces lying in the cover members. If each chart
+meets \(U\) in a path-connected subset, a piece in a chart between
+points of the intersection can be replaced relative to its endpoints
+by a path in \(U\).
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"
 order = 30
 introduction = "Coordinate comparisons retain the chosen realization, finite vertex sets, actual maps and interval orientation."
 
+[[sections.topics]]
+id = "realization-coordinates"
+title = "Vertices and simplex representatives"
+start = "COL-0060"
+
+[[sections.topics]]
+id = "prism-and-cylinder"
+title = "Prism cells and the cylinder comparison"
+start = "COL-0063"
+
+[[sections.topics]]
+id = "realized-paths"
+title = "Edge paths and triangle homotopies"
+start = "COL-0081"
+
+[[sections.topics]]
+id = "realized-coproducts"
+title = "Disjoint unions and discrete realizations"
+start = "COL-0090"
+
+[[sections.topics]]
+id = "simplex-collars"
+title = "Collars of simplex attachments"
+start = "COL-0098"
+
+[[sections.topics]]
+id = "realized-skeleta"
+title = "Skeleta, graph attachments and homotopy extension"
+start = "COL-0159"
+
+[[sections.topics]]
+id = "realization-comparisons"
+title = "Replacements, subdivisions and products"
+start = "COL-0233"
+
+[sections.transitions]
+COL-0062 = '''
+The coend presents a point by a simplex and its barycentric
+coordinates. Equivalently, one can take the point in the realized
+representable simplex and then realize the map classifying that simplex.
+'''
+COL-0063 = '''
+The cylinder comparison is first computed on representables.
+To extend it through the colimit presentation of a simplicial set,
+one needs colimit preservation by each of the two cylinder functors.
+On the topological side, exponentiation by the locally compact interval
+is the right adjoint.
+'''
+COL-0065 = '''
+For a representable \(n\)-simplex, the product prism is covered by
+cells obtained by splitting one barycentric coordinate at the
+interval height. The height and the vanishing split coordinates
+describe the common faces of adjacent cells.
+'''
+COL-0067 = '''
+On each closed prism cell, the inverse sends the split coordinates
+to the corresponding point of the realized standard prism. Agreement
+on the common faces lets these inverse charts glue to a continuous map.
+'''
+COL-0068 = '''
+The canonical comparison is an isomorphism on standard simplices
+by the prism calculation. The two colimit-preserving cylinder
+constructions extend that comparison along the representable
+presentation of an arbitrary simplicial set.
+'''
+COL-0069 = '''
+The realized interval parameter takes the vertex \(\delta_1\) to
+\(0\) and \(\delta_0\) to \(1\). This orientation determines which
+topological inclusion corresponds to each simplicial endpoint.
+'''
+COL-0070 = '''
+The endpoint identities turn the realization of a simplicial
+homotopy into a homotopy on the topological cylinder. If the
+simplicial homotopy is constant on the chosen vertex cylinder,
+the entire corresponding interval is fixed at its realized point.
+'''
+COL-0081 = '''
+An edge is a map out of the standard simplicial interval. Its
+realization composed with the interval parametrization gives
+the path, with the vertex orientation fixed by COL-0060.
+'''
+COL-0083 = '''
+In the real two-simplex, the concatenation of the two short
+edges and the long edge have the same endpoints. Convex
+interpolation supplies an endpoint-fixed homotopy, whose image
+under the specified simplex map gives the triangle relation.
+'''
+COL-0090 = '''
+For a family of simplicial sets, each simplex of the degreewise
+coproduct carries a summand index. Realization preserves this
+coproduct, with the same index on each realized inclusion.
+'''
+COL-0091 = '''
+The constant simplicial set on \(A\) is a coproduct of copies of
+the simplicial point, indexed by \(A\). Its realization is
+therefore the discrete union of the corresponding vertex points.
+'''
+COL-0098 = '''
+Homotopy extension for a simplex attachment uses a retraction
+from the simplex cylinder to its bottom and boundary cylinder.
+The radial formula gives this retraction in the finite barycentric model.
+'''
+COL-0099 = '''
+The radial defect identifies a strict superlevel region containing
+the boundary. Restricting the radial deformation to this region
+gives a boundary-fixed collar retraction.
+'''
+COL-0101 = '''
+The affine map toward the barycenter scales the maximal defect by
+three quarters. It moves the boundary into the interior while
+keeping it in the collar. Together with radial segments, this
+reduces path connectedness of the overlap to that of the boundary.
+'''
+COL-0102 = '''
+The defect has value one on the attaching boundary. It thus
+extends across the attachment by the value one on the old
+space, and the strict superlevel region becomes a neighborhood
+of the old-space image.
+'''
+COL-0103 = '''
+The radial deformation fixes the boundary pointwise, so its maps
+agree with the identity on the old space along the pushout locus.
+On the open collar the resulting retraction is onto the old-space image.
+'''
+COL-0105 = '''
+The collar and the disjoint simplex interiors cover the attachment.
+Subdividing paths in this cover reduces the generators to
+geometric-simplex paths and collar paths. The collar retraction
+and its endpoint tracks express the latter using the old space.
+'''
+COL-0106 = '''
+In dimension at least two, every collar–interior overlap is
+path-connected and the interior is simply connected. The chart
+argument of COL-0097 gives fullness on the collar, which retracts
+to the old space.
+'''
+COL-0159 = '''
+Realized skeletal attachments are iterated geometric pushouts.
+Compact paths factor through a finite stage, and the fullness
+of higher-dimensional attachments lets their classes be
+represented in a stage containing all edges.
+'''
+COL-0108 = '''
+The two boundary points of a one-simplex are its two endpoints.
+For a parametrized graph attachment, paths from an interior
+point toward these endpoints give the anchors that must be
+compared with the original vertex and edge data.
+'''
+COL-0213 = '''
+The simplex cylinder retraction gives the extension step at
+each attaching cell. Applying it along the relative skeletal
+cell complex and passing to the colimit yields homotopy extension
+for the actual realized monomorphism.
+'''
+COL-0233 = '''
+Simplicial replacement is assembled skeletally from the
+diagram entries. Realized homotopy equivalences on those entries
+give equivalences through the attaching pushouts and then on the
+sequential colimit by COL-0215.
+'''
+COL-0242 = '''
+For a general bisimplicial set, outer skeletal attachments use
+the full rows and their degeneracy unions. Rowwise equivalences
+can therefore be propagated through the latching pushouts.
+The diagonal comparison transports the result to the iterated
+realization.
+'''
+COL-0216 = '''
+For ordinary twofold subdivision, the first-half endpoint gives
+the map of realizations. Contractibility on subdivided representables
+and the cellular comparisons extend its homotopy equivalence to
+arbitrary simplicial sets.
+'''
+COL-0241 = '''
+Reversing the first half of the ordinal join gives the edgewise
+construction. Its forward comparison is induced by the second-half
+endpoint, with the degenerate chosen vertex carried to the original one.
+'''
+COL-0220 = '''
+For products, the canonical realization map is tested on compact
+parameter spaces. Lifts of based cubes and of their boundary-fixed
+homotopies give the comparison on homotopy groups.
+'''
+
 [[sections]]
 id = "homotopy-colimits"
 title = "Homotopy invariance of colimits"
 order = 25
-introduction = "Homotopy extension, mapping cylinders and coherent timed deformations retain the actual comparison maps of pushouts and sequential colimits. Chosen stagewise inverses need not be compatible. These generic results support the cellular realization comparison. For arbitrary filtered simplicial diagrams, compact HELP proves that every realized colimit leg is a homotopy equivalence when the actual transitions are, without monicity or countability. Finite homotopy excision retains the actual double-cylinder gap, its attaching-map bounds and every fiber basepoint. Genuine point HEP then transfers the same range to the literal reduced-cone comparison."
+introduction = "Homotopy extension controls pushouts and sequential colimits. Compactness gives the filtered realization and reduced telescope comparisons, and a double-cylinder construction gives the finite excision range."
+
+[[sections.topics]]
+id = "cofibration-colimits"
+title = "Pushouts and sequential cofibration colimits"
+start = "COL-0214"
+
+[[sections.topics]]
+id = "filtered-realization"
+title = "Nerves and filtered realization"
+start = "COL-0238"
+
+[[sections.topics]]
+id = "double-cylinder-excision"
+title = "Double-cylinder excision"
+start = "COL-0287"
+
+[[sections.topics]]
+id = "reduced-telescopes"
+title = "Reduced telescopes and stable groups"
+start = "COL-0339"
+
+[sections.transitions]
+COL-0215 = '''
+For a sequential diagram the homotopy extension step is
+applied at each successor. The extensions give compatible
+homotopies on the colimit comparison, starting from the
+objectwise equivalences.
+'''
+COL-0238 = '''
+A simplex of a nerve is a finite string of composable arrows.
+Arrow surjectivity puts its arrows into stages, and eventual
+object equality puts the incidence conditions into a common
+stage. Faithfulness controls equality of the resulting strings.
+'''
+COL-0247 = '''
+For arbitrary filtered simplicial diagrams, compact homotopy
+lifting and extension uses the given realized transitions.
+The resulting comparison concerns every realized leg into the
+specified colimit.
+'''
+COL-0287 = '''
+In a pushout comparison, the double cylinder records a path
+between the two summands. Connectivity of the two attaching
+maps bounds the connectivity of its gap by \(r+1\leq p+q\).
+Point homotopy extension transfers this bound to the map from
+the reduced cone into the inclusion fiber.
+'''
+COL-0339 = '''
+A sequence of based spaces can be glued using cylinders between
+successive stages, with the basepoint rays collapsed. For loop
+prespectra the structure maps must descend through both kinds
+of identifications, and the stage inclusions carry the resulting
+adjacent-stage homotopies.
+'''
+COL-0350 = '''
+For \(T_1\) stages, compact maps into the reduced telescope can
+be represented up to relative homotopy in a finite stage.
+Applying the same reduction to relative homotopies compares
+representatives in a common later stage. These two statements
+give the homotopy colimit comparison and its stable-group version.
+'''

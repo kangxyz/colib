@@ -6,4 +6,4 @@ scope = "The explicit degree-two quotient comparison."
 review = "author_checked"
 kind = "comparison"
 section = "milnor-k-theory"
-order = 70
+order = 30

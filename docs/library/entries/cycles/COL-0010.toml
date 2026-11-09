@@ -6,4 +6,4 @@ scope = "The source single-local-ring case assumes finite length and finite resi
 review = "author_checked"
 kind = "theorem"
 section = "finite-algebra-coefficients"
-order = 100
+order = 10

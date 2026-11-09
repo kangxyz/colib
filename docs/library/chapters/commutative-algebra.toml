@@ -10,11 +10,87 @@ title = "Principal Euler length and associativity"
 order = 10
 introduction = "The native scalar periodic complex fixes the cokernel-minus-kernel convention. Exact-sequence additivity and support finiteness lead to prime-filtration sums and localized multiplicities, followed by intrinsic local associativity including dimension zero."
 
+[sections.transitions]
+COL-0170 = '''
+Write \(\chi_x(M)=\ell(M/xM)-\ell(0:_M x)\) when both lengths are finite.
+For a short exact sequence of modules, the kernel and cokernel sequence for
+multiplication by \(x\) gives the alternating length sum. Finiteness at the
+two ends also gives finiteness for the middle module.
+'''
+COL-0171 = '''
+Applying additivity along a prime filtration requires finite principal homology
+for the successive factors. Over a Noetherian ring, the support condition
+passes control from the ambient scalar cokernel to the subquotients.
+'''
+COL-0172 = '''
+Localize a prime filtration at a minimal point \(\mathfrak p\) of the support.
+Only factors labelled by \(\mathfrak p\) survive, and each surviving factor
+has length one over \(R_{\mathfrak p}\). Thus the number of these factors
+equals \(\ell_{R_{\mathfrak p}}(M_{\mathfrak p})\).
+'''
+COL-0173 = '''
+Over the local ring, a closed-point factor has finite length and its two
+principal homology lengths cancel. In the dimension-at-most-one calculation,
+the surviving prime-quotient Euler terms therefore carry the localized
+multiplicities just computed.
+'''
+
 [[sections]]
 id = "adic-completion"
 title = "Adic completion and actual local branches"
 order = 20
 introduction = "The canonical finite-algebra tensor map, Chinese remainder decomposition and positive-power comparison identify actual completed local branches. Explicit quotient evaluations fix the maps and completed-base scalar actions. Native fraction-field pushouts then identify the completed fraction tensor product over all original branches, with the original localization and completion coordinates."
+
+[[sections.topics]]
+id = "finite-algebra-completions"
+title = "Completion and integral branches"
+start = "COL-0185"
+
+[[sections.topics]]
+id = "completed-fraction-fields"
+title = "Fraction fields of completed branches"
+start = "COL-0190"
+
+[sections.transitions]
+COL-0186 = '''
+At each finite quotient level, the Chinese remainder maps give the coordinates
+for a product of comaximal ideals. The comparisons with positive powers and with
+localization at a maximal ideal specify how these coordinates pass to completions.
+'''
+COL-0187 = '''
+Suppose the ideal factors as \(\prod_i\mathfrak m_i^{e_i}\), with distinct
+maximal ideals and \(e_i>0\). The Chinese remainder comparison separates the
+factors, the positive-power comparison replaces each \(\mathfrak m_i^{e_i}\)
+by \(\mathfrak m_i\), and localization identifies the resulting branch completion.
+'''
+COL-0188 = '''
+In a Dedekind domain, normalized prime factors of the nonzero ideal provide the
+index set and the exponents in this factorization. Thus each coordinate of the
+completion comes from the corresponding original localization.
+'''
+COL-0189 = '''
+For a finite algebra \(R\to S\) with Dedekind target and nonzero extended ideal,
+COL-0185 first identifies the completed-base tensor product with the completion
+of \(S\). Composing with the branch equivalence specifies the completed-base
+action on every branch and makes branch finiteness follow from the finite product.
+'''
+COL-0190 = '''
+To pass from the integral tensor product to fraction fields, use the specified
+fraction-field maps on both sides of the finite-product equivalence. A fraction
+coordinate is determined by the images of its numerator and denominator,
+which ties the new equivalence to the integral one.
+'''
+COL-0191 = '''
+For the Dedekind branches, the original localizations and their completions
+provide the DVRs in this construction. The local scalar maps and the
+injectivity supplied by torsion-freeness determine the fraction maps.
+'''
+COL-0192 = '''
+The integral decomposition in COL-0189 supplies the product coordinates, and
+COL-0191 supplies the compatible DVR fraction actions. The resulting fraction
+equivalence sends an original element to its original localization and
+completion image in every branch.
+'''
 
 [[sections]]
 id = "henselian-ramification"
@@ -22,14 +98,122 @@ title = "Henselian roots, ramification and DVR orders"
 order = 30
 introduction = "Simple-root Hensel lifting supplies residue-one roots for invertible exponents and normalizes actual uniformizer equations. The native local fundamental identity identifies the supplied ramification exponent and residue degree with the actual fraction-field degree, without a separate norm-order model. The existing fraction order is then identified with the actual negative valuation logarithm, including integer powers, poles and independence of a chosen irreducible."
 
+[sections.transitions]
+COL-0196 = '''
+For a finite torsion-free extension of DVRs, let \(e\) be the exponent in the
+given uniformizer equation and \(f\) the residue-field degree. The local
+degree formula compares \(ef\) with the fraction-field degree. A prime degree
+forces one of the two positive factors to be one.
+'''
+COL-0200 = '''
+The uniformizer equation describes the order of a chosen element. To compare
+arbitrary fractions, including poles, identify the intrinsic integer order
+with the negative logarithm of the maximal-ideal valuation. This gives the
+same normalization for powers and inverses.
+'''
+
 [[sections]]
 id = "charpoly-branches"
 title = "Characteristic polynomials and exact branch multiplicities"
 order = 40
 introduction = "Actual multiplication characteristic polynomials connect scalar extension, integral closures and DVR residue reduction. A supplied tensor decomposition yields the integral product identity; normalized factor counts then prove the exact ramification-weighted residue-branch multiplicities with all relative residue degrees retained."
 
+[sections.transitions]
+COL-0203 = '''
+Under a tensor-product decomposition, multiplication by \(1\otimes x\) acts
+on the factor indexed by \(i\) as multiplication by the \(i\)-th image of \(x\).
+The characteristic polynomial of this block diagonal map is the product of
+the characteristic polynomials of the factor maps.
+'''
+COL-0204 = '''
+Over a DVR the integral multiplication map can be extended to the fraction
+field or reduced to the closed fibre. In the fibre, the uniformizer exponent
+counts the copies of the residue multiplication map in the length filtration.
+This gives its power in the reduced characteristic polynomial.
+'''
+COL-0205 = '''
+The tensor product supplies the product identity after extending scalars to
+the fraction field. For compatible integral elements, both polynomials are
+images of integral multiplication characteristic polynomials. Injectivity of
+the coefficient map descends the identity to the DVR.
+'''
+COL-0206 = '''
+In the reduced identity, several factors may have the same monic irreducible
+polynomial. Normalized factor multiplicity adds their exponents. A power of
+a squarefree polynomial prescribes the sum above each irreducible factor.
+'''
+COL-0207 = '''
+For a branch indexed by \(i\), the exponent is its ramification exponent times
+the degree of its residue field over the simple subfield generated by the
+chosen residue. Applying the factor count to the reduced integral identity
+gives the sum of these weights above each irreducible factor.
+'''
+
 [[sections]]
 id = "sylow-field-reduction"
 title = "Sylow fixed fields and normal prime subfields"
 order = 50
-introduction = "Native finite Sylow fixed fields descend the supplied small splitting polynomials. Literal irreducible AdjoinRoot branches embed into the chosen overfield; native fixing subgroups and fixed fields then supply a normal prime-degree subfield inside the original branch, with strictly smaller remaining degree. In characteristic zero, a native primitive element then supplies a literal normal prime-degree polynomial inside the original field. Every actual scalar-factor root field is a splitting field in arbitrary characteristic; in characteristic zero the prime polynomial stays irreducible or splits completely, with factor degree one or the original prime. Finite coefficient extensions preserve a monic irreducible polynomial when the extension degree is coprime to its degree, in every characteristic and without separability. Over a perfect base, one actual intermediate field of the finite product splitting field splits all specified nonzero polynomials of degree below a prime p and preserves every monic irreducible degree-p polynomial. The finite-family scope and all Galois, perfectness and characteristic hypotheses remain explicit."
+introduction = "Sylow fixed fields control small-degree splitting, and fixed subgroups give normal prime subfields inside actual polynomial branches. The resulting degree comparisons govern irreducibility after coefficient extension and the simultaneous splitting of finite families."
+
+[[sections.topics]]
+id = "sylow-descent"
+title = "Sylow descent and embedded branches"
+start = "COL-0208"
+
+[[sections.topics]]
+id = "normal-prime-subfields"
+title = "Normal prime subfields"
+start = "COL-0210"
+
+[[sections.topics]]
+id = "polynomial-degree-comparisons"
+title = "Polynomial factors and simultaneous splitting"
+start = "COL-0222"
+
+[sections.transitions]
+COL-0209 = '''
+When passing to an irreducible factor after coefficient extension, its
+\(\operatorname{AdjoinRoot}\) quotient supplies the actual branch field. A
+root in the specified splitting overfield gives the algebra embedding used
+to compare that branch with the fixed fields.
+'''
+COL-0210 = '''
+In a finite Galois \(p\)-extension, the fixing subgroup of a nontrivial
+intermediate field is proper. An index-\(p\) overgroup is normal, so its
+fixed field is normal of degree \(p\) and is contained in the given intermediate field.
+'''
+COL-0211 = '''
+An embedded field is identified with its range in the Galois extension.
+The normal subfield found in that range can be transported back along this
+equivalence, with its degree and the remaining extension degree preserved.
+'''
+COL-0221 = '''
+In characteristic zero the normal prime subextension is separable, so a
+primitive element presents it by its minimal polynomial. The corresponding
+root-field embedding lands in the original field via the transported inclusion.
+'''
+COL-0222 = '''
+Let \(f\) be monic irreducible with normal root field. In the root field of an
+irreducible scalar factor, the class of the root induces a map from the
+original root field. The original roots carried by this map split the scalar
+image of \(f\) in the literal factor root field.
+'''
+COL-0223 = '''
+In characteristic zero a normal root field of prime degree \(p\) is Galois.
+The automorphisms of a scalar-factor root field restrict to the original
+Galois group. Their order gives the factor degree, hence is either \(1\) or \(p\).
+'''
+COL-0224 = '''
+For a finite coefficient extension \(L/K\), let \(\alpha\) be the root of an
+irreducible factor of the scalar image of \(f\). The degree of \(L(\alpha)/K\)
+is divisible by \(\deg f\) through \(K(\alpha)\), and is \([L:K]\) times
+the factor degree through \(L\). Coprimality then forces the factor degree
+to be divisible by \(\deg f\).
+'''
+COL-0225 = '''
+Over a perfect base, take the splitting field of the product of the finite
+family and then the fixed field of a Sylow \(p\)-subgroup. The remaining
+extension upstairs has \(p\)-power degree, so splitting descends for each
+member of degree below \(p\). The degree of the fixed field over the base
+is prime to \(p\), which also preserves monic irreducible degree-\(p\) polynomials.
+'''

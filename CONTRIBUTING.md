@@ -50,6 +50,11 @@ The normative external guides are
 
 ## Work and validation
 
+Place new Library results in the section that uses their mathematical construction.
+Update the topic boundary or the transition before the relevant COL item when it changes
+the reading sequence. Follow the statement, scope and notation rules in docs/LIBRARY.md,
+and read the generated section with its adjacent results to check that the passage works.
+
 Prove and compile the changed leaf with its actual prerequisites. Retain completed artifacts and
 compatible validation. If a needed lower primitive is in a higher application, extract the
 minimal lower interface while preserving its hypotheses and consumers.

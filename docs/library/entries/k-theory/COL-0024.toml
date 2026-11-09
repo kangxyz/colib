@@ -1,9 +1,28 @@
 [entry]
 id = "COL-0024"
-title = 'Exact-functor maps on algebraic \(K_{0}\)'
+title = 'Functoriality of the Grothendieck group'
 kind = "theorem"
 section = "grothendieck-groups"
 order = 80
-statement = 'An exact additive functor induces an algebraic \(K_{0}\) homomorphism sending each object class to the class of its image. These maps preserve identity and composition.'
-scope = "The general conflation presentation, not only canonical abelian exact structures. Identity and composition are consequences of the generator formula. No comparison with homotopy groups of the Q-construction is claimed. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation."
+statement = '''
+Let \(F\colon(\mathcal C,\mathcal E)\to(\mathcal D,\mathcal E')\) be an exact
+functor between preadditive categories with finite biproducts and their indicated
+exact structures. It induces a homomorphism
+\[
+F_*\colon K_0(\mathcal C,\mathcal E)\longrightarrow K_0(\mathcal D,\mathcal E'),
+\qquad [X]_{\mathcal E}\longmapsto [F(X)]_{\mathcal E'}.
+\]
+The identity functor induces the identity map. For a composable exact functor
+\(G\), the induced map of the composite is \((G\circ F)_*=G_*\circ F_*\).
+'''
+scope = 'An exact functor here is additive and carries conflations to conflations.'
+proof_kind = "proof"
+proof = '''
+For each conflation \(X\hookrightarrow Y\twoheadrightarrow Z\) in
+\(\mathcal E\), its image under \(F\) is a conflation in \(\mathcal E'\).
+Thus the assignment \(X\mapsto[F(X)]_{\mathcal E'}\) is additive on conflations,
+and COL-0018 supplies the homomorphism. The identity and composition formulas
+hold on the object classes and hence on the entire group.
+'''
+source_checked_on = "2026-11-05"
 review = "author_checked"

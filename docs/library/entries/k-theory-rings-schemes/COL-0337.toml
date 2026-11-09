@@ -3,7 +3,7 @@ id = "COL-0337"
 title = "Whole-prespectrum auxiliary-support forgetting and signed boundary"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 103
+order = 260
 statement = """
 An exact functor for nested fine and coarse Waldhausen structures, preserving the chosen
 zero literally, preserves the entire original acyclic prespectrum nullhomotopy at every

@@ -3,7 +3,7 @@ id = "COL-0336"
 title = "Auxiliary-support forgetting for the actual localization sequence"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 102
+order = 250
 statement = """
 For a fixed open immersion j and auxiliary open T, the actual support inclusions commute
 with change of weak equivalences, coarse restriction, acyclic/support flattening, the

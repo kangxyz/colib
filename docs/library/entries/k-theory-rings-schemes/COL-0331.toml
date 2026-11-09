@@ -3,7 +3,7 @@ id = "COL-0331"
 title = "The relative-open fibration with prescribed support"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 111
+order = 200
 statement = '''
 For an arbitrary open immersion \(j: U \to X\) and auxiliary open \(T\), actual restriction
 of native perfect complexes supported outside \(T\) detects the relative weak class.

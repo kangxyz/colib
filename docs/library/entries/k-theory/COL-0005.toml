@@ -6,4 +6,4 @@ scope = "Only the graded quotient definition. The remark's residue maps and cycl
 review = "author_checked"
 kind = "definition"
 section = "milnor-k-theory"
-order = 50
+order = 10

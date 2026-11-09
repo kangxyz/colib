@@ -3,7 +3,7 @@ id = "COL-0319"
 title = "The actual supported spectrum in the relative-open fiber"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 95
+order = 180
 statement = """
 The native supported and relative-acyclic S-prespectra are isomorphic by the original exact
 flattening. Transport of the canonical acyclic fiber map is an all-integer stable equivalence

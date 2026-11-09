@@ -31,6 +31,20 @@ if (document.body.dataset.home === "true" && /^#COL-[0-9]{4,}$/.test(location.ha
   location.replace(root + "tag/" + location.hash.slice(1) + "/");
 }
 
+function showLinkedDeclaration() {
+  let name;
+  try {
+    name = decodeURIComponent(location.hash.slice(1));
+  } catch {
+    return;
+  }
+  const declaration = document.getElementById(name);
+  if (declaration?.matches(".module-declaration")) declaration.open = true;
+}
+
+showLinkedDeclaration();
+window.addEventListener("hashchange", showLinkedDeclaration);
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
     event.preventDefault();

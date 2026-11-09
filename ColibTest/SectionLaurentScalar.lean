@@ -20,7 +20,7 @@ attribute [local irreducible] boundedAboveFlatAffineOriginalEvaluation
   boundedAboveFlatAffineSectionsMap boundedAboveFlatAffineSectionUnitIso
 universe u
 
-variable (R : CommRingCat.{u}) 
+variable (R : CommRingCat.{u})
   (s : BoundedAboveFlatAffineSections R) (n : ℤ)
 
 variable {R} {S : CommRingCat.{u}}

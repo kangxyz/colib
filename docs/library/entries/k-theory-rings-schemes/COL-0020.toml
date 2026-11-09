@@ -1,9 +1,26 @@
 [entry]
 id = "COL-0020"
-title = 'Dimension for the exact \(K_{0}\) of finite-dimensional vector spaces'
+title = 'Dimension in the conflation presentation'
 kind = "theorem"
 section = "k-zero-of-fields"
 order = 70
-statement = 'Dimension identifies the algebraic \(K_{0}\) of the canonical exact structure on finite modules over a field with the integers, preserving every object class.'
-scope = "A field k in Type u and FGModuleCat k with carriers in Type u. The equivalence composes the abelian presentation comparison with the existing categorical dimension equivalence; it is not a computation of a Q-construction homotopy group. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation."
+statement = '''
+Let \(k\) be a field and give \(\mathcal V_k\), the category of finite-dimensional
+\(k\)-vector spaces, its standard exact structure \(\mathcal E_{\mathrm{ab}}\).
+There is an isomorphism
+\[
+K_0(\mathcal V_k,\mathcal E_{\mathrm{ab}})\xrightarrow{\sim}\mathbb Z,
+\qquad [V]_{\mathcal E_{\mathrm{ab}}}\longmapsto \dim_k V.
+\]
+In particular the class of \(k\) maps to \(1\).
+'''
+scope = 'Use the standard exact structure on `FGModuleCat k` in the same universe as the field.'
+proof_kind = "proof"
+proof = '''
+Compose the comparison \(\iota_{\mathcal V_k}\) of COL-0019 with the dimension
+isomorphism of COL-0004. The comparison sends \([V]_{\mathcal E_{\mathrm{ab}}}\)
+to \([V]\), so the composite sends that generator to \(\dim_k V\). Taking
+\(V=k\) gives the normalization at \(1\).
+'''
+source_checked_on = "2026-11-05"
 review = "author_checked"

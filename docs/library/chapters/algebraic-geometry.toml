@@ -10,11 +10,40 @@ title = "Affine open pairs"
 order = 10
 introduction = "Chosen pullbacks retain the coefficient functor and quasi-compactness over affine bases."
 
+[sections.transitions]
+COL-0149 = '''
+Let \(U\hookrightarrow\operatorname{Spec}R\) be the fixed open immersion. For an
+\(R\)-algebra \(A\), put \(U_A=U\times_{\operatorname{Spec}R}\operatorname{Spec}A\).
+The pullback projections give the maps for a change of \(A\), and the map to
+\(\operatorname{Spec}A\) remains the open immersion of the coefficient pair.
+'''
+
 [[sections]]
 id = "perfect-complexes"
 title = "Perfect complexes"
 order = 20
-introduction = "Native Stacks perfect complexes carry the actual monomorphism/quasi-isomorphism Waldhausen structure. No legacy perfectness predicate or comparison layer is maintained. The honest open-derived image uses actual chain complexes and derived isomorphisms. Its triangle and short-exact closure, Waldhausen structure, exact corestriction and strict incoming factorization retain the explicit global-perfect-model roof input. Bounded finite locally free complexes retain global term bounds, actual extensions, shifts, signed cones, vector-bundle inclusion, native perfect inclusion and compatible opposite joint data over arbitrary schemes. Finite local freeness is not replaced by global finite-free retraction."
+introduction = "Native perfect complexes form a Waldhausen subcategory of cochain complexes. Open restriction, bounded vector-bundle models and the derived image of restriction are described using actual complexes and chain maps."
+
+[sections.transitions]
+COL-0229 = '''
+For an open immersion \(j\colon U\hookrightarrow X\), restriction takes the local
+finite locally free models of a perfect complex to models on \(U\). Applied
+degreewise, \(j^*\) preserves the monomorphisms, quasi-isomorphisms and pushout
+squares of the Waldhausen structure.
+'''
+COL-0313 = '''
+A bounded complex of finite locally free modules supplies a perfect model with
+specified global term bounds. Closure under extensions, shifts and signed cones
+gives a category of these models on which vector bundles act by the degree-zero
+inclusion and whose inclusion into perfect complexes is exact.
+'''
+COL-0312 = '''
+The derived image of \(j^*\) consists of actual complexes on \(U\) that are
+derived-isomorphic to some \(j^*P\) with \(P\) perfect on \(X\). To use this class
+as a Waldhausen category and obtain strict incoming factorizations, the
+global-perfect-model roof hypothesis supplies representatives for the relevant
+derived maps.
+'''
 
 [[sections]]
 id = "nisnevich-sites"
@@ -22,8 +51,35 @@ title = "Nisnevich sites and descent"
 order = 30
 introduction = "Native schemes and smooth separated finite-type objects carry the actual Nisnevich topology. Distinguished-square sheaf gluing and field evaluation preserve their original morphisms and coefficient categories."
 
+[sections.transitions]
+COL-0341 = '''
+In a distinguished square, an open immersion \(U\hookrightarrow X\) and an étale
+map \(V\to X\) that is an isomorphism over the closed complement give a Nisnevich
+cover. On \(V\times_X V\), the diagonal and the part lying over \(U\) provide
+the cover used to check compatibility of the two restrictions.
+'''
+COL-0343 = '''
+For the base object \(\operatorname{Spec}k\), the residue-field condition gives
+a lift of its field point through any Nisnevich cover. The resulting section
+puts the identity into the covering sieve. Local lifting conditions for sheaves
+at this object are consequently conditions on their actual sections.
+'''
+
 [[sections]]
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
 introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."
+
+[sections.transitions]
+COL-0348 = '''
+The cosimplicial maps of the barycentric simplices induce simplicial restriction
+maps on \(P(U\times\Delta^n)\). Taking the alternating sum of face restrictions
+gives the ordinary singular differential, with its endpoint difference in degree one.
+'''
+COL-0349 = '''
+The prism extends the comparison of the two endpoints from degree one to a chain
+homotopy on the whole singular complex. For the interval projection, multiplication
+on the interval gives the contraction to the vertex zero and identifies that
+vertex restriction as the chain homotopy inverse.
+'''

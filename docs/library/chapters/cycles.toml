@@ -8,4 +8,105 @@ introduction = "Cycle constructions depend on precise local multiplicities and p
 id = "finite-algebra-coefficients"
 title = "Finite-algebra coefficients"
 order = 10
-introduction = 'For a finite algebra over a field, its dimension is the sum of the lengths of its prime localizations weighted by residue-field degrees. The local restriction-of-scalars formula precedes the local-algebra specialization and the global finite sum. The general local-base finite-algebra chain then identifies the closed fibre and proves [@stacks, Tag 02M0] for finite algebras using native localized modules and residue degrees, without Noetherianity. The determinant comparison then gives finite-algebra norm products with local lengths and equality of unit norms in polynomial evaluation fibres. Closed-fibre norm base change then gives residue norms for finite free local algebras and integral DVR norms with a proved uniformizer exponent. Henselian normalization and Eisenstein binomials then determine the exact unit coefficient and determinant sign of uniformizer norms in residue degree one and prime field degree. The ordinary field norm also scales native integer DVR orders by the actual residue degree for all nonzero field elements, without perfectness, henselianity or an invertible ramification exponent.'
+introduction = 'Local lengths and residue-field degrees give the multiplicities of finite algebras. The same localized lengths weight the factors in the determinant norm. For DVR extensions the closed fibre determines the norm on residues, and uniformizer calculations retain the unit coefficient and sign.'
+
+[[sections.topics]]
+id = "lengths-and-residue-degrees"
+title = "Lengths and residue degrees"
+start = "COL-0010"
+
+[[sections.topics]]
+id = "determinant-norm-products"
+title = "Determinants and norm products"
+start = "COL-0182"
+
+[[sections.topics]]
+id = "closed-fibre-norms"
+title = "Norms on the closed fibre"
+start = "COL-0193"
+
+[[sections.topics]]
+id = "uniformizer-norms"
+title = "Uniformizer coefficients and orders"
+start = "COL-0197"
+
+[sections.transitions]
+COL-0010 = '''
+Let \(R\to S\) be a local homomorphism with finite residue-field degree. Each simple
+\(S\)-module is isomorphic to \(\kappa(S)\), whose \(R\)-length is
+\([\kappa(S):\kappa(R)]\). Applying restriction of scalars to a composition series
+therefore gives the degree that weights each simple factor.
+'''
+COL-0011 = '''
+Take \(R=k\) and let \(S\) be a finite local \(k\)-algebra. Its \(k\)-length is its
+dimension, and its length as an \(S\)-module counts the factors isomorphic to its
+residue field.
+'''
+COL-0012 = '''
+A finite \(k\)-algebra is Artinian. Its decomposition into the local algebras
+\(S_{\mathfrak m}\) at its maximal ideals turns the local formula into a sum, with
+the degree of \(\kappa(\mathfrak m)\) belonging to its own summand.
+'''
+COL-0180 = '''
+For a finite algebra \(S\) over a local ring \(R\) with maximal ideal \(\mathfrak m\),
+the closed fibre \(S/\mathfrak m S\) is finite over \(\kappa(R)\). Its maximal ideals
+and residue fields determine those of \(S\) over \(\mathfrak m\), even when \(R\) is
+not Noetherian.
+'''
+COL-0181 = '''
+For a finite-length \(S\)-module \(M\), the simple factors supported at a maximal
+ideal \(\mathfrak n\) are counted by the length of \(M_{\mathfrak n}\).
+On restriction to \(R\), each such factor contributes
+\([\kappa(\mathfrak n):\kappa(R)]\). This is the local-base calculation of
+[@stacks, Tag 02M0].
+'''
+COL-0182 = '''
+The length sum counts simple factors additively. To compute a norm, one takes the
+determinant of multiplication and multiplies the contributions from the factors.
+The field comparison identifies the determinant on finite-length modules with the
+ordinary one under the canonical residue map.
+'''
+COL-0183 = '''
+On a simple factor supported at \(\mathfrak n\), multiplication by \(x\) induces
+multiplication by its residue \(\bar x\) on \(\kappa(\mathfrak n)\). Its determinant
+over the base field is the residue-field norm. Grouping the factors with the same
+support gives the exponent \(\operatorname{length}_{S_{\mathfrak n}}M_{\mathfrak n}\).
+'''
+COL-0184 = '''
+For a finite free \(k[T]\)-algebra and a global unit \(u\), the determinant of
+multiplication by \(u\) is a unit of \(k[T]\), hence belongs to \(k^\times\).
+Determinant base change along each evaluation \(T\mapsto a\) identifies this
+constant with the norm in that fibre.
+'''
+COL-0193 = '''
+For a finite free local \(R\)-algebra \(S\), determinant base change along
+\(R\to\kappa(R)\) gives the norm in \(S/\mathfrak m_RS\). Since this fibre is local,
+the factor product has just the residue-field norm, raised to the length of the fibre.
+'''
+COL-0194 = '''
+In a DVR extension, a relation \(\pi_R=u\pi_S^e\) with \(u\) a unit identifies the
+extended maximal ideal with \((\pi_S^e)\). The length of \(S/(\pi_S^e)\) is \(e\),
+which supplies the exponent in the residue of the integral norm.
+'''
+COL-0197 = '''
+A monic binomial with constant coefficient a unit times a uniformizer is Eisenstein.
+When the degree of the binomial is the field degree, the norm of its root is the
+constant coefficient multiplied by the sign for that degree.
+'''
+COL-0198 = '''
+In residue degree one, the local degree formula identifies the field degree with
+the uniformizer exponent. Henselian normalization can replace the extension
+uniformizer by a unit multiple under the stated hypotheses. The norm of the
+correcting unit is needed to recover the coefficient for the original uniformizer.
+'''
+COL-0199 = '''
+In prime field degree, the equation \([L:K]=ef\) gives the residue-degree-one
+case or the exponent-one case. If \(e=1\), the extension uniformizer differs from
+the base uniformizer by a unit, and reduction of the unit norm uses the
+closed-fibre formula.
+'''
+COL-0201 = '''
+The integer order of the norm depends on the residue degree. The comparison
+relates the orders of \(x\) and \(N_{L/K}(x)\) for every \(x\in L^\times\), including
+negative orders, using the intrinsic DVR orders of the two fields.
+'''

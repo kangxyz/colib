@@ -6,6 +6,6 @@ scope = "The pair relation is the spelling from Aglib.KTheory.MilnorK.K2.Basic a
 review = "author_checked"
 kind = "lemma"
 section = "milnor-k-theory"
-order = 80
+order = 40
 provenance = "aglib"
 proof = "Compare the relation generators. A pair of units summing to one is x and 1 - x, and every allowed x gives such a pair. Taking integer spans gives the equality of relation submodules."
