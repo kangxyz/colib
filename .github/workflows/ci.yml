@@ -30,6 +30,7 @@ jobs:
     with:
       package-directory: .
       build-targets: Colib
+      build-lake-threads: 1
       # The repo-only autoscaler requires this complete label set.
       runner-labels: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && '["self-hosted","linux","x64","colib-ec2"]' || '["ubuntu-24.04"]' }}
       native-memory-mib: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 57344 || 13824 }}
