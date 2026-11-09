@@ -631,3 +631,24 @@ the entire track, with homotopy time independent of the
 structure coordinate and, in degree zero, the input-loop
 coordinate.
 '''
+COL-0361 = '''
+The two polynomial charts map \(R[X]\) to
+\(R[T,T^{-1}]\) by \(X\mapsto T\) on the right
+and \(X\mapsto T^{-1}\) on the bottom. Both source
+composites are \(c_R\). In the mapping cone of the
+strict-square comparison, let \(N\) be its source-cylinder
+nullhomotopy and \(V\) the forward track of COL-0360
+followed by cone inclusion. The loop is the reverse of
+\(N\), followed by \(V\) followed by \(N\), with
+right-associated concatenation. Naturality of both tracks
+gives the coefficient-natural one-step Bass seed.
+'''
+COL-0362 = '''
+Iterate the strict polynomial and Laurent Bass functor
+on the affine section prespectrum, carrying the proved
+Laurent seed at every transition. Each original stage
+is T1, and finite Bass separation propagates this to
+all stages. The reduced quotient telescope therefore
+has the canonical signed stable-group colimit comparison
+of COL-0350, now natural for every coefficient map.
+'''
