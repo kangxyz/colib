@@ -1,0 +1,23 @@
+[entry]
+id = "COL-0367"
+title = "The actual graph functor"
+kind = "definition"
+section = "finite-correspondences"
+order = 60
+primary = "AlgebraicGeometry.Cor.graphFunctor"
+statement = '''
+For a field \(k\), the graph construction defines a functor
+\[\Gamma\colon\operatorname{Sm}_k\longrightarrow\operatorname{Cor}_k.\]
+It is the identity on the underlying smooth separated finite-type schemes and
+sends \(f\colon X\to Y\) to the sum of the integral graph cycles over all
+irreducible components of \(X\), each with coefficient one. It satisfies
+\(\Gamma(\mathrm{id}_X)=\Delta_X\) and
+\(\Gamma(g\circ f)=\Gamma(g)\circ\Gamma(f)\).
+'''
+scope = '''
+The source is `Scheme.SmoothSite (Spec (.of k))`. The morphism map is the
+existing `graphCorrespondenceOfComponents`, including for disconnected and empty
+objects. The composition identity uses the incidence Tor pairing, not a formal
+symbol for a graph.
+'''
+review = "author_checked"

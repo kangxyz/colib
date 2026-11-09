@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0370"
+title = "Signed Nisnevich Cech local exactness"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 30
+primary = "AlgebraicGeometry.Cor.exists_nisnevich_cech_boundary"
+statement = '''
+Let \(X,V,Y\) be smooth separated finite-type schemes over a field \(k\).
+Let \(q\colon V\to Y\) be étale and completely decomposed: every point of
+\(Y\) has a lift with isomorphic residue field. If
+\(\alpha\in\operatorname{Cor}_k(X,V)\) satisfies
+\(\Gamma(q)\circ\alpha=0\), then for every \(x\in X\) there are a pointed
+Nisnevich neighborhood \((U,u)\xrightarrow{g}(X,x)\) and
+\(\beta\in\operatorname{Cor}_k(U,V\times_Y V)\) such that
+\[\alpha\circ\Gamma(g)=\Gamma(p_1)\circ\beta-\Gamma(p_2)\circ\beta,\]
+where \(p_1,p_2\colon V\times_Y V\to V\) are the two projections.
+'''
+scope = '''
+The theorem provides one neighborhood at each specified source point, not a
+simultaneous all-point refinement. The common finite support and its pullback
+are not reduced. Original integer coefficients, the order of the two boundary
+terms and finite-image residue degrees are retained over an arbitrary field.
+'''
+review = "author_checked"

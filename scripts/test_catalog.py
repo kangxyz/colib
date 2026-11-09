@@ -317,6 +317,8 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
+            "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
+            "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -392,6 +394,40 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("No equality with archived named PerfectK", item["scope"])
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertTrue(result["entries"]["COL-0179"]["references"])
+
+    def test_cor_transfer_reading_routes_keep_new_items(self):
+        expected = {
+            "finite-correspondences": ([374, *range(363, 368)], ["COL-0374", "COL-0366"]),
+            "transfers-nisnevich": (range(368, 374), ["COL-0368", "COL-0370", "COL-0372"]),
+        }
+        for section_id, (numbers, starts) in expected.items():
+            section = self.library["sections"][section_id]
+            identifiers = [f"COL-{number:04d}" for number in numbers]
+            self.assertEqual(section["entries"], identifiers)
+            self.assertEqual([topic["start"] for topic in section["topics"]], starts)
+            self.assertEqual(set(section["transitions"]), set(identifiers))
+            for identifier in identifiers:
+                item = self.library["entries"][identifier]
+                self.assertTrue(item["primary"])
+
+    def test_cor_transfer_section_renders_maps_and_scope(self):
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        cor = (output / "sections/finite-correspondences/index.html").read_text()
+        transfers = (output / "sections/transfers-nisnevich/index.html").read_text()
+        self.assertIn('id="cycles-and-composition"', cor)
+        self.assertIn('id="category-and-graphs"', cor)
+        self.assertIn('id="sheafification-and-comparison"', transfers)
+        self.assertIn("Stacks.Chow.incidenceTorPairing_assoc", cor)
+        self.assertIn("AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafificationUnderlyingIso",
+                      transfers)
+        self.assertIn(r"\Gamma(p_1)\circ\beta-\Gamma(p_2)\circ\beta", transfers)
+        self.assertIn(r"c_P\circ\eta_{RP}=R(\eta_P)", transfers)
+        self.assertIn("one neighborhood at each specified source point", transfers)
+        self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
+                      transfers)
+        self.assertEqual(cor.count('class="section-transition"'), 6)
+        self.assertEqual(transfers.count('class="section-transition"'), 6)
 
     def test_perfect_waldhausen_chain_keeps_owners(self):
         self.assertEqual(self.library["entries"]["COL-0177"]["section"], "waldhausen-categories")

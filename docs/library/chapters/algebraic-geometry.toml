@@ -83,3 +83,116 @@ homotopy on the whole singular complex. For the interval projection, multiplicat
 on the interval gives the contraction to the vertex zero and identifies that
 vertex restriction as the chain homotopy inverse.
 '''
+
+[[sections]]
+id = "finite-correspondences"
+title = "Finite correspondences and the graph functor"
+order = 50
+introduction = 'Finite integer cycles on products define correspondence groups. Incidence Tor multiplicities give their composition, and componentwise diagonal and graph cycles connect them to smooth schemes over a field.'
+
+[[sections.topics]]
+id = "cycles-and-composition"
+title = "Cycles and composition"
+start = "COL-0374"
+
+[[sections.topics]]
+id = "category-and-graphs"
+title = "The category and graph functor"
+start = "COL-0366"
+
+[sections.transitions]
+COL-0374 = '''
+For schemes over a common base, the support condition selects the integral
+components that can carry a finite correspondence. Finite support makes a cycle
+an integer linear combination of these components, including when its source
+is not quasi-compact.
+'''
+COL-0363 = '''
+Now let the base be a field and the factors be smooth, with the middle and target
+separated. For admissible points in two successive products, the incidence Tor
+construction gives a correspondence between the outer factors. The finite-sum
+presentation in COL-0374 extends this value to signed cycles in both arguments.
+'''
+COL-0364 = '''
+For three prime correspondences, the two compositions are finite pushforwards of
+the same combined-diagonal triple Tor cycle. Their equality on these generators,
+followed by additive extensionality in all three arguments, gives associativity
+for the signed cycles of COL-0363.
+'''
+COL-0365 = '''
+An identity must include every source component. Its graph is the sum of the
+diagonal prime cycles, so the generic-point set must be finite. In composing a
+prime correspondence with that sum, exactly one component contributes the
+original prime and the other incidences are empty; biadditivity gives the unit
+law for an arbitrary signed cycle.
+'''
+COL-0366 = '''
+Smooth separated finite-type schemes have the finite generic-point sets needed
+in COL-0365. On these objects, COL-0364 and COL-0365 supply the category laws,
+while the two additive structures in COL-0363 supply preadditivity.
+'''
+COL-0367 = '''
+For a morphism of smooth schemes, take the graph on each irreducible source
+component and sum with coefficient one. The identity gives the diagonal sum
+already used by COL-0366. The Tor composition calculation for two such graphs
+gives the graph of their composite.
+'''
+
+[[sections]]
+id = "transfers-nisnevich"
+title = "Transfers and Nisnevich sheafification"
+order = 60
+introduction = 'Additive presheaves on the correspondence category have contravariant transfers. Graph restriction relates their Nisnevich descent to the ordinary smooth site, and local signed Čech exactness supplies the comparison needed for transfer-preserving sheafification.'
+
+[[sections.topics]]
+id = "transfer-presheaves-and-sheaves"
+title = "Transfer presheaves and sheaves"
+start = "COL-0368"
+
+[[sections.topics]]
+id = "local-exactness-and-descent"
+title = "Local exactness and descent"
+start = "COL-0370"
+
+[[sections.topics]]
+id = "sheafification-and-comparison"
+title = "Sheafification and comparison"
+start = "COL-0372"
+
+[sections.transitions]
+COL-0368 = '''
+An additive functor on the opposite of the category in COL-0366 turns each
+signed correspondence into a homomorphism in the reverse direction. Its
+functoriality and additivity give the transfer composition and integer-linearity
+identities without changing the underlying cycles.
+'''
+COL-0369 = '''
+Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
+on smooth schemes. The Nisnevich sheaf condition is imposed on that restriction;
+morphisms still commute with every correspondence, not only graph arrows.
+'''
+COL-0370 = '''
+To compare descent on the two sites, consider a relation killed by composition
+with the graph of a completely decomposed étale map. Lift its common finite
+image over a pointed Nisnevich neighborhood. The resulting contraction writes
+the restricted signed relation as the first Čech projection minus the second,
+with the original multiplicities.
+'''
+COL-0371 = '''
+The local boundary in COL-0370 turns compatibility for the two Čech projections
+into compatibility for correspondence arrows. Additivity also handles finite
+disjoint unions and the empty scheme. These facts compare sheafness for the
+correspondence topology with the graph-restricted condition of COL-0369.
+'''
+COL-0372 = '''
+Sheafify on the correspondence site. Preservation of addition in source arrows
+gives transfers on the result, and COL-0371 gives ordinary Nisnevich descent.
+With coefficients in universe \(u+1\) for a field in universe \(u\), the
+canonical unit and its unique extension property give the stated adjunction.
+'''
+COL-0373 = '''
+Restrict the unit of COL-0372 along the graph functor. It is locally bijective
+and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
+extends it to an isomorphism, with the direction and unit identity fixed by
+that extension.
+'''

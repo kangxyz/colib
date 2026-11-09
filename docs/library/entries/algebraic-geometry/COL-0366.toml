@@ -1,0 +1,21 @@
+[entry]
+id = "COL-0366"
+title = "The preadditive category of finite correspondences"
+kind = "definition"
+section = "finite-correspondences"
+order = 50
+primary = "AlgebraicGeometry.Cor.category"
+statement = '''
+For a field \(k\), let the objects of \(\operatorname{Cor}_k\) be smooth
+separated finite-type \(k\)-schemes and set
+\(\operatorname{Hom}_{\operatorname{Cor}_k}(X,Y)=\operatorname{Cor}_k(X,Y)\).
+The incidence Tor pairing of COL-0363, the diagonal sums of COL-0365 and the
+associativity law of COL-0364 define a category. Its native abelian hom groups
+and biadditive composition make it preadditive.
+'''
+scope = '''
+`Cor k` wraps the existing smooth-site objects to distinguish the correspondence
+category. Finite type supplies finite identity support. Empty and disconnected
+objects are included over any field; no categorical law is assumed.
+'''
+review = "author_checked"

@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0372"
+title = "Transfer-preserving Nisnevich sheafification"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 50
+primary = "AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafificationAdjunction"
+statement = '''
+Let \(k\) be a field in universe \(u\), with abelian-group coefficients
+in universe \(u+1\). Nisnevich sheafification on the correspondence site gives
+an additive functor
+\[a_{\mathrm{tr}}\colon\operatorname{PST}(k)\longrightarrow\operatorname{NST}(k)\]
+left adjoint to the inclusion \(i\). For \(P\in\operatorname{PST}(k)\) and
+\(Q\in\operatorname{NST}(k)\), the adjunction sends
+\(f\colon a_{\mathrm{tr}}P\to Q\) to \(i(f)\circ\eta_P\), where
+\(\eta_P\colon P\to i(a_{\mathrm{tr}}P)\) is the canonical sheafification unit.
+Every map \(P\to iQ\) has a unique such extension, natural for signed transfers.
+'''
+scope = '''
+Here `PST` and `NST` denote the categories in COL-0368 and COL-0369. The
+`HasWeakSheafify`, `HasSheafCompose` and `PreservesSheafification` hypotheses for
+the correspondence topology and the forgetful functor to types remain explicit;
+standard imported abelian-group instances supply them. No smaller coefficient
+universe is asserted.
+'''
+review = "author_checked"

@@ -1,0 +1,22 @@
+[entry]
+id = "COL-0368"
+title = "Additive presheaves with transfers"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers"
+statement = '''
+Let \(k\) be a field. The category of presheaves with transfers consists of
+additive functors \(P\colon\operatorname{Cor}_k^{\mathrm{op}}\to\mathbf{Ab}\)
+and natural transformations. A correspondence
+\(\alpha\in\operatorname{Cor}_k(X,Y)\) acts by
+\(\alpha^*=P(\alpha)\colon P(Y)\to P(X)\), with
+\((\beta\circ\alpha)^*=\alpha^*\circ\beta^*\) and
+\((m\alpha+n\alpha')^*=m\alpha^*+n\alpha'^*\) for integers \(m,n\).
+'''
+scope = '''
+The implementation uses Mathlib's bundled additive functors to `AddCommGrpCat`.
+The coefficient universe is independent of the field universe. Morphisms commute
+with all signed transfers; ordinary restriction is obtained through COL-0367.
+'''
+review = "author_checked"

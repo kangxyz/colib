@@ -1,0 +1,20 @@
+[entry]
+id = "COL-0369"
+title = "Ordinary Nisnevich sheaves with transfers"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers"
+statement = '''
+Let \(k\) be a field and let \(\Gamma\colon\operatorname{Sm}_k\to \operatorname{Cor}_k\) be the graph functor. A Nisnevich sheaf with transfers
+is a presheaf with transfers \(P\) for which
+\(P\circ\Gamma^{\mathrm{op}}\) is a sheaf for the ordinary Nisnevich topology
+on \(\operatorname{Sm}_k\). These objects form a full subcategory of presheaves
+with transfers, whose morphisms retain naturality for every correspondence.
+'''
+scope = '''
+The condition is `PresheafWithTransfers.IsNisnevichSheaf`; the full subcategory
+is `SheafWithTransfers`. The field and coefficient universe are arbitrary. The
+forgetful functor to ordinary sheaves is faithful and additive.
+'''
+review = "author_checked"
