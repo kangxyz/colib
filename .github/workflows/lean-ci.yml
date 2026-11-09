@@ -20,6 +20,9 @@ on:
       reuse-build-host:
         type: boolean
         default: false
+      prepared-dependencies:
+        type: boolean
+        default: false
       native-memory-mib:
         type: number
         default: 13824
@@ -216,7 +219,7 @@ jobs:
         run: python3 .github/cache-promotion/promotion.py first-ci
       - name: Restore optional dependencies checkpoint
         id: restore-dependencies
-        if: ${{ steps.cache-mode.outputs.layered == 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (steps.cache-mode.outputs.layered == 'true') }}
         continue-on-error: true
         uses: ./.github/actions/restore-checkpoint
         with:
@@ -226,6 +229,7 @@ jobs:
           restore-keys: |
             colib-layered-v2-dependencies-${{ steps.cache-mode.outputs.dependencies_context }}-
       - name: Restore optional Stacks checkpoint
+        if: ${{ !inputs.prepared-dependencies }}
         id: restore-stacks
         continue-on-error: true
         uses: ./.github/actions/restore-checkpoint
@@ -235,7 +239,7 @@ jobs:
           key: colib-layered-v2-stacks-${{ steps.cache-mode.outputs.stacks_context }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: colib-layered-v2-stacks-${{ steps.cache-mode.outputs.stacks_context }}-
       - name: Restore the earlier independent Stacks seed
-        if: ${{ steps.restore-stacks.outputs.restored != 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (steps.restore-stacks.outputs.restored != 'true') }}
         continue-on-error: true
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
@@ -256,7 +260,7 @@ jobs:
             colib-layered-v2-root-${{ steps.cache-mode.outputs.root_context }}-
       - name: Restore optional tools checkpoint
         id: restore-tools
-        if: ${{ steps.cache-mode.outputs.layered == 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (steps.cache-mode.outputs.layered == 'true') }}
         continue-on-error: true
         uses: ./.github/actions/restore-checkpoint
         with: &tools-checkpoint-cache
@@ -267,7 +271,7 @@ jobs:
             colib-layered-v2-tools-${{ steps.cache-mode.outputs.tools_context }}-${{ github.ref }}-
             colib-layered-v2-tools-${{ steps.cache-mode.outputs.tools_context }}-
       - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
-        if: ${{ steps.cache-mode.outputs.layered != 'true' || steps.restore-dependencies.outcome != 'success' || steps.restore-root.outcome != 'success' || steps.restore-dependencies.outputs.restored != 'true' || steps.restore-root.outputs.restored != 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (steps.cache-mode.outputs.layered != 'true' || steps.restore-dependencies.outcome != 'success' || steps.restore-root.outcome != 'success' || steps.restore-dependencies.outputs.restored != 'true' || steps.restore-root.outputs.restored != 'true') }}
         id: restore
         continue-on-error: ${{ steps.cache-mode.outputs.layered == 'true' }}
         with:
@@ -346,7 +350,7 @@ jobs:
         working-directory: ${{ inputs.package-directory }}
         run: python3 .github/ci-cache/checkpoint.py supported --root . --materialized
       - name: Restore verified Stacks baseline
-        if: ${{ steps.cache-mode.outputs.layered == 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (steps.cache-mode.outputs.layered == 'true') }}
         continue-on-error: true
         timeout-minutes: 8
         working-directory: ${{ inputs.package-directory }}
@@ -385,8 +389,12 @@ jobs:
       - name: Apply optional compilation checkpoints
         if: ${{ steps.cache-mode.outputs.layered == 'true' }}
         working-directory: ${{ inputs.package-directory }}
+        env:
+          PREPARED_DEPENDENCIES: ${{ inputs.prepared-dependencies }}
         run: |
-          for layer in dependencies tools stacks root; do
+          layers=(dependencies tools stacks root)
+          if test "$PREPARED_DEPENDENCIES" = true; then layers=(root); fi
+          for layer in "${layers[@]}"; do
             archive="$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/$layer.tar.zst"
             if test -f "$archive"; then
               if ! python3 .github/ci-cache/checkpoint.py restore --root . --layer "$layer" \
@@ -396,9 +404,11 @@ jobs:
             fi
           done
       - name: Get Mathlib cache
+        if: ${{ !inputs.prepared-dependencies }}
         working-directory: ${{ inputs.package-directory }}
         run: &mathlib-cache-get lake exe cache get
       - name: Restore published native dependency caches
+        if: ${{ !inputs.prepared-dependencies }}
         working-directory: ${{ inputs.package-directory }}
         env:
           GH_TOKEN: ${{ github.token }}
@@ -462,6 +472,16 @@ jobs:
             | select(.rev | test("^[0-9a-f]{40}$"))
             | [.name, (.url | sub("^https://github[.]com/"; "") | sub("[.]git/?$"; "") | rtrimstr("/")), .rev]
             | @tsv' lake-manifest.json)
+      - name: Download this run's prepared dependency bundle
+        if: inputs.prepared-dependencies
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: prepared-dependencies-${{ github.run_attempt }}
+          path: ${{ env.CI_CHECKPOINT_PATH }}
+      - name: Verify the prepared dependencies without recompiling
+        if: inputs.prepared-dependencies
+        working-directory: ${{ inputs.package-directory }}
+        run: bash .github/ci-cache/verify-split-dependencies.sh "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH"
       - name: Import checked branch outputs after merge
         id: merge-seed
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && steps.cache-mode.outputs.layered == 'true' }}
@@ -487,6 +507,7 @@ jobs:
         env:
           CI_LAKE_THREADS: ${{ inputs.build-lake-threads != 0 && inputs.build-lake-threads || inputs.lake-threads }}
           MERGE_SEED_IMPORTED: ${{ steps.merge-seed.outputs.imported }}
+          PREPARED_DEPENDENCIES: ${{ inputs.prepared-dependencies }}
         run: |
           read -r -a targets <<< "$BUILD_TARGETS"
           if test "${#targets[@]}" -eq 0; then
@@ -504,6 +525,9 @@ jobs:
           build_options=()
           if test "$MERGE_SEED_IMPORTED" = true; then
             export LAKE_RESTORE_ARTIFACTS=true
+            build_options+=(--rehash)
+          fi
+          if test "$PREPARED_DEPENDENCIES" = true && test "$MERGE_SEED_IMPORTED" != true; then
             build_options+=(--rehash)
           fi
           echo 'attempted=true' >> "$GITHUB_OUTPUT"
@@ -625,7 +649,7 @@ jobs:
           key: colib-layered-v2-root-${{ steps.cache-mode.outputs.root_context }}-${{ github.ref }}-${{ github.run_id }}-${{ github.run_attempt }}-build
       - name: Pack completed dependencies checkpoint
         id: pack-dependencies
-        if: ${{ always() && steps.cache-mode.outputs.layered == 'true' && steps.quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true' && (steps.build.outcome == 'success' || steps.build.outcome == 'failure') && steps.staging-quiesce.outcome == 'success' }}
+        if: ${{ !inputs.prepared-dependencies && (always() && steps.cache-mode.outputs.layered == 'true' && steps.quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true' && (steps.build.outcome == 'success' || steps.build.outcome == 'failure') && steps.staging-quiesce.outcome == 'success') }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
         run: |
@@ -648,7 +672,7 @@ jobs:
           compression-level: 0
       - name: Pack completed Stacks checkpoint
         id: pack-stacks
-        if: ${{ always() && steps.quiesce.outcome == 'success' && steps.staging-quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true' }}
+        if: ${{ !inputs.prepared-dependencies && (always() && steps.quiesce.outcome == 'success' && steps.staging-quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true') }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
         run: |
@@ -794,6 +818,7 @@ jobs:
             exit 1
           fi
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          sudo systemctl restart colib-ci-expiry.timer
           read -r lean_bin < "$handoff/lean-bin"
           case "$lean_bin" in
             /*) ;;
@@ -1021,9 +1046,12 @@ jobs:
         working-directory: ${{ inputs.package-directory }}
         env:
           CHECK_TARGETS: ${{ inputs.check-targets }}
+          PREPARED_DEPENDENCIES: ${{ inputs.prepared-dependencies }}
         run: |
           read -r -a targets <<< "$CHECK_TARGETS"
-          lake --log-level=error build batteries/runLinter mathlib/lint-style mathlib/mk_all "${targets[@]}"
+          options=()
+          if test "$PREPARED_DEPENDENCIES" = true; then options+=(--no-build --rehash); fi
+          lake "${options[@]}" --log-level=error build batteries/runLinter mathlib/lint-style mathlib/mk_all "${targets[@]}"
       - name: Check generated library entries
         id: imports
         if: ${{ !cancelled() && steps.tools.outcome == 'success' }}
@@ -1064,6 +1092,8 @@ jobs:
         if: ${{ !cancelled() && needs.build.result == 'success' && (steps.lean-setup.outcome == 'success' || steps.lean-setup-local.outcome == 'success') && steps.compiled.outcome == 'success' && steps.tools.outcome == 'success' }}
         continue-on-error: true
         working-directory: ${{ inputs.package-directory }}
+        env:
+          CI_LINT_NO_BUILD: ${{ inputs.prepared-dependencies }}
         run: |
           read -r -a roots <<< "$BUILD_TARGETS"
           if test "${#roots[@]}" -eq 0; then
@@ -1090,27 +1120,18 @@ jobs:
         if: ${{ !cancelled() && needs.build.result == 'success' && (steps.lean-setup.outcome == 'success' || steps.lean-setup-local.outcome == 'success') && steps.compiled.outcome == 'success' }}
         continue-on-error: true
         working-directory: ${{ inputs.package-directory }}
+        env:
+          PREPARED_DEPENDENCIES: ${{ inputs.prepared-dependencies }}
         run: |
           read -r -a roots <<< "$BUILD_TARGETS"
           if test "${#roots[@]}" -eq 0; then
             echo '::error::build-targets must name at least one production root.'
             exit 1
           fi
-          # Reuse the pinned source and incremental outputs across Test runs.
+          options=()
+          if test "$PREPARED_DEPENDENCIES" = true; then options+=(--no-build --rehash); fi
+          bash .github/ci-cache/prepare-axiom-audit.sh "${options[@]}"
           tool="$LAKE_CACHE_DIR/axiom-audit"
-          if ! test -d "$tool/.git"; then
-            # A scoped tools checkpoint can restore .lake without source/.git.
-            auditor_source=$(mktemp -d "$RUNNER_TEMP/axiom-audit-source.XXXXXX")
-            trap 'rm -rf "$auditor_source"' EXIT
-            git clone --depth 1 --branch v0.1.2 https://github.com/leanprover-community/axiom-audit.git "$auditor_source/checkout"
-            test "$(git -C "$auditor_source/checkout" rev-parse HEAD)" = 46024e005996495c65ef609368e11ab39c4222e3
-            mkdir -p "$tool"
-            cp -a "$auditor_source/checkout/." "$tool/"
-          fi
-          test "$(git -C "$tool" rev-parse HEAD)" = 46024e005996495c65ef609368e11ab39c4222e3
-          cp lean-toolchain "$tool/lean-toolchain"
-          (cd "$tool" && lake build)
-          test -x "$tool/.lake/build/bin/axiom-audit"
           result=0
           for root in "${roots[@]}"; do
             lake env "$tool/.lake/build/bin/axiom-audit" --root "$root" || result=1

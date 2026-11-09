@@ -54,6 +54,22 @@ before the runner becomes idle.
   with the same pins and run `lake exe cache unstage --staging-dir=DIR`
   followed by `lake exe cache unpack` to expand the local archives.
 
+## Split EC2 CI
+
+The repository owner can run **Colib split CI** manually from a Colib branch.
+The high-memory runner builds the external imports of Colib and ColibTest and
+prepares the pinned checker tools. Lake's module and import queries select the
+targets from the current checkout. The dependency job restores compatible
+checkpoints and saves completed work after a compiler cutoff.
+
+The standard `m7i.xlarge` runner uses up to 13,824 MiB and four Lake threads.
+It verifies the producer commit, run, attempt, archive digests and distinct
+runner before restoring the Stacks, dependency and checker checkpoints.
+It restores the official Mathlib cache and applies the Mathlib build files
+created or changed by the dependency job, including native checker outputs.
+Lake verifies the restored dependencies with `--no-build`
+before compiling Colib. Test runs in the same standard-runner checkout.
+
 ## Checkpoints and transport
 
 The workflow retains independent compilation, staging, verification, Test, text-style,
@@ -121,7 +137,7 @@ Pages consumes the resulting `colib-site` artifact from a trusted main push.
 
 ## Pin-specific adaptations
 
-GitHub-hosted Linux x64 jobs try the standard Elan setup first. If it fails,
+Linux x64 jobs try the standard Elan setup first. If it fails,
 they obtain the official Lean distribution named in `lean-toolchain` through
 the Release Asset API. The fallback checks the asset size, SHA-256 digest and
 Lean version before putting the distribution on PATH.

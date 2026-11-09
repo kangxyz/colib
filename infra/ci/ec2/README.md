@@ -139,3 +139,17 @@ Keep the webhook and scale-up function available between jobs. This mode
 has a single-runner cap and an empty idle pool. To suspend it, set
 `COLIB_SELF_HOSTED_ENABLED=false`, remove `COLIB_DEPENDENCY_WARMUP_ENABLED`,
 deactivate the hook and apply `enabled=false`.
+
+## Standard EC2 runner for split CI
+
+The split workflow uses the guarded high-memory runner to build dependencies
+and a separate `m7i.xlarge` runner for Colib and its checks. Each fleet has a
+single-runner cap. The standard runner uses the same Ubuntu, subnet, watchdog
+and idle scale-down as the high-memory runner, with the separate
+`colib-standard-ec2` label.
+
+Apply the existing guarded CI configuration with `-var standard_enabled=true`
+to provision the second fleet. Synchronize the runner distribution for its
+bucket, then add a second repository `workflow_job` hook for
+`terraform output -raw standard_webhook_url`, using the existing Colib hook
+secret. Set `COLIB_STANDARD_RUNNER_ENABLED=true` after that hook is active.

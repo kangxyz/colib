@@ -16,6 +16,12 @@ variable "guarded_ci" {
   default     = false
 }
 
+variable "standard_enabled" {
+  description = "Provision the standard EC2 runner used by the split workflow."
+  type        = bool
+  default     = false
+}
+
 variable "github_app_key_ssm_name" {
   description = "Existing GitHub App private-key SecureString. Only the parameter reference enters state."
   type        = string

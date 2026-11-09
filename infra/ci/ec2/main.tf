@@ -9,6 +9,41 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
+  # Secrets are created outside Terraform; only names and ARNs enter state.
+  github_app = {
+    id = var.github_app_id
+    key_base64_ssm = {
+      name = local.app_key_name
+      arn  = "${local.parameter_arn_prefix}${local.app_key_name}"
+    }
+    webhook_secret_ssm = {
+      name = local.webhook_name
+      arn  = "${local.parameter_arn_prefix}${local.webhook_name}"
+    }
+  }
+  ubuntu_ami = {
+    owners = ["099720109477"]
+    filter = {
+      name  = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+      state = ["available"]
+    }
+  }
+  expiry_script = <<-SHELL
+    systemd-run --unit=colib-ci-expiry --on-active=${var.runner_lifetime_minutes}m /sbin/shutdown -h now
+  SHELL
+  runner_disk = [{
+    device_name           = "/dev/sda1"
+    volume_size           = 200
+    volume_type           = "gp3"
+    encrypted             = true
+    delete_on_termination = true
+  }]
+  runner_metadata = {
+    http_endpoint               = "enabled"
+    http_tokens                 = "required"
+    http_put_response_hop_limit = 1
+    instance_metadata_tags      = "enabled"
+  }
   guarded_runner       = var.guarded_ci || var.warmup_only
   app_key_name         = var.github_app_key_ssm_name
   webhook_name         = "/${var.prefix}/app/webhook-secret"
@@ -56,18 +91,7 @@ module "runners" {
   vpc_id     = aws_vpc.runner.id
   subnet_ids = [aws_subnet.runner.id]
 
-  # Secrets are created outside Terraform; only names and ARNs enter state.
-  github_app = {
-    id = var.github_app_id
-    key_base64_ssm = {
-      name = local.app_key_name
-      arn  = "${local.parameter_arn_prefix}${local.app_key_name}"
-    }
-    webhook_secret_ssm = {
-      name = local.webhook_name
-      arn  = "${local.parameter_arn_prefix}${local.webhook_name}"
-    }
-  }
+  github_app = local.github_app
 
   enable_organization_runners             = false
   repository_white_list                   = ["kangxyz/colib"]
@@ -102,31 +126,12 @@ module "runners" {
 
   # The upstream default Linux bootstrap uses Amazon Linux/dnf.
   # Colib's existing native CI expects Ubuntu, Python >=3.11 and systemd.
-  ami = {
-    owners = ["099720109477"]
-    filter = {
-      name  = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
-      state = ["available"]
-    }
-  }
+  ami                  = local.ubuntu_ami
   userdata_template    = "${path.module}/ubuntu-user-data.sh.tftpl"
-  userdata_pre_install = <<-SHELL
-    systemd-run --unit=colib-ci-expiry --on-active=${var.runner_lifetime_minutes}m /sbin/shutdown -h now
-  SHELL
+  userdata_pre_install = local.expiry_script
 
-  block_device_mappings = [{
-    device_name           = "/dev/sda1"
-    volume_size           = 200
-    volume_type           = "gp3"
-    encrypted             = true
-    delete_on_termination = true
-  }]
-  runner_metadata_options = {
-    http_endpoint               = "enabled"
-    http_tokens                 = "required"
-    http_put_response_hop_limit = 1
-    instance_metadata_tags      = "enabled"
-  }
+  block_device_mappings   = local.runner_disk
+  runner_metadata_options = local.runner_metadata
 
   webhook_lambda_zip                = "${path.module}/lambdas/${local.guarded_runner ? "warmup-webhook" : "webhook"}.zip"
   runner_binaries_syncer_lambda_zip = "${path.module}/lambdas/runner-binaries-syncer.zip"
