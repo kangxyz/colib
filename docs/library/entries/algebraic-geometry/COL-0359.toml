@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0359"
+title = "Comparison of Nisnevich sheaf conditions"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 40
+statement = "For additive transfer presheaves the actual Cor Nisnevich sheaf condition is equivalent to the ordinary smooth Nisnevich condition on graph restriction."
+scope = "Any field and independent coefficient universe. No continuity or fullness claim for arbitrary nonadditive correspondence presheaves."
+review = "author_checked"

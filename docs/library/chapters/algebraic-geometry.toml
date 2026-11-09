@@ -27,3 +27,15 @@ id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
 introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."
+
+[[sections]]
+id = "finite-correspondences"
+title = "Finite correspondences and the graph functor"
+order = 50
+introduction = "Actual signed native cycles, incidence Tor composition and full component identities define Cor over arbitrary fields."
+
+[[sections]]
+id = "transfers-nisnevich"
+title = "Transfers and Nisnevich sheafification"
+order = 60
+introduction = "Additive transfer presheaves satisfy genuine signed Cech local exactness and ordinary Nisnevich comparison. Transfer-preserving sheafification retains its universe and canonical units."

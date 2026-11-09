@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0355"
+title = "The actual graph functor"
+kind = "definition"
+section = "finite-correspondences"
+order = 60
+statement = "Send each smooth-site morphism to its actual finite sum of component graph cycles, preserving identity and composition."
+scope = "Arbitrary fields and all smooth separated finite-type objects, including disconnected objects."
+review = "author_checked"

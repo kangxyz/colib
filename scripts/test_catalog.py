@@ -317,6 +317,8 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
+            "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
+            "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",

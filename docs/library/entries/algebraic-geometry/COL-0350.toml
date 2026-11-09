@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0350"
+title = "Finite correspondences on native cycles"
+kind = "definition"
+section = "finite-correspondences"
+order = 10
+statement = "Finite-support integer cycles whose actual integral components are finite and surjective onto source irreducible components."
+scope = "Arbitrary schemes over a common base; finite support remains explicit, including for non-quasi-compact sources."
+review = "author_checked"

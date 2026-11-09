@@ -1,0 +1,53 @@
+/-
+Copyright (c) 2026 Colib contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Colib contributors
+-/
+module
+
+public import Colib.AlgebraicGeometry.Correspondences.Composition.TripleTorCycle
+
+@[expose] public noncomputable section
+
+open AlgebraicGeometry CategoryTheory CategoryTheory.Limits TopologicalSpace Stacks.Chow
+
+universe u
+
+variable (K : Type u) [Field K] {X Y Z W : Scheme.{u}}
+  (f : X ⟶ Spec (.of K)) (g : Y ⟶ Spec (.of K))
+  (h : Z ⟶ Spec (.of K)) (i : W ⟶ Spec (.of K))
+  (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
+  (v : pullback (C := Scheme) h i)
+  [Smooth f] [Smooth g] [Smooth h] [Smooth i] [IsSeparated g] [IsSeparated h]
+  (hz : IsFiniteCorrespondencePoint f g z) (hw : IsFiniteCorrespondencePoint g h w)
+  (hv : IsFiniteCorrespondencePoint h i v)
+
+example (t : genericPoints (correspondenceTripleIncidence f g h i z w v)) (n : ℕ) :
+    Module.length (correspondenceTripleIncidenceAmbientStalk f g h i z w v t.1)
+      (correspondenceTripleIncidenceTor f g h i z w v t.1 n) ≠ ⊤ :=
+  correspondenceTripleIncidenceTor_length_ne_top K f g h i z w v t n
+
+example (t : genericPoints (correspondenceTripleIncidence f g h i z w v)) :
+    (Function.support fun n : ℕ => (-1 : ℤ) ^ n *
+      ((Module.length (correspondenceTripleIncidenceAmbientStalk f g h i z w v t.1)
+        (correspondenceTripleIncidenceTor f g h i z w v t.1 n)).toNat : ℤ)).Finite :=
+  finite_support_correspondenceTripleIncidenceTorTerm K f g h i z w v t
+
+example (x : correspondenceLeftImageIncidence f g h i z w v)
+    (hx : x ∉ genericPoints (correspondenceLeftImageIncidence f g h i z w v)) :
+    letI := isFinite_correspondenceTripleToLeftImageIncidence f g h i z w v hz hw
+    finiteCyclePushforward (correspondenceTripleToLeftImageIncidence f g h i z w v)
+      (correspondenceTripleIncidenceTorCycle K f g h i z w v hw hv) x = 0 :=
+  tripleTorPushforward_eq_zero_of_not_generic K f g h i z w v hz hw hv x hx
+
+example (x : genericPoints (correspondenceLeftImageIncidence f g h i z w v)) :
+    letI := isFinite_correspondenceTripleToLeftImageIncidence f g h i z w v hz hw
+    finiteCyclePushforward (correspondenceTripleToLeftImageIncidence f g h i z w v)
+        (correspondenceTripleIncidenceTorCycle K f g h i z w v hw hv) x.1 =
+      ∑ᶠ t : {t : genericPoints (correspondenceTripleIncidence f g h i z w v) //
+        correspondenceTripleToLeftImageIncidence f g h i z w v t.1 = x.1},
+        (∑ᶠ n : ℕ, (-1 : ℤ) ^ n *
+          ((Module.length (correspondenceTripleIncidenceAmbientStalk f g h i z w v t.1.1)
+            (correspondenceTripleIncidenceTor f g h i z w v t.1.1 n)).toNat : ℤ)) *
+          ((correspondenceTripleToLeftImageIncidence f g h i z w v).residueDegree t.1.1 : ℤ) :=
+  tripleTorPushforward_apply_generic K f g h i z w v hz hw hv x

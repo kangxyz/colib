@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0361"
+title = "Underlying ordinary sheafification comparison"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 60
+statement = "The canonical natural isomorphism identifies underlying transfer-preserving sheafification with ordinary Nisnevich sheafification and preserves the actual units."
+scope = "Field in Type u and abelian-group coefficients in universe u+1; standard ordinary and Cor sheafification instances. The comparison retains its actual section maps."
+review = "author_checked"

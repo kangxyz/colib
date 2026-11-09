@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0351"
+title = "Actual incidence Tor composition"
+kind = "definition"
+section = "finite-correspondences"
+order = 20
+statement = "Extend the actual incidence Tor correspondence biadditively to signed finite correspondences; signed generator coefficients multiply."
+scope = "Arbitrary field; smooth factors, separated middle and target. No supplied cycle or composition law."
+review = "author_checked"

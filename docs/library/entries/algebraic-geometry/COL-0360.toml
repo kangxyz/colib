@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0360"
+title = "Transfer-preserving Nisnevich sheafification"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 50
+statement = "Construct additive Nisnevich sheafification with genuine signed transfers, its actual unit and universal lifting property, left adjoint to the original inclusion."
+scope = "Field in Type u and coefficients in AddCommGrpCat at universe u+1. Native sheafification and forget compatibility hypotheses are explicit and supplied by standard imported instances. No smaller-universe assertion."
+review = "author_checked"

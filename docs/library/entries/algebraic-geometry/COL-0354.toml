@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0354"
+title = "The preadditive category of finite correspondences"
+kind = "definition"
+section = "finite-correspondences"
+order = 50
+statement = "Construct the actual Cor category and preadditive structure from native signed cycle groups, full component diagonal identities and proved incidence Tor composition laws."
+scope = "All smooth separated finite-type objects over any field, including empty and disconnected objects. No assumed categorical laws."
+review = "author_checked"

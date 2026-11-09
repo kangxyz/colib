@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0357"
+title = "Ordinary Nisnevich sheaves with transfers"
+kind = "definition"
+section = "transfers-nisnevich"
+order = 20
+statement = "Take the full subcategory of transfer presheaves whose graph restriction satisfies ordinary smooth Nisnevich sheaf descent."
+scope = "Any field and independent coefficient universe; uses the actual graph restriction and ordinary topology."
+review = "author_checked"

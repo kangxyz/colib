@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0358"
+title = "Signed Nisnevich Cech local exactness"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 30
+statement = "A signed correspondence cycle in the kernel of a covering graph pushforward locally admits a genuine Cech boundary."
+scope = "Actual finite supports and pointed Nisnevich lifts over an arbitrary field; coefficients and signs are retained without support reduction."
+review = "author_checked"

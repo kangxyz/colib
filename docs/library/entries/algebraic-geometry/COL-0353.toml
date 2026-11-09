@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0353"
+title = "Full componentwise identity laws"
+kind = "theorem"
+section = "finite-correspondences"
+order = 40
+statement = "The full componentwise diagonal graph is a left and right unit for the actual signed Tor pairing."
+scope = "Smooth separated geometry over an arbitrary field; the relevant generic-point set is finite. Compact smooth objects supply this finiteness. No claim for an infinite identity sum."
+review = "author_checked"
