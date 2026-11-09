@@ -69,16 +69,29 @@ setup_from_release_api() (
   printf '%s\n' "$version"
   "$distribution/bin/lake" --version
   rm -- "$archive" "$temporary/release.json"
-  printf '%s\n' "$distribution/bin" >> "$GITHUB_PATH"
-  trap - EXIT
+  if [[ "${RUNNER_ENVIRONMENT:-}" == self-hosted ]]; then
+    # A same-host Test clears RUNNER_TEMP but retains the Build checkout.
+    persistent="${GITHUB_WORKSPACE:?}/.lake/ci-toolchains"
+    test ! -L "$GITHUB_WORKSPACE/.lake"
+    test ! -L "$persistent"
+    mkdir -p "$persistent"
+    target="$persistent/$tag"
+    if [[ -e "$target" || -L "$target" ]]; then
+      mv -T -- "$target" "$temporary/previous-toolchain"
+    fi
+    mv -T -- "$distribution" "$target"
+    printf '%s\n' "$target/bin" >> "$GITHUB_PATH"
+  else
+    printf '%s\n' "$distribution/bin" >> "$GITHUB_PATH"
+    trap - EXIT
+  fi
 )
 
 if setup_with_elan; then
   exit 0
 fi
 
-if [[ "${RUNNER_ENVIRONMENT:-}" == github-hosted && "${RUNNER_OS:-}" == Linux &&
-      "${RUNNER_ARCH:-}" == X64 ]]; then
+if [[ "${RUNNER_OS:-}" == Linux && "${RUNNER_ARCH:-}" == X64 ]]; then
   toolchain=$(< lean-toolchain)
   if [[ "$toolchain" =~ ^leanprover/lean4:v[0-9]+\.[0-9]+\.[0-9]+(-[A-Za-z0-9._-]+)?$ ]]; then
     echo '::warning::Elan setup failed. Trying the pinned Lean release via the GitHub Asset API.'
