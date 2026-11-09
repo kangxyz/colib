@@ -1,0 +1,20 @@
+[entry]
+id = "COL-0374"
+title = "Finite correspondences on native cycles"
+kind = "definition"
+section = "finite-correspondences"
+order = 10
+primary = "Stacks.Chow.finiteCorrespondences"
+statement = '''
+Let \(X\to S\) and \(Y\to S\) be schemes over a common base. Define
+\(\operatorname{Cor}_S(X,Y)\) to be the subgroup of integer algebraic cycles on
+\(X\times_S Y\) with finite support such that each integral closed subscheme
+occurring with nonzero coefficient is finite and surjective onto an irreducible
+component of \(X\).
+'''
+scope = '''
+The ambient group is `AlgebraicCycle`, and the integral closed subscheme at a
+support point is `integralComponentAt`. Finite support is required even when the
+source is not quasi-compact; no composition or identity is part of this definition.
+'''
+review = "author_checked"

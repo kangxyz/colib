@@ -36,7 +36,7 @@ namespace Stacks.Chow
 
 variable {k : Type u} [Field k] {X Y Z : Scheme.{u}}
 variable (f : X ⟶ Spec (.of k)) (g : Y ⟶ Spec (.of k)) (h : Z ⟶ Spec (.of k))
-variable [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
+variable [Smooth g] [Smooth h] [IsSeparated h]
 
 /-- The actual incidence Tor correspondence extended additively in both variables. -/
 @[colib_tag "COL-0363",

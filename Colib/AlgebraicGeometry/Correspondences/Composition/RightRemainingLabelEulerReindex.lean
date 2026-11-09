@@ -48,6 +48,7 @@ variable (K : Type u) [Field K] {X Y Z W : Scheme.{u}}
 
 include hw hv
 
+omit [Smooth g] [Smooth h] [Smooth i] [IsSeparated h] in
 /-- The actual weighted original-label sum, grouped into literal image-prime fibres.
 All nonminimal image contributions are proved zero using the actual remaining ideal. -/
 theorem finsum_rightOriginalExteriorLabels_eq_finsum_imagePrimes

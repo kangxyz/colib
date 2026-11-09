@@ -4,6 +4,18 @@ title = "Actual incidence Tor composition"
 kind = "definition"
 section = "finite-correspondences"
 order = 20
-statement = "Extend the actual incidence Tor correspondence biadditively to signed finite correspondences; signed generator coefficients multiply."
-scope = "Arbitrary field; smooth factors, separated middle and target. No supplied cycle or composition law."
+primary = "Stacks.Chow.incidenceTorPairing"
+statement = '''
+Let \(X,Y,Z\) be smooth schemes over a field \(k\), with \(Y\) and \(Z\)
+separated. The incidence Tor construction extends uniquely to a biadditive map
+\[\operatorname{Cor}_k(X,Y)\times\operatorname{Cor}_k(Y,Z) \longrightarrow\operatorname{Cor}_k(X,Z),\qquad (\alpha,\beta)\longmapsto\beta\circ\alpha.\]
+For admissible prime cycles \([z]\), \([w]\) and integers \(m,n\), its value on
+\((m[z],n[w])\) is \(mn\) times the incidence Tor correspondence of \(z,w\).
+'''
+scope = '''
+Composition is `incidenceTorPairing`, with the source-to-middle argument first
+and the middle-to-target argument second. Its generator value is the constructed
+`incidenceTorCorrespondence`; no cycle or composition law is supplied as a hypothesis.
+The field is arbitrary and the smooth factors need not be quasi-compact, connected or nonempty.
+'''
 review = "author_checked"

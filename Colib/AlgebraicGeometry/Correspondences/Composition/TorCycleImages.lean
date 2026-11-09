@@ -85,7 +85,7 @@ theorem isFiniteCorrespondencePoint_correspondenceIncidenceMap_generic
     finiteCyclePushforward_image_mem_irreducibleComponents
       (correspondenceIncidenceMap f g h z w) (pullback.fst f h) t.val hcomponent
 
-variable [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
+variable [Smooth g] [Smooth h] [IsSeparated h]
 variable (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
 variable (hz : IsFiniteCorrespondencePoint f g z) (hw : IsFiniteCorrespondencePoint g h w)
 

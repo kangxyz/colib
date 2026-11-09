@@ -128,8 +128,6 @@ theorem incidenceTorCycle_eq_zero_of_genericPoints_eq_empty
   intro t
   exact incidenceTorCycle_apply_of_notMem f g h z w hw t (by simp [ht])
 
-variable [Smooth f] [Smooth h] [IsSeparated g]
-
 /-- Actual dominance, not a caller hypothesis, makes every nonzero Tor support
 cover the source component of the first correspondence. -/
 theorem range_integralComponent_incidenceTorCycle_mem
@@ -140,7 +138,7 @@ theorem range_integralComponent_incidenceTorCycle_mem
   range_integralComponent_correspondenceIncidenceLeft_mem_of_smooth f g h z w hz hw t
     (support_incidenceTorCycle_subset f g h z w hw ht)
 
-variable [IsSeparated h]
+variable [Smooth h] [IsSeparated h]
 
 /-- The actual Tor-weighted incidence correspondence. Finiteness of support and
 component admissibility are proved from the two actual finite correspondences. -/

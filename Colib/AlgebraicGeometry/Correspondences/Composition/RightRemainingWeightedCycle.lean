@@ -39,7 +39,7 @@ variable {K : Type u} [Field K] {X Y Z W : Scheme.{u}}
   (h : Z ⟶ Spec (.of K)) (i : W ⟶ Spec (.of K))
   (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
   (v : pullback (C := Scheme) h i)
-  [Smooth f] [Smooth g] [Smooth h] [Smooth i] [IsSeparated g] [IsSeparated h] [IsSeparated i]
+  [Smooth g] [Smooth h] [Smooth i] [IsSeparated i]
   (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
 
 /-- The actual right weighted remaining cycle, before its final source-target pushforward. -/

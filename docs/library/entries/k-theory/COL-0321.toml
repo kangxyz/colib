@@ -3,7 +3,7 @@ id = "COL-0321"
 title = "Actual finite, stable and Waldhausen self-track operations"
 kind = "theorem"
 section = "waldhausen-k-theory"
-order = 90
+order = 430
 statement = """
 A complete coherent based self-track of native loop-prespectrum maps determines
 an actual degree-raising finite homotopy operation. It is additive in input

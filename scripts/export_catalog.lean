@@ -27,11 +27,18 @@ run_cmd do
     let some index := env.getModuleIdxFor? name | throwError "No defining module for {name}"
     let type ← liftTermElabM (Meta.ppExpr info.type)
     let used := info.getUsedConstantsAsSet
-    declarations := declarations.push <| Json.mkObj [
+    let moduleName := env.header.moduleNames[index]!
+    let mut fields := [
       ("name", toJson name.toString),
-      ("module", toJson (env.header.moduleNames[index]!).toString),
+      ("module", toJson moduleName.toString),
       ("type", toJson type.pretty),
       ("dependencies", toJson (used.toList.map Name.toString))]
+    if moduleName.getRoot == `Colib then
+      if let some ranges ← findDeclarationRanges? name then
+        let r := ranges.range
+        fields := fields ++ [("source_range",
+          toJson #[r.pos.line, r.pos.column, r.endPos.line, r.endPos.column])]
+    declarations := declarations.push (Json.mkObj fields)
   let registeredModules := names.toList.foldl (fun modules name =>
     match env.getModuleIdxFor? name with
     | some index => modules.insert (env.header.moduleNames[index]!)

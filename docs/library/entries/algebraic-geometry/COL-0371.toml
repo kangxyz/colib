@@ -4,6 +4,19 @@ title = "Comparison of Nisnevich sheaf conditions"
 kind = "theorem"
 section = "transfers-nisnevich"
 order = 40
-statement = "For additive transfer presheaves the actual Cor Nisnevich sheaf condition is equivalent to the ordinary smooth Nisnevich condition on graph restriction."
-scope = "Any field and independent coefficient universe. No continuity or fullness claim for arbitrary nonadditive correspondence presheaves."
+primary = "AlgebraicGeometry.PresheafWithTransfers.isNisnevichSheaf_iff_correspondenceTopology"
+statement = '''
+Let \(k\) be a field and let
+\(P\colon\operatorname{Cor}_k^{\mathrm{op}}\to\mathbf{Ab}\) be additive.
+Then \(P\) is a sheaf for the correspondence Nisnevich topology if and only if
+\(P\circ\Gamma^{\mathrm{op}}\) is a sheaf for the ordinary Nisnevich topology
+on \(\operatorname{Sm}_k\).
+'''
+scope = '''
+The equivalence identifies `PresheafWithTransfers.IsNisnevichSheaf` with
+`Presheaf.IsSheaf (Cor.nisnevichTopology k)` on the same presheaf. It includes
+arbitrary covering families and the empty smooth scheme, with an independent
+coefficient universe. It makes no continuity or fullness assertion for arbitrary
+nonadditive correspondence presheaves.
+'''
 review = "author_checked"

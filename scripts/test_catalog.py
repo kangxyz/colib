@@ -362,8 +362,8 @@ class LibraryTests(unittest.TestCase):
             {"name": name, "imports": []}
             for name in sorted(set(module_names.values()) | set(item_modules.values()))
         ]
-        for identifier in self.library["entries"]:
-            name = "CategoryTheory.example_" + identifier.removeprefix("COL-")
+        for identifier, entry in self.library["entries"].items():
+            name = entry.get("primary", "CategoryTheory.example_" + identifier.removeprefix("COL-"))
             native["bindings"].append({"name": name, "id": identifier})
             native["declarations"].append(
                 {
@@ -394,6 +394,40 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("No equality with archived named PerfectK", item["scope"])
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertTrue(result["entries"]["COL-0179"]["references"])
+
+    def test_cor_transfer_reading_routes_keep_new_items(self):
+        expected = {
+            "finite-correspondences": ([374, *range(363, 368)], ["COL-0374", "COL-0366"]),
+            "transfers-nisnevich": (range(368, 374), ["COL-0368", "COL-0370", "COL-0372"]),
+        }
+        for section_id, (numbers, starts) in expected.items():
+            section = self.library["sections"][section_id]
+            identifiers = [f"COL-{number:04d}" for number in numbers]
+            self.assertEqual(section["entries"], identifiers)
+            self.assertEqual([topic["start"] for topic in section["topics"]], starts)
+            self.assertEqual(set(section["transitions"]), set(identifiers))
+            for identifier in identifiers:
+                item = self.library["entries"][identifier]
+                self.assertTrue(item["primary"])
+
+    def test_cor_transfer_section_renders_maps_and_scope(self):
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        cor = (output / "sections/finite-correspondences/index.html").read_text()
+        transfers = (output / "sections/transfers-nisnevich/index.html").read_text()
+        self.assertIn('id="cycles-and-composition"', cor)
+        self.assertIn('id="category-and-graphs"', cor)
+        self.assertIn('id="sheafification-and-comparison"', transfers)
+        self.assertIn("Stacks.Chow.incidenceTorPairing_assoc", cor)
+        self.assertIn("AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafificationUnderlyingIso",
+                      transfers)
+        self.assertIn(r"\Gamma(p_1)\circ\beta-\Gamma(p_2)\circ\beta", transfers)
+        self.assertIn(r"c_P\circ\eta_{RP}=R(\eta_P)", transfers)
+        self.assertIn("one neighborhood at each specified source point", transfers)
+        self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
+                      transfers)
+        self.assertEqual(cor.count('class="section-transition"'), 6)
+        self.assertEqual(transfers.count('class="section-transition"'), 6)
 
     def test_perfect_waldhausen_chain_keeps_owners(self):
         self.assertEqual(self.library["entries"]["COL-0177"]["section"], "waldhausen-categories")
@@ -457,34 +491,88 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(retired["path"], "tag/COL-0176/")
 
     def test_site_preserves_navigation_rows_and_tex_source(self):
-        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        native = self.native_fixture()
+        name = next(b["name"] for b in native["bindings"] if b["id"] == "COL-0004")
+        declaration = next(d for d in native["declarations"] if d["name"] == name)
+        module = declaration["module"]
+        source = catalog.ROOT / (module.replace(".", "/") + ".lean")
+        line, code = next(
+            (i, line) for i, line in enumerate(source.read_text().splitlines(), 1)
+            if line.startswith("def fgModuleRankEquiv ")
+        )
+        declaration["source_range"] = [line, 0, line, len(code)]
+        built = catalog.compile_library(self.library, native, {}, "main")
         item = built["entries"]["COL-0004"]
         item["statement"] = (
             r"Inline \(x < y\) and display \[\text{{revision}}\]. "
             "See [@stacks, Tag 02MU] and COL-0001. The code is `f <x>`."
+            "\n\nA separate mathematical paragraph."
         )
+        item["proof"] = "First proof paragraph.\n\nSecond proof paragraph."
+        item["proof_kind"] = "proof"
+        item["used_by"] = ["COL-0001"]
+        item["formal_dependencies"] = ["COL-0001"]
+        item["source_checked_on"] = "2026-11-05"
         section = built["sections"][item["section"]]
-        count = len(section["entries"])
+        section["transitions"] = {"COL-0004": r"Consider the case \(x < y\). See COL-0001."}
         output = self.render_site_fixture(built)
         page = (output / "tag/COL-0004/index.html").read_text()
-        self.assertIn('href="../../chapters/category-theory/">Category Theory</a>', page)
+        self.assertIn('href="../../chapters/k-theory-rings-schemes/">Algebraic K-Theory of Rings and Schemes</a>', page)
         self.assertIn(
             f'href="../../sections/{section["id"]}/" aria-current="location">'
             '<span class="nav-section-title">',
             page,
         )
-        self.assertIn(f'<span class="count">{count}</span>', page)
+        self.assertIn('aria-label="Chapter contents"', page)
         self.assertIn('data-tex="x &lt; y"', page)
         self.assertIn(r'data-tex="\text{{revision}}"', page)
         self.assertIn('href="https://stacks.math.columbia.edu/tag/02MU">Tag 02MU</a>', page)
         self.assertIn('href="../../tag/COL-0001/">COL-0001</a>', page)
         self.assertIn("<code>f &lt;x&gt;</code>", page)
+        self.assertIn("<p>A separate mathematical paragraph.</p>", page)
+        self.assertIn(
+            '<section class="proof"><h3>Proof</h3><p>First proof paragraph.</p>'
+            "<p>Second proof paragraph.</p></section>",
+            page,
+        )
+        correspondence = '<div class="lean" aria-label="Lean declarations">'
+        self.assertEqual(page.count(correspondence), 1)
+        self.assertLess(page.index('<div class="statement">'), page.index(correspondence))
+        self.assertLess(page.index(correspondence), page.index('<section class="proof">'))
+        self.assertIn('<details class="source-code"><summary>Lean source</summary>', page)
+        self.assertIn('<details class="relations"><summary>Referenced by</summary><p>', page)
+        self.assertIn('<details class="relations"><summary>Direct Lean references</summary><p>', page)
+        self.assertIn(f'Field.lean#L{line}"', page)
+        self.assertIn(f'href="../../modules/{module}/#{name}"', page)
+        self.assertIn("<code>def fgModuleRankEquiv ", page)
+        self.assertIn("Source correspondence · author-checked · 2026-11-05", page)
         section_page = (output / "sections" / section["id"] / "index.html").read_text()
         self.assertIn(f'href="../../sections/{section["id"]}/" aria-current="page"', section_page)
+        transition = '<div class="section-transition"><p>Consider the case'
+        self.assertLess(section_page.index(transition), section_page.index('<article class="item" id="COL-0004">'))
+        self.assertNotIn(transition, page)
+        chapter_page = (output / "chapters/category-theory/index.html").read_text()
+        self.assertIn('<nav class="chapter-contents"', chapter_page)
+        self.assertNotIn('tag/COL-0015/', chapter_page)
+        exact = (output / "sections/exact-categories/index.html").read_text()
+        self.assertIn('<section class="topic" id="conflations-and-base-change">', exact)
+        self.assertIn('id="quillen-q-category"', exact)
+        self.assertLess(exact.index('id="COL-0234"'), exact.index('id="COL-0038"'))
+        self.assertRegex(
+            exact,
+            r'(?s)</article><div class="section-transition">.*?</div><article class="item" id="COL-0073">',
+        )
+        self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>', exact)
         records = json.loads((output / "search.json").read_text())
         result = next(row for row in records if row.get("id") == item["id"])
         self.assertEqual(result["statement"], item["statement"])
         self.assertIn('href="../tag/COL-0001/"', result["statement_html"])
+
+    def test_transition_requires_an_item_of_its_section(self):
+        chapter = self.root / "docs/library/chapters/category-theory.toml"
+        chapter.write_text(chapter.read_text() + '\nCOL-0015 = "A misplaced transition."\n')
+        with self.assertRaisesRegex(ValueError, "must precede an item of the same section"):
+            catalog.load_library(self.root)
 
     def test_prose_rejects_unresolved_links_and_unpaired_math(self):
         for text, message in (
@@ -952,7 +1040,11 @@ class LibraryTests(unittest.TestCase):
 
     def test_hand_maintained_module_routes_are_rejected(self):
         path = self.root / "docs/library/chapters/k-theory.toml"
-        path.write_text(path.read_text() + 'modules = ["Colib.KTheory"]\n')
+        path.write_text(path.read_text().replace(
+            'id = "bass-construction"\n',
+            'id = "bass-construction"\nmodules = ["Colib.KTheory"]\n',
+            1,
+        ))
         with self.assertRaisesRegex(ValueError, "Module ownership is exported"):
             catalog.load_library(self.root)
 

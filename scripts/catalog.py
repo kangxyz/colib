@@ -147,6 +147,16 @@ def load_library(root=ROOT):
             raise ValueError(
                 f"{identifier} needs its supported, explicit review status"
             )
+        proof_kind = entry.get("proof_kind", "outline")
+        if proof_kind not in ("proof", "outline") or (
+            proof_kind == "proof" and not entry.get("proof", "").strip()
+        ):
+            raise ValueError(f"{identifier} needs a proof or proof outline matching its proof kind")
+        if "source_checked_on" in entry and (
+            not isinstance(entry["source_checked_on"], str)
+            or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", entry["source_checked_on"])
+        ):
+            raise ValueError(f"{identifier} needs a source check date in YYYY-MM-DD format")
         if entry.get("provenance") and entry["provenance"] not in sources:
             raise ValueError(f"{identifier} has an unknown provenance key")
         entry["path"] = str(path.relative_to(root))
@@ -180,6 +190,22 @@ def load_library(root=ROOT):
         section["entries"].sort(
             key=lambda identifier: (entries[identifier]["order"], identifier)
         )
+        if topics := section.get("topics"):
+            positions = {identifier: i for i, identifier in enumerate(section["entries"])}
+            starts = []
+            slugs = set()
+            for topic in topics:
+                slug = topic["id"]
+                if not SLUG.fullmatch(slug) or slug in slugs or not topic.get("title"):
+                    raise ValueError(f"Invalid topic in section {section['id']}")
+                if topic["start"] not in positions:
+                    raise ValueError(f"Topic {slug} must start at an item of {section['id']}")
+                slugs.add(slug)
+                starts.append(positions[topic["start"]])
+            if starts[0] != 0 or starts != sorted(set(starts)):
+                raise ValueError(f"Topics must partition the reading order of {section['id']}")
+            for topic, start, end in zip(topics, starts, starts[1:] + [len(positions)]):
+                topic["entries"] = section["entries"][start:end]
     chapters.sort(key=lambda chapter: (chapter["order"], chapter["id"]))
     library = {
         "sources": sources,
@@ -188,11 +214,23 @@ def load_library(root=ROOT):
         "entries": entries,
         "retired": retired,
     }
+    for section in sections.values():
+        transitions = section.get("transitions", {})
+        if not isinstance(transitions, dict):
+            raise ValueError(f"Section {section['id']} transitions must be a table")
+        for identifier, text in transitions.items():
+            label = f"Section {section['id']} transition before {identifier}"
+            if identifier not in section["entries"]:
+                raise ValueError(f"{label} must precede an item of the same section")
+            if not isinstance(text, str) or not text.strip():
+                raise ValueError(f"{label} needs prose")
+            check_prose(text, library, label)
     for records, fields in (
         (chapters, ("title", "introduction")),
         (sections.values(), ("title", "introduction")),
         (entries.values(), ("title", "statement", "scope", "proof")),
         (retired.values(), ("title", "reason")),
+        ((topic for section in sections.values() for topic in section.get("topics", [])), ("title",)),
     ):
         for record in records:
             for field in fields:
@@ -318,6 +356,11 @@ def compile_library(library, native, pins, revision):
             raise ValueError(
                 f"{entry['id']} needs a compiled @[colib_tag] declaration binding"
             )
+        if primary := entry.get("primary"):
+            if primary not in entry["declarations"]:
+                raise ValueError(f"{entry['id']} primary declaration needs a compiled binding")
+            entry["declarations"].remove(primary)
+            entry["declarations"].insert(0, primary)
     citations = list(native["citations"])
     citations.extend(
         {
@@ -366,7 +409,6 @@ def compile_library(library, native, pins, revision):
     for entry in entries.values():
         if not entry["references"]:
             raise ValueError(f"{entry['id']} needs a compiled precise source reference")
-        entry["declarations"].sort()
         entry["formal_dependencies"] = sorted(set(entry["formal_dependencies"]))
     for entry in entries.values():
         for dependency in entry["formal_dependencies"]:
@@ -449,13 +491,20 @@ def render_markdown(library):
                 "### " + markdown_prose(section["title"], library), "",
                 markdown_prose(section["introduction"], library), "",
             ])
+            transitions = section.get("transitions", {})
+            topic_titles = {topic["start"]: topic["title"] for topic in section.get("topics", [])}
+            item_heading = "#####" if topic_titles else "####"
             for identifier in section["entries"]:
                 entry = library["entries"][identifier]
+                if title := topic_titles.get(identifier):
+                    lines.extend(["#### " + markdown_prose(title, library), ""])
+                if text := transitions.get(identifier):
+                    lines.extend([markdown_prose(text, library), ""])
                 lines.extend(
                     [
                         f'<a id="{identifier}"></a>',
                         "",
-                        f"#### {identifier} — {entry['kind'].title()}. "
+                        f"{item_heading} {identifier} — {entry['kind'].title()}. "
                         + markdown_prose(entry["title"], library),
                         "",
                         markdown_prose(entry["statement"], library),
@@ -471,7 +520,8 @@ def render_markdown(library):
                     ]
                 )
                 if entry.get("proof"):
-                    lines.extend(["Proof outline. " + markdown_prose(entry["proof"], library), ""])
+                    label = "Proof." if entry.get("proof_kind") == "proof" else "Proof outline."
+                    lines.extend([label, "", markdown_prose(entry["proof"], library), ""])
                 seen = set()
                 for citation in entry["references"]:
                     key = citation["source"]

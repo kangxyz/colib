@@ -52,7 +52,7 @@ def IsFiniteCorrespondencePoint (f : X ⟶ S) (g : Y ⟶ S) (z : pullback (C := 
       irreducibleComponents X
 
 /-- Finite correspondences as a subgroup of the native integer algebraic cycles. -/
-@[colib_tag "COL-0362",
+@[colib_tag "COL-0374",
   colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Generators/Basic.lean"
   "adaptation" "Finite correspondences on native cycles"]

@@ -4,6 +4,17 @@ title = "Associativity of signed Tor composition"
 kind = "theorem"
 section = "finite-correspondences"
 order = 30
-statement = "The two literal signed composition brackets are equal through their actual combined-diagonal triple Tor cycle and finite pushforward."
-scope = "Arbitrary field; smooth factors, separated intermediate and target factors. No connectedness, integrality, quasi-compactness or perfectness assumption."
+primary = "Stacks.Chow.incidenceTorPairing_assoc"
+statement = '''
+Let \(X,Y,Z,W\) be smooth schemes over a field \(k\), with \(Y,Z,W\)
+separated. For \(\alpha\in\operatorname{Cor}_k(X,Y)\),
+\(\beta\in\operatorname{Cor}_k(Y,Z)\) and \(\gamma\in\operatorname{Cor}_k(Z,W)\),
+the incidence Tor composition satisfies
+\[\gamma\circ(\beta\circ\alpha)=(\gamma\circ\beta)\circ\alpha.\]
+'''
+scope = '''
+The equality is in the native finite-correspondence subgroup, with the signed
+integer coefficients of all three inputs. No connectedness, integrality,
+quasi-compactness or perfectness assumption is imposed.
+'''
 review = "author_checked"

@@ -3,7 +3,7 @@ id = "COL-0305"
 title = 'Actual global-unit \(K_{1}\) classes and forward scalar restriction'
 kind = "comparison"
 section = "k-theory-of-schemes"
-order = 80
+order = 100
 statement = 'The actual global-unit automorphism of a native perfect complex defines an independent fine \(K_{1}\) class, invariant under object isomorphisms and compatible with inversion and canonical fine open restriction. The original coarse restriction K-map sends the independently defined forward scalar class to this fine unit class. The actual rank-one restriction isomorphism and forward affine and relative Laurent coordinates give the corresponding structure-sheaf comparisons.'
 scope = 'Arbitrary schemes, open immersions and native Stacks perfect complexes. The generic scalar data are r on X, a specified unit q on U and `j.appTop r = q`, with no finiteness, regularity or nonzerodivisor hypothesis. Canonical chosen-zero rebasing and object-component normalization are retained. The forward class restricts to the positive unit class; the separately defined scalar-cofiber boundary class restricts to its inverse. Affine polynomial and Laurent spectra over every commutative ring use `Spec.map Polynomial.toLaurent` and `ΓSpecIso`. Relative comparisons use the existing Stacks additive and multiplicative base-change schemes. No coarse-to-fine K-equivalence, fine-open connecting map, zero-section boundary, Bass sign, negative-degree or all-degree scalar operation is asserted.'
 review = "author_checked"

@@ -168,7 +168,7 @@ theorem correspondenceIncidenceTorTerm_eq_zero_of_lt
 
 /-- The signed integer coefficients have genuinely finite degree support. -/
 theorem finite_support_correspondenceIncidenceTorTerm
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
+    [Smooth f] [Smooth g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) :
     (Function.support (correspondenceIncidenceTorTerm k f g h z w t)).Finite := by
   refine (Set.finite_Iic (correspondenceIncidenceTorDegreeBound k f g h z w t.val)).subset ?_
@@ -188,7 +188,7 @@ def correspondenceIncidenceTorCoefficient
 
 /-- Any cutoff at least the actual local dimension computes the same coefficient. -/
 theorem correspondenceIncidenceTorCoefficient_eq_sum_range
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
+    [Smooth f] [Smooth g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) (d : ℕ)
     (hd : correspondenceIncidenceTorDegreeBound k f g h z w t.val ≤ d) :
     correspondenceIncidenceTorCoefficient k f g h z w t =
@@ -203,7 +203,7 @@ theorem correspondenceIncidenceTorCoefficient_eq_sum_range
 
 /-- The coefficient is the literal finite alternating sum of all actual ambient Tor lengths. -/
 theorem correspondenceIncidenceTorCoefficient_eq_sum
-    [Smooth f] [Smooth g] [IsSeparated g] [Smooth h]
+    [Smooth f] [Smooth g] [Smooth h]
     (t : genericPoints (correspondenceIncidence f g h z w)) :
     correspondenceIncidenceTorCoefficient k f g h z w t =
       ∑ n ∈ Finset.range (correspondenceIncidenceTorDegreeBound k f g h z w t.val + 1),

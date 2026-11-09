@@ -1,9 +1,34 @@
 [entry]
 id = "COL-0025"
-title = 'Naturality of the abelian \(K_{0}\) comparison'
+title = 'Naturality of the short-exact-sequence comparison'
 kind = "comparison"
 section = "grothendieck-groups"
 order = 90
-statement = 'The generator-preserving equivalence between the canonical abelian exact \(K_{0}\) and the pinned Stacks group intertwines exact-functor maps in both directions.'
-scope = 'Abelian source and target categories with their canonical exact structures. This is a comparison of Lean presentations using the object-class formula of [@stacks, Tag 02MV], not an additional naturality statement quoted verbatim from that tag. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation.'
+statement = '''
+Let \(F\colon\mathcal A\to\mathcal B\) be an exact functor between abelian
+categories. Write \(F_{\mathrm{ex},*}\) for its map on the Grothendieck groups
+of the standard exact structures and \(F_{\mathrm{ses},*}\) for its map on
+the short-exact-sequence presentations.
+
+For the comparison isomorphisms \(\iota_{\mathcal A}\) and
+\(\iota_{\mathcal B}\) of COL-0019, one has
+\[
+\iota_{\mathcal B}\circ F_{\mathrm{ex},*}
+=F_{\mathrm{ses},*}\circ\iota_{\mathcal A}.
+\]
+Equivalently, the inverse comparisons satisfy
+\[
+F_{\mathrm{ex},*}\circ\iota_{\mathcal A}^{-1}
+=\iota_{\mathcal B}^{-1}\circ F_{\mathrm{ses},*}.
+\]
+'''
+scope = 'The map \(F_{\mathrm{ses},*}\) is induced by the object-class formula of [@stacks, Tag 02MV].'
+proof_kind = "proof"
+proof = '''
+Both composites in the displayed equality send \([X]_{\mathcal E_{\mathrm{ab}}}\)
+to \([F(X)]\) in \(K_0(\mathcal B)\). The classes of objects generate the
+source group, so the homomorphisms agree. Composing with the inverse isomorphisms
+gives the second equality.
+'''
+source_checked_on = "2026-11-05"
 review = "author_checked"

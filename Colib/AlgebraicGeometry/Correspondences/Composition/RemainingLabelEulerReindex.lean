@@ -62,6 +62,7 @@ local notation3 (prettyPrint := false) "L" =>
 
 include hz hw
 
+omit [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] in
 /-- The actual weighted original-label sum, grouped into literal image-prime fibres.
 All nonminimal image contributions are proved zero using the actual remaining ideal. -/
 theorem finsum_originalExteriorLabels_eq_finsum_imagePrimes {r : ℕ}

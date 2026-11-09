@@ -3,7 +3,7 @@ id = "COL-0315"
 title = "Native honest-image cofinality and restriction endpoints"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 91
+order = 160
 statement = """
 Given global-perfect-model derived roofs and actual native perfect complements, the honest
 open-derived-image inclusion and the original relative-open restriction are injective in every

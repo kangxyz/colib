@@ -45,6 +45,7 @@ variable (K : Type u) [Field K] {X Y Z W : Scheme.{u}}
   (v : pullback (C := Scheme) h i)
   [Smooth g] [Smooth h] [Smooth i] [IsSeparated g] [IsSeparated h] [IsSeparated i]
 
+omit [Smooth g] [Smooth i] [IsSeparated h] in
 /-- Actual signed first Tor coefficients and original residue weights, with every original
 exterior generic label retained after finite regrouping. -/
 theorem sum_firstTorCoefficient_mul_seqEuler_correspondenceRightRemainingImageComponentStalk

@@ -1,28 +1,19 @@
 # Colib
 
 Colib formalizes cohomology and homotopy theory in algebraic geometry, including their
-motivic and algebraic K-theoretic interfaces. Its mathematical dependencies are Mathlib and
-[AxiomMath/Stacks](https://github.com/AxiomMath/Stacks), pinned to exact commits.
+motivic and algebraic K-theoretic interfaces. It pins its mathematical dependencies to exact
+commits of [Mathlib](https://github.com/leanprover-community/mathlib4) and
+[Stacks](https://github.com/AxiomMath/Stacks).
 
-The [Library](https://kangxyz.github.io/colib/) organizes Colib into chapters, sections and
-permanent mathematical items, with a reading sequence, precise literature references and
-compiled Lean declarations.
+## Library
 
-## Initial pilot
+The [Colib Library](https://kangxyz.github.io/colib/) connects results through mathematical
+exposition in chapters and sections. Each permanent item gives its statement, scope,
+Lean declarations, defining imports and precise literature references.
 
-The first release develops three closed mathematical slices.
-
-- The dimension equivalence from the Grothendieck group of finite-dimensional vector spaces
-  to the integers, normalized on object classes.
-- The comparison of the ordered-pair Steinberg tensor quotient with the canonical Stacks
-  degree-two Milnor group, preserving each tensor class.
-- The dimension formula for a finite algebra over a field as the sum of local lengths
-  weighted by residue-field degrees.
-
-The [Library organization guide](docs/LIBRARY.md) and [contribution guide](CONTRIBUTING.md)
-define chapter ownership, mathematical items, Lean annotations and literature references.
-CI exports the actual Lean signatures and defining modules
-as the artifact `colib-library`. Release catalog assets are versioned with the code.
+The [Library organization guide](docs/LIBRARY.md) covers chapter structure, mathematical
+writing and references. See the [contribution guide](CONTRIBUTING.md) for adding a result
+and its Lean declarations.
 
 ## Use and build
 
@@ -32,11 +23,6 @@ using a Git checkout and an exact release commit.
 ```lean
 import Colib
 ```
-
-Focused imports are available at
-`Colib.RingTheory.KTheory.GrothendieckGroup.Field`,
-`Colib.RingTheory.KTheory.MilnorK.DegreeTwo`, and
-`Colib.RingTheory.Length.FiniteAlgebra`.
 
 ```sh
 bash scripts/cache.sh

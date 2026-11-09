@@ -9,14 +9,14 @@ The chapter structure and source dependency graph express their respective mathe
 
 | Information | Owner |
 | --- | --- |
-| Chapters, sections and reading introductions | docs/library/chapters/*.toml |
+| Chapters, sections, topics and reading transitions | docs/library/chapters/*.toml |
 | Mathematical statements, kinds, conditions and correspondence review state | docs/library/entries/<chapter>/<ID>.toml |
 | Retired permanent IDs and their previous source records | docs/library/retired/<ID>.toml |
 | Declaration membership in a mathematical item | The compiled `@[colib_tag "COL-0004"]` attribute |
 | Stacks correspondence | Mathlib's existing `@[stacks TAG "scope"]` attribute |
 | Book and paper correspondence | `@[colib_ref "key" "locator" "relation" "scope"]` |
 | Bibliographic identity, edition, document and version | docs/references.toml |
-| Declaration types, defining modules and implementation references | Native Lean export |
+| Declaration types, defining modules, source ranges and implementation references | Native Lean export |
 | Reading pages, reverse references, search and links | Generated Library website |
 
 One item can have several implementing declarations and several literature references.
@@ -27,11 +27,35 @@ registered in Colib/Library/Upstream.lean. The upstream object and theorem keep 
 
 Chapters contain sections. Each section has an introduction and an ordered sequence of typed
 items such as definitions, lemmas, theorems and comparisons. The homepage presents the table of
-contents. Chapter and section pages provide local reading routes. The Modules view reads
+contents. A chapter page lists its sections with a short description of the mathematical
+work in each. The section page presents the results in reading order, with a local
+chapter and topic navigation. The Modules view reads
 actual defining modules and imports from Lean. Each item has its own page at
 `tag/COL-0004/`, with exact citations, Lean declarations and automatically exported code
 references. Existing
 `#COL-0004` bookmarks redirect to the permanent item page.
+
+For a longer section, use `[[sections.topics]]` in its chapter file. Give each topic an
+`id`, `title` and `start` item from that section. The first topic starts at the first item,
+and later topics begin in the section's reading order. The chapter page gives the section
+contents, and section pages group the results under those topics.
+
+Use `[sections.transitions]` for passages that connect results in a section. Key each
+passage by the permanent ID of the item it precedes. It appears before that item in the
+section reading page and the Markdown catalog. At a change of topic, explain how the
+next construction enters the argument. Between related items, name the map,
+calculation or hypothesis from the preceding result that the reader should carry
+forward. For example, the passage before COL-0033 identifies the kernel of the row
+\([-f,p]\) as the way to transport a pullback by preserving conflations. Keep these
+passages short enough to read alongside the statements. Write them as mathematical
+prose. Introduce the notation needed for the calculation, state the hypotheses at
+the point they are used, and justify an intermediate step by the calculation itself
+or a reference to the exact result that supplies it.
+
+Keep the section introduction focused on the objects and question of the section.
+Use topics to group parts of the argument and use transitions where the reader
+needs to carry data from one part to another. When moving an item, check the topic
+boundary and any section transition keyed by its ID.
 
 IDs start with COL- and at least four decimal digits. They are independent of chapter numbers,
 Lean names and file paths. Moving an item preserves its ID. Released IDs are never reused.
@@ -79,6 +103,29 @@ mathematical premise is stated as an obligation in the owning source family.
 
 Use English title case for chapter names. In titles, introductions, statements, scopes and
 proof outlines, use the same formatting for each kind of content.
+
+State the ambient objects, hypotheses, maps and conclusion in the statement. Introduce
+notation where it first enters the argument and use the same symbols for the same maps
+throughout the section. For a comparison, give its action on the generators or other
+data that determine it, with the direction, coefficient map and sign where relevant.
+Use `scope` for the chosen model, additional conditions and implementation conventions.
+When shortening a statement, carry its precise hypotheses, maps and normalizations
+into the statement, scope or proof as appropriate.
+
+Separate paragraphs with blank lines. A `proof` can be a proof outline or a complete
+argument. Set `proof_kind = "proof"` for a complete argument displayed with the statement.
+Place the Lean declaration immediately after the mathematical statement. The site reads
+the declaration name, defining import and compiled type from the native export. For a Colib
+declaration with a Lean source range it also shows the corresponding text from the checked
+source and links to that line range. Upstream bindings show their compiled types and link
+to the defining modules at the pinned revisions. A result with several bindings can
+select its primary declaration with `primary`, which must name one of its compiled bindings.
+Open **Scope and conventions** in a grouped section to read the same scope as on the
+permanent item page. **Lean source**, **Compiled type**, **More Lean declarations**,
+**Referenced by** and **Direct Lean references** are available as disclosures where
+the corresponding data exists. The disclosures start closed.
+Use `source_checked_on` for a previously recorded author source-check date in YYYY-MM-DD
+format. The page displays the date with the correspondence status.
 
 - Write inline mathematics as `\(...\)` or `$...$` and display mathematics as
   `\[...\]` or `$$...$$`. For example, use `\(K_0\)` and `\((-1)^{pq}\)`.

@@ -3,7 +3,7 @@ id = "COL-0351"
 title = "Bounded-above flat perfect prespectrum comparison"
 kind = "comparison"
 section = "k-theory-of-schemes"
-order = 121
+order = 320
 statement = '''
 The actual canonically zero-normalized prespectrum map of the literal inclusion
 of bounded-above flat perfect complexes into perfect complexes is a stable

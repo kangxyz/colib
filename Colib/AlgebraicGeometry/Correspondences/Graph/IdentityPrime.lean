@@ -96,6 +96,7 @@ theorem incidenceTorCorrespondence_identity_right_of_range_subset
   rw [incidenceTorCorrespondence_val, hcycle,
     finiteCyclePushforward_single_of_isClosedImmersion, hpoint]
 
+omit [Smooth f] in
 /-- Every nonmatching right identity component has zero actual Tor correspondence. -/
 theorem incidenceTorCorrespondence_identity_right_eq_zero_of_ne
     (s' : genericPoints Y) (hss' : s ≠ s')

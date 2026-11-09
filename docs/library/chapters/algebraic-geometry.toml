@@ -10,11 +10,40 @@ title = "Affine open pairs"
 order = 10
 introduction = "Chosen pullbacks retain the coefficient functor and quasi-compactness over affine bases."
 
+[sections.transitions]
+COL-0149 = '''
+Let \(U\hookrightarrow\operatorname{Spec}R\) be the fixed open immersion. For an
+\(R\)-algebra \(A\), put \(U_A=U\times_{\operatorname{Spec}R}\operatorname{Spec}A\).
+The pullback projections give the maps for a change of \(A\), and the map to
+\(\operatorname{Spec}A\) remains the open immersion of the coefficient pair.
+'''
+
 [[sections]]
 id = "perfect-complexes"
 title = "Perfect complexes"
 order = 20
-introduction = "Native Stacks perfect complexes carry the actual monomorphism/quasi-isomorphism Waldhausen structure. No legacy perfectness predicate or comparison layer is maintained. The honest open-derived image uses actual chain complexes and derived isomorphisms. Its triangle and short-exact closure, Waldhausen structure, exact corestriction and strict incoming factorization retain the explicit global-perfect-model roof input. Bounded finite locally free complexes retain global term bounds, actual extensions, shifts, signed cones, vector-bundle inclusion, native perfect inclusion and compatible opposite joint data over arbitrary schemes. Finite local freeness is not replaced by global finite-free retraction."
+introduction = "Native perfect complexes form a Waldhausen subcategory of cochain complexes. Open restriction, bounded vector-bundle models and the derived image of restriction are described using actual complexes and chain maps."
+
+[sections.transitions]
+COL-0229 = '''
+For an open immersion \(j\colon U\hookrightarrow X\), restriction takes the local
+finite locally free models of a perfect complex to models on \(U\). Applied
+degreewise, \(j^*\) preserves the monomorphisms, quasi-isomorphisms and pushout
+squares of the Waldhausen structure.
+'''
+COL-0313 = '''
+A bounded complex of finite locally free modules supplies a perfect model with
+specified global term bounds. Closure under extensions, shifts and signed cones
+gives a category of these models on which vector bundles act by the degree-zero
+inclusion and whose inclusion into perfect complexes is exact.
+'''
+COL-0312 = '''
+The derived image of \(j^*\) consists of actual complexes on \(U\) that are
+derived-isomorphic to some \(j^*P\) with \(P\) perfect on \(X\). To use this class
+as a Waldhausen category and obtain strict incoming factorizations, the
+global-perfect-model roof hypothesis supplies representatives for the relevant
+derived maps.
+'''
 
 [[sections]]
 id = "nisnevich-sites"
@@ -22,20 +51,148 @@ title = "Nisnevich sites and descent"
 order = 30
 introduction = "Native schemes and smooth separated finite-type objects carry the actual Nisnevich topology. Distinguished-square sheaf gluing and field evaluation preserve their original morphisms and coefficient categories."
 
+[sections.transitions]
+COL-0341 = '''
+In a distinguished square, an open immersion \(U\hookrightarrow X\) and an étale
+map \(V\to X\) that is an isomorphism over the closed complement give a Nisnevich
+cover. On \(V\times_X V\), the diagonal and the part lying over \(U\) provide
+the cover used to check compatibility of the two restrictions.
+'''
+COL-0343 = '''
+For the base object \(\operatorname{Spec}k\), the residue-field condition gives
+a lift of its field point through any Nisnevich cover. The resulting section
+puts the identity into the covering sieve. Local lifting conditions for sheaves
+at this object are consequently conditions on their actual sections.
+'''
+
 [[sections]]
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
 introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."
 
+[sections.transitions]
+COL-0348 = '''
+The cosimplicial maps of the barycentric simplices induce simplicial restriction
+maps on \(P(U\times\Delta^n)\). Taking the alternating sum of face restrictions
+gives the ordinary singular differential, with its endpoint difference in degree one.
+'''
+COL-0349 = '''
+The prism extends the comparison of the two endpoints from degree one to a chain
+homotopy on the whole singular complex. For the interval projection, multiplication
+on the interval gives the contraction to the vertex zero and identifies that
+vertex restriction as the chain homotopy inverse.
+'''
+
 [[sections]]
 id = "finite-correspondences"
 title = "Finite correspondences and the graph functor"
 order = 50
-introduction = "Actual signed native cycles, incidence Tor composition and full component identities define Cor over arbitrary fields."
+introduction = 'Finite integer cycles on products define correspondence groups. Incidence Tor multiplicities give their composition, and componentwise diagonal and graph cycles connect them to smooth schemes over a field.'
+
+[[sections.topics]]
+id = "cycles-and-composition"
+title = "Cycles and composition"
+start = "COL-0374"
+
+[[sections.topics]]
+id = "category-and-graphs"
+title = "The category and graph functor"
+start = "COL-0366"
+
+[sections.transitions]
+COL-0374 = '''
+For schemes over a common base, the support condition selects the integral
+components that can carry a finite correspondence. Finite support makes a cycle
+an integer linear combination of these components, including when its source
+is not quasi-compact.
+'''
+COL-0363 = '''
+Now let the base be a field and the factors be smooth, with the middle and target
+separated. For admissible points in two successive products, the incidence Tor
+construction gives a correspondence between the outer factors. The finite-sum
+presentation in COL-0374 extends this value to signed cycles in both arguments.
+'''
+COL-0364 = '''
+For three prime correspondences, the two compositions are finite pushforwards of
+the same combined-diagonal triple Tor cycle. Their equality on these generators,
+followed by additive extensionality in all three arguments, gives associativity
+for the signed cycles of COL-0363.
+'''
+COL-0365 = '''
+An identity must include every source component. Its graph is the sum of the
+diagonal prime cycles, so the generic-point set must be finite. In composing a
+prime correspondence with that sum, exactly one component contributes the
+original prime and the other incidences are empty; biadditivity gives the unit
+law for an arbitrary signed cycle.
+'''
+COL-0366 = '''
+Smooth separated finite-type schemes have the finite generic-point sets needed
+in COL-0365. On these objects, COL-0364 and COL-0365 supply the category laws,
+while the two additive structures in COL-0363 supply preadditivity.
+'''
+COL-0367 = '''
+For a morphism of smooth schemes, take the graph on each irreducible source
+component and sum with coefficient one. The identity gives the diagonal sum
+already used by COL-0366. The Tor composition calculation for two such graphs
+gives the graph of their composite.
+'''
 
 [[sections]]
 id = "transfers-nisnevich"
 title = "Transfers and Nisnevich sheafification"
 order = 60
-introduction = "Additive transfer presheaves satisfy genuine signed Cech local exactness and ordinary Nisnevich comparison. Transfer-preserving sheafification retains its universe and canonical units."
+introduction = 'Additive presheaves on the correspondence category have contravariant transfers. Graph restriction relates their Nisnevich descent to the ordinary smooth site, and local signed Čech exactness supplies the comparison needed for transfer-preserving sheafification.'
+
+[[sections.topics]]
+id = "transfer-presheaves-and-sheaves"
+title = "Transfer presheaves and sheaves"
+start = "COL-0368"
+
+[[sections.topics]]
+id = "local-exactness-and-descent"
+title = "Local exactness and descent"
+start = "COL-0370"
+
+[[sections.topics]]
+id = "sheafification-and-comparison"
+title = "Sheafification and comparison"
+start = "COL-0372"
+
+[sections.transitions]
+COL-0368 = '''
+An additive functor on the opposite of the category in COL-0366 turns each
+signed correspondence into a homomorphism in the reverse direction. Its
+functoriality and additivity give the transfer composition and integer-linearity
+identities without changing the underlying cycles.
+'''
+COL-0369 = '''
+Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
+on smooth schemes. The Nisnevich sheaf condition is imposed on that restriction;
+morphisms still commute with every correspondence, not only graph arrows.
+'''
+COL-0370 = '''
+To compare descent on the two sites, consider a relation killed by composition
+with the graph of a completely decomposed étale map. Lift its common finite
+image over a pointed Nisnevich neighborhood. The resulting contraction writes
+the restricted signed relation as the first Čech projection minus the second,
+with the original multiplicities.
+'''
+COL-0371 = '''
+The local boundary in COL-0370 turns compatibility for the two Čech projections
+into compatibility for correspondence arrows. Additivity also handles finite
+disjoint unions and the empty scheme. These facts compare sheafness for the
+correspondence topology with the graph-restricted condition of COL-0369.
+'''
+COL-0372 = '''
+Sheafify on the correspondence site. Preservation of addition in source arrows
+gives transfers on the result, and COL-0371 gives ordinary Nisnevich descent.
+With coefficients in universe \(u+1\) for a field in universe \(u\), the
+canonical unit and its unique extension property give the stated adjunction.
+'''
+COL-0373 = '''
+Restrict the unit of COL-0372 along the graph functor. It is locally bijective
+and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
+extends it to an isomorphism, with the direction and unit identity fixed by
+that extension.
+'''

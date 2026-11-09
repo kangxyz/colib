@@ -218,7 +218,7 @@ def correspondenceRightRemainingFiniteMaximalEquivTriple
 
 /-- The final bijection preserves the literal original exterior point of the model. -/
 theorem correspondenceRightRemainingFiniteMaximalEquivTriple_projection
-    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated g] [IsSeparated i]
+    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated i]
     (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
     (p : MaximalSpectrum (correspondenceRightRemainingFiniteRing f g h i z w v x)) :
     correspondenceTripleIncidenceToRightSupportProduct f g h i z w v
@@ -278,7 +278,7 @@ theorem residueDegree_correspondenceTripleToRightImageIncidence
 
 /-- The original prime residue degree is the actual triple-to-image degree at its fibre label. -/
 theorem primeResidueDegree_correspondenceRightRemainingFiniteMaximalEquivTriple
-    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated g] [IsSeparated i]
+    (x : correspondenceRightImageIncidence f g h i z w v) [IsSeparated i]
     (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
     (p : MaximalSpectrum (correspondenceRightRemainingFiniteRing f g h i z w v x)) :
     letI := correspondenceRightRemainingFiniteAlgebra f g h i z w v x

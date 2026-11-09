@@ -72,7 +72,7 @@ variable {k : Type u} [Field k] {X Y Z A : Scheme.{u}}
   (hmj : m ≫ pullback.map f g f h (𝟙 X) q (𝟙 _) (by simp)
     (by simpa using hq.symm) = j)
 
-omit [IsFinite m] in
+omit [IsFinite m] [IsSeparated g] in
 include hmj in
 /-- The native finite image prime followed by the actual graph has exactly the
 original postcomposed support degree, with an arbitrary signed coefficient. -/
@@ -133,6 +133,7 @@ theorem incidenceTorPairing_finiteImage_single_graph_right_val
   · simp [single_apply, hy]
 
 include hmj in
+omit [IsSeparated g] in
 /-- A complete generic cycle on an actual support scheme lifts as a genuine
 finite correspondence. Its native value is the finite pushforward along `m`,
 and composition with the full graph is the finite pushforward along `j`.

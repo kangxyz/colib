@@ -4,6 +4,22 @@ title = "Underlying ordinary sheafification comparison"
 kind = "definition"
 section = "transfers-nisnevich"
 order = 60
-statement = "The canonical natural isomorphism identifies underlying transfer-preserving sheafification with ordinary Nisnevich sheafification and preserves the actual units."
-scope = "Field in Type u and abelian-group coefficients in universe u+1; standard ordinary and Cor sheafification instances. The comparison retains its actual section maps."
+primary = "AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafificationUnderlyingIso"
+statement = '''
+Let \(k\) be a field in universe \(u\), with abelian-group coefficients
+in universe \(u+1\). Write \(R\) for graph restriction, \(U\) for forgetting
+transfers on sheaves, \(a\) for ordinary Nisnevich sheafification and
+\(a_{\mathrm{tr}}\) for COL-0372. There is a canonical natural isomorphism
+\[c_P\colon a(RP)\xrightarrow{\sim}U(a_{\mathrm{tr}}P)\]
+whose underlying presheaf map satisfies
+\(c_P\circ\eta_{RP}=R(\eta_P)\). Thus the comparison preserves the specified
+ordinary and transfer sheafification units.
+'''
+scope = '''
+The direction is from ordinary sheafification of the graph restriction to the
+underlying ordinary sheaf of transfer sheafification. The native sheafification
+and compatibility-with-forget instances for both topologies are retained, including
+the coefficient universe \(u+1\). The comparison is the lift of the restricted
+transfer unit, with its actual section maps.
+'''
 review = "author_checked"

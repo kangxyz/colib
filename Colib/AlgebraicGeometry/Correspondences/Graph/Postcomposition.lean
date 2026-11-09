@@ -136,6 +136,7 @@ variable {k : Type u} [Field k] {X Y Z : Scheme.{u}}
   (ψ : Y ⟶ Z) (hψ : ψ ≫ h = g)
 
 open Classical in
+omit [IsSeparated g] in
 /-- The matching actual graph incidence pushes the original support's native generic prime.
 The residue degree of the support postcomposition map is not assumed to be one. -/
 @[colib_ref "motivic_source_a6805c4"
@@ -191,6 +192,7 @@ theorem incidenceTorCorrespondence_graph_right_val_of_range_subset
     ← finiteCyclePushforward_comp_apply,
     finiteCyclePushforward_single_of_isClosedImmersion, genericPoint_eq_of_isOpenImmersion p]
 
+omit [Smooth f] [IsSeparated g] in
 /-- For an arbitrary admissible prime, exactly its compatible middle graph component survives. -/
 theorem incidenceTorPairing_single_graph_right_of_range_subset
     (hY : (genericPoints Y).Finite)
@@ -212,6 +214,7 @@ theorem incidenceTorPairing_single_graph_right_of_range_subset
   · simp
 
 open Classical in
+omit [IsSeparated g] in
 /-- Composition of an arbitrary native prime with the full right graph is the actual finite
 pushforward on its original support, including every residue-field degree. -/
 @[colib_ref "motivic_source_a6805c4"
@@ -230,6 +233,7 @@ theorem incidenceTorPairing_single_graph_right_val
   rw [incidenceTorPairing_single_graph_right_of_range_subset f g h ψ hψ hY z hz t ht]
   exact incidenceTorCorrespondence_graph_right_val_of_range_subset f g h ψ hψ z hz t ht
 
+omit [IsSeparated g] in
 /-- The subgroup-valued image prime retains the actual support-map residue degree. -/
 theorem incidenceTorPairing_single_graph_right_eq_single
     (hY : (genericPoints Y).Finite)
@@ -248,6 +252,7 @@ theorem incidenceTorPairing_single_graph_right_eq_single
   rfl
 
 open Classical in
+omit [IsSeparated g] in
 /-- On every signed native finite correspondence, right-graph pairing is the additive extension
 of the actual support finite pushforwards. No new correspondence model is introduced. -/
 theorem incidenceTorPairing_graph_right_val_eq_lift
@@ -264,6 +269,7 @@ theorem incidenceTorPairing_graph_right_val_eq_lift
   rw [AddMonoidHom.comp_apply, liftFiniteCorrespondence_single, one_smul]
   exact incidenceTorPairing_single_graph_right_val f g h ψ hψ hY z hz
 
+omit [IsSeparated g] in
 /-- The same graph action is the degree-weighted additive extension inside the native subgroup.
 The generic image's admissibility was proved without a nonzero-coefficient premise. -/
 theorem incidenceTorPairing_graph_right_eq_lift

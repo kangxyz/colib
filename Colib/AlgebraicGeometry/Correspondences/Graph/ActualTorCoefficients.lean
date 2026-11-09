@@ -61,6 +61,7 @@ variable (k : Type u) [Field k] {X Y Z : Scheme.{u}}
   (z : pullback (C := Scheme) f g) (ψ : Y ⟶ Z) (hψ : ψ ≫ h = g)
   (s : genericPoints Y)
 
+omit [IsSeparated g] in
 /-- The actual finite alternating Tor sum is one at every generic right-graph incidence point.
 All higher terms vanish by the native open-section calculation, not by hypothesis. -/
 theorem correspondenceIncidenceTorCoefficient_graph_right_eq_one

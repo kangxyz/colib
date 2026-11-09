@@ -122,6 +122,7 @@ variable {k : Type u} [Field k] {X Y Z : Scheme.{u}}
   (f : X ⟶ Spec (.of k)) (g : Y ⟶ Spec (.of k)) (h : Z ⟶ Spec (.of k))
   [Smooth f] [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
 
+omit [Smooth f] [IsSeparated g] in
 /-- A nonmatching right graph component contributes zero to the actual Tor correspondence. -/
 theorem incidenceTorCorrespondence_graph_right_eq_zero_of_ne
     (z : pullback (C := Scheme) f g) (hz : IsFiniteCorrespondencePoint f g z)

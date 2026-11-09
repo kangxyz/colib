@@ -65,6 +65,7 @@ local notation3 (prettyPrint := false) "R" => correspondenceRemainingImageStalk 
 local notation3 (prettyPrint := false) "α" =>
   correspondenceRemainingImageMiddleStalkMap f g h i z w v x
 
+omit [Smooth f] [Smooth h] [IsSeparated g] in
 /-- Actual signed first Tor coefficients and original residue weights, with every original
 exterior generic label retained after finite regrouping. -/
 theorem sum_firstTorCoefficient_mul_seqEuler_correspondenceRemainingImageComponentStalk

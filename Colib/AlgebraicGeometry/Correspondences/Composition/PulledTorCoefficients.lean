@@ -66,6 +66,7 @@ theorem pulledStalkTor_length_eq_zero_of_lt (t : correspondenceIncidence f g h z
   rw [← incidenceTor_length_eq_pulledStalkTor k f g h z w t n]
   exact length_correspondenceIncidenceTor_eq_zero_of_lt k f g h z w t n hn
 
+omit [IsSeparated g] in
 /-- The actual ambient coefficient is the finite alternating sum in the original
 pulled-support presentation, retaining every higher correction and the actual sign. -/
 theorem correspondenceIncidenceTorCoefficient_eq_sum_pulledStalkTor

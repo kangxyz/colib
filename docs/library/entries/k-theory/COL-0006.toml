@@ -6,4 +6,4 @@ scope = "A construction supporting the definition's grading."
 review = "author_checked"
 kind = "lemma"
 section = "milnor-k-theory"
-order = 60
+order = 20

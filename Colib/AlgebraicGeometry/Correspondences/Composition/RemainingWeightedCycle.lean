@@ -42,7 +42,7 @@ variable {K : Type u} [Field K] {X Y Z W : Scheme.{u}}
   (h : Z ⟶ Spec (.of K)) (i : W ⟶ Spec (.of K))
   (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
   (v : pullback (C := Scheme) h i)
-  [Smooth f] [Smooth g] [Smooth h] [Smooth i] [IsSeparated g] [IsSeparated h]
+  [Smooth g] [Smooth h]
   (hw : IsFiniteCorrespondencePoint g h w) (hv : IsFiniteCorrespondencePoint h i v)
 
 local notation3 (prettyPrint := false) "I" => correspondenceIncidence f g h z w
@@ -69,6 +69,8 @@ theorem correspondenceLeftWeightedRemainingCycle_apply (x : L) :
   let := (finite_genericPoints_correspondenceIncidence_of_smooth f g h z w hw).fintype
   simp only [correspondenceLeftWeightedRemainingCycle, coe_sum, Finset.sum_apply,
     coe_zsmul, zsmul_eq_mul, Pi.mul_apply, Pi.intCast_apply, Int.cast_id]
+
+variable [Smooth i] [IsSeparated h]
 
 /-- The final pushforward is the existing actual left native pairing, with all original
 weights and labels. This does not assume or assert the canonical triple comparison. -/

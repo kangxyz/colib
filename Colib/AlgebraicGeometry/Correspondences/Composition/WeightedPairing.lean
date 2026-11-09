@@ -51,8 +51,8 @@ namespace Stacks.Chow
 variable {k : Type u} [Field k] {X Y Z W : Scheme.{u}}
 variable (f : X ⟶ Spec (.of k)) (g : Y ⟶ Spec (.of k)) (h : Z ⟶ Spec (.of k))
 variable (i : W ⟶ Spec (.of k))
-variable [Smooth f] [Smooth g] [Smooth h] [Smooth i]
-variable [IsSeparated g] [IsSeparated h] [IsSeparated i]
+variable [Smooth g] [Smooth h] [Smooth i]
+variable [IsSeparated h] [IsSeparated i]
 variable (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
 variable (v : pullback (C := Scheme) h i)
 variable (hz : IsFiniteCorrespondencePoint f g z) (hw : IsFiniteCorrespondencePoint g h w)
@@ -85,6 +85,7 @@ theorem incidenceTorPairing_left_eq_weightedRemaining :
   intro t ht
   simp only [AddMonoidHom.flip_apply, incidenceTorPairing_single, mul_one]
 
+omit [IsSeparated h] in
 /-- The right first-stage Tor correspondence likewise retains all original labels,
 with its own actual coefficients and degrees before the remaining composition. -/
 theorem incidenceTorPairing_right_eq_weightedRemaining :
@@ -122,6 +123,7 @@ theorem incidenceTorPairing_left_single_one_eq_weightedRemaining :
   rw [incidenceTorPairing_single_one]
   exact incidenceTorPairing_left_eq_weightedRemaining f g h i z w v hz hw hv
 
+omit [IsSeparated h] in
 /-- Literally nesting the actual pairing on the right gives its own labelled
 weighted remaining sum, without identifying the two generic indexing schemes. -/
 theorem incidenceTorPairing_right_single_one_eq_weightedRemaining :
@@ -160,6 +162,7 @@ theorem incidenceTorPairing_left_single_eq_weightedRemaining (a b c : ℤ) :
     smul_smul, incidenceTorPairing_left_eq_weightedRemaining]
   simp only [Finset.smul_sum, smul_smul]
 
+omit [IsSeparated h] in
 /-- All three input signs and every first-stage geometric weight survive in the
 literal right nested pairing, with its distinct original generic labels. -/
 theorem incidenceTorPairing_right_single_eq_weightedRemaining (a b c : ℤ) :

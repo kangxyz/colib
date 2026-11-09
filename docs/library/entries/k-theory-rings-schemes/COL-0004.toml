@@ -1,10 +1,36 @@
 [entry]
 id = "COL-0004"
-title = '\(K_{0}\) of finite-dimensional vector spaces'
-statement = 'Dimension identifies the Grothendieck group of \(\mathrm{FGModuleCat}\,k\) with the integers \(\mathbb{Z}\), preserving every object class.'
-scope = 'A field k in Type u and finite modules with carriers in Type u. The group is the categorical presentation of [@stacks, Tag 02MU]. The equivalence is normalized by dimension.'
+title = 'Dimension over a field'
+statement = '''
+Let \(k\) be a field and \(\mathcal V_k\) the abelian category of finite-dimensional
+\(k\)-vector spaces. In its short-exact-sequence presentation of \(K_0\),
+dimension induces an isomorphism
+\[
+\delta_k\colon K_0(\mathcal V_k)\xrightarrow{\sim}\mathbb Z,
+\qquad [V]\longmapsto \dim_k V.
+\]
+Its inverse sends \(n\in\mathbb Z\) to \(n[k]\), where \([k]\) is the class
+of the one-dimensional vector space.
+'''
+scope = 'The category \(\mathcal V_k\) is `FGModuleCat k`, with the field and vector spaces in the same universe.'
 review = "author_checked"
 kind = "theorem"
 section = "k-zero-of-fields"
 order = 40
-proof = "Dimension descends by additivity on short exact sequences. Every Grothendieck class is a difference of object classes. Equal dimensions give an isomorphism of the finite-dimensional vector spaces, which proves injectivity. The class of the one-dimensional space gives surjectivity."
+proof_kind = "proof"
+proof = '''
+For a short exact sequence \(0\to U\to V\to W\to 0\), rank and nullity give
+\(\dim_k V=\dim_k U+\dim_k W\). Thus dimension respects the relations of
+[@stacks, Tag 02MU] and descends to a homomorphism.
+
+The zero sequence gives \([0]=0\). The split sequence
+\(0\to V\to V\oplus W\to W\to 0\) gives
+\([V\oplus W]=[V]+[W]\). Combining positive and negative summands in a formal
+integer combination of generators therefore writes each class as \([V]-[W]\).
+If \(\delta_k([V]-[W])=0\), the spaces have equal dimension and hence are
+isomorphic. An isomorphism \(V\to W\) gives a short exact sequence with zero
+cokernel, so \([V]=[W]\). Thus \(\delta_k\) is injective.
+
+The class \([k]\) maps to \(1\), so the homomorphism is surjective and has
+the stated inverse.
+'''

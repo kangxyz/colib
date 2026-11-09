@@ -3,7 +3,7 @@ id = "COL-0324"
 title = "Scalar tracks, actual K-operations and prescribed returns"
 kind = "comparison"
 section = "k-theory-of-schemes"
-order = 3240
+order = 120
 statement = "For an open immersion and a scalar restricting to a specified unit, the raw and canonically normalized whole scalar tracks restrict to the actual flat-unit operation. On each original subdivision cube the prescribed signed return represents the scalar K-operation, whose coordinate-zero connecting image is the canonical fiber image of the actual acyclic cone with positive sign."
 scope = "Constructs genuine flat-morphism pullback on the native perfect category, whole normalization and restriction tracks, finite and all-integer stable restriction operations, and nonnegative K-operations. The return and connecting comparisons retain every original subdivision cube of dimension n + 1, including n = 0, with the precise level-one inverse. No comparison track, target filler, Theta or canonical-null equality is assumed. Arbitrary-input descent, subdivision coverage and the global boundary formula remain separate. This is not TT localization or an all-integer Bass boundary theorem."
 review = "author_checked"
