@@ -67,28 +67,27 @@ class SelectMergeSeed(unittest.TestCase):
         self.assertEqual([path for path, _ in requests].count('actions/runs/10/artifacts'), 1)
         self.assertNotIn((f'commits/{HEAD}/pulls', {'per_page': 20}), requests)
 
-    def test_true_merge_checks_source_tree_before_looking_up_branch_run(self):
-        for source_tree in (TREE, BASE):
-            with self.subTest(source_tree=source_tree):
-                result, requests = self.select(runs={BRANCH: [run(BRANCH)]},
-                                               artifacts=[artifact(BRANCH)],
-                                               parents=(BASE, BRANCH), trees={BRANCH: source_tree})
-                branch_lookup = any(params.get('head_sha') == BRANCH for _, params in requests)
-                self.assertEqual(branch_lookup, source_tree == TREE)
-                self.assertEqual(result is not None, source_tree == TREE)
+    def test_true_merge_uses_checked_second_parent_even_when_tree_differs(self):
+        result, requests = self.select(runs={BASE: [run(BASE)], BRANCH: [run(BRANCH)]},
+                                       artifacts=[artifact(BRANCH)],
+                                       parents=(BASE, BRANCH), trees={BRANCH: BASE})
+        self.assertEqual(result, (run(BRANCH), {'cache-staging': artifact(BRANCH)}))
+        self.assertNotIn((f'git/commits/{BRANCH}', {}), requests)
+        self.assertFalse(any(params.get('head_sha') == BASE for _, params in requests))
 
     def test_squash_requires_recorded_same_repository_merge_into_target(self):
         pull = dict(merged_at='2026-11-07T10:01:00Z', merge_commit_sha=HEAD,
                     head={'sha': BRANCH, 'repo': {'id': REPOSITORY}},
                     base={'ref': 'main', 'repo': {'id': REPOSITORY}})
-        for update, expected in [
-            ({}, True),
-            ({'head': {'sha': BRANCH, 'repo': {'id': 91}}}, False),
-            ({'base': {'ref': 'other', 'repo': {'id': REPOSITORY}}}, False),
-            ({'merge_commit_sha': BASE}, False),
+        for update, source_tree, expected in [
+            ({}, TREE, True),
+            ({}, BASE, False),
+            ({'head': {'sha': BRANCH, 'repo': {'id': 91}}}, TREE, False),
+            ({'base': {'ref': 'other', 'repo': {'id': REPOSITORY}}}, TREE, False),
+            ({'merge_commit_sha': BASE}, TREE, False),
         ]:
             result, _ = self.select(runs={BRANCH: [run(BRANCH)]}, artifacts=[artifact(BRANCH)],
-                                    parents=(BASE,), trees={BRANCH: TREE}, pulls=[{**pull, **update}])
+                                    parents=(BASE,), trees={BRANCH: source_tree}, pulls=[{**pull, **update}])
             self.assertEqual(result is not None, expected)
 
     def test_normal_push_and_unbound_artifacts_do_not_have_a_seed(self):
