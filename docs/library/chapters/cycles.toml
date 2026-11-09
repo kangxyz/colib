@@ -1,112 +1,119 @@
 [chapter]
 id = "cycles"
 title = "Cycles and Correspondences"
-order = 20
-introduction = "Cycle constructions depend on precise local multiplicities and pushforward degrees. The first section establishes the affine length-degree calculation that will supply finite-flat correspondence coefficients. Geometric correspondence and composition constructions have their subsequent source owners."
+order = 50
+introduction = 'Finite integer cycles on products form correspondence groups. Tor multiplicities define composition, and componentwise graph cycles connect the resulting category to smooth schemes. The route from correspondences to transfer presheaves follows [@MVW2006, Lectures 1 and 2], followed here by Nisnevich sheafification. The smooth schemes and ordinary Nisnevich topology are in COL-0340; the local length formula for finite-pushforward multiplicities is COL-0181.'
 
 [[sections]]
-id = "finite-algebra-coefficients"
-title = "Finite-algebra coefficients"
+id = "finite-correspondences"
+title = "Finite correspondences and the graph functor"
 order = 10
-introduction = 'Local lengths and residue-field degrees give the multiplicities of finite algebras. The same localized lengths weight the factors in the determinant norm. For DVR extensions the closed fibre determines the norm on residues, and uniformizer calculations retain the unit coefficient and sign.'
+introduction = 'Finite integer cycles on products define correspondence groups. Incidence Tor multiplicities give their composition, and componentwise diagonal and graph cycles connect them to smooth schemes over a field.'
 
 [[sections.topics]]
-id = "lengths-and-residue-degrees"
-title = "Lengths and residue degrees"
-start = "COL-0010"
+id = "cycles-and-composition"
+title = "Cycles and composition"
+start = "COL-0374"
 
 [[sections.topics]]
-id = "determinant-norm-products"
-title = "Determinants and norm products"
-start = "COL-0182"
-
-[[sections.topics]]
-id = "closed-fibre-norms"
-title = "Norms on the closed fibre"
-start = "COL-0193"
-
-[[sections.topics]]
-id = "uniformizer-norms"
-title = "Uniformizer coefficients and orders"
-start = "COL-0197"
+id = "category-and-graphs"
+title = "The category and graph functor"
+start = "COL-0366"
 
 [sections.transitions]
-COL-0010 = '''
-Let \(R\to S\) be a local homomorphism with finite residue-field degree. Each simple
-\(S\)-module is isomorphic to \(\kappa(S)\), whose \(R\)-length is
-\([\kappa(S):\kappa(R)]\). Applying restriction of scalars to a composition series
-therefore gives the degree that weights each simple factor.
+COL-0374 = '''
+For schemes over a common base, the support condition selects the integral
+components that can carry a finite correspondence. Finite support makes a cycle
+an integer linear combination of these components, including when its source
+is not quasi-compact.
 '''
-COL-0011 = '''
-Take \(R=k\) and let \(S\) be a finite local \(k\)-algebra. Its \(k\)-length is its
-dimension, and its length as an \(S\)-module counts the factors isomorphic to its
-residue field.
+COL-0363 = '''
+Now let the base be a field and the factors be smooth, with the middle and target
+separated. For admissible points in two successive products, the incidence Tor
+construction gives a correspondence between the outer factors. The finite-sum
+presentation in COL-0374 extends this value to signed cycles in both arguments.
 '''
-COL-0012 = '''
-A finite \(k\)-algebra is Artinian. Its decomposition into the local algebras
-\(S_{\mathfrak m}\) at its maximal ideals turns the local formula into a sum, with
-the degree of \(\kappa(\mathfrak m)\) belonging to its own summand.
+COL-0364 = '''
+For three prime correspondences, the two compositions are finite pushforwards of
+the same combined-diagonal triple Tor cycle. Their equality on these generators,
+followed by additive extensionality in all three arguments, gives associativity
+for the signed cycles of COL-0363.
 '''
-COL-0180 = '''
-For a finite algebra \(S\) over a local ring \(R\) with maximal ideal \(\mathfrak m\),
-the closed fibre \(S/\mathfrak m S\) is finite over \(\kappa(R)\). Its maximal ideals
-and residue fields determine those of \(S\) over \(\mathfrak m\), even when \(R\) is
-not Noetherian.
+COL-0365 = '''
+An identity must include every source component. Its graph is the sum of the
+diagonal prime cycles, so the generic-point set must be finite. In composing a
+prime correspondence with that sum, exactly one component contributes the
+original prime and the other incidences are empty; biadditivity gives the unit
+law for an arbitrary signed cycle.
 '''
-COL-0181 = '''
-For a finite-length \(S\)-module \(M\), the simple factors supported at a maximal
-ideal \(\mathfrak n\) are counted by the length of \(M_{\mathfrak n}\).
-On restriction to \(R\), each such factor contributes
-\([\kappa(\mathfrak n):\kappa(R)]\). This is the local-base calculation of
-[@stacks, Tag 02M0].
+COL-0366 = '''
+The smooth separated finite-type objects of COL-0340 have the finite generic-point
+sets needed in COL-0365. On these objects, COL-0364 and COL-0365 supply the category laws,
+while the two additive structures in COL-0363 supply preadditivity.
 '''
-COL-0182 = '''
-The length sum counts simple factors additively. To compute a norm, one takes the
-determinant of multiplication and multiplies the contributions from the factors.
-The field comparison identifies the determinant on finite-length modules with the
-ordinary one under the canonical residue map.
+COL-0367 = '''
+For a morphism of smooth schemes, take the graph on each irreducible source
+component and sum with coefficient one. The identity gives the diagonal sum
+already used by COL-0366. The Tor composition calculation for two such graphs
+gives the graph of their composite.
 '''
-COL-0183 = '''
-On a simple factor supported at \(\mathfrak n\), multiplication by \(x\) induces
-multiplication by its residue \(\bar x\) on \(\kappa(\mathfrak n)\). Its determinant
-over the base field is the residue-field norm. Grouping the factors with the same
-support gives the exponent \(\operatorname{length}_{S_{\mathfrak n}}M_{\mathfrak n}\).
+
+[[sections]]
+id = "transfers-nisnevich"
+title = "Transfers and Nisnevich sheafification"
+order = 20
+introduction = 'Additive presheaves on the correspondence category have contravariant transfers, as in [@MVW2006, Lecture 2, Definition 2.1]. Graph restriction relates their Nisnevich descent to the ordinary smooth site of COL-0340. Local signed Čech exactness supplies the comparison needed for transfer-preserving sheafification. For the classical sheafification statement and its universal property, see [@MVW2006, Lecture 13, Theorem 13.1].'
+
+[[sections.topics]]
+id = "transfer-presheaves-and-sheaves"
+title = "Transfer presheaves and sheaves"
+start = "COL-0368"
+
+[[sections.topics]]
+id = "local-exactness-and-descent"
+title = "Local exactness and descent"
+start = "COL-0370"
+
+[[sections.topics]]
+id = "sheafification-and-comparison"
+title = "Sheafification and comparison"
+start = "COL-0372"
+
+[sections.transitions]
+COL-0368 = '''
+An additive functor on the opposite of the category in COL-0366 turns each
+signed correspondence into a homomorphism in the reverse direction. Its
+functoriality and additivity give the transfer composition and integer-linearity
+identities without changing the underlying cycles.
 '''
-COL-0184 = '''
-For a finite free \(k[T]\)-algebra and a global unit \(u\), the determinant of
-multiplication by \(u\) is a unit of \(k[T]\), hence belongs to \(k^\times\).
-Determinant base change along each evaluation \(T\mapsto a\) identifies this
-constant with the norm in that fibre.
+COL-0369 = '''
+Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
+on smooth schemes. The ordinary Nisnevich topology is the one in COL-0340. Its
+sheaf condition is imposed on that restriction; morphisms still commute with
+every correspondence, not only graph arrows.
 '''
-COL-0193 = '''
-For a finite free local \(R\)-algebra \(S\), determinant base change along
-\(R\to\kappa(R)\) gives the norm in \(S/\mathfrak m_RS\). Since this fibre is local,
-the factor product has just the residue-field norm, raised to the length of the fibre.
+COL-0370 = '''
+To compare descent on the two sites, consider a relation killed by composition
+with the graph of a completely decomposed étale map. Lift its common finite
+image over a pointed Nisnevich neighborhood. The resulting contraction writes
+the restricted signed relation as the first Čech projection minus the second,
+with the original multiplicities.
 '''
-COL-0194 = '''
-In a DVR extension, a relation \(\pi_R=u\pi_S^e\) with \(u\) a unit identifies the
-extended maximal ideal with \((\pi_S^e)\). The length of \(S/(\pi_S^e)\) is \(e\),
-which supplies the exponent in the residue of the integral norm.
+COL-0371 = '''
+The local boundary in COL-0370 turns compatibility for the two Čech projections
+into compatibility for correspondence arrows. Additivity also handles finite
+disjoint unions and the empty scheme. These facts compare sheafness for the
+correspondence topology with the graph-restricted condition of COL-0369.
 '''
-COL-0197 = '''
-A monic binomial with constant coefficient a unit times a uniformizer is Eisenstein.
-When the degree of the binomial is the field degree, the norm of its root is the
-constant coefficient multiplied by the sign for that degree.
+COL-0372 = '''
+Sheafify on the correspondence site. Preservation of addition in source arrows
+gives transfers on the result, and COL-0371 gives ordinary Nisnevich descent.
+With coefficients in universe \(u+1\) for a field in universe \(u\), the
+canonical unit and its unique extension property give the stated adjunction.
 '''
-COL-0198 = '''
-In residue degree one, the local degree formula identifies the field degree with
-the uniformizer exponent. Henselian normalization can replace the extension
-uniformizer by a unit multiple under the stated hypotheses. The norm of the
-correcting unit is needed to recover the coefficient for the original uniformizer.
-'''
-COL-0199 = '''
-In prime field degree, the equation \([L:K]=ef\) gives the residue-degree-one
-case or the exponent-one case. If \(e=1\), the extension uniformizer differs from
-the base uniformizer by a unit, and reduction of the unit norm uses the
-closed-fibre formula.
-'''
-COL-0201 = '''
-The integer order of the norm depends on the residue degree. The comparison
-relates the orders of \(x\) and \(N_{L/K}(x)\) for every \(x\in L^\times\), including
-negative orders, using the intrinsic DVR orders of the two fields.
+COL-0373 = '''
+Restrict the unit of COL-0372 along the graph functor. It is locally bijective
+and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
+extends it to an isomorphism, with the direction and unit identity fixed by
+that extension.
 '''

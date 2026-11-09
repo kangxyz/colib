@@ -402,6 +402,7 @@ class LibraryTests(unittest.TestCase):
         }
         for section_id, (numbers, starts) in expected.items():
             section = self.library["sections"][section_id]
+            self.assertEqual(section["chapter"], "cycles")
             identifiers = [f"COL-{number:04d}" for number in numbers]
             self.assertEqual(section["entries"], identifiers)
             self.assertEqual([topic["start"] for topic in section["topics"]], starts)
@@ -409,6 +410,29 @@ class LibraryTests(unittest.TestCase):
             for identifier in identifiers:
                 item = self.library["entries"][identifier]
                 self.assertTrue(item["primary"])
+                self.assertEqual(item["path"], f"docs/library/entries/cycles/{identifier}.toml")
+
+    def test_cycle_algebra_and_scheme_chapters_keep_distinct_owners(self):
+        chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
+        self.assertEqual(chapters["cycles"]["sections"],
+                         ["finite-correspondences", "transfers-nisnevich"])
+        self.assertEqual(chapters["algebraic-geometry"]["sections"],
+                         ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
+                          "algebraic-simplices"])
+        self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
+        section = self.library["sections"]["finite-algebra-coefficients"]
+        self.assertEqual(section["chapter"], "commutative-algebra")
+        numbers = [10, 11, 12, 180, 181, 182, 183, 184, 193, 194, 197, 198, 199, 201]
+        identifiers = [f"COL-{number:04d}" for number in numbers]
+        self.assertEqual(section["entries"], identifiers)
+        self.assertEqual([topic["start"] for topic in section["topics"]],
+                         ["COL-0010", "COL-0182", "COL-0193", "COL-0197"])
+        self.assertEqual(set(section["transitions"]), set(identifiers))
+        for identifier in identifiers:
+            self.assertEqual(self.library["entries"][identifier]["path"],
+                             f"docs/library/entries/commutative-algebra/{identifier}.toml")
+        self.assertEqual(self.library["entries"]["COL-0362"]["section"],
+                         "k-theory-of-schemes")
 
     def test_cor_transfer_section_renders_maps_and_scope(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
@@ -428,6 +452,22 @@ class LibraryTests(unittest.TestCase):
                       transfers)
         self.assertEqual(cor.count('class="section-transition"'), 6)
         self.assertEqual(transfers.count('class="section-transition"'), 6)
+        coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
+        self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
+        self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', transfers)
+        self.assertIn('href="../../chapters/commutative-algebra/">Commutative Algebra</a>',
+                      coefficients)
+        self.assertIn('href="../../tag/COL-0340/">COL-0340</a>', cor)
+        self.assertIn('href="../../tag/COL-0340/">COL-0340</a>', transfers)
+        self.assertIn('href="../../tag/COL-0374/">COL-0374</a>', coefficients)
+        records = json.loads((output / "search.json").read_text())
+        for section_id in ("finite-correspondences", "transfers-nisnevich",
+                           "finite-algebra-coefficients"):
+            for identifier in self.library["sections"][section_id]["entries"]:
+                self.assertTrue((output / f"tag/{identifier}/index.html").is_file())
+                matches = [row for row in records if row.get("id") == identifier]
+                self.assertEqual(len(matches), 1)
+                self.assertEqual(matches[0]["path"], f"tag/{identifier}/")
 
     def test_perfect_waldhausen_chain_keeps_owners(self):
         self.assertEqual(self.library["entries"]["COL-0177"]["section"], "waldhausen-categories")
