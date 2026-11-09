@@ -121,6 +121,7 @@ jobs:
       staged: ${{ steps.stage.outputs.staged }}
       local-handoff: ${{ steps.handoff-mode.outputs.enabled }}
       host-runner: ${{ runner.name }}
+      build-attempt: ${{ github.run_attempt }}
       root-generation: ${{ steps.pack-root.outputs.generation }}
       tools-cache-matched-key: ${{ steps.restore-tools.outputs.cache-matched-key }}
       stage-sha: ${{ steps.seal.outputs.stage-sha }}
@@ -770,7 +771,7 @@ jobs:
     name: Test, lint and axiom audit
     needs: build
     if: ${{ needs.build.result == 'success' }}
-    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
+    runs-on: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (needs.build.outputs.local-handoff != 'true' || needs.build.outputs.build-attempt == github.run_attempt) && fromJSON(inputs.runner-labels) || fromJSON('["ubuntu-24.04"]') }}
     timeout-minutes: ${{ inputs.job-timeout-minutes }}
     env: *native-resource-env
     defaults: *native-resource-defaults

@@ -22,6 +22,16 @@ variable "standard_enabled" {
   default     = false
 }
 
+variable "parallel_runner_limit" {
+  description = "Maximum number of concurrent private CI runners, or zero to disable them."
+  type        = number
+  default     = 0
+  validation {
+    condition     = contains([0, 1, 2], var.parallel_runner_limit)
+    error_message = "The supported parallel runner limits are zero, one and two."
+  }
+}
+
 variable "github_app_key_ssm_name" {
   description = "Existing GitHub App private-key SecureString. Only the parameter reference enters state."
   type        = string

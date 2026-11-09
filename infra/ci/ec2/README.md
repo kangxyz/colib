@@ -153,3 +153,30 @@ to provision the second fleet. Synchronize the runner distribution for its
 bucket, then add a second repository `workflow_job` hook for
 `terraform output -raw standard_webhook_url`, using the existing Colib hook
 secret. Set `COLIB_STANDARD_RUNNER_ENABLED=true` after that hook is active.
+
+## Parallel Colib CI
+
+The optional parallel controller polls queued Build jobs from the Colib CI
+workflow. It accepts owner pushes and manual runs for branches in the Colib
+repository. Each attempt claims a lease before EC2 starts and registers one
+runner with the private `colib-ci-run-<run>-<attempt>` label. Build and Test
+use that label and check the runner and checkout identity at handoff.
+The older shared runner stays available for earlier workflow copies,
+dependency warmup, and split CI.
+
+Build the pinned Lambda packages, including `parallel-controller.zip`, with
+`bash fetch-lambdas.sh`. Review a Terraform plan with
+`enabled=true`, `guarded_ci=true`, and `parallel_runner_limit=2` before
+activating the controller. Publish the updated workflow and set
+`COLIB_PARALLEL_RUNNER_ENABLED=true` to route ordinary CI to the private runners.
+Existing branches need the updated workflow before they can use parallel CI.
+
+The controller reconciles once a minute. It leaves additional runs in the
+GitHub queue when both leases are occupied. EC2's client token makes launch
+retries idempotent. Terminal runs release their instance and registration.
+The runner watchdog also bounds the lifetime if the controller is unavailable.
+Rerun all jobs when retrying a same-host build and test.
+The GitHub App needs repository Administration write and Actions read. A run
+whose assigned instance disappears may need manual cancellation and a full
+rerun. Disable routing and allow active attempts to finish before removing
+the controller.
