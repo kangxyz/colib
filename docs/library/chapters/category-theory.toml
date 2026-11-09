@@ -2,34 +2,296 @@
 id = "category-theory"
 title = "Category Theory"
 order = 5
-introduction = "Categorical foundations retain their chosen objects, universal properties and admissible maps. Exact structures supply the conflations used by algebraic K-theory without requiring an ambient abelian category."
+introduction = "Colib's categorical interfaces for algebraic K-theory and coefficient diagrams. The sections collect the Lean structures, functors and comparison theorems used in these constructions."
 
 [[sections]]
 id = "exact-categories"
-title = "Exact categories"
+title = "Exact Categories"
 order = 10
-introduction = "A chosen class of kernel-cokernel pairs determines an exact structure. Its admissible maps satisfy the Quillen axioms and the mixed pullback theorem. Abelian categories provide the canonical example using all short exact sequences. Additive Serre localization functors preserve these canonical conflations. Matrix rows extend admissible epimorphisms, and exact functors preserve pullbacks along admissible epimorphisms. Actual finite conflation towers retain their factors and give additive telescoping formulas. Bounded native complexes quasi-isomorphic to a single object supply actual finite towers for replete kernel-closed classes containing zero; lifting to an exact full subcategory retains every arrow and the tower length."
+introduction = 'Selected conflations, exact functors, finite resolutions and filtrations, and the Quillen \(Q\)-category they support.'
+
+[[sections.topics]]
+id = "conflations-and-base-change"
+title = "Conflations and base change"
+start = "COL-0015"
+
+[[sections.topics]]
+id = "exact-functors"
+title = "Exact functors"
+start = "COL-0023"
+
+[[sections.topics]]
+id = "resolutions-and-filtrations"
+title = "Resolutions and filtrations"
+start = "COL-0234"
+
+[[sections.topics]]
+id = "quillen-q-category"
+title = 'The Quillen \(Q\)-category'
+start = "COL-0038"
+
+[[sections.topics]]
+id = "q-object-and-edge-classes"
+title = 'Object and edge classes in \(Q\)'
+start = "COL-0075"
+
+[sections.transitions]
+COL-0073 = '''
+The selected pairs must include the split sequences used to add objects. The two orders of a
+biproduct give the two conflations that will later be used to compare the products of object classes.
+'''
+COL-0074 = '''
+For a general conflation, base change requires a specific kernel arrow into the pullback.
+The kernel object can be retained, and its arrow is determined by its two components.
+'''
+COL-0016 = '''
+Pulling back a deflation gives another deflation. When the map along which we pull back is an
+inflation, admissibility of the other projection supplies the second leg needed for span composition.
+'''
+COL-0047 = '''
+Invertibility of a span will later reduce to invertibility of its legs. The following criterion
+provides that test for a left leg that is already a deflation and can be shown to be monic.
+'''
+COL-0023 = '''
+With exact structures on the source and target, a functor can act on the selected kernel–cokernel
+pairs. This is the starting point for sending the pullbacks used in exact span composition to
+pullbacks in the target.
+'''
+COL-0027 = '''
+The canonical abelian structures give a concrete instance of the exact-functor interface.
+Here the pairs to be preserved are the ordinary short exact sequences in the source and target.
+'''
+COL-0032 = '''
+To control a pullback by exactness, we will express it as a kernel in a biproduct. The first
+step is to show that adjoining an arbitrary component to a deflation gives another deflation.
+'''
+COL-0033 = '''
+Use \(-f\) as the arbitrary component of the row. Its kernel expresses the pullback equation
+\(f\circ a=p\circ b\), so an exact functor can act on the square by applying it to the resulting
+conflation.
+'''
+COL-0234 = '''
+A resolution retains a sequence of conflations as data. Each kernel becomes the object resolved
+at the next stage, and a bound on the number of stages defines a stratum.
+'''
+COL-0271 = '''
+The length strata describe towers once they are given. A bounded complex quasi-isomorphic to
+an object in degree zero provides a way to build a tower, using exactness in the other degrees
+and the closure conditions on its terms.
+'''
+COL-0244 = '''
+A resolution successively takes kernels. A filtration builds an object from zero by
+successive conflations. Additivity on each step gives a telescoping sum over the quotient factors.
+'''
+COL-0038 = '''
+The earlier base-change results supply the two projection conditions in the span calculus of
+COL-0035. With deflations as left legs and inflations as right legs, the resulting category is
+Quillen's \(Q\)-category.
+'''
+COL-0037 = '''
+To act on a composite span, an exact functor has to preserve the mixed pullback used to
+construct it. COL-0033 gives this preservation, and the comparison with the chosen target
+pullback identifies the two composite spans by an apex isomorphism.
+'''
+COL-0039 = '''
+The zero object now provides a distinguished vertex. The spans with zero apex connect that
+vertex to the other objects, giving a direct way to see connectedness.
+'''
+COL-0040 = '''
+For arrows into the zero vertex, the right leg is an inflation into zero. This forces the
+apex to be a zero object and controls uniqueness of the span class.
+'''
+COL-0048 = '''
+To compare the core of the original category with that of \(Q\), send an isomorphism
+\(X\to Y\) to the span with apex \(X\) and identity left leg. The original inverse gives
+the inverse span by the same construction.
+'''
+COL-0049 = '''
+The forward construction supplies a map between the cores. The reverse comparison comes
+from detecting invertibility on span representatives and composing the inverse of the left
+leg with the right leg.
+'''
+COL-0057 = '''
+An exact functor sends zero to a zero object, with a canonical isomorphism to the chosen zero
+in the target. Its image in \(Q\) supplies the transport for rebasing by COL-0051. The
+comparison of composites must then track the component at this chosen vertex.
+'''
+COL-0075 = '''
+Write \(u_X\) for the arrow from zero with zero apex and \(v_X\) for the one with
+apex \(X\). A conflation \(A\xrightarrow{i}B\xrightarrow{p}D\) gives a forward
+span \(i_*\) and a reverse span \(p^*\). Its kernel pullback gives
+\(p^*u_D=i_*v_A\), the relation used to compare the three object loops.
+'''
+COL-0076 = '''
+The same zero-apex arrows can close an arbitrary edge. A span factors as a reverse deflation
+followed by a forward inflation, so the closed-edge computation reduces to those two cases.
+'''
+COL-0077 = '''
+A functor \(H\) between groupoids preserves inverse and composition. It sends the
+class \(G(u_X)^{-1}G(v_X)\) to \((H\circ G)(u_X)^{-1}(H\circ G)(v_X)\), the
+object class for the composite.
+'''
 
 [[sections]]
 id = "bicategories"
 title = "Bicategories"
 order = 20
-introduction = "Passing from a bicategory to isomorphism classes of its 1-morphisms gives an ordinary category. The quotient retains the original objects and only identifies arrows joined by invertible 2-morphisms."
+introduction = "The ordinary category of isomorphism classes of 1-morphisms in a bicategory."
+
+[sections.transitions]
+COL-0034 = '''
+In span composition, iterated pullbacks are related by an isomorphism of apices. At the
+bicategorical level this comparison is an invertible 2-morphism. Taking isomorphism classes
+turns it into equality of composites, as used in COL-0035.
+'''
 
 [[sections]]
 id = "restricted-spans"
-title = "Restricted spans"
+title = "Restricted Spans"
 order = 30
-introduction = "Restricted spans compose by mixed pullbacks and become ordinary morphisms after quotienting by apex isomorphisms. Admissible epimorphisms on the left and admissible monomorphisms on the right recover the shape of Quillen's Q-construction once the exact-category structure supplies the hypotheses. In the abelian case, quotient spans identify devissage layers with the actual inclusion comma category."
+introduction = "Span composition by mixed pullbacks, functoriality, and the comparison of dévissage layers with an inclusion comma category."
+
+[[sections.topics]]
+id = "span-calculus"
+title = "Span calculus"
+start = "COL-0035"
+
+[[sections.topics]]
+id = "devissage-layers"
+title = "Dévissage layers"
+start = "COL-0245"
+
+[sections.transitions]
+COL-0035 = '''
+In a composite span, the right leg of the first span and the left leg of the second determine
+the pullback. The mixed conditions give the two new leg properties, and the quotient
+construction of COL-0034 passes this composition to classes.
+'''
+COL-0036 = '''
+A functor compatible with these pullbacks compares the image of a chosen composite apex
+with the apex chosen in the target. This comparison is the isomorphism used to identify
+the two compositions in the quotient.
+'''
+COL-0044 = '''
+The span quotient is an ordinary category. A chosen original object therefore gives a
+base vertex of its nerve, which can be used to form based homotopy groups after realization.
+'''
+COL-0245 = '''
+For the abelian leg classes and a fixed target \(M\), the monic leg picks a subobject
+\(V\subseteq M\) and the epic leg picks a quotient \(V/U\). The inclusion comma category
+records such quotients lying in the chosen full subcategory and the arrows relating their layers.
+'''
 
 [[sections]]
 id = "functor-constructions"
-title = "Functor constructions"
+title = "Functor Constructions"
 order = 40
-introduction = "Specified object isomorphisms can replace selected functor values while retaining an explicit natural-isomorphism comparison. Actual cocartesian sections over a coslice recover the original pseudofunctor fiber by identity evaluation. Canonical sections prove essential surjectivity, cocartesian extension proves full faithfulness, and literal reindexing retains identities, composites and preserved chosen zeros."
+introduction = "Rebasing at chosen objects, transported subgroupoids, and cocartesian sections with their coefficient comparisons."
+
+[[sections.topics]]
+id = "chosen-objects"
+title = "Chosen objects and transported images"
+start = "COL-0051"
+
+[[sections.topics]]
+id = "cocartesian-sections"
+title = "Cocartesian sections and coefficients"
+start = "COL-0353"
+
+[sections.transitions]
+COL-0056 = '''
+For a composite functor, one can transport the chosen object in one step or transport
+successively along the two functors. Comparing these routes requires specifying the
+component of the natural isomorphism at the chosen object.
+'''
+COL-0096 = '''
+The same operation on arrows is useful for describing a groupoid image with chosen
+representatives. Transporting along the endpoint isomorphisms lets the image condition
+be imposed on arrows between the given target objects.
+'''
+COL-0353 = '''
+For coefficients varying over a base category, the distinguished value of a section over
+the coslice at \(R\) is its value at \(1_R\). Cocartesian transport determines the other
+values from that fiber and explains the identity-evaluation comparison.
+'''
+COL-0356 = '''
+Restriction of sections composes by precomposition. On the original coefficient fibers,
+composition is expressed by the pseudofunctor constraint. Comparing the two descriptions
+requires the transports relating identity evaluations, including the unit comparison.
+'''
 
 [[sections]]
 id = "waldhausen-categories"
-title = "Waldhausen categories"
+title = "Waldhausen Categories"
 order = 50
-introduction = "Structures and exact functors support inheritance, transport and an explicitly unnormalized diagonal S-construction. The original fine-exact joint cylinder becomes coarse-exact under coarse two-out-of-three, by endpoint gluing and projection naturality, with its actual functor and endpoint maps unchanged. Coherent component joint data constructs a genuinely exact joint cylinder on the literal opposite weak-arrow category. The original endpoint equations remain explicit; heterogeneous exact projections detect its actual relative cofibrations. Actual opposite complexes retain their degree-reversing equivalence and exact-category duality. Exact additive functors and native perfect open restriction carry coherent joint comparisons, both endpoint orientations and the actual opposite weak-arrow construction."
+introduction = 'Exact functors, the diagonal \(S\)-construction, and joint cylinders on complexes and opposite weak-arrow categories.'
+
+[[sections.topics]]
+id = "waldhausen-structures"
+title = "Structures and exact functors"
+start = "COL-0144"
+
+[[sections.topics]]
+id = "s-construction"
+title = 'The \(S\)-construction and weak rows'
+start = "COL-0146"
+
+[[sections.topics]]
+id = "complexes-and-cylinders"
+title = "Complexes, acyclicity and cylinders"
+start = "COL-0177"
+
+[[sections.topics]]
+id = "opposite-cylinders"
+title = "Opposite weak arrows and complexes"
+start = "COL-0310"
+
+[sections.transitions]
+COL-0145 = '''
+Exactness uses the pushouts along cofibrations. For a full subcategory to inherit the structure,
+those pushouts must stay among its objects. An equivalence also transports these diagrams
+and gives the exact comparison functors.
+'''
+COL-0146 = '''
+Cofibrations and pushouts give the successive inclusions and quotients in a filtration.
+Weak equivalences compare these quotient diagrams in the other direction. Keeping both
+directions gives the grid used by the diagonal construction.
+'''
+COL-0154 = '''
+Fixing the quotient direction of a grid gives its rows. The other direction can then be
+read as a chain of pointwise weak maps between those rows. This identifies the nerve
+presentation while retaining the quotient maps in the diagrams.
+'''
+COL-0177 = '''
+Cochain complexes over an abelian category give a concrete setting for these rows.
+The cofiber of a monomorphism is its cokernel, and weak equivalences are detected on cohomology.
+'''
+COL-0251 = '''
+Consider two structures with the same chosen zero and cofibrations and weak classes
+\(v\subseteq w\). Use \(w\) to detect acyclic objects and retain \(v\) on their full
+subcategory. For a cofibration \(A\to B\), the pushout \(B\amalg_A 0\) gives the cofiber to test.
+'''
+COL-0258 = '''
+The cofiber test starts with a cofibration. For an arbitrary map \(f\colon K\to L\), a joint
+cylinder supplies a cofibration \(K\amalg L\to M_f\) and a weak projection \(M_f\to L\)
+recovering \(f\) on the source endpoint. In complexes, the cone of the identity supplies
+the contractible term used in the middle object.
+'''
+COL-0306 = '''
+The cylinder is exact in the fine structure and its projection is weak in the coarse
+structure. Let \(M(a,b)\colon M_f\to M_{f'}\) be the map induced by a square with endpoint
+maps \(a,b\). Naturality gives \(p_{f'}\circ M(a,b)=b\circ p_f\), so coarse two-out-of-three
+controls the middle map when \(b\) is coarse weak. Gluing controls the map of endpoint coproducts.
+'''
+COL-0310 = '''
+Passing to the literal opposite of the weak-arrow category reverses its commuting squares.
+To assemble the two component cylinders there, the comparison must intertwine the
+endpoint inclusions and the weak projection. These equations give the maps on the
+assembled cylinder.
+'''
+COL-0311 = '''
+With the required shift closure, degree reversal supplies the component cylinder for
+opposite complexes from the identity-cone construction. The functorial comparisons,
+including restriction of perfect complexes along an open immersion, provide the endpoint
+and projection equations used in the preceding assembly.
+'''

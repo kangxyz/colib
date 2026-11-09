@@ -3,7 +3,7 @@ id = "COL-0333"
 title = "Supported perfect roofs and stabilized extensions"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 113
+order = 220
 statement = '''
 Let j: U → X be an open immersion with X quasi-compact and quasi-separated,
 and the union W = j(U) ∪ T quasi-compact. No quasi-compactness of U is needed

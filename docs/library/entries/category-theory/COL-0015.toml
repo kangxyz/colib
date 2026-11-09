@@ -4,6 +4,6 @@ title = "Exact structures on additive categories"
 kind = "definition"
 section = "exact-categories"
 order = 10
-statement = "An exact structure is an isomorphism-closed class of kernel-cokernel pairs satisfying the identity, composition and admissible base-change axioms."
+statement = '''An exact structure on a preadditive category with finite biproducts selects short complexes \(A\xrightarrow{i}B\xrightarrow{p}D\) with the kernel and cokernel universal properties. Its admissible maps contain identities, compose, and admit the pushouts and pullbacks specified in [@BuhlerExactCategories, Definition 2.1].'''
 scope = "An additive category at the stated object and morphism universes. Only pushouts of admissible monomorphisms and pullbacks of admissible epimorphisms are required. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation."
 review = "author_checked"

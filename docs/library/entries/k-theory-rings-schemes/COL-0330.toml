@@ -3,7 +3,7 @@ id = "COL-0330"
 title = "Fixed-pair qcqs connective image-cover localization"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 96
+order = 190
 statement = """
 For a quasi-compact open in a quasi-compact quasi-separated scheme, the actual coarse
 S-prespectrum is connective and Omega. Its actual restriction is bijective on positive stable

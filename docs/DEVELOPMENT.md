@@ -49,6 +49,9 @@ for consumers of the first release.
 
 The website generator consumes that exact native export and checks its source hashes. It
 writes independent contents, chapter, section, permanent-item, bibliography and search pages.
+Colib declaration excerpts use the declaration ranges retained by Lean in its module server
+sidecars. The site reads those ranges against the checked checkout and displays the original
+source beside the compiled signature.
 Search loads its compact index on the search page. Ordinary reading pages contain their text
 and links in static HTML.
 

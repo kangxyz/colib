@@ -3,7 +3,7 @@ id = "COL-0318"
 title = "Conditional connective open localization and the restriction-image spectrum"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 94
+order = 170
 statement = """
 Native derived roofs and perfect complements transport the original relative boundary to fine
 perfect K-theory of the open. All three connective exact positions and the actual K-one to

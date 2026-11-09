@@ -3,7 +3,7 @@ id = "COL-0335"
 title = "Fixed-pair supported connective image-cover localization"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 101
+order = 240
 statement = """
 For an open immersion j and auxiliary open T in a quasi-compact quasi-separated scheme X,
 compactness of j.opensRange union T makes the actual supported coarse S-prespectrum a

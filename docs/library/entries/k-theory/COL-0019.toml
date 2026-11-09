@@ -1,9 +1,31 @@
 [entry]
 id = "COL-0019"
-title = 'The abelian exact \(K_{0}\) comparison'
+title = 'The short-exact-sequence presentation'
 kind = "comparison"
 section = "grothendieck-groups"
 order = 60
-statement = 'The algebraic \(K_{0}\) of the canonical abelian exact structure is additively equivalent to the pinned Stacks categorical Grothendieck group, preserving object generators in both directions.'
-scope = "An abelian category with its canonical all-short-exact-sequence structure. This compares two algebraic presentations, not homotopy-theoretic K-theory. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation."
+statement = '''
+Let \(\mathcal A\) be an abelian category and let \(\mathcal E_{\mathrm{ab}}\)
+be its standard exact structure. Write \(K_0(\mathcal A)\) for the group presented
+by object classes \([X]\), with the relation \([Y]=[X]+[Z]\) for every short exact
+sequence \(0\to X\to Y\to Z\to 0\).
+
+There is a canonical isomorphism
+\[
+\iota_{\mathcal A}\colon K_0(\mathcal A,\mathcal E_{\mathrm{ab}})
+  \xrightarrow{\sim} K_0(\mathcal A),
+\qquad
+\iota_{\mathcal A}([X]_{\mathcal E_{\mathrm{ab}}})=[X].
+\]
+Its inverse sends \([X]\) to \([X]_{\mathcal E_{\mathrm{ab}}}\).
+'''
+scope = 'The group on the right uses the presentation in [@stacks, Tag 02MU].'
+proof_kind = "proof"
+proof = '''
+The conflations of \(\mathcal E_{\mathrm{ab}}\) are precisely the short exact
+sequences of \(\mathcal A\). The two assignments on object classes therefore
+respect the defining relations of their source groups. Both composites are the
+identity on object classes, hence on the groups they generate.
+'''
+source_checked_on = "2026-11-05"
 review = "author_checked"

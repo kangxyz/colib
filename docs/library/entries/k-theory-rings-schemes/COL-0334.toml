@@ -3,7 +3,7 @@ id = "COL-0334"
 title = "Supported fine comparison and the actual degree-zero image"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 114
+order = 230
 statement = '''
 For an open immersion j: U → X and an auxiliary open T, form the actual
 complexes derived-isomorphic to restrictions of global perfect complexes

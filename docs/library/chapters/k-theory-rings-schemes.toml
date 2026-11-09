@@ -8,28 +8,601 @@ introduction = "Ring, field and scheme applications of general algebraic K-theor
 id = "k-zero-of-fields"
 title = '\(K_{0}\) of fields'
 order = 10
-introduction = "Dimension computes the Grothendieck groups of native finite-dimensional vector spaces. The abelian and exact-structure presentations keep their original object classes and canonical comparison."
+introduction = '''Dimension identifies the Grothendieck group of finite-dimensional vector spaces with the integers. The standard exact structure gives the same map on the conflation presentation.'''
+
+[sections.transitions]
+COL-0020 = '''
+For finite-dimensional vector spaces, the conflations of the
+standard exact structure are the short exact sequences.
+The comparison of COL-0019 identifies their object generators,
+so the dimension computation applies to the conflation
+presentation with the same normalization on the field.
+'''
 
 [[sections]]
 id = "milnor-k-theory"
 title = "Milnor K-theory"
 order = 20
-introduction = 'The canonical graded object is the Steinberg quotient of the tensor algebra on the multiplicative group of a field. We first construct its homogeneous groups, then compare the degree-two component with the ordered-pair presentation. Ordered tuple symbols then expose coordinate additivity and adjacent Steinberg and sign identities directly on those homogeneous groups. Direct split evaluation and native reduced representatives give finite signed mixed-symbol expansions in the same homogeneous group. Finite witnesses precede all coefficient fields and actual factors; over a perfect base, a prime-degree root-field class then acquires its expansion in the root field of the whole coefficient image after one actual finite coprime extension. Native weak degree bounds and the shifted former strict bounds remain distinct. The literature references identify the defining relations and the scope of each comparison. Canonical DVR residues extend to actual completion through the native fraction-field lift and residue-field identification, preserving and reflecting residue vanishing. The native Milnor \(K_{2}\) map sends ordered symbols directly to actual stable Steinberg kernel words, preserving field maps and the positive commutator marking. Native integral Milnor \(K_{2}\) vanishes over every finite field, including \(F_{2}\) and \(F_{3}\). For finite torsion-free local DVR extensions of prime Galois fraction-field degree with characteristic-zero base residue field, actual completed normalization branches and classwise coprime-degree descent prove equality of the native chosen norm-residue composites.'
+introduction = '''The graded Steinberg quotient gives the Milnor symbols and their field maps. Their DVR residues, specialization and norm comparisons lead to bounded residue prescription over rational function fields and the degree-two applications.'''
+
+[[sections.topics]]
+id = "graded-milnor-symbols"
+title = "The graded quotient and its symbols"
+start = "COL-0005"
+
+[[sections.topics]]
+id = "milnor-field-change"
+title = "Field change and finite representatives"
+start = "COL-0115"
+
+[[sections.topics]]
+id = "milnor-tame-residues"
+title = "Tame residues and symbol calculations"
+start = "COL-0122"
+
+[[sections.topics]]
+id = "uniformizer-specialization"
+title = "Specialization and unramified maps"
+start = "COL-0132"
+
+[[sections.topics]]
+id = "ramification-and-completion"
+title = "Ramification and completion"
+start = "COL-0140"
+
+[[sections.topics]]
+id = "milnor-norm-residue"
+title = "Norm and residue for prime Galois extensions"
+start = "COL-0261"
+
+[[sections.topics]]
+id = "rational-residues"
+title = "Polynomial degree bounds and rational residues"
+start = "COL-0344"
+
+[[sections.topics]]
+id = "milnor-degree-two"
+title = "The Steinberg kernel and finite fields"
+start = "COL-0255"
+
+[sections.transitions]
+COL-0006 = '''
+The Steinberg tensors are homogeneous of degree two. Their
+two-sided ideal is homogeneous, so the degree summands of
+the tensor algebra descend to the quotient.
+'''
+COL-0007 = '''
+In degree two, the ideal relations come from the degree-two
+generators with only degree-zero scalar multiples. Thus the
+degree-two component has a presentation using the tensor square
+and its Steinberg submodule.
+'''
+COL-0008 = '''
+For units \(a,b\), the relation \(a+b=1\) gives \(b=1-a\).
+Conversely, a pair \(a,1-a\) with both entries units satisfies
+that same relation, so both indexing conventions span the
+same submodule.
+'''
+COL-0009 = '''
+The comparison of relation submodules identifies both
+quotient presentations on the original tensor \(a\otimes b\).
+This specifies the comparison on each ordered pair.
+'''
+COL-0013 = '''
+An ordered tuple of units gives a tensor in its tuple degree.
+Equivalently, its class is the product of the degree-one
+classes in that order in the graded quotient.
+'''
+COL-0014 = '''
+The additive group used in each tensor slot is the
+multiplicative group of units. Tensor linearity therefore
+turns multiplication in one coordinate into addition of
+symbols. A Steinberg pair in adjacent coordinates is
+annihilated by the two-sided ideal.
+'''
+COL-0022 = '''
+Multiplication of the tensor representatives concatenates
+the two ordered tuples. The empty tuple is the degree-zero
+unit, so multiplication by a degree-zero class gives the
+corresponding integer scalar action.
+'''
+COL-0042 = '''
+Ordered tuples generate each degree. Coordinate additivity
+extends a tuple function to the tensor power, and vanishing on
+adjacent Steinberg pairs kills its relations. The resulting
+homogeneous map is determined by the original tuple values.
+'''
+COL-0115 = '''
+A field map preserves unit multiplication and sends
+\(a,1-a\) to the corresponding Steinberg pair in the target.
+It acts on every ordered symbol and hence gives the
+homogeneous transport. The graded ring transport combines
+these maps using concatenation of tuples.
+'''
+COL-0226 = '''
+Evaluating a split polynomial at an element expresses its
+nonzero value as a product of a base coefficient and linear
+factors. Coordinate additivity expands its symbol, and the
+Steinberg identities reduce the extension entries to the
+mixed symbols with a single final extension unit.
+'''
+COL-0227 = '''
+In the root field of a monic irreducible polynomial of degree
+\(d\), every unit in a finite symbol expression has a reduced
+polynomial representative of degree below \(d\). Collecting
+these finitely many representatives before changing the
+coefficient field gives one family that can be evaluated at
+the root of every subsequent scalar factor.
+'''
+COL-0228 = '''
+When \(d=p\) is prime and the base is perfect, the finite
+family of representatives can be split over the prime-to-\(p\)
+field of COL-0225. Coprime-degree irreducibility keeps the
+original polynomial irreducible there, so the mixed-symbol
+expansion lands in the root field of the whole coefficient image.
+'''
+COL-0263 = '''
+A finite expression in symbols over an algebraic extension
+uses finitely many units. They generate a finite intermediate
+field, and a single enlargement accommodates finitely many
+classes and any prescribed finite coefficient field.
+'''
+COL-0264 = '''
+Equality requires the defining relations as well as the
+representatives. A relation witness involves only finitely
+many coefficients, so a finite enlargement can realize
+vanishing and equality already at that stage.
+'''
+COL-0122 = '''
+For a DVR with uniformizer \(\pi\), the tame convention puts
+\(\pi\) in the last slot, with the preceding ring units
+reduced to the residue field. A principal unit reduces to
+\(1\). Vanishing in the shift ring permits this reduction in
+any slot, including when the other entries are fractions.
+'''
+COL-0125 = '''
+For repeated uniformizers, the degree-two identity replacing
+a repeated entry by the sign unit reduces the calculation to
+one uniformizer and copies of \(-1\). This accounts for the
+minus-one tuple in the residue.
+'''
+COL-0127 = '''
+Multiplication by a ring-unit tuple in the left factor
+retains that tuple as a reduced coefficient of the residue.
+This permits a calculation with an arbitrary homogeneous
+class in the other factor.
+'''
+COL-0129 = '''
+Moving a degree-\(m\) unit class from the right to the left
+uses graded commutativity. After taking residue, the other
+degree has decreased by one. The difference between the two
+parities is \(m\), giving the right-action factor \((-1)^m\).
+'''
+COL-0109 = '''
+A field map into the valuation ring gives ring units from
+field units. The ring-unit calculation extends from tuples
+to every base-field class by homogeneous symbol generation.
+'''
+COL-0139 = '''
+In degree one, the fraction-field unit represents its class
+in \(K_1\) and the target is \(K_0=\mathbb Z\). The residue
+therefore measures the exponent of the uniformizer, with
+the actual ring units giving order zero.
+'''
+COL-0133 = '''
+Lift the entries of a residue-field symbol to ring units
+and append a uniformizer. The last-slot formula returns
+the given symbol. These lifts give surjectivity on the
+groups generated by the symbols, with the uniformizer
+itself covering degree zero.
+'''
+COL-0132 = '''
+Write a nonzero fraction-field entry as \(\pi^r u\), with
+\(u\) a ring unit. The main component of the shift map
+reduces these unit parts and preserves the tuple degree.
+Its value on a uniformizer entry is zero.
+'''
+COL-0116 = '''
+The main component comes from the multiplicative shift
+construction. Passing to homogeneous components therefore
+identifies specialization of a product with the product
+of the two specializations.
+'''
+COL-0135 = '''
+For a coefficient field in the valuation ring, each nonzero
+coefficient has order zero. Its specialization is literal
+residue-field transport. A retraction of the residue-field
+embedding then splits Milnor transport into the fraction field.
+'''
+COL-0130 = '''
+A uniformizer-preserving map carries \(\pi^r u\) to the
+corresponding power of the target uniformizer times the
+image unit. Taking unit parts therefore commutes with
+reduction along the local map.
+'''
+COL-0131 = '''
+The same uniformizer equation has exponent one and trivial
+unit correction. Thus on the residue component the map
+gives the unramified naturality square.
+'''
+COL-0140 = '''
+For an actual equation \(j(\pi)=u\rho^e\), a unit contributes
+order zero and the uniformizer contributes \(e\) times the
+target order. This gives the factor \(e\) in the degree-one
+residue square.
+'''
+COL-0143 = '''
+In all degrees, one can apply the shift-ring comparison
+to the entries in an ordered tuple and extend by their
+generation property. The power \(\rho^e\) contributes the
+same factor \(e\) to residue, while \(u\) enters the main
+component.
+'''
+COL-0150 = '''
+The specified residue identifies with the canonical residue
+on each side. Transporting the degreewise formula through
+these identifications gives the ramification square for the
+canonical maps.
+'''
+COL-0151 = '''
+The main component retains the unit correction from
+\(j(\pi)=u\rho^e\). It is a right product of the transported
+residue with the symbol of \(\bar u\). On a class of residue
+zero this term vanishes, giving independence of the uniformizer
+for specialization on the residue kernel.
+'''
+COL-0168 = '''
+Completion carries the original uniformizer to a uniformizer
+and identifies the residue fields. Applying unramified
+naturality to the actual fraction-field lift gives the
+completed residue comparison in both directions on the
+residue group.
+'''
+COL-0261 = '''
+Let \(\delta(x)\) be the residue of the chosen generic norm
+of \(x\) minus the chosen residue-field norm of its residue.
+For a prime Galois generic extension of degree \(\ell\),
+the first calculation gives \(\ell\,\delta(x)=0\).
+After residue-field restriction, the ramification index
+annihilates the restricted error.
+'''
+COL-0289 = '''
+In residue characteristic zero, use the completed
+normalization branches and the classwise mixed-symbol
+expansion to obtain an auxiliary annihilator of
+\(\delta(x)\) prime to \(\ell\). Bézout with the
+prime annihilation of COL-0261 gives \(\delta(x)=0\).
+'''
+COL-0344 = '''
+Over \(k(t)\), the polynomial filtration records the
+degrees of the irreducible factors used in symbols.
+Residues at the points of degree \(d\) detect the new
+classes at that stage and allow a lift supported at one
+such point.
+'''
+COL-0345 = '''
+Assembling the finite residue vectors gives the quotient
+by the constant image. The constant retraction prescribes
+the remaining component, so a bound on the degrees of
+the residue support gives a bounded lift with specified
+constant value.
+'''
+COL-0346 = '''
+The infinity residue is the negative sum of the simple
+norms of the finite residues. Thus an infinity coordinate
+is compatible with the finite data exactly when it cancels
+that sum. Prescribing the constant component fixes the
+lift within the given degree bound.
+'''
+COL-0255 = '''
+In degree two the ordered symbol \(\{a,b\}\) has a
+specified stable Steinberg kernel representative
+\(h(a)h(b)h(ab)^{-1}\). Field change acts on this
+word itself, with the positive commutator normalization.
+'''
+COL-0279 = '''
+Over a finite field it suffices to compute the degree-two
+symbols, since they generate the integral homogeneous group.
+The finite-field calculation gives zero for each such symbol.
+'''
 
 [[sections]]
 id = "quillen-k-theory-of-rings"
 title = "Quillen K-theory of rings and fields"
 order = 30
-introduction = '''Apply general Quillen K-theory to the actual finite-projective and finite-module categories. The ring and field constructions retain the original scalar-extension maps, stable completion and canonical Milnor comparison. The implemented characteristic-zero case of Matsumoto's theorem identifies Milnor \(K_{2}\) with the original Quillen \(K_{2}\). Steinberg's theorem gives vanishing over finite fields, including \(F_{2}\) and \(F_{3}\). These are ring and field theorems, not general categorical axioms.'''
+introduction = '''The original Milnor comparison identifies degree-two Quillen K-theory in characteristic zero. Over finite fields the degree-two groups vanish.'''
+
+[sections.transitions]
+COL-0280 = '''
+Over finite fields the original Milnor comparison is
+surjective. The integral vanishing of the source in
+COL-0279 therefore gives vanishing of both native
+Quillen groups in degree two.
+'''
 
 [[sections]]
 id = "g-theory-of-rings"
 title = "G-theory of rings"
 order = 40
-introduction = "For native finite modules over a commutative Noetherian ring, actual localization at any multiplicative set gives the connective G-localization sequence with uniform-annihilator support. Powers of an element give principal closed support, and the original fraction-field K-map is retained definitionally. Actual quotient restriction and finite image devissage identify principal supported G-theory with G of the quotient ring, retaining the canonical closed pushforward and open localization sequence."
+introduction = '''Localization of finite modules over a Noetherian ring gives a connective sequence with an annihilator support condition. For a principal closed subset, dévissage identifies the supported group with the G-theory of the quotient ring.'''
+
+[sections.transitions]
+COL-0274 = '''
+If \(r^nM=0\), the finite filtration by \(r^iM\) has
+quotients annihilated by \(r\). Those factors are
+modules over \(R/(r)\). Dévissage identifies the
+supported term through the original restriction-of-scalars
+map, so the localization boundary transports through
+that same equivalence.
+'''
 
 [[sections]]
 id = "k-theory-of-schemes"
 title = "K-theory of schemes"
 order = 50
-introduction = '''Native vector bundles and coherent sheaves define upper small-model connective K-theory and G-theory. Their actual inclusion gives the canonical comparison, compatible with strictly functorial open restriction. On a quasi-compact regular scheme with the resolution property, actual finite resolutions prove this canonical K-to-G map is an equivalence in every nonnegative degree. Separately, open restriction of native perfect complexes induces its original canonical Waldhausen K-map. The open-detected weak structure has its acyclic category exactly equivalent to actual perfect complexes acyclic on the open, preserving canonical K-maps. Scalar cones and the positive Laurent coordinate retain their actual native maps. The actual scalar cylinder and signed quotient give the full identity-to-scalar based-additivity square, with all four whole faces and its two-time chosen-zero surface. For an arbitrary open immersion and a scalar restricting to a specified unit, the original relative connecting map sends the independently defined forward scalar \(K_{1}\) class to the positive supported \(K_{0}\) class of its actual signed mapping cone. This is a relative degree-one scalar formula, not a fine-open, Laurent-coordinate, Bass-sign or all-degree scalar formula. The independent fine \(K_{1}\) class of the actual native global-unit automorphism is invariant under object isomorphisms and compatible with inversion and canonical fine restriction. The original coarse restriction sends the independently defined forward scalar class to this fine unit class, with actual rank-one comparisons, affine polynomial/Laurent specializations over every commutative ring and native relative Laurent specializations over every scheme. The scalar-cofiber class restricts to the inverse unit class. The original canonical fiber comparison and the full connective long exact sequence are proved for the relative coarse structure, including its \(K_{0}\) tail. This does not identify relative coarse K-theory with fine perfect-complex K-theory on the open, assert surjectivity of fine open restriction on \(K_{0}\), or give nonconnective localization. Given the precise global-perfect-model derived roof property, actual relative restriction induces a K-equivalence onto its honest derived image in every connective degree. The constructed opposite joint data, both endpoint orientations and genuine strict incoming lifts discharge the categorical approximation hypotheses. Inclusion recovers the original restriction K-map. Geometric roofs and complement/density remain separate. Actual native roofs and actual perfect-complement existence construct honest-image cofinality. The original inclusion and relative restriction are injective in every connective degree and bijective in positive degrees; degree zero identifies precisely the actual fine restriction image. With those explicit geometric inputs, the original fine boundary is uniquely determined by its relative composite, the three recurring positions and honest image tail are exact, and the actual coarse-to-fine prespectrum has this same stable-group profile. The actual acyclic-to-coarse-fiber map is a stable equivalence. COL-0319 transports it to the actual supported prespectrum with the original projection, whole nullhomotopy and structure maps, including coherent canonical rebasing and the original level-one K-map. Geometric existence and comparison to a separately prescribed image-cover spectrum remain separate. Independently, the actual scalar additivity cube retains its two times, four whole faces, fine paths, corners and oriented boundary homotopy. Actual sum normalization and the canonical fiber lift agree on every original subdivision cube. COL-0320 constructs the actual prescribed return, whole canonical-fiber homotopy and original connecting comparison with positive cone sign on every original subdivision cube, including \(n = 0\). COL-0324 identifies this prescribed return with the actual raw and normalized scalar K-operation through whole native AsSmall path transport. Genuine flat-morphism pullback is proved perfect and exact on the original functor, and whole scalar-unit tracks give finite restriction including \(\pi_{1}\), all-integer signed stable restriction and actual K-operation restriction. Both operations have the positive cone image under the original connecting map on every original subdivision cube, including \(n = 0\). The scalar-cone canonical-null square and rotated pasting are constructed. COL-0329 proves that the actual forward subdivision inputs cover every original connective K-class, including degree zero. Literal scalar projection descent therefore identifies the normalized and raw scalar self-track relative boundary as the positive supported cone homomorphism in every natural degree. Only the open immersion, scalar, specified unit and their restriction equality are required. The target remains the relative-open coarse theory, not fine perfect K-theory on the open. Fine/global qcqs transport, Bass and negative-degree boundaries, the independent flat-unit canonical-null family and object/row \(K_{1}\) applications remain separate. COL-0323 and COL-0325 construct the genuine bounded-above stalkwise-flat locally-perfect model, its exact/Waldhausen structure, actual joint cylinders and literal inclusion. Relative projective factorization and exact sheafification give the strict App2 triangle with a flat perfect quotient. Under CompactSpace alone, the literal inclusion K-map is bijective in every natural degree, including zero, and remains the forward map of the comparison equivalence. The upper-bound-only model is not replaced by finite-amplitude or globally finite-free complexes. Arbitrary pullback, supported comparison and global localization remain separate. COL-0322 constructs actual arbitrary bounded-vector-bundle pullback and its original canonical K-maps. COL-0326 constructs bounded-above flat perfect pullback and transports its canonical K-map through the literal inclusion equivalence to arbitrary perfect pullback, with compactness only on the target. Identity, composition and genuine contravariant functors retain the actual comparison maps. COL-0328 proves equality with independently constructed flat-morphism pullback and ordinary open restriction through the literal-inclusion natural-isomorphism square, in all natural degrees including zero. Its open-pair square assumes compactness only on the target scheme and target open. Coarse restriction is identified only after its canonical map to fine open K-theory. Supported/relative-pair maps and whole-prespectrum comparison remain separate. COL-0331 adds the native supported relative-open forward/coarse fibration and all-natural-degree exact sequence, including the coarse relative K0 tail, for arbitrary auxiliary open T. Its target is PerfectSupportedOpenCoarseK, not fine K(U); opposite-exact auxiliary, prespectrum/stable/chosen-zero, fine TT 5.1.2 and Bass statements remain excluded. COL-0332 adds supported-cover excision for an open immersion j and auxiliary open T with image(j) union T = X: genuine extension-by-zero adjunction, stalkwise exactness, supported perfectness by two-open descent, actual S-realization inverse, literal restriction K-equivalence including K0, and normalized connective prespectrum stability in every integer degree. No qcqs, compactness, separation or supplied-equivalence premise is used. Negative stable degrees are connective vanishing, not Bass. COL-0331 retains its coarse target and stated limitations; fine TT localization and opposite exactness remain unclaimed. COL-0307 proves actual perfect derived roofs and perfect complements for a quasi-compact quasi-separated scheme X and quasi-compact open U, allowing a quasi-coherent-cohomology target that need not be perfect and any chosen open derived model. COL-0330 uses these geometric results to establish fixed-pair TT Theorem 5.1.1: the actual coarse connective Omega spectrum realizes the K0 restriction-image cover, with positive-degree isomorphisms and exactly the K0 restriction image, together with actual supported fiber, projection, nullhomotopy, canonical rebase and boundary compatibility. COL-0332 supplies supported-cover excision under image(j) union T = X without compactness. COL-0333 proves supported qcqs roofs with the original global endpoints and supported stabilized extensions, requiring compactness only of image(j) union T. COL-0334 proves genuine supported derived-image closure, opposite exactness, factorization and cofinality; the actual coarse-to-fine restriction is a positive equivalence and a degree-zero injection onto the original fine restriction image, with the original fine K1-to-K0 exact tail. COL-0335 completes fixed-pair TT 5.1.2 in this compact-union setting: the actual coarse S-prespectrum is the connective image cover, and literal union-support/acyclic transport retains the whole nullhomotopy, actual fiber lift and all-integer stable equivalence. COL-0336 proves auxiliary-support forgetting for the actual positive inverse and fine boundary, with compact U as well as compact union, and all fixed-pair group-level localization squares including K1 to K0. COL-0337 proves whole-prespectrum support-forgetting coherence without geometric assumptions: the complete original null, strict fiber square, coherent restriction rebase and signed stable boundary retain the original K-maps and explicit K1-to-K0 sign. Arbitrary coefficient/global-pair naturality, general two-piece supported gluing and Bass 7.4 remain separate. COL-0355 constructs the actual ordinary affine bounded-above-flat cocartesian section Waldhausen category, with pointwise morphism classes, canonical evaluation equivalence and source-independent chosen zeros. Every coefficient ring map gives an exact literal restriction. Native small models and actual iterated-S realization form a strict coefficient prespectrum functor retaining the original zero-space K-map, including degree zero. Evaluation stable comparison, whole coefficient comparison homotopies, supported sections and actual Bass seeds remain separate.'''
+introduction = '''Vector bundles and coherent sheaves give the scheme K-to-G comparison. Perfect complexes give open-support fibers and scalar boundary classes, and bounded-above flat models give pullback and affine coefficient prespectra.'''
+
+[[sections.topics]]
+id = "scheme-k-and-g"
+title = "Vector bundles and coherent sheaves"
+start = "COL-0285"
+
+[[sections.topics]]
+id = "relative-open-support"
+title = "Open restriction and the supported fiber"
+start = "COL-0230"
+
+[[sections.topics]]
+id = "scalar-cones"
+title = "Scalar cones and the relative boundary"
+start = "COL-0303"
+
+[[sections.topics]]
+id = "derived-restriction-image"
+title = "Derived restriction image and fine localization"
+start = "COL-0307"
+
+[[sections.topics]]
+id = "auxiliary-support"
+title = "Auxiliary support and excision"
+start = "COL-0331"
+
+[[sections.topics]]
+id = "flat-perfect-pullback"
+title = "Flat perfect models and arbitrary pullback"
+start = "COL-0322"
+
+[[sections.topics]]
+id = "affine-coefficient-prespectra"
+title = "Affine coefficient prespectra"
+start = "COL-0352"
+
+[sections.transitions]
+COL-0286 = '''
+On a quasi-compact regular scheme with the resolution
+property, a coherent sheaf has a finite resolution by
+finite locally free sheaves. Resolution applies to
+the exact inclusion in COL-0285, so the comparison
+uses that inclusion on \(K\)-groups.
+'''
+COL-0230 = '''
+For perfect complexes, an open immersion
+\(j\colon U\hookrightarrow X\) gives ordinary restriction
+\(j^*\) on actual cochain complexes. Exactness for the
+fine Waldhausen structures gives its canonical \(K\)-map.
+'''
+COL-0298 = '''
+Write \(w_j\) for the weak class detected by quasi-isomorphisms
+after \(j^*\). An object is acyclic for \(w_j\) exactly when
+its restriction is acyclic. The corresponding support
+category thus identifies with the acyclic category for
+the change from the fine weak class to \(w_j\).
+'''
+COL-0300 = '''
+For this change of weak equivalences, the identity-cone
+cylinder and extension give the acyclic-to-fiber comparison.
+Its inclusion and path-space boundary give the relative
+exact sequence, with a degree-zero tail in the coarse
+relative theory.
+'''
+COL-0303 = '''
+Let a global scalar \(r\) act on a perfect complex \(P\)
+and suppose it restricts to a unit on \(U\). Its signed cone
+restricts to an acyclic complex. The scalar cylinder presents
+that cone as an actual cofiber, so additivity applies to the
+map from the identity sequence to the scalar sequence.
+'''
+COL-0316 = '''
+Passing to positive-dimensional generalized loops carries
+the full additivity square to a square of cubes with two
+independent times. The fine identity and scalar cofiber
+paths give its coarse edges, which identify the boundary
+routes with the stipulated orientation.
+'''
+COL-0317 = '''
+The coproduct in the sum comparison is ordered with
+the quotient first. The normalized endpoint and the reversed
+null path of the supported cone supply the two coordinates
+of a cube in the canonical homotopy fiber.
+'''
+COL-0304 = '''
+In degree one, take the independently defined forward scalar
+loop. Its canonical fiber comparison gives the object class
+of the signed cone. With the boundary of COL-0300, the cone
+enters with positive sign.
+'''
+COL-0305 = '''
+On \(U\) the scalar acts by the given global-unit
+automorphism. The forward scalar class restricts to its
+fine \(K_1\) class. The rank-one comparison identifies
+the unit coordinate for structure sheaves and in the
+affine and relative Laurent cases.
+'''
+COL-0320 = '''
+On an original subdivision cube, the return path uses
+the prescribed inverse inclusion and projection class.
+The coordinate-zero connecting map compares its normalized
+cube with the canonical fiber cube of the actual acyclic cone.
+'''
+COL-0324 = '''
+The complete scalar tracks give raw and zero-normalized
+self-track operations. Transport of the stored paths compares
+these operations with the prescribed return on every
+subdivision cube, preserving the positive cone image.
+'''
+COL-0329 = '''
+The subdivision inputs represent every connective
+\(K\)-class. Thus the cube calculation and injectivity of
+the supported-to-fiber comparison identify the relative
+boundary of the two scalar operations as homomorphisms
+in each connective degree.
+'''
+COL-0307 = '''
+For fine restriction, one needs roofs for the actual
+restricted derived morphisms and a complement for a perfect
+complex on the open. For a quasi-compact open in a qcqs
+scheme, the roofs have global perfect denominators becoming
+quasi-isomorphisms on the open. The complements give
+stabilizations that are derived restrictions of global complexes.
+'''
+COL-0314 = '''
+The derived image consists of the actual complexes on
+the open that are derived-isomorphic to restrictions.
+The roof hypothesis supplies its exact structure and the
+incoming lifts used by approximation for the relative
+restriction corestriction.
+'''
+COL-0315 = '''
+Perfect complements give density of that image in the
+fine category on the open. The cofinality comparison
+identifies its positive groups with the fine groups and
+its degree-zero group with the subgroup of actual
+restriction classes.
+'''
+COL-0318 = '''
+Under the roof and complement hypotheses, the positive
+comparison inverses carry the relative boundary to the
+fine theory on the open. In degree zero the exact tail
+ends at the actual global restriction image. This is
+also the degree-zero image of the connective spectrum map.
+'''
+COL-0319 = '''
+The supported category identifies with the relative
+acyclic category by the original exact flattening.
+Iterating \(S\) transports the fiber map with its
+inclusion coordinate and the entire original null path.
+'''
+COL-0330 = '''
+For a quasi-compact open in a qcqs scheme, the geometric
+roofs and complements of COL-0307 supply the preceding
+hypotheses. The coarse connective spectrum maps to the
+fine open spectrum with the positive isomorphisms and
+the degree-zero restriction image just described.
+'''
+COL-0331 = '''
+Fix an auxiliary open \(T\subseteq X\) and start with
+perfect complexes acyclic on \(T\). Detect weak equivalences
+by restriction along \(j\). The acyclic objects for the
+new class are then the perfect complexes acyclic on
+\(T\cup j(U)\), by the actual support flattening.
+'''
+COL-0332 = '''
+When \(T\cup j(U)=X\), restriction and extension by zero
+give exact adjoint functors on the supported categories.
+Their unit and counit are quasi-isomorphisms, so the
+induced realization maps are homotopy inverses.
+'''
+COL-0333 = '''
+Suppose \(W=T\cup j(U)\) is quasi-compact in a qcqs
+scheme. The supported roof has a perfect source
+acyclic on \(T\), and its two legs are chain maps on \(X\).
+For a perfect \(E\) on \(U\) with the prescribed support,
+the stabilized extension restricts to \(E\oplus E[1]\),
+with the shifted complement carrying the same support.
+'''
+COL-0334 = '''
+The supported roofs give the exact derived-image model
+and its incoming lifts. The shifted complements give
+cofinality of the image, so coarse restriction is an
+isomorphism in positive degrees and has exactly the
+fine restriction image in degree zero.
+'''
+COL-0335 = '''
+With the same compact union, the actual coarse spectrum
+realizes this image comparison. The union-support
+identification carries the whole acyclic nullhomotopy
+and its fiber lift, also after canonical zero rebasing.
+'''
+COL-0336 = '''
+Forgetting auxiliary support is the inclusion of one
+supported category into the other. It commutes with
+change of weak equivalences and the relative boundary.
+When \(U\) and \(W\) are compact, this yields the fine
+boundary square through the positive comparison inverses.
+'''
+COL-0337 = '''
+At the prespectrum level, support inclusion carries
+every time of the original nullhomotopy. The resulting
+fiber square compares the signed stable boundaries,
+whose relation to the connective boundaries retains
+the minus sign in the \(K_1\)-to-\(K_0\) degree.
+'''
+COL-0322 = '''
+For a morphism \(f\colon Y\to X\), termwise pullback
+takes bounded finite locally free complexes on \(X\)
+to such complexes on \(Y\). Flat quotients control
+the inherited exact sequences and give the exact
+pullback functor on these models.
+'''
+COL-0323 = '''
+For arbitrary perfect complexes, an upper term bound
+and flatness of the terms give a model for termwise
+pullback. A bounded-above flat augmentation can use
+the given cohomological bound, which exists for perfect
+complexes on a quasi-compact space.
+'''
+COL-0325 = '''
+On a quasi-compact ringed space, a map from a flat
+model to a perfect complex factors through a cofibration
+with flat perfect quotient followed by a quasi-isomorphism.
+This supplies App2 for the literal inclusion of the
+bounded-above flat models.
+'''
+COL-0326 = '''
+Termwise pullback on the flat models composes by the
+geometric pullback comparison, with exactness from
+the flat quotients. When the morphism target \(X\)
+is quasi-compact, the inverse of the inclusion comparison
+on \(X\) gives the resulting pullback on all-perfect
+\(K\)-theory.
+'''
+COL-0328 = '''
+For a flat morphism or an open immersion, the flat-model
+pullback square commutes with the literal inclusions
+by the actual geometric natural isomorphism. This
+identifies the transported map with the previously
+defined exact pullback or fine restriction map.
+'''
+COL-0351 = '''
+The same inclusion has a canonically zero-normalized
+prespectrum map. On a compact ringed space its connective
+\(K\)-isomorphisms identify the stable map as an
+equivalence. Flat pullback carries the inclusion square
+by a whole based prespectrum homotopy.
+'''
+COL-0352 = '''
+The composition and unit isomorphisms of termwise
+pullback satisfy the pseudofunctor coherence equations.
+Restricting this pseudofunctor along \(\operatorname{Spec}\)
+gives the affine coefficient diagram, with its identity
+and composition transports.
+'''
+COL-0355 = '''
+Evaluation at the identity of \(R\) identifies the
+cocartesian sections with the original coefficient
+fiber. Restriction along a ring map is literal
+precomposition and preserves the chosen pointwise
+zero. These exact restrictions give the strict
+coefficient prespectrum after small models and
+iteration of \(S\).
+'''

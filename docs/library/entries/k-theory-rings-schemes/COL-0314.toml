@@ -3,7 +3,7 @@ id = "COL-0314"
 title = "Relative restriction onto the honest derived image"
 kind = "theorem"
 section = "k-theory-of-schemes"
-order = 90
+order = 150
 statement = """
 Given global-perfect-model derived roofs, the actual relative restriction corestriction induces
 an equivalence of K-groups with its honest derived image in every connective degree.
