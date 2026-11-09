@@ -256,7 +256,9 @@ export async function handler(_event, context) {
       const token = await github('/actions/runners/registration-token', { method: 'POST' })
       try {
         await ssm.send(new PutParameterCommand({
-          Name: tokenName(lease), Value: token.token, Type: 'SecureString', Overwrite: false
+          Name: tokenName(lease), Value: token.token, Type: 'SecureString', Overwrite: false,
+          // The existing instance profile can only read its own tagged token.
+          Tags: [{ Key: 'InstanceId', Value: lease.instanceId }]
         }))
       } catch (error) {
         if (error.name !== 'ParameterAlreadyExists') throw error

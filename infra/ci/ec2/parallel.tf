@@ -142,7 +142,7 @@ resource "aws_iam_role_policy" "parallel_controller" {
       },
       {
         Effect   = "Allow"
-        Action   = ["ssm:PutParameter", "ssm:DeleteParameter"]
+        Action   = ["ssm:PutParameter", "ssm:AddTagsToResource", "ssm:DeleteParameter"]
         Resource = "${local.parameter_arn_prefix}${local.parallel_token_path}/i-*"
       },
       {
