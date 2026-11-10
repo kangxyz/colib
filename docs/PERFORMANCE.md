@@ -31,3 +31,10 @@ term at the goal. Keep the fully stated equality and verify the resulting
 declaration with the ordinary native build. The
 [Milnor branch consumer case](performance/milnor-branch-consumer-conversion.md)
 records the applicable boundaries and measurements.
+
+In an instance-heavy DVR argument, isolate the ramification witnesses and
+map injectivity in small typed proofs. For a branch sum, compose the actual
+additive maps before applying the finite-sum theorem once. Use pointwise
+equality transport for the literal branch coordinates. The
+[complete DVR case](performance/complete-dvr-instance-and-sum-elaboration.md)
+records the diagnosed phases and native validation.
