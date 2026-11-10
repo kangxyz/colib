@@ -356,6 +356,7 @@ class LibraryTests(unittest.TestCase):
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
+            "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -527,6 +528,7 @@ class LibraryTests(unittest.TestCase):
             "transfer-singular-complexes": ["COL-0397"],
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
+            "weight-one-norm": ["COL-0401"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():
