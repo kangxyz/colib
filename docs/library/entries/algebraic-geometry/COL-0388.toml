@@ -1,0 +1,19 @@
+[entry]
+id = "COL-0388"
+title = "Geometric integrality of the barycentric simplex"
+kind = "theorem"
+section = "algebraic-simplices"
+order = 40
+primary = "AlgebraicSimplex.structureMap_geometricallyIntegral"
+statement = '''
+For a commutative ring \(R\) and \(n\ge 0\), the chart eliminates \(t_n\) by
+\(t_n=1-\sum_{i=0}^{n-1}t_i\). It identifies the barycentric simplex
+\(\operatorname{Spec} R[t_0,\ldots,t_n]/(\sum_{i=0}^n t_i-1)\)
+with \(\mathbb A^n_R\) over \(\operatorname{Spec} R\). Its structure
+morphism is geometrically integral.
+'''
+scope = '''
+The chart uses the original simplex structure map and holds in every natural
+simplex degree.
+'''
+review = "author_checked"

@@ -64,6 +64,16 @@ a lift of its field point through any Nisnevich cover. The resulting section
 puts the identity into the covering sieve. Local lifting conditions for sheaves
 at this object are consequently conditions on their actual sections.
 '''
+COL-0384 = '''
+The identity scheme \(S\to S\) is also terminal in the smooth site. Its map
+from a smooth scheme \(X\) supplies the augmentation of the nerve of
+relative powers of \(X\).
+'''
+COL-0392 = '''
+The splitting of Nisnevich covers at \(\operatorname{Spec}k\) in COL-0343
+lets the single base object serve as a point diagram. Its germ map
+therefore computes the fiber functor by evaluation.
+'''
 
 [[sections]]
 id = "algebraic-simplices"
@@ -82,4 +92,61 @@ The prism extends the comparison of the two endpoints from degree one to a chain
 homotopy on the whole singular complex. For the interval projection, multiplication
 on the interval gives the contraction to the vertex zero and identifies that
 vertex restriction as the chain homotopy inverse.
+'''
+COL-0388 = '''
+The last-coordinate chart of COL-0347 identifies the simplex structure
+map with that of affine space. After base change to an integral support,
+the product with the simplex is again integral.
+'''
+COL-0394 = '''
+For a prime support \(Z\), use \(Z\times_k\Delta_k^n\) and the diagonal
+in the two simplex coordinates. The source projection is a base change of
+the original support projection. For a graph, reindex the graph sum using
+the correspondence of source components under projection from the product.
+'''
+
+[[sections]]
+id = "pointed-motivic-inputs"
+title = "Pointed simplicial presheaves and motivic inputs"
+order = 50
+introduction = "The smooth site supplies the pointed representables used in the Nisnevich and affine-line tests. Reduced cofibers, the Tate quotient and finite motivic coefficients use these same objects and maps."
+
+[[sections.topics]]
+id = "pointed-quotients"
+title = "Pointed objects and quotients"
+start = "COL-0385"
+
+[[sections.topics]]
+id = "stalkwise-interval-localization"
+title = "Stalkwise and affine-line localization"
+start = "COL-0390"
+
+[[sections.topics]]
+id = "motivic-coefficients"
+title = "Motivic coefficients"
+start = "COL-0393"
+
+[sections.transitions]
+COL-0386 = '''
+Apply the reduced cone construction of COL-0385 to the Laurent open,
+pointed at \(1\). Collapsing the attached cone gives the map to the
+strict open-complement quotient.
+'''
+COL-0390 = '''
+Evaluation at objects gives the first weak-equivalence test in COL-0385.
+On a site the next test uses its fibers. After inverting stalkwise weak
+equivalences, use cylinder projections to test interval locality
+as in [@MorelVoevodsky1999, Section 2.3, Definition 3.1 and Remark 3.3].
+'''
+COL-0391 = '''
+For the affine-line parameter, the cylinder on \(U_+\) identifies with
+\((U\times_R\mathbb A^1_R)_+\), retaining the projection. The empty
+and square maps instead pass the stalkwise test through the ordinary
+Nisnevich sheaf comparison of COL-0341.
+'''
+COL-0393 = '''
+To supply the coefficient in COL-0389, first restrict the reduced transfer
+torus along the graph functor. The ordinary singular chains of COL-0348
+then supply the weight complex. Apply the signed shift and the
+multiplication cone of COL-0383 for finite coefficients.
 '''

@@ -1,0 +1,21 @@
+[entry]
+id = "COL-0387"
+title = "Simplicial representatives of shifted cochains"
+kind = "definition"
+section = "derived-hom-comparisons"
+order = 40
+primary = "CochainComplex.simplicialRepresentative"
+statement = '''
+In an abelian category, apply inverse Dold–Kan to the good truncation
+\(\tau_{\le 0}(K[p])\), with cochain degree \(-r\) read as chain degree \(r\).
+Normalization recovers this truncated complex, whose degree-zero object is
+the cycles in degree zero of \(K[p]\). Maps into the simplicial representative
+correspond to strict maps of normalized chains into the shifted complex.
+'''
+scope = '''
+On a site with left exact abelian sheafification, the pointed comparison
+uses the reduced chains of COL-0389.
+It gives a bijection of strict maps. Representability after localizing the
+source and passing to the derived coefficient category is separate.
+'''
+review = "author_checked"

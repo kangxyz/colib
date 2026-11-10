@@ -1,0 +1,19 @@
+[entry]
+id = "COL-0384"
+title = "Augmented Čech nerves of smooth schemes"
+kind = "definition"
+section = "nisnevich-sites"
+order = 40
+primary = "AlgebraicGeometry.Scheme.SmoothSite.cechNerveFunctor"
+statement = '''
+For a smooth separated finite-type scheme \(X\to S\), the augmented Čech nerve
+of the structural map has \(n\)-simplices \(X^{\times_S(n+1)}\) and the
+augmentation to \(S\). A map \(\alpha\colon[m]\to[n]\) pulls back the tuple by
+selecting its \(\alpha(i)\)-th coordinate at \(i\). A section \(s\colon S\to X\)
+gives an extra degeneracy by inserting \(s\) in the first coordinate.
+'''
+scope = '''
+The terminal object is the identity of \(S\) in the native smooth site.
+The section hypothesis is used for the extra degeneracy.
+'''
+review = "author_checked"

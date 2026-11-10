@@ -299,7 +299,7 @@ title = "Lecture Notes on Motivic Cohomology"
 authors = ["Carlo Mazza", "Vladimir Voevodsky", "Charles Weibel"]
 year = 2006
 version = "Clay Mathematics Monographs, volume 2, published edition"
-url = "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/Lecture_notes_on_motivic_cohology_published.pdf"
+url = "https://www.claymath.org/library/monographs/cmim02c.pdf"
 
 [sources.axiom_stacks_milnor_norm_5ed82d14]
 kind = "software"
@@ -307,3 +307,115 @@ title = "Native polynomial Milnor norms in the Stacks Project in Lean"
 authors = ["AxiomMath/Stacks contributors"]
 version = "Git commit 5ed82d14634e8d9576bb844c7bd4e3da66d450e7; SimpleNorm.lean declarations inspected 2026-11-08"
 url = "https://github.com/AxiomMath/Stacks/blob/5ed82d14634e8d9576bb844c7bd4e3da66d450e7/StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/SimpleNorm.lean"
+
+[sources.Voevodsky2003ModTwo]
+kind = "article"
+title = "Motivic cohomology with Z/2-coefficients"
+authors = ["Vladimir Voevodsky"]
+year = 2003
+version = "Publications Mathématiques de l’IHÉS, volume 98, pages 59–104"
+url = "https://numdam.org/item/10.1007/s10240-003-0010-6.pdf"
+
+[sources.Voevodsky2003ReducedPowers]
+kind = "article"
+title = "Reduced power operations in motivic cohomology"
+authors = ["Vladimir Voevodsky"]
+year = 2003
+version = "Publications Mathématiques de l’IHÉS, volume 98, pages 1–57"
+url = "https://numdam.org/item/10.1007/s10240-003-0009-z.pdf"
+
+[sources.MorelVoevodsky1999]
+kind = "article"
+title = "A1-homotopy theory of schemes"
+authors = ["Fabien Morel", "Vladimir Voevodsky"]
+year = 1999
+version = "Publications Mathématiques de l’IHÉS, volume 90, pages 45–143"
+url = "https://numdam.org/item/PMIHES_1999__90__45_0/"
+
+[sources.Voevodsky2008CdStructures]
+kind = "article"
+title = "Homotopy theory of simplicial sheaves in completely decomposable topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4578v1"
+url = "https://arxiv.org/abs/0805.4578v1"
+
+[sources.Voevodsky2008UnstableMotivic]
+kind = "article"
+title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4576v1"
+url = "https://arxiv.org/abs/0805.4576v1"
+
+[sources.Voevodsky2011ModEll]
+kind = "article"
+title = "On motivic cohomology with Z/l-coefficients"
+authors = ["Vladimir Voevodsky"]
+year = 2011
+version = "Annals of Mathematics, volume 174, pages 401–438"
+url = "https://annals.math.princeton.edu/wp-content/uploads/annals-v174-n1-p11-p.pdf"
+
+[sources.Riou2012Steenrod]
+kind = "article"
+title = "Opérations de Steenrod motiviques"
+authors = ["Joël Riou"]
+year = 2012
+version = "arXiv:1207.3121v1"
+url = "https://arxiv.org/abs/1207.3121v1"
+
+[sources.HaesemeyerWeibel2019]
+kind = "book"
+title = "The Norm Residue Theorem in Motivic Cohomology"
+authors = ["Christian Haesemeyer", "Charles A. Weibel"]
+year = 2019
+version = "Annals of Mathematics Studies 200, Princeton University Press"
+url = "https://press.princeton.edu/books/paperback/9780691191041/the-norm-residue-theorem-in-motivic-cohomology"
+
+[sources.HoyoisKellyOstvaer2017]
+kind = "article"
+title = "The motivic Steenrod algebra in positive characteristic"
+authors = ["Marc Hoyois", "Shane Kelly", "Paul Arne Østvær"]
+year = 2017
+version = "Journal of the European Mathematical Society, volume 19, issue 12"
+url = "https://doi.org/10.4171/jems/754"
+
+[sources.Spitzweck2018MotivicSpectrum]
+kind = "book"
+title = "A commutative P¹-spectrum representing motivic cohomology over Dedekind domains"
+authors = ["Markus Spitzweck"]
+year = 2018
+version = "Mémoires de la Société Mathématique de France, volume 157"
+url = "https://doi.org/10.24033/msmf.465"
+
+[sources.ElmantoHoyoisKhanSosniloYakerson2021]
+kind = "article"
+title = "Motivic infinite loop spaces"
+authors = ["Elden Elmanto", "Marc Hoyois", "Adeel A. Khan", "Vladimir Sosnilo", "Maria Yakerson"]
+year = 2021
+version = "Authors’ manuscript dated July 9, 2021"
+url = "https://hoyois.app.uni-regensburg.de/papers/deloop.pdf"
+
+[sources.BachmannHoyois2021Norms]
+kind = "book"
+title = "Norms in motivic homotopy theory"
+authors = ["Tom Bachmann", "Marc Hoyois"]
+year = 2021
+version = "Astérisque 425"
+url = "https://arxiv.org/abs/1711.03061"
+
+[sources.Hu2026Steenrod]
+kind = "article"
+title = "Motivic Steenrod algebra and Thom obstructions without desingularization"
+authors = ["Jiahao Hu"]
+year = 2026
+version = "arXiv:2609.14128v1"
+url = "https://arxiv.org/abs/2609.14128v1"
+
+[sources.BachmannHopkins2026Characteristic]
+kind = "article"
+title = "Motivic Eilenberg–Mac Lane spaces at the characteristic"
+authors = ["Tom Bachmann", "Michael J. Hopkins"]
+year = 2026
+version = "arXiv:2611.02320v1"
+url = "https://arxiv.org/abs/2611.02320v1"

@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0389"
+title = "Reduced normalized chains and hypercohomology"
+kind = "definition"
+section = "derived-hom-comparisons"
+order = 30
+primary = "CategoryTheory.PointedSimplicialPresheaf.reducedHypercohomology"
+statement = '''
+For a pointed simplicial presheaf \(X\) on a site \((\mathcal C,J)\), take the
+free simplicial abelian presheaf and quotient by the basepoint. Sheafify in
+each simplicial degree, normalize, and place chain degree \(r\) in cochain
+degree \(-r\) to obtain \(\widetilde C_J(X)\). The freely pointed discrete
+presheaf gives the free abelian sheaf in degree zero.
+
+With coefficient complex \(K\), the resulting reduced hypercohomology is
+\[
+ \widetilde H^p_J(X,K)=
+ \operatorname{Hom}_{D(\operatorname{Sh}_J(\mathcal C,\mathbf{Ab}))}
+     \bigl(\widetilde C_J(X),K[p]\bigr).
+\]
+Restriction is precomposition, and the finite-coefficient Bockstein of
+COL-0383 acts by shifted postcomposition with square zero.
+'''
+scope = '''
+The construction uses left exact abelian sheafification and the unbounded
+derived category of abelian sheaves. Equation (2.9) of
+[@Voevodsky2003ReducedPowers, Section 2] supplies the derived-Hom expression.
+The local homotopy comparison is a separate obligation.
+'''
+review = "author_checked"

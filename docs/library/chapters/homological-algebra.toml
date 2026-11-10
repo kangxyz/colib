@@ -204,6 +204,17 @@ be an unbounded complex. Specializing to a single sheaf recovers
 ordinary Ext cohomology, and the cochain shift determines the change
 of hypercohomological degree.
 '''
+COL-0389 = '''
+For a freely pointed discrete presheaf, the reduced normalized source
+recovers the same free sheaf in degree zero. For general simplicial
+presheaves the source is a cochain complex, and the shift of the coefficient
+still gives the cohomological degree.
+'''
+COL-0387 = '''
+Before localization, a strict map from a cochain complex in nonpositive
+degrees into \(K[p]\) factors through the good truncation. Apply this to the
+source of COL-0389 after inverse Dold–Kan and the free-sheaf adjunction.
+'''
 
 [[sections]]
 id = "ext-products"
@@ -218,3 +229,9 @@ to an Ext class in each variable. Their images can be composed in two
 orders. The comparison of the two Yoneda composites has sign
 \((-1)^{pq}\) for classes of degrees \(p\) and \(q\).
 '''
+
+[[sections]]
+id = "finite-coefficients"
+title = "Finite coefficients and connecting maps"
+order = 35
+introduction = 'Multiplication by \(n\) on a cochain complex gives a signed cone. Its connecting map and the composite of two multiplication maps give the finite-coefficient Bockstein and its coefficient triangle.'

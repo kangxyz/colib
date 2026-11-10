@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0393"
+title = "Reduced transfer torus and ordinary motivic coefficients"
+kind = "definition"
+section = "pointed-motivic-inputs"
+order = 70
+primary = "AlgebraicGeometry.motivicComplex"
+statement = '''
+For a field \(k\) and weight \(q\), quotient the signed correspondence
+representable of \(\mathbb G_m^q\) by the images of the \(q\) unit-coordinate
+inclusions. Restrict along the graph functor, take the ordinary algebraic
+simplex chains, and sheafify in the Nisnevich topology. Chain degree \(r\)
+occupies cochain degree \(q-r\), with the sign \((-1)^q\) from the weight shift.
+Write \(\mathbb Z(q)\) for this complex.
+
+The multiplication cone \(\mathbb Z(q)/n\) supplies the finite coefficients
+for COL-0389. The induced degree-one Bockstein on reduced hypercohomology
+has square zero.
+'''
+scope = '''
+The construction takes place in the value universe of the smooth site.
+Compatibility of the simplex action with composed finite correspondences
+and localized representability are separate comparisons.
+'''
+review = "author_checked"

@@ -1,0 +1,22 @@
+[entry]
+id = "COL-0391"
+title = "Pointed Nisnevich and affine-line generator maps"
+kind = "definition"
+section = "pointed-motivic-inputs"
+order = 50
+primary = "AlgebraicGeometry.MotivicHomotopy.motivicGeneratingMaps_isInvertedBy_toAffineLineHomotopyCategory"
+statement = '''
+The three families over \(\operatorname{Spec}R\) are the empty-descent map
+\(*\to\varnothing_+\), the pointed pushout map
+\(U_+\amalg_{W_+}V_+\to X_+\) of a distinguished square, and the projection
+\((U\times_R\mathbb A^1_R)_+\to U_+\). The first two induce isomorphisms
+at each site fiber. The affine-line localization of COL-0390 inverts all
+three families.
+'''
+scope = '''
+The distinguished square has its original open and étale maps and the
+isomorphism on the closed complement. The general square argument uses
+type-valued weak sheafification, which is available over \(\operatorname{Spec}R\).
+The identification of the saturated homotopical class is separate.
+'''
+review = "author_checked"
