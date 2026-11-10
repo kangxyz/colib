@@ -1,0 +1,13 @@
+# Singular transfer functor checkpoint: 217 Lean sources
+
+Snapshot time: 2026-11-10T09:58:51.432888+00:00. Baseline main: `7b3792db0945375d2b9abd6ecd44ecec9b373d9e` (tree `d9ef937adef2f11680600d98f87b62921acf1cab`). Previous checkpoint: `4b04373268bae94be9f7a876d9f02de5da3d3266`. The checkpoint advances normally from main's merged 210-source state and preserves its Pages workflow. Main itself is not changed.
+
+This increment adds seven accepted sources: five production modules and two actual consumers, with 15 actual examples and 59 production-owner declarations. They construct the geometrically integral simplex input, the native exterior simplex action and functor, and singular transfer maps and functor. Every added source compiled. All five production owners passed the 15 native declaration linters and ordinary-axiom closure. Exact source textstyle passed for the first four and remaining three source files. Existing exact receipts are reused, with source, compiled-product and receipt hashes rechecked. The acceptance manifest SHA-256 is `5b74445788d162ef477891e0ed785a13231e57af493867bec78c7910c5b571cf`.
+
+All 210 previous source bytes are preserved. The separate ZIP contains exactly 217 Lean modules: 123 production modules and 94 actual consumers. It contains no root import hub, report, manifest, script, compiled artifact, dependency or other file. It is a source overlay rather than a standalone project. ZIP SHA-256: `f033f658980027633a954d8e51701bee010e435c050ae09cc5512ffe5b06f6b0`. The separate source manifest records every file hash.
+
+Static publication checks establish that all 287 reachable lower Colib dependency sources match frozen main210 byte for byte. There are no additional unpublished dependencies. Only the five new production imports are added to the sorted root, whose 3260 imports exactly match its production source inventory. No transfer-sheaf or weight-one candidate is included in this increment.
+
+Pins remain Lean 4.35.0, Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679 and Stacks 5ed82d14634e8d9576bb844c7bd4e3da66d450e7. Native acceptance used preserved provider e7697ab8164435c7093665d02ac34f021eefb75e with exact source overlays. This publication performs static and hash checks only and does not rerun Lean or native tests. No fresh aggregate 217-source/root build, kernel replay, independent review of every source or whole-motivic completion is claimed.
+
+The branch commit deliberately uses [skip ci], and no workflow is manually dispatched. At the last reported observation, baseline main run 42792747847 had a successful Build step but was not terminal; this does not claim full main CI success. No CI success is claimed for this checkpoint.
