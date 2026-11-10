@@ -206,6 +206,15 @@ vanishing from the original attaching-map quasi-isomorphism. This supplies the h
 input to a later obstruction argument, without assuming a Hurewicz or Whitehead conclusion.
 '''
 
+
+COL-0526 = '''
+The point-relative comparison records the chain input needed before a homological
+obstruction argument: it retains the actual quotient map, constructs spherical relative
+cycles and extracts finite ambient boundaries. It does not yet identify those boundaries
+with a homotopy trivialization. That later step needs genuine face-compatible spherical
+straightening and addition, not an assumed Hurewicz or Whitehead certificate.
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"

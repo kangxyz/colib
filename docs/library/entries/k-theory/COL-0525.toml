@@ -1,0 +1,40 @@
+[entry]
+id = "COL-0525"
+title = "Original row-cell descent through cone and Bass successors"
+kind = "comparison"
+section = "bass-construction"
+order = 82
+statement = """
+A coefficient-natural whole cell into the genuine row refinement descends through
+its four-corner cone, the inverse geometric index map and the forward row strength.
+A proved comparison with an original natural track is preserved by this descent
+and by parameter looping. Transporting only the endpoint witnesses constructs the
+next whole cell; its time-slice comparison proves its coefficient naturality.
+"""
+scope = """
+Arbitrary indexing categories, loop-prespectrum diagrams and a specified coefficient
+transformation. The row interchange fixes basepoints, is coefficient-natural and
+satisfies the stated adjacent structure-map interchange equation. The geometric
+index isomorphism satisfies the original coefficient-factorization equation.
+The initial whole cell and its comparison are assumptions; the successor cell and
+its naturality are constructed conclusions. Source-null height and cell time remain
+independent. The loop/row comparison includes degree zero. No generated iteration,
+stable equivalence or Thomason--Trobaugh localization endpoint is asserted.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.DiagramRowCell.step_naturality"
+proof_kind = "outline"
+proof = """
+Apply the original moving-square cone construction to the input whole cell. Its
+source-null formula survives postcomposition by the inverse index map and row
+strength. Identify its time slices using the input comparison, functoriality of
+cone maps, index naturality and the proved strength comparison.
+
+Parameter-loop that actual cone cell and postcompose with the computed loop/row
+inverse. The pointwise loop/row identity identifies the Bass comparison, including
+its degree-zero triple-loop coordinates. The whole comparison then fixes both
+endpoints. Cast only their witnesses, leaving every level and time parameter
+unchanged. The resulting time-slice equality identifies a natural transformation,
+whose naturality gives the required whole-cell coefficient equation.
+"""
+source_checked_on = "2026-11-10"

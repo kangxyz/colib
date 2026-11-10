@@ -1615,6 +1615,10 @@ public import Colib.KTheory.Bass.ConeTrackEquivariance
 public import Colib.KTheory.Bass.DiagramBassRowStrength
 public import Colib.KTheory.Bass.DiagramConeRowStrength
 public import Colib.KTheory.Bass.DiagramConeRowStrengthHomotopy
+public import Colib.KTheory.Bass.DiagramRowCellBass
+public import Colib.KTheory.Bass.DiagramRowCellCone
+public import Colib.KTheory.Bass.DiagramRowCellConeComparison
+public import Colib.KTheory.Bass.DiagramRowCellStep
 public import Colib.KTheory.Bass.DiagramRowInterchange
 public import Colib.KTheory.Bass.DiagramRowIteration
 public import Colib.KTheory.Bass.DiagramRowLooping
@@ -2914,6 +2918,8 @@ public import Colib.Topology.LocalCoefficients.MarkedSphericalTwoCycle
 public import Colib.Topology.LocalCoefficients.OpenCoverDescent
 public import Colib.Topology.LocalCoefficients.OpenExcision
 public import Colib.Topology.LocalCoefficients.PeriodicSquare
+public import Colib.Topology.LocalCoefficients.PointRelativeEvaluation
+public import Colib.Topology.LocalCoefficients.PointRelativeHomology
 public import Colib.Topology.LocalCoefficients.Prism
 public import Colib.Topology.LocalCoefficients.ProjectionTranslations
 public import Colib.Topology.LocalCoefficients.PullbackCoveringHomology
@@ -2926,6 +2932,7 @@ public import Colib.Topology.LocalCoefficients.RelativeAcyclicity
 public import Colib.Topology.LocalCoefficients.RelativeChains
 public import Colib.Topology.LocalCoefficients.RelativeCoefficients
 public import Colib.Topology.LocalCoefficients.RelativeComposition
+public import Colib.Topology.LocalCoefficients.RelativeFiniteBoundary
 public import Colib.Topology.LocalCoefficients.RelativeFunctoriality
 public import Colib.Topology.LocalCoefficients.RelativeHomology
 public import Colib.Topology.LocalCoefficients.RelativeOpenRestriction
@@ -2950,6 +2957,7 @@ public import Colib.Topology.LocalCoefficients.SmallChainRefinement
 public import Colib.Topology.LocalCoefficients.SmallChains
 public import Colib.Topology.LocalCoefficients.SmallSubdivision
 public import Colib.Topology.LocalCoefficients.SourceCapCoboundary
+public import Colib.Topology.LocalCoefficients.SphericalRelativeCycle
 public import Colib.Topology.LocalCoefficients.SquareHomology
 public import Colib.Topology.LocalCoefficients.SquareRelative
 public import Colib.Topology.LocalCoefficients.SubdivisionRealization

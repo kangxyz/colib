@@ -588,3 +588,10 @@ cone, loop and Bass transport, supplying the local action data needed before the
 constructed row-cell successor and its separate finite iteration.
 '''
 
+COL-0525 = '''
+The whole-cell comparison now passes through the original cone and Bass maps.
+Its computed endpoints yield the next cell without changing its time slices, and
+its comparison with the actual next track proves coefficient naturality. This
+local successor construction precedes the separate generated finite iteration.
+'''
+
