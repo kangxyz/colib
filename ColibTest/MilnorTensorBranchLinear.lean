@@ -65,8 +65,12 @@ example (x : MilnorKRing (RatFunc E)) :
         milnorKRingMap
           ((tensorSwapFactorQuotientEquiv p h q).toRingHom :
             (E[X] ⧸ Ideal.span {poly q.1.2}) →+* F)
-          (monicIrreducibleResidue q.1.2 x) :=
-  monicIrreducibleResidue_tensorSwapFactor_linear_weighted p h q x
+          (monicIrreducibleResidue q.1.2 x) := by
+  have hres := monicIrreducibleResidue_tensorSwapFactor_linear_weighted p h q x
+  run_tac Lean.Elab.Tactic.withMainContext do
+    let some decl := (← Lean.getLCtx).findFromUserName? `hres
+      | throwError "Missing the original tensor-branch residue proof"
+    (← Lean.Elab.Tactic.getMainGoal).assign (Lean.mkFVar decl.fvarId)
 
 example (hh : h.Separable) (x : MilnorKRing (RatFunc E)) :
     milnorKRingMap (quotientSpanXSubCAlgEquiv a).toRingHom
@@ -79,8 +83,12 @@ example (hh : h.Separable) (x : MilnorKRing (RatFunc E)) :
       milnorKRingMap
           ((tensorSwapFactorQuotientEquiv p h q).toRingHom :
             (E[X] ⧸ Ideal.span {poly q.1.2}) →+* F)
-        (monicIrreducibleResidue q.1.2 x) :=
-  monicIrreducibleResidue_tensorSwapFactor_linear_of_separable p h q hh x
+        (monicIrreducibleResidue q.1.2 x) := by
+  have hres := monicIrreducibleResidue_tensorSwapFactor_linear_of_separable p h q hh x
+  run_tac Lean.Elab.Tactic.withMainContext do
+    let some decl := (← Lean.getLCtx).findFromUserName? `hres
+      | throwError "Missing the original tensor-branch residue proof"
+    (← Lean.Elab.Tactic.getMainGoal).assign (Lean.mkFVar decl.fvarId)
 
 example [CharZero k] (x : MilnorKRing (RatFunc E)) :
     milnorKRingMap (quotientSpanXSubCAlgEquiv a).toRingHom
@@ -93,8 +101,12 @@ example [CharZero k] (x : MilnorKRing (RatFunc E)) :
       milnorKRingMap
           ((tensorSwapFactorQuotientEquiv p h q).toRingHom :
             (E[X] ⧸ Ideal.span {poly q.1.2}) →+* F)
-        (monicIrreducibleResidue q.1.2 x) :=
-  monicIrreducibleResidue_tensorSwapFactor_linear p h q x
+        (monicIrreducibleResidue q.1.2 x) := by
+  have hres := monicIrreducibleResidue_tensorSwapFactor_linear p h q x
+  run_tac Lean.Elab.Tactic.withMainContext do
+    let some decl := (← Lean.getLCtx).findFromUserName? `hres
+      | throwError "Missing the original tensor-branch residue proof"
+    (← Lean.Elab.Tactic.getMainGoal).assign (Lean.mkFVar decl.fvarId)
 
 example [CharZero k] (n : ℕ) (x : MilnorKTheory (RatFunc E) (n + 1)) :
     milnorKRingMap (quotientSpanXSubCAlgEquiv a).toRingHom
@@ -108,8 +120,12 @@ example [CharZero k] (n : ℕ) (x : MilnorKTheory (RatFunc E) (n + 1)) :
       milnorKRingMap
           ((tensorSwapFactorQuotientEquiv p h q).toRingHom :
             (E[X] ⧸ Ideal.span {poly q.1.2}) →+* F)
-        (monicIrreducibleResidue q.1.2 (x : MilnorKRing (RatFunc E))) :=
-  monicIrreducibleResidue_tensorSwapFactor_linear p h q x
+        (monicIrreducibleResidue q.1.2 (x : MilnorKRing (RatFunc E))) := by
+  have hres := monicIrreducibleResidue_tensorSwapFactor_linear p h q x
+  run_tac Lean.Elab.Tactic.withMainContext do
+    let some decl := (← Lean.getLCtx).findFromUserName? `hres
+      | throwError "Missing the original tensor-branch residue proof"
+    (← Lean.Elab.Tactic.getMainGoal).assign (Lean.mkFVar decl.fvarId)
 
 example (s : k[X]) :
     X - C (root s) ∣ s.map (algebraMap k (AdjoinRoot s)) :=

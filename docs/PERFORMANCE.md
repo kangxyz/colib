@@ -24,3 +24,10 @@ projections at the same heartbeat budget. See the
 If profiling points to `CoeT` while elaborating an equality of K-group
 homomorphisms, provide the equality's native homomorphism type explicitly.
 See the [fine K-product case](performance/fine-k-product-equality-type.md).
+
+When an expanded consumer independently infers the correct production proof
+and the final elaborator conversion is costly, reuse that exact local proof
+term at the goal. Keep the fully stated equality and verify the resulting
+declaration with the ordinary native build. The
+[Milnor branch consumer case](performance/milnor-branch-consumer-conversion.md)
+records the applicable boundaries and measurements.
