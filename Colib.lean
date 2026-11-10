@@ -187,6 +187,7 @@ public import Colib.AlgebraicGeometry.Chow.GeometricallyIntegralPullback
 public import Colib.AlgebraicGeometry.Chow.NormalComponents
 public import Colib.AlgebraicGeometry.Correspondences.Additive
 public import Colib.AlgebraicGeometry.Correspondences.Additive.Ext
+public import Colib.AlgebraicGeometry.Correspondences.BaseChange.IntegralSource
 public import Colib.AlgebraicGeometry.Correspondences.Basic
 public import Colib.AlgebraicGeometry.Correspondences.Category
 public import Colib.AlgebraicGeometry.Correspondences.Category.Objects
@@ -746,6 +747,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Pr
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Sheafification
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.SignedShift
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Underlying
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusIdentityAxisIntegral
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Yoneda
 public import Colib.AlgebraicGeometry.Products.Diagonal.Parameter
 public import Colib.AlgebraicGeometry.Products.Diagonal.ParameterBaseChange
