@@ -322,6 +322,9 @@ class LibraryTests(unittest.TestCase):
         module_names = {
             "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
             "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
+            "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
+            "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
+            "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -331,10 +334,8 @@ class LibraryTests(unittest.TestCase):
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
-            "finite-coefficients": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Basic",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "algebraic-simplices": "Colib.RingTheory.AlgebraicSimplex.Basic",
-            "pointed-motivic-inputs": "Colib.CategoryTheory.Sites.Simplicial.PointedPresheaf",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",
@@ -362,6 +363,7 @@ class LibraryTests(unittest.TestCase):
         item_modules = {
             "COL-0058": "Colib.Topology.ClassifyingSpace.NerveHomotopy",
             "COL-0098": "Colib.Analysis.Convex.StdSimplex.BoundaryRetraction",
+            "COL-0388": "Colib.AlgebraicGeometry.Correspondences.Exterior.Graph",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -420,10 +422,12 @@ class LibraryTests(unittest.TestCase):
     def test_cycle_algebra_and_scheme_chapters_keep_distinct_owners(self):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
-                         ["finite-correspondences", "transfers-nisnevich"])
+                         ["finite-correspondences", "transfers-nisnevich",
+                          "transfer-homological-algebra", "reduced-transfer-tori",
+                          "exterior-parameters"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
-                          "algebraic-simplices", "pointed-motivic-inputs"])
+                          "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")
@@ -438,6 +442,62 @@ class LibraryTests(unittest.TestCase):
                              f"docs/library/entries/commutative-algebra/{identifier}.toml")
         self.assertEqual(self.library["entries"]["COL-0362"]["section"],
                          "k-theory-of-schemes")
+
+    def test_native_transfer_torus_exterior_items_keep_owners_and_scope(self):
+        expected = {
+            "transfer-homological-algebra": ["COL-0390", "COL-0381", "COL-0391", "COL-0392"],
+            "reduced-transfer-tori": ["COL-0384", "COL-0385"],
+            "exterior-parameters": ["COL-0386", "COL-0388", "COL-0387", "COL-0389"],
+        }
+        for section_id, identifiers in expected.items():
+            section = self.library["sections"][section_id]
+            self.assertEqual(section["chapter"], "cycles")
+            self.assertEqual(section["entries"], identifiers)
+            self.assertEqual(set(section["transitions"]), set(identifiers))
+            for identifier in identifiers:
+                item = self.library["entries"][identifier]
+                self.assertTrue(item["primary"])
+                self.assertEqual(item["path"], f"docs/library/entries/cycles/{identifier}.toml")
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        for section_id in expected:
+            page = (output / f"sections/{section_id}/index.html").read_text()
+            self.assertIn('class="section-transition"', page)
+            for identifier in expected[section_id]:
+                self.assertTrue((output / f"tag/{identifier}/index.html").is_file())
+        quotient = self.library["entries"]["COL-0390"]
+        self.assertIn("surjective", quotient["statement"])
+        self.assertIn("sheaf cokernel", quotient["scope"])
+        ext = self.library["entries"]["COL-0392"]
+        self.assertIn("cohomology", ext["scope"])
+        incidence = self.library["entries"]["COL-0387"]
+        self.assertIn(r"\operatorname{im}(s_T)\subseteq", incidence["statement"])
+        self.assertIn("Tor", incidence["scope"])
+
+    def test_native_exterior_graph_identity_scope_and_outline(self):
+        item = self.library["entries"]["COL-0388"]
+        self.assertEqual(item["primary"], "Stacks.Chow.nativeExterior_graphFunctor")
+        self.assertEqual(item["kind"], "theorem")
+        self.assertEqual(item["proof_kind"], "outline")
+        self.assertIn(r"E_T(\Gamma(\varphi))=\Gamma(\varphi\times\mathrm{id}_T)",
+                      item["statement"])
+        self.assertIn(r"E_T(1_X)=1_{X\times_kT}", item["statement"])
+        self.assertIn("geometrically integral", item["statement"])
+        self.assertIn("disconnected and empty", item["statement"])
+        self.assertIn("coefficient one", item["statement"])
+        self.assertIn("arbitrary correspondence composition", item["scope"])
+        self.assertIn("matched-component Tor multiplicity", item["scope"])
+        self.assertIn("parameter-product functor", item["scope"])
+        self.assertIn("Graph.lean:176-222", item["scope"])
+        self.assertIn("Unit.lean:151-193", item["scope"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        page = (output / "tag/COL-0388/index.html").read_text()
+        self.assertIn("Colib.AlgebraicGeometry.Correspondences.Exterior.Graph", page)
+        self.assertIn('<details class="proof"><summary>Proof outline</summary>', page)
+        self.assertNotIn('<section class="proof"><h3>Proof</h3>', page)
+        self.assertIn("Graph.lean#L176-L222", page)
+        self.assertIn("Unit.lean#L151-L193", page)
 
     def test_cor_transfer_section_renders_maps_and_scope(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")

@@ -1,0 +1,21 @@
+[entry]
+id = "COL-0386"
+title = "Signed exterior extension and its prime support"
+kind = "definition"
+section = "exterior-parameters"
+order = 10
+primary = "Stacks.Chow.nativeExterior"
+statement = '''
+Let \(k\) be a field and \(X,Y,T\) smooth separated finite-type \(k\)-schemes, with \(T\) geometrically integral. There is an additive map
+\[ E_T:\operatorname{Cor}_k(X,Y)\longrightarrow\operatorname{Cor}_k(X\times_kT,Y\times_kT). \]
+For an admissible prime correspondence with integral support \(W\subset X\times_kY\), form the closed immersion
+\[ j_T:W\times_kT\longrightarrow (X\times_kT)\times_k(Y\times_kT),\qquad (w,t)\longmapsto((p_X(w),t),(p_Y(w),t)). \]
+The image is integral, finite over an irreducible component of \(X\times_kT\), and dominates that component. The map \(E_T\) sends \(n[W]\) to \(n[j_T(W\times_kT)]\) for every integer \(n\), with coefficient one on the exterior prime before multiplication by \(n\). The native integral support of this image prime is canonically isomorphic to \(W\times_kT\); this isomorphism preserves \(j_T\) and both source and target projections.
+'''
+scope = '''
+All schemes and the field lie in universe \(u\). The operation uses the existing finite integer-cycle groups and their additive extension, rather than a second finitely supported function model. It is the geometrically integral identity-parameter case of the exterior-product construction in [@MVW2006, Lecture 1, Definition 1.9, p. 6]. The geometric-integrality hypothesis ensures that the displayed support is a single integral prime. No compatibility with arbitrary correspondence composition, identity law for a parameter-product functor, or symmetric monoidal structure is asserted here.
+'''
+proof = '''
+The source projection from \(W\times_kT\) is the base change of the finite map \(W\to X\). The diagonal-parameter inclusion is finite and a monomorphism, hence a closed immersion. Geometric integrality of \(T\) makes its domain integral, and the source image is an irreducible component. Its image therefore defines an admissible prime with coefficient one. The finite-cycle additive extension retains each integer coefficient. Finally, the integral component at the image generic point equals the image ideal; transporting the closed-immersion image isomorphism along this equality preserves the ambient inclusion and both projections.
+'''
+review = "author_checked"

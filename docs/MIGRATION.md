@@ -31,14 +31,6 @@ Source correspondence and mathematical review retain their own status.
 The first Library release demonstrates this process on twelve entries. The amount of
 further migration is measured by the actual proof and interface repairs for subsequent slices.
 
-## Unstable motivic homotopy foundations
-
-The [motivic homotopy plan](MOTIVIC_HOMOTOPY_PLAN.md) records the source
-crosswalk, the verified Colib checkpoint and the proof order for the
-Nisnevich and affine-line model, reduced motivic cohomology and operations.
-The Library treats the site and pointed constructions in Algebraic Geometry,
-and the generic coefficient and derived-Hom constructions in Homological Algebra.
-
 ## Waldhausen additivity milestone
 
 The actual unnormalized S-construction now supports the complete original

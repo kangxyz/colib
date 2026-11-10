@@ -1,0 +1,16 @@
+[entry]
+id = "COL-0384"
+title = "Smooth split tori and identity-coordinate inclusions"
+kind = "definition"
+section = "reduced-transfer-tori"
+order = 10
+primary = "AlgebraicGeometry.Scheme.SmoothSite.torusPower"
+statement = '''
+For any scheme \(S\), let \(T=\mathbb G_{m,S}\) be the native multiplicative-group base change. Define smooth-site objects \(T^0=S\) and \(T^{q+1}=T\times_S T^q\). The section \(e:S\to T\) represents the global unit \(1\). For each \(i\in\operatorname{Fin}(q+1)\), there is a closed immersion
+\[ s_i:T^q\longrightarrow T^{q+1} \]
+whose \(i\)-th coordinate is \(e\) after the structure map and whose other coordinates retain the original coordinates in order. Deleting coordinate \(i\) gives \(d_i:T^{q+1}\to T^q\) with \(d_i\circ s_i=1\). The canonical isomorphism \(T^1\simeq T\) carries \(s_0:S\to T^1\) to \(e\).
+'''
+scope = '''
+These are literal relative products in the existing smooth separated finite-type site, over an arbitrary scheme in universe \(u\). The scheme model and global-units representation are the pinned Stacks objects; the Laurent coordinate is the forward coordinate, not its inverse. No categorical product in the correspondence category is claimed. These identity-coordinate maps supply the geometric input for [@MVW2006, Lecture 2, Definition 2.12, p. 15].
+'''
+review = "author_checked"

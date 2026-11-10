@@ -1,105 +1,95 @@
 /-
-Copyright (c) 2026 Colib contributors and Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.Scheme.PolynomialLaurent.TatePair
-public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteProducts
+public import Colib.AlgebraicGeometry.Sites.Smooth.GroupSchemes
+public import Colib.AlgebraicGeometry.Sites.Smooth.Products
 public import Mathlib.Data.Fin.Tuple.Basic
 
 /-!
-# The actual smooth torus, its powers and identity-coordinate inclusions
+# Native torus powers and identity-coordinate inclusions
 
-The multiplicative torus is the Laurent spectrum over the specified ring.
-Its zeroth power is the actual base scheme and higher powers are the literal
-relative products. The identity-coordinate inclusions insert the actual
-evaluation-at-one section, while retaining all other coordinates.
-The displayed coordinate fan identifies these powers with the native finite
-products in `SmoothSite`.
-
-Adapted from `motivic_source_a6805c4`,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Torus/Basic.lean`, blob
-`6a5eee8b2b293066843c851dc604cf6c6e9ab45a`. The Laurent spectrum and its unit
-are the native maps in `Scheme.PolynomialLaurent.TatePair`.
+Adapted from motivic_source_a6805c4, Smooth/Torus/Basic.lean, to Stacks'
+native multiplicative group base change over an arbitrary scheme. The identity
+is the point representing the actual unit 1, and powers are literal relative
+products, starting at the base. No categorical product in Cor is asserted.
 -/
 
 @[expose] public noncomputable section
 
 set_option backward.isDefEq.respectTransparency false
 
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open AlgebraicGeometry.Scheme.PolynomialLaurent
-
+open CategoryTheory AlgebraicGeometry
 universe u
-
 namespace AlgebraicGeometry.Scheme.SmoothSite
 
-/-- The actual Laurent spectrum as a smooth separated finite-type object. -/
-def torus (R : CommRingCat.{u}) : SmoothSite (Spec R) :=
-  mk (laurentProjection R)
+/-- The native multiplicative-group point representing the global unit one. -/
+def torusOneOver (S : Scheme.{u}) :
+    Over.mk (𝟙 S) ⟶ Scheme.asOver (multiplicativeGroupBaseChange S) S :=
+  (multiplicativeGroupBaseChangeRepresentsGlobalUnits S).homEquiv.symm 1
 
-@[simp] theorem torus_left (R : CommRingCat.{u}) :
-    (torus R).left = Spec (.of (LaurentPolynomial R)) := rfl
+/-- The identity section of the native multiplicative group on the smooth site. -/
+def torusOne (S : Scheme.{u}) : base S ⟶ multiplicativeGroupObject S :=
+  homMk (torusOneOver S).left (Over.w (torusOneOver S))
 
-@[simp] theorem torus_hom (R : CommRingCat.{u}) :
-    (torus R).hom = laurentProjection R := rfl
-
-/-- The identity point is literally evaluation of the Laurent coordinate at one. -/
-def torusOne (R : CommRingCat.{u}) : base (Spec R) ⟶ torus R :=
-  homMk (laurentOneSection R) (laurentOneSection_projection R)
-
-@[simp] theorem torusOne_left (R : CommRingCat.{u}) :
-    (torusOne R).left = laurentOneSection R := rfl
+/-- This point represents one under the native global-units representation. -/
+theorem torusOneOver_represents_one (S : Scheme.{u}) :
+    (multiplicativeGroupBaseChangeRepresentsGlobalUnits S).homEquiv (torusOneOver S) = 1 :=
+  (multiplicativeGroupBaseChangeRepresentsGlobalUnits S).homEquiv.apply_symm_apply 1
 
 /-- Finite torus powers, starting with the actual base scheme. -/
-def torusPower (R : CommRingCat.{u}) : ℕ → SmoothSite (Spec R)
-  | 0 => base (Spec R)
-  | q + 1 => product (torus R) (torusPower R q)
+@[colib_ref "motivic_source_a6805c4"
+  "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Torus/Basic.lean:50-58"
+  "adaptation" "Literal relative powers of the native Stacks torus over any base"]
+def torusPower (S : Scheme.{u}) : ℕ → SmoothSite S
+  | 0 => base S
+  | q + 1 => product (multiplicativeGroupObject S) (torusPower S q)
 
-@[simp] theorem torusPower_zero (R : CommRingCat.{u}) :
-    torusPower R 0 = base (Spec R) := rfl
+@[simp] theorem torusPower_zero (S : Scheme.{u}) :
+    torusPower S 0 = base S := rfl
 
-@[simp] theorem torusPower_succ (R : CommRingCat.{u}) (q : ℕ) :
-    torusPower R (q + 1) = product (torus R) (torusPower R q) := rfl
+@[simp] theorem torusPower_succ (S : Scheme.{u}) (q : ℕ) :
+    torusPower S (q + 1) = product (multiplicativeGroupObject S) (torusPower S q) := rfl
 
 /-- The structure morphism to the zeroth power. -/
-def torusPowerToBase (R : CommRingCat.{u}) (q : ℕ) :
-    torusPower R q ⟶ base (Spec R) :=
-  homMk (torusPower R q).hom (Category.comp_id _)
+def torusPowerToBase (S : Scheme.{u}) (q : ℕ) :
+    torusPower S q ⟶ base S :=
+  homMk (torusPower S q).hom (Category.comp_id _)
 
-@[simp] theorem torusPowerToBase_left (R : CommRingCat.{u}) (q : ℕ) :
-    (torusPowerToBase R q).left = (torusPower R q).hom := rfl
+@[simp] theorem torusPowerToBase_left (S : Scheme.{u}) (q : ℕ) :
+    (torusPowerToBase S q).left = (torusPower S q).hom := rfl
 
-@[simp] theorem torusPowerToBase_zero (R : CommRingCat.{u}) :
-    torusPowerToBase R 0 = 𝟙 (base (Spec R)) :=
+@[simp] theorem torusPowerToBase_zero (S : Scheme.{u}) :
+    torusPowerToBase S 0 = 𝟙 (base S) :=
   MorphismProperty.Over.Hom.ext rfl
 
 /-- The coordinate projections of the actual recursive relative product. -/
-def torusCoordinate (R : CommRingCat.{u}) :
-    (q : ℕ) → Fin q → (torusPower R q ⟶ torus R)
+def torusCoordinate (S : Scheme.{u}) :
+    (q : ℕ) → Fin q → (torusPower S q ⟶ multiplicativeGroupObject S)
   | 0, i => Fin.elim0 i
-  | q + 1, i => Fin.cases (productFst (torus R) (torusPower R q))
-      (fun j => productSnd (torus R) (torusPower R q) ≫ torusCoordinate R q j) i
+  | q + 1, i => Fin.cases (productFst (multiplicativeGroupObject S) (torusPower S q))
+      (fun j => productSnd (multiplicativeGroupObject S) (torusPower S q) ≫ torusCoordinate S q j) i
 
-@[simp] theorem torusCoordinate_zero (R : CommRingCat.{u}) (q : ℕ) :
-    torusCoordinate R (q + 1) 0 = productFst (torus R) (torusPower R q) := rfl
+@[simp] theorem torusCoordinate_zero (S : Scheme.{u}) (q : ℕ) :
+    torusCoordinate S (q + 1) 0 = productFst (multiplicativeGroupObject S) (torusPower S q) := rfl
 
-@[simp] theorem torusCoordinate_succ (R : CommRingCat.{u}) (q : ℕ) (i : Fin q) :
-    torusCoordinate R (q + 1) i.succ =
-      productSnd (torus R) (torusPower R q) ≫ torusCoordinate R q i := rfl
+@[simp] theorem torusCoordinate_succ (S : Scheme.{u}) (q : ℕ) (i : Fin q) :
+    torusCoordinate S (q + 1) i.succ =
+      productSnd (multiplicativeGroupObject S) (torusPower S q) ≫ torusCoordinate S q i := rfl
 
 /-- Lift any tuple of actual maps into the relative torus power. -/
-def torusPowerLift (R : CommRingCat.{u}) {X : SmoothSite (Spec R)} :
-    (q : ℕ) → (Fin q → (X ⟶ torus R)) → (X ⟶ torusPower R q)
+def torusPowerLift (S : Scheme.{u}) {X : SmoothSite S} :
+    (q : ℕ) → (Fin q → (X ⟶ multiplicativeGroupObject S)) → (X ⟶ torusPower S q)
   | 0, _ => homMk X.hom (Category.comp_id _)
-  | q + 1, f => productLift (f 0) (torusPowerLift R q (fun i => f i.succ))
+  | q + 1, f => productLift (f 0) (torusPowerLift S q (fun i => f i.succ))
 
 @[reassoc (attr := simp)]
-theorem torusPowerLift_coordinate (R : CommRingCat.{u}) {X : SmoothSite (Spec R)}
-    (q : ℕ) (f : Fin q → (X ⟶ torus R)) (i : Fin q) :
-    torusPowerLift R q f ≫ torusCoordinate R q i = f i := by
+theorem torusPowerLift_coordinate (S : Scheme.{u}) {X : SmoothSite S}
+    (q : ℕ) (f : Fin q → (X ⟶ multiplicativeGroupObject S)) (i : Fin q) :
+    torusPowerLift S q f ≫ torusCoordinate S q i = f i := by
   induction q with
   | zero => exact Fin.elim0 i
   | succ q ih =>
@@ -109,16 +99,16 @@ theorem torusPowerLift_coordinate (R : CommRingCat.{u}) {X : SmoothSite (Spec R)
         productLift_snd, ih]
 
 /-- Maps into a torus power are determined by their coordinate maps. -/
-theorem torusPower_hom_ext (R : CommRingCat.{u}) {X : SmoothSite (Spec R)}
-    (q : ℕ) {f g : X ⟶ torusPower R q}
-    (h : ∀ i, f ≫ torusCoordinate R q i = g ≫ torusCoordinate R q i) : f = g := by
+theorem torusPower_hom_ext (S : Scheme.{u}) {X : SmoothSite S}
+    (q : ℕ) {f g : X ⟶ torusPower S q}
+    (h : ∀ i, f ≫ torusCoordinate S q i = g ≫ torusCoordinate S q i) : f = g := by
   induction q with
   | zero =>
     apply MorphismProperty.Over.Hom.ext
     have hf := MorphismProperty.Over.w f
     have hg := MorphismProperty.Over.w g
-    change f.left ≫ 𝟙 (Spec R) = X.hom at hf
-    change g.left ≫ 𝟙 (Spec R) = X.hom at hg
+    change f.left ≫ 𝟙 S = X.hom at hf
+    change g.left ≫ 𝟙 S = X.hom at hg
     exact (Category.comp_id f.left).symm.trans
       ((hf.trans hg.symm).trans (Category.comp_id g.left))
   | succ q ih =>
@@ -128,130 +118,111 @@ theorem torusPower_hom_ext (R : CommRingCat.{u}) {X : SmoothSite (Spec R)}
       intro i
       simpa only [torusCoordinate_succ, Category.assoc] using h i.succ
 
-/-- The coordinate fan of the actual relative torus power is a finite product. -/
-def torusPowerIsLimit (R : CommRingCat.{u}) (q : ℕ) :
-    IsLimit (Fan.mk (torusPower R q) (torusCoordinate R q)) :=
-  Fan.IsLimit.mk _ (fun s => torusPowerLift R q s.proj)
-    (fun s i => torusPowerLift_coordinate R q s.proj i)
-    (fun s _ h => torusPower_hom_ext R q (fun i =>
-      (h i).trans (torusPowerLift_coordinate R q s.proj i).symm))
-
-/-- The native categorical finite product is the displayed relative torus power. -/
-def categoricalTorusPowerIso (R : CommRingCat.{u}) (q : ℕ) :
-    (∏ᶜ fun _ : Fin q => torus R) ≅ torusPower R q :=
-  limit.isoLimitCone ⟨_, torusPowerIsLimit R q⟩
-
-@[reassoc (attr := simp)]
-theorem categoricalTorusPowerIso_hom_coordinate (R : CommRingCat.{u}) (q : ℕ)
-    (i : Fin q) :
-    (categoricalTorusPowerIso R q).hom ≫ torusCoordinate R q i =
-      Pi.π (fun _ : Fin q => torus R) i :=
-  limit.isoLimitCone_hom_π ⟨_, torusPowerIsLimit R q⟩ ⟨i⟩
-
-@[reassoc (attr := simp)]
-theorem categoricalTorusPowerIso_inv_coordinate (R : CommRingCat.{u}) (q : ℕ)
-    (i : Fin q) :
-    (categoricalTorusPowerIso R q).inv ≫ Pi.π (fun _ : Fin q => torus R) i =
-      torusCoordinate R q i :=
-  limit.isoLimitCone_inv_π ⟨_, torusPowerIsLimit R q⟩ ⟨i⟩
-
-@[simp] theorem torusPowerLift_coordinates (R : CommRingCat.{u}) (q : ℕ) :
-    torusPowerLift R q (torusCoordinate R q) = 𝟙 (torusPower R q) := by
+@[simp] theorem torusPowerLift_coordinates (S : Scheme.{u}) (q : ℕ) :
+    torusPowerLift S q (torusCoordinate S q) = 𝟙 (torusPower S q) := by
   apply torusPower_hom_ext
   intro i
   simp
 
 /-- Insert the literal identity section in the chosen coordinate. -/
-def torusInsertOne (R : CommRingCat.{u}) (q : ℕ) (i : Fin (q + 1)) :
-    torusPower R q ⟶ torusPower R (q + 1) :=
-  torusPowerLift R (q + 1)
-    (Fin.insertNth i (torusPowerToBase R q ≫ torusOne R) (torusCoordinate R q))
+def torusInsertOne (S : Scheme.{u}) (q : ℕ) (i : Fin (q + 1)) :
+    torusPower S q ⟶ torusPower S (q + 1) :=
+  torusPowerLift S (q + 1)
+    (Fin.insertNth i (torusPowerToBase S q ≫ torusOne S) (torusCoordinate S q))
 
 @[reassoc (attr := simp)]
-theorem torusInsertOne_coordinate_self (R : CommRingCat.{u}) (q : ℕ)
+theorem torusInsertOne_coordinate_self (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) :
-    torusInsertOne R q i ≫ torusCoordinate R (q + 1) i =
-      torusPowerToBase R q ≫ torusOne R := by
+    torusInsertOne S q i ≫ torusCoordinate S (q + 1) i =
+      torusPowerToBase S q ≫ torusOne S := by
   simp [torusInsertOne]
 
 @[reassoc (attr := simp)]
-theorem torusInsertOne_coordinate_succAbove (R : CommRingCat.{u}) (q : ℕ)
+theorem torusInsertOne_coordinate_succAbove (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) (j : Fin q) :
-    torusInsertOne R q i ≫ torusCoordinate R (q + 1) (i.succAbove j) =
-      torusCoordinate R q j := by
+    torusInsertOne S q i ≫ torusCoordinate S (q + 1) (i.succAbove j) =
+      torusCoordinate S q j := by
   simp [torusInsertOne]
 
 /-- On the underlying schemes, the inserted coordinate is the actual unit section. -/
 @[reassoc]
-theorem torusInsertOne_left_coordinate_self (R : CommRingCat.{u}) (q : ℕ)
+theorem torusInsertOne_left_coordinate_self (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) :
-    (torusInsertOne R q i).left ≫ (torusCoordinate R (q + 1) i).left =
-      (torusPower R q).hom ≫ laurentOneSection R :=
-  congrArg (fun f => f.left) (torusInsertOne_coordinate_self R q i)
+    (torusInsertOne S q i).left ≫ (torusCoordinate S (q + 1) i).left =
+      (torusPower S q).hom ≫ (torusOne S).left :=
+  congrArg (fun f => f.left) (torusInsertOne_coordinate_self S q i)
 
 /-- On the underlying schemes, every other coordinate is retained literally. -/
 @[reassoc]
-theorem torusInsertOne_left_coordinate_succAbove (R : CommRingCat.{u}) (q : ℕ)
+theorem torusInsertOne_left_coordinate_succAbove (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) (j : Fin q) :
-    (torusInsertOne R q i).left ≫
-      (torusCoordinate R (q + 1) (i.succAbove j)).left =
-        (torusCoordinate R q j).left :=
-  congrArg (fun f => f.left) (torusInsertOne_coordinate_succAbove R q i j)
+    (torusInsertOne S q i).left ≫
+      (torusCoordinate S (q + 1) (i.succAbove j)).left =
+        (torusCoordinate S q j).left :=
+  congrArg (fun f => f.left) (torusInsertOne_coordinate_succAbove S q i j)
 
 /-- Forget one coordinate of a torus power. -/
-def torusDeleteCoordinate (R : CommRingCat.{u}) (q : ℕ) (i : Fin (q + 1)) :
-    torusPower R (q + 1) ⟶ torusPower R q :=
-  torusPowerLift R q (fun j => torusCoordinate R (q + 1) (i.succAbove j))
+def torusDeleteCoordinate (S : Scheme.{u}) (q : ℕ) (i : Fin (q + 1)) :
+    torusPower S (q + 1) ⟶ torusPower S q :=
+  torusPowerLift S q (fun j => torusCoordinate S (q + 1) (i.succAbove j))
 
 @[reassoc (attr := simp)]
-theorem torusDeleteCoordinate_coordinate (R : CommRingCat.{u}) (q : ℕ)
+theorem torusDeleteCoordinate_coordinate (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) (j : Fin q) :
-    torusDeleteCoordinate R q i ≫ torusCoordinate R q j =
-      torusCoordinate R (q + 1) (i.succAbove j) := by
+    torusDeleteCoordinate S q i ≫ torusCoordinate S q j =
+      torusCoordinate S (q + 1) (i.succAbove j) := by
   simp [torusDeleteCoordinate]
 
 @[reassoc (attr := simp)]
-theorem torusInsertOne_deleteCoordinate (R : CommRingCat.{u}) (q : ℕ)
+theorem torusInsertOne_deleteCoordinate (S : Scheme.{u}) (q : ℕ)
     (i : Fin (q + 1)) :
-    torusInsertOne R q i ≫ torusDeleteCoordinate R q i = 𝟙 (torusPower R q) := by
+    torusInsertOne S q i ≫ torusDeleteCoordinate S q i = 𝟙 (torusPower S q) := by
   apply torusPower_hom_ext
   intro j
   simp
 
 /-- Each identity-coordinate inclusion is a closed immersion of the actual schemes. -/
-instance instIsClosedImmersionTorusInsertOne (R : CommRingCat.{u}) (q : ℕ)
-    (i : Fin (q + 1)) : IsClosedImmersion (torusInsertOne R q i).left := by
-  have : IsSeparated ((torusDeleteCoordinate R q i).left ≫ (torusPower R q).hom) := by
+instance instIsClosedImmersionTorusInsertOne (S : Scheme.{u}) (q : ℕ)
+    (i : Fin (q + 1)) : IsClosedImmersion (torusInsertOne S q i).left := by
+  have : IsSeparated ((torusDeleteCoordinate S q i).left ≫ (torusPower S q).hom) := by
     rw [MorphismProperty.Over.w]
     infer_instance
-  have : IsSeparated (torusDeleteCoordinate R q i).left :=
-    IsSeparated.of_comp _ (torusPower R q).hom
-  have h : (torusInsertOne R q i).left ≫ (torusDeleteCoordinate R q i).left =
-      𝟙 (torusPower R q).left :=
-    congrArg (fun f => f.left) (torusInsertOne_deleteCoordinate R q i)
+  have : IsSeparated (torusDeleteCoordinate S q i).left :=
+    IsSeparated.of_comp _ (torusPower S q).hom
+  have h : (torusInsertOne S q i).left ≫ (torusDeleteCoordinate S q i).left =
+      𝟙 (torusPower S q).left :=
+    congrArg (fun f => f.left) (torusInsertOne_deleteCoordinate S q i)
   have : IsClosedImmersion
-      ((torusInsertOne R q i).left ≫ (torusDeleteCoordinate R q i).left) := by
+      ((torusInsertOne S q i).left ≫ (torusDeleteCoordinate S q i).left) := by
     rw [h]
     infer_instance
-  exact IsClosedImmersion.of_comp _ (torusDeleteCoordinate R q i).left
+  exact IsClosedImmersion.of_comp _ (torusDeleteCoordinate S q i).left
 
 /-- The first recursive power is canonically the actual Laurent torus. -/
-def torusPowerOneIso (R : CommRingCat.{u}) : torusPower R 1 ≅ torus R where
-  hom := torusCoordinate R 1 0
-  inv := torusPowerLift R 1 (fun _ => 𝟙 (torus R))
+def torusPowerOneIso (S : Scheme.{u}) : torusPower S 1 ≅ multiplicativeGroupObject S where
+  hom := torusCoordinate S 1 0
+  inv := torusPowerLift S 1 (fun _ => 𝟙 (multiplicativeGroupObject S))
   hom_inv_id := by
     apply torusPower_hom_ext
     intro i
     have hi : i = 0 := Subsingleton.elim _ _
     subst i
     rw [Category.assoc, torusPowerLift_coordinate, Category.comp_id, Category.id_comp]
-  inv_hom_id := torusPowerLift_coordinate R 1 _ 0
+  inv_hom_id := torusPowerLift_coordinate S 1 _ 0
 
 @[reassoc (attr := simp)]
-theorem torusInsertOne_zero_powerOneIso (R : CommRingCat.{u}) :
-    torusInsertOne R 0 0 ≫ (torusPowerOneIso R).hom = torusOne R := by
-  change torusInsertOne R 0 0 ≫ torusCoordinate R 1 0 = _
+theorem torusInsertOne_zero_powerOneIso (S : Scheme.{u}) :
+    torusInsertOne S 0 0 ≫ (torusPowerOneIso S).hom = torusOne S := by
+  change torusInsertOne S 0 0 ≫ torusCoordinate S 1 0 = _
   rw [torusInsertOne_coordinate_self, torusPowerToBase_zero]
   exact Category.id_comp _
+
+attribute [colib_tag "COL-0384"]
+  torusPower
+  torusOneOver_represents_one
+  torusInsertOne
+  torusInsertOne_coordinate_self
+  torusInsertOne_coordinate_succAbove
+  instIsClosedImmersionTorusInsertOne
 
 end AlgebraicGeometry.Scheme.SmoothSite
