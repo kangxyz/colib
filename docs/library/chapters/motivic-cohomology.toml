@@ -72,3 +72,18 @@ free representing sheaf. The comparison of COL-0394 therefore applies to
 \(K_q\) in every integer degree. Its target is the cohomology of actual
 sections of \(K_q\), not a replacement definition of the motivic groups.
 '''
+
+[[sections]]
+id = "weight-one-norm"
+title = "The geometric norm in weight one"
+order = 50
+introduction = 'For the reduced one-dimensional torus, the determinant norm takes signed finite correspondences to ordinary global units. Its boundary-one divisor kernel gives a quasi-isomorphism of the sheafified singular chain complexes.'
+
+[sections.transitions]
+COL-0401 = '''
+Take the weight-one quotient of COL-0385 and forget its transfers. On integral
+affine sources the forward torus coordinate has a determinant norm; the
+identity-coordinate relation has norm one. Ordinary naturality extends this
+map to the smooth site. The kernel must be compared with actual boundary-one
+rational functions before passing from the norm to a quasi-isomorphism.
+'''

@@ -1,0 +1,91 @@
+[entry]
+id = "COL-0401"
+title = "The unshifted geometric norm quasi-isomorphism"
+kind = "theorem"
+section = "weight-one-norm"
+order = 10
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOne.reducedNormSheafMap_quasiIso"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field, let \(R\widetilde L_1\) be the ordinary presheaf underlying
+the reduced transfer torus of COL-0385, and put
+\(G(X)=\Gamma(X,\mathcal O_X)^\times\), written additively. Write
+\(C_r(F)(X)=F(X\times_k\Delta_k^r)\), with differential
+\(\partial_{r+1,r}=\sum_{i=0}^{r+1}(-1)^i(1_X\times\delta^i)^*\),
+and let \(a\) denote ordinary Nisnevich sheafification.
+
+There is a unique ordinary natural norm \(N:R\widetilde L_1\to G\) with the
+following integral-affine components. If \(X=\operatorname{Spec}A\) is smooth
+and integral and \(z=\sum_Z m_Z[Z]\) is a signed finite correspondence to
+\(\mathbb G_m\), then
+\[
+N_X([z])=\prod_Z N_Z(t_Z)^{m_Z}.
+\]
+Here \(t_Z\) is the forward Laurent coordinate on the entire native integral
+support \(Z\); \(N_Z(t_Z)\in A^\times\) is its determinant norm, obtained
+from the generic finite algebra and descended to the normal ring \(A\).
+For an affine object not literally presented as \(\operatorname{Spec}A\),
+the formula is transported by its canonical affine-chart isomorphism and
+the global-sections isomorphism. The identity section has norm \(1\), so
+this formula factors through the specified reduced-torus quotient.
+
+The induced map of nonnegative chain complexes
+\[
+aC_*(N):aC_*(R\widetilde L_1)\longrightarrow aC_*(G)
+\]
+is a quasi-isomorphism in every degree, including zero. Its degree \(r\)
+component is the sheafification of
+\(N_{X\times_k\Delta_k^r}\); singular chains are taken before sheafification.
+'''
+scope = '''
+Take \(k\) in universe \(u\), the ordinary smooth separated finite-type
+Nisnevich site, and coefficients `AddCommGrpCat.{u + 1}`. The field is arbitrary.
+The conclusion has no perfection, characteristic, infinite-field, derived-category,
+or caller-supplied exactness or vanishing hypothesis. Normality and Noetherianity
+are used only for the affine coordinate rings that supply the local norm.
+
+This is the unshifted ordinary chain map `reducedNormSheafMap`. Its source is
+the actual cokernel from COL-0385 with transfers forgotten; its target is the
+singular complex of the ordinary global-units sheaf. No transfer action on units
+is constructed here. The later identification with units in cochain degree one
+requires both a units contraction and the signed shift of COL-0398. Neither
+strict \(\mathbb A^1\)-invariance of sheaf cohomology nor arbitrary-field
+base-change naturality is asserted.
+'''
+proof = '''
+Let \(B(A)\) be the subgroup of units in the localization of \(A[t]\) at
+monic polynomials with invertible constant coefficient consisting of fractions
+\(p/q\) with \(p,q\) monic, of equal degree and equal constant coefficient.
+It is written additively. Apply this functor to global sections to obtain the
+ordinary presheaf \(B\).
+
+On integral affine sources, the actual divisor map \(B\to R\widetilde L_1\)
+is injective, has image the kernel of the determinant norm, and the norm is
+surjective. Its compatibility with every ordinary map of integral affine
+smooth objects, including the nonflat simplex faces, follows from actual
+graph composition and coefficient transport. The dense integral-affine
+subsite therefore extends the local norm uniquely to \(N\), and the local
+divisors extend to the sheafified chains with the displayed alternating signs.
+
+Native left-exact sheafification identifies the extended divisor with the
+kernel in every degree; surjectivity holds locally on genuine Nisnevich covers.
+Thus the actual divisor and norm give
+\[
+0\longrightarrow aC_*(B)\xrightarrow{\operatorname{div}}
+aC_*(R\widetilde L_1)\xrightarrow{aC_*(N)}aC_*(G)\longrightarrow0.
+\]
+This does not assert sectionwise exactness of the unsheafified sequence on
+arbitrary nonaffine schemes. The boundary-one complex \(aC_*(B)\) is acyclic
+in all nonnegative degrees, by its affine contraction and affine-cover descent.
+The long exact homology sequence gives the conclusion.
+
+The specified map adapts
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Geometry/ReducedTorusNorm.lean:49-128].
+The short exact sequence is
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Geometry/WeightOneExact.lean:81-108],
+and the endpoint is
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Geometry/WeightOneQuasiIso.lean:22-29].
+The actual acyclic boundary kernel is the result of
+[@motivic_source_a6805c4, Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Units/BoundaryOneComplex.lean:80-89].
+'''
