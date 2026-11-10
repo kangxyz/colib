@@ -327,6 +327,16 @@ COL-0279 therefore gives vanishing of both native
 Quillen groups in degree two.
 '''
 
+
+COL-0513 = '''
+The same all-ring completion model also carries the original stable map from
+its stable general linear classifying space. [COL-0513] certifies that actual
+map, with its specified basepoint path and exact elementary kernel, by the
+full local-coefficient homological plus conditions. This assembles the proved
+native inputs; it does not assert CW uniqueness or a product decomposition
+of the completion space.
+'''
+
 [[sections]]
 id = "g-theory-of-rings"
 title = "G-theory of rings"
@@ -783,3 +793,13 @@ support-forgetting seed square of COL-0503, this supplies the two actual seed ar
 localization diagram; the supported cone comparison and the nonconnective localization
 identification remain separate obligations.
 '''
+
+COL-0509 = '''
+The original supported-section inclusion also admits a specified initial cone comparison with the relative-open section model. Its null track is the reversed original weak zero-to-section transformation, not an arbitrary replacement. Actual evaluation preserves the inherited acyclic zero, the literal inclusion square and the entire null cylinder; the resulting cone descent is a native stable equivalence in every integer degree and retains the signed connecting formula through this same track's fiber lift. This initial comparison does not identify the coarse endpoint with full open K-theory or establish Bass nonconnective localization.
+'''
+
+
+COL-0510 = '''
+The actual affine section evaluation also compares the original polynomial span, moving-square cone and parameter-looped one-step Bass construction. Each named map is a weak homotopy equivalence at every level, including zero, and a stable equivalence in every integer degree. This preserves the original coefficient homotopies and square filler; it does not yet compare iterated Bass towers or identify nonconnective K-theory.
+'''
+

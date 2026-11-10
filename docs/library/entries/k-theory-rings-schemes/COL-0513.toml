@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0513"
+title = 'The Original Stable General Linear Map as a Homological Plus Construction'
+kind = "comparison"
+section = "quillen-k-theory-of-rings"
+order = 305
+primary = "ModuleCat.FiniteProjective.StableCompletion.stableZeroMap_isPlusConstruction"
+statement = '''Let \(R\) be an arbitrary ring, let \(G=\operatorname{GL}_{\infty}(R)\), and let \(E\leq G\) be its stable elementary subgroup. Let \(Z_R\) be the specified zero component of the projective group-completion model. The original map \(f_R:BG\to Z_R\), equipped with its original basepoint path, is a homological plus construction with respect to the image of \(E\) under the original isomorphism \(G\cong\pi_1(BG)\).
+
+Both spaces are path-connected. The specified subgroup is perfect and normal, and the actual based fundamental-group map is surjective with exactly that kernel. For every target local system in coefficient universe \(u+1\), where \(R\) lies in universe \(u\), the original mixed-universe chain map induced by \(f_R\) is a quasi-isomorphism. Consequently, the original induced map on local-coefficient homology is an isomorphism in every nonnegative degree.'''
+scope = '''No commutativity or nonzero-ring assumption is imposed. The chosen zero component, actual stable map, basepoint path, and exact elementary-subgroup image are retained. The homological certificate quantifies over all target local systems in the stated universe, not only constant integral coefficients. This does not assert a CW existence or uniqueness theorem, homotopy-fiber acyclicity, a full product decomposition by the Grothendieck group, or an upgrade of a weak equivalence to a homotopy equivalence.'''
+proof = '''Use the original stable fundamental-group surjectivity theorem and exact elementary-kernel calculation. Perfectness of the stable elementary group passes to its specified image, and equality with the kernel gives normality. Source connectedness and connectedness of the specified target path component supply the two connectedness fields. The already-proved arbitrary-local-system comparison supplies the original chain quasi-isomorphism; the homology isomorphism is induced by that same chain map.
+
+This assembles the original all-ring result [@quillen, Quillen/KTheory/Plus/StableGeneralLinearPlus.lean:31-57] using the explicit homological definition [@quillen, Quillen/Topology/PlusConstruction/Basic.lean:38-78]. It does not assume the final certificate as an additional hypothesis.'''
+review = "author_checked"
