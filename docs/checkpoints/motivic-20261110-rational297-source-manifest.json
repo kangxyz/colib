@@ -1,0 +1,2470 @@
+{
+  "status": "EXACT_ACCEPTED_RATIONAL297_BRANCH_CHECKPOINT_READY",
+  "snapshot_utc": "2026-11-10T15:15:36.419709+00:00",
+  "source_count": 297,
+  "production": 186,
+  "consumers": 111,
+  "base_checkpoint": "0899cc54263501207bedbd2da7a926cab7927314",
+  "base_main": "2985f305304e0709df1b627f7dd10c4bf07b23b7",
+  "base_tree": "48da36ffde148ae239b68499ae54f01b30edc933",
+  "new_sources": 11,
+  "new_production": 10,
+  "new_consumers": 1,
+  "consumer_examples_increment": 36,
+  "ordinary_axiom_declarations_increment": 152,
+  "root_imports": 3509,
+  "lower_colib_sources_byte_identical": 36,
+  "additional_unpublished_dependencies": [],
+  "prior286_byte_identical_sources": 286,
+  "new_colib_tags": 0,
+  "pins": {
+    "lean": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+  },
+  "shared_state": {
+    "head": "95de4723d8bc8317694566f23984fc593c1c4024",
+    "index_sha256": "8401bf613c41b43d576b01f3f14bcd19252a03ebdd56788501c0f7625b39ef9f"
+  },
+  "additional_native_frontends": 0,
+  "actual_reachable_modules": 15272,
+  "archive": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-rational297-publication-20261110/motivic-rational297-pure-lean-20261110.zip",
+    "sha256": "965550e726abccda0ab80b5e43be9581f1809c6690ded9409ace452bae0ddb84",
+    "bytes": 522311,
+    "only_lean": true,
+    "created_utc": "2026-11-10T15:15:36.419709+00:00"
+  },
+  "accepted_manifest": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/RATIONAL11_MANIFEST.json",
+    "sha256": "b40194cdd7d85579c397ee6415eaddb71600c4dda4ba569f459941921e8bb642",
+    "bytes": 53709
+  },
+  "accepted_registry": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/RATIONAL11_ACCEPTED_REGISTRY.json",
+    "sha256": "4bb9d709aad3eb9f8eb751ac00159c8c16de9d6705f93521c528774c76d8ce7f",
+    "bytes": 294986
+  },
+  "accepted_acceptance": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/RATIONAL11_ACCEPTANCE.json",
+    "sha256": "ace37879d096b4f7ffe5d2d66f1259cc42d435d44a4249d1c8ac84377460760d",
+    "bytes": 14738
+  },
+  "accepted_preparation": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/RATIONAL11_PREPARATION.json.gz",
+    "sha256": "b9d72a221b6245b97ad88da1d89060bd8d0053bc1437088b5d95c286aa0ab812",
+    "bytes": 630777
+  },
+  "accepted_chain_manifest": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/NATIVE_DIVISOR_CHAIN30_MANIFEST.json",
+    "sha256": "13c6b20666cd8e6aae82032fcae9bffd268e336c27ea9b5aed4739f3b5271bba",
+    "bytes": 6945
+  },
+  "accepted_chain_registry": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/ACCEPTED_CHAIN30_REGISTRY.json",
+    "sha256": "be7cdae2fece237f24e1dbdd3c170c1787572f19a00b0b35f742a7a5f78e2a4c",
+    "bytes": 577407
+  },
+  "source_correspondence": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/SOURCE_CORRESPONDENCE.json",
+    "sha256": "d924b6ac08a0ef7a33b606abd4ca28bdba3fcd3fb4c91c7fbef37edd7bb7ef86",
+    "bytes": 28305
+  },
+  "lease_returned": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/LEASE_RETURNED.json",
+    "sha256": "105e89646fa0237378baa5f57868959f1af06329e8df668d387584a5687bdfd0",
+    "bytes": 1179
+  },
+  "shared_external_indexes_reused": [
+    {
+      "path": "/workspace/scratch/ab4c8cd79b02/motivic-transfer-singular-native-validation-report-20261110/ACTUAL_DEPENDENCY_BINDING.jsonl",
+      "sha256": "e3ea91bebde2a5f0d5ab35ddfd8f92d2b320b647a5ec6a3c7d04666e95168f5d",
+      "bytes": 32034022,
+      "format": "jsonl"
+    },
+    {
+      "path": "/workspace/scratch/ab4c8cd79b02/motivic-boundary-one-validation-report-20261110/ACTUAL_DEPENDENCIES.json.gz",
+      "sha256": "297d9c75b63160cdb61d131fa77564e500dffaffaea4eb50bfe18d2dc02f988d",
+      "bytes": 1508501,
+      "format": "gzip"
+    }
+  ],
+  "delta_index": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v1-report-20261110/DELTA_DEPENDENCIES.json.gz",
+    "sha256": "e2752999fedccbf62bce3f54c5349b18ed7319806baf808d6fa0b4b5545f9d9e",
+    "bytes": 5131233
+  },
+  "prior_publication_manifest": {
+    "path": "/workspace/scratch/ab4c8cd79b02/motivic-chapter286-publication-20261110/MANIFEST286_FINAL.json",
+    "sha256": "727f5ef18f350829f58f3906bd916e542821d43a0271f3f8757eb6610f4080d1",
+    "bytes": 100200
+  },
+  "files": [
+    {
+      "path": "Colib/Algebra/Category/ModuleCat/QuotientSquare.lean",
+      "sha256": "08c75fcea84b6dc8aacf2eb55e31dc927c40e598d1192709e1c736bf5e2f0f80",
+      "git_blob": "990e6b8b932a7a7f90039abed9e4533102284fc2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/Algebra/Category/ModuleCat/Tor/ChangeOfRings.lean",
+      "sha256": "9a4dd250a0602c5950a03ed43ccea783896b5e92e1e96e73aec9ae60d0878941",
+      "git_blob": "bb7f1fc0a4cd1b771c9100102665507c830bf875",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/Algebra/Category/ModuleCat/Tor/RegularBlock.lean",
+      "sha256": "4d016dd83d17887513be422636c155c74855087d53e64f99ffa7135a0209d737",
+      "git_blob": "daa873af7f773506fda00364d526a6013eec2dba",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/Algebra/Category/ModuleCat/Tor/RingTower.lean",
+      "sha256": "3be278f966bcd4c57f1b65553702838cc3fc2232ab200b6a5e9cc57a04a1ad9f",
+      "git_blob": "7510bff6f0b311e94679f9310751264d575dd02f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/Algebra/Homology/DerivedCategory/ProjectiveCorepresented.lean",
+      "sha256": "8e7e40a9f4f6d734aab38ba175ad4a6c5d8241ed0a392de209855f6c25c8d03a",
+      "git_blob": "a432a072f06b08980a3e729ce6864bf6a87b5519",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/Algebra/Homology/Embedding/SignedShift.lean",
+      "sha256": "97ca03ff64cdc07d585860638df2878d0947877e9c96aa5e610dbdc502bc9125",
+      "git_blob": "4fe4d010e1ae23024094e1f109ad07c140934b40",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Chow/FiniteFlatBaseChange.lean",
+      "sha256": "287758b56eff7247643711a0065a836e2919103ce50ab4f39233d16a7788223a",
+      "git_blob": "14e0aa2d7264009302a3356264dbb08b1285255d",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Chow/FiniteFlatFundamental.lean",
+      "sha256": "1ac54a95424c9d391d95b961a685f11fb993ef6399a31e4e17025ac3e6a9a7fd",
+      "git_blob": "c31827653ae73daa45ebe2765e2d87dcdf63cc37",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Chow/FiniteFlatProduct.lean",
+      "sha256": "5a799188e3cb05cddcd1b7ddd142509d823d59e2da813a3db31049919cedb0f0",
+      "git_blob": "68340e4db8cad7d74d37e75b002eea2047340396",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Chow/GeometricallyIntegralPullback.lean",
+      "sha256": "52ec56e89ca8aced5b044bf39d4a7289ff47379466db511b520a9ea1b888f919",
+      "git_blob": "07784d56d8784cedffb9a719fa9dd1c609074b8f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Chow/IntegralFundamental.lean",
+      "module": "Colib.AlgebraicGeometry.Chow.IntegralFundamental",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Chow/IntegralFundamental.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/src/Colib/AlgebraicGeometry/Chow/IntegralFundamental.lean",
+      "sha256": "bf6e425ef04fcd517796226ffe096800cd3a591cd6540cf73d2d96fb3a3a66aa",
+      "kind": "producer",
+      "git_blob": "1571d9de2d5d251826ce8152636ff13f1dae7956",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.olean",
+          "sha256": "933029a513746fc2df2a8e141289b1a9f40364a84d08d2db8cef34c60005b38a",
+          "bytes": 20424
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.olean.server",
+          "sha256": "1788c710b5178630e4ee20b99a52fc30bd3c223747c200ebe8dac6fd9c70f990",
+          "bytes": 2048
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.olean.private",
+          "sha256": "228b33e3072692d912cc9c4d6a5786863e791f6bae4cf8295d1fcacc071535e0",
+          "bytes": 37752
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.ir.sig",
+          "sha256": "a6cf10989c114ec9e35b360028a108a693483b1afbbbc9c5bb761c95d2310478",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.ir",
+          "sha256": "ea95127e4bd72469162512d22798cb4feb7a65519e86eeb5a3e99b597f5447e5",
+          "bytes": 1552
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/lib/lean/Colib/AlgebraicGeometry/Chow/IntegralFundamental.ilean",
+          "sha256": "cd554fdae215cff6c7f155fe995c8b77ce639aa01953bb961807c25bc9654864",
+          "bytes": 6101
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/ir/Colib/AlgebraicGeometry/Chow/IntegralFundamental.c",
+          "sha256": "ff0b8528d88cad16cc2ee97b513632e7ca850394db8e69a49ee13e33d35082eb",
+          "bytes": 3079
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/module.setup.json",
+        "sha256": "e01ae1c0caf5fa5adbdedde6c5f6b8dda5a7eebf542b14caebc5c6d82bf42bd6",
+        "bytes": 5827
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source27/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "4b74000b679c059a7ca7a805bb77b2cb0f9861f473703a14715e0194b7f845e3"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/IntegralSource.lean",
+      "sha256": "bcbdb32c4dead41205817b63d8313f72ebcc1242139f0c0334e218cc0f7c7fd3",
+      "git_blob": "60c743f7d3296f0e2061086fc0c0b8e63fd1ef8e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Composition/AmbientTorPointTransport.lean",
+      "sha256": "f444d7082250de92580b4b4a49b8434f0a4cf13209a7d08829ef1750a6889bdf",
+      "git_blob": "46715a2a0d43b4a3300448bc32971f88ba89dc11",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Composition/OriginalKoszulPointTransport.lean",
+      "sha256": "0fd519fa82fcafd1482eb3a854c03211020f6d8249f5d7ae7ee49b3499c7b65f",
+      "git_blob": "03f38b792d0f202338d002e735ef0cc94303fd04",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Composition/PairTorZero.lean",
+      "sha256": "d3e052a5a05486f53fe74016eabfdcd31ed51c0a2cc3f00ccc3ea35b8c479d60",
+      "git_blob": "673d314b39a9c80848b69d86ebf95791774e962e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Additive.lean",
+      "sha256": "f7f3041dfaa96e12c85e795c99e6e6a9a44018b8f49ad75188e27c77d68cb908",
+      "git_blob": "ac2c545bd484ab2101a6bd9ac62d19097c8048cb",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/AmbientParameterQuotient.lean",
+      "sha256": "302b2b6650d0f34b62bb75e9f67ee9db661bdda66920590a8a1fb426d9d0b2ee",
+      "git_blob": "14283119b17c85e220405e2d61b354279c0cc408",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/AmbientParameterRegular.lean",
+      "sha256": "8cd9abd58d026350431866f2fc0d5f8087a221f5173b7242fd715d91f6b4cf3e",
+      "git_blob": "e4d743b609505d614085ca1c65812eff0ad01156",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/AmbientTorKoszul.lean",
+      "sha256": "63b23532bdb984f1ebc3c371a29e393660ea377a40e65c516d5b4c7950f04811",
+      "git_blob": "07c97daa83b41ea5145a999f8b970a76226f7ae0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/AmbientTorStalkMaps.lean",
+      "sha256": "4ac897fcf480946082c0bbfd6af480dca54248134f34a70af8d81dadb58cd85d",
+      "git_blob": "9797f9fdd280b78a46b4b7ef43b53eee3b5f4494",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/CoefficientAmbient.lean",
+      "sha256": "20f0d4eca31bd5266d516b05c15cfa60ac7f460425b2ddea304de629d746d941",
+      "git_blob": "e4cfa8dbcc16b95822761efb8f3c1b10fe728b82",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/CoefficientQuotient.lean",
+      "sha256": "61d771e6ef4ae76971e917efec14e074e891ccb7172a8de32f437986d4224d6d",
+      "git_blob": "5eb588a89eacb15527de9b6d1bedfe3f9751fafe",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Components.lean",
+      "sha256": "4968d08da04d4348126b8bdb257933db994db967c999fe6706973f6ad752d0b1",
+      "git_blob": "80dee5c48d799d7d702f8e942ed7d8096801ca7c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Composition.lean",
+      "sha256": "8d622e035dc12e5c0b35b7c993fc4eb67d6fd16d76306703ce6303d22df53489",
+      "git_blob": "ac05ca31783355cf6a77be25f88b320c0f0ba05f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Dominance.lean",
+      "sha256": "19136481eafc57631c004ffcd6bd1088322084f5c40e45190760d3735425f43d",
+      "git_blob": "382790ad33225a1d4f776b9424014cd22297c4a7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/FlatPullbackIdentification.lean",
+      "sha256": "03092d801d59254520e1802aeaa578f92d7f8503f0b4955d3fd0d0a85a648f05",
+      "git_blob": "5d1704ef4ed5db3b446e32a931f8c82666ce2408",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Generics.lean",
+      "sha256": "49ba8512de43f9ccd8443e67ca89f78535181a41daa5cc79d7f9c1d2aada4e77",
+      "git_blob": "859234c8c51e91225be4dcd9127b38bc9375e328",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Graph.lean",
+      "sha256": "8823bde00173f99f54d18235a4f77fd31b971aeef49dfa351566c601f79728ed",
+      "git_blob": "8dcdb14db8f9c050cf0e328c205604146205c0a8",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/GraphComparison.lean",
+      "sha256": "864a756157811b2f88c9f318841924c0eb187ea217c08ea5411335efa0073523",
+      "git_blob": "0888a182f9661c83a14024a2ef60c0a5438a4a0b",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/GraphComponents.lean",
+      "sha256": "7f67cab1a237f873784b36c7853a1c2cf5c4fd95b42337c18b3cdbc48e9ac6a6",
+      "git_blob": "92b21b31d6ecbc5f28ca47d1d2f43c9502d9190a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/GraphInterchange.lean",
+      "sha256": "f661a906090fb3aaa4836c0b9dc69f0cf307bf67f4e3bd30303d7941c7e2c939",
+      "git_blob": "73f5a0f27a9a1e12a6027c1858133c7cfcd68bc9",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/GraphPrimes.lean",
+      "sha256": "7de3ecb25715072726acdfeb68977f04872851403c157913dc2e8c7cd1b698c2",
+      "git_blob": "3840ced0f90e1f77e0678bd97b4ca48649838fd1",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/GraphSupport.lean",
+      "sha256": "5b85493a92cf403f5a416e2f9059a73a1ab06d07e58c6474ec7f28a1fd29b51c",
+      "git_blob": "0fb4e2941865772a0d17b89f02218fb117097577",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceCoordinates.lean",
+      "sha256": "d8f5c2f9c0a6c95ecc4504a732342bb27391bbc906a95dd175b2c86166a34b5b",
+      "git_blob": "4e6a555c7714aa07a555266e5909d9665af90f12",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceGenericLength.lean",
+      "sha256": "42ca912f585e7cb3f7a129b456dafe701c983fbcc849ebbc9337d949a091f818",
+      "git_blob": "2bf36e050c9d48ce81c282b3d24a833186943994",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceGenerics.lean",
+      "sha256": "5c28060021cd2a5c84fdfaef1485dcce12db1660dc5768a0c1dcb13767de8e76",
+      "git_blob": "a9a4e9a46e3714a905b5218355087b8997e64642",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceIso.lean",
+      "sha256": "7c9b5466a6490b533bb00c9dcb4dca823774cb668faafc9d8255f0ad500a4538",
+      "git_blob": "05968c950e9f603dd5f5465c3e964fc024478a9d",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceMaps.lean",
+      "sha256": "91ed8bceb873c47f72fbd307e02c0aa2ab405cd3a7990f465bac8e291d8b7cd8",
+      "git_blob": "344c6ccabf9597adbf77efcb8b70a063c5f9d187",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceProduct.lean",
+      "sha256": "3f82fa31bf6d4ada9a7e9eb745c7366eea98c0b6ec975ec8c9b41a81843635e7",
+      "git_blob": "00f04e1d9148897bb38b05f7fb6f554ec670dc55",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidencePushPull.lean",
+      "sha256": "c64526cca9def3aa260e63ea0a78e60859e95f16c95eb722efbe35c856458730",
+      "git_blob": "c13220faf7474a8f77dce3ec1579c67bd012bfbd",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidencePushforwardSquare.lean",
+      "sha256": "23e33cb7c05603118a829271a39a394c169d140710f628b67b7361daf264b5e2",
+      "git_blob": "ce3c9f4d90924bb1b4528f70748a9c0c767a827e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceStalkBaseChange.lean",
+      "sha256": "04384848526a66bd4a7148c69dcd2af538881556555e765135ff028a7e197e9e",
+      "git_blob": "268da9ccf85427e4ee3c0fdd23075b083330e7ed",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceStalkPushout.lean",
+      "sha256": "cbef141a3d9e73e72b8086cf2704100a7dbda63635e2cd58a81b2be93bab6517",
+      "git_blob": "b979525fce3524d4f138977dbd710117a298c32f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceTorBaseChange.lean",
+      "sha256": "8bc93eab19a89d856a8c939b619b2f9897fc99c7b26125483297c4b08df108eb",
+      "git_blob": "7ec442a5741c9d7acda801baaa9ada2dea81e65f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceTorCoefficients.lean",
+      "sha256": "a0ac014c048d6c54d5be699caadef7cdba4a4850d28c6366346be98493a25b42",
+      "git_blob": "41dc866e30dfaa7cd0f72e09dc2b58a85779a9e0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/IncidenceTorCycle.lean",
+      "sha256": "f3fab90b055ca167dc9c8499c26070835c34d1d08d6611675a2cd133d10f1ad4",
+      "git_blob": "14de014e6728be087d05f87e96d48c7a6c6882ac",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedCoefficientChart.lean",
+      "sha256": "d777533f5260f187973c5cbbf3471bf53a86c47f1474b983dfc33378048a3266",
+      "git_blob": "6408a9d6959b77a44ee2b08485976444ed88386b",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedCoefficientCommonList.lean",
+      "sha256": "e8b792060da32b484eb837480500e47754994fc0b155825ac2c293add9b834de",
+      "git_blob": "6e96f787c76758829fba96d03d8e0b631477e86f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedCoefficientExchange.lean",
+      "sha256": "6e4820021744ec3934e2307d72d9aff41ed17e10f11c8ba55805ff581a080ae6",
+      "git_blob": "b6979889e2a329088c1ab648e4039ed301d959ad",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedCoefficientStalks.lean",
+      "sha256": "1cf8b69e417a43869669b221770d93b6b1007279301ef001e796373fb52501ef",
+      "git_blob": "992e83c511f4e1b196f37c80d6138cbbce3e8b4a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedComponentSelection.lean",
+      "sha256": "f9fe70813f66f4805a60778390c1dec9d4651240644b8ed8b2d1f12224553783",
+      "git_blob": "8e824187c774f85e317ce1187ea56ce9cc4f0a6a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedGraphPushforward.lean",
+      "sha256": "284a5c36bc85a63dfaa3f58ed0ea8511d0f9bb8f9f6fd2a034096f0f8dd07a39",
+      "git_blob": "176324088b0ec24c459d62b8db6ae98c0f04ca75",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidence.lean",
+      "sha256": "2d5fdaeb953d442b075435759addd8611c8ee29dda94fd7e59f1777ff32561e0",
+      "git_blob": "40376bab447257f12bc081f9dc4b34082fc57982",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceEmpty.lean",
+      "sha256": "241696633c63245dae93bfb07b053c52ba1c4c59f2a23f35a9ea25513cacd6d1",
+      "git_blob": "78631a25920155025723e3f2151fb3901fb08f20",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceHigherTor.lean",
+      "sha256": "288bb8435938ceeb7651afb56ec552db8fefe81d6a01fd1f660d9e8f521807a2",
+      "git_blob": "e03a2e8cfcb146659b3caef6f29fc80255f3c3eb",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceIso.lean",
+      "sha256": "6163d14312e2dcab697d40617b07820ae3ae46dbad4965995787231bf39e1914",
+      "git_blob": "aea0f142162d3ea43fb05c94107cb31f9a006fbe",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceMap.lean",
+      "sha256": "7696ee1c1fbd30bf2c3465391094799e001b9e3d6d5a2b8bac1c71bae7749102",
+      "git_blob": "5bcd35aca7233c29944f3d4c2ab240c6a2f76c1e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceRegularList.lean",
+      "sha256": "11156b8f8c956d2df79eaa6c1d14db0a089b7f878c0c448978ec0ce5b0883549",
+      "git_blob": "85205b6c99ba9e98f69dbcf7b0b3059d4a9a82f7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceTorCoefficient.lean",
+      "sha256": "1c1c6179bcffca5db85cddfacc4da44d1b92fbd27bf2f05c299ca921fb79f36f",
+      "git_blob": "78eabd794270da2017f70d430c0b9a00eced3e71",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/MixedIncidenceTorZero.lean",
+      "sha256": "7dae8bce6baad01e0248b416c31f84c3ebbca4f0ee5f3af1aca0f0eb258f250f",
+      "git_blob": "73ed141a5bada5a6f682ef68e30f50473e5bdff0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/OriginalTorKoszul.lean",
+      "sha256": "d0eeef065204faa378f1201e2f06222eb57045d996ece10ca0be9bf7fbb27294",
+      "git_blob": "96f2893599b5a1f4f231634a96d2e15e3ba5c86e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/OriginalTorStalkMaps.lean",
+      "sha256": "17d4ebcbd5ab848ee82a8d36d5b9b0616682de168a8c9aefc92e0387a2b159cc",
+      "git_blob": "be3636a07e0356b7ab9638b4896dd413ecce11c7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterBaseChange.lean",
+      "sha256": "ec2a31d1b746f8cd5d9b686097f6b8a89876a8073fb100c2981647a1cf316e6f",
+      "git_blob": "64b0cc37b08c90986c9f7d304d7f68ab71516a77",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterDiagonal.lean",
+      "sha256": "39c33c05b908214ab702fc52e5cdc4110a82818e8c10872d691db11fac0b2191",
+      "git_blob": "3f52e64a8ad2f0356a568598195a3b76df6fa0c3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterMap.lean",
+      "sha256": "704e2d5eb6a3fb186f08640a4a4c5b45bc4e83677ae331367885ae7cf8df7ed7",
+      "git_blob": "24a3c3dbcc652aaf672e31685bb14226f0cb0d27",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterSquares.lean",
+      "sha256": "7799c16b48f27599e6d3191a58338d4fa0986a8e365932a5990ddf983bb92874",
+      "git_blob": "cd24d13fe9439046ce3d6747bef1dd4edeadc753",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterStalkFamily.lean",
+      "sha256": "63cf650fdb3057cb532824ecbbcc7f64a3c778754d899049d6cd0e816825f156",
+      "git_blob": "1106d02cd57261290a9a8bae649daa00a34433e0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterStalkMaps.lean",
+      "sha256": "7f861e604b794acdf334b8ea285089ec3a897628cd311fc26622f0063b1a6cbb",
+      "git_blob": "3c7edd200050df1e345c294f77ab57b2ad198625",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/ParameterStalkQuotient.lean",
+      "sha256": "0741afb934d50c659d9541c3b79d9d6b10a347576328621095680d716dcc6c67",
+      "git_blob": "5e05a339644f27533fec623a735bbec06e306287",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Postcomposition.lean",
+      "sha256": "341f82a4ff34d652db9691f5becbbb31306ef7b1f36f9a2a81dfc4fa3d2077e8",
+      "git_blob": "9d28978e04cfae63bbf5fa7e5ec4285cab33e09e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Prime.lean",
+      "sha256": "004e6907a010777fd8283fa1a98e5c926ed39c38df513ad52cf6ca7f9b36d315",
+      "git_blob": "7264a75fdc360a849cd2fce3778024861d05b4ca",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/PrimePullbackSupport.lean",
+      "sha256": "d9fd3c89d598fc1f2aa3c3b556bd4bad70e69d4a3625d4fef881d3c3937ff8bd",
+      "git_blob": "929ab7d8cd3699a3d90882f730c7a28f96f20ac7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/PrimeSupport.lean",
+      "sha256": "aeef600d3e328742b788cc63122c5c35d120edd72f6ea6c2b0ee01a18a239820",
+      "git_blob": "aefea553de105defca260b064b4f72c54dd9f8d2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/QuotientIncidence.lean",
+      "sha256": "d208afd62a2968c6535251a593a3fae8fb063f423506f61e0a1cbbedb9f3aca2",
+      "git_blob": "71a13a3ea1a621d9f7f8b3016dfda5d36009bd84",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/RemainingDiagonal.lean",
+      "sha256": "d02b4e44216b46f1e57ba83684ce6b2875633cc54b05da98bf96d0c4014f0602",
+      "git_blob": "ec74064e6c982d1f771d4e5660a0d285de7fce28",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/RemainingKoszulBaseChange.lean",
+      "sha256": "f2a80258b841300cc1d0ef8541977b02e3d693e95aadb9da41a0b65d7dcbfd2d",
+      "git_blob": "d2e2d4b30f61c30771f83a66770bf8c8da083d60",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/RemainingStalkFamily.lean",
+      "sha256": "a18c03b58bd396eabb984ec7aa160e5509e556b307285c3e251d6f8d20c86273",
+      "git_blob": "e81e714755d00d40bf11f643988e2635994bdd8c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/RemainingTorBaseChange.lean",
+      "sha256": "32e10d3c5c993ea576f05fd4b5f6f23e837c4415c0d2d296539f824f015f803a",
+      "git_blob": "d60a844e55ce6ce7ef36efb4843b01213a47085a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Simplex/Functor.lean",
+      "sha256": "f0d85c0cb226c8ec8461605dc89cce450d055a15ce4de504f9e5f5d94d4bf73b",
+      "git_blob": "954938055ba8f7952713825e6d50a6ce8aebc10a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Simplex/NativeAction.lean",
+      "sha256": "836019f5f96ff9d0be415b0591995a7a75ee9a46d372beff5cd917525c093b37",
+      "git_blob": "74fec3df8cbf20aecb51401141d9c138bdf9acfa",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Support.lean",
+      "sha256": "9c4b06ecb46282f315247d127662daf8a8926397d968f218f86f9b4069a81109",
+      "git_blob": "61e02fdfbbf8495be8c930f8aab39d9e79cc9062",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Exterior/Target.lean",
+      "sha256": "a6a9b229896ccdec01b76d3f8a3535b23dcb732e6605d622f8b969b75dc3b50c",
+      "git_blob": "ec8342efdbdb7766f8dc6687cb9a6f236815b5a3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Singular/Functor.lean",
+      "sha256": "eaff5c90df691239c07f5aa4f7e6093c721074db128734b22ac496ac9105ed78",
+      "git_blob": "da7ba0697d97e8bbc3d326eb53c3ca898c37f61b",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Singular/Maps.lean",
+      "sha256": "69d9b97636b60b253199ec484fbd3142ec3e5a50f9c4e4b94bff6b8eeb43e2be",
+      "git_blob": "f7473246903010e8caebd1d6e5dd5e6018c59031",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/AmbientNaturality.lean",
+      "sha256": "3a62dc845469280968ed234d4be3c61b8d47d6c6c89a96f4f2d3b14c9d4ad68b",
+      "git_blob": "5ffafe87eb0cd1b016423b3766f39fcab4add576",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.CycleNorm",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.lean",
+      "sha256": "26327cd530b41754bf637a587539c0b058af83cf2006c131ed1297613d99189e",
+      "kind": "producer",
+      "git_blob": "9122b4788f3e9877dd8e10ffcadd88299cf30ab1",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.olean",
+          "sha256": "72fd56e3744d938a0044a91d547a1acd823e9bca39ac56900f88b6cf8f92b896",
+          "bytes": 197752
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.olean.server",
+          "sha256": "55ca53bd83e3607952fa01564a06452f691ee10d5faad8eb669ccb29a753ac24",
+          "bytes": 8224
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.olean.private",
+          "sha256": "7bd0fc937bafc80ede2fae68e1e7efebf485e98f0fed46bb3db9ac164c8abfdc",
+          "bytes": 224088
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.ir.sig",
+          "sha256": "4372abbd2348a08c08566156b31e9cb6b12faef7003a2df452081c8dff43ce9e",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.ir",
+          "sha256": "739bad01c67f1425ca37f6af26a54762b7e5c444edd85c574bf326b7d2db6477",
+          "bytes": 2192
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.ilean",
+          "sha256": "dca528181a6c71f592a412cb8d3716bea3d05ac52dfed19ee7ed9df0d247011d",
+          "bytes": 44334
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleNorm.c",
+          "sha256": "c4deebbf76284aabb413f27e731dd88813bf21205585246b0b686011366cd6ba",
+          "bytes": 4651
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/module.setup.json",
+        "sha256": "24d9b1206db7bab3aeb7731d5b1de5a459f1a9d7385ba86d983470f0d1ea40f5",
+        "bytes": 33613
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source32/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "f080c7899c858e3329d564061917689f0eba0d214d0e6e85ab97e6df0ebe3568"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.CycleRationalFunction",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.lean",
+      "sha256": "cf84ad3071acf801279d94905abbdfbad7ec980dfcb218d792e59417ed79f48d",
+      "kind": "producer",
+      "git_blob": "76508b6d2df993a639958dfd1b983b4dfc108025",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.olean",
+          "sha256": "40ad7083eb9b26d113a18b9a241755d01ad006e58e25c168a7d043d735072112",
+          "bytes": 113824
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.olean.server",
+          "sha256": "5183378883f630da4c4f82f056ba6a8c5119f9f2cd4ccf263148a35d8305a306",
+          "bytes": 4976
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.olean.private",
+          "sha256": "198a757eade27f8a4a70916fd705b2a45476c042c6f4ee450d2f641808d21083",
+          "bytes": 104048
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.ir.sig",
+          "sha256": "8104f8313ce04764e86287e18770e24c1356e2f044aed9ba41f160dee4e79cdd",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.ir",
+          "sha256": "140836cd7ed8e5e567149cb3b01ead96f74c405865a4211186d9ba1220b5c2ac",
+          "bytes": 2192
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.ilean",
+          "sha256": "70f8d991563606726f0369ac203d171fe718ac791fa6f82792b09a4563661983",
+          "bytes": 26217
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/CycleRationalFunction.c",
+          "sha256": "fcbc00ed761df4e1c815e4ab104665f4a81b1698e575d867d331f5135499276f",
+          "bytes": 5212
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/module.setup.json",
+        "sha256": "17e481d811eea7590cfd3450c9110d69930aa1e4dc73880eca822e26efd3238e",
+        "bytes": 23259
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source29/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "2dc790cc76cd890cfe306267dceafdde45fe12775a39ddacf59993c0d58da933"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.DivisorEquivalence",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.lean",
+      "sha256": "573a20dc25ae0b5e53232ed2376a2f480c3c90285ed4ecb74f418a42f54b7769",
+      "kind": "producer",
+      "git_blob": "df91f1a6392e0a8c199e1234e8ba8e1bd98c8951",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.olean",
+          "sha256": "a69377f0996de7f81b8d67dbda29077718724a54861beeb9c9cbe63bc687af49",
+          "bytes": 138976
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.olean.server",
+          "sha256": "2f9145750b0262920a06b64556523523e137399c017f9f022e22e6187921e69d",
+          "bytes": 5048
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.olean.private",
+          "sha256": "9a892d964fb0d9bd8c5cbb8c80da7e7799246190e063221d20300b9d0c9e0996",
+          "bytes": 181936
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.ir.sig",
+          "sha256": "8affe6eb7706e3fd0fe677dd616ead646c8500170d94b47f7a4870cf1516f65a",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.ir",
+          "sha256": "8c78fb928064552c437d24138e36be84b0e9cf085d7469c103fa84ff8048e4bb",
+          "bytes": 2048
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.ilean",
+          "sha256": "d873bd74b6c9e8d4ab7222f4523134475a2fc65ee36ba3d47ff1a0bae66dea88",
+          "bytes": 28744
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/DivisorEquivalence.c",
+          "sha256": "ae45722dbe3b245b2386f7120af40fa406a8518d72b1f4853a2eac5e21d1f737",
+          "bytes": 3922
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/module.setup.json",
+        "sha256": "ca7b3aa1c3728a3ce6ef15b6a461c65e0eef39049eb3f98ceb07d17b971587e4",
+        "bytes": 26574
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source31/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "0f8a36cd179a2033d5892c30b496a0985de93b1a3b16c97fdcb7556d9ed3c7ac"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.InverseNaturality",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.lean",
+      "sha256": "efed3054e7977e50c1b0779d3c6a86f7b64d51e3762edb58b8b97c71bc5f8970",
+      "kind": "producer",
+      "git_blob": "ba6b264390025432c985cfa63008a31ea4938e75",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.olean",
+          "sha256": "100f4e7794bb71fb9ec3738843babce0b2a5392be87b742ccc614532051a5830",
+          "bytes": 157968
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.olean.server",
+          "sha256": "188c4553491c94e2d98e11ce97f156016d97d438bbc99a13d435ae926abe41e1",
+          "bytes": 3376
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.olean.private",
+          "sha256": "5666e8e091bacde3b9509fb75a21ee891b8f30264321f212595f9cdf07ebee92",
+          "bytes": 88312
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.ir.sig",
+          "sha256": "b0429cbe9e18c53f351b165251006dbccf9dedb152d977d353c0297446d9f3b7",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.ir",
+          "sha256": "26ade6f8f7e8dbf7ad107acceb111fa6267b0d9ee1250e8629cea3309f58c823",
+          "bytes": 1816
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.ilean",
+          "sha256": "a1e1dc4b617010455b5f2913016bd3fc6765fbe6a53b9ca3fbf836f6d4ef97ee",
+          "bytes": 13407
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/InverseNaturality.c",
+          "sha256": "99aad2ad46bc37fa3e20c9f9e273f5647d368eda6c0b46dc5a052aab22b29f1a",
+          "bytes": 3970
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/module.setup.json",
+        "sha256": "04c599be77c1af24b44755ff879a846d678a61fd4fea7cd292c59100a670f325",
+        "bytes": 35845
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source33/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "7b6a1c32e30ea2643e340f32fb758fec95ce595c8dd2d9ec4352095af7b10fb9"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/LinearGraph.lean",
+      "sha256": "b2e3d2ac4c7a3f62911cf8d08a0070505a7718122077088fb3195e041f30918e",
+      "git_blob": "f19842b0fc947c61066acbfe7fa949051fd388a2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativeChart.lean",
+      "sha256": "3d32f2b4d8cdbaf886e1662fbe1697cbf56fdc76db69ac010d14c59733ad1705",
+      "git_blob": "f60fdba3f6ecebe13b67e2fa39884bf119c2c81e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.NativePrimePresentation",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.lean",
+      "sha256": "6ba4d52072e59d5d4504260729d799f3640583c3091d2988b8322ad2586469d6",
+      "kind": "producer",
+      "git_blob": "806c9ab5ca187eb5a5133d48220bc73775f1a59a",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.olean",
+          "sha256": "0e8c0a0a8daa95b91f70393aacf5704d39b08cd0704fab42195360042b3d16de",
+          "bytes": 124456
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.olean.server",
+          "sha256": "08be0efd21cc496044057e9aaf990bb73af8aeb1333685d38908b313375522eb",
+          "bytes": 12840
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.olean.private",
+          "sha256": "090b3034ed42e87d128e6e139cd90dbb91f29c1d150329c4614943a60e2052d9",
+          "bytes": 171552
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.ir.sig",
+          "sha256": "957236af0e9dc4b0971c2f597b186980449d6148882473e01e00d6b146bf394b",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.ir",
+          "sha256": "4c579fdd65a84c2d8b1c2c3156dc8a2d1708eb0ef39b61f70187d9ceb5ff80ca",
+          "bytes": 2296
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.ilean",
+          "sha256": "2495c15b5d9e0cbb1beee666e5ea59ab79c2dccc76f9dd7dbe13b23c984f174a",
+          "bytes": 60769
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativePrimePresentation.c",
+          "sha256": "f4f2dcc37032734b6d126b4c8a62fea2c46e3f76fe2d506316d3a5104ea61233",
+          "bytes": 4607
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/module.setup.json",
+        "sha256": "b31cd1e90092361cfa4b1c91ab6895aa9ab57aba22ca427a3d78aa2a4409d22e",
+        "bytes": 17690
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source28/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "b63ccefcc2887b807eb74490edc723e33c88b7568d3eb22ba0a8a57e8b8f8467"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/NativeStalkMultiplicity.lean",
+      "sha256": "af864a99a72cf4de5bdbf906d800396bb427ea05d1b3f2b1ffce1b940632ddc3",
+      "git_blob": "ef0f349fb01a04dc9e8cb240c8efb9efffe6fd9e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PolynomialClosedImmersion.lean",
+      "sha256": "9d264843fb746d4a54fcc4652db35775bc4beca2bd3f3eaba956f4ec098c1d17",
+      "git_blob": "4e2ce8101f969d230f354b5b5f5dc79fae0bfe63",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PolynomialCycle.lean",
+      "sha256": "b6095e4cb7384a53d09386bece2e129961818b3ec1295969a78afebd8f46f21e",
+      "git_blob": "58229f95c426aa20f4aad7c782c715485fae74f1",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PolynomialProducts.lean",
+      "sha256": "e7f4955917b0557e0e384c8a999048ab7f4f3ec06d1df3c049ca88c05cf210cc",
+      "git_blob": "15a53e82d6564666b7ad1d84d4e84720f7290b0c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PolynomialSpan.lean",
+      "sha256": "e130de75144baa6b238b418b3bb0bf32be7f8b6ab00ec20c59e9a6d767ef353f",
+      "git_blob": "1afa011f54208db0f5d18acfa643a3c94ad000ab",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PolynomialSpanNorm.lean",
+      "sha256": "61a965332424ce1bf849d17f8846469a73f21c3a8a060d0d91a179c14d88e6c3",
+      "git_blob": "101ddc368f6b9a9dfa8a03ffb3a7d0812394a582",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.lean",
+      "module": "Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PrimePolynomial",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.lean",
+      "sha256": "a69af7938a81a7fd17f6183cfcefde62c7a57b9a693b677cb4f4886d005cd6db",
+      "kind": "producer",
+      "git_blob": "297b567a2d5d55dbe6b50caa4ee6310165dc572f",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.olean",
+          "sha256": "e5eb97cac70947407cc49539211cc127a399c5aa7273da8f1e56ebaccc13dfa7",
+          "bytes": 91392
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.olean.server",
+          "sha256": "5e240616203a5340ef76bce7f6a9ee25f8fbe96483ff64a39c127d54972971c3",
+          "bytes": 6192
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.olean.private",
+          "sha256": "2d905a87e7f98aa252f67f3c9b1a9e2bfed8b5bb8bed0a28a13b23c029fb6138",
+          "bytes": 269792
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.ir.sig",
+          "sha256": "5fed46d6c79b20e19518749571723276361dac82068f2ace0f124fd9d880a8ef",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.ir",
+          "sha256": "54f13eb4d9738762eec7d7a84e909c424b4d306e0e81eb96b03a0666e5041e86",
+          "bytes": 1704
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/lib/lean/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.ilean",
+          "sha256": "6b43dd3f3c4698e021d3c0b415b2018fcbba66800773fd2314aafae6b5e898a3",
+          "bytes": 52244
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/ir/Colib/AlgebraicGeometry/Correspondences/Torus/Affine/PrimePolynomial.c",
+          "sha256": "5dc86ed2b164f0d9afa2c5d0bb24b17144f144cf7bf2085c63d15e76d01d8c2d",
+          "bytes": 3339
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/module.setup.json",
+        "sha256": "d97c351a474952ad14ff37a66bc38eb1513395f0753286ecd60c723f09f022ce",
+        "bytes": 24413
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source30/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "f89bf3a4c41299e0add0a796ef11bcf0b024a1b20ba16bc98177f95e5bb85e6d"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/QuotientStalkMultiplicity.lean",
+      "sha256": "a49d6a29de280a3414bda3a7ea72a48956e87651e0c75f35e7bd45debfe3fd4d",
+      "git_blob": "5b3bc04a19c40b6f08da70a4dd169e4f04aff657",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Torus/Affine/RationalDivisor.lean",
+      "sha256": "8e777c4a3a7ace1212b911a173cbbc99390c09bf75fe4ff65a7de14b9d8c82a1",
+      "git_blob": "860b35c98b3df61f783a300bb40ffdf1680daca6",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/GroupScheme/Smooth.lean",
+      "sha256": "ec7bc862b9b92974dfda9fac12309a081d81840c359f7a979cf7876612fcd901",
+      "git_blob": "825bc8ba7008744edc2be69c15b586a6a65fc909",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/GroupScheme/UnitPoints.lean",
+      "sha256": "257864e880d1f9a4364b580b7b6a854e2f9fb1849cbe861fa3b7770744fb4191",
+      "git_blob": "d6bb043ae065a81bdddd0d3959056b13c111ae47",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Intersection/SmoothDiagonalGraphList.lean",
+      "sha256": "1a7fddbdc1801a01055a503853003883b8ae3ffcb5e51ac1665352e4cc021aa7",
+      "git_blob": "1711a90e136b082ce4c14c34748b3721a21bcfb3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Intersection/SmoothSectionCommonList.lean",
+      "sha256": "c54366b9246bd88ab0157ee4775696d76718b87facf791024cec29727db2fca0",
+      "git_blob": "5960ae6551afc5eabc6190b38e92d1f1c85e1568",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/Complex.lean",
+      "sha256": "e8aef4be140734953154d7d487a0f37c98a6b00fd8e923abb356b1fb7bb35965",
+      "git_blob": "648b2dcb32059e7c459b866b29eeca210ad565a7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/Hypercohomology.lean",
+      "sha256": "2740066ff3d5daea45f71e3f757970b0bff58ac74f98e0af306aa9265af1cdb4",
+      "git_blob": "1dd565db81e23989584ffd81f2c53eac2000cfec",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/A1Invariant.lean",
+      "sha256": "ed98e07de57d80eb5005e86395b5a7811ac857aa337e910f93da6463ea17e796",
+      "git_blob": "638d255d10a0ee9dd236de56d1f04ef92e030fa1",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/Cokernels.lean",
+      "sha256": "ca9997d04558d1a19ea6c2d3a7acc8546a097a8207e774448ce39075b607532a",
+      "git_blob": "de249a7db12cd3969af10fdb43feb850e30dd4f3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/Contraction.lean",
+      "sha256": "5a9e1e2488c08594fb9f48fefa4d37058639a2151e508b94b7215251b60bc106",
+      "git_blob": "60e0749e1efde123f3828f36529460badd7cf5da",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/ContractionHI.lean",
+      "sha256": "15bb837b3563d80d14ed5253f5b7e6ddf30506c234341e1228395b4b0234475b",
+      "git_blob": "76745fc3217265f13eacee4ba06664f008e26479",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/ContractionInvariance.lean",
+      "sha256": "bfbce3be13931d68303ca4e0adaa5079b6bc878ec4e2d869b6e4acb9ede05af2",
+      "git_blob": "d3474b24801a0b148bd9a5df44cca176ab85ab3c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/Parameter.lean",
+      "sha256": "d148d6edfcc2f9134566482276a5740434158ef4c80673e8e2fe42b525b19e36",
+      "git_blob": "6e83406a6894a7c95cff79acc0bdfcc20d08eb03",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/ReducedTorus.lean",
+      "sha256": "21da55b5722e3d2b332a528fd183209a6d23378859704feb8b0b10f70853994f",
+      "git_blob": "77436638cfd94b28e081902ea31eea8d27dbb2ca",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/RepresentableLarge.lean",
+      "sha256": "2bb7d323b30989fc764544550fb1b522904a8dd9222eceac206a568afd679af5",
+      "git_blob": "ebcb8e83a992b380e4533b32fd5797de4641462c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/SingularComplex/Presheaf.lean",
+      "sha256": "fb8f1dd0c27240bb8ddc52ebfafdddea1ad07d646ac06cb26b15b8feabc13b4c",
+      "git_blob": "f854b4f2481acdafeff5e4c352db6d8a4ac253f3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/SingularComplex/Sheafification.lean",
+      "sha256": "ba80e32c4eeb9f0ca4e3f6874c81ef5672901298b2e918135b556915a0a8ffa7",
+      "git_blob": "c2c0dfd937f90dbaa4f94c9d0507f1c6fed11d25",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/SingularComplex/SignedShift.lean",
+      "sha256": "8b5ed5343c608db078b9740d3ddb4b9f5159bf1aef84dc2e314f9454f5ab260a",
+      "git_blob": "65b47c560f0d77e216eeecbe2f4084b4c368795d",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/SingularComplex/Underlying.lean",
+      "sha256": "69a4d3064461564c004be25224353356c178fbcbe8d2080ad03c5ba9bb466e85",
+      "git_blob": "6dcfdcfde51e5ac7ebcac2e2db7bb85dd4287dfe",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/TorusIdentityAxisIntegral.lean",
+      "sha256": "eca2872c6f4699919fe144606c64fa0bd1d0473bf47ae430453e533acad04061",
+      "git_blob": "b5223103ac0eff74e0e700892c0709fd6da7b961",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Products/Diagonal/Parameter.lean",
+      "sha256": "01c377cabe7855c1d664d0978b878c553a65762887f65c3bae446c0cabfd123d",
+      "git_blob": "e4032c7dc728e2295bfe09a5994cec0f61626ba5",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Products/Diagonal/ParameterBaseChange.lean",
+      "sha256": "8328ea0c94857c0c1cfae69113296ca7912500d78d06c69b94e241d710e235c4",
+      "git_blob": "c6176d5e8b041115aea42a29b5feeacca5cb72a6",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/GenericFiberLength.lean",
+      "sha256": "d4946de836abffe5ef5c8ddbf0e5f3a0ea65f8195db290ace58299cd0fe3428e",
+      "git_blob": "55103da19f249d64a8bd468e7e28543e5f85123f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/GenericPointsOfGeometricallyIrreducible.lean",
+      "sha256": "665f15cdaef5edd7d82ec019bce5cc5228c9a3d0023e377df578c5ecb5368241",
+      "git_blob": "21d0d6ba5e199ccc9ade3f8e221bcf2dbe5c86d7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/ExtPresheaf.lean",
+      "sha256": "33feeccf9a5c153ff1a48a9a32b4c096a9afce9b69a766634002e31bec84517f",
+      "git_blob": "dc74e5a56ae0de71ec40d1c0b4ab932d0329f48c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Contraction.lean",
+      "sha256": "758e20c7a15ae217468102aba45d9c04be324569b2c41bd4b9ac44fa630709a6",
+      "git_blob": "f8547e9b17898ae464e3faf960a0dc680d72751c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/EnoughInjectives.lean",
+      "sha256": "58f2398cadcbea18212a59f74bcdb0048ab13b13fac2c62cae0ade2a8bda96c1",
+      "git_blob": "8100196c071b456a6fc3af04f9c108079cddcc4e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Exactness.lean",
+      "sha256": "c807542d6b8c9e6400439d836de6fb7b43a8f7533f687ca598fc6dd7cae28ce2",
+      "git_blob": "1ca1e03161d23975a6fc81a3b968807192de460a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Representable.lean",
+      "sha256": "daf631c98c409e4b62a42f5cc61046240e52b9d39f696a9ce81e216b0db88db0",
+      "git_blob": "1384aa0d86b7e60b9856841a284fd91bb87404c0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/UnderlyingExactness.lean",
+      "sha256": "1c06a56b2673810d2737b8565d4bb83410ae101f88aad30d2cd9d48281597a81",
+      "git_blob": "d32ab8ce2c027d3faa4d35f670a1088b62242c61",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/AffineBoundaryOneComplex.lean",
+      "sha256": "72b1702bf53ba2b7f20121e8587db7a1b70e233a903a3e083cf29a7c05f39953",
+      "git_blob": "7983c8c36a38da8ff5d71cb7cb7f806f3277ebc2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/AffineRelativeComparison.lean",
+      "sha256": "426ca80f261917dd63b7d2840247d4e3945455573e62843e9b1ebdd5499aeecd",
+      "git_blob": "26d90c50dc609768e65065818450b259edc272e0",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/OrdinaryCochains.lean",
+      "sha256": "24dc0c7062ee207585c4b849420c4ad8d16ce0eb4a7f6d0cb595a104212f3432",
+      "git_blob": "bc7e0b0ac7f554ee2bffff47b2179808144f0de4",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/SheafifiedChains.lean",
+      "sha256": "0c6371d2d068b13371072e2dce105e88a764160e8dea0ec61fee3c737a59aceb",
+      "git_blob": "a2f00f350cff2786cd79d571cac4aeb334cc60ca",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/SignedShift.lean",
+      "sha256": "ae69054f9e70270ab887dd08d08c02f78520340cc314245cdb1388b6cad39091",
+      "git_blob": "4c9b208a9d4b007a0ae9ced745133b88f54a0d68",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/AffineComparison.lean",
+      "sha256": "618583ad632e2289d69d56e9a51a36fcc8a6e6df75747f455329bef0d01df064",
+      "git_blob": "b7edc00e40c20e2f15c94a0f84669b7e06625b9e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/Continuity.lean",
+      "sha256": "247bf2be19aa881600d310ec7681c9df371858c78c55d1ae5c98bc427089d64e",
+      "git_blob": "dc766af344213789acdf3dadd9e132a22106b42e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/Geometry.lean",
+      "sha256": "d12b3687378cf452cee2e65dd7eed31e6160dedc2383f02e97b7d5ddac54cda0",
+      "git_blob": "76531295aa54d14ebaf3a2bcbe9797330701b37f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/Parameters.lean",
+      "sha256": "82ff59ccd4da7dd071a985bdd3a830ab81a81a61569cbd5fc484cf15d9ea597c",
+      "git_blob": "3acaade6c254f53b144966b6ccbfcfeeb09ea80a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/Presheaf.lean",
+      "sha256": "e2756d1b5993e625bfb2f130ad18dc1facec3e367a0507db12fc7b4bb8c39e17",
+      "git_blob": "c78208d894b22cf9e098739d638030eeb2522ca5",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Contraction/Products.lean",
+      "sha256": "8a6a40db09dff1e35ccda64dab12896098bebf22bbcf60f38aa2be06c6ae2d53",
+      "git_blob": "a8c2a8a4da9a5d842b9c9179b2b31c09813c0818",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/GroupSchemes.lean",
+      "sha256": "03f5d93715050a5fd6f79c618a6a40b9fe51b62c2a016a9f4f2e3d5e6750c213",
+      "git_blob": "8f798faa98bb928b7f7f4e4b46f9da4c0502472c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Hypercohomology/FieldEvaluation.lean",
+      "sha256": "74f56886f462dd3e4cebe1895166bf091322173cb7e83363d2130ec1da887bae",
+      "git_blob": "e0fba0bc4a64ac53c0c7f884e2840d17fc8e5a22",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Refinement.lean",
+      "sha256": "da51d1295aa1bc8a99ffec9fa1689ce755528d7568ab9197b68db23a0046e687",
+      "git_blob": "1ac0e23d88097d49c8c18437260d0a11a9d3e07e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Sheaves/AffineHomology.lean",
+      "sha256": "8a85e64246f5aed10b941025615f82ead2dd52f0e9453174e1ac39e4ba834191",
+      "git_blob": "d656e4e6a92ee72f0bb4e9bbd9df629fef174f7f",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Simplex/GeometricallyIntegral.lean",
+      "sha256": "76c0781a96577b58c17886e0f670dad3d8e448d2fc10f6d720802654295b8cf0",
+      "git_blob": "166373f30a2cca9b1e537c2f90aeb90b4f1f2ffa",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Torus.lean",
+      "sha256": "5d14e4144c51f7805fdf361444712f665f40369748f3c036035d4f24a24a6da6",
+      "git_blob": "12cc508d08333385a9085dcd749bc5995d5eecd2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Units/BoundaryOneComplex.lean",
+      "sha256": "938ddaefb9b385dd828d4e93b2d838474f28b2152ab1e856c0cc11672c29b49b",
+      "git_blob": "af35b5a95d559e899f35a4e5f71838e308cef71b",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/AlgebraicTopology/SimplicialObject/SetwisePaths.lean",
+      "sha256": "71eec5de039b45791c72c95eb25199c957471d6be9a7a179644f34bbb661e46f",
+      "git_blob": "96d48395f31b5155c13cbfa8523bc5748e3dd0f2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/CosimplicialObject/Cylinder.lean",
+      "sha256": "e46fe8a679c428d36123fef3e8f49471d98c8feba44452f01b203c16bdd548d6",
+      "git_blob": "edc7ab2028f284c72f5dfebf4eafe14542da7897",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Limits/Pullback/FactorExchange.lean",
+      "sha256": "665fc20d09fb7d3676959b260e7bb02b77d0eafcef0921c28cd18c417aed1344",
+      "git_blob": "c0be599eef5969fd50c7cf23c7274377d3cdc80e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Limits/ReflectiveColimits.lean",
+      "sha256": "9373cb4c0f47ed2171da36a676b0f44e95da2e4262fcc9cb4a12b25c0053f916",
+      "git_blob": "f13c2913e946f7bf430a9b639029020f900f7c35",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Limits/Shapes/Pullback/CommonParameter.lean",
+      "sha256": "afff64711272a9bc65efb4a93834e5c962a41f6c6bb2cd58792b82416f7a03b7",
+      "git_blob": "60421b5623da51be3a6898cbd576c3a42d6589c1",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/AdditiveFunctorAB5.lean",
+      "sha256": "080a36fe76c8adc1c06d44185ab8f3079035d011af40e6406c3fb439e298cdbd",
+      "git_blob": "0906fc7ea34379d330a078e513fed5656e625ddb",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/AdditiveFunctorAbelian.lean",
+      "sha256": "a1ba98eda3fb360d59239df12f4b9264497404eb0d797d24eb3121733563dccb",
+      "git_blob": "6a9499913f7a1691584de07536d7931eaf3850e9",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/AdditiveFunctorGrothendieck.lean",
+      "sha256": "bac8103205fecfbad7f288fd07d61d1cd915d177e7eb50179540aab1412b0036",
+      "git_blob": "077b8b14191b920faf4bf14d6d6883442c62353e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/CokernelAdditive.lean",
+      "sha256": "67dd6d53ab9d538be8a89997d2b611b7e5d4165bad20610b92b0e89dee5758c8",
+      "git_blob": "e4dc46adde28792ec6fccfd750f505e85cb05849",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/LiftedAdditiveYoneda.lean",
+      "sha256": "ba077232306d17a70a93a7efd80d22914f73f37a10cd11a731af62cc073ab75b",
+      "git_blob": "a7307c939e9a7b6bc6607d3f6e937e45b30fd19d",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Preadditive/SplitCokernelKernel.lean",
+      "sha256": "2671ad8aef5a48aaec1c6fec8d6a7006c63f3134b848b9448ee44d364989df00",
+      "git_blob": "d7f19b71bc79cf0d49b2afb70a8f5cbc62af8d43",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/AbelianCechDescent.lean",
+      "sha256": "f3e39bff1a211a7441a3243da49f905cf6da823d6fd373f2c8355490a35c3e89",
+      "git_blob": "8f23587a0011c97f587d9e635d6c26d0ee262b94",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/AbelianSquareDescent.lean",
+      "sha256": "9a9fbe0eff21f17209dba19b41c1b76d01f5bc92563f6c53b9691a30e4ccdcbe",
+      "git_blob": "394658acf8931cd3c47add84204ac3fbe2661e91",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/FreeYonedaPushout.lean",
+      "sha256": "47dbb9b64cb0e22cdc963b07d58ec2433f3207afb5156d86ace4bebcdd62947a",
+      "git_blob": "55f3958f7601176cbd9613882c30d105a037b618",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/Hypercohomology/Evaluation.lean",
+      "sha256": "95735c7408bb8a7e12ee1031e83145fb369a872dc9379597f0f015e2c031cbcd",
+      "git_blob": "af720f542b7e594c8a997d95b80f7615d92249f6",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/ParameterProduct.lean",
+      "sha256": "486c41b548027da8de34aa095f2f104cf1854bd4562a5b376259742d647635fb",
+      "git_blob": "56c6ab6793b5589a495c379640b4ceb039c0c986",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/Basic.lean",
+      "sha256": "172fdf366161e65466c004e90b5779b0b1ec51245222f00c3b3b8fa4aa73fd77",
+      "git_blob": "72c0c0a586eda9d41d2de7155b6b41e1477c6756",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/BoundaryNaturality.lean",
+      "sha256": "57ae2768b35f311d767878eaa8e58d8df2a1232c1af3b0712ac6de00358d264e",
+      "git_blob": "029a4da43cfa3ad844a1c15e249cf66e60c4a413",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/BoundaryRefinement.lean",
+      "sha256": "2423f4263a88e1cb403702297c428edab840b1d8e429c45365c29c198764d92c",
+      "git_blob": "9b2f2e5ac647592e90bad45ee3f3810b1dee5db7",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/ExactSequence.lean",
+      "sha256": "b00ed875eeab86ae8ee95f545901d5a90edd8d21399c25bb8c4cb9bf151ec9d2",
+      "git_blob": "680ce74be54bf60e28b8006a034412c65aebdc9e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/Excision.lean",
+      "sha256": "e2dea86ff08dfa2d1e47777626c45686813a4a4ba4d84789008b2e064ea8d524",
+      "git_blob": "d296195cdfcb8cdfab75bc7d6ffd9d60efa97490",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/RelativeCohomology/Monomorphisms.lean",
+      "sha256": "f727af5e17e3f2b4ca3b43994a98041af50cd9b60cd5e554948eb7ad6d7de49d",
+      "git_blob": "ba9e8b28b4f51f638b568667450a45c189bf39b3",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.lean",
+      "module": "Colib.RingTheory.AdjoinRoot.NormalUnitPresentation",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.lean",
+      "sha256": "1dd1bc9b93919ba3805746d77391574a747bc8e84d856ab493d5965dc2e291fc",
+      "kind": "producer",
+      "git_blob": "9082ef3a9b8d9894143e0fd8789b1ba3f2c6637c",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.olean",
+          "sha256": "9de2d82a2021a35cf3167b811d3ba9207db37400288bd51a58388a5853ddc09e",
+          "bytes": 81832
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.olean.server",
+          "sha256": "af8e564400aa8fd2f3c451fa537b79213a60331a2ef23237846fd0d230e3f4b7",
+          "bytes": 7496
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.olean.private",
+          "sha256": "1c62081169df395b576057f6d84f337556e31dabd52c036ea8e8dd47ff5b72c5",
+          "bytes": 110440
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.ir.sig",
+          "sha256": "9816d38c1e7b0de456f1ca227e005bbea046dffa6310e400a169d6723d54d1d7",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.ir",
+          "sha256": "47c3c6e8860b717c768dbb3b47b10e5d2a6749d414e99acbacc9353fb5a5c799",
+          "bytes": 2712
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/lib/lean/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.ilean",
+          "sha256": "965bf02606a3f07369618870212e5cb9a34b03873c9de5ef3ba329518df2fc57",
+          "bytes": 26012
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/ir/Colib/RingTheory/AdjoinRoot/NormalUnitPresentation.c",
+          "sha256": "efac4b1d262d8cd95fb87506bfa0df490e92c32fcefa13a05066eb4c7d471657",
+          "bytes": 5698
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/module.setup.json",
+        "sha256": "16f6532494bd1b214adc9e27d13bbacdb320469e25b14b4d09e481d6b418103e",
+        "bytes": 1285
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source25/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "a6a84e1ed653674d696614faea622232b3b9d973957f22682a55f7ba27a34a2b"
+    },
+    {
+      "path": "Colib/RingTheory/AdjoinRoot/UnitNorm.lean",
+      "sha256": "26396a27f6ea2bd69f66da80a5d0c4577e9305bce2607662991b51cc77e3b851",
+      "git_blob": "5c1c6af53cd9f116dec46c13f8320dc821b6352a",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Admissible.lean",
+      "sha256": "7cfb110f00a3a71d23fa677b8105c9375e80911ad025193d9550ccecd5728de6",
+      "git_blob": "d0b0c4481a9b235a776e2cec0a7d6b362ad9cdb6",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Basic.lean",
+      "sha256": "f8d86d601915aedf7cbcd6f82bc6eeff8b52eacd2f75e8bef793c059d333270d",
+      "git_blob": "b6c81834414e805778bbbd251fe3f1b2257bc782",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Cylinder.lean",
+      "sha256": "9920d755f5bdd3e3346baba29c8aeffaaa77fbdf911f7924558cc086813d2527",
+      "git_blob": "905866c530d4839fb5b73c3ccfd05a54e9a0474e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Functor.lean",
+      "sha256": "5c8bac8480599976641c52290c63af1636179de8c31af2d79e6efc319e73f659",
+      "git_blob": "b850d78cf052e7f2d5fec3b41be3da6177457e2d",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Homotopy.lean",
+      "sha256": "a0969bac175a7340c8b432f1798f7a30db8f34d0eedcad01a7bfc8e9c6f2cb4c",
+      "git_blob": "5951e441afb994ed391decdeff70df92a48700d9",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/Invariants.lean",
+      "sha256": "93323cb437fdcf199fb186fcb2922f476c8b17a850bddcf8524e1efb2a1e0681",
+      "git_blob": "805ff6a88c9aaf084fe063d8a0516e04b983a7ee",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/PointedExact.lean",
+      "sha256": "0d73463f8e37ab5ae0b0e1570007cef0dbd83e55a1a34adb4d0c48ba481f24e5",
+      "git_blob": "54602494d84a9de5580d162893fec8dfd476ce91",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/PointedQuotient.lean",
+      "sha256": "d07f0ad86a373fc4b017a54f56851b182a1af70750e7f36a1576cc914b448037",
+      "git_blob": "e3e35018bf2cd247b69dcde40d74ac8977b44178",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/BoundaryOneRationalFunctions/SignedNorm.lean",
+      "sha256": "1204b5f14c539e005d97882758211bdbb2758edee68638865ed13032b737c7a0",
+      "git_blob": "01bd68d2b32a2c2813df2618f881ce91fa7de7b2",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/Normal/MonicFactorization.lean",
+      "module": "Colib.RingTheory.Polynomial.Normal.MonicFactorization",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/RingTheory/Polynomial/Normal/MonicFactorization.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/src/Colib/RingTheory/Polynomial/Normal/MonicFactorization.lean",
+      "sha256": "bcb46e54943edb8d176f6d139823cae20272433350cf6b7e84466b7a385e2d9e",
+      "kind": "producer",
+      "git_blob": "7581327a69513dbca7574e2b2c335c352ab46eba",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.olean",
+          "sha256": "54344b8837da51eaeba5a791e89ab9599aa5c6fc7d447116846f3ae24fd0866f",
+          "bytes": 18312
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.olean.server",
+          "sha256": "427446f3802951cdb9b9397bc68580a700b0d647e0949d7f75905ca413dd293b",
+          "bytes": 2400
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.olean.private",
+          "sha256": "0c3a54e38c839710201352695176240f65e410e5f5084783eebbac6de2aceb56",
+          "bytes": 198064
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.ir.sig",
+          "sha256": "36bd16249167702a530519a3eb9a16c96c8f661b9b278038a2f3c091668e8006",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.ir",
+          "sha256": "cd252fcf12a5583bf382fa4de69fadfab05267349e74afb5091c8cc147196571",
+          "bytes": 1704
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/lib/lean/Colib/RingTheory/Polynomial/Normal/MonicFactorization.ilean",
+          "sha256": "e9c0191a46d9e61e8419c8e092f87891aa72b52ca2394d9b4870f51657f403a2",
+          "bytes": 13000
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/ir/Colib/RingTheory/Polynomial/Normal/MonicFactorization.c",
+          "sha256": "2e1db4d25f5bd3f7845d2fa24622c1015426d300daf3a4c56fbcb07f5ea1694e",
+          "bytes": 3652
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/module.setup.json",
+        "sha256": "048f6f16b6ab8b2bc16fe2934e5c92e83971ea9973431e00f66d73c263fa4dfe",
+        "bytes": 284
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v44-20261110/build/w45-source26/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "fe3e7b39026e77c1f82260b1a2786dfa944b23335ddb511da0b019af9d228039"
+    },
+    {
+      "path": "Colib/RingTheory/Polynomial/ZeroNeighborhood/PencilBasic.lean",
+      "sha256": "87467c4560f9256da4909b45e31e26e98327ddb0955e60710d5f39aff9235067",
+      "git_blob": "21a2079ba540b6822ea3064e039f2728abbd056c",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Sequence/Regular/SplitBaseChange.lean",
+      "sha256": "246bfc21d9f16111bc7087d82d9eb37d68b9284f4072f92ed581ac00ab85082e",
+      "git_blob": "681f6948153dd08d72219163ddbea792cb01e72e",
+      "kind": "producer"
+    },
+    {
+      "path": "Colib/RingTheory/Smooth/IntegrallyClosed.lean",
+      "module": "Colib.RingTheory.Smooth.IntegrallyClosed",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/Colib/RingTheory/Smooth/IntegrallyClosed.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/src/Colib/RingTheory/Smooth/IntegrallyClosed.lean",
+      "sha256": "3a226897a12ac96dca0897d31739135ea0d33a130f7a76863651f16fef06638d",
+      "kind": "producer",
+      "git_blob": "edab1482b4ffe4ee5729856cec84e936ff8a0b26",
+      "examples": 0,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.olean",
+          "sha256": "2163794138d01073e4abcf7bb37045847997d44e3b9f2216c8272923a2fd9229",
+          "bytes": 6352
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.olean.server",
+          "sha256": "4a213254601fef954ce428631de427da33e47789c0eeb1c714bff023b121c71a",
+          "bytes": 1752
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.olean.private",
+          "sha256": "4d14b7eacbdf6b105d7591ae19b947d85d7987d0b31f4fe5a2f2e808bf041d89",
+          "bytes": 3952
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.ir.sig",
+          "sha256": "7927e8cc18f364981ab81896826d848e5c4f42f3e47914d0968744f4b29bd620",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.ir",
+          "sha256": "f877132d99d9709d8e63b480cd7e31ea9ef3ecd3f36c962b8009d8c413528e8d",
+          "bytes": 1576
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/lib/lean/Colib/RingTheory/Smooth/IntegrallyClosed.ilean",
+          "sha256": "8cf4506138c761ebc02dce545401e7e5f3e4215c40cdc9051c0869d61ea56df4",
+          "bytes": 1826
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/ir/Colib/RingTheory/Smooth/IntegrallyClosed.c",
+          "sha256": "36d8b3795c09bdac4df23e18a216f930d9c82f49d4a77d848adb9a93e89e98fc",
+          "bytes": 2972
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/module.setup.json",
+        "sha256": "a1372cf820e87d75b601ace0bae10c7da00a8b7dd6719320da1f6dc822ea4030",
+        "bytes": 271
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v48-20261110/build/w49-source34/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "05f6256160ad769458ad02ef90cd17d508b423fda3e138ca163d4b3df1cf2357"
+    },
+    {
+      "path": "Colib/RingTheory/TensorProduct/QuotientSquare.lean",
+      "sha256": "01e17a0c5ef0eafb11113b37dae005e012c9a78f2e246b5a406f24f8737623fe",
+      "git_blob": "e4ea824c2bfead45cbe1f7163f3b231012d8fdf3",
+      "kind": "producer"
+    },
+    {
+      "path": "ColibTest/AbelianCoverLifts.lean",
+      "sha256": "00a2ebcc5dca80404eb09e601c7922c4c3a1bac3eecf3e13552f0bf559ae6313",
+      "git_blob": "6d40e7eeae1311e41714d979caff684c5bb39115",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/AbelianNisnevichSquare.lean",
+      "sha256": "b44c1a21123a1980fdf1d7dcd387cf88e707018d29da4c06418f717d4f15099c",
+      "git_blob": "c9553fc946b6c13bb0f3e8e8893be110825886c4",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/ActualHypercohomologyBaseField.lean",
+      "sha256": "016734b5dc44b2c2d87bdaa098493809e0010aa62a21363141e1f1e35d8284a2",
+      "git_blob": "f52e1c4944091e7ab4bea7815dbc4b43e110f907",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/ActualHypercohomologyEvaluation.lean",
+      "sha256": "d25270a28f82e9eaf9141eb6e7f2733de684a20d0a2fe1f5f0e521b39afe77ca",
+      "git_blob": "e8f8871e391ffccbbe216318213536aff66581ac",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/ActualProjectiveCorepresented.lean",
+      "sha256": "9b988cb479ad38f58fa3eac4ad2fda6531244668f16fb69505046955da10efaa",
+      "git_blob": "8e81e34c4f6de2e2a7f1719a11fc9b7465887e0c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/AffineHomology.lean",
+      "sha256": "2e445bfdeb8b069a7a03df64190302f35efec7964afe663868e9c31ad367010e",
+      "git_blob": "802338cd80caf1a1f963eb0c435e6326bcc014d7",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/AlgebraicSingularSignedShift.lean",
+      "sha256": "377757ea22c704d0f48ec7b2970534ec095fd95d6846d1e8b8198bbfeb9c752c",
+      "git_blob": "517d755c7614a9c4ac26368ff4729002c6a2fa41",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/BoundaryOneCylinder.lean",
+      "sha256": "df7a638b9b6cec371a611ff637d5247d1a63d830e3b2d63ee8106571109d00a0",
+      "git_blob": "90063ad28803286d9d56297ffdff1835d7f652b9",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/BoundaryOneGeometry.lean",
+      "sha256": "29b412bb6025ec9a3a4f8de9458752ba91f5c48731817935ac8b0a07ffdd0597",
+      "git_blob": "31a7f05346dde7029e23ff33c7ede2ca4b27b17e",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/BoundaryOneRationalFunctions.lean",
+      "sha256": "1a3a0ea8eef4e9f91133f18e8656521c276787af895d870c9f13975721c9b722",
+      "git_blob": "e66b7fd0ff86725fe4c7ea4067ba9e34e2c333df",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/ExtensionSignedShift.lean",
+      "sha256": "6b40b0c0621f220b6efc74b815396cc820357c1d4a59cb5f1c009491ba51e83c",
+      "git_blob": "6544afa32e69b22040a8d9134c23a9591ac378ac",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/ExteriorAmbientParameterQuotient.lean",
+      "sha256": "6690052094c7f22499f7b68993575f522718136b0201c185c1268f340ffecf84",
+      "git_blob": "e86c21149de1b9f697e07bc51db8904545dc7bda",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/FiniteFlatBaseChange.lean",
+      "sha256": "a762c6887976f058259574ed35d69c978243e697b17eeb2a76e4fed7ac963010",
+      "git_blob": "6ac82b0dca11a34153f80f59bdb16f0ba8407c1d",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/GenericFiberLength.lean",
+      "sha256": "366f675f884b32558625d8310cd6e83f642bb00bdcd431f298036cc3a1d3fbaa",
+      "git_blob": "231632a8c049436d367c805ee76c90ea33f59990",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/GenericPointsOfGeometricallyIrreducible.lean",
+      "sha256": "c4255398fbc573823232b7ffd727dae0decd65101cbb0349a21572536f4f84be",
+      "git_blob": "2619a22ef262c1d9ad894f4dc79041f380ce841b",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/GeometricallyIntegralPullback.lean",
+      "sha256": "f171ebb8cb338b8907135f02f623bc9eef7dc001eaf9ced5b714106c83b4bee6",
+      "git_blob": "579c03c4328c5b50f6dfcbaa0ecca682933d5c14",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeAmbientTorPointTransport.lean",
+      "sha256": "9639ea77d61e716b17e8a3a7bdceb99ed519e90486a07984cbd1c43e9ea263fc",
+      "git_blob": "5db4c0c754e9f8bfb619d64c1971d56aaca0879c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorAdditive.lean",
+      "sha256": "21117b71ca680a2aaf871b38efdd68876e084bc423c5e28a296277f302ec614b",
+      "git_blob": "a6f614f8702f89c5f20b44c436b4a1952b6d6923",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorAmbientTorKoszul.lean",
+      "sha256": "acc7fc2499e8270d3e78981bfd93778b59449d52cf7857aa540da129b09bfb3c",
+      "git_blob": "be2f53f918420f8d4f66f17dea5f9f33876febf7",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorAmbientTorStalkMaps.lean",
+      "sha256": "0ff0cdf99a2bd55cf4d7b6c3c4910e6984aa6d2f5124aa2bb74a662bd305f478",
+      "git_blob": "2e72bb93abae8168bff9cdb5651addf5f48d040c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorCoefficientAmbient.lean",
+      "sha256": "36f032b735962836766554c561fff41ff7219224d10398c08a324e7c57728635",
+      "git_blob": "88294b28fc72e61a765ff85a2304dad636065a59",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorCoefficientQuotient.lean",
+      "sha256": "16cbeec73dfb71f96673db9ed0f8a5ac7280711c44727dac13cb7a80bf095aec",
+      "git_blob": "d382ef14716c3f25cc5677439a49fb738709f1c8",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorComponents.lean",
+      "sha256": "c2d6f01995cf191155bd987a7b2640afc3c6e1a1a0d4a50598f225e9a6bf74b2",
+      "git_blob": "bbbbeca03cf7539b3f3d86f366e5290bdfcf35fc",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorComposition.lean",
+      "sha256": "c0dcaf88b09dc6aa25c4244bbf0dcbac0d69662cc3ffc316d056353f1bacffbe",
+      "git_blob": "cde4caa47fb730d9666112e65cfb2b0ef5f96b71",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorDominance.lean",
+      "sha256": "18a58516586ab110df22439cb7786e4d6ff9ff9d1fa0310eb68184df0e5479d6",
+      "git_blob": "2ffe5a33d8761a7cd6fa08e300337b928b4e5d90",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorFlatPullbackIdentification.lean",
+      "sha256": "8e60fc0f2d0d5adfef758a3a63df0f972b28292d8da53493557fd7e0b168e5fc",
+      "git_blob": "dbcd124e1bd6303a1abc493a26dc30ac3f00590e",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGenerics.lean",
+      "sha256": "8514dc1624714910ebff8aa249e353a9e9401113f6de894d88e81cb30ea931fa",
+      "git_blob": "48fb7866cf7453f7a43d655e83fb7ff9c57950cd",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGraphComparison.lean",
+      "sha256": "d9975a7c887a66e0676f5e0d69ed4b5e54602cc52a1818dac1b84b4fb030de24",
+      "git_blob": "f27dad8a334c67be5ced42bad3508fa896513de2",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGraphComponents.lean",
+      "sha256": "00056a43432ad8330ea502f2a531619229df3821730db1dc5a69616a84e05995",
+      "git_blob": "8416fc8d0b149ed5e987c5815b9fd5468685cedd",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGraphPrimes.lean",
+      "sha256": "137cd5a8b711dcd2d7819f475d774cf4a8b148bdbba61b074f6bf0108ad1fd14",
+      "git_blob": "93df80cd4d3d7d5b6a22bbd90b0fe475b7f74aaf",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGraphSupport.lean",
+      "sha256": "4b84a34eae38810230d82fbeed78e5226a7c9097a2c5b63d32d6ff1a1d5634da",
+      "git_blob": "7835cc8176290bbbc2b309afb2646f84f7cb9c94",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorGraphs.lean",
+      "sha256": "70b4865d1073b24a1a7cc1bba05885a03a9589f6b9393945691236927d7c8273",
+      "git_blob": "43781a2ce398dd0dc47520e189da95d2202cb730",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceCoordinates.lean",
+      "sha256": "df76f0350f44a6e2ea40093db30556e52a02f032e4958e3c5ce59ee4f88e843f",
+      "git_blob": "dd3b77cbd138c79fff4e1ca054ff5ba7189879ff",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceGenericLength.lean",
+      "sha256": "5c420e9c6ed2ec2993eca59756b66776aad25d1a90aa27fb0ba379286e214d93",
+      "git_blob": "56d7479a94bd7752175399c554149fcd7374107c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceGenerics.lean",
+      "sha256": "ee241ccde6d6464f9aeb870727e31f6db57ed669c605cde2babbaf5099eaa5d0",
+      "git_blob": "df2e79a7419c6a1e788e8e85ed7fb5d566559ed3",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceIso.lean",
+      "sha256": "af90e3a7e7319efe6aecdecd9abbba7fd47898b2fd85039777c4afb2f9c5d3f4",
+      "git_blob": "c0e86c1846d21a429ab26834d46d829bacb7dbc5",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceMaps.lean",
+      "sha256": "f5f1b9c702c70b38c5bfe894870b89a439bc65467a80eaed93e49f49baf06938",
+      "git_blob": "0b3f8ed508c5f789dcc702e51ad074cb875efd10",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceProduct.lean",
+      "sha256": "f168a443d20ed0eb3c439e1df75a1f89d45972a4859ee2e8caa312ecc165c27d",
+      "git_blob": "b8ca9fb2f4a4b471e6d45479145eb2f755cafccf",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidencePushPull.lean",
+      "sha256": "39577f01ce3c6a79a3b5b73c502bca230399111276f140bd9928910a100b86b7",
+      "git_blob": "be66dc45e061f1f223d09c55ae5e73811be19b6a",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceStalkBaseChange.lean",
+      "sha256": "676cd86586e457d94ec21f84f7a840685f6ac95b4b8be56cc64f4675df4c735b",
+      "git_blob": "0ad569bcda2bae4ba147d139dfb90a7479d4786c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceStalkPushout.lean",
+      "sha256": "f233c44bc1a1bc30c829fabc9c3972423a8a51fdc76bd7791215756b9808a6b8",
+      "git_blob": "06192a7841b3143f455281cd70356ca8f17ecb4b",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceTorBaseChange.lean",
+      "sha256": "13f2a0949dd4451673b59bf2e01950f1c49a052a16809c3754cec89148b58a10",
+      "git_blob": "6ca6e0c68f45a7a6c8c667ddc9adacdfe9145880",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceTorCoefficients.lean",
+      "sha256": "e6c2631005704cabb6412469d28d0cb3cbf89c77bb0cfd4e5fb2e06a89385257",
+      "git_blob": "9ba7dcc08832d48fc99f915b3971942e0ba63af1",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorIncidenceTorCycle.lean",
+      "sha256": "cebd6cb00dd193a64801a0a04728b9d1836547b5b6b9666c2888027cc133d6ab",
+      "git_blob": "958ffb16ee9383c55f63425cb88c540ab2e6a04e",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorMixedIncidence.lean",
+      "sha256": "f11454815643adeefdca3df44357fca4fdc029ef7d3d088a023d77ced5230ca5",
+      "git_blob": "f3c1f14cbfe3b8420a1d35a1ce2506cd0402f33d",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorMixedIncidenceEmpty.lean",
+      "sha256": "8313b64d8f4eccbf69bf842ebc41e64bbdc9f3e86904bb747a4dd5ff9e711edc",
+      "git_blob": "2eeccb6c2a558e5ed6e7cf7c20c2d4859d731cd8",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorMixedIncidenceIso.lean",
+      "sha256": "fadfe5b59d94b1fe63a85f6c96e52ddaac03309aa23d7c64efaf2f1abd271e4f",
+      "git_blob": "48fd0653c97ec5b1cf3f1306e1d8b80c629d5fc6",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorMixedIncidenceMap.lean",
+      "sha256": "dd642cc282907e9d06d48bad78d4977883c9fb7836adc5abe67ec09810f9f9ea",
+      "git_blob": "9a49dd118388f7e433df12a8ce304dc6e65dabcb",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorOriginalTorKoszul.lean",
+      "sha256": "aa9cca5fe89379b88ab5d00f981818ec46f82a6dc0d0042fa5f476ba340b1b69",
+      "git_blob": "d08cd2624ec231a6cee339862dfc69bb859c81f0",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorOriginalTorStalkMaps.lean",
+      "sha256": "2e8231fa28651745ca1dc98ed7ab5e16e7a2eb3f5d33d61eb4835ff006e9ad24",
+      "git_blob": "2215f94664782831d5cd497ca5cbc46eab9c532d",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorParameterBaseChange.lean",
+      "sha256": "12d627d302f42d41fad0c00d9370c2df135f146671e7a224b7bd25b113b68d5c",
+      "git_blob": "d6651d0cbb4fef874823a962d97e68f97f2a007d",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorParameterDiagonal.lean",
+      "sha256": "92f178d4f0cb9d345a4f63b61a105436dc5d2dad69f97f033b8865b60e8997f9",
+      "git_blob": "87392f3d40d3752f1da943b65894df4a7aae0477",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorParameterMap.lean",
+      "sha256": "a5632e7c56633442050e99b76a1cd06e40ffd5b2007b339928954e91e4d41fe7",
+      "git_blob": "70f496f075545be33222707c1f2ec9cc46ba66da",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorParameterSquares.lean",
+      "sha256": "20e0a112949fcf7c7d5eb09fef7f9f76803cea782c783e4eb294b5356e759b0a",
+      "git_blob": "58550254c5a9e68405429400575405ddfe93feb5",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorParameterStalkQuotient.lean",
+      "sha256": "b12f3bc3f646bb7c163ca22ac1b3f87afa229b17cdaeb378b3bcdbaafe52c15d",
+      "git_blob": "9bd3254e0cca69f00741c9029e98dd653752c920",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorPostcomposition.lean",
+      "sha256": "97359c709d2c167b365b8f149f2c717d348d7bed30f534f5d80cdcd449014727",
+      "git_blob": "ef2537a59bbb9bbc37cb4adffd33cf91a0138319",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorPrime.lean",
+      "sha256": "324bde0fbd6f018bdb96c931aa657c03d0729c7e2c5d4c8d9cbb9631e5982ea9",
+      "git_blob": "682a1f6f4b9fcd6b6cf77ce246d12382da40cadb",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorPrimeSupport.lean",
+      "sha256": "b15e7a7e53ed8fb2e43f55cfa972a67b82c20fd3e6563e1dd37fbb369ed2f083",
+      "git_blob": "db136fccac2ab8ecd25224b48fecad35734c9ad3",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorQuotientIncidence.lean",
+      "sha256": "c29478576cfc90f2fea6512b8809b131624ce54ef23fc6f0f8fbc7ed01c71a6c",
+      "git_blob": "044f7b0a7f7abb898655d3b0b1e9455d288d7f75",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorRemainingKoszulBaseChange.lean",
+      "sha256": "65f1b90e3467d1be3a7179363b860d38eb06e751825787d69f5033924a304809",
+      "git_blob": "e3570db3195339b2df2e601de7715057c0fc29e8",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorRemainingTorBaseChange.lean",
+      "sha256": "17368f99d43d1100afa2680c1df983141bdcbb50898fc21bb898fe8f090b3185",
+      "git_blob": "76505c72b551e26fc355be221e3055fb64244841",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorSupport.lean",
+      "sha256": "57de58ddeb15cab82880cb5069bef1a5eda0d8af1d5c3b97eb01888bb7bbb2ba",
+      "git_blob": "b4824e2e5b3e647771ed74482238ae8f6347eae4",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeExteriorTarget.lean",
+      "sha256": "9816ef1055465d6a25a305e8fab1ca7801ca7b05ff3845f67b632b8671265ab2",
+      "git_blob": "8ddaee1c4a7489123e618c2dd75e56ff25b437a9",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeGraphInterchange.lean",
+      "sha256": "6e16e8d2fa59c937924a4efb04b6b7417a4cddd5795775b033d0dcb05f3ea52a",
+      "git_blob": "543e69bfbba4684bb02918591fe6947a16075724",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedCoefficientChart.lean",
+      "sha256": "a661691b31f051b3212f732f29856a3853b0a741a6246f62defe1bfe7a254661",
+      "git_blob": "f46208c7594fe4a0d8c82b02eea94dbab0470260",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedCoefficientCommonList.lean",
+      "sha256": "d48e7f085e1804b455c895ba74f09427639bff337a689b5c47a781d79f13a03b",
+      "git_blob": "0d0002ec029829992d8eac2dcf9e2de81969676f",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedCoefficientExchange.lean",
+      "sha256": "fe9f3391a63642331fa6b2ee39b69bbd65a62792a4163671f04b6e3fcd929a0f",
+      "git_blob": "5f9202d505c87b3e262374c1847e8cfbe485f105",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedCoefficientStalks.lean",
+      "sha256": "eaa7c1aa6b72d3d98e397cc312a3dc436e6d4a07f1b744c1be82037be88b8b17",
+      "git_blob": "9e9d29435df1f0c5193dd10aa1ec3aced64e6f39",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedComponentSelection.lean",
+      "sha256": "63e53055f975011b31cddce2acf080b2956d93f380da9e5ba7013fef074cb698",
+      "git_blob": "9a1c70fdb70c37b5c48a26df04b45ab1c597b269",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedGraphPushforward.lean",
+      "sha256": "8159a12032dc99d96bce0399ab684866af0d14ca9cc05c1e5fff015b41dff0f4",
+      "git_blob": "9d847b2739a57fdf9110127bab56bb0545d848a4",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedIncidenceHigherTor.lean",
+      "sha256": "43e4b153dce8e99f8593a10263dacd9687c8a9e0c5a25c2afb243defd93b8d1e",
+      "git_blob": "3eaca864185017a693857ec82c1c824e88833e9c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedIncidenceRegularList.lean",
+      "sha256": "c8c63b0eb3d0af6cda0fdce626ef049b082234a81acc69c8927542c17e78d3d2",
+      "git_blob": "876023972830f33979bdb8f9ac034e3205144590",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedIncidenceTorCoefficient.lean",
+      "sha256": "288ab38cf1482b6a18a50ef2a7e860708a0ec02859df498d212eaab543af90e2",
+      "git_blob": "618592968172fda7d1f33e586da09cd1e15df6a9",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMixedIncidenceTorZero.lean",
+      "sha256": "22b11a38da571477ab56bb3d2719429c5e400d33f29648d549b57d47fc90a77f",
+      "git_blob": "2448d5348319715cbd4d75d12c81bf5085053bd8",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMotivicComplex.lean",
+      "sha256": "7491f0fcb3bfbf05497f01d9a102a1a7f537ceb57dac7bef211e486ca4a191c8",
+      "git_blob": "52e8503acea579d5bfb09d25ae32079a77500d4f",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeMotivicHypercohomology.lean",
+      "sha256": "40aab20077eb594de63709d08057a034b6ff472186cb9d3f50d8e9623824ed8f",
+      "git_blob": "84587c705adaf0c92b0f778fc6a2b743d073d8e5",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeOriginalKoszulPointTransport.lean",
+      "sha256": "8796c53e7d1f475e9a1cf12123d22789e5dcfbc9ce6afd28c885deb8a3f47738",
+      "git_blob": "4fe6771f8ec35df540f9231926ba1f734f48f171",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativePairTorZero.lean",
+      "sha256": "d259d613f9a4fad191cb523781c36fb3d8dfb2b4ea1d0df76c580e6607b015ae",
+      "git_blob": "4a5c55a352a0ac064466557e7931092f5d28daab",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativePolynomialCycles.lean",
+      "sha256": "7530bb66234d6548b5eaa76c935e0346986d91b9b3840d6992323cd592a57493",
+      "git_blob": "951822d1c47bb2d10046b9ba33905bb486d1631d",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeRationalFunction.lean",
+      "module": "ColibTest.NativeRationalFunction",
+      "source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/ColibTest/NativeRationalFunction.lean",
+      "compiled_source": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/src/ColibTest/NativeRationalFunction.lean",
+      "sha256": "34123caa58d17c7554d237a1abd6f4a143ac77c022764bf6469a507be5107c4c",
+      "kind": "consumer",
+      "git_blob": "8f31d56f031ee5e82c795c79c31fe5d0a3f069c5",
+      "examples": 36,
+      "products": [
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.olean",
+          "sha256": "96a7d9c937921647baf30222d17d65dec3624d2966806a7b20805b6958cec082",
+          "bytes": 1856
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.olean.server",
+          "sha256": "c7f1dd6b52dcbf9200fa9f5de3245481413bf552172c741b1f31282c008c92f0",
+          "bytes": 800
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.olean.private",
+          "sha256": "fd5aa8b9444baa60f8243457036d909b18a6c5b268b32e4480637c6b7ef102de",
+          "bytes": 3648
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.ir.sig",
+          "sha256": "8fa701abb9e6aee82f25ba18c8851c6eb2c33caf52402b9da94bcea73982102c",
+          "bytes": 176
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.ir",
+          "sha256": "c6b11e2c7b26c9dcc245152f8c5d8dd97c9f1fc3b34d79318dd97dbb48b3cc4a",
+          "bytes": 1976
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/lib/lean/ColibTest/NativeRationalFunction.ilean",
+          "sha256": "e68f35930416fbe90ef43f4472906ac4f659c3618b13d309c40ccb95ea81ebfd",
+          "bytes": 33772
+        },
+        {
+          "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/ir/ColibTest/NativeRationalFunction.c",
+          "sha256": "6e74336d40b3745eb0d0204276423c3e29470cd0e2d1ac7bf635f8532244e8b8",
+          "bytes": 3580
+        }
+      ],
+      "setup": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/module.setup.json",
+        "sha256": "06c5d3a3e15361e76c971d47baec82d3f57aeddf2b1f2a8a66ee9f4de82c344c",
+        "bytes": 37855
+      },
+      "compiler_log": {
+        "path": "/workspace/scratch/ab4c8cd79b02/motivic-native-divisor-chain-validation-v50-20261110/build/w51-source35/compiler.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "registry_signature": "fc325e855335ab80f62163d3bc28caf19ad4f7c1ab152a447ebd4a44268a91ad"
+    },
+    {
+      "path": "ColibTest/NativeReducedTorus.lean",
+      "sha256": "2637cc55709709c7b092a9503f08e9bdca3ca55d04096f72573793bce8aee6f0",
+      "git_blob": "6773678d0b3a5da7922a571bc23ebbf6ab971806",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeRegularBlockTor.lean",
+      "sha256": "f49b0cb899cd172885aa32a5ff956a6421406adfe019a236fc93349b61cc07b5",
+      "git_blob": "b8942e69a910296515092ef61926bb9ba531b590",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeSingularTransferFunctor.lean",
+      "sha256": "2d9674c55fc23fb0111ebcb31b51e89658a218488ab10ccc74e659cdb49f2df4",
+      "git_blob": "ff1750e737e224a2b751773c671a611229b15b32",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeSingularTransferMaps.lean",
+      "sha256": "c8937bf2026202cdef8b177dc8363aee9e3b37bb68ec434e2499b7852493e95c",
+      "git_blob": "bdd1dc7440ed48f18e3391ac8a80e1d52575cb8c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeSmoothDiagonalGraphList.lean",
+      "sha256": "b7714250cbd10f9f130c5dd3cd2fe97720e12c01168e5e1a7ec04e430aac5a60",
+      "git_blob": "0bc9099fd163c8ed077ad9af825e5cdb9ec200ca",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeSmoothSectionCommonList.lean",
+      "sha256": "ebc012f1c069089be10a9a6c121778af762e31de016d73b86dd76b3a9c51fcec",
+      "git_blob": "539307c898d9848ef2565c01e73e7a796acc836c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeSmoothTorus.lean",
+      "sha256": "925f066bc018b9e228e4dabe12ebd0668e93ac9183da7df97e036765c98e2260",
+      "git_blob": "17fa929623b507f7f7ad9e91a720205f477dcb22",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeTensorQuotientSquare.lean",
+      "sha256": "a0e7b0b8156354b3c866cfbaa873afcdb87187a6862711da0f34a7f494d51b08",
+      "git_blob": "04c85347fe94c056732a09d2d88da3b269334524",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeTorChangeOfRings.lean",
+      "sha256": "bb847fbb1dc230958583ff5a03e6e67b494e825406df6e44faec3af87cb26e1b",
+      "git_blob": "8a06f03dcfef532589fc31f8f6f82a39818506c7",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NativeTorusPolynomialSpan.lean",
+      "sha256": "020ae10b8bc368ec8ec5d0feaea740164aa4a2006c853c722b6c6ac1e433af26",
+      "git_blob": "6568036f1bb6003d4afafb30102801c7a815976c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/NisnevichRefinement.lean",
+      "sha256": "841acb770e631757cd24ee484851d9989a2a7f3e1eec57b656d0a8af9beab933",
+      "git_blob": "0153bf0eb911432970e39e03ac576c5db73fcc8b",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/OrdinaryAlgebraicSingularCochains.lean",
+      "sha256": "e892f5e717fccfdd1b48f9f7c1e5037fcdfaf0b0a854c9f346d4701261546a30",
+      "git_blob": "1df222b3cf66bb5b82d2419c5540702f6b740ccd",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/PointedRationalNorm.lean",
+      "sha256": "8f0dd9ec8f6390d50ad764d9dfaca750b9d18572e49a19282b5c558418d4bcd9",
+      "git_blob": "e579b63341c62216905b2348e34a0c53fb64a1f5",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/PullbackCommonParameter.lean",
+      "sha256": "1b7afc4efde4cd567c0a899df1e63f8ef846286f223ef685af4e3ebca57bffbf",
+      "git_blob": "347f2bedf03afc27c8e64cb675d32d2239ba54b6",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/RelativeExactSequence.lean",
+      "sha256": "8ab389a60349ac55096d4bfff18db0f8f5925297381f425bb63e926c0c09d3f7",
+      "git_blob": "74cae5bcd614baec3ab5da81f37a09ae2d548eb3",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/RelativeFactorExchange.lean",
+      "sha256": "6932e4c344c0c2e82ed5ebe1e15bd2ba1fc2353d7893d8ea47ef29631f13f8e1",
+      "git_blob": "11315ea6ced4cabae8f226660046828e1ae8c42c",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/RelativeNisnevichExcision.lean",
+      "sha256": "4b1a359cee07dc2cfe8ce7cc363000538e1927ad070782be3dff1d9016401526",
+      "git_blob": "9f4745124e2d1414c8dcbb6044145fb8ac708ae5",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/SheafifiedAlgebraicSingularChains.lean",
+      "sha256": "9e0939114b418a5532eba434c79f6eecd1c79eb36e5e7a1504d134e9e5a40567",
+      "git_blob": "c7eab7e21106214d51611b5413aec622884fc5be",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/SmoothContractionGeometry.lean",
+      "sha256": "8c245ec3300caa2f6c00fce4dbba3d96aa4e27a4083b9b5b160f35782f78eb72",
+      "git_blob": "171ef05acd1ed22d78601d110be4c625e5f93688",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/SplitBaseChangeRegularList.lean",
+      "sha256": "05a9214f2e0fd5e9a5eb7e1f667c63865aa1fe42923ebf5d4ef8d42fd74f6a10",
+      "git_blob": "50233606f2c5b5c6589131bedce744692374b5a4",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TorusIdentityAxisIntegral.lean",
+      "sha256": "f11826c911c8d81a36f41d1af00154c98a4351cf5969dc85dc340d3f4b0d530a",
+      "git_blob": "f33d8060a41a3e4e64ed0bcffb8d862a8dc2ca84",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferContraction.lean",
+      "sha256": "1dc733b017b4f3d374d33b862b21d470c2f5e1abeceb3ffcc83c11f07cc59cf5",
+      "git_blob": "74459a108f5a756963dacf2a398829b287ba1d18",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferContractionHI.lean",
+      "sha256": "5714928423d711f2bd43c4e4b1d7ea4bb436fc95a82354f68a52ccf73e8b9e1e",
+      "git_blob": "6f9c47e70bb2b6c892a6aee5ca560d1b9522d55e",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferExtPresheaf.lean",
+      "sha256": "d4a1637df03536fa83346b0d01aea1749db461cec3ad8634ac04ae7ca9996fda",
+      "git_blob": "f715b658005d3094e7cd4202ab2155b6c8dccb61",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferPresheafCokernels.lean",
+      "sha256": "46217f9ebe14c6ca77d40e238e3f48adf951cc74b4b07abacd4f3f6f2cf79e82",
+      "git_blob": "2ab00558129980ead84d3ec133b6df703e97d6db",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferSheavesAbelian.lean",
+      "sha256": "bc51a1b7967dbed06b0eb35afa5fb059cd66f54811e4b2e5ef0fc39116062573",
+      "git_blob": "a4111a1152b8dd08dd2cfc11ca759b342d1de9b7",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferSheavesEnoughInjectives.lean",
+      "sha256": "3c1af55f313086604a2a8c084887051ceb788a5c665d4903cd064a9795d87ff2",
+      "git_blob": "020dfd35e89717fb60d7d444c32c97b2a73eb4da",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferSingularComplex.lean",
+      "sha256": "2abf4c6344fa1d70249f79529e4cb0e29ef76f0a9b684aa9e2a1ef4ce753eef0",
+      "git_blob": "b1b1f887fcc8931739732be635f8e49e20145010",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferSingularSheafification.lean",
+      "sha256": "b032674484ef6c9a0f8c14fa52322eb6d7bcd1ad3cc0da7e248eb3b22894707d",
+      "git_blob": "0aae6bbe45bc974676f7a2b0e16cc9d7f9d770a7",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferSingularSignedShift.lean",
+      "sha256": "087fd87605695ffaf45f5ce67f532ed20db55d582d0beef695e921db18be942d",
+      "git_blob": "9cc33635861838e8d77bda2e5e2ad820470c7bce",
+      "kind": "consumer"
+    },
+    {
+      "path": "ColibTest/TransferUnderlyingExactness.lean",
+      "sha256": "7b4ab39d1d40bf02e653038d67bd939290aff343433a48f2ed88b7e6a2d67044",
+      "git_blob": "78013a86eb9a8ab48bbccd158c23b02f288e2774",
+      "kind": "consumer"
+    }
+  ],
+  "disk_free_before": 5423976448,
+  "not_claimed": [
+    "full weight-one quasi-isomorphism",
+    "strict A1 invariance",
+    "whole motivic migration completion",
+    "fresh aggregate297 build",
+    "kernel replay",
+    "independent mathematical review of every source",
+    "arbitrary coefficient pullback",
+    "global descent",
+    "new Library0401-0405 registrations"
+  ]
+}
