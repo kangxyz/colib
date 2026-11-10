@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0518"
+title = "Common-Universe Transport of a Homological Plus Certificate"
+kind = "comparison"
+section = "homotopy-groups"
+order = 100
+primary = "Topology.PlusConstruction.CommonUniverse.isPlusConstruction"
+statement = '''Let \(X\) and \(Y\) lie in universes \(u\) and \(v\), and put \(M=\max(u,v,w)\). Let \(f:X\to Y\), a specified path \(\gamma:f(x)\leadsto y\), and \(N\leq\pi_1(X,x)\) carry a homological plus certificate whose coefficient systems already range over universe \(M\). Transporting the spaces by their actual lift homeomorphisms gives a plus certificate in the common universe \(M\). Its subgroup is the image of \(N\) under the canonical fundamental-group equivalence, its based path is the literal lifted \(\gamma\), and its forward map is the original lifted \(f\).
+
+For every target local system in universe \(M\), the original lifted chain map is a quasi-isomorphism. The construction retains the singular-generator formula, the full chain square with the coefficient retract, and the exact transported kernel of the based fundamental-group map.'''
+scope = '''The input certificate already covers every coefficient system in the maximum universe. No upgrade from a smaller coefficient universe is asserted. Space universes may be independent. The result preserves the original map and specified track, not only an unspecified isomorphic replacement. It asserts neither existence of a comparison between plus spaces nor a CW existence or uniqueness theorem.'''
+proof = '''Pull an arbitrary large target system back to the original target. The displayed coefficient retract is a natural isomorphism, and its full chain square identifies the original map with the chain map on the lifted spaces. Cancel the coefficient isomorphisms and apply the original certificate [@quillen, Quillen/Topology/LocalCoefficients/CommonUniverseChains.lean:39-116].
+
+Use the canonical homeomorphisms to compare the based fundamental-group maps with the literal lifted path. The resulting square transports surjectivity, the exact kernel and perfectness. Combine these with the local-coefficient result; removing the two lifts recovers precisely the original forward map [@quillen, Quillen/Topology/PlusConstruction/CommonUniverse.lean:78-153].'''
+review = "author_checked"

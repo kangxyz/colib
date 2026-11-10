@@ -1656,6 +1656,7 @@ public import Colib.FieldTheory.SylowFixedField
 public import Colib.GroupTheory.IsPerfect
 public import Colib.GroupTheory.MonoidHom.CentralKernel
 public import Colib.GroupTheory.MonoidHom.CentralLifts
+public import Colib.GroupTheory.MonoidHom.KernelComparison
 public import Colib.GroupTheory.Perm.AdjacentPresentation
 public import Colib.GroupTheory.StableGeneralLinear.Basic
 public import Colib.GroupTheory.StableGeneralLinear.Elementary
@@ -2355,6 +2356,7 @@ public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionGrothendieck
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZero
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZeroNaturality
 public import Colib.RingTheory.KTheory.Plus.ProjectiveGroupCompletion
+public import Colib.RingTheory.KTheory.Plus.StableGeneralLinearPlus
 public import Colib.RingTheory.KTheory.Quillen.Field.ElementaryProjectiveKOne
 public import Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo
 public import Colib.RingTheory.KTheory.Quillen.Field.FiniteModuleRingEquivalence
@@ -3089,6 +3091,7 @@ public import Colib.Topology.LocalCoefficients.Basic
 public import Colib.Topology.LocalCoefficients.ChainGeneration
 public import Colib.Topology.LocalCoefficients.ChainSupport
 public import Colib.Topology.LocalCoefficients.Chains
+public import Colib.Topology.LocalCoefficients.CommonUniverseChains
 public import Colib.Topology.LocalCoefficients.ComponentComparison
 public import Colib.Topology.LocalCoefficients.ComponentExtension
 public import Colib.Topology.LocalCoefficients.ConstantChainMaps
@@ -3123,6 +3126,7 @@ public import Colib.Topology.LocalCoefficients.HomotopySquare
 public import Colib.Topology.LocalCoefficients.HomotopyTransportLaws
 public import Colib.Topology.LocalCoefficients.IntegralChainEvaluation
 public import Colib.Topology.LocalCoefficients.IntegralChains
+public import Colib.Topology.LocalCoefficients.MapCancellation
 public import Colib.Topology.LocalCoefficients.MapComposition
 public import Colib.Topology.LocalCoefficients.MapQuasiIso
 public import Colib.Topology.LocalCoefficients.MapSquares
@@ -3255,6 +3259,10 @@ public import Colib.Topology.PathSubdivision.PoolComparison
 public import Colib.Topology.PathSubdivision.SlabCover
 public import Colib.Topology.PathSubdivision.TailMaps
 public import Colib.Topology.PathSubdivision.TimePaths
+public import Colib.Topology.PlusConstruction.Basic
+public import Colib.Topology.PlusConstruction.CommonUniverse
+public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
+public import Colib.Topology.PlusConstruction.DisplayedComparisonFundamentalGroup
 public import Colib.Topology.Prespectrum.ConeDescStableEquivalence
 public import Colib.Topology.Prespectrum.ConeDescZeroComparison
 public import Colib.Topology.Prespectrum.ConeFiberComparison

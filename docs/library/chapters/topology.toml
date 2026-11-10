@@ -165,6 +165,8 @@ meets \(U\) in a path-connected subset, a piece in a chart between
 points of the intersection can be replaced relative to its endpoints
 by a path in \(U\).
 '''
+COL-0515 = "A homotopy under a source determines a specific basepoint track for a displayed\ncomparison. COL-0515 retains that track for nonabelian fundamental groups and\nproves invariance of all target-local-system chains in the stated common\nuniverse. The comparison and its homotopy are supplied; no comparison existence\nor classical CW uniqueness theorem is asserted.\n"
+COL-0518 = "When a homological plus certificate already admits coefficients in a common maximum universe,\nCOL-0518 transports it along the actual lift homeomorphisms. The based path, exact kernel and\noriginal twisted-chain maps are retained; this does not enlarge a smaller coefficient hypothesis\nor assert the existence of a CW comparison.\n"
 
 [[sections]]
 id = "geometric-realization"

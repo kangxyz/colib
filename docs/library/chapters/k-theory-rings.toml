@@ -21,6 +21,7 @@ introduction = "Finite projective modules give the ring specialization of exact-
 
 [sections.transitions]
 COL-0378 = "Direct sum makes the isomorphism groupoid of finite projective modules symmetric monoidal.\nSimultaneous translation of pairs then gives the actual completion category.\nIts components record virtual projective classes; splitting of the inherited conflations\ncompares these classes with the original exact Grothendieck group.\n"
+COL-0513 = "The same all-ring completion model also carries the original stable map from\nits stable general linear classifying space. [COL-0513] certifies that actual\nmap, with its specified basepoint path and exact elementary kernel, by the\nfull local-coefficient homological plus conditions. This assembles the proved\nnative inputs; it does not assert CW uniqueness or a product decomposition\nof the completion space.\n"
 
 [[sections]]
 id = "matsumoto-theorem"

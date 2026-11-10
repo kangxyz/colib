@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0515"
+title = "Fundamental Groups and Twisted Chains of a Displayed Plus Comparison"
+kind = "comparison"
+section = "homotopy-groups"
+order = 90
+primary = "Topology.IsPlusConstruction.displayedComparison_piOne_bijective"
+statement = '''Let \(f:X\to Y\) and \(g:X\to Z\) be homological plus maps with the same specified subgroup \(N\leq\pi_1(X,x)\), with chosen target points and paths \(\gamma:f(x)\leadsto y\) and \(\delta:g(x)\leadsto z\). Suppose an actual continuous comparison \(k:Y\to Z\) and homotopy \(H:kf\simeq g\) are supplied. The original fundamental-group map of \(k\) is bijective, without requiring the groups to be abelian.
+
+The corrected comparison uses exactly the path \((k\gamma)^{-1}\cdot H(x)\cdot\delta\), and its based fundamental-group map composes with that of \(f\) to give that of \(g\). When the spaces and coefficient systems share universe \(u\), the original mixed-universe chain construction specialized to \((u,u,u)\) sends \(k\) to a quasi-isomorphism for every target local system. Its original induced local-homology maps are isomorphisms in every nonnegative degree.'''
+scope = '''The fundamental-group statement allows independent space universes and a common specified coefficient universe for the two certificates. The twisted-chain statement retains the original common-universe restriction and both coefficient transports; it is not restricted to constant coefficients. The comparison and its exact homotopy are inputs, but no bijectivity or chain equivalence conclusion for the comparison is assumed. No comparison existence, simply connected cover, weak homotopy equivalence, inverse, or classical CW uniqueness theorem is asserted.'''
+proof = '''Transport the induced fundamental-group maps along the literal basepoint track of the given homotopy. Naturality, path concatenation and reversal prove the commuting based square. Two surjections with the same kernel force the already displayed factor to be bijective; change of basepoint preserves bijectivity. This is the original nonabelian argument [@quillen, Quillen/Topology/PlusConstruction/DisplayedComparisonFundamentalGroup.lean:36-112].
+
+For an arbitrary target local system, use the actual homotopy-invariance and composition formulas with their pullback coefficient isomorphisms. Cancel the two original homology isomorphisms degree by degree, then retain the same chain map under the universe-lift comparison. Apply this to the two plus certificates, as in [@quillen, Quillen/Topology/PlusConstruction/DisplayedComparisonRecognition.lean:37-46].'''
+review = "author_checked"
