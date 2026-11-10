@@ -1,0 +1,36 @@
+[entry]
+id = "COL-0501"
+title = "Strict supported affine coefficient prespectrum functor"
+kind = "definition"
+section = "k-theory-of-schemes"
+order = 3469
+statement = """
+For an open immersion into an affine scheme, the existing supported bounded-above-flat
+cocartesian section models over its specified coefficient pullbacks form a strict functor
+on the category of algebras under the base ring. Every arrow is the actual supported
+restriction of the original coefficient reindexing. These functors are exact and preserve
+the original chosen zero literally. Applying the actual iterated-S prespectrum functor
+gives strict identity and composition of whole prespectrum maps at every level.
+"""
+scope = """
+The geometric support and exactness statements hold for every specified commuting affine
+open square, not only pullback squares, without flatness or compactness. The coefficient
+comparison is the fully faithful lift of the inverse original cocartesian evaluation
+transition with its genuine endpoint transports. Evaluation is not asserted strictly
+natural. The identity-algebra object retains the actual fixed pullback of the open, whose
+projection is an isomorphism, not a definitional equality. No Laurent action, Bass seed,
+cofiber, negative localization or Thomason--Trobaugh 7.4 is asserted.
+"""
+proof = """
+The actual geometric pair pullback preserves support. The original cocartesian transition
+transports that support to coefficient restriction. Its inverse lifts through the fully
+faithful supported inclusion, and its forgotten component is the original chain map.
+Exactness of geometric pair pullback is transported along this iso and reflected through
+the actual supported evaluation equivalence. Literal reindex identity, composition and
+zero equations give native chosen-zero model maps on the existing categories. The fixed
+open-pullback maps assemble them into the `Under R` functor before realization.
+"""
+review = "author_checked"
+source_checked_on = "2026-11-10"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSupportedSectionPrespectrumFunctor"

@@ -1,0 +1,56 @@
+[entry]
+id = "COL-0503"
+title = "The actual supported Laurent seed and support-forgetting square"
+kind = "comparison"
+section = "k-theory-of-schemes"
+order = 3505
+statement = '''
+Let \(R\) be a commutative ring and \(j\colon U\hookrightarrow\operatorname{Spec}R\)
+an open immersion. For each algebra \(a\) over \(R\), let \(F_j(a)\) be the
+iterated-S prespectrum of cocartesian affine sections valued in bounded-above
+flat perfect complexes whose identity evaluation restricts to an acyclic complex on
+the specified pullback of \(U\). Let \(F\) be the
+ambient section prespectrum functor and \(I\colon F_j\to F|_{R\text{-alg}}\)
+the actual support inclusion. Write \(B\) for the strict Laurent-square
+comparison-cone and parameter-loop functor.
+
+The forward Laurent coordinate and the original source-null cylinder construct
+a natural seed \(\eta_j\colon F_j\to B(F_j)\). Its loop is exactly
+\(N^{-1}*(H*N)\), where \(N\) is the original null cylinder and \(H\) is the
+forward Laurent-unit track followed by the cone inclusion. Forgetting support
+preserves these tracks at every level and the identical time. Consequently,
+\[
+  B(I)\circ\eta_j=(\eta_{\mathrm{ambient}}|_{R\text{-alg}})\circ I.
+\]
+This is an equality of the actual natural transformations, not only a homotopy
+of their induced maps. All level statements include level zero, and homotopy
+and structure-map parameters remain independent.
+'''
+scope = '''
+The target is the existing cocartesian affine-section seed of COL-0361, restricted
+along the actual functor forgetting the algebra structure. It is not a seed on
+raw complexes obtained by affine evaluation. Every algebra uses its specified
+pullback open; iterated pullbacks are not identified by equality. The Waldhausen-model maps
+are the original exact coefficient functors and the literal support inclusion.
+No flatness of coefficient maps, compactness, cartesianness, resolution hypothesis,
+supplied seed, or assumed null/unit/seed compatibility is required. The proof
+retains both original Laurent chart orientations and the forward unit direction.
+This comparison does not establish affine evaluation of the seed or Bass
+nonconnective localization, and does not assert Thomason–Trobaugh §7.4.
+'''
+proof = '''
+Lift the original ambient unit through the fully faithful support inclusion.
+The actual coefficient scalar equation gives the whole Waldhausen-model automorphism square;
+its realization is natural at the same time in every prespectrum level. The strict
+Laurent square supplies the original cone null cylinder, and conjugating the unit
+track by that cylinder constructs the seed. Evaluation identifies the actual
+support inclusion as an exact zero-preserving Waldhausen-model map. Its four inclusions
+preserve both the Laurent track and the null cylinder, hence their literal
+null-unit-null composite. Strict precomposition interchange for native double-arrow
+functors identifies restriction of the ambient Bass construction, and componentwise
+extensionality gives the stated natural-transformation equality.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSupportedSectionBassSeed_forget"

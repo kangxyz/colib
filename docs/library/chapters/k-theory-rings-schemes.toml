@@ -656,6 +656,13 @@ still gives approximation, with its original admissible quotient. Retargeting
 the actual cylinder to this larger weak class compares the relative K-groups;
 canonical zero normalization retains the whole change-of-weak square.
 '''
+COL-0501 = '''
+The actual supported affine coefficient reindexing preserves support across every
+specified open square. Its geometric comparison retains the inverse original
+cocartesian transition. Exactness and literal preservation of the chosen zero give
+the strict model diagram on fixed coefficient pullbacks and its full iterated-S
+prespectrum functor. The identity-algebra object remains its actual pullback.
+'''
 COL-0359 = '''
 Fully faithful identity evaluation lifts a global-unit
 automorphism to the actual affine cocartesian sections.
@@ -695,6 +702,13 @@ Both routes from \(A\) to \(A[t,t^{-1}]\) are the coefficient inclusion,
 although the two polynomial charts have opposite coordinates. Forgetting
 \(R\) recovers the ring square, while its actual algebra arrows also
 induce the contravariant maps between the chosen open pullbacks.
+'''
+COL-0503 = '''
+The fixed-base Laurent square also acts on sections acyclic over the specified pullback open.
+The forward coordinate gives the same unit track on these sections, while the original cone
+cylinder supplies its null legs. Carrying both tracks through the actual support inclusion
+compares the constructed supported seed with the ambient section seed before any affine
+evaluation or nonconnective localization comparison.
 '''
 COL-0362 = '''
 Iterate the strict polynomial and Laurent Bass functor

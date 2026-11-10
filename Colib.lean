@@ -442,6 +442,17 @@ public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSectionLaurentHom
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSectionPrespectrum
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedEvaluationComparison
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedEvaluationSpectrum
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionBassSeed
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionDiagram
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionDiagramLaurent
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionForgetExact
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionForgetLaurent
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionForgetModel
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionForgetSeed
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionLaurentUnit
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionModel
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionReindexExact
+public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineSupportedSectionUnitHomotopy
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfect
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectComparison
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectOpen
@@ -568,6 +579,10 @@ public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSectionUnitNatura
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSectionWaldhausen
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSectionZero
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSections
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionCoefficientIso
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionCoefficientIsoComponent
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionReindex
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionUnit
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionWaldhausen
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSectionZero
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatAffineSupportedSections
@@ -910,6 +925,7 @@ public import Colib.CategoryTheory.FiberedCategory.GrothendieckZeroSections
 public import Colib.CategoryTheory.FiberedCategory.IsoFiber.Basic
 public import Colib.CategoryTheory.FiberedCategory.IsoFiber.Cartesian
 public import Colib.CategoryTheory.FiberedCategory.StrictSections
+public import Colib.CategoryTheory.Functor.ArrowSquareWhiskering
 public import Colib.CategoryTheory.Functor.FullSubcategoryExt
 public import Colib.CategoryTheory.Functor.IdentityAutomorphism
 public import Colib.CategoryTheory.Functor.IdentityAutomorphismSquare
@@ -1970,6 +1986,7 @@ public import Colib.RingTheory.Henselian.PrincipalRoots
 public import Colib.RingTheory.Henselian.UniformizerNormalization
 public import Colib.RingTheory.KTheory.Bass.StrictRingDiagram
 public import Colib.RingTheory.KTheory.Bass.StrictRingSeed
+public import Colib.RingTheory.KTheory.Bass.StrictUnderDiagram
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.FractionLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedFunctor
