@@ -725,3 +725,11 @@ the original admissible quotient. The canonical coarse-fiber comparison then
 retains the original K-theory boundary and the whole null path, with chosen-zero
 normalization made explicit at the spectrum level and no compactness hypothesis.
 '''
+
+COL-0385 = '''
+Arbitrary commuting open squares pull back the original supported bounded-flat
+complexes, their same admissible quotients and restricted weak equivalences.
+The resulting supported and coarse K-maps preserve restriction and the boundary.
+A single canonical normalization retains the entire fiber path; the original
+union-supported comparison is transported by explicit coherent homotopies.
+'''
