@@ -765,6 +765,8 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Limits
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Representable
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.UnderlyingExactness
+public import Colib.AlgebraicGeometry.Simplex.AffineBoundaryOneComplex
+public import Colib.AlgebraicGeometry.Simplex.AffineRelativeComparison
 public import Colib.AlgebraicGeometry.Simplex.AlgebraicSimplexScheme
 public import Colib.AlgebraicGeometry.Simplex.BaseChange
 public import Colib.AlgebraicGeometry.Simplex.EndpointHomotopy
@@ -797,11 +799,14 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Pullbacks
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Refinement
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Products
+public import Colib.AlgebraicGeometry.Sites.Smooth.Sheaves.AffineHomology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.Basic
 public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.GeometricallyIntegral
 public import Colib.AlgebraicGeometry.Sites.Smooth.Torus
+public import Colib.AlgebraicGeometry.Sites.Smooth.Units.BoundaryOneComplex
 public import Colib.AlgebraicTopology.SimplexCategory.EpiZero
 public import Colib.AlgebraicTopology.SimplexCategory.Prism
+public import Colib.AlgebraicTopology.SimplicialObject.SetwisePaths
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.Latching
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.LatchingIntersections
 public import Colib.AlgebraicTopology.SimplicialSet.Bisimplicial.Skeleton
@@ -868,6 +873,7 @@ public import Colib.CategoryTheory.ComposableArrows.Append
 public import Colib.CategoryTheory.ComposableArrows.Grid
 public import Colib.CategoryTheory.ComposableArrows.Restriction
 public import Colib.CategoryTheory.ComposableArrows.Split
+public import Colib.CategoryTheory.CosimplicialObject.Cylinder
 public import Colib.CategoryTheory.EqualGrade
 public import Colib.CategoryTheory.ExactCategory.Abelian
 public import Colib.CategoryTheory.ExactCategory.AdditiveInvariant
@@ -2405,6 +2411,10 @@ public import Colib.RingTheory.Norm.DVRUniformizer
 public import Colib.RingTheory.Norm.FiniteAlgebra
 public import Colib.RingTheory.Norm.PolynomialFiber
 public import Colib.RingTheory.Norm.UniformizerBinomial
+public import Colib.RingTheory.Polynomial.BoundaryOneRationalFunctions.Basic
+public import Colib.RingTheory.Polynomial.BoundaryOneRationalFunctions.Cylinder
+public import Colib.RingTheory.Polynomial.BoundaryOneRationalFunctions.Functor
+public import Colib.RingTheory.Polynomial.BoundaryOneRationalFunctions.Homotopy
 public import Colib.RingTheory.Polynomial.FactorContraction
 public import Colib.RingTheory.Polynomial.FactorMultiplicity
 public import Colib.RingTheory.Polynomial.IrreducibleLocalMap
@@ -2414,6 +2424,7 @@ public import Colib.RingTheory.Polynomial.LinearPlaceTranslation
 public import Colib.RingTheory.Polynomial.OriginLocalMap
 public import Colib.RingTheory.Polynomial.PowerFactorCount
 public import Colib.RingTheory.Polynomial.SeriesIrreducible
+public import Colib.RingTheory.Polynomial.ZeroNeighborhood.PencilBasic
 public import Colib.RingTheory.PowerSeries.FiniteNormalization
 public import Colib.RingTheory.Sequence.Regular.SplitBaseChange
 public import Colib.RingTheory.TensorProduct.QuotientSquare
