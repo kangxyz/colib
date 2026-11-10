@@ -61,6 +61,11 @@ title = "Polynomial degree bounds and rational residues"
 start = "COL-0344"
 
 [[sections.topics]]
+id = "finite-separable-milnor-norms"
+title = "Finite separable norm presentations and towers"
+start = "COL-0396"
+
+[[sections.topics]]
 id = "milnor-degree-two"
 title = "The Steinberg kernel and finite fields"
 start = "COL-0255"
@@ -293,6 +298,14 @@ norms of the finite residues. Thus an infinity coordinate
 is compatible with the finite data exactly when it cancels
 that sum. Prescribing the constant component fixes the
 lift within the given degree bound.
+'''
+COL-0396 = '''
+The simple norm in the preceding infinity formula is negative
+infinity residue on a single-residue lift. For a finite separable
+extension, the original recursive norm equals this simple norm
+in every actual polynomial presentation. The canonical relative
+factor then relates the presentations in a tower and identifies
+the composite with the norm of the total extension.
 '''
 COL-0255 = '''
 In degree two the ordered symbol \(\{a,b\}\) has a

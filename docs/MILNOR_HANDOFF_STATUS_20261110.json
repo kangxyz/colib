@@ -1,0 +1,352 @@
+{
+  "status": "Scoped compiled checkpoint; not merge-ready or full-library accepted",
+  "date": "2026-11-10",
+  "base_main": "d0125e3b4b8c605d08f3262fb6e11960e7341424",
+  "previous_checkpoint": "6464e150ed48d43f6efe4d0d1d9bca2a71dbb66b",
+  "scope": {
+    "production_sources": 135,
+    "consumer_sources": 131,
+    "published_compiled_source_updates": 31,
+    "unchanged_frozen_sources_in_branch": 235,
+    "current_local_integration_build_passes": 110,
+    "current_local_integration_build_targets": 111
+  },
+  "published_compiled_updates": [
+    {
+      "path": "Colib/RingTheory/AdjoinRoot/NestedFactorIndex.lean",
+      "source_sha256": "2dc2148295b3e4556e31b5aa7d1f112a32fcb166bc0faf518a0c90630ddb02ba",
+      "native_build_exit_code": 0,
+      "seconds": 7.658334767009364
+    },
+    {
+      "path": "Colib/RingTheory/AdjoinRoot/NestedFactorIndexEquiv.lean",
+      "source_sha256": "7f9a7fdc4eb2e54e9bd3ad355bc70f3c977d6254d3fa2c4eae0144ca0c4a1674",
+      "native_build_exit_code": 0,
+      "seconds": 4.052331027982291
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/ChosenTowerSeparable.lean",
+      "source_sha256": "d78626402a135891daf55035aba49fa2e4d3d3c1b02c5aef2fa2d3805ef85fb5",
+      "native_build_exit_code": 0,
+      "seconds": 3.219304509984795
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/DVRInertConstantSeparable.lean",
+      "source_sha256": "be2d69ea11ea6207dcc81c1f366a3de683ec2722b50f8351c0506ae85f0abb5d",
+      "native_build_exit_code": 0,
+      "seconds": 4.703410611022264
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/LaurentPrimeSeparable.lean",
+      "source_sha256": "d40f6d5443546707f80a782bddb2b3874b072369af2012e0f00b0beefdade7db",
+      "native_build_exit_code": 0,
+      "seconds": 24.959648198011564
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/LaurentResidue.lean",
+      "source_sha256": "42a8444093c8368217fadce46b4c2c510dc2be6b77a34fd31ededc0664397d63",
+      "native_build_exit_code": 0,
+      "seconds": 10.260483419988304
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/LaurentResidueSeparable.lean",
+      "source_sha256": "742752dd75f767e7ad30bdca2f21a62f38d189badc58346df94ca0172d8bc7f9",
+      "native_build_exit_code": 0,
+      "seconds": 8.831583405990386
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/LaurentUnramified.lean",
+      "source_sha256": "930a6c8295be37e9921a2463276fbb26dde18188231e278ded13be4d9b6217a4",
+      "native_build_exit_code": 0,
+      "seconds": 4.62473714799853
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/NestedScalarBranchSquare.lean",
+      "source_sha256": "a7a1df4969d990de618379ecb6ef8cb710a8c55d05bdb6f80541111d2254e9df",
+      "native_build_exit_code": 0,
+      "seconds": 18.343874746991787
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/NestedScalarTower.lean",
+      "source_sha256": "8a699a032913fd51a5abd87fb59faffd1c72904d62f8fa272798b78731b84c2e",
+      "native_build_exit_code": 0,
+      "seconds": 50.959483773011016
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/NestedScalarTowerSeparable.lean",
+      "source_sha256": "99825456525fa610598e9f808adba37f5dde5c08490eab10f3c84cd2f10f4b67",
+      "native_build_exit_code": 0,
+      "seconds": 50.01083212697995
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/NormalPrimeEquivarianceSeparable.lean",
+      "source_sha256": "b759e48465885fb13e128f4c291b1c28d04c53f0d47bb6ffe2e2a34aeb250c82",
+      "native_build_exit_code": 0,
+      "seconds": 3.439973408007063
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/PrimeDiamond.lean",
+      "source_sha256": "dad1b09e05ba51e519d0c2b62755b42931b7c89437249aea2b0be2c0071d6f90",
+      "native_build_exit_code": 0,
+      "seconds": 22.72192541800905
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/PrimeDiamondSeparable.lean",
+      "source_sha256": "df6ab18a8779f1f94dc4637d2ebae9e6ed47ce9a26d84767a01c32761d6e3905",
+      "native_build_exit_code": 0,
+      "seconds": 15.27355740297935
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalChartSeparable.lean",
+      "source_sha256": "9520d4df55fd9348ea79e017d240772b43d5004eeaf023dcf9a215a63494e09a",
+      "native_build_exit_code": 0,
+      "seconds": 10.028128744015703
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalConstantSeparable.lean",
+      "source_sha256": "200a923a9420b13ac7480aeb1fa2c02131fcc7e8c7e8e0b963ded0c82f7c2f31",
+      "native_build_exit_code": 0,
+      "seconds": 12.48554410401266
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalFactorIndex.lean",
+      "source_sha256": "32dfe0e99ba17a890d96480ca0e673a31a4a8a9297bb1ef49b1f5ff799872221",
+      "native_build_exit_code": 0,
+      "seconds": 5.520276816998376
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalFiniteResidue.lean",
+      "source_sha256": "b63186dc6ea1352e9faf192cd60cb34a7e7a59b0728da7a8cb1d9565173bca16",
+      "native_build_exit_code": 0,
+      "seconds": 72.79977894399781
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalFiniteResidueSeparable.lean",
+      "source_sha256": "9462d2414b9653bf5658e1785cf7038ea51830c18ca35de1348140744c4c9198",
+      "native_build_exit_code": 0,
+      "seconds": 5.660734410979785
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalInertResidueSeparable.lean",
+      "source_sha256": "a25f86386e08458ccbfa6ca27c0a0907f8b3132346f759a79036a9c5625dc7b7",
+      "native_build_exit_code": 0,
+      "seconds": 34.378913330001524
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalOriginResidueSeparable.lean",
+      "source_sha256": "6ff29fe43d0f9b2e34098b0942c79bcccd49eff38b4dc4cb45f104f8758ac6c4",
+      "native_build_exit_code": 0,
+      "seconds": 19.27194898200105
+    },
+    {
+      "path": "Colib/RingTheory/KTheory/MilnorK/Norm/RationalSplitResidueSeparable.lean",
+      "source_sha256": "d1156d3b15620c18175eb1af22de5b9f35691ddfb574830ff1df96e3ec962ee7",
+      "native_build_exit_code": 0,
+      "seconds": 41.94012052202015
+    },
+    {
+      "path": "ColibTest/MilnorDVRConstantLaurentSeparable.lean",
+      "source_sha256": "5a4a3a33d557bc4c4efd3f68ef1612a0ac324312477e310c67b645330c4002d5",
+      "native_build_exit_code": 0,
+      "seconds": 2.3638100389798637
+    },
+    {
+      "path": "ColibTest/MilnorDVRInertConstantSeparable.lean",
+      "source_sha256": "8b6724d030f3248beeb823cbb73ca3bea812f6dbecae7412d36db1b0d9879758",
+      "native_build_exit_code": 0,
+      "seconds": 2.9285302269854583
+    },
+    {
+      "path": "ColibTest/MilnorLaurentPrimeSeparable.lean",
+      "source_sha256": "79c66989efd3faabfb5d371209caa87de68b48381cec63a6a7ea60a7f0050847",
+      "native_build_exit_code": 0,
+      "seconds": 3.259461182024097
+    },
+    {
+      "path": "ColibTest/MilnorLaurentResidueSeparable.lean",
+      "source_sha256": "580f42a8c3dc78ae69ed4af562125968c928b1b2c54edbf4b1bcd297546ef3fe",
+      "native_build_exit_code": 0,
+      "seconds": 3.2502876330108847
+    },
+    {
+      "path": "ColibTest/MilnorLaurentUnramified.lean",
+      "source_sha256": "a5cab5b502954207b9b1a415d38c686ec4af5cec733bf25695ff49a25dff579a",
+      "native_build_exit_code": 0,
+      "seconds": 2.805599337007152
+    },
+    {
+      "path": "ColibTest/MilnorRationalFiniteResidue.lean",
+      "source_sha256": "8c54ddb2a16e97aa354f8ddd815bf265748503d2376572f9597137337dae2b05",
+      "native_build_exit_code": 0,
+      "seconds": 5.911544242000673
+    },
+    {
+      "path": "ColibTest/MilnorRationalFiniteResidueSeparable.lean",
+      "source_sha256": "f1a3cf5c89a7fc831bb3b55f5d8556310d6e58a12e3efd79876c17726fdc0bc7",
+      "native_build_exit_code": 0,
+      "seconds": 4.047928996995324
+    },
+    {
+      "path": "ColibTest/MilnorRationalInertResidueSeparable.lean",
+      "source_sha256": "961e1ae0a0649cd203eb47f264965b4449a3b82fe1ce7b8ed6b36d1c0edb8791",
+      "native_build_exit_code": 0,
+      "seconds": 7.58374596000067
+    },
+    {
+      "path": "ColibTest/MilnorRationalSplitResidueSeparable.lean",
+      "source_sha256": "91b33611babcadeb419e0b635f498decc7accd3e72bbf2a0f19456c952348d30",
+      "native_build_exit_code": 0,
+      "seconds": 4.1608783840201795
+    }
+  ],
+  "excluded_unvalidated_current_source": [
+    {
+      "path": "ColibTest/MilnorNestedScalarBranchSquare.lean",
+      "source_sha256": "15bf4fb074bee8970b533459e2027634f4ee7bda013db1d5a2aa0ab4dd88587e",
+      "reason": "No successful native build receipt matching current source. Kept frozen266 source in branch; current draft preserved separately."
+    }
+  ],
+  "current_local_build_passes": [
+    "Colib.RingTheory.AdjoinRoot.NestedFactorIndex",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.DVRInertConstantSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.LaurentResidue",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.LaurentUnramified",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NormalPrimeEquivarianceSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalConstantSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalFactorIndex",
+    "Colib.RingTheory.AdjoinRoot.NestedFactorIndexEquiv",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.LaurentResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalChartSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalCompletionSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalInertResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalOriginResidue",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalSplitResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalTranslationSeparable",
+    "ColibTest.AdjoinRootNestedFactorIndex",
+    "ColibTest.MilnorDVRInertConstantSeparable",
+    "ColibTest.MilnorLaurentResidue",
+    "ColibTest.MilnorLaurentUnramified",
+    "ColibTest.MilnorNormalPrimeEquivarianceSeparable",
+    "ColibTest.MilnorRationalConstantSeparable",
+    "ColibTest.MilnorRationalFactorIndex",
+    "Colib.RingTheory.AdjoinRoot.NestedTowerFactor",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.LaurentPrimeSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalFiniteResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalLinearResidue",
+    "ColibTest.AdjoinRootNestedFactorIndexEquiv",
+    "ColibTest.MilnorLaurentResidueSeparable",
+    "ColibTest.MilnorRationalChartSeparable",
+    "ColibTest.MilnorRationalCompletionSeparable",
+    "ColibTest.MilnorRationalInertResidueSeparable",
+    "ColibTest.MilnorRationalOriginResidue",
+    "ColibTest.MilnorRationalSplitResidueSeparable",
+    "ColibTest.MilnorRationalTranslationSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalFiniteResidue",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalOriginResidueSeparable",
+    "ColibTest.AdjoinRootNestedTowerFactor",
+    "ColibTest.MilnorDVRConstantLaurentSeparable",
+    "ColibTest.MilnorLaurentPrimeSeparable",
+    "ColibTest.MilnorRationalFiniteResidueSeparable",
+    "ColibTest.MilnorRationalLinearResidue",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PrimeDiamond",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PrimeSingleLiftSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.RationalLinearResidueSeparable",
+    "ColibTest.MilnorRationalFiniteResidue",
+    "ColibTest.MilnorRationalOriginResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PrimeDiamondSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PrimeTower",
+    "ColibTest.MilnorPrimeDiamond",
+    "ColibTest.MilnorPrimeSingleLiftSeparable",
+    "ColibTest.MilnorRationalLinearResidueSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PGroupTower",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PrimeTowerSeparable",
+    "ColibTest.MilnorPrimeDiamondSeparable",
+    "ColibTest.MilnorPrimeTower",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorTransport",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PGroupTowerSeparable",
+    "ColibTest.MilnorPGroupTower",
+    "ColibTest.MilnorPrimeTowerSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorNativeTransport",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorTransportSeparable",
+    "ColibTest.MilnorBranchFactorTransport",
+    "ColibTest.MilnorPGroupTowerSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorNativeSquare",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorNativeTransportSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NestedScalarBranch",
+    "ColibTest.MilnorBranchFactorNativeTransport",
+    "ColibTest.MilnorBranchFactorTransportSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorNativeSquareSeparable",
+    "ColibTest.MilnorBranchFactorNativeSquare",
+    "ColibTest.MilnorBranchFactorNativeTransportSeparable",
+    "ColibTest.MilnorNestedScalarBranch",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NestedScalarBranchSquareSeparable",
+    "ColibTest.MilnorBranchFactorNativeSquareSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NestedScalarBranchSquare",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NestedScalarTowerSeparable",
+    "ColibTest.MilnorNestedScalarBranchSquareSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.NestedScalarTower",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.TowerSeparable",
+    "ColibTest.MilnorNestedScalarTowerSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.Tower",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.TowerPresentationSeparable",
+    "ColibTest.MilnorNestedScalarTower",
+    "ColibTest.MilnorTowerSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.TowerPresentation",
+    "ColibTest.MilnorTower",
+    "ColibTest.MilnorTowerPresentationSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparison",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerSeparable",
+    "ColibTest.MilnorChosenComparisonSeparable",
+    "ColibTest.MilnorTowerPresentation",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenEquivariance",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenFiniteReciprocity",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenNormalTrace",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenScalarBaseChange",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTower",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.PolynomialIndependence",
+    "ColibTest.MilnorChosenComparison",
+    "ColibTest.MilnorChosenTowerSeparable",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.AdjoinSimpleChoice",
+    "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTensorBaseChange",
+    "ColibTest.MilnorChosenEquivariance",
+    "ColibTest.MilnorChosenFiniteReciprocity",
+    "ColibTest.MilnorChosenNormalTrace",
+    "ColibTest.MilnorChosenScalarBaseChange",
+    "ColibTest.MilnorChosenTower",
+    "ColibTest.MilnorPolynomialIndependence",
+    "ColibTest.MilnorAdjoinSimpleChoice",
+    "ColibTest.MilnorChosenTensorBaseChange"
+  ],
+  "pending_build_targets": [
+    "ColibTest.MilnorNestedScalarBranchSquare"
+  ],
+  "native_lint_passed_scopes": [
+    {
+      "owners": 6,
+      "declarations": 191
+    },
+    {
+      "owners": 5,
+      "declarations": 82
+    },
+    {
+      "owners": 1,
+      "declarations": 1
+    }
+  ],
+  "pending": [
+    "Complete expanded legacy CharZero branch-square consumer",
+    "Full 135 production-owner original 15 native lint and ordinary axiom checks",
+    "Exact 266 source native textstyle",
+    "Generated root and complete integration/aggregate checks",
+    "COL-0396 native tag/reference export and catalog validation",
+    "CI (intentionally skipped)"
+  ],
+  "not_claimed": [
+    "general inseparable chosen-norm tower",
+    "independent-universe norm tower",
+    "general DVR/Dedekind/curve endpoint draft validation",
+    "Milnor\u2013motivic diagonal isomorphism"
+  ]
+}

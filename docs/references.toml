@@ -419,3 +419,11 @@ authors = ["Tom Bachmann", "Michael J. Hopkins"]
 year = 2026
 version = "arXiv:2611.02320v1"
 url = "https://arxiv.org/abs/2611.02320v1"
+
+[sources.aglib_milnor_norm_52e09db4]
+kind = "software"
+title = "Aglib Milnor norm presentation and tower source"
+authors = ["kangxyz and Aglib contributors"]
+version = "Git commit 52e09db47998f139064acf48a2d3a64494d0dd9a; finite-extension presentation, algebra-equivalence and characteristic-zero tower statements inspected 2026-11-10"
+url = "https://github.com/kangxyz/aglib/tree/52e09db47998f139064acf48a2d3a64494d0dd9a"
+locator_roots = ["Aglib"]
