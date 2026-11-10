@@ -39,6 +39,7 @@ def cechPresheafAugmentation (X : SmoothSite S) :
   (SimplicialObject.termwiseYoneda (SmoothSite S)).map (cechAugmentation X) ≫
     (SimplicialObject.constTermwiseYonedaIso (SmoothSite S)).hom.app (base S)
 
+@[simp]
 theorem cechPresheafAugmentation_app_app_apply (X : SmoothSite S) (U : (SmoothSite S)ᵒᵖ)
     (n : SimplexCategoryᵒᵖ) (g : U.unop ⟶ (cechNerve X).obj n) :
     ((cechPresheafAugmentation X).app U).app n g = g ≫ (cechAugmentation X).app n :=

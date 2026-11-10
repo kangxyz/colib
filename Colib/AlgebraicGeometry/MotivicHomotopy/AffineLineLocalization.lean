@@ -46,7 +46,6 @@ section PresheafCylinder
 
 variable {C : Type u'} [Category.{v} C]
 
-/-- Swap the two presheaf product factors naturally in the varying factor. -/
 def productFlipIso (I : Cᵒᵖ ⥤ SSet.{w}) :
     prod.functor.obj I ≅ prod.functor.flip.obj I :=
   NatIso.ofComponents (fun A => prod.braiding I A) (by
@@ -59,8 +58,6 @@ instance rightProductPreservesBinaryCoproducts (I : Cᵒᵖ ⥤ SSet.{w}) :
     preservesColimitsOfShape_of_natIso (CartesianMonoidalCategory.tensorLeftIsoProd I)
   exact preservesColimitsOfShape_of_natIso (productFlipIso I)
 
-/-- Distribute the interval product over a freely adjoined basepoint, identifying
-the product of the point and the interval with the interval itself. -/
 def freeProductDistrib (A I : Cᵒᵖ ⥤ SSet.{w}) :
     (A ⨯ I) ⨿ I ≅ ((free C).obj A).right ⨯ I :=
   coprod.mapIso (Iso.refl _) (prod.leftUnitor I).symm ≪≫
@@ -84,7 +81,6 @@ theorem freeProductDistrib_inr (A I : Cᵒᵖ ⥤ SSet.{w}) :
   rw [coprod.inr_map_assoc, inr_coprodComparison]
   apply prod.hom_ext <;> simp [intervalAxis, Limits.prod.leftUnitor]
 
-/-- Collapse the interval over the added basepoint and retain the other product summand. -/
 def freeCylinderCollapse (A I : Cᵒᵖ ⥤ SSet.{w}) :
     ((free C).obj A).right ⨯ I ⟶ ((free C).obj (A ⨯ I)).right :=
   (freeProductDistrib A I).inv ≫ coprod.map (𝟙 (A ⨯ I)) (terminal.from I)
@@ -103,7 +99,6 @@ theorem freeCylinderCollapse_axis (A I : Cᵒᵖ ⥤ SSet.{w}) :
   rw [← freeProductDistrib_inr A I]
   simp only [freeCylinderCollapse, Category.assoc, Iso.hom_inv_id_assoc, coprod.inr_map]
 
-/-- The quotient-induced pointed map from the cylinder of `A₊` to `(A × I)₊`. -/
 def freeCylinderToFree (A I : Cᵒᵖ ⥤ SSet.{w}) :
     parameterizedCylinder ((free C).obj A) I ⟶ (free C).obj (A ⨯ I) :=
   Under.homMk
@@ -115,7 +110,6 @@ theorem freeCylinderToFree_right (A I : Cᵒᵖ ⥤ SSet.{w}) :
     (freeCylinderToFree A I).right =
       pushout.desc (freeCylinderCollapse A I) coprod.inr (freeCylinderCollapse_axis A I) := rfl
 
-/-- Map `(A × I)₊` into the cylinder using its product and basepoint inclusions. -/
 def freeToCylinder (A I : Cᵒᵖ ⥤ SSet.{w}) :
     (free C).obj (A ⨯ I) ⟶ parameterizedCylinder ((free C).obj A) I :=
   Under.homMk
@@ -142,7 +136,6 @@ theorem freeCylinderCollapse_freeToCylinder (A I : Cᵒᵖ ⥤ SSet.{w}) :
       (pushout.condition (f := intervalAxis ((free C).obj A) I)
         (g := terminal.from I)).symm
 
-/-- Identify the pointed cylinder of `A₊` with `(A × I)₊` through the actual quotient maps. -/
 def freeCylinderIso (A I : Cᵒᵖ ⥤ SSet.{w}) :
     parameterizedCylinder ((free C).obj A) I ≅ (free C).obj (A ⨯ I) where
   hom := freeCylinderToFree A I

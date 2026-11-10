@@ -77,6 +77,7 @@ theorem pointedUnderlyingAbelian_obj_right (A : SimplicialObject (Cᵒᵖ ⥤ Ad
 theorem pointedUnderlyingAbelian_map_right {A B : SimplicialObject (Cᵒᵖ ⥤ AddCommGrpCat.{w})}
     (f : A ⟶ B) : ((pointedUnderlyingAbelian C).map f).right = (underlyingAbelian C).map f := rfl
 
+@[simp]
 theorem pointedUnderlyingAbelian_map_app_app {A B : SimplicialObject (Cᵒᵖ ⥤ AddCommGrpCat.{w})}
     (f : A ⟶ B) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ) (x : (A.obj n).obj U) :
     ((((pointedUnderlyingAbelian C).map f).right.app U).app n) x = (f.app n).app U x := rfl

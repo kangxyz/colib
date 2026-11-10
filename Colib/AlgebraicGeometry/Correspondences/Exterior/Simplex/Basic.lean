@@ -43,6 +43,7 @@ def simplexExterior (n : ℕ) : finiteCorrespondences X.hom Y.hom →+
       (simplexExteriorPoint_admissible z n hz) 1
 
 /-- Every integer coefficient is retained on the actual exterior prime. -/
+@[simp]
 theorem simplexExterior_single (n : ℕ) (z : pullback (C := Scheme) X.hom Y.hom)
     (hz : IsFiniteCorrespondencePoint X.hom Y.hom z) (m : ℤ) :
     @Eq (finiteCorrespondences

@@ -129,7 +129,7 @@ theorem free_map_right {F G : Cᵒᵖ ⥤ SSet.{w}} (f : F ⟶ G) :
 def freeInclusion (F : Cᵒᵖ ⥤ SSet.{w}) : F ⟶ ((free C).obj F).right :=
   coprod.inl
 
-@[reassoc]
+@[reassoc (attr := simp)]
 theorem freeInclusion_naturality {F G : Cᵒᵖ ⥤ SSet.{w}} (f : F ⟶ G) :
     freeInclusion C F ≫ ((free C).map f).right = f ≫ freeInclusion C G := by
   exact coprod.inl_map _ _
@@ -185,6 +185,7 @@ theorem simplicialYoneda_obj_obj_obj (U : C) (T : Cᵒᵖ) (n : SimplexCategory�
     (((simplicialYoneda C).obj U).obj T).obj n = (T.unop ⟶ U) := rfl
 
 /-- The discrete Yoneda map is the original postcomposition map in every degree. -/
+@[simp]
 theorem simplicialYoneda_map_app_app {U V : C} (f : U ⟶ V)
     (T : Cᵒᵖ) (n : SimplexCategoryᵒᵖ) (g : T.unop ⟶ U) :
     (((simplicialYoneda C).map f).app T).app n g = g ≫ f := rfl

@@ -110,12 +110,12 @@ theorem polynomialSection_projection (a : R) :
   change Spec.map _ ≫ Spec.map _ = _
   rw [← Spec.map_comp, h, Spec.map_id]
 
-@[reassoc]
+@[reassoc (attr := simp)]
 theorem polynomialZeroSection_projection :
     polynomialZeroSection R ≫ polynomialProjection R = 𝟙 (Spec R) :=
   polynomialSection_projection R 0
 
-@[reassoc]
+@[reassoc (attr := simp)]
 theorem polynomialOneSection_projection :
     polynomialOneSection R ≫ polynomialProjection R = 𝟙 (Spec R) :=
   polynomialSection_projection R 1

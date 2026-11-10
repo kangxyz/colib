@@ -107,7 +107,7 @@ def simplexExteriorInclusion : simplexExteriorSupport z n ⟶
       simplexExteriorSource_fst, simplexExteriorTarget_fst]
     simp only [Category.assoc, pullback.condition])
 
-@[reassoc]
+@[reassoc (attr := simp)]
 theorem simplexExteriorInclusion_fst :
     simplexExteriorInclusion z n ≫
       pullback.fst (SmoothSite.product X (AlgebraicSimplex.smoothSiteObj k n)).hom
@@ -115,7 +115,7 @@ theorem simplexExteriorInclusion_fst :
       simplexExteriorSource z n :=
   pullback.lift_fst _ _ _
 
-@[reassoc]
+@[reassoc (attr := simp)]
 theorem simplexExteriorInclusion_snd :
     simplexExteriorInclusion z n ≫
       pullback.snd (SmoothSite.product X (AlgebraicSimplex.smoothSiteObj k n)).hom

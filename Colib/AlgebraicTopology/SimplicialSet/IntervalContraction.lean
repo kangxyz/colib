@@ -35,6 +35,7 @@ def intervalMax : (Δ[1] ⊗ Δ[1] : SSet.{u}) ⟶ Δ[1] where
         ((stdSimplex.asOrderHom z.2).monotone hij)⟩
   naturality _ _ _ := by rfl
 
+@[simp]
 theorem intervalMax_app_asOrderHom {n : SimplexCategoryᵒᵖ}
     (z : (Δ[1] ⊗ Δ[1] : SSet.{u}).obj n) (i : Fin (n.unop.len + 1)) :
     stdSimplex.asOrderHom (intervalMax.app n z) i =
