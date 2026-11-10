@@ -1,0 +1,166 @@
+{
+  "status": "EXACT_FINITE9_NATIVE_ACCEPTANCE_REUSED",
+  "created_utc": "2026-11-10T22:57:07.703899+00:00",
+  "base": "f376b384a6abaf5aee59a02ba036d09192b83a05",
+  "base_tree": "2398a4bfaf4d5fe1612f7169cb885e575ff95313",
+  "scope": "finite9",
+  "source_count": 9,
+  "production": 6,
+  "consumers": 3,
+  "consumer_examples": 35,
+  "ordinary_axiom_declarations": 238,
+  "pins": {
+    "lean": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+  },
+  "files": [
+    {
+      "path": "Colib/Algebra/Homology/CochainComplex/FiniteCoefficients/Basic.lean",
+      "module": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Basic",
+      "sha256": "fe9f4a5f8b98120b1165f0ea428a475140ef51554608c97828975faec6c10591",
+      "git_blob": "6ac581ff7112d2c685169697305c8b3a097d88ef",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/Algebra/Homology/CochainComplex/FiniteCoefficients/Cohomology.lean",
+      "module": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Cohomology",
+      "sha256": "de27ed33260513018d81fa0dc660ef0eb206ce8d1d585cda140116d7cfea927e",
+      "git_blob": "b0db7a160041da3db44298184fd33aa5c69a650e",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/Algebra/Homology/CochainComplex/FiniteCoefficients/Exact.lean",
+      "module": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Exact",
+      "sha256": "95ae881530562423f1b311dd514de0df0d96acdccef21f798f4c6d84b0a88078",
+      "git_blob": "1473aa741a7df87f8bd05019ea8084d2d77b03d3",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/FieldTopDegree.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.FieldTopDegree",
+      "sha256": "e71aba05c5a70feea292b7536c328cabddddb12e23ff1b1748d7885ec5173652",
+      "git_blob": "50f1581439e20e2db09d596b16efb491ef42a366",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/Finite/Complex.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.Complex",
+      "sha256": "f808d0b4020ed9dd56cf0b7eb1d61391ed5476ce88e8079af7cf6db8a5e0d15d",
+      "git_blob": "69039ba6cbd0e70c5bc9b321cf14c174261c9c6b",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/Finite/Hypercohomology.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.Hypercohomology",
+      "sha256": "e05340ccd381630863166cf68cc4260fc9cdef76c62f4bce2f3ae6128bc1f663",
+      "git_blob": "5b31a1b93dd80f0d5910c955e21d8d1dfb26bb79",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "ColibTest/NativeMotivicFieldTopDegree.lean",
+      "module": "ColibTest.NativeMotivicFieldTopDegree",
+      "sha256": "1e6a24bde807a9b94c5cfe70d9af5a3a22c4f819e0ff7129000fde38a2434d8e",
+      "git_blob": "f2227fbfab40cbdcea7480a4a7ce0d2ad6a649e7",
+      "kind": "consumer",
+      "examples": 9
+    },
+    {
+      "path": "ColibTest/NativeMotivicFiniteComplex.lean",
+      "module": "ColibTest.NativeMotivicFiniteComplex",
+      "sha256": "155f428fee0cd84d2604f4fa8e35a012024bde17a88df5548368bc8ba4bfde3a",
+      "git_blob": "7c046338a93d6a3604aac54c74090779dfeea47b",
+      "kind": "consumer",
+      "examples": 14
+    },
+    {
+      "path": "ColibTest/NativeMotivicFiniteHypercohomology.lean",
+      "module": "ColibTest.NativeMotivicFiniteHypercohomology",
+      "sha256": "07e7baa8037013f31668cc463134d97e43d6bfed8156df0687b917b4f3af9d70",
+      "git_blob": "66280e2e083a2a8777e44b26b452c73878ec7e38",
+      "kind": "consumer",
+      "examples": 12
+    }
+  ],
+  "native15": "PASS",
+  "ordinary_axiom_closure": "PASS",
+  "exact_source_textstyle": "PASS",
+  "ordinary_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_receipts": {
+    "FINITE9_ACCEPTANCE.json": {
+      "filename": "FINITE9_ACCEPTANCE.json",
+      "sha256": "75131a099474f1af565275451e16c3f5883867804c23176206d1ec3975b8a45a",
+      "bytes": 16934
+    },
+    "FINITE9_MANIFEST.json": {
+      "filename": "FINITE9_MANIFEST.json",
+      "sha256": "78c007d4cb7da3a765948af50d60c4678f5b3cb6260fa7c4b41ecbe8e86e89a6",
+      "bytes": 13226
+    },
+    "FINITE9_ACCEPTED_REGISTRY.json.gz": {
+      "filename": "FINITE9_ACCEPTED_REGISTRY.json.gz",
+      "sha256": "a8cf6727a58ad16d7c6d9891aa03605f9db8574550aed93ede7a86ae9c47ac2b",
+      "bytes": 49421
+    },
+    "FINITE9_SOURCE_REPAIR.patch": {
+      "filename": "FINITE9_SOURCE_REPAIR.patch",
+      "sha256": "5429c546edf13d6735ab44f8caa22f73bb4c62380316411a89a88f54006f9b8c",
+      "bytes": 3537
+    },
+    "FINITE9_LEAN_ONLY_ARCHIVE.json": {
+      "filename": "FINITE9_LEAN_ONLY_ARCHIVE.json",
+      "sha256": "f7ccd12791ac9a73ccd19004a108daf0141b011b0c93c15bc057b34d1be41bcb",
+      "bytes": 430
+    }
+  },
+  "archive": {
+    "sha256": "af1817ec3d70854aaa44288c4a1b548ebce19f0ef658d0c96f99736b688fbbfb",
+    "bytes": 20777
+  },
+  "archive_name": "finite9-native-accepted-lean-only-20261110.zip",
+  "archive_only_lean": true,
+  "lower_source_binding": {
+    "reachable_modules": 17410,
+    "lower_colib_sources": 360,
+    "unpublished_dependencies": [],
+    "prior330_byte_identical": true
+  },
+  "catalog_tags_added": [],
+  "catalog_entries_changed": [],
+  "metadata_validation": {
+    "script_tests": 115,
+    "ci_metadata_tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "catalog_chapters": 11,
+    "catalog_sections": 55,
+    "catalog_items": 410,
+    "checker_patch_sha256": "e0cc01c8f2629bd4b2e3a06804e10e300a57017973d7f3cfb866ea7c1280ec8a"
+  },
+  "metadata_checker_repair": "Track line comments only outside nested block comments; reject unmatched block delimiters; six regressions added.",
+  "root_imports_added": 6,
+  "new_frontend_calls": 0,
+  "new_aggregate_branch_build": false,
+  "kernel_replay": false,
+  "ci_policy": "Source-backup checkpoint uses [skip ci]; no dispatch or rerun.",
+  "not_claimed": [
+    "All followon40 scopes accepted",
+    "Units10 comparison acceptance",
+    "Full original WeightOne facade",
+    "Arbitrary-field base change or naturality",
+    "Independent mathematical review",
+    "New aggregate branch compilation",
+    "Whole motivic migration completion"
+  ]
+}

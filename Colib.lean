@@ -119,6 +119,9 @@ public import Colib.Algebra.Homology.CochainComplex.ExactSubcategory.TruncationF
 public import Colib.Algebra.Homology.CochainComplex.ExactSubcategory.TruncationLayer
 public import Colib.Algebra.Homology.CochainComplex.ExactSubcategory.TruncationMaps
 public import Colib.Algebra.Homology.CochainComplex.ExactSubcategory.TruncationTransformations
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Basic
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Cohomology
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Exact
 public import Colib.Algebra.Homology.CochainComplex.OppositeQuasiIso
 public import Colib.Algebra.Homology.CochainComplex.OppositeSubcategory
 public import Colib.Algebra.Homology.CochainComplex.QuasiIsoExtension
@@ -790,6 +793,9 @@ public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Compactness
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Support
 public import Colib.AlgebraicGeometry.MotivicCohomology.Complex
+public import Colib.AlgebraicGeometry.MotivicCohomology.FieldTopDegree
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Complex
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Hypercohomology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology
 public import Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.BoundaryDivisor
 public import Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Exact
