@@ -610,3 +610,18 @@ Identification and geometric instantiation of these generated recipes remain
 separate steps before the final localization comparison.
 '''
 
+COL-0529 = '''
+The abstract finite row construction now has its actual Waldhausen starting
+transpose and coefficient-natural unit track. Both use the existing native
+zero-preserving exact category directly. The independently realized tensor row
+cell and its geometric returned action remain separate inputs to strictification.
+'''
+
+COL-0530 = '''
+The original independently specified first-row transformation cell now has an
+ordered double-cylinder realization and a whole-spectrum track. Both cell times
+remain visible, together with the extra loop coordinate in degree zero. These
+supply actual inputs for later unit-row strictification, without asserting a
+geometric tensor qualification or localization conclusion.
+'''
+

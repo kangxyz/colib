@@ -1631,6 +1631,8 @@ public import Colib.KTheory.Bass.GeneratedTensorTraceProof
 public import Colib.KTheory.Bass.LoopConeTrack
 public import Colib.KTheory.Bass.LoopStrength
 public import Colib.KTheory.Bass.LoopStrengthConeAction
+public import Colib.KTheory.Bass.ModelDiagramRowInterchange
+public import Colib.KTheory.Bass.NaturalModelUnitTrack
 public import Colib.KTheory.Bass.NaturalTrack
 public import Colib.KTheory.Bass.StageAction
 public import Colib.KTheory.Bass.StrictDiagram
@@ -1951,11 +1953,15 @@ public import Colib.KTheory.Waldhausen.Iterated.PrespectrumZeroNaturality
 public import Colib.KTheory.Waldhausen.Iterated.RelativeCylinder
 public import Colib.KTheory.Waldhausen.Iterated.RowCylinderInterchange
 public import Colib.KTheory.Waldhausen.Iterated.RowCylinderRealization
+public import Colib.KTheory.Waldhausen.Iterated.RowHomotopyPushout
 public import Colib.KTheory.Waldhausen.Iterated.RowLoopFunctor
 public import Colib.KTheory.Waldhausen.Iterated.RowLoopHomotopy
 public import Colib.KTheory.Waldhausen.Iterated.RowLoopPrespectrum
 public import Colib.KTheory.Waldhausen.Iterated.RowLoopStableEquivalence
 public import Colib.KTheory.Waldhausen.Iterated.RowSwapTransformation
+public import Colib.KTheory.Waldhausen.Iterated.RowTransformationCylinder
+public import Colib.KTheory.Waldhausen.Iterated.RowTransformationRealization
+public import Colib.KTheory.Waldhausen.Iterated.RowTransformationSpectrum
 public import Colib.KTheory.Waldhausen.Iterated.SelfTrackKOperation
 public import Colib.KTheory.Waldhausen.Iterated.SelfTrackKOperationIntertwining
 public import Colib.KTheory.Waldhausen.Iterated.SelfTrackKOperationLevelExt

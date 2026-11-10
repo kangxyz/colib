@@ -1,0 +1,33 @@
+[entry]
+id = "COL-0529"
+title = "Actual Waldhausen unit tracks and finite row inputs"
+kind = "theorem"
+section = "bass-construction"
+order = 86
+statement = """
+Identity-unit automorphisms on a diagram of zero-preserving exact Waldhausen
+functors realize whole coefficient-natural tracks. The actual last-row transpose
+acts on the original homotopy pushout and on every finite Bass stage and its next
+cone, preserving basepoints, coefficient arrows and the two-structure interchange
+equation. The homotopy-pushout transpose is involutive.
+"""
+scope = """
+Native small Waldhausen categories with zero-preserving exact maps, arbitrary
+indexing categories and the original identity units with pointwise preservation.
+No additional model category is introduced. The row transpose is a based
+levelwise map; it is not asserted to be a prespectrum endomorphism. No stable
+comparison, geometric tensor realization or final localization result is claimed.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.ModelDiagramRowInterchange.stage_structure"
+proof_kind = "outline"
+proof = """
+Realize the original identity automorphism and use its actual whiskered square
+with the coefficient map to establish every time-slice naturality equation.
+Descend the original row transpose through the three cells of the reduced double
+mapping cylinder without changing overlap height. Basepoint and involution laws
+follow on those cells. Instantiate the already constructed finite row-interchange
+recursion with the actual Waldhausen row transpose. Its native naturality and
+two-structure equation then propagate to all finite stages and next cones.
+"""
+source_checked_on = "2026-11-10"
