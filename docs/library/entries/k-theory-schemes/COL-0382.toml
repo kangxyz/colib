@@ -1,0 +1,45 @@
+[entry]
+id = "COL-0382"
+title = "Supported bounded-flat approximation"
+kind = "comparison"
+section = "supported-localization"
+order = 80
+statement = '''
+Let \(X\) be a quasi-compact scheme and \(j\colon U\hookrightarrow X\) an open
+immersion. Include the bounded-above flat perfect complexes whose restriction to
+\(U\) is acyclic into all perfect complexes with that support. This actual inclusion
+has the approximation property: a map into a supported perfect complex factors
+strictly through an admissible cofibration and a quasi-isomorphism, with both the
+intermediate complex and the admissible quotient still supported. The induced map
+on \(K_n\) is bijective for every \(n\geq0\), including \(n=0\). Its canonical
+zero-normalized map of connective prespectra is a stable equivalence in every
+integer degree. The actual inclusion and support-forgetting maps commute on
+K-groups and by a whole coherent homotopy on the original prespectra.
+'''
+scope = '''
+Only compactness of the underlying space of \(X\) is required for approximation
+and equivalence. The open \(U\) need not be quasi-compact. No separation,
+Noetherianity, regularity or resolution property is assumed. The bounded-flat source
+uses admissible short exact quotients in its supported class, whereas the native
+perfect target uses ambient monomorphisms. Support is actual acyclicity under open
+restriction, not a complex on the closed complement. This compares the supported
+models used in connective localization; it does not assert a levelwise equivalence
+of the inclusion, Bass localization, or [@ThomasonTrobaugh1990, 7.4]. The eventual
+supported Bass theory is \(K^B(X\text{ on }X\setminus U)\).
+'''
+proof = '''
+Apply the native relative bounded-flat replacement to the underlying map. Its
+quasi-isomorphism transports open acyclicity to the intermediate complex. Restrict
+the admissible short exact sequence and use the homology sequence to preserve
+acyclicity of its quotient. Supported identity-cone cylinders supply the genuine
+joint factorization data. The general approximation theorem then identifies all
+natural K-groups via the original inclusion map. The native original-prespectrum
+comparison gives integer-graded stable equivalence with the same forward K-map.
+Forgetting support gives literally equal composite functors. Canonical zero
+normalization, its composition homotopies, and the existing supported-inclusion
+rebase homotopy produce the whole prespectrum square with its original endpoints.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedToPerfectKMap_bijective"

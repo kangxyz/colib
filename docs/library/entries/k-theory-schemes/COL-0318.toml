@@ -1,0 +1,23 @@
+[entry]
+id = "COL-0318"
+title = "Conditional connective open localization and the restriction-image spectrum"
+kind = "theorem"
+section = "perfect-open-localization"
+order = 70
+statement = """
+Native derived roofs and perfect complements transport the original relative boundary to fine
+perfect K-theory of the open. All three connective exact positions and the actual K-one to
+supported K-zero tail retain the original maps. The coarse relative S-prespectrum maps to fine
+open K-theory by the original restriction, is connective, is bijective on positive stable groups,
+and identifies stable degree zero with the actual global restriction image. The actual
+acyclic-to-coarse-fiber comparison is a stable equivalence.
+"""
+scope = '''Arbitrary open immersion, a chosen derived-category model on the open, `HasDerivedRoofs` and
+`HasPerfectComplements`. No geometric qcqs existence is claimed. The acyclic-to-coarse-fiber theorem
+and stable-zero range characterization do not require those geometric inputs. This is conditional
+connective localization, not a completed coherent supported-spectrum identification with the
+fine restriction-image target and not TT nonconnective localization. No surjectivity onto all
+fine open K-zero, Bass spectrum, or global pair-pullback naturality is asserted.
+'''
+review = "author_checked"
+provenance = "quillen"

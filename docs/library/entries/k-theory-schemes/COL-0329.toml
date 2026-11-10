@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0329"
+title = "Scalar input descent and relative supported boundary"
+kind = "theorem"
+section = "scalar-operations-and-boundaries"
+order = 80
+statement = "For every open immersion and scalar restricting to a specified unit, the normalized and raw scalar self-track operations have the positive supported cone boundary as full homomorphisms in every connective degree, including zero."
+scope = "The actual forward horizontal subdivision endpoint and diagonal map cover every original K-class, without an assumed coverage or inverse subdivision map. Literal scalar input descent and supported-to-fiber injectivity upgrade the proved cube boundary to every class. No flatness or qcqs hypotheses are imposed. This is the relative-open boundary, not fine open restriction, global qcqs localization, Bass K-theory or an all-integer boundary."
+review = "author_checked"

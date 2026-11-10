@@ -1,0 +1,19 @@
+[entry]
+id = "COL-0315"
+title = "Native honest-image cofinality and restriction endpoints"
+kind = "theorem"
+section = "perfect-open-localization"
+order = 60
+statement = """
+Given global-perfect-model derived roofs and actual native perfect complements, the honest
+open-derived-image inclusion and the original relative-open restriction are injective in every
+connective degree and bijective in positive degrees. Degree zero is canonically equivalent to
+the actual fine global restriction-image subgroup, with the original restriction as forward map.
+"""
+scope = '''Arbitrary open immersion and chosen open derived-category model. Cofibrations are actual ambient
+monomorphisms, weak maps are quasi-isomorphisms, coproducts come from native closure, and dense
+cofiber data and fine joint cylinders are constructed. `HasDerivedRoofs` and `HasPerfectComplements`
+remain explicit geometric inputs; no qcqs existence or surjectivity onto all target K-zero is claimed.
+'''
+review = "author_checked"
+provenance = "quillen"

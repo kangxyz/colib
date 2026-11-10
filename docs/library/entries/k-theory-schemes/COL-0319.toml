@@ -1,0 +1,24 @@
+[entry]
+id = "COL-0319"
+title = "The actual supported spectrum in the relative-open fiber"
+kind = "theorem"
+section = "perfect-open-localization"
+order = 80
+statement = """
+The native supported and relative-acyclic S-prespectra are isomorphic by the original exact
+flattening. Transport of the canonical acyclic fiber map is an all-integer stable equivalence
+to the original relative-coarse homotopy fiber. Its projection is the original supported
+inclusion, its whole path is the unchanged acyclic nullhomotopy, and both independent parameters
+commute with the original structure maps. Level one recovers the actual supported fiber K-map.
+Canonical zero rebasing gives an explicit coherent fiber homotopy and the same stable equivalence.
+"""
+scope = """
+Arbitrary open immersion and ambient native Stacks-perfect complexes acyclic on the open.
+No additional geometric roofs, complement, regularity, Noetherian, separatedness or resolution
+hypotheses. This is the supported-to-relative-fiber assembly for connective S-prespectra, not
+K-theory of the closed complement. A separately prescribed image-cover spectrum, qcqs geometric
+discharge and global open-pair naturality are separate. All-integer stable equivalence of these
+connective spectra is not the Bass nonconnective localization theorem of TT Section 7.4.
+"""
+review = "author_checked"
+provenance = "quillen"

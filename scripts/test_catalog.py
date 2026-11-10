@@ -31,6 +31,34 @@ class LibraryTests(unittest.TestCase):
             catalog.ROOT / "docs/references.toml", self.root / "docs/references.toml"
         )
 
+    def test_k_theory_chapters_distinguish_general_ring_and_scheme_results(self):
+        chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
+        self.assertEqual(chapters["k-theory"]["title"], "Algebraic K-Theory")
+        self.assertEqual(chapters["k-theory-rings"]["title"], "Algebraic K-Theory of Rings")
+        self.assertEqual(chapters["k-theory-schemes"]["title"], "Algebraic K-Theory of Schemes")
+        self.assertIn("milnor-k-theory", chapters)
+        self.assertNotIn("k-theory-rings-schemes", chapters)
+        expected = {
+            "COL-0001": ("k-theory", "grothendieck-groups"),
+            "COL-0338": ("k-theory", "bass-construction"),
+            "COL-0004": ("k-theory-rings", "k-zero-of-fields"),
+            "COL-0262": ("k-theory-rings", "matsumoto-theorem"),
+            "COL-0280": ("k-theory-rings", "finite-field-k-two"),
+            "COL-0285": ("k-theory-schemes", "scheme-k-and-g"),
+            "COL-0255": ("milnor-k-theory", "milnor-degree-two"),
+        }
+        for identifier, (chapter, section) in expected.items():
+            entry = self.library["entries"][identifier]
+            self.assertEqual(entry["section"], section)
+            self.assertEqual(self.library["sections"][section]["chapter"], chapter)
+        matsumoto = self.library["entries"]["COL-0262"]
+        self.assertIn("characteristic-zero", matsumoto["statement"])
+        self.assertIn("no positive-characteristic", matsumoto["scope"])
+        self.assertEqual(self.library["sections"]["matsumoto-theorem"]["entries"],
+                         ["COL-0262"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        self.assertEqual(set(built["entries"]), set(self.library["entries"]))
+
     def test_completion_milestone_native_scope_and_ci(self):
         root = catalog.ROOT
         ledger = json.loads((root / "docs/migration/milnor-completion.json").read_text())
@@ -355,7 +383,15 @@ class LibraryTests(unittest.TestCase):
             "k-zero-of-fields": "Colib.RingTheory.KTheory.GrothendieckGroup.Field",
             "quillen-k-theory-of-rings": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "g-theory-of-rings": "Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization",
-            "k-theory-of-schemes": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+            "scheme-k-and-g": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"perfect-open-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"scalar-operations-and-boundaries": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"supported-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"perfect-pullback": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"affine-evaluation": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"affine-bass-constructions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+            "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
+            "finite-field-k-two": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "milnor-symbols-field-change": "Colib.RingTheory.KTheory.MilnorK.Symbols.Basic",
             "milnor-residues-and-specialization": "Colib.RingTheory.KTheory.MilnorK.Residue.Specialization",
             "milnor-norms-and-rational-residues": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation",
@@ -447,7 +483,7 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(self.library["entries"][identifier]["path"],
                              f"docs/library/entries/commutative-algebra/{identifier}.toml")
         self.assertEqual(self.library["entries"]["COL-0362"]["section"],
-                         "k-theory-of-schemes")
+                         "affine-bass-constructions")
 
     def test_native_transfer_torus_exterior_items_keep_owners_and_scope(self):
         expected = {
@@ -687,7 +723,7 @@ class LibraryTests(unittest.TestCase):
         section["transitions"] = {"COL-0004": r"Consider the case \(x < y\). See COL-0001."}
         output = self.render_site_fixture(built)
         page = (output / "tag/COL-0004/index.html").read_text()
-        self.assertIn('href="../../chapters/k-theory-rings-schemes/">Algebraic K-Theory of Rings and Schemes</a>', page)
+        self.assertIn('href="../../chapters/k-theory-rings/">Algebraic K-Theory of Rings</a>', page)
         self.assertIn(
             f'href="../../sections/{section["id"]}/" aria-current="location">'
             '<span class="nav-section-title">',
@@ -1302,7 +1338,7 @@ class LibraryTests(unittest.TestCase):
         directory = self.root / "build/library"
         directory.mkdir(parents=True)
         (directory / "library.json").write_text(json.dumps(built))
-        entry = self.root / "docs/library/entries/k-theory-rings-schemes/COL-0004.toml"
+        entry = self.root / "docs/library/entries/k-theory-rings/COL-0004.toml"
         entry.write_text(
             entry.read_text().replace(
                 'section = "k-zero-of-fields"', 'section = "milnor-symbols-field-change"'

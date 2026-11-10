@@ -1,0 +1,29 @@
+[entry]
+id = "COL-0335"
+title = "Fixed-pair supported connective image-cover localization"
+kind = "theorem"
+section = "supported-localization"
+order = 50
+statement = '''For an open immersion j and auxiliary open T in a quasi-compact quasi-separated scheme X,
+compactness of \(j(U)\cup T\) makes the actual supported coarse S-prespectrum a
+connective Omega image cover. Actual restriction is bijective in positive stable degrees
+and injective in degree zero, with exactly the original fine restriction image. The literal
+union-support/acyclic prespectrum isomorphism transports the canonical fiber lift, retaining
+its actual inclusion, whole nullhomotopy and independent structure/time parameters in every
+level including zero. Both its original and canonically rebased maps into the same fiber
+are stable equivalences in every integer degree. Coarse restriction factors the original
+fine supported restriction by a specified coherent homotopy. The existing fine \(K_1\)-to-\(K_0\)
+sequence is retained with its original maps.
+'''
+scope = '''Fixed additional-support open pair; compact ambient space; quasi-separated ambient space;
+compact union \(j(U)\cup T\). The strong endpoint does not assume `CompactSpace` U.
+Compact U and compact T give wrappers. Native derived geometry and supported cofinality
+supply the fine profile; no roof, density, complement, cover-profile or fiber-equivalence
+proof fields are assumed. The actual coarse model is the [@ThomasonTrobaugh1990, 5.1.2] image cover in this
+compact-union setting, following [@ThomasonTrobaugh1990, 5.2]. Support is ambient perfect complexes acyclic on
+the indicated open, not K-theory of a closed subscheme. Support-forgetting boundary and
+arbitrary global-pair naturality, general two-piece supported gluing, and Bass [@ThomasonTrobaugh1990, 7.4] are
+excluded. No identification of a signed stable connecting homomorphism is asserted here.
+'''
+review = "author_checked"
+provenance = "quillen"

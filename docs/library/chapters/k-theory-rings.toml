@@ -1,0 +1,47 @@
+[chapter]
+id = "k-theory-rings"
+title = "Algebraic K-Theory of Rings"
+order = 12
+introduction = "Module and projective categories specialize the general constructions to rings and fields. This chapter treats dimension, projective completion, the precisely scoped Matsumoto comparison, finite-field degree two, and G-theory localization. Milnor symbol theory stays in its own chapter; only its comparison interfaces are used here. Affine perfect-complex evaluation remains with the scheme results COL-0358 and COL-0380."
+
+[[sections]]
+id = "k-zero-of-fields"
+title = "\\(K_{0}\\) of fields"
+order = 10
+introduction = "Dimension identifies the Grothendieck group of finite-dimensional vector spaces with the integers. The standard exact structure gives the same map on the conflation presentation."
+
+[sections.transitions]
+COL-0020 = "For finite-dimensional vector spaces, the conflations of the\nstandard exact structure are the short exact sequences.\nThe comparison of COL-0019 identifies their object generators,\nso the dimension computation applies to the conflation\npresentation with the same normalization on the field.\n"
+
+[[sections]]
+id = "quillen-k-theory-of-rings"
+title = "Projective completion"
+order = 20
+introduction = "Finite projective modules give the ring specialization of exact-category K-theory. Direct sum and the actual completion identify components with the original \\(K_0\\) in COL-0378. This comparison retains the original exact-category model."
+
+[sections.transitions]
+COL-0378 = "Direct sum makes the isomorphism groupoid of finite projective modules symmetric monoidal.\nSimultaneous translation of pairs then gives the actual completion category.\nIts components record virtual projective classes; splitting of the inherited conflations\ncompares these classes with the original exact Grothendieck group.\n"
+
+[[sections]]
+id = "matsumoto-theorem"
+title = "Matsumoto's theorem"
+order = 30
+introduction = "For a field, the classical Matsumoto presentation identifies degree-two K-theory with symbols subject to the Steinberg relation [@Matsumoto1969, Section 5, Theorem 5.10 and Corollary 5.11] and [@WeibelKBook, III, Theorem 6.1]. COL-0262 proves the implemented characteristic-zero comparison with the specified Quillen models; it does not claim bijectivity over every field. Its forward map is the ordered-symbol map of COL-0255, and the comparison retains the positive scalar-product normalization. The graded Milnor construction, symbol relations and residues remain in the independent Milnor chapter (COL-0005, COL-0007 and COL-0122)."
+
+[[sections]]
+id = "finite-field-k-two"
+title = "\\(K_2\\) of finite fields"
+order = 40
+introduction = "COL-0279 computes the vanishing of Milnor \\(K_2\\) over finite fields. Surjectivity of the existing comparison gives COL-0280 for the specified Quillen groups. This argument does not invoke the characteristic-zero bijectivity of COL-0262."
+
+[sections.transitions]
+COL-0280 = "Over finite fields the original Milnor comparison is\nsurjective. The integral vanishing of the source in\nCOL-0279 therefore gives vanishing of both native\nQuillen groups in degree two.\n"
+
+[[sections]]
+id = "g-theory-of-rings"
+title = "G-theory of rings"
+order = 50
+introduction = "Localization of finite modules over a Noetherian ring gives a connective sequence with an annihilator support condition. For a principal closed subset, dévissage identifies the supported group with the G-theory of the quotient ring."
+
+[sections.transitions]
+COL-0274 = "If \\(r^nM=0\\), the finite filtration by \\(r^iM\\) has\nquotients annihilated by \\(r\\). Those factors are\nmodules over \\(R/(r)\\). Dévissage identifies the\nsupported term through the original restriction-of-scalars\nmap, so the localization boundary transports through\nthat same equivalence.\n"

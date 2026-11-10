@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0330"
+title = "Fixed-pair qcqs connective image-cover localization"
+kind = "theorem"
+section = "perfect-open-localization"
+order = 90
+statement = """
+For a quasi-compact open in a quasi-compact quasi-separated scheme, the actual coarse
+S-prespectrum is connective and Omega. Its actual restriction is bijective on positive stable
+groups and injective in degree zero with exactly the global restriction image. The actual
+supported fiber lift, its projection and whole nullhomotopy give the original fiber sequence;
+the lift and its canonical rebase are stable equivalences in every integer degree. The
+coarse factorization agrees coherently with ordinary flat restriction. The corresponding fine
+K-groups have all three exact positions and the honest image-valued degree-zero tail.
+"""
+scope = '''Fixed open immersion; compact ambient and open spaces; quasi-separated ambient space; an
+arbitrary chosen derived category of modules on the open. Native qcqs geometry discharges
+roofs and complements. Uses the existing coarse model as the [@ThomasonTrobaugh1990, 5.1.1] image-cover target,
+following the proof in [@ThomasonTrobaugh1990, 5.2], rather than stipulating a separate cover or a spectrum profile.
+The support is perfect complexes on the ambient scheme acyclic on the open, not K-theory of
+the closed complement. No additional closed support ([@ThomasonTrobaugh1990, 5.1.2]), arbitrary open-pair pullback
+naturality, or Bass nonconnective theorem ([@ThomasonTrobaugh1990, 7.4]) is claimed.
+'''
+review = "author_checked"
+provenance = "quillen"

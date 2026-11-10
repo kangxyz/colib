@@ -65,9 +65,13 @@ class KTheoryLayersTests(unittest.TestCase):
         for section in ("grothendieck-groups", "quillen-k-theory", "waldhausen-k-theory"):
             self.assertEqual(library["sections"][section]["chapter"], "k-theory")
         for section in ("k-zero-of-fields", "quillen-k-theory-of-rings",
-                        "g-theory-of-rings", "k-theory-of-schemes"):
+                        "g-theory-of-rings", "matsumoto-theorem", "finite-field-k-two"):
             self.assertEqual(library["sections"][section]["chapter"],
-                             "k-theory-rings-schemes")
+                             "k-theory-rings")
+        for section in ("scheme-k-and-g", "perfect-open-localization",
+                        "scalar-operations-and-boundaries", "supported-localization",
+                        "perfect-pullback", "affine-evaluation", "affine-bass-constructions"):
+            self.assertEqual(library["sections"][section]["chapter"], "k-theory-schemes")
         for section in ("milnor-symbols-field-change", "milnor-residues-and-specialization",
                         "milnor-norms-and-rational-residues", "milnor-norms-on-curves",
                         "milnor-degree-two"):
@@ -75,13 +79,13 @@ class KTheoryLayersTests(unittest.TestCase):
         expected = {
             "COL-0004": "k-zero-of-fields",
             "COL-0020": "k-zero-of-fields",
-            "COL-0230": "k-theory-of-schemes",
-            "COL-0262": "quillen-k-theory-of-rings",
+            "COL-0230": "perfect-open-localization",
+            "COL-0262": "matsumoto-theorem",
             "COL-0272": "quillen-k-theory",
             "COL-0273": "g-theory-of-rings",
             "COL-0274": "g-theory-of-rings",
             "COL-0279": "milnor-degree-two",
-            "COL-0280": "quillen-k-theory-of-rings",
+            "COL-0280": "finite-field-k-two",
             "COL-0281": "quillen-k-theory",
         }
         for item, section in expected.items():

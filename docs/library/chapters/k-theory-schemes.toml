@@ -1,0 +1,104 @@
+[chapter]
+id = "k-theory-schemes"
+title = "Algebraic K-Theory of Schemes"
+order = 13
+introduction = "Scheme K-theory uses the existing vector-bundle, coherent-sheaf and native perfect-complex constructions. Geometric restriction, support and pullback lead to connective localization and its specified boundary. Affine section evaluation compares the geometric and ring-side perfect-complex models. The entries retain the distinction between their proved connective comparisons and full nonconnective localization [@ThomasonTrobaugh1990, 5.1.2 and 7.4]."
+
+[[sections]]
+id = "scheme-k-and-g"
+title = "Vector bundles, coherent sheaves and the K-to-G comparison"
+order = 10
+introduction = "Vector bundles and coherent sheaves give the specified K-to-G map. Regularity and the resolution property enter precisely in the equivalence COL-0286; they are not assumptions of the remaining perfect-complex constructions."
+
+[sections.transitions]
+COL-0286 = "On a quasi-compact regular scheme with the resolution\nproperty, a coherent sheaf has a finite resolution by\nfinite locally free sheaves. Resolution applies to\nthe exact inclusion in COL-0285, so the comparison\nuses that inclusion on \\(K\\)-groups.\n"
+
+[[sections]]
+id = "perfect-open-localization"
+title = "Perfect complexes and open localization"
+order = 20
+introduction = "Actual restriction on the native perfect complexes gives the open-support comparisons and connective localization sequences. The honest derived image and its degree-zero obstruction remain explicit. The fixed-pair qcqs result COL-0330 is a connective image-cover statement, not an identification with the full nonconnective theorem [@ThomasonTrobaugh1990, 7.4]."
+
+[sections.transitions]
+COL-0230 = "For perfect complexes, an open immersion\n\\(j\\colon U\\hookrightarrow X\\) gives ordinary restriction\n\\(j^*\\) on actual cochain complexes. Exactness for the\nfine Waldhausen structures gives its canonical \\(K\\)-map.\n"
+COL-0298 = "Write \\(w_j\\) for the weak class detected by quasi-isomorphisms\nafter \\(j^*\\). An object is acyclic for \\(w_j\\) exactly when\nits restriction is acyclic. The corresponding support\ncategory thus identifies with the acyclic category for\nthe change from the fine weak class to \\(w_j\\).\n"
+COL-0300 = "For this change of weak equivalences, the identity-cone\ncylinder and extension give the acyclic-to-fiber comparison.\nIts inclusion and path-space boundary give the relative\nexact sequence, with a degree-zero tail in the coarse\nrelative theory.\n"
+COL-0307 = "For fine restriction, one needs roofs for the actual\nrestricted derived morphisms and a complement for a perfect\ncomplex on the open. For a quasi-compact open in a qcqs\nscheme, the roofs have global perfect denominators becoming\nquasi-isomorphisms on the open. The complements give\nstabilizations that are derived restrictions of global complexes.\n"
+COL-0314 = "The derived image consists of the actual complexes on\nthe open that are derived-isomorphic to restrictions.\nThe roof hypothesis supplies its exact structure and the\nincoming lifts used by approximation for the relative\nrestriction corestriction.\n"
+COL-0315 = "Perfect complements give density of that image in the\nfine category on the open. The cofinality comparison\nidentifies its positive groups with the fine groups and\nits degree-zero group with the subgroup of actual\nrestriction classes.\n"
+COL-0318 = "Under the roof and complement hypotheses, the positive\ncomparison inverses carry the relative boundary to the\nfine theory on the open. In degree zero the exact tail\nends at the actual global restriction image. This is\nalso the degree-zero image of the connective spectrum map.\n"
+COL-0319 = "The supported category identifies with the relative\nacyclic category by the original exact flattening.\nIterating \\(S\\) transports the fiber map with its\ninclusion coordinate and the entire original null path.\n"
+COL-0330 = "For a quasi-compact open in a qcqs scheme, the geometric\nroofs and complements of COL-0307 supply the preceding\nhypotheses. The coarse connective spectrum maps to the\nfine open spectrum with the positive isomorphisms and\nthe degree-zero restriction image just described.\n"
+
+[[sections]]
+id = "scalar-operations-and-boundaries"
+title = "Scalar operations and the signed boundary"
+order = 30
+introduction = "Scalar cone maps, complete additivity tracks and prescribed return paths determine the actual supported boundary. The direction of the unit action and the null-conjugation sign are retained, rather than absorbed into a new normalization."
+
+[sections.transitions]
+COL-0303 = "Let a global scalar \\(r\\) act on a perfect complex \\(P\\)\nand suppose it restricts to a unit on \\(U\\). Its signed cone\nrestricts to an acyclic complex. The scalar cylinder presents\nthat cone as an actual cofiber, so additivity applies to the\nmap from the identity sequence to the scalar sequence.\n"
+COL-0316 = "Passing to positive-dimensional generalized loops carries\nthe full additivity square to a square of cubes with two\nindependent times. The fine identity and scalar cofiber\npaths give its coarse edges, which identify the boundary\nroutes with the stipulated orientation.\n"
+COL-0317 = "The coproduct in the sum comparison is ordered with\nthe quotient first. The normalized endpoint and the reversed\nnull path of the supported cone supply the two coordinates\nof a cube in the canonical homotopy fiber.\n"
+COL-0304 = "In degree one, take the independently defined forward scalar\nloop. Its canonical fiber comparison gives the object class\nof the signed cone. With the boundary of COL-0300, the cone\nenters with positive sign.\n"
+COL-0305 = "On \\(U\\) the scalar acts by the given global-unit\nautomorphism. The forward scalar class restricts to its\nfine \\(K_1\\) class. The rank-one comparison identifies\nthe unit coordinate for structure sheaves and in the\naffine and relative Laurent cases.\n"
+COL-0320 = "On an original subdivision cube, the return path uses\nthe prescribed inverse inclusion and projection class.\nThe coordinate-zero connecting map compares its normalized\ncube with the canonical fiber cube of the actual acyclic cone.\n"
+COL-0324 = "The complete scalar tracks give raw and zero-normalized\nself-track operations. Transport of the stored paths compares\nthese operations with the prescribed return on every\nsubdivision cube, preserving the positive cone image.\n"
+COL-0329 = "The subdivision inputs represent every connective\n\\(K\\)-class. Thus the cube calculation and injectivity of\nthe supported-to-fiber comparison identify the relative\nboundary of the two scalar operations as homomorphisms\nin each connective degree.\n"
+
+[[sections]]
+id = "supported-localization"
+title = "Auxiliary support, excision and relative-open fibers"
+order = 40
+introduction = "For a fixed open pair and auxiliary support condition, the supported and bounded-flat models give approximation and comparison results with their original admissible quotients. Each entry states the support, compactness and connective scope actually proved."
+
+[sections.transitions]
+COL-0331 = "Fix an auxiliary open \\(T\\subseteq X\\) and start with\nperfect complexes acyclic on \\(T\\). Detect weak equivalences\nby restriction along \\(j\\). The acyclic objects for the\nnew class are then the perfect complexes acyclic on\n\\(T\\cup j(U)\\), by the actual support flattening.\n"
+COL-0332 = "When \\(T\\cup j(U)=X\\), restriction and extension by zero\ngive exact adjoint functors on the supported categories.\nTheir unit and counit are quasi-isomorphisms, so the\ninduced realization maps are homotopy inverses.\n"
+COL-0333 = "Suppose \\(W=T\\cup j(U)\\) is quasi-compact in a qcqs\nscheme. The supported roof has a perfect source\nacyclic on \\(T\\), and its two legs are chain maps on \\(X\\).\nFor a perfect \\(E\\) on \\(U\\) with the prescribed support,\nthe stabilized extension restricts to \\(E\\oplus E[1]\\),\nwith the shifted complement carrying the same support.\n"
+COL-0334 = "The supported roofs give the exact derived-image model\nand its incoming lifts. The shifted complements give\ncofinality of the image, so coarse restriction is an\nisomorphism in positive degrees and has exactly the\nfine restriction image in degree zero.\n"
+COL-0335 = "With the same compact union, the actual coarse spectrum\nrealizes this image comparison. The union-support\nidentification carries the whole acyclic nullhomotopy\nand its fiber lift, also after canonical zero rebasing.\n"
+COL-0336 = "Forgetting auxiliary support is the inclusion of one\nsupported category into the other. It commutes with\nchange of weak equivalences and the relative boundary.\nWhen \\(U\\) and \\(W\\) are compact, this yields the fine\nboundary square through the positive comparison inverses.\n"
+COL-0337 = "At the prespectrum level, support inclusion carries\nevery time of the original nullhomotopy. The resulting\nfiber square compares the signed stable boundaries,\nwhose relation to the connective boundaries retains\nthe minus sign in the \\(K_1\\)-to-\\(K_0\\) degree.\n"
+COL-0382 = "The supported evaluation of COL-0380 lands in bounded-flat perfect complexes.\nFor a quasi-compact scheme \\(X\\), bounded-flat replacement preserves acyclicity\non any open \\(U\\), including that of the admissible quotient. Thus the literal\ninclusion into all supported perfect complexes satisfies approximation. Its\noriginal \\(K\\)-map determines a stable equivalence, and the support-forgetting\nsquare retains a whole coherent homotopy.\n"
+
+[[sections]]
+id = "perfect-pullback"
+title = "Flat perfect models and geometric pullback"
+order = 50
+introduction = "The native bounded-above flat perfect complexes and their actual quotient complexes support geometric pullback. Their comparison with all perfect complexes and the pullback pseudofunctor retain the original zero normalizations, structure isomorphisms and exact hypotheses. They do not introduce a parallel perfect-complex model."
+
+[sections.transitions]
+COL-0322 = "For a morphism \\(f\\colon Y\\to X\\), termwise pullback\ntakes bounded finite locally free complexes on \\(X\\)\nto such complexes on \\(Y\\). Flat quotients control\nthe inherited exact sequences and give the exact\npullback functor on these models.\n"
+COL-0323 = "For arbitrary perfect complexes, an upper term bound\nand flatness of the terms give a model for termwise\npullback. A bounded-above flat augmentation can use\nthe given cohomological bound, which exists for perfect\ncomplexes on a quasi-compact space.\n"
+COL-0325 = "On a quasi-compact ringed space, a map from a flat\nmodel to a perfect complex factors through a cofibration\nwith flat perfect quotient followed by a quasi-isomorphism.\nThis supplies App2 for the literal inclusion of the\nbounded-above flat models.\n"
+COL-0326 = "Termwise pullback on the flat models composes by the\ngeometric pullback comparison, with exactness from\nthe flat quotients. When the morphism target \\(X\\)\nis quasi-compact, the inverse of the inclusion comparison\non \\(X\\) gives the resulting pullback on all-perfect\n\\(K\\)-theory.\n"
+COL-0328 = "For a flat morphism or an open immersion, the flat-model\npullback square commutes with the literal inclusions\nby the actual geometric natural isomorphism. This\nidentifies the transported map with the previously\ndefined exact pullback or fine restriction map.\n"
+COL-0351 = "The same inclusion has a canonically zero-normalized\nprespectrum map. On a compact ringed space its connective\n\\(K\\)-isomorphisms identify the stable map as an\nequivalence. Flat pullback carries the inclusion square\nby a whole based prespectrum homotopy.\n"
+COL-0352 = "The composition and unit isomorphisms of termwise\npullback satisfy the pseudofunctor coherence equations.\nRestricting this pseudofunctor along \\(\\operatorname{Spec}\\)\ngives the affine coefficient diagram, with its identity\nand composition transports.\n"
+
+[[sections]]
+id = "affine-evaluation"
+title = "Affine sections, coefficients and evaluation"
+order = 60
+introduction = "For a fixed base ring, affine evaluation compares the actual bounded-flat and perfect-complex models. The comparison retains the specified maps and open-support conditions of COL-0358 and COL-0380."
+
+[sections.transitions]
+COL-0355 = "Evaluation at the identity of \\(R\\) identifies the\ncocartesian sections with the original coefficient\nfiber. Restriction along a ring map is literal\nprecomposition and preserves the chosen pointwise\nzero. These exact restrictions give the strict\ncoefficient prespectrum after small models and\niteration of \\(S\\).\n"
+COL-0380 = "For an open immersion \\(j\\colon U\\hookrightarrow\\operatorname{Spec}R\\), impose\nacyclicity after \\(j^*\\) on identity evaluation in COL-0355. Restricting its\ncategorical equivalence preserves the original sections and complexes. Their\nindependently chosen zeros are compared by a canonical normalization isomorphism,\nwhich makes the actual evaluation a strict model map with coherent inverse tracks.\n"
+COL-0358 = "For a fixed commutative ring \\(R\\), the evaluation equivalence of COL-0355,\nfollowed by the small-model lift, gives the specified prespectrum map.\nNormalize its actual categorical inverse at the chosen zero. The original\nunit and counit then give whole inverse homotopies, hence level equivalences\nand isomorphisms of stable homotopy groups in every integer degree.\n"
+
+[[sections]]
+id = "affine-bass-constructions"
+title = "Affine Laurent seeds and Bass constructions"
+order = 70
+introduction = "The Laurent square gives the finite Bass constructions and their stabilization. The existing cone and telescope comparisons retain their signed boundaries and precise finite-stage hypotheses. These statements do not identify the full nonconnective localization sequence."
+
+[sections.transitions]
+COL-0359 = "Fully faithful identity evaluation lifts a global-unit\nautomorphism to the actual affine cocartesian sections.\nFor a commutative ring \\(R\\), the Laurent coordinate\n\\(T\\) gives this action over \\(R[T,T^{-1}]\\).\nEvaluation along a Laurent ring map identifies the two\ndirections with multiplication by the images of \\(T\\)\nand \\(T^{-1}\\), and coefficient reindexing preserves\nthe whole isomorphism strictly.\n"
+COL-0360 = "Reindex the forward unit of COL-0359 along the constant\ninclusion \\(c_R\\colon R\\to R[T,T^{-1}]\\).\nThe zero-preserving exact section map and its unit\nisomorphism give a based self-homotopy of the induced\nprespectrum map. The strict coefficient square carries\nthe entire track, with homotopy time independent of the\nstructure coordinate and, in degree zero, the input-loop\ncoordinate.\n"
+COL-0361 = "The two polynomial charts map \\(R[X]\\) to\n\\(R[T,T^{-1}]\\) by \\(X\\mapsto T\\) on the right\nand \\(X\\mapsto T^{-1}\\) on the bottom. Both source\ncomposites are \\(c_R\\). In the mapping cone of the\nstrict-square comparison, let \\(N\\) be its source-cylinder\nnullhomotopy and \\(V\\) the forward track of COL-0360\nfollowed by cone inclusion. The loop is the reverse of\n\\(N\\), followed by \\(V\\) followed by \\(N\\), with\nright-associated concatenation. Naturality of both tracks\ngives the coefficient-natural one-step Bass seed.\n"
+COL-0379 = "To use the Laurent square of COL-0361 with a fixed affine open over\n\\(R\\), retain the specified structure arrow \\(R\\to A\\) at every corner.\nBoth routes from \\(A\\) to \\(A[t,t^{-1}]\\) are the coefficient inclusion,\nalthough the two polynomial charts have opposite coordinates. Forgetting\n\\(R\\) recovers the ring square, while its actual algebra arrows also\ninduce the contravariant maps between the chosen open pullbacks.\n"
+COL-0362 = "Iterate the strict polynomial and Laurent Bass functor\non the affine section prespectrum, carrying the proved\nLaurent seed at every transition. Each original stage\nis \\(T_1\\), and finite Bass separation propagates this to\nall stages. The reduced quotient telescope therefore\nhas the canonical signed stable-group colimit comparison\nof COL-0350, now natural for every coefficient map.\n"
+COL-0375 = "The finite stages in COL-0362 retain more than \\(T_1\\) separation.\nTheir chosen points have the homotopy extension property. At level\n\\(n+i+2\\), stage \\(i\\) has singleton homotopy sets in degrees below\n\\(n+2\\), at every point. For a map from stage \\(i\\) to stage \\(j\\),\nfinite cone-fiber excision gives connectivity \\(2n+2\\) at level\n\\(n+\\max(i,j)+2\\). This increasing bound makes the original\nsource-to-cone-fiber comparison a stable equivalence.\n"
+COL-0376 = "For a coefficient map \\(f\\colon R\\to S\\), apply COL-0375 to\n\\(f_i=D_i(f)\\) at each finite Bass stage. The actual cone of the\ntelescope map identifies with the telescope of these cones. Their\n\\(T_1\\) separation permits the stable-colimit comparison, so the\nfinite signed boundaries descend to\n\\(\\delta_{f,d}\\colon\\pi_{d+1}^{\\mathrm{st}}C(f)\\to\\pi_d^{\\mathrm{st}}T(R)\\).\nSequential colimits preserve the three finite exactness positions.\nThe stage formula identifies this descended map with the original\nsigned cone boundary, and coefficient squares preserve that formula.\n"

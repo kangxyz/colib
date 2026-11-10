@@ -1,0 +1,29 @@
+[entry]
+id = "COL-0361"
+title = "The coefficient-natural affine-section Bass seed"
+kind = "theorem"
+section = "affine-bass-constructions"
+order = 30
+statement = """
+The canonical polynomial and Laurent square is a strict functor on commutative rings,
+with positive right chart and inverse-coordinate bottom chart. Applying the native
+zero-preserving exact affine-section model and iterated-S prespectrum functors gives
+actual strict squares. The source composite is literally the Laurent coefficient inclusion.
+Its mapping-cone cylinder nullhomotopy conjugates the forward Laurent-unit self-track
+into a genuine natural transformation from the section prespectrum diagram to its
+one-step Bass cone-loop diagram. Every coefficient map preserves the whole null track
+and the exact right-associated reverse-null, unit, null loop.
+"""
+scope = """
+Arbitrary commutative rings, including the zero ring, and arbitrary coefficient maps,
+without flatness hypotheses. The bottom chart inverts exponents and is distinct from
+both additive negation and the forward Laurent-unit action. The output loop parameter,
+degree-zero input-loop coordinate and prespectrum structure coordinate are independent.
+The loop uses half, quarter, quarter timing. No supplied square, action, seed or
+naturality callback, and no replacement cone or legacy-model adapter. Formal finite
+iteration is included, but no evaluation comparison, supported localization,
+Bass telescope identification, or Thomason--Trobaugh 7.4 is asserted.
+"""
+review = "author_checked"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSectionBassSeed"

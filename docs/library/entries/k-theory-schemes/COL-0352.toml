@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0352"
+title = "The geometric bounded-above-flat pullback pseudofunctor"
+kind = "definition"
+section = "perfect-pullback"
+order = 70
+statement = "Actual termwise pullback on native bounded-above flat perfect complexes satisfies composition associativity, the two triple-composition routes and both unit laws. These laws construct a pseudofunctor from locally discrete opposite schemes to categories. Restriction along Spec gives the affine coefficient pseudofunctor with its original object and arrow functors and explicit Spec identity and composition equality transports."
+scope = '''Arbitrary scheme morphisms and commutative ring maps in universe u. Fibers have object universe u + 1 and morphism universe u, hence lie in `Cat.{u, u + 1}`. The object property is native `IsPerfectComplex`, a global upper term bound and termwise sheaf flatness. No lower bound, compactness or morphism-flatness assumption. This is geometric pseudofunctoriality, not strict functoriality, section strictification, a coefficient prespectrum row, a Bass seed or [@ThomasonTrobaugh1990, 7.4].'''
+review = "author_checked"
+provenance = "quillen"
