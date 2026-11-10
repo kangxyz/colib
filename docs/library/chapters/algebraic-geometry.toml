@@ -52,6 +52,12 @@ order = 30
 introduction = "Native schemes and smooth separated finite-type objects carry the actual Nisnevich topology. Distinguished-square sheaf gluing and field evaluation preserve their original morphisms and coefficient categories. Ordinary Nisnevich descent precedes the additional transfer structure in COL-0369 and its sheafification in COL-0372, as in [@MVW2006, Lectures 12 and 13]."
 
 [sections.transitions]
+COL-0393 = '''
+Keep the smooth category and the Nisnevich topology of COL-0340. Over an affine
+base, refine each source of a big Nisnevich cover by affine opens. These sources
+remain smooth, separated and finite type over the base. The resulting comparison
+of covering sieves makes restriction compatible with ordinary sheafification.
+'''
 COL-0341 = '''
 In a distinguished square, an open immersion \(U\hookrightarrow X\) and an étale
 map \(V\to X\) that is an isomorphism over the closed complement give a Nisnevich
@@ -62,7 +68,9 @@ COL-0343 = '''
 For the base object \(\operatorname{Spec}k\), the residue-field condition gives
 a lift of its field point through any Nisnevich cover. The resulting section
 puts the identity into the covering sieve. Local lifting conditions for sheaves
-at this object are consequently conditions on their actual sections.
+at this object are consequently conditions on their actual sections. For abelian
+sheaves the native representing object is projective. Apply COL-0394 to compute
+unbounded hypercohomology from the literal sections complex at the base field.
 '''
 
 [[sections]]
@@ -82,4 +90,12 @@ The prism extends the comparison of the two endpoints from degree one to a chain
 homotopy on the whole singular complex. For the interval projection, multiplication
 on the interval gives the contraction to the vertex zero and identifies that
 vertex restriction as the chain homotopy inverse.
+'''
+
+COL-0395 = '''
+Retain the ordinary chain complex of COL-0348 and its actual barycentric face
+signs. Exact sheafification now gives a complex of ordinary sheaves and a
+canonical homology comparison. To use integer cochain degrees, place chain
+degree \(r\) in degree \(q-r\); the specified term isomorphisms carry the original
+differential, without yet identifying this placement with a signed shift.
 '''

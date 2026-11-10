@@ -1,0 +1,16 @@
+[entry]
+id = "COL-0385"
+title = "The reduced torus as a signed-transfer quotient"
+kind = "comparison"
+section = "reduced-transfer-tori"
+order = 20
+primary = "AlgebraicGeometry.PresheafWithTransfers.reducedTorusSectionsIsoQuotient"
+statement = '''
+Let \(k\) be a field in universe \(u\), and use coefficients in universe \(u+1\). For \(q\in\mathbb N\), write \(L_q=\mathbb Z_{\mathrm{tr}}(\mathbb G_m^q)\) for the lifted signed representable. For \(i\in\operatorname{Fin}(q)\), the identity insertion of COL-0384 induces \(a_i:L_{q-1}\to L_q\) by postcomposition with its graph. Define \(\widetilde L_q\) as the cokernel of \(\bigoplus_i L_{q-1}\to L_q\), with components \(a_i\). Then
+\[ \widetilde L_q(X)\simeq L_q(X)/\sum_{i\in\operatorname{Fin}(q)}\operatorname{im}(a_{i,X}). \]
+Every section is represented by a signed correspondence \(\beta:X\to\mathbb G_m^q\). For \(\alpha:Y\to X\), its transfer is \([\beta]\mapsto[\beta\circ\alpha]\), with the original signed incidence composition. Maps from \(\widetilde L_q\) to a transfer presheaf \(P\) correspond uniquely to maps \(L_q\to P\) killing every \(a_i\). In weight zero there are no relations and the result is the representable of \(\operatorname{Spec}k\); in weight one it is the cokernel of the graph of \(1:\operatorname{Spec}k\to\mathbb G_m\).
+'''
+scope = '''
+The relation is the sum of all identity-axis images, with coefficient \(+1\) on each axis, not an alternating boundary. Signed transfers survive the quotient. This is the presheaf construction of [@MVW2006, Lecture 2, Definition 2.12, p. 15; weight-zero convention, p. 16], including its pointed weight-one presentation. No sheafification, singular complex, motivic complex, direct-summand theorem, or homotopy invariance is part of this item.
+'''
+review = "author_checked"

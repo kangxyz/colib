@@ -1,0 +1,16 @@
+[entry]
+id = "COL-0392"
+title = "Ext presheaves with signed transfers"
+kind = "definition"
+section = "transfer-homological-algebra"
+order = 40
+primary = "AlgebraicGeometry.SheafWithTransfers.transferExtPresheaf"
+statement = '''
+Let \(k\) be a field in universe \(u\), \(F\in\operatorname{NST}(k)\) with coefficients in universe \(u+1\), and \(n\in\mathbb N\). Assume `HasExt` for this category in universe \(w\). With \(R_X\) as in COL-0391, the assignment
+\[ X\longmapsto\operatorname{Ext}^{n}_{\operatorname{NST}(k)}(R_X,F) \]
+is an additive contravariant functor on \(\operatorname{Cor}(k)\), valued in abelian groups in universe \(w\). A signed correspondence \(\alpha:X\to Y\) acts by precomposition with \(R(\alpha):R_X\to R_Y\). A coefficient morphism \(F\to G\) induces a natural transformation commuting with these transfers.
+'''
+scope = '''
+This is Mathlib's `extFunctor`, evaluated on the actual sheafified signed representable. The Ext universe remains explicit. The transfer Ext construction is an input to, not a proof of, the ordinary Nisnevich cohomology comparison in [@MVW2006, Lecture 13, Lemma 13.4(3), pp. 99–100]. No ordinary cohomology identification or homotopy invariance is asserted.
+'''
+review = "author_checked"

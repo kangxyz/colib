@@ -205,6 +205,15 @@ ordinary Ext cohomology, and the cochain shift determines the change
 of hypercohomological degree.
 '''
 
+
+COL-0394 = '''
+The free representing sheaf in COL-0342 also describes literal sections. When
+that sheaf is projective, its degree-zero single complex is K-projective, so
+localization loses no morphisms from it. The same argument first applies to any
+projectively corepresented additive functor, then identifies hypercohomology at
+the site object with the cohomology of its sections complex.
+'''
+
 [[sections]]
 id = "ext-products"
 title = "External Ext products"

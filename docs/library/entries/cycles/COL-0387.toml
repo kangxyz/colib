@@ -1,0 +1,31 @@
+[entry]
+id = "COL-0387"
+title = "Parameter-graph incidence on matching and distinct components"
+kind = "comparison"
+section = "exterior-parameters"
+order = 20
+primary = "Stacks.Chow.nativeMixedGraphIncidenceIso"
+statement = '''
+Let \(k\) be a field, let \(X,Y,T,U\) be smooth separated finite-type \(k\)-schemes, assume \(U\) geometrically integral, and let \(\psi:T\to U\). Let \(W\subset X\times_kY\) be the integral support of an admissible prime correspondence. Write \(W_T=W\times_kT\), \(W_U=W\times_kU\), and \(s_T:W_T\to X\times_kT\) for the source projection. Choose a generic point \(t\) of \(X\times_kT\). Let \(G_t\) be the native integral graph support of \(1_X\times\psi\) on that source component, with source projection \(g_t:G_t\to X\times_kT\). Assume
+\[ \operatorname{im}(s_T)\subseteq\operatorname{im}(g_t). \]
+Let \(V_U\) be the native support of the exterior prime associated to \(W_U\). The actual mixed incidence scheme
+\[ I_t=G_t\times_{X\times_kU}V_U \]
+is canonically isomorphic to \(W_T\). The forward map \(e:W_T\to I_t\) has first projection the unique lift of \(s_T\) through the open immersion \(g_t\), and second projection the parameter map \(1_W\times\psi:W_T\to W_U\) followed by the support isomorphism of COL-0386 for \(U\).
+
+If \(T\) is also geometrically integral, write \(V_T\) for its native exterior support and \(a_T:W_T\simeq V_T\) for that support isomorphism. The actual finite map \(m_t:I_t\to(X\times_kT)\times_k(Y\times_kU)\) satisfies
+\[ m_t\circ e=p_\psi\circ a_T, \]
+where \(p_\psi:V_T\to(X\times_kT)\times_k(Y\times_kU)\) retains the source and postcomposes the target by \(1_Y\times\psi\). Thus both coordinates of the finite map, not merely its image, agree.
+
+For the nonmatching case, retain geometric integrality of both \(T\) and \(U\), but replace the image inclusion by the distinct-source-image hypothesis
+\[ \operatorname{im}(g_t)\ne\operatorname{im}(s_T). \]
+Then \(I_t\) is empty, and the actual incidence-Tor correspondence of the graph prime \(G_t\) followed by the exterior prime \(V_U\) is zero in \(\operatorname{Cor}_k(X\times_kT,Y\times_kU)\).
+'''
+scope = '''
+All schemes and the field lie in universe \(u\). The graph component is the actual native graph at the chosen generic point. Its source projection is an open immersion because the smooth source is normal; the displayed image inclusion is an explicit compatibility hypothesis. The incidence isomorphism itself does not require geometric integrality of \(T\); that additional hypothesis is used for the comparison with its native exterior prime. The construction develops the exterior-product geometry of [@MVW2006, Lecture 1, Definition 1.9, p. 6], without claiming that this definition states the incidence comparison. No matched-component Tor multiplicity, arbitrary exterior composition law, or full graph-interchange identity is asserted.
+'''
+proof = '''
+The graph source projection is an open immersion. In the compatible case, the image inclusion lifts \(s_T\) uniquely to \(G_t\). Pair this lift with the changed-parameter support map to obtain \(e\). The source Cartesian square gives its inverse; the pullback universal properties verify both composites. Comparing the source and target coordinates proves the finite-map identity.
+
+In the nonmatching case, the two source images are distinct irreducible components of the normal smooth scheme \(X\times_kT\), hence disjoint. Any incidence point would map into both: into the graph image by the first incidence projection, and into the exterior image by the map from incidence to \(W_T\). Thus there are no incidence points or generic points, and the defining incidence-Tor sum is zero. This does not compute any matched-component Tor multiplicity.
+'''
+review = "author_checked"

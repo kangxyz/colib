@@ -1,0 +1,83 @@
+[entry]
+id = "COL-0394"
+title = "Projective corepresentability and unbounded evaluation"
+kind = "comparison"
+section = "derived-hom-comparisons"
+order = 30
+primary = "Stacks.Cohomology.Corepresented.projectiveHomologyDerivedAddEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(\mathcal A\) be an abelian category, \(T\colon\mathcal A\to\mathbf{Ab}\)
+an additive functor, \(Z\) a projective object, and
+\(e\colon\operatorname{Hom}_{\mathcal A}(Z,-)\xrightarrow{\sim}T\) a natural
+isomorphism. For every integer-indexed cochain complex \(K\) and integer \(n\),
+there is an additive equivalence
+\[
+\Phi_{K,n}\colon H^n(T(K))\xrightarrow{\sim}
+\operatorname{Hom}_{D(\mathcal A)}(Z[0],Q(K)[n]).
+\]
+For an actual cochain map \(f\colon K\to L\),
+\[
+\Phi_{L,n}(H^n(T(f))(x))=Q(f)[n]\circ\Phi_{K,n}(x).
+\]
+
+Put \(P=Z[0]\) in the cochain category and let \(\Theta(x)\) be the native
+Hom-complex comparison class from \(P\) to \(K[n]\) in the homotopy category.
+Write \(Q_h\) for localization from that category,
+\(q_M\colon Q_h([M])\xrightarrow{\sim}Q(M)\) for the quotient comparison,
+\(s_Z\colon Z[0]_{D}\xrightarrow{\sim}Q(P)\) for the single-complex comparison,
+and \(c_{n,K}\colon Q(K[n])\xrightarrow{\sim}Q(K)[n]\) for localization's
+shift comparison. The actual map is
+\[
+\Phi_{K,n}(x)=c_{n,K}\circ q_{K[n]}\circ Q_h(\Theta(x))\circ q_P^{-1}\circ s_Z.
+\]
+
+For a site \((C,J)\), let \(\mathbb Z_J[X]\) be Stacks' native free abelian
+sheaf on the universe-lifted representable. If \(\mathbb Z_J[X]\) is projective,
+then for every unbounded complex \(K\) of abelian sheaves the inverse comparison is
+\[
+E_{K,n,X}\colon\mathbb H^n(X,K)\xrightarrow{\sim}H^n(K(X)).
+\]
+Here the left side is exactly the hypercohomology presheaf of COL-0342 evaluated
+at \(X\), and \(K(X)\) is literal termwise sections. It satisfies
+\(E_{L,n,X}(\mathbb H^n(X,f)(x))=H^n(f(X))(E_{K,n,X}(x))\).
+'''
+scope = '''
+In the generic comparison, \(\mathcal A\) has object universe \(u\), morphism
+universe \(v\), coefficients `AddCommGrpCat.{v}`, and an explicit derived category
+in an independent universe \(w\). The target complex is unbounded and need not be
+K-injective. Neither enough projectives nor enough injectives is assumed.
+The source is the single complex of the specified projective object; this does
+not migrate an arbitrary K-projective-source interface.
+
+For the site application, \(C\) has independent object and morphism universes
+\(u,v\), coefficients are `AddCommGrpCat.{max u v t}`, and
+`HasSheafify J AddCommGrpCat.{max u v t}` is assumed. The free representing sheaf
+and section functor are the existing native objects. The natural isomorphism
+`coyonedaIsoSheafSections` extends the small-site corepresentation interface to
+these independent universes. Derived homs may live in an independent universe,
+so the conclusion is an additive equivalence rather than an isomorphism in an
+assumed common category of abelian groups. Projectivity at \(X\) is a hypothesis;
+COL-0343 supplies it at the base field on its own smooth Nisnevich site.
+'''
+proof = '''
+The fixed corepresentation \(e\) identifies \(T(K)\) with the Hom complex from
+\(Z[0]\). Stacks' Hom-complex comparison identifies its cohomology with morphisms
+in the homotopy category. The single complex of a projective object is
+K-projective, so Mathlib's localization map is bijective on these morphism groups.
+Conjugating by \(s_Z,q_P,q_{K[n]},c_{n,K}\) gives the displayed map. Naturality is
+the native Hom-complex postcomposition identity, followed by naturality of the
+quotient and shift comparisons.
+
+For the site application, `sectionsAddEquiv` and its coefficient naturality give
+`coyonedaIsoSheafSections`. Apply the generic equivalence to that corepresentation
+and invert it. This uses the original hypercohomology presheaf and does not define
+a second derived-sections object.
+
+The projective-single localization argument and naturality adapt
+[@motivic_source_a6805c4, Motivic/Aglib/CategoryTheory/Sites/Hypercohomology/Evaluation.lean:38-49,101-108]
+and [@motivic_source_a6805c4, Motivic/Aglib/CategoryTheory/Sites/Hypercohomology/EvaluationNaturality.lean:85-97,107-124].
+The reused Hom-complex and homotopy comparison is
+[@axiom_stacks_5ed82d14, StacksFrontier/Homology/Ext/CorepresentedHomComplex.lean:72-99,104-135].
+'''

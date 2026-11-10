@@ -281,9 +281,9 @@ sha256 = "09d6ad8705f8987e8f4a7667a60a3ba14c55d859f4ec6a66af07f7ad57ced2b2"
 
 [sources.mathlib_stable_localization_pin]
 kind = "software"
-title = "Mathlib categorical quotient and localization"
+title = "Mathlib"
 authors = ["The mathlib community"]
-version = "Git commit 56a005855ea17e0b0958f73ec801ae140b0a1679; exact quotient and arbitrary-morphism-property localization sources inspected."
+version = "Git commit 56a005855ea17e0b0958f73ec801ae140b0a1679"
 url = "https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679"
 
 [sources.motivic_source_a6805c4]
@@ -292,6 +292,7 @@ title = "Motivic Cohomology migration source"
 authors = ["kangxyz and Motivic Cohomology contributors"]
 version = "Git commit a6805c4a87cdfd7717dd7a94039246a167f15380"
 url = "https://github.com/kangxyz/motivic/tree/a6805c4a87cdfd7717dd7a94039246a167f15380"
+locator_roots = ["Motivic"]
 
 [sources.MVW2006]
 kind = "book"
@@ -307,3 +308,11 @@ title = "Native polynomial Milnor norms in the Stacks Project in Lean"
 authors = ["AxiomMath/Stacks contributors"]
 version = "Git commit 5ed82d14634e8d9576bb844c7bd4e3da66d450e7; SimpleNorm.lean declarations inspected 2026-11-08"
 url = "https://github.com/AxiomMath/Stacks/blob/5ed82d14634e8d9576bb844c7bd4e3da66d450e7/StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/SimpleNorm.lean"
+
+[sources.axiom_stacks_5ed82d14]
+kind = "software"
+title = "The Stacks Project in Lean"
+authors = ["AxiomMath/Stacks contributors"]
+version = "Git commit 5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+url = "https://github.com/AxiomMath/Stacks/tree/5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+locator_roots = ["StacksFrontier", "StacksCore"]
