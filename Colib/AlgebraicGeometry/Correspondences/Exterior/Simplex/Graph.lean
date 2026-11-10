@@ -236,7 +236,6 @@ namespace AlgebraicGeometry.Cor
 variable {k : Type u} [Field k]
 
 /-- Exterior multiplication by the simplex preserves graphs of arbitrary smooth-site maps. -/
-@[simp]
 theorem simplexExterior_graph (n : ℕ)
     {X Y : SmoothSite (Spec (.of k))} (φ : X ⟶ Y) :
     simplexExterior n ((graphFunctor k).map φ) =

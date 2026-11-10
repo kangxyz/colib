@@ -128,7 +128,7 @@ theorem representablePoint_app_app {X : SmoothSite (Spec R)}
     (x : base (Spec R) ⟶ X) (U : (SmoothSite (Spec R))ᵒᵖ)
     (n : SimplexCategoryᵒᵖ)
     (z : (((⊤_ ((SmoothSite (Spec R))ᵒᵖ ⥤ SSet.{u})).obj U).obj n)) :
-    ((representablePoint R x).app U).app n z =
+    ConcreteCategory.hom (Y := (U.unop ⟶ X)) (((representablePoint R x).app U).app n) z =
       (baseIsTerminal (Spec R)).from U.unop ≫ x := rfl
 
 /-- The actual representable point commutes with postcomposition of its section. -/

@@ -36,19 +36,16 @@ theorem termwiseYoneda_obj_obj_obj (X : SimplicialObject C) (T : Cᵒᵖ)
     (((termwiseYoneda C).obj X).obj T).obj n = (T.unop ⟶ X.obj n) :=
   rfl
 
-@[simp]
 theorem termwiseYoneda_obj_obj_map_apply (X : SimplicialObject C) (T : Cᵒᵖ)
     {m n : SimplexCategoryᵒᵖ} (f : m ⟶ n) (g : T.unop ⟶ X.obj m) :
     (((termwiseYoneda C).obj X).obj T).map f g = g ≫ X.map f :=
   rfl
 
-@[simp]
 theorem termwiseYoneda_obj_map_app_apply (X : SimplicialObject C)
     {T U : Cᵒᵖ} (f : T ⟶ U) (n : SimplexCategoryᵒᵖ) (g : T.unop ⟶ X.obj n) :
     (((termwiseYoneda C).obj X).map f).app n g = f.unop ≫ g :=
   rfl
 
-@[simp]
 theorem termwiseYoneda_map_app_app_apply {X Y : SimplicialObject C} (f : X ⟶ Y)
     (T : Cᵒᵖ) (n : SimplexCategoryᵒᵖ) (g : T.unop ⟶ X.obj n) :
     (((termwiseYoneda C).map f).app T).app n g = g ≫ f.app n :=
