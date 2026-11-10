@@ -42,3 +42,59 @@ example (c d : AlgebraicCycle (exteriorOuterProduct X Z T) ℤ)
 #check exteriorIncidenceProductOuter_isPullback
 #check exteriorIncidence_fixedLabel_pushPull
 #check nativeExteriorIncidence_pushforward_flatPullback
+
+/-! Direct consumers of the two native push-pull comparisons. -/
+
+attribute [local instance] Classical.propDecidable
+
+local notation3 (prettyPrint := false) "C" => fieldChowSituation k
+local notation3 (prettyPrint := false) "I" => correspondenceIncidence X.hom Y.hom Z.hom z w
+local notation3 (prettyPrint := false) "BT" => exteriorOuterProduct X Z T
+local notation3 (prettyPrint := false) "q" => correspondenceIncidenceMap X.hom Y.hom Z.hom z w
+local notation3 (prettyPrint := false) "qT" => exteriorIncidenceProductOuter X Z T Y z w
+local notation3 (prettyPrint := false) "πI" =>
+  (pullback.fst (correspondenceIncidenceLeft X.hom Y.hom Z.hom z w ≫ X.hom) T.hom)
+local notation3 (prettyPrint := false) "πB" =>
+  (pullback.fst (pullback.fst X.hom Z.hom ≫ X.hom) T.hom)
+local notation3 (prettyPrint := false) "sI" =>
+  (correspondenceIncidenceLeft X.hom Y.hom Z.hom z w ≫ X.hom)
+local notation3 (prettyPrint := false) "sB" => (pullback.fst X.hom Z.hom ≫ X.hom)
+local notation3 (prettyPrint := false) "sIT" => (πI ≫ sI)
+local notation3 (prettyPrint := false) "sBT" => (πB ≫ sB)
+
+local instance : LocallyOfFiniteType sI := by
+  dsimp only [correspondenceIncidenceLeft]
+  infer_instance
+
+example (x : I) (p : BT) (hp : πB p = q x) :
+    let d := relativeDimension (C).dimensionFunction sI x
+    let r := exteriorParameterDimension T
+    ((q).residueDegree x : ℤ) * flatPullbackWeight C sBT πB (d + (r : ℤ)) p =
+      ∑ᶠ a ∈ (qT).base ⁻¹' {p},
+        if πI a = x then
+          flatPullbackWeight C sIT πI (d + (r : ℤ)) a * ((qT).residueDegree a : ℤ)
+        else 0 :=
+  exteriorIncidence_fixedLabel_pushPull X Y Z T z w hz hw x p hp
+
+example
+    (n : ℤ) (α : CycleGroup C sI n) :
+    letI := isFinite_correspondenceIncidenceMap X.hom Y.hom Z.hom z w hz hw
+    letI := isFinite_correspondenceIncidenceMap (SmoothSite.product X T).hom
+      (SmoothSite.product Y T).hom (SmoothSite.product Z T).hom
+      (nativeExteriorPoint X Y T z hz) (nativeExteriorPoint Y Z T w hw)
+      (nativeExteriorPoint_admissible X Y T z hz)
+      (nativeExteriorPoint_admissible Y Z T w hw)
+    let r := exteriorParameterDimension T
+    finiteCyclePushforward
+        (correspondenceIncidenceMap (SmoothSite.product X T).hom
+          (SmoothSite.product Y T).hom (SmoothSite.product Z T).hom
+          (nativeExteriorPoint X Y T z hz) (nativeExteriorPoint Y Z T w hw))
+        (finiteCyclePushforward (nativeExteriorIncidenceIso X Y Z T z w hz hw).hom
+          (flatPullback C sIT sI πI rfl r
+            (relativeDimension_exteriorIncidenceProductProjection X Y Z T z w) n α).val) =
+      finiteCyclePushforward (exteriorOuterDiagonal X Z T)
+        (flatPullback C sBT sB πB rfl r
+          (relativeDimension_exteriorOuterProjection X Z T) n
+          (properPushforward C sI sB q
+            (by simp only [← Category.assoc, correspondenceIncidenceMap_fst]) n α)).val :=
+  nativeExteriorIncidence_pushforward_flatPullback X Y Z T z w hz hw n α
