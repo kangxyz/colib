@@ -632,6 +632,15 @@ Normalize its actual categorical inverse at the chosen zero. The original
 unit and counit then give whole inverse homotopies, hence level equivalences
 and isomorphisms of stable homotopy groups in every integer degree.
 '''
+COL-0381 = '''
+With fixed-ring evaluation in COL-0358 established, every ring map has an actual
+coefficient comparison with normalized geometric pullback. Reverse the total-to-split
+comparison and then compose with the total-to-whiskered comparison to recover the
+original relative comparison from the geometric split route to the whiskered route. The identity coefficient route contracts to the
+constant evaluation track. These are whole relative homotopies, retaining the
+basepoint and independent structure coordinates. Actual perfect inclusion preserves
+the relative tracks; only termwise perfect pullback naturality requires flatness.
+'''
 COL-0382 = '''
 The supported evaluation of COL-0380 lands in bounded-flat perfect complexes.
 For a quasi-compact scheme \(X\), bounded-flat replacement preserves acyclicity
@@ -732,4 +741,12 @@ complexes, their same admissible quotients and restricted weak equivalences.
 The resulting supported and coarse K-maps preserve restriction and the boundary.
 A single canonical normalization retains the entire fiber path; the original
 union-supported comparison is transported by explicit coherent homotopies.
+'''
+
+COL-0386 = '''
+Without a support condition on its objects, the bounded-flat relative model has
+weak equivalences detected on the specified open. Arbitrary commuting open squares
+induce its original K-pullback, with identity, composition and change-of-weak
+naturality. On a compact ambient scheme, the literal inclusion into the relative
+perfect model is a K-equivalence with its original forward map.
 '''
