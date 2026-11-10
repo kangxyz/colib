@@ -440,6 +440,8 @@ public import Colib.AlgebraicGeometry.Correspondences.Exterior.RemainingDiagonal
 public import Colib.AlgebraicGeometry.Correspondences.Exterior.RemainingKoszulBaseChange
 public import Colib.AlgebraicGeometry.Correspondences.Exterior.RemainingStalkFamily
 public import Colib.AlgebraicGeometry.Correspondences.Exterior.RemainingTorBaseChange
+public import Colib.AlgebraicGeometry.Correspondences.Exterior.Simplex.Functor
+public import Colib.AlgebraicGeometry.Correspondences.Exterior.Simplex.NativeAction
 public import Colib.AlgebraicGeometry.Correspondences.Exterior.Support
 public import Colib.AlgebraicGeometry.Correspondences.Exterior.Target
 public import Colib.AlgebraicGeometry.Correspondences.Graph
@@ -469,6 +471,8 @@ public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.GeneratorLift
 public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.LocalGeneratorLift
 public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.SignedLocalLift
 public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.Topology
+public import Colib.AlgebraicGeometry.Correspondences.Singular.Functor
+public import Colib.AlgebraicGeometry.Correspondences.Singular.Maps
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth
@@ -786,6 +790,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Refinement
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Products
 public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.Basic
+public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.GeometricallyIntegral
 public import Colib.AlgebraicGeometry.Sites.Smooth.Torus
 public import Colib.AlgebraicTopology.SimplexCategory.EpiZero
 public import Colib.AlgebraicTopology.SimplexCategory.Prism
