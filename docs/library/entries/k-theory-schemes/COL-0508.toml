@@ -1,0 +1,44 @@
+[entry]
+id = "COL-0508"
+title = "Relative-open bounded-flat K-functor"
+kind = "comparison"
+section = "supported-localization"
+order = 120
+statement = '''
+For an open immersion \(j\colon U\hookrightarrow X\), consider all bounded-above
+flat perfect complexes on \(X\), with their original admissible quotients and weak
+equivalences detected by quasi-isomorphisms after restriction to \(U\).
+Every commuting square of open immersions induces the K-map of the actual
+geometric pullback. These maps preserve identities, compose contravariantly,
+and commute with the original change-of-weak-equivalences maps in every
+connective degree, including zero. They define a contravariant functor from
+the category of open pairs to groups.
+If the ambient scheme is quasi-compact, the literal inclusion into the original
+relative perfect category induces a K-equivalence whose forward map is the
+original inclusion K-map.
+'''
+scope = '''
+The objects have no support condition. The weak class is the inverse image of
+quasi-isomorphisms under actual open restriction, not the ambient fine weak class.
+The pair category is Mathlib's category of open-immersion arrows and arbitrary
+commuting squares. Pullback exactness, functoriality and change-of-weak naturality
+require no flatness, cartesianness, compactness, separation or resolution assumption.
+Only the inclusion comparison assumes compactness of the ambient underlying space;
+the open need not be quasi-compact. The result does not identify the relative model
+with all perfect complexes on the open, assert that arbitrary pullback is an
+equivalence, or establish Bass nonconnective localization.
+'''
+proof = '''
+The inverse-image construction changes only the weak class, retaining the original
+bounded-flat objects and admissible quotient cofibrations. The actual geometric
+restriction-pullback isomorphism and bounded-flat preservation of quasi-isomorphisms
+prove relative exactness for arbitrary squares. Native identity and composition
+isomorphisms yield the canonical K-map laws, and composition of exact functors gives
+the change-of-weak square. Fine relative replacements and the original joint
+cylinder prove approximation for the relative inclusion. Its canonical K-map is
+therefore bijective in every nonnegative degree.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.BoundedAboveFlatPerfectOpenKFunctor"

@@ -1,0 +1,45 @@
+[entry]
+id = "COL-0505"
+title = "Supported relative-open bounded-flat comparison"
+kind = "comparison"
+section = "supported-localization"
+order = 90
+statement = '''
+Let \(X\) be a quasi-compact scheme, \(j\colon U\hookrightarrow X\) an open immersion,
+and \(T\subseteq X\) an arbitrary open subset. Consider bounded-above flat perfect
+complexes on \(X\) that are acyclic on \(T\), with weak equivalences detected by
+restriction to \(U\). Their literal inclusion into all perfect complexes acyclic
+on \(T\), with the same open-detected weak class, satisfies approximation. It induces
+bijections on every \(K_n\) for \(n\geq0\), with the original inclusion as forward map.
+The canonically normalized inclusion of connective prespectra induces isomorphisms
+on every integer-graded stable homotopy group. The original change-of-weak-equivalences
+maps commute with these inclusions on K-groups and by a whole coherent prespectrum
+homotopy.
+'''
+scope = '''
+Neither \(U\) nor \(T\) must be quasi-compact. No separation, Noetherianity, regularity
+or resolution property is assumed. The source retains its original complexes,
+chosen zero and cofibrations with admissible supported bounded-flat quotients.
+Only weak equivalences are enlarged, using actual restricted chain maps. The target
+is the relative perfect category on \(X\), not all supported perfect complexes on
+\(U\). The whole square retains the original change-of-weak maps, rather than
+asserting that independently normalized composites agree strictly. This is a model
+comparison for the connective supported localization framework of
+[@ThomasonTrobaugh1990, 5.1.2], not Bass localization or a proof of
+[@ThomasonTrobaugh1990, 7.4].
+'''
+proof = '''
+The supported fine approximation of COL-0382 factors each original map with the
+same intermediate complex and admissible quotient. Its quasi-isomorphism becomes
+weak after restriction to the localization open. The actual identity-cone joint
+cylinder retargets to the enlarged weak class using its original endpoints and
+projection. Approximation with this coarse joint data proves bijectivity of the
+specified K-map in every natural degree. The original-prespectrum comparison
+then supplies integer stable equivalence. Both composites of the inclusion and
+identity change-of-weak functors are the same functor. Their canonical normalization
+and composition homotopies give the whole square with its original endpoints.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedOpenToPerfectKMap_bijective"

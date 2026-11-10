@@ -1,0 +1,49 @@
+[entry]
+id = "COL-0507"
+title = "Supported pullback and relative boundary naturality"
+kind = "comparison"
+section = "supported-localization"
+order = 110
+statement = '''
+Let \(j\colon U\hookrightarrow X\) and \(j'\colon U'\hookrightarrow X'\) be open
+immersions, with opens \(T\subseteq X\) and \(S\subseteq X'\). Let
+\(f\colon X'\to X\) and \(g\colon U'\to U\) satisfy \(f\circ j'=j\circ g\), and suppose
+\(f\) carries \(S\) into \(T\) through a specified commuting open square.
+Pullback of bounded-above flat perfect complexes acyclic on \(T\) preserves their
+original admissible exact sequences and the weak equivalences detected on \(U\).
+The induced supported and relative K-maps preserve identities and composition,
+commute with change of weak equivalences and restriction, and preserve the
+canonical boundary from \(K_{n+1}\) to \(K_n\), including \(n=0\).
+The fiber support is \(X\setminus(T\cup j(U))\). Its actual union-supported
+comparison commutes with pullback by a whole coherent prespectrum homotopy.
+'''
+scope = '''
+The pair category is the native category of open-immersion arrows and arbitrary
+commuting squares. No flatness, cartesianness, compactness, separation, regularity
+or resolution assumption is imposed. The quotient is the pullback of the original
+bounded-above flat quotient. Fine and coarse structures use the same underlying
+pullback; one canonical normalization supplies strict preservation of their
+chosen zeros. Its original K-map, fiber projection and entire null path are
+retained, and the stable connecting square holds in every integer degree.
+This does not assert a stable equivalence for an arbitrary pullback. The separate
+relative K-functor without a specified support condition and compact all-perfect transport are outside this
+item. It does not establish the full supported localization theorem of
+[@ThomasonTrobaugh1990, 5.1.2] or the Bass localization theorem of
+[@ThomasonTrobaugh1990, 7.4].
+'''
+proof = '''
+Flatness of the admissible quotient preserves the same short exact sequence
+under arbitrary geometric pullback. Bounded-flat preservation of quasi-isomorphisms
+and the actual restriction-pullback isomorphism prove relative exactness.
+The original functor identity and composition isomorphisms give the K-map laws.
+Flattening the relative-acyclic category identifies its actual induced functor
+with union-support pullback, giving the original connecting square. Canonical
+normalization is common to the fine and coarse functors. Its natural isomorphism
+preserves the original K-map and transports the whole acyclic null path.
+Composition and chosen-zero homotopies then compare the original union-supported
+fiber map on the two sides, without identifying independently chosen zeros.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "quillen"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedOpenConnectingHom_pullback"
