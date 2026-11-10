@@ -1,0 +1,13 @@
+# Boundary-one sheaf homology: 243-source checkpoint
+
+Snapshot: 2026-11-10T10:57:38.715901+00:00. Parent checkpoint: `2508fb7ec11f232efd30244c4c04b46360f82a38`. Baseline main: `4ceaadc768b2c64e24a0161c4f159fad624f994d`.
+
+This increment adds exactly fifteen accepted Lean sources: eleven production modules and four actual consumers with 35 examples. The localized-unit construction, simplicial cylinder, affine homology comparison, and boundary-one geometric/sheaf complex give boundary-one sheaf homology vanishing for every field, the original large ULift coefficients, and every natural degree including zero. No desired-vanishing, exactness, or sheafification hypotheses are added. This is not the full weight-one quasi-isomorphism or strict A1 invariance.
+
+Exact source compilation, fifteen native declaration linters, ordinary-axiom closure for 218 owned declarations, and exact selected-source textstyle passed in the three recorded acceptance groups. The final six sources reuse their exact successful compilation and all-four-owner native/axiom evidence; the final style pass corrected only the expected module ordering for the production/test input hubs. Publication rechecks source, artifact, dependency and acceptance hashes without invoking another Lean frontend.
+
+All previous 228 contribution sources remain byte-identical. The separate ZIP contains exactly 243 Lean modules, 140 production and 103 actual consumers, with no root hub, report, manifest, dependency, binary or build output. It is a source overlay, not a standalone project. ZIP SHA-256: `2b1d132c9725c3449344417c2ec6b0e153c250910a9c186b668b6136e8965a66`.
+
+Static actual-source closure verification found 17 reachable lower Colib modules byte-identical to the baseline and no unpublished dependency. The historical Cokernels tag remapping is outside this increment's actual import closure. No lower source is rewritten or added to the ZIP. Eleven sorted production imports are added to the root. Existing Library metadata, references, tooling, CI workflows, and Pages changes are preserved; the supporting sources add no permanent Library tags.
+
+Lean 4.35.0, Mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`, and Stacks `5ed82d14634e8d9576bb844c7bd4e3da66d450e7` remain pinned. No Lean/Lake command, cache operation, kernel replay, manual CI dispatch or rerun occurs in static publication. The checkpoint uses [skip ci]; its subsequent normal two-parent main merge receives one naturally triggered CI, reported separately. This milestone does not complete the whole motivic migration or assert independent mathematical review of every source.
