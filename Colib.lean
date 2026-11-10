@@ -473,9 +473,14 @@ public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.SignedLocalLift
 public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.Topology
 public import Colib.AlgebraicGeometry.Correspondences.Singular.Functor
 public import Colib.AlgebraicGeometry.Correspondences.Singular.Maps
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.LinearGraph
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialSpan
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialSpanNorm
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.QuotientStalkMultiplicity
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth
+public import Colib.AlgebraicGeometry.GroupScheme.UnitPoints
 public import Colib.AlgebraicGeometry.Intersection.AffineChartStalkModules
 public import Colib.AlgebraicGeometry.Intersection.AffineStalkModules
 public import Colib.AlgebraicGeometry.Intersection.AffineTensorStalkModules
