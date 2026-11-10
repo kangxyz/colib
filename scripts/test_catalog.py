@@ -418,6 +418,7 @@ class LibraryTests(unittest.TestCase):
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
+            "weight-one-comparison": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -469,6 +470,9 @@ class LibraryTests(unittest.TestCase):
             "COL-0058": "Colib.Topology.ClassifyingSpace.NerveHomotopy",
             "COL-0098": "Colib.Analysis.Convex.StdSimplex.BoundaryRetraction",
             "COL-0388": "Colib.AlgebraicGeometry.Correspondences.Exterior.Graph",
+            "COL-0402": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex",
+            "COL-0403": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.SheafComparison",
+            "COL-0404": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -590,6 +594,7 @@ class LibraryTests(unittest.TestCase):
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
             "weight-one-norm": ["COL-0401"],
+            "weight-one-comparison": ["COL-0402", "COL-0403", "COL-0404"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():

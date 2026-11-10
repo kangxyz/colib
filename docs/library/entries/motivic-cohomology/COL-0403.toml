@@ -1,0 +1,69 @@
+[entry]
+id = "COL-0403"
+title = "The signed weight-one comparison with units"
+kind = "comparison"
+section = "weight-one-comparison"
+order = 20
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneSheafComparison"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field and let \(K_1=R_s\mathbb Z(1)\) be the ordinary
+underlying canonical motivic complex of COL-0398 and COL-0399. Write
+\(C=aC_*(R\widetilde L_1)\), \(G(X)=\Gamma(X,\mathcal O_X)^\times\),
+and let \(E\) extend a nonnegative chain complex to a cochain complex by
+placing degree \(r\) in degree \(-r\) and extending by zero. There is a
+specified quasi-isomorphism
+\[
+\eta:K_1\longrightarrow G[0][-1].
+\]
+Its chain-level input is exactly
+\[
+\eta_*:C\xrightarrow{aC_*(N)}aC_*(G)
+ \xrightarrow{\sim}C_*(U)\xrightarrow{\varepsilon}G[0],
+\]
+where the first map is COL-0401 and the last two are COL-0402. Let
+\(\rho:K_1\xrightarrow{\sim}E(C)[-1]\) be the ordinary comparison that
+commutes forgetting transfers, sheafification, zero extension and the signed
+shift, and let \(j:E(G[0])\xrightarrow{\sim}G[0]\) be the native
+single-complex identification. Then the comparison is the actual composite
+\[
+\eta=(j\circ E(\eta_*))[-1]\circ\rho.
+\]
+It becomes an isomorphism after localization at quasi-isomorphisms.
+'''
+scope = '''
+The field is arbitrary, in universe \(u\); the coefficient category is
+`AddCommGrpCat.{u + 1}` on the ordinary smooth Nisnevich site. The chain-map
+and quasi-isomorphism statements require no chosen derived category and no
+caller-supplied vanishing or quasi-isomorphism assumption. The canonical
+transfer construction and its ordinary sheafification interfaces are those
+of COL-0397 and COL-0398.
+
+The bracket is Mathlib's signed cochain shift. In cochain degree \(1-r\)
+the differential is minus the original alternating singular differential.
+Compared with sign-preserving placement in degree \(1-r\), the component
+of the canonical placement isomorphism is multiplication by \((-1)^r\).
+Thus \(\eta\) starts at the existing signed motivic complex, not a newly
+defined ordinary complex or an unsigned reindexing. The target is units
+concentrated in cochain degree one. No strict \(\mathbb A^1\)-invariance,
+higher-weight comparison or change-of-field compatibility is asserted.
+'''
+proof = '''
+COL-0401 proves the quasi-isomorphism of the actual geometric norm. COL-0402
+identifies its units target with the genuine units simplicial complex and
+contracts that complex to \(G[0]\). Hence their specified composite
+\(\eta_*\) is a quasi-isomorphism.
+
+For \(\rho\), apply the native functor/shift comparison to the actual
+forgetful functor. Use the inverse of the extension comparison, from the
+image of an extended complex to the extension of its image, and then extend
+the ordinary singular comparison of COL-0397. Extension by zero, the
+single-complex identification and signed shift preserve the resulting
+quasi-isomorphism. They give exactly the displayed \(\eta\).
+
+The construction and conclusion adapt
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/SheafComparison.lean:28-59].
+The canonical ordinary shift comparison adapts
+[@motivic_source_a6805c4, Motivic/Cohomology/SuslinVoevodsky/OrdinaryShiftComparison.lean].
+'''
