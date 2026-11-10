@@ -1,0 +1,49 @@
+[entry]
+id = "COL-0521"
+title = "Actual quotient and Bass row strengths"
+kind = "comparison"
+section = "bass-construction"
+order = 70
+statement = """
+The original row-refined corner maps construct forward strengths from the reduced
+pushout and mapping cone of refined objects to the refinement of the original
+quotients. These strengths assemble into a coefficient-natural cone transformation.
+They satisfy the original inclusion, overlap and source-null formulas, preserve the
+whole structure comparison, and retain the prescribed whole-homotopy formulas.
+The explicit row/old-loop coordinate isomorphism then constructs a coefficient-natural
+first-Bass strength with its strict whole comparison equation.
+"""
+scope = """
+Arbitrary pointed row-interchange families on loop-prespectra and their coefficient
+diagrams in the stated universes. The corner maps preserve the specified row
+interchanges. Whole comparison compatibility assumes the initial two-structure
+exchange equation. The homotopy formulas retain coefficient naturality and the
+explicit all-time row square, not merely endpoint equations. Zero-level formulas
+keep both row coordinates, and positive-level formulas keep the row and old-loop
+coordinates independently of the cylinder or homotopy time. The parameter-looping
+coordinate comparison is an actual isomorphism, but no equivalence or stability of
+the quotient or Bass strengths is asserted. This is not a generated trace, tensor-unit
+construction, negative K-theory localization or Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.DiagramBassRowStrength.strength_comparison"
+proof_kind = "outline"
+proof = """
+Refine the original left and right inclusions and their whole glue homotopy, then
+descend through the reduced-pushout universal property. Refine the original cone
+inclusion and nullhomotopy and descend through the mapping-cone universal property.
+Their generator formulas prove all inclusion and cylinder identities without
+identifying the quotient time with a row coordinate.
+
+The span-comparison square supplies an actual map of comparison arrows. Composing
+its cone map with the forward cone strength constructs the natural diagram strength.
+Quotient-generator elimination and path extensionality prove naturality, the whole
+comparison equation and the original source-null and homotopy formulas.
+
+Canonical loop transposition constructs both directions of the row/parameter-looping
+isomorphism, including the degree-zero three-coordinate permutation. Apply the
+original parameter-looping map to the cone strength and compose with the actual
+inverse coordinate comparison. Its component formulas and the cone-level equations
+prove the natural first-Bass strength and its strict whole comparison identity.
+"""
+source_checked_on = "2026-11-10"

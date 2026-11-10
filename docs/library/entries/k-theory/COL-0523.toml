@@ -1,0 +1,44 @@
+[entry]
+id = "COL-0523"
+title = "Natural whole tracks under cone, loop and Bass transport"
+kind = "comparison"
+section = "bass-construction"
+order = 80
+statement = """
+The original loop strength and evaluation square preserve the actual cone action.
+An original coefficient-natural whole self-track therefore induces natural loop,
+cone and Bass tracks. Whole-time intertwining maps are closed under identity,
+composition, specified equality transports, and the actual cone, loop and Bass maps.
+The cone and loop evaluation equations retain the original independent time parameters.
+"""
+scope = """
+Arbitrary indexing categories, loop-prespectrum diagrams and a specified coefficient
+transformation to the indexing endofunctor. The cone construction retains the specified
+index interchange, its inverse, and the original coefficient-factorization equation.
+Each track includes ordinary same-time coefficient naturality. Equivariance means the
+actual whole-time map equation, not equality of stable classes or endpoint squares.
+Loop time, track time, null-cylinder time and structure time remain independent.
+Equality transports use only the stated equality of whole diagram functors.
+No final successor, generated trace, finite-stage coherence, stable equivalence or
+Thomason--Trobaugh localization theorem is assumed or concluded here.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.NaturalTrack.Equivariant.bass"
+proof_kind = "outline"
+proof = """
+Evaluate an original loop at a fixed parameter and transport the corresponding whole
+homotopy through the strict Bass diagram. Its literal evaluation formula constructs
+the loop strength and proves the actual strength square. Naturality of the original
+cone map and the inverse index map gives the cone-action evaluation equation.
+
+The pointwise whole-time intertwining equation passes through the actual cone map
+and through parameter looping. Loop transposition keeps the spectrum structure
+coordinate independent and identifies the corresponding strength-action formulas.
+
+Package the original whole track with its coefficient naturality. Define its loop
+pointwise, its cone by the original cone action, and its Bass track as that cone track
+followed by looping. Identity and composition preserve the original intertwining
+square by categorical associativity. Specified equality transports reduce to identity;
+the proved cone and loop action equations then give cone, loop and Bass closure.
+"""
+source_checked_on = "2026-11-10"

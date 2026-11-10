@@ -574,3 +574,17 @@ homotopies are coefficient-natural under their stated exchange and all-time row-
 hypotheses. This supplies the actual refinement needed by the subsequent strength maps.
 '''
 
+COL-0521 = '''
+The refined inclusions, glue and nullhomotopies now descend to actual pushout and
+cone strengths. Their coefficient-natural comparison and source-null equations survive
+the explicit row/old-loop coordinate isomorphism, producing the original first-Bass
+strength without claiming a generated trace or stability of that strength.
+'''
+
+COL-0523 = '''
+The original loop strength next preserves the actual cone action at every unchanged
+time. Natural whole tracks and their intertwining maps are consequently closed under
+cone, loop and Bass transport, supplying the local action data needed before the
+constructed row-cell successor and its separate finite iteration.
+'''
+

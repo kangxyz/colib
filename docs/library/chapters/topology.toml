@@ -191,6 +191,21 @@ basis and specified basepoint equality remain explicit. Covering homology and Wh
 comparisons require separate results.
 '''
 
+
+COL-0522 = '''
+COL-0522 compares the original twisted-chain arrow with the original integral singular-chain
+arrow of a supplied map of simply connected covers. The actual commuting square and basepoint
+equality remain explicit. This supplies a chain comparison, not cover existence or Whitehead
+recognition.
+'''
+
+
+COL-0524 = '''
+COL-0524 derives actual collar-relative acyclicity and positive unreduced-cone homology
+vanishing from the original attaching-map quasi-isomorphism. This supplies the homological
+input to a later obstruction argument, without assuming a Hurewicz or Whitehead conclusion.
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"
