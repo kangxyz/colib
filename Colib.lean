@@ -180,6 +180,8 @@ public import Colib.Algebra.Homology.TensorCoefficients
 public import Colib.Algebra.Module.LocalizedModule.FiniteTorsion
 public import Colib.Algebra.Module.LocalizedModule.IdealQuotient
 public import Colib.AlgebraicGeometry.Chow.FiniteFlatBaseChange
+public import Colib.AlgebraicGeometry.Chow.FiniteFlatFundamental
+public import Colib.AlgebraicGeometry.Chow.FiniteFlatProduct
 public import Colib.AlgebraicGeometry.Chow.FinitePushforward
 public import Colib.AlgebraicGeometry.Chow.GenericCoefficientCycle
 public import Colib.AlgebraicGeometry.Chow.GenericPushforward
@@ -474,10 +476,17 @@ public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.SignedLocalLift
 public import Colib.AlgebraicGeometry.Correspondences.Nisnevich.Topology
 public import Colib.AlgebraicGeometry.Correspondences.Singular.Functor
 public import Colib.AlgebraicGeometry.Correspondences.Singular.Maps
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.AmbientNaturality
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.LinearGraph
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.NativeChart
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.NativeStalkMultiplicity
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialClosedImmersion
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialCycle
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialProducts
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialSpan
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialSpanNorm
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.QuotientStalkMultiplicity
+public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.RationalDivisor
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth

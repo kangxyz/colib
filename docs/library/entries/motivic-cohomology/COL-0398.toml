@@ -1,0 +1,87 @@
+[entry]
+id = "COL-0398"
+title = "The canonical signed Suslin–Voevodsky motivic complex"
+kind = "definition"
+section = "canonical-motivic-complexes"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicComplex"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field and \(q\geq0\). Let
+\(\widetilde L_q=\mathbb Z_{\mathrm{tr}}(\mathbb G_m^{\wedge q})\) be the
+quotient by all identity-coordinate images in COL-0385. With \(S_q(P)\) the
+sheafified transfer singular placement of COL-0397, define the complex of
+Nisnevich sheaves with transfers
+\[
+\mathbb Z(q)=S_0(\widetilde L_q)[-q],
+\]
+where the bracket is the genuine signed cochain shift. For every \(r\geq0\)
+there is a specified isomorphism
+\(\tau_r\colon\mathbb Z(q)^{q-r}\xrightarrow{\sim} a_{\mathrm{tr}}C_r(\widetilde L_q)\).
+The differential is
+\[
+d_{\mathbb Z(q)}^{q-r-1,q-r}=(-1)^q\,
+ \tau_r^{-1}\circ a_{\mathrm{tr}}\left(
+  \sum_{i=0}^{r+1}(-1)^i\partial_i\right)\circ\tau_{r+1},
+\]
+where \(\partial_i\) is transfer along
+\(\Gamma_{1_U\times\delta^i}\) on each smooth \(U\). All terms above degree
+\(q\) are zero.
+
+There is an isomorphism
+\(\lambda_q\colon S_q(\widetilde L_q)\xrightarrow{\sim}\mathbb Z(q)\).
+With \(\epsilon_r\) the term identification of COL-0397, its actual component is
+\[
+\lambda_q^{q-r}=(-1)^{qr}\,\tau_r^{-1}\circ\epsilon_r.
+\]
+This formula respects every differential, including the zero extension.
+Thus the weight-one differential from degree zero to one is the negative of
+the sheafified two-face difference; the weight-two differential from degree
+one to two is the two-face difference without an additional sign.
+
+Let \(R_s\) forget transfers. The termwise comparison of COL-0373 gives
+\[
+R_s\mathbb Z(q)^{q-r}\xrightarrow{\sim}
+ a_{\mathrm{Nis}}\bigl(U\mapsto\widetilde L_q(U\times_k\Delta_k^r)\bigr).
+\]
+Precisely, it is \(b_{C_r(\widetilde L_q)}^{-1}\circ R_s(\tau_r)\), where
+\(b\colon a_{\mathrm{Nis}}R\to R_s a_{\mathrm{tr}}\) is the unit-compatible
+isomorphism of COL-0373. Ordinary restriction along \(f\colon U\to V\) before
+sheafification is the original transfer along \(\Gamma_{f\times1_{\Delta^r}}\).
+'''
+scope = '''
+Take \(k\) in universe \(u\), coefficients `AddCommGrpCat.{u + 1}`, and
+nonnegative integer weights. Retain the correspondence-site `HasSheafify`,
+`HasSheafCompose` and `PreservesSheafification` assumptions for the forgetful
+functor to types. The ordinary term comparison also retains ordinary
+Nisnevich `HasSheafify`. No perfection or characteristic restriction is imposed.
+
+This is the construction from the actual reduced signed-correspondence
+presheaf, not a renamed ordinary presheaf or a complex specified only up to
+quasi-isomorphism. The integer cochain convention puts chain degree \(r\) in
+\(q-r\); the displayed factor \((-1)^q\) belongs to the native signed shift.
+The factors \((-1)^{qr}\) compare that convention with sign-preserving placement.
+The ordinary comparison is specified termwise; the underlying complex used in
+COL-0399 also keeps the actual differentials. No weight-one quasi-isomorphism
+with \(\mathbb G_m[-1]\), weight-zero cohomology computation, higher-Chow
+comparison or strict \(\mathbb A^1\)-invariance is asserted.
+'''
+proof = '''
+Apply the construction of COL-0397 to the quotient of COL-0385 and then use
+Mathlib's shift functor by \(-q\). Its differential formula supplies the
+factor \((-1)^q\). The native extension/signed-shift isomorphism has component
+\((-1)^{qr}\); mapping it through additive sheafification preserves that sign
+and the term identifications. The chain-map identity is the compatibility
+\((-1)^{q(r+1)}(-1)^q=(-1)^{qr}\). The zero-extension terms above the weight
+remain zero after sheafification and the shift.
+
+Apply \(R_s\) to \(\tau_r\), then invert the comparison of COL-0373. This
+gives the stated ordinary term map. The graph formula for simplex exterior
+extension gives restriction along the actual product morphism.
+
+The construction and convention comparisons adapt
+[@motivic_source_a6805c4, Motivic/Cohomology/SuslinVoevodsky/Complex.lean:40-149,198-249]
+and the sheafified signed shift in
+[@motivic_source_a6805c4, Motivic/Transfers/SingularComplex/Sheafification.lean:146-218].
+'''

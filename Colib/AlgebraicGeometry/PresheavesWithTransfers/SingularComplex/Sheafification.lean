@@ -175,3 +175,12 @@ def singularSheafOrdinaryNatIso :
 end OrdinaryComparison
 
 end AlgebraicGeometry.PresheafWithTransfers
+
+attribute [colib_tag "COL-0397"]
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafFunctor
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafUnit
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafCochainFunctor
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafCochainXIso
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafCochainComplex_d
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafOrdinaryNatIso
+  AlgebraicGeometry.PresheafWithTransfers.singularSheafOrdinaryIso

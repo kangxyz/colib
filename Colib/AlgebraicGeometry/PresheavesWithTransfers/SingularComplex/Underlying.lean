@@ -105,3 +105,7 @@ def singularComplexUnderlyingNatIso :
     simp only [Category.comp_id, Category.id_comp])
 
 end AlgebraicGeometry.PresheafWithTransfers
+
+attribute [colib_tag "COL-0397"]
+  AlgebraicGeometry.PresheafWithTransfers.singularComplexUnderlyingNatIso
+  AlgebraicGeometry.PresheafWithTransfers.singularComplexUnderlyingIso_hom_f_app

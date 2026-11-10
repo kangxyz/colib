@@ -2,7 +2,7 @@
 id = "cycles"
 title = "Cycles and Correspondences"
 order = 50
-introduction = 'Finite integer cycles on products form correspondence groups. Tor multiplicities define composition, and componentwise graph cycles connect the resulting category to smooth schemes. The route from correspondences to transfer presheaves follows [@MVW2006, Lectures 1 and 2], followed here by Nisnevich sheafification. The smooth schemes and ordinary Nisnevich topology are in COL-0340; the local length formula for finite-pushforward multiplicities is COL-0181.'
+introduction = 'Finite integer cycles on products form correspondence groups. Tor multiplicities define composition, and componentwise graph cycles connect the resulting category to smooth schemes. The route from correspondences to transfer presheaves follows [@MVW2006, Lectures 1 and 2], followed here by Nisnevich sheafification. The smooth schemes and ordinary Nisnevich topology are in COL-0340; the local length formula for finite-pushforward multiplicities is COL-0181. The reduced torus input in COL-0384 and COL-0385 now begins Motivic Cohomology; its transfer singular chains and canonical complex are COL-0397 and COL-0398.'
 
 [[sections]]
 id = "finite-correspondences"
@@ -145,25 +145,6 @@ Use the sheafified representable of COL-0391 as the first Ext variable.
 Covariance of that representable and contravariance of Ext give restriction
 along each signed correspondence. This defines transfer Ext without identifying
 it with the cohomology of an underlying ordinary sheaf.
-'''
-
-[[sections]]
-id = "reduced-transfer-tori"
-title = "Split tori and their reduced transfer quotients"
-order = 40
-introduction = 'Relative powers of the native multiplicative group have actual identity-coordinate inclusions. Their graph correspondences define the relations in the reduced torus presheaf of [@MVW2006, Lecture 2, Definition 2.12, pp. 15–16].'
-
-[sections.transitions]
-COL-0384 = '''
-Before forming a quotient of correspondence groups, fix the geometric maps:
-the multiplicative group is the native base change, its base point represents
-one, and its powers are relative products of smooth-site objects.
-'''
-COL-0385 = '''
-Over a field, apply the graph functor to each identity-coordinate inclusion
-from COL-0384 and then postcompose signed correspondences with that graph.
-The cokernel of the sum of these maps has, section by section, the quotient
-by all their images. Naturality of the projection fixes its transfer action.
 '''
 
 [[sections]]
