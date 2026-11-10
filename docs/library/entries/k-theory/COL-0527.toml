@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0527"
+title = "Constructive finite iteration of original whole row cells"
+kind = "definition"
+section = "bass-construction"
+order = 84
+statement = """
+An initial whole row cell with a proved natural-track comparison determines whole
+cells on every finite original Bass iterate. Each constructed cell is natural in
+the coefficient object and has the comparison with the recursively defined stage
+track. Recursing first on the initial diagram agrees with taking the next stage.
+"""
+scope = """
+Arbitrary indexing categories and loop-prespectrum diagrams with the original
+row interchange, basepoint, naturality and adjacent structure equations. The
+geometric index isomorphism obeys the coefficient-factorization equation. The
+initial cell and its comparison are supplied; all later cells and comparisons are
+constructed. This is the Quillen library's finite iteration, not an assertion of
+GeneratedTrace, stable equivalence or either final TT 7.4 localization theorem.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.DiagramRowCell.iterateFamily"
+proof_kind = "outline"
+proof = """
+Prove the equality between the two functor associations of finite Bass iteration
+by induction. Transport the original whole track only along this equality and
+prove the stage action commutes with an initial Bass step. Package an actual cell
+with its already proved naturality and whole comparison. At the successor, apply
+the constructed cone/Bass cell step to the initial diagram, recurse on the shifted
+diagram, and use the stage-action equality to identify the comparison track.
+"""
+source_checked_on = "2026-11-10"

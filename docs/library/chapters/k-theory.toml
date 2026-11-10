@@ -595,3 +595,18 @@ its comparison with the actual next track proves coefficient naturality. This
 local successor construction precedes the separate generated finite iteration.
 '''
 
+COL-0527 = '''
+The whole-cell successor now iterates on every finite stage of the original Bass
+diagram. The recursion retains the full naturality and time-slice comparison, not
+only endpoint equalities. The separate generated-trace construction must still
+identify these recursively produced cells with its geometric generators.
+'''
+
+COL-0528 = '''
+The finite row-cell iterator now realizes an independently defined generator
+trace. The induction changes the starting diagram at each successor and thus
+retains the whole construction, rather than checking only a final endpoint.
+Identification and geometric instantiation of these generated recipes remain
+separate steps before the final localization comparison.
+'''
+

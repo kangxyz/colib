@@ -1,0 +1,35 @@
+[entry]
+id = "COL-0528"
+title = "Generator-defined finite tensor traces"
+kind = "theorem"
+section = "bass-construction"
+order = 85
+statement = """
+The actual whole row-cell successor satisfies an independent four-generator cone
+extension relation. Iterating this relation on each transformed starting diagram
+defines finite tensor traces without invoking the iterated comparison target.
+The constructed family of original finite Bass cells realizes such a trace at
+every finite stage.
+"""
+scope = """
+Arbitrary coefficient categories and loop-prespectrum diagrams with the original
+row interchange, basepoint, naturality and structure equations. The geometric
+index isomorphism satisfies the coefficient-factorization equation. The initial
+whole family is given. A trace retains a heterogeneous equality only to type its
+final cell; its successor law does not assume equality with an iterated family.
+This is the original Quillen library's generated-recipe existence induction,
+not a claim of uniqueness, stable equivalence or either TT 7.4 endpoint.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.TensorGeneratedRecipe.iterateFamily_generated"
+proof_kind = "outline"
+proof = """
+Define the successor relation by the four cone-generator equations and the fixed
+index, row-strength and old-loop conversions. The actual cone realizes these
+equations, so the constructed successor satisfies the relation definitionally.
+Define a finite trace by recursively choosing such successors on the actual next
+diagram. Induct on the stage, generalizing the starting diagram: the constructed
+successor supplies the existential witness, its generator law supplies the first
+conjunct, and the induction hypothesis supplies the tail trace.
+"""
+source_checked_on = "2026-11-10"
