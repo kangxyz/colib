@@ -1,0 +1,29 @@
+[entry]
+id = "COL-0502"
+title = "Actual affine Bass evaluation and original seed compatibility"
+kind = "comparison"
+section = "k-theory-of-schemes"
+order = 5020
+statement = """
+For every commutative ring, the actual evaluation from strict bounded-above-flat affine
+sections to the original geometric bounded-flat prespectrum induces a map on the actual
+one-step Bass objects. Its span map retains both original polynomial evaluation tracks;
+its cone map retains the proved moving comparison square and the raw cone cylinder.
+The original section seed followed by this Bass evaluation is homotopic, as a whole
+prespectrum map, to original evaluation followed by the original raw geometric seed.
+The Laurent unit is the forward coordinate `T 1`, and each seed is the original
+reverse-null, unit, null loop with the positive polynomial source leg.
+"""
+scope = """
+Arbitrary commutative rings, including the zero ring. All levels include level zero,
+and comparison, original track, loop and prespectrum structure parameters remain
+independent. The chart filler is constructed from the actual split-to-whiskered affine
+evaluation coherence. The raw Laurent action and both original nulls are compared
+rather than supplied as assumptions or replaced. Moving pushout descent curries into
+continuous interval maps; no product-quotient assumption or local compactness premise
+is imposed. This does not prove weak or stable equivalence of the named Bass map,
+nor a perfect-complex Bass comparison, iterated raw evaluation, supported localization,
+classical nonconnective K-theory identification or Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+provenance = "quillen"

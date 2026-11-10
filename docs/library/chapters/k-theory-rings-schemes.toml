@@ -764,3 +764,22 @@ induce its original K-pullback, with identity, composition and change-of-weak
 naturality. On a compact ambient scheme, the literal inclusion into the relative
 perfect model is a K-equivalence with its original forward map.
 '''
+
+COL-0502 = '''
+Use the actual affine coefficient homotopies of COL-0381 to compare the strict
+section and raw geometric Laurent Bass squares. Moving-boundary pushout descent
+and its cone map give the one-step evaluation. The forward Laurent unit and the
+original positive-source cone null compare as whole tracks, so the original
+section seed followed by this map is homotopic to evaluation followed by the
+original raw seed. No weak or stable equivalence of the Bass evaluation map is
+asserted.
+'''
+
+COL-0504 = '''
+COL-0504 constructs the relative-open section diagram using the original evaluation and
+open-detected weak equivalences. Its actual Laurent seed commutes strictly with the unchanged
+fine-to-coarse section maps, preserving the whole unit and null tracks. Together with the
+support-forgetting seed square of COL-0503, this supplies the two actual seed arrows for the
+localization diagram; the supported cone comparison and the nonconnective localization
+identification remain separate obligations.
+'''
