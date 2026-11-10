@@ -331,10 +331,8 @@ class LibraryTests(unittest.TestCase):
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
-            "finite-coefficients": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Basic",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "algebraic-simplices": "Colib.RingTheory.AlgebraicSimplex.Basic",
-            "pointed-motivic-inputs": "Colib.CategoryTheory.Sites.Simplicial.PointedPresheaf",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",
@@ -423,7 +421,7 @@ class LibraryTests(unittest.TestCase):
                          ["finite-correspondences", "transfers-nisnevich"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
-                          "algebraic-simplices", "pointed-motivic-inputs"])
+                          "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")
