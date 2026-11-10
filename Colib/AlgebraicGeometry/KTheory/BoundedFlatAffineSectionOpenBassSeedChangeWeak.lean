@@ -87,9 +87,9 @@ attribute [local irreducible] boundedAboveFlatAffineSectionPrespectrumFunctor
 
 /-- The unchanged Bass functor acts by this exact looped fine-to-coarse cone map. -/
 theorem boundedAboveFlatAffineSectionOpenBassChangeWeak_functor_app (a : Under R) :
-    ((KTheory.Bass.strictDiagramFunctor (laurentUnderSquareFunctor R)).map
-        (boundedAboveFlatAffineSectionOpenPrespectrumTransformation j)).app a =
-      parameterLoopingMap (boundedAboveFlatAffineSectionOpenBassConeChangeWeak j a) := rfl
+    HEq (((KTheory.Bass.strictDiagramFunctor (laurentUnderSquareFunctor R)).map
+        (boundedAboveFlatAffineSectionOpenPrespectrumTransformation j)).app a)
+      (parameterLoopingMap (boundedAboveFlatAffineSectionOpenBassConeChangeWeak j a)) := HEq.rfl
 
 end
 
@@ -125,7 +125,7 @@ theorem boundedAboveFlatAffineSectionOpenBassSeed_changeWeak :
   apply eq_of_heq
   have hleft := CategoryTheory.heq_comp rfl hA hC
     (boundedAboveFlatAffineSectionBassUnderSeed_app (R := R) a)
-    (heq_of_eq (boundedAboveFlatAffineSectionOpenBassChangeWeak_functor_app j a))
+    (boundedAboveFlatAffineSectionOpenBassChangeWeak_functor_app j a)
   have hright := CategoryTheory.heq_comp rfl rfl hC
     (HEq.refl ((boundedAboveFlatAffineSectionOpenPrespectrumTransformation j).app a))
     (heq_of_eq (boundedAboveFlatAffineSectionOpenBassSeed_app j a))

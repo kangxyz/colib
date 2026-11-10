@@ -137,3 +137,17 @@ example (n : ℕ) :
           (boundedAboveFlatAffineSectionOpenBassSeed j) n :=
   KTheory.Bass.strictDiagramTransition_map _ _ _ _
     (boundedAboveFlatAffineSectionOpenBassSeed_changeWeak j) n
+
+-- The heterogeneous helper recovers the original literal homogeneous component formula.
+section
+attribute [local irreducible] boundedAboveFlatAffineSectionPrespectrumFunctor
+  boundedAboveFlatAffineSectionOpenPrespectrumFunctor
+  boundedAboveFlatAffineSectionOpenPrespectrumTransformation
+
+example (a : Under R) :
+    ((KTheory.Bass.strictDiagramFunctor (laurentUnderSquareFunctor R)).map
+        (boundedAboveFlatAffineSectionOpenPrespectrumTransformation j)).app a =
+      parameterLoopingMap (boundedAboveFlatAffineSectionOpenBassConeChangeWeak j a) :=
+  eq_of_heq (boundedAboveFlatAffineSectionOpenBassChangeWeak_functor_app j a)
+
+end
