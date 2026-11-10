@@ -43,4 +43,3 @@ example :
           (poly (tensorSwapFactorIndexEquiv p h q).1.2)
           (tensorSwapFactorIndexEquiv p h q).2) :=
   tensorSwapFactor_linear_dvd p h q
-

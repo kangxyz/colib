@@ -100,4 +100,3 @@ example
             (AdjoinRoot ((poly p).map (PowerSeries.C : k →+* PowerSeries k)))
             (AdjoinRoot ((poly p).map (algebraMap k (LaurentSeries k)))) 0 x)) :=
   dvrMilnorTameSymbol'_milnorKNorm_laurentSeries_to_constants_degree_one p hsep hp x
-

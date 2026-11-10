@@ -114,4 +114,3 @@ example
                 (H[X] ⧸ Ideal.span {poly r.1.2}))
             (monicIrreducibleResidue q.1.2 (x : MilnorKRing (RatFunc E)))) :=
   monicIrreducibleResidue_milnorKNorm_ratFunc_eq_sum_tensorSwap_of_inert p h hsep hp T hT n x
-
