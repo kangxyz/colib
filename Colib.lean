@@ -1611,6 +1611,9 @@ public import Colib.GroupTheory.Steinberg.Torus
 public import Colib.GroupTheory.Steinberg.Universal
 public import Colib.KTheory.Bass.ConeGeneratorRecognition
 public import Colib.KTheory.Bass.ConeTrack
+public import Colib.KTheory.Bass.DiagramRowInterchange
+public import Colib.KTheory.Bass.DiagramRowIteration
+public import Colib.KTheory.Bass.DiagramRowLooping
 public import Colib.KTheory.Bass.StrictDiagram
 public import Colib.KTheory.Bass.StrictDiagramHomotopy
 public import Colib.KTheory.Bass.StrictDiagramMap
@@ -2852,6 +2855,7 @@ public import Colib.Topology.LocalCoefficients.Basic
 public import Colib.Topology.LocalCoefficients.ChainGeneration
 public import Colib.Topology.LocalCoefficients.ChainSupport
 public import Colib.Topology.LocalCoefficients.Chains
+public import Colib.Topology.LocalCoefficients.CommonUniverseChains
 public import Colib.Topology.LocalCoefficients.ComponentComparison
 public import Colib.Topology.LocalCoefficients.ComponentExtension
 public import Colib.Topology.LocalCoefficients.ConstantChainMaps
@@ -3020,6 +3024,7 @@ public import Colib.Topology.PathSubdivision.SlabCover
 public import Colib.Topology.PathSubdivision.TailMaps
 public import Colib.Topology.PathSubdivision.TimePaths
 public import Colib.Topology.PlusConstruction.Basic
+public import Colib.Topology.PlusConstruction.CommonUniverse
 public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
 public import Colib.Topology.PlusConstruction.DisplayedComparisonFundamentalGroup
 public import Colib.Topology.Prespectrum.ConeArrowHomotopy
@@ -3098,6 +3103,9 @@ public import Colib.Topology.Prespectrum.RelativeHomotopySourceTransport
 public import Colib.Topology.Prespectrum.RelativeHomotopySquarePasting
 public import Colib.Topology.Prespectrum.RelativeHomotopyStrictSquarePasting
 public import Colib.Topology.Prespectrum.RelativeHomotopyWhiskering
+public import Colib.Topology.Prespectrum.RowInterchangeHomotopyPushout
+public import Colib.Topology.Prespectrum.RowInterchangeMappingCone
+public import Colib.Topology.Prespectrum.RowInterchangeParameterLooping
 public import Colib.Topology.Prespectrum.SelfTrackConeTransition
 public import Colib.Topology.Prespectrum.SelfTrackCoordinateChange
 public import Colib.Topology.Prespectrum.SelfTrackHomotopyAdditivity

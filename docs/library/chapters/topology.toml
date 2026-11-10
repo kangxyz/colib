@@ -175,6 +175,14 @@ universe. The comparison and its homotopy are supplied; no comparison existence
 or classical CW uniqueness theorem is asserted.
 '''
 
+
+COL-0518 = '''
+When a homological plus certificate already admits coefficients in a common maximum universe,
+COL-0518 transports it along the actual lift homeomorphisms. The based path, exact kernel and
+original twisted-chain maps are retained; this does not enlarge a smaller coefficient hypothesis
+or assert the existence of a CW comparison.
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"
