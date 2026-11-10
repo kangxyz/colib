@@ -324,3 +324,12 @@ authors = ["kangxyz and Aglib contributors"]
 version = "Git commit 52e09db47998f139064acf48a2d3a64494d0dd9a; finite-extension presentation, algebra-equivalence and characteristic-zero tower statements inspected 2026-11-10"
 url = "https://github.com/kangxyz/aglib/tree/52e09db47998f139064acf48a2d3a64494d0dd9a"
 locator_roots = ["Aglib"]
+
+[sources.aglib_milnor_4f65be4e]
+kind = "software"
+title = "Aglib Milnor Norms and Residues"
+short_title = "Aglib"
+authors = ["kangxyz and Aglib contributors"]
+version = "Git commit 4f65be4eafa8964bd1f7a83682e99aa8165bd418"
+url = "https://github.com/kangxyz/aglib/tree/4f65be4eafa8964bd1f7a83682e99aa8165bd418"
+locator_roots = ["Aglib"]

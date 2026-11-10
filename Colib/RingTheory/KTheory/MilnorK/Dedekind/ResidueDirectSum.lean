@@ -201,3 +201,16 @@ theorem totalResidue_comp_milnorKNorm (n : ℕ) :
   exact totalResidue_milnorKNorm A S F E n x
 
 end Stacks.Chow.DedekindResidue
+
+attribute [colib_tag "COL-1003",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/ResidueDirectSum.lean:120-159" "adaptation"
+    "The pushforward coordinate over the full original prime fiber"]
+  Stacks.Chow.DedekindResidue.residuePushforward_apply
+
+attribute [colib_tag "COL-1003",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/ResidueDirectSum.lean:167-184" "adaptation"
+    "The finite-support square for the native norm and total residues"]
+  Stacks.Chow.DedekindResidue.totalResidue_milnorKNorm
+  Stacks.Chow.DedekindResidue.totalResidue_comp_milnorKNorm

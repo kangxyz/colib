@@ -86,3 +86,10 @@ theorem dvrMilnorTameSymbol'_comp_milnorKNorm_complete (n : ℕ) :
 end Stacks.Chow
 
 end
+
+attribute [colib_tag "COL-1001",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Norm/FiniteExtension/Complete.lean:59-88" "adaptation"
+    "The complete DVR norm–residue identity on the native Milnor groups"]
+  Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_complete
+  Stacks.Chow.dvrMilnorTameSymbol'_comp_milnorKNorm_complete

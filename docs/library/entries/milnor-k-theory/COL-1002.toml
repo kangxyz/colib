@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1002"
+title = "Milnor norm and residue at all original DVR branches"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 427
+primary = "Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_eq_sum_originalBranches"
+statement = '''
+Let \(R\) be a DVR with maximal ideal \(\mathfrak m_R\) and specified fraction field \(F\). Suppose that \(F\) and \(\kappa(R)\) have characteristic zero. Let \(S\) be a Dedekind domain finite and torsion-free over \(R\), with specified fraction field \(E\) finite over \(F\). The maps \(R\to F\to E\) and \(R\to S\to E\) induce the given scalar action on \(E\).
+
+For each prime \(\mathfrak q\) above \(\mathfrak m_R\), use the fraction-field map \(S_{\mathfrak q}\to E\) induced by the given \(S\to E\). Write \(\partial_T\) for the canonical DVR residue, \(\kappa(T)\) for the residue field of \(T\), and \(N_{L/K}\) for the chosen additive Milnor norm. For every \(n\geq 0\) and \(x\in K_{n+1}^M(E)\),
+\[
+\partial_R(N_{E/F}x)
+=
+\sum_{\mathfrak q\cap R=\mathfrak m_R}
+N_{\kappa(S_{\mathfrak q})/\kappa(R)}
+\bigl(\partial_{S_{\mathfrak q}}x\bigr).
+\]
+There is one summand for each distinct prime above \(\mathfrak m_R\). The same formula is an equality of additive maps.
+
+For a finite torsion-free map \(A\to S\) of Dedekind domains with the corresponding fraction-field and scalar-action hypotheses, there is a height-one version at each \(\mathfrak p\subset A\) for which \(\kappa(A_{\mathfrak p})\) has characteristic zero. Use \(A_{\mathfrak p}\) on the left and sum over the original primes \(\mathfrak q\) contracting to \(\mathfrak p\) on the right. The fraction fields are the specified ones of \(A\) and \(S\).
+'''
+scope = '''
+The branch index is the set of distinct prime-ideal factors of \(\mathfrak m_R S\), or of \(\mathfrak pS\) for the height-one formula. Each residue-field norm uses the finite extension induced by the corresponding local map \(R\to S_{\mathfrak q}\) or \(A_{\mathfrak p}\to S_{\mathfrak q}\). The rings and fields share one universe. The original base can be incomplete. The statements adapt Aglib's all-branch formulas to the native Stacks residues and chosen norms, including the target degree zero.
+'''
+proof = '''
+After completing \(R\), the tensor product \(\operatorname{Frac}(\widehat R)\otimes_F E\) is the product of the fraction fields of the completions of the localizations \(S_{\mathfrak q}\). The map from \(E\) to each coordinate is the fraction lift of the corresponding localization-to-completion map. Finite separable norm base change expresses the image of \(N_{E/F}x\) over \(\operatorname{Frac}(\widehat R)\) as the sum of the norms of these coordinate images of \(x\). Apply COL-1001 in each completed branch and use the residue comparison of COL-0168 to obtain the sum over the original localizations.
+
+For the height-one version, localize the base at \(\mathfrak p\) and localize \(S\) at the image of \(A\setminus\mathfrak p\). Prime extension identifies the branches of this localized model with the original primes over \(\mathfrak p\). The corresponding local-ring isomorphisms commute with the maps into \(E\), so they identify the terms of the two sums.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

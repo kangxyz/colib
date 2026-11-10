@@ -1,0 +1,28 @@
+[entry]
+id = "COL-1001"
+title = "Milnor norm and residue over a complete DVR"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 426
+primary = "Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_complete"
+statement = '''
+Let \(R\) be a DVR complete for its maximal-ideal topology, with specified fraction field \(F\). Suppose that \(F\) and the residue field \(\kappa(R)\) have characteristic zero. Let \(E/F\) be finite and let \(S\) be the specified integral closure of \(R\) in \(E\). Assume that \(S\) is a DVR finite over \(R\), that \(R\to S\) is local, and that \(S\to E\) exhibits \(E\) as its fraction field. The given maps \(R\to F\to E\) and \(R\to S\to E\) induce the same scalar action of \(R\) on \(E\).
+
+Write \(\partial_T\) for the canonical tame residue of a DVR \(T\) into the Milnor group of its residue field \(\kappa(T)\), and \(N_{L/K}\) for the chosen additive Milnor norm for \(L/K\). For every \(n\geq 0\), the additive maps \(K_{n+1}^M(E)\to K_n^M(\kappa(R))\) satisfy
+\[
+\partial_R\circ N_{E/F}
+=
+N_{\kappa(S)/\kappa(R)}\circ\partial_S.
+\]
+The finite residue-field extension is the one induced by \(R\to S\). The case \(n=0\) gives the boundary from degree one to degree zero.
+'''
+scope = '''
+The rings and fields lie in the same universe `Type u`. The statement uses the original chosen norms of COL-0396 and the canonical residue normalization of COL-0152, in which a uniformizer appended to a tuple of ring units gives their reduced symbol. The complete-DVR identity in Aglib's Milnor model is adapted to the native Stacks groups with the specified field and closure maps.
+'''
+proof = '''
+Choose a monic irreducible presentation \(F[t]/(g)\simeq E\), and let \(\delta\) be the difference between the two composites on a class over the quotient field. For each prime \(\ell\), take the fixed field \(L\) of an \(\ell\)-Sylow subgroup of the splitting-field Galois group. The complete branch descent in `DVRCompletePGroupDescent.lean` gives \([L:F]\delta=0\), with \([L:F]\) positive and coprime to \(\ell\). Thus \(\delta\) has finite additive order. If that order exceeds one, take \(\ell\) dividing it. The order must divide \([L:F]\), contradicting coprimality. Hence \(\delta=0\).
+
+Restrict the presentation to the integral closures and identify the target closure with \(S\). The restricted isomorphism commutes with the field isomorphism. Naturality of tame residue under the compatible local-ring and field isomorphisms, and of the chosen norm under the field and residue-field isomorphisms, transports the quotient-field square to the given fields and rings.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

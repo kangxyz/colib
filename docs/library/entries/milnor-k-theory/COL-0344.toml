@@ -1,0 +1,9 @@
+[entry]
+id = "COL-0344"
+title = "Native polynomial filtration and bounded single-residue lifting"
+kind = "theorem"
+section = "milnor-norms-and-rational-residues"
+order = 400
+statement = "A whole-ring rational-function Milnor class belongs to the native polynomial stage F_d exactly when all residues at points of degree greater than d vanish. A homogeneous single-residue datum at a degree-d polynomial has a lift in that same stage, unique as a class modulo F_0."
+scope = "Arbitrary fields and all nonnegative residue degrees, including degree zero. The whole-ring criterion allows inhomogeneous classes. Native F_0 contains constants. The single-residue polynomial degree zero is vacuous because no monic irreducible has that degree. This uses the existing filtration and quotient, not another model or unique representatives."
+review = "author_checked"

@@ -68,8 +68,8 @@ class LibraryTests(unittest.TestCase):
 
     def test_independent_milestone_ids_keep_their_owners(self):
         expected = {
-            "COL-0263": "milnor-k-theory",
-            "COL-0264": "milnor-k-theory",
+            "COL-0263": "milnor-symbols-field-change",
+            "COL-0264": "milnor-symbols-field-change",
             "COL-0265": "koszul-coefficients",
             "COL-0266": "derived-hom-comparisons",
         }
@@ -353,7 +353,11 @@ class LibraryTests(unittest.TestCase):
             "quillen-k-theory-of-rings": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "g-theory-of-rings": "Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization",
             "k-theory-of-schemes": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-            "milnor-k-theory": "Colib.RingTheory.KTheory.MilnorK.DegreeTwo",
+            "milnor-symbols-field-change": "Colib.RingTheory.KTheory.MilnorK.Symbols.Basic",
+            "milnor-residues-and-specialization": "Colib.RingTheory.KTheory.MilnorK.Residue.Specialization",
+            "milnor-norms-and-rational-residues": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation",
+            "milnor-norms-on-curves": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRComplete",
+            "milnor-degree-two": "Colib.RingTheory.KTheory.MilnorK.Steinberg",
             "adic-completion": "Colib.RingTheory.AdicCompletion.FiniteAlgebra",
             "principal-euler": "Colib.RingTheory.Multiplicity.PrincipalEuler.Basic",
             "charpoly-branches": "Colib.RingTheory.Charpoly.DVRBranchCount",
@@ -1242,7 +1246,7 @@ class LibraryTests(unittest.TestCase):
         entry = self.root / "docs/library/entries/k-theory-rings-schemes/COL-0004.toml"
         entry.write_text(
             entry.read_text().replace(
-                'section = "k-zero-of-fields"', 'section = "milnor-k-theory"'
+                'section = "k-zero-of-fields"', 'section = "milnor-symbols-field-change"'
             )
         )
         scripts = self.root / "scripts"
@@ -1256,7 +1260,8 @@ class LibraryTests(unittest.TestCase):
             text=True,
         )
         item = json.loads(result.stdout)
-        self.assertEqual(item["section"], "milnor-k-theory")
+        self.assertEqual(item["chapter"], "milnor-k-theory")
+        self.assertEqual(item["section"], "milnor-symbols-field-change")
         self.assertEqual(item["modules"], ["Colib.RingTheory.KTheory.GrothendieckGroup.Field"])
 
     def test_unsafe_bibliographic_path_is_rejected(self):

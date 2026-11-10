@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1006"
+title = "Order-weighted endpoint Milnor norms in every degree"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 431
+primary = "Stacks.Chow.DedekindResidue.endpointWeightedResidueSum_eq_all"
+statement = '''
+Let \(k\) be a field of characteristic zero, \(A=k[X]\), and \(F=k(X)\). Let \(S\) be a Dedekind domain finite and torsion-free over \(A\), with fraction field \(E\). Use the given finite extension \(F\to E\), for which \(A\to S\to E\) and \(A\to F\to E\) agree. Fix \(n\geq0\) and an ordered tuple \(u=(u_1,\ldots,u_n)\) of units of \(S\). Let \(s\in K_n^M(E)\) be its symbol under \(S\to E\), and write \(C:k\to F\) for the inclusion of constants.
+
+For \(c\in k\), put \(p_c=(X-c)\subset A\), let \(t_c\in E^\times\) be the image of \(X-c\) under \(A\to F\to E\), and let \(B_c\) be the distinct prime-ideal factors of \(p_c S\). For \(Q\in B_c\), let \(\kappa(Q)\) be the residue field of \(S_Q\), \(v_Q\) its normalized order on \(E^\times\), and \(\bar u_Q\) the tuple obtained from \(u\) by \(S\to S_Q\to\kappa(Q)\), in the same order. Write \(\{\bar u_Q\}\) for its symbol. Let \(\rho_c:\kappa(p_c)\simeq k\) identify the residue field of \(A_{p_c}\) with \(k\) via \(A/(X-c)\) and evaluation at \(c\). Define
+\[
+W_c(u)=(\rho_c)_*\!\left(
+\sum_{Q\in B_c}N_{\kappa(Q)/\kappa(p_c)}
+          \bigl(v_Q(t_c)\,\{\bar u_Q\}\bigr)\right).
+\]
+For all \(c\in k\), this equals \(\sigma_c(N_{E/F}(s))\), where \(\sigma_c\) is DVR specialization at \(p_c\) with uniformizer \(X-c\), followed by \((\rho_c)_*\). In particular, \(W_a(u)=W_b(u)\) in \(K_n^M(k)\) for every \(a,b\in k\).
+
+When the given \(k\)-action on \(S\) agrees with \(k\to A\to S\), each term after \((\rho_c)_*\) is the actual norm to \(k\) with the same integer weight. Thus the two endpoints also give equal explicit sums of the form
+\[
+\sum_{Q\in B_c} v_Q(t_c)\,N_{\kappa(Q)/k}\bigl(\{\bar u_Q\}\bigr).
+\]
+'''
+scope = '''
+The rings and fields are in the common universe of the native chosen-norm API. The norms use the scalar actions induced by the given extension and the actual local residue maps. Each branch occurs once with the full integer \(v_Q(t_c)\), normalized to give value one on a uniformizer of \(S_Q\). In degree zero \(u\) is the empty tuple and its symbol is the degree-zero unit. The separate termwise identification with ground-field norms uses the compatible \(k\)-action on \(S\), the original residue fields, and the fraction field with the \(F\)-action used to form \(t_c\).
+
+Aglib gives the all-degree specialization and weighted endpoint equality, and separately the termwise identification with the ground-field norms. The explicit equality of ground-field sums combines those two comparisons in the native Stacks model. [@aglib_milnor_4f65be4e, KTheory/MilnorK/Dedekind/AffineEndpointNormAllDegrees.lean:33-59,63-81,85-90] [@aglib_milnor_4f65be4e, KTheory/MilnorK/Dedekind/AffineEndpointBaseNorm.lean:35-37,41-87,98-114]
+'''
+proof = '''
+The norm of the global-unit symbol belongs to the constant image in positive degree by affine unramified norm constancy in COL-1005. In degree zero the natural identifications \(K_0^M(k)\simeq\mathbb Z\) and \(K_0^M(F)\simeq\mathbb Z\) identify \(C_*\) with the identity. Thus \(C_*\) is surjective in degree zero.
+
+Append \(t_c\) in the last slot of the symbol. The local tame residue is \(v_Q(t_c)\{\bar u_Q\}\), and the finite residue pushforward gives \(W_c(u)\) after evaluation. The right projection formula moves this last factor through the norm to the symbol of \(X-c\) over \(F\). The residue of the appended symbol lowers degree by one, while \(\sigma_c\) preserves degree. On a constant class the evaluated residue after appending \(X-c\) agrees with \(\sigma_c\). Both recover the original constant. This gives the equality at all endpoints in every degree.
+
+The map \(\kappa(p_c)\to\kappa(Q)\) agrees with \(\rho_c\) followed by the given coefficient map \(k\to\kappa(Q)\). Apply norm equivariance with \(\rho_c\) on the lower field and the identity on \(\kappa(Q)\) to identify the transported branch norm with \(N_{\kappa(Q)/k}\). Additivity preserves the integer weight.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

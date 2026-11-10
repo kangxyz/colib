@@ -43,3 +43,9 @@ theorem normalized_curve_reciprocity (n : ℕ) (x : MilnorKTheory E (n + 1)) :
   exact affine_normed_reciprocity k S E n x
 
 end Stacks.Chow.DedekindResidue
+
+attribute [colib_tag "COL-1004",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/NormalizedCurveReciprocity.lean:30-39" "adaptation"
+    "Reciprocity with the complete affine and infinity branch sums"]
+  Stacks.Chow.DedekindResidue.normalized_curve_reciprocity

@@ -140,3 +140,10 @@ theorem dvrMilnorTameSymbol'_comp_milnorKNorm_eq_sum_originalBranches (n : ℕ) 
 end Stacks.Chow
 
 end
+
+attribute [colib_tag "COL-1002",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Norm/FiniteExtension/DVR.lean:39-98" "adaptation"
+    "The norm–residue identity summed over the original DVR branches"]
+  Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_eq_sum_originalBranches
+  Stacks.Chow.dvrMilnorTameSymbol'_comp_milnorKNorm_eq_sum_originalBranches

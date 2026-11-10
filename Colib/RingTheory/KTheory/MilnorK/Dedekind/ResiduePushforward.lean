@@ -143,3 +143,9 @@ theorem dvrMilnorTameSymbol'_milnorKNorm_atPrime (n : ℕ) (x : MilnorKTheory E 
 end Dedekind
 
 end Stacks.Chow
+
+attribute [colib_tag "COL-1002",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/ResiduePushforward.lean:83-129" "adaptation"
+    "The local norm–residue identity at a height-one point of the base"]
+  Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_atPrime

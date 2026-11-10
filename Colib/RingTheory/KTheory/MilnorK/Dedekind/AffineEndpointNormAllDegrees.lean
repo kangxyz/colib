@@ -82,3 +82,15 @@ theorem endpointWeightedResidueSum_eq_all (a b : k) (n : ℕ) (u : Fin n → Sˣ
   exact linearSpecialization_norm_ring_unit_symbol_eq_all k S E a b n u
 
 end Stacks.Chow.DedekindResidue
+
+attribute [colib_tag "COL-1006",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/AffineEndpointNormAllDegrees.lean:63-81" "adaptation"
+    "The full weighted branch sum gives the native norm specialization in all degrees"]
+  Stacks.Chow.DedekindResidue.endpointWeightedResidueSum_eq_specialization_all
+
+attribute [colib_tag "COL-1006",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/AffineEndpointNormAllDegrees.lean:85-90" "adaptation"
+    "The full weighted endpoint sums agree in all degrees"]
+  Stacks.Chow.DedekindResidue.endpointWeightedResidueSum_eq_all

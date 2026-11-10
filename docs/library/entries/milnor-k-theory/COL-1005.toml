@@ -1,0 +1,24 @@
+[entry]
+id = "COL-1005"
+title = "Constancy of norms of affine unramified Milnor classes"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 430
+primary = "Stacks.Chow.DedekindResidue.norm_mem_constant_range_of_totalResidue_zero"
+statement = '''
+Let \(k\) be a field of characteristic zero, \(A=k[X]\), and \(F=k(X)\). Let \(S\) be a Dedekind domain finite and torsion-free over \(A\), with fraction field \(E\). Use the given finite extension \(F\to E\), for which \(A\to S\to E\) and \(A\to F\to E\) agree. Write \(C:k\to F\) for the inclusion of constants.
+
+For \(n\geq0\), let \(x\in K_{n+1}^M(E)\) have zero tame residue at each height-one prime of \(S\). Then
+\[
+N_{E/F}(x)\in\operatorname{im}\bigl(C_*:K_{n+1}^M(k)\to K_{n+1}^M(F)\bigr).
+\]
+In particular, this holds for the symbol of any ordered \((n+1)\)-tuple of units of \(S\) mapped into \(E\).
+'''
+scope = '''
+The rings and fields are in the common universe of the native chosen-norm API. The hypothesis is the vanishing of the entire native finite-support residue vector \(\operatorname{totalResidue}(x)\) of the original affine model. The norm is the native additive field norm for the given \(F\)-action, and \(C_*\) is the native map induced by `RatFunc.C`. The unramified-class and global-unit statements adapt the corresponding Aglib results. [@aglib_milnor_4f65be4e, KTheory/MilnorK/Dedekind/AffineUnramifiedNorm.lean:30-47,50-60,64-68]
+'''
+proof = '''
+The square in COL-1003 sends the total residue of \(x\) to the total residue of \(N_{E/F}(x)\) on \(A\). The residue field of each polynomial localization identifies with the quotient by its prime, so the native rational residue vector also vanishes. The kernel calculation in COL-0345 then places the norm in the constant image. For a symbol of global units, each entry is a unit in every localization \(S_Q\), so the tame residue formula gives zero in every coordinate.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

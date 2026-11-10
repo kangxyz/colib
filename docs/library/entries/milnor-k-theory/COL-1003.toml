@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1003"
+title = "The finite-support Milnor norm–residue square for Dedekind domains"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 428
+primary = "Stacks.Chow.DedekindResidue.totalResidue_milnorKNorm"
+statement = '''
+Let \(A\to S\) be a map of Dedekind domains with \(S\) finite and torsion-free over \(A\), and with specified fraction fields \(F\) and \(E\) respectively. Assume \(F\) has characteristic zero and \(E/F\) is finite, with the given compatible scalar actions along \(A\to F\to E\) and \(A\to S\to E\). For every height-one prime \(\mathfrak p\) of \(A\), assume that \(\kappa(A_{\mathfrak p})\) has characteristic zero.
+
+Fix \(n\geq 0\). For \(T=A,S\), write \(T^{(1)}\) for the set of height-one primes and put
+\[
+D_n(T)=\bigoplus_{\mathfrak t\in T^{(1)}}K_n^M(\kappa(T_{\mathfrak t})).
+\]
+The total residue \(\partial_T^{\mathrm{tot}}\) takes a class of degree \(n+1\) over the specified fraction field to its family of canonical DVR residues in \(D_n(T)\). Contraction sends a height-one prime \(\mathfrak q\) of \(S\) to \(f(\mathfrak q)=\mathfrak q\cap A\). The pushforward \(f_*:D_n(S)\to D_n(A)\) is given by
+\[
+(f_*y)_{\mathfrak p}
+=
+\sum_{\substack{\mathfrak q\in S^{(1)}\\ f(\mathfrak q)=\mathfrak p}}
+N_{\kappa(S_{\mathfrak q})/\kappa(A_{\mathfrak p})}(y_{\mathfrak q}),
+\]
+where the finite residue-field extension in each summand comes from \(A_{\mathfrak p}\to S_{\mathfrak q}\). The \(\mathbb Z\)-linear maps \(K_{n+1}^M(E)\to D_n(A)\) satisfy
+\[
+\partial_A^{\mathrm{tot}}\circ N_{E/F}
+=
+f_*\circ\partial_S^{\mathrm{tot}}.
+\]
+'''
+scope = '''
+The direct sums are realized by the native dependent finitely supported functions `DFinsupp`. The rings and fields share one universe. The pushforward uses the original contraction of height-one primes and the existing additive norms, viewed as \(\mathbb Z\)-linear maps. The total residue uses each actual localization with the original fraction field, and its finite support holds for every class. The Aglib square is adapted to these native groups and maps in every positive source degree, including the boundary to degree zero.
+'''
+proof = '''
+The entries of a Milnor symbol are units in the height-one localizations outside the finite set of primes dividing their numerators or denominators. Its tame residues vanish outside that set. Generation by symbols then gives finite support for every homogeneous class.
+
+On a family supported at one height-one point, pushforward applies the residue norm and puts the result at its contracted point. Evaluating at a base prime and extending linearly gives the coordinate sum over the distinct prime factors of its extension to \(S\). For a total-residue family these are exactly the terms of the height-one norm–residue formula in COL-1002. The family identity follows by equality in each coordinate.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

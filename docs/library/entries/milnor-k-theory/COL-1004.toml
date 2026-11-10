@@ -1,0 +1,31 @@
+[entry]
+id = "COL-1004"
+title = "Milnor reciprocity on a normalized curve"
+kind = "theorem"
+section = "milnor-norms-on-curves"
+order = 429
+primary = "Stacks.Chow.DedekindResidue.normalized_curve_reciprocity"
+statement = '''
+Let \(k\) be a field of characteristic zero, \(A=k[X]\), and \(F=k(X)\). Let \(S\) be a Dedekind domain finite and torsion-free over \(A\), with fraction field \(E\). Use the given finite extension \(F\to E\), for which the maps \(A\to S\to E\) and \(A\to F\to E\) agree. The given \(k\)-action on \(S\) agrees with \(k\to A\to S\).
+
+Write \(S^{(1)}\) for the height-one primes of \(S\). For \(Q\in S^{(1)}\), write \(\kappa(Q)\) for the residue field of \(S_Q\) and \(\partial_Q\) for its tame residue. To describe the places at infinity, let \(R_0=A_{(X)}\) with residue field \(\kappa_0\). Take its integral closure \(T\) in the same field \(E\) with scalar map \(R_0\to F\xrightarrow{X\mapsto X^{-1}}F\to E\). Let \(B_\infty\) be the distinct prime-ideal factors of the extended maximal ideal of \(R_0\) in \(T\). Write \(\kappa(P)\) and \(\partial_P\) for the residue field and tame residue at \(T_P\) for \(P\in B_\infty\), and let \(\rho_0:\kappa_0\simeq k\) be the origin residue identification via \(A/(X)\) and evaluation at zero.
+
+For every \(n\geq0\) and \(x\in K_{n+1}^M(E)\), the native additive norms give
+\[
+\sum_{Q\in S^{(1)}} N_{\kappa(Q)/k}\bigl(\partial_Q x\bigr)
++ (\rho_0)_*\!\left(\sum_{P\in B_\infty}
+    N_{\kappa(P)/\kappa_0}\bigl(\partial_P x\bigr)\right)=0
+\quad\text{in } K_n^M(k).
+\]
+The affine sum is taken on the finite support of the total residue.
+'''
+scope = '''
+The rings and fields are in the common universe of the native chosen-norm API. The residue fields at the affine points use the coefficient action inherited from \(S\). The infinity terms use the original field \(E\) with its inverted rational-function action and the residue maps of the localizations of \(T\). The statement adapts Aglib's reciprocity for these two sums to the native Stacks Milnor groups, tame residues, and chosen norms. [@aglib_milnor_4f65be4e, KTheory/MilnorK/Dedekind/NormalizedCurveReciprocity.lean:30-39]
+'''
+proof = '''
+COL-1003 expresses the residue of \(N_{E/F}(x)\) at each polynomial prime as the sum of the residue norms above it. The tower identity in COL-0396 composes each of these norms with the norm from the base residue field to \(k\). The quotient–residue equivalence identifies the polynomial-localized term with the residue over the polynomial quotient. Presentation comparison in COL-0396 then identifies its norm with the simple norm used in COL-0346. Rational reciprocity makes this finite sum cancel the infinity residue of \(N_{E/F}(x)\).
+
+By equivariance under \(X\mapsto X^{-1}\), this infinity residue equals the origin residue of the norm for the inverted action, transported by \(\rho_0\). Applying COL-1002 to \(R_0\subset T\) expresses that origin residue as the sum over \(B_\infty\).
+'''
+review = "author_checked"
+source_checked_on = "2026-11-10"

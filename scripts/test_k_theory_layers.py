@@ -64,10 +64,14 @@ class KTheoryLayersTests(unittest.TestCase):
         library = catalog.load_library()
         for section in ("grothendieck-groups", "quillen-k-theory", "waldhausen-k-theory"):
             self.assertEqual(library["sections"][section]["chapter"], "k-theory")
-        for section in ("k-zero-of-fields", "milnor-k-theory",
-                        "quillen-k-theory-of-rings", "g-theory-of-rings", "k-theory-of-schemes"):
+        for section in ("k-zero-of-fields", "quillen-k-theory-of-rings",
+                        "g-theory-of-rings", "k-theory-of-schemes"):
             self.assertEqual(library["sections"][section]["chapter"],
                              "k-theory-rings-schemes")
+        for section in ("milnor-symbols-field-change", "milnor-residues-and-specialization",
+                        "milnor-norms-and-rational-residues", "milnor-norms-on-curves",
+                        "milnor-degree-two"):
+            self.assertEqual(library["sections"][section]["chapter"], "milnor-k-theory")
         expected = {
             "COL-0004": "k-zero-of-fields",
             "COL-0020": "k-zero-of-fields",
@@ -76,7 +80,7 @@ class KTheoryLayersTests(unittest.TestCase):
             "COL-0272": "quillen-k-theory",
             "COL-0273": "g-theory-of-rings",
             "COL-0274": "g-theory-of-rings",
-            "COL-0279": "milnor-k-theory",
+            "COL-0279": "milnor-degree-two",
             "COL-0280": "quillen-k-theory-of-rings",
             "COL-0281": "quillen-k-theory",
         }

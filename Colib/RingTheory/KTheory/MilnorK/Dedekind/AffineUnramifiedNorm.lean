@@ -83,3 +83,21 @@ theorem norm_ring_unit_symbol_mem_constant_range (n : ℕ) (a : Fin (n + 1) → 
   norm_mem_constant_range_of_totalResidue_zero k S E n _ (totalResidue_ring_units S E n a)
 
 end Stacks.Chow.DedekindResidue
+
+attribute [colib_tag "COL-1005",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/AffineUnramifiedNorm.lean:30-47" "adaptation"
+    "The norm of an affine unramified class lies in the constant image"]
+  Stacks.Chow.DedekindResidue.norm_mem_constant_range_of_totalResidue_zero
+
+attribute [colib_tag "COL-1005",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/AffineUnramifiedNorm.lean:50-60" "adaptation"
+    "The complete affine residue of a global-unit symbol vanishes"]
+  Stacks.Chow.DedekindResidue.totalResidue_ring_units
+
+attribute [colib_tag "COL-1005",
+  colib_ref "aglib_milnor_4f65be4e"
+    "KTheory/MilnorK/Dedekind/AffineUnramifiedNorm.lean:64-68" "adaptation"
+    "The constant norm conclusion for original global-unit symbols"]
+  Stacks.Chow.DedekindResidue.norm_ring_unit_symbol_mem_constant_range
