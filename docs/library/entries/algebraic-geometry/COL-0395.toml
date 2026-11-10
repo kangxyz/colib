@@ -1,0 +1,75 @@
+[entry]
+id = "COL-0395"
+title = "Sheafified ordinary singular chains and cochain placement"
+kind = "comparison"
+section = "algebraic-simplices"
+order = 40
+primary = "AlgebraicSimplex.sheafifiedSingularCochainsFunctor"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(R\) be a commutative ring, \(C=\mathrm{Sm}/\operatorname{Spec}R\) its smooth
+separated finite-type category, \(J\) a Grothendieck topology on \(C\), and \(A\)
+an abelian category with `HasSheafify J A`. For an ordinary presheaf
+\(P\colon C^{\mathrm{op}}\to A\), retain the chains of COL-0348,
+\(C_r(P)(U)=P(U\times_{\operatorname{Spec}R}\Delta_R^r)\).
+Canonical degreewise sheafification gives a chain complex \(a_JC_*(P)\) with
+\[
+d_{r+1,r}=\sum_{i=0}^{r+1}(-1)^i a_J\bigl(P(\mathrm{id}\times\delta^i)\bigr).
+\]
+The original units form a chain map \(C_*(P)\to i_Ja_JC_*(P)\), natural in \(P\).
+The native exact-functor comparison gives
+\[
+\beta_{P,r}\colon H_r(a_JC_*(P))\xrightarrow{\sim}a_JH_r(C_*(P)),
+\]
+and \(\beta_{Q,r}\circ H_r(a_JC_*(\alpha))= a_JH_r(C_*(\alpha))\circ\beta_{P,r}\) for each coefficient map \(\alpha\colon P\to Q\).
+
+For \(q\in\mathbb N\), place chain degree \(r\) in cochain degree \(q-r\)
+by native extension by zero and then sheafify, obtaining \(S_q(P)\). Its terms
+above \(q\) are zero. Its specified term isomorphisms
+\(\theta_r\colon S_q(P)^{q-r}\xrightarrow{\sim}a_JC_r(P)\) satisfy, for all
+\(r,s\in\mathbb N\),
+\[
+d_{S_q}^{q-r,q-s}=\theta_s^{-1}\circ a_J(d_C^{r,s})\circ\theta_r,
+\qquad H^{q-r}(S_q(P))\cong a_JH_r(C_*(P)).
+\]
+There is also the native extension/sheafification isomorphism
+\(\kappa\colon\operatorname{ext}_q(a_JC_*(P))\xrightarrow{\sim}S_q(P)\).
+If \(\epsilon_r\) identifies its source's degree \(q-r\) with \(a_JC_r(P)\),
+then \(\kappa^{q-r}=\theta_r^{-1}\circ\epsilon_r\).
+'''
+scope = '''
+The base ring is arbitrary and the coefficient category has independent object
+and morphism universes. The topology is not restricted to Nisnevich; actual
+Nisnevich abelian-group consumers instantiate the hypotheses. The term \(P\)
+is an ordinary presheaf, with no transfer action or homotopy-invariance assumption.
+
+The functor `presheafToSheaf` is exact under `HasSheafify`; exactness of the
+inclusion `sheafToPresheaf` or of the singular-chain functor is not asserted.
+In particular, the unit is not claimed to be a quasi-isomorphism of underlying
+presheaf complexes. The displayed cochain differential transports the original
+alternating signs with no extra sign. Comparison with the weight-zero complex
+shifted by \(-q\) would additionally require a degree-\(r\) factor
+\((-1)^{qr}\); that signed-shift comparison is not asserted here.
+These complexes are not identified with transfer singular complexes,
+\(\mathbb Z(q)\), Bloch cycle complexes or the final motivic complex.
+'''
+proof = '''
+Apply Mathlib's `mapHomologicalComplex` to canonical sheafification. Its additivity
+preserves the alternating differential. Naturality of the original sheafification
+unit is exactly the chain-map equation. Finite-limit preservation and the
+left-adjoint structure make sheafification exact, so the native short-complex
+homology comparison gives \(\beta\) and its coefficient naturality.
+
+Apply `ComplexShape.embeddingUpIntLE` for the placement \(r\mapsto q-r\).
+The native `extendXIso`, `extend_d_eq`, `isZero_extend_X` and
+`extendHomologyIso` give the occupied terms, original differential, zero terms
+and cohomology comparison. Map their actual isomorphisms through sheafification.
+Stacks' `DerivedIndexing.mapExtendIso` gives \(\kappa\), and its occupied-degree
+component theorem gives the displayed formula without a new generic wrapper.
+
+This specializes the ordinary construction of
+[@motivic_source_a6805c4, Motivic/Aglib/Algebra/Homology/Sheafification/Singular.lean:44-75,77-141]
+to the actual relative simplex model of COL-0348. The extension interchange is
+used directly from [@axiom_stacks_5ed82d14, StacksFrontier/Homology/DerivedIndexing/Extend.lean:116-128].
+'''

@@ -1,0 +1,37 @@
+[entry]
+id = "COL-0389"
+title = "Graph interchange for exterior correspondences"
+kind = "theorem"
+section = "exterior-parameters"
+order = 30
+primary = "Stacks.Chow.nativeExterior_graph_interchange"
+statement = '''
+Let \(k\) be a field and let \(X,Y,T,U\) be smooth separated finite-type \(k\)-schemes. Assume that \(T\) and \(U\) are geometrically integral. Let \(\psi:T\to U\) be any \(k\)-morphism. Write \(Z_P=Z\times_kP\), and let \(E_P\) be the additive exterior operation of COL-0386. For \(Z=X,Y\), let
+\[ \Gamma_{Z,\psi}=\Gamma(\mathrm{id}_Z\times\psi)\in\operatorname{Cor}_k(Z_T,Z_U) \]
+be the full graph cycle of COL-0367. Write \(\alpha\star\beta\) for the native incidence-Tor composition that first follows \(\alpha\) and then \(\beta\). Then, for every finite correspondence \(\alpha\in\operatorname{Cor}_k(X,Y)\),
+\[ \Gamma_{X,\psi}\star E_U(\alpha)=E_T(\alpha)\star\Gamma_{Y,\psi}\quad\text{in }\operatorname{Cor}_k(X_T,Y_U). \]
+The equality includes all integer coefficients, the complete sums of source-component graph cycles, and the residue-field degrees in the finite support pushforwards. The schemes \(X\) and \(Y\) may be disconnected or empty.
+'''
+scope = '''
+The field and schemes lie in one universe. Both sides use the existing native finite-correspondence groups, additive exterior operations, full graph cycles and incidence-Tor pairing. Neither perfectness of \(k\) nor flatness or properness of \(\psi\) is assumed. Geometric integrality of both parameters is the hypothesis of the two chosen exterior operations.
+
+The exterior-product convention is [@MVW2006, Lecture 1, Definition 1.9, printed p. 6], using the associated-cycle multiplicities of [@MVW2006, Lecture 1, Construction 1.3, printed p. 4]. The displayed graph-interchange statement and its local Tor calculation are assembled here; Definition 1.9 is not cited as their literal statement or proof. The proper pushforward references [@stacks, Tag 02R4] and [@stacks, Tag 02R5] apply to the actual finite maps on correspondence supports, not to the arbitrary parameter map or an arbitrary ambient projection.
+
+The alternating-Tor expression is the convention in [@stacks, Tag 0AZR], Section 43.14, immediately after Lemma 43.14.2. That chapter assumes an algebraically closed ground field, as specified in [@stacks, Tag 0AZ8]. It is cited for the convention only: the present arbitrary-field calculation uses the explicit local algebra in the proof outline. [@stacks, Tag 0AZT] supplies the separate sheaf-Tor stalk and boundedness discussion, not the multiplicity definition.
+
+The construction adapts the incidence map in [@motivic_source_a6805c4, Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/GraphInterchangeIncidence.lean:292-334], the local calculation in [@motivic_source_a6805c4, Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/GraphInterchangeStalks.lean:196-237], and the right-graph pushforward in [@motivic_source_a6805c4, Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/GraphInterchangeRight.lean:72-97]. It does not assert preservation of arbitrary correspondence composition or an exterior operation for a parameter without geometric integrality.
+'''
+proof_kind = "outline"
+proof = '''
+Additive extensionality reduces the equality to an admissible prime with integral support \(W\subset X\times_kY\). The image of \(W_T\to X_T\) is one irreducible component of \(X_T\). Select its generic point in the full graph sum. The matching incidence of COL-0387 is isomorphic to \(W_T\); every other graph component has empty incidence and contributes zero.
+
+At an actual incidence point, use the open coefficient chart to express the middle-diagonal equations as those of a section of a smooth projection. A smooth section is a regular immersion [@stacks, Tag 067R]. Its stalk quotient is a split copy of the base stalk and hence is flat over that base. Flat-quotient base change [@stacks, Tag 0CEP], followed by localization and Noetherian local regularity [@stacks, Tag 061S], preserves the same finite ordered generating family under the arbitrary parameter map. Transport through the actual coefficient chart gives the literal images of this family in the original support-product stalk. Thus the native Koszul comparison kills every positive-degree ambient Tor group; it uses no assumed Tor vanishing or independently chosen target family.
+
+Write \(A\) for the local ambient ring, \(D\) for the support-product stalk, \(B\) for the triple-product stalk, and \(C\) for the full incidence stalk. The actual quotient maps identify
+\[ \operatorname{Tor}_0^A(D,B)\simeq C \]
+as \(A\)-modules, with the scalar action on \(C\) restricted along the actual surjection \(A\to C\). Surjectivity identifies the ambient module length with the length over \(C\). On the matching component, the incidence is reduced and its stalk at the generic point has length one. The signed finite Tor sum therefore has coefficient one: the zeroth term is one and every positive-degree term is zero. The entire matching Tor cycle is consequently its single generic prime.
+
+Under the incidence isomorphism, the actual source-target map factors as \(p\) followed by \(q\), where \(p\) is the isomorphism to the actual exterior support \(V_T\simeq W_T\) and \(q\) is the finite graph-postcomposition map of COL-0387. Proper pushforward functoriality identifies the matching contribution with \(q_*[V_T]\). Only \(p\) has degree one; every residue-field degree of \(q\) is retained. The native right-graph formula gives the same pushforward. This proves the prime equality. Applying the two additive homomorphisms to the finite integer decomposition of \(\alpha\) proves the displayed identity, including negative coefficients.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"

@@ -170,7 +170,7 @@ by all their images. Naturality of the projection fixes its transfer action.
 id = "exterior-parameters"
 title = "Exterior parameters and graph incidence"
 order = 50
-introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Reindexing the actual graph components gives preservation of full graph and identity cycles. Changing the parameter gives a comparison of actual graph-incidence schemes on a compatible source component. The section stops before a matched-component Tor calculation or a general composition law.'
+introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Reindexing the graph components gives preservation of full graph and identity cycles. Changing the parameter identifies the unique matching graph incidence. Its common regular family computes the local Tor coefficient, and its finite support map gives graph interchange. Compatibility with arbitrary correspondence composition is a separate question.'
 
 [sections.transitions]
 COL-0386 = '''
@@ -193,4 +193,13 @@ The graph projection is an
 open immersion, so the source map lifts uniquely into it. Together with the
 parameter map on the exterior support, this lift identifies the actual incidence
 scheme and retains its source-target finite map.
+'''
+COL-0389 = '''
+In COL-0387 the matching source component was an explicit choice. Select it
+from the image of the exterior support, and discard the other, empty incidences.
+The matching isomorphism identifies the scheme and the finite map. To compare
+its cycle, keep one ordered family of middle-diagonal equations through the
+actual coefficient chart: the resulting Tor calculation gives coefficient one.
+Both graph compositions then push forward the same exterior prime, with the
+same residue-field degrees.
 '''

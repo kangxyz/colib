@@ -447,7 +447,7 @@ class LibraryTests(unittest.TestCase):
         expected = {
             "transfer-homological-algebra": ["COL-0390", "COL-0381", "COL-0391", "COL-0392"],
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
-            "exterior-parameters": ["COL-0386", "COL-0388", "COL-0387"],
+            "exterior-parameters": ["COL-0386", "COL-0388", "COL-0387", "COL-0389"],
         }
         for section_id, identifiers in expected.items():
             section = self.library["sections"][section_id]
