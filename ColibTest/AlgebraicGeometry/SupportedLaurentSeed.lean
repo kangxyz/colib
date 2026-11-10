@@ -115,3 +115,21 @@ example (a : Under R) (n : ℕ) (s t : unitInterval)
           ((boundedAboveFlatAffineSupportedSectionBassSeedMap j a).map n x) t) s :=
   congrArg (fun p ↦ Path.toContinuousMap (p t) s)
     ((boundedAboveFlatAffineSupportedSectionBassSeedMap j a).comm n x)
+
+-- The heterogeneous public helpers recover both original homogeneous component equations.
+section
+attribute [local irreducible] boundedAboveFlatAffineSectionPrespectrumFunctor
+  boundedAboveFlatAffineSupportedSectionPrespectrumFunctor
+  boundedAboveFlatAffineSupportedSectionForgetPrespectrumTransformation
+
+example (a : Under R) :
+    ((KTheory.Bass.strictDiagramFunctor (laurentUnderSquareFunctor R)).map
+      (boundedAboveFlatAffineSupportedSectionForgetPrespectrumTransformation j)).app a =
+      parameterLoopingMap (boundedAboveFlatAffineSupportedSectionBassConeForget j a) :=
+  eq_of_heq (boundedAboveFlatAffineSupportedSectionBassForget_functor_app j a)
+
+example (a : Under R) :
+    (boundedAboveFlatAffineSectionBassUnderSeed R).app a =
+      boundedAboveFlatAffineSectionBassSeedMap a.right :=
+  eq_of_heq (boundedAboveFlatAffineSectionBassUnderSeed_app (R := R) a)
+end

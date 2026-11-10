@@ -97,14 +97,15 @@ attribute [local irreducible] boundedAboveFlatAffineSectionPrespectrumFunctor
 /-- The existing Bass functor acts by the same actual looped support cone map. -/
 theorem boundedAboveFlatAffineSupportedSectionBassForget_functor_app (a : Under R) :
     ((KTheory.Bass.strictDiagramFunctor (laurentUnderSquareFunctor R)).map
-        (boundedAboveFlatAffineSupportedSectionForgetPrespectrumTransformation j)).app a =
-      parameterLoopingMap (boundedAboveFlatAffineSupportedSectionBassConeForget j a) := rfl
+        (boundedAboveFlatAffineSupportedSectionForgetPrespectrumTransformation j)).app a ≍
+      parameterLoopingMap (boundedAboveFlatAffineSupportedSectionBassConeForget j a) := HEq.rfl
 
 /-- Restriction retains the unchanged ambient constructed seed at the actual algebra. -/
 theorem boundedAboveFlatAffineSectionBassUnderSeed_app (a : Under R) :
-    (boundedAboveFlatAffineSectionBassUnderSeed R).app a =
+    (boundedAboveFlatAffineSectionBassUnderSeed R).app a ≍
       boundedAboveFlatAffineSectionBassSeedMap a.right :=
-  (KTheory.Bass.strictRingDiagramUnderSeed_app R boundedAboveFlatAffineSectionBassSeed a).trans
+  heq_of_eq <|
+    (KTheory.Bass.strictRingDiagramUnderSeed_app R boundedAboveFlatAffineSectionBassSeed a).trans
     (boundedAboveFlatAffineSectionBassSeed_app a.right)
 
 end
@@ -142,10 +143,10 @@ theorem boundedAboveFlatAffineSupportedSectionBassSeed_forget :
   apply eq_of_heq
   have hleft := CategoryTheory.heq_comp rfl hS hT
     (heq_of_eq (boundedAboveFlatAffineSupportedSectionBassSeed_app j a))
-    (heq_of_eq (boundedAboveFlatAffineSupportedSectionBassForget_functor_app j a))
+    (boundedAboveFlatAffineSupportedSectionBassForget_functor_app j a)
   have hright := CategoryTheory.heq_comp rfl rfl hT
     (HEq.refl ((boundedAboveFlatAffineSupportedSectionForgetPrespectrumTransformation j).app a))
-    (heq_of_eq (boundedAboveFlatAffineSectionBassUnderSeed_app (R := R) a))
+    (boundedAboveFlatAffineSectionBassUnderSeed_app (R := R) a)
   exact hleft.trans
     ((heq_of_eq (boundedAboveFlatAffineSupportedSectionBassSeedMap_forget j a)).trans hright.symm)
 
