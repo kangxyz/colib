@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0520"
+title = "The Original Regular Coefficient Isomorphism"
+kind = "comparison"
+section = "homotopy-groups"
+order = 110
+primary = "FundamentalGroupoid.LocalCoefficients.regularCoefficientChainIso"
+statement = '''The regular integral local system based at \(b\) has the free module on actual homotopy classes of paths from \(b\) to each point as its fiber. Its faithful monodromy is the left regular action with the original fundamental-group multiplication convention. Its singular chains have the explicit basis of pairs consisting of a simplex and a path class to its first vertex, and every simplicial operator retains the corresponding path transport.
+
+Let \(f:X\to Y\), with \(X\) path connected, induce a bijection on the original based first homotopy groups. For a specified equality \(b'=f(b)\), the original regular coefficient conversion is a natural isomorphism. The induced chain isomorphism has exactly that coefficient conversion as its forward chain map. The regular pushforward factors as this isomorphism followed by the original spatial pushforward.'''
+scope = '''The regular-system and chain constructions do not require commutative fundamental groups. The coefficient-isomorphism theorem requires source path connectedness and the actual first-homotopy-group bijection; it does not assume a coefficient or chain isomorphism as an input. Spaces and coefficient modules retain the original common-universe bounds. The specified equality of target basepoints and the original continuous map are retained. This is a prerequisite for covering comparisons, not a covering-homology or Whitehead theorem, and it asserts neither CW comparison existence nor existence of a plus space.'''
+proof = '''Construct the actual free path-class local system and its regular monodromy. Flatten the coproduct of regular fibers into the free module on simplex/path-class pairs, retaining the first-vertex transport in every simplicial operator [@quillen, Quillen/Topology/LocalCoefficients/Regular.lean:43-112] [@quillen, Quillen/Topology/LocalCoefficients/RegularChains.lean:39-125].
+
+The original map sends each basis path to its actual image. Canonical first-homotopy-group naturality and groupoid composition turn the given loop-class bijection into a bijection on every based path-class fiber. Linearize those bijections, assemble the actual regular coefficient isomorphism, and apply the existing coefficient-chain functor. Its forward map and its factorization through the original pushforward remain literal [@quillen, Quillen/Topology/LocalCoefficients/RegularFunctoriality.lean:37-108] [@quillen, Quillen/Topology/HomotopyGroups/PathClassBijection.lean:50-89] [@quillen, Quillen/Topology/LocalCoefficients/RegularIsomorphism.lean:36-84].'''
+review = "author_checked"

@@ -1614,6 +1614,8 @@ public import Colib.KTheory.Bass.ConeTrack
 public import Colib.KTheory.Bass.DiagramRowInterchange
 public import Colib.KTheory.Bass.DiagramRowIteration
 public import Colib.KTheory.Bass.DiagramRowLooping
+public import Colib.KTheory.Bass.DiagramRowRefinement
+public import Colib.KTheory.Bass.DiagramRowRefinementHomotopy
 public import Colib.KTheory.Bass.StrictDiagram
 public import Colib.KTheory.Bass.StrictDiagramHomotopy
 public import Colib.KTheory.Bass.StrictDiagramMap
@@ -2617,6 +2619,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.LoopNormalizationProduct
 public import Colib.Topology.Homotopy.HomotopyGroup.Map
 public import Colib.Topology.Homotopy.HomotopyGroup.MovingBasepoint
 public import Colib.Topology.Homotopy.HomotopyGroup.Nullhomotopy
+public import Colib.Topology.Homotopy.HomotopyGroup.PathClassBijection
 public import Colib.Topology.Homotopy.HomotopyGroup.PathComponent
 public import Colib.Topology.Homotopy.HomotopyGroup.PathComponentPositive
 public import Colib.Topology.Homotopy.HomotopyGroup.PathComponentPositiveNaturality
@@ -2902,6 +2905,10 @@ public import Colib.Topology.LocalCoefficients.Prism
 public import Colib.Topology.LocalCoefficients.ProjectionTranslations
 public import Colib.Topology.LocalCoefficients.PullbackCoveringHomology
 public import Colib.Topology.LocalCoefficients.PullbackCoveringHomologyUniverseLift
+public import Colib.Topology.LocalCoefficients.Regular
+public import Colib.Topology.LocalCoefficients.RegularChains
+public import Colib.Topology.LocalCoefficients.RegularFunctoriality
+public import Colib.Topology.LocalCoefficients.RegularIsomorphism
 public import Colib.Topology.LocalCoefficients.RelativeAcyclicity
 public import Colib.Topology.LocalCoefficients.RelativeChains
 public import Colib.Topology.LocalCoefficients.RelativeCoefficients
@@ -3106,6 +3113,10 @@ public import Colib.Topology.Prespectrum.RelativeHomotopyWhiskering
 public import Colib.Topology.Prespectrum.RowInterchangeHomotopyPushout
 public import Colib.Topology.Prespectrum.RowInterchangeMappingCone
 public import Colib.Topology.Prespectrum.RowInterchangeParameterLooping
+public import Colib.Topology.Prespectrum.RowRefinement
+public import Colib.Topology.Prespectrum.RowRefinementFunctoriality
+public import Colib.Topology.Prespectrum.RowRefinementHomotopy
+public import Colib.Topology.Prespectrum.RowRefinementMap
 public import Colib.Topology.Prespectrum.SelfTrackConeTransition
 public import Colib.Topology.Prespectrum.SelfTrackCoordinateChange
 public import Colib.Topology.Prespectrum.SelfTrackHomotopyAdditivity

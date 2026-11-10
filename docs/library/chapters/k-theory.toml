@@ -567,3 +567,10 @@ ordinary naturality laws carried by the recursion. Induction proves the all-stag
 two-structure exchange from the initial equation, without assuming a generated trace.
 '''
 
+COL-0519 = '''
+A based row interchange also constructs the original distinguished-row refinement,
+with an explicit degree-zero double loop. Its comparison, pointwise maps and whole
+homotopies are coefficient-natural under their stated exchange and all-time row-square
+hypotheses. This supplies the actual refinement needed by the subsequent strength maps.
+'''
+

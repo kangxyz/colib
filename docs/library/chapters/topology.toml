@@ -183,6 +183,14 @@ original twisted-chain maps are retained; this does not enlarge a smaller coeffi
 or assert the existence of a CW comparison.
 '''
 
+
+COL-0520 = '''
+COL-0520 constructs the actual regular coefficient conversion and its chain isomorphism from
+a bijection on the original first homotopy groups. The faithful regular monodromy, simplex
+basis and specified basepoint equality remain explicit. Covering homology and Whitehead
+comparisons require separate results.
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"
