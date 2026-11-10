@@ -204,3 +204,12 @@ theorem singularCochainComplex_d (P : PresheafWithTransfers.{v} k) (q r : ℕ) :
   (singularComplex P).extend_d_eq (ComplexShape.embeddingUpIntLE (q : ℤ)) rfl rfl
 
 end AlgebraicGeometry.PresheafWithTransfers
+
+attribute [colib_tag "COL-0397"]
+  AlgebraicGeometry.PresheafWithTransfers.singularComplex
+  AlgebraicGeometry.PresheafWithTransfers.singularComplex_X_obj
+  AlgebraicGeometry.PresheafWithTransfers.singularComplex_X_map
+  AlgebraicGeometry.PresheafWithTransfers.singularComplex_d
+  AlgebraicGeometry.PresheafWithTransfers.singularComplex_d_app
+  AlgebraicGeometry.PresheafWithTransfers.singularComplexFunctor
+  AlgebraicGeometry.PresheafWithTransfers.singularComplexMap_f_app

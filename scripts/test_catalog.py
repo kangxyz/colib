@@ -325,6 +325,9 @@ class LibraryTests(unittest.TestCase):
             "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
+            "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
+            "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
+            "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -427,8 +430,7 @@ class LibraryTests(unittest.TestCase):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
                          ["finite-correspondences", "transfers-nisnevich",
-                          "transfer-homological-algebra", "reduced-transfer-tori",
-                          "exterior-parameters"])
+                          "transfer-homological-algebra", "exterior-parameters"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
                           "algebraic-simplices"])
@@ -455,13 +457,14 @@ class LibraryTests(unittest.TestCase):
         }
         for section_id, identifiers in expected.items():
             section = self.library["sections"][section_id]
-            self.assertEqual(section["chapter"], "cycles")
+            chapter = "motivic-cohomology" if section_id == "reduced-transfer-tori" else "cycles"
+            self.assertEqual(section["chapter"], chapter)
             self.assertEqual(section["entries"], identifiers)
             self.assertEqual(set(section["transitions"]), set(identifiers))
             for identifier in identifiers:
                 item = self.library["entries"][identifier]
                 self.assertTrue(item["primary"])
-                self.assertEqual(item["path"], f"docs/library/entries/cycles/{identifier}.toml")
+                self.assertEqual(item["path"], f"docs/library/entries/{chapter}/{identifier}.toml")
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         output = self.render_site_fixture(built)
         for section_id in expected:
@@ -477,6 +480,62 @@ class LibraryTests(unittest.TestCase):
         incidence = self.library["entries"]["COL-0387"]
         self.assertIn(r"\operatorname{im}(s_T)\subseteq", incidence["statement"])
         self.assertIn("Tor", incidence["scope"])
+
+    def test_motivic_chapter_keeps_actual_complex_and_evaluation_maps(self):
+        chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
+        chapter = chapters["motivic-cohomology"]
+        self.assertEqual(chapter["title"], "Motivic Cohomology")
+        self.assertGreater(chapter["order"], chapters["cycles"]["order"])
+        expected = {
+            "reduced-transfer-tori": ["COL-0384", "COL-0385"],
+            "transfer-singular-complexes": ["COL-0397"],
+            "canonical-motivic-complexes": ["COL-0398"],
+            "motivic-hypercohomology": ["COL-0399", "COL-0400"],
+        }
+        self.assertEqual(chapter["sections"], list(expected))
+        for section_id, identifiers in expected.items():
+            section = self.library["sections"][section_id]
+            self.assertEqual(section["chapter"], "motivic-cohomology")
+            self.assertEqual(section["entries"], identifiers)
+            self.assertEqual(set(section["transitions"]), set(identifiers))
+            for identifier in identifiers:
+                self.assertEqual(self.library["entries"][identifier]["path"],
+                                 f"docs/library/entries/motivic-cohomology/{identifier}.toml")
+        for identifier, section_id in {
+            "COL-0342": "derived-hom-comparisons",
+            "COL-0394": "derived-hom-comparisons",
+            "COL-0343": "nisnevich-sites",
+            "COL-0395": "algebraic-simplices",
+        }.items():
+            self.assertEqual(self.library["entries"][identifier]["section"], section_id)
+        complex_item = self.library["entries"]["COL-0398"]
+        self.assertIn(r"(-1)^{qr}", complex_item["statement"])
+        self.assertIn(r"(-1)^q", complex_item["statement"])
+        self.assertIn("weight-one quasi-isomorphism", complex_item["scope"])
+        hyper = self.library["entries"]["COL-0399"]
+        self.assertIn(r"f^*(x)=x\circ(F_f[0])", hyper["statement"])
+        base = self.library["entries"]["COL-0400"]
+        self.assertIn(r"E_{p,q}^{-1}(z)=c\circ q_{K_q[p]}", base["statement"])
+        self.assertIn("different universes", base["scope"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        self.assertTrue((output / "chapters/motivic-cohomology/index.html").is_file())
+        for section_id, identifiers in expected.items():
+            self.assertTrue((output / f"sections/{section_id}/index.html").is_file())
+            for identifier in identifiers:
+                page = (output / f"tag/{identifier}/index.html").read_text()
+                self.assertIn('href="../../chapters/motivic-cohomology/">Motivic Cohomology</a>',
+                              page)
+                self.assertIn('class="scope-details"', page)
+                declaration = built["declarations"][self.library["entries"][identifier]["primary"]]
+                module, name = declaration["module"], declaration["name"]
+                self.assertIn(f'href="../../modules/{module}/#{name}"', page)
+                self.assertTrue((output / f"modules/{module}/index.html").is_file())
+        records = json.loads((output / "search.json").read_text())
+        for identifier in [identifier for ids in expected.values() for identifier in ids]:
+            matches = [row for row in records if row.get("id") == identifier]
+            self.assertEqual(len(matches), 1)
+            self.assertEqual(matches[0]["path"], f"tag/{identifier}/")
 
     def test_native_exterior_graph_identity_scope_and_outline(self):
         item = self.library["entries"]["COL-0388"]
@@ -1277,3 +1336,4 @@ class LibraryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

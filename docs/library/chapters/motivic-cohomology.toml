@@ -1,0 +1,74 @@
+[chapter]
+id = "motivic-cohomology"
+title = "Motivic Cohomology"
+order = 55
+introduction = '''The reduced transfer torus supplies the coefficients of the Suslin–Voevodsky complex. Algebraic-simplex chains, transfer-preserving Nisnevich sheafification and the specified cochain shift define \(\mathbb Z(q)\). Its ordinary underlying complex defines motivic cohomology by unbounded derived Hom, and projective evaluation computes these groups at the base field. The correspondence category and its Nisnevich reflection remain in COL-0366 and COL-0372; the ordinary simplex construction and general hypercohomology remain in COL-0348, COL-0395 and COL-0342.'''
+
+[[sections]]
+id = "reduced-transfer-tori"
+title = "Split tori and their reduced transfer quotients"
+order = 10
+introduction = 'Relative powers of the native multiplicative group have actual identity-coordinate inclusions. Their graph correspondences define the relations in the reduced torus presheaf of [@MVW2006, Lecture 2, Definition 2.12, pp. 15–16].'
+
+[sections.transitions]
+COL-0384 = '''
+Before forming a quotient of correspondence groups, fix the geometric maps:
+the multiplicative group is the native base change, its base point represents
+one, and its powers are relative products of smooth-site objects.
+'''
+COL-0385 = '''
+Over a field, apply the graph functor to each identity-coordinate inclusion
+from COL-0384 and then postcompose signed correspondences with that graph.
+The cokernel of the sum of these maps has, section by section, the quotient
+by all their images. Naturality of the projection fixes its transfer action.
+'''
+
+[[sections]]
+id = "transfer-singular-complexes"
+title = "Singular complexes with transfers"
+order = 20
+introduction = 'For an additive transfer presheaf \(P\), the terms \(P(U\times_k\Delta_k^r)\) retain the actual exterior correspondence action. Graph cofaces give the differential, and the Nisnevich reflection of COL-0372 applies to its terms and maps.'
+
+[sections.transitions]
+COL-0397 = '''
+The quotient in COL-0385 is a presheaf with transfers, so its singular chains
+must respect every correspondence. First construct these chains for an arbitrary
+transfer presheaf. The ordinary comparison identifies their graph restriction
+with COL-0348 on the same literal product sections; COL-0373 then compares the
+two sheafifications.
+'''
+
+[[sections]]
+id = "canonical-motivic-complexes"
+title = "Canonical motivic complexes"
+order = 30
+introduction = 'Insert the reduced torus \(\widetilde L_q\) into the transfer singular construction. The canonical complex uses the signed shift by \(-q\); its comparison with the placement in degrees \(q-r\) specifies the factor \((-1)^{qr}\).'
+
+[sections.transitions]
+COL-0398 = '''
+Write \(S_q(P)\) for the sheafified placement of the chains of COL-0397 in
+degrees \(q-r\), with their original alternating differential. The signed
+shift \(S_0(P)[-q]\) has the same occupied terms but multiplies the differential
+by \((-1)^q\). Multiplication by \((-1)^{qr}\) in chain degree \(r\) gives
+the comparison. Apply it to the reduced torus of COL-0385.
+'''
+
+[[sections]]
+id = "motivic-hypercohomology"
+title = "Motivic hypercohomology and base-field evaluation"
+order = 40
+introduction = 'Forget transfers from the actual signed complex to obtain \(K_q\) on the ordinary smooth Nisnevich site. Derived Hom from the free representing sheaf defines \(H^{p,q}(X,\mathbb Z)\). At the base object, the projectivity supplied by COL-0343 turns the definition into the literal sections-complex calculation of COL-0394.'
+
+[sections.transitions]
+COL-0399 = '''
+Forgetting transfers applies to every term and to the signed differential in
+COL-0398. Use that entire complex as the second derived-Hom variable in
+COL-0342. A morphism \(f\colon X\to Y\) acts by precomposition with the
+free-sheaf map associated to \(f\).
+'''
+COL-0400 = '''
+For \(X=\operatorname{Spec}k\), COL-0343 supplies projectivity of the same
+free representing sheaf. The comparison of COL-0394 therefore applies to
+\(K_q\) in every integer degree. Its target is the cohomology of actual
+sections of \(K_q\), not a replacement definition of the motivic groups.
+'''

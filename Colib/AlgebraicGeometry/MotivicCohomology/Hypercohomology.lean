@@ -169,3 +169,19 @@ attribute [colib_ref "motivic_source_a6805c4"
   "adaptation" "Unbounded derived-Hom definition and actual base sections comparison"]
   AlgebraicGeometry.PresheafWithTransfers.motivicCohomology
   AlgebraicGeometry.PresheafWithTransfers.motivicBaseEvaluationComparison
+
+attribute [colib_tag "COL-0399"]
+  AlgebraicGeometry.PresheafWithTransfers.motivicSheafComplex
+  AlgebraicGeometry.PresheafWithTransfers.motivicSheafComplexXIso
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomology
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyPresheaf
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyRestriction
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyRestriction_id
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyRestriction_comp
+  AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyRestriction_apply
+
+attribute [colib_tag "COL-0400"]
+  AlgebraicGeometry.PresheafWithTransfers.motivicBaseComplex
+  AlgebraicGeometry.PresheafWithTransfers.motivicBaseComplex_X
+  AlgebraicGeometry.PresheafWithTransfers.motivicBaseComplex_d
+  AlgebraicGeometry.PresheafWithTransfers.motivicBaseEvaluationComparison

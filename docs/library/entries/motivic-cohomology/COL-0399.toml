@@ -1,0 +1,59 @@
+[entry]
+id = "COL-0399"
+title = "Motivic cohomology as unbounded Nisnevich hypercohomology"
+kind = "definition"
+section = "motivic-hypercohomology"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicCohomology"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field, \(q\geq0\), \(p\in\mathbb Z\), and
+\(X\in\mathrm{Sm}/k\) a smooth separated finite-type scheme. Write
+\(\mathcal A\) for ordinary abelian Nisnevich sheaves on \(\mathrm{Sm}/k\),
+and let \(K_q=R_s\mathbb Z(q)\) be the entire complex of COL-0398 with transfers
+forgotten termwise. Let \(F_X=\mathbb Z_{\mathrm{Nis}}[X]\) be the native free
+abelian sheaf representing sections, and let \(Q\) be localization of cochain
+complexes at quasi-isomorphisms. Define
+\[
+H^{p,q}(X,\mathbb Z)=\mathbb H^p(X,K_q)
+ =\operatorname{Hom}_{D(\mathcal A)}(F_X[0],Q(K_q)[p]).
+\]
+These are abelian groups. For \(f\colon X\to Y\) and
+\(x\colon F_Y[0]\to Q(K_q)[p]\), restriction is the actual map
+\[
+f^*(x)=x\circ(F_f[0]),
+\]
+where \(F_f\colon F_X\to F_Y\) is the native free-sheaf map induced by \(f\).
+It satisfies \(1_X^*=1\) and \((g\circ f)^*=f^*\circ g^*\), so the groups
+form a presheaf of abelian groups in \(X\).
+'''
+scope = '''
+Take \(k\) in universe \(u\), coefficients `AddCommGrpCat.{u + 1}`, the
+correspondence and ordinary sheafification assumptions of COL-0398, and an
+explicit `HasDerivedCategory.{w}` instance for \(\mathcal A\). The group may
+live in the independent universe \(w\). All integer cohomological degrees and
+all nonnegative weights are included. The construction is ordinary Nisnevich
+hypercohomology of the canonical transfer complex, not transfer Ext from
+COL-0392 or the cohomology of a substituted sections complex.
+
+No bounded-below assumption is made on \(K_q\), and no bounded-below
+right-derived-functor construction is used. Its differential is exactly
+\(R_s(d_{\mathbb Z(q)})\), including the shift sign. Restriction here is along
+morphisms of smooth schemes over the fixed field; neither an action of all
+finite correspondences on these derived-Hom groups nor an arbitrary
+change-of-ground-field comparison is claimed.
+'''
+proof = '''
+Apply `mapHomologicalComplex` to the actual forgetful functor \(R_s\).
+The formulas for every term and differential are definitional. Evaluate the
+unbounded hypercohomology presheaf of COL-0342 on this complex. Native derived
+Hom is additive, and its contravariance in the free representing sheaf gives
+exactly the displayed precomposition map. The identity and composition laws
+are the laws of that original presheaf.
+
+This adapts the definition and actual restriction of
+[@motivic_source_a6805c4, Motivic/Cohomology/SuslinVoevodsky/Hypercohomology.lean:44-67,87-113]
+to the native unbounded hypercohomology interface of COL-0342, with its free
+representing sheaf unchanged.
+'''

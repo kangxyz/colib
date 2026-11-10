@@ -1,0 +1,91 @@
+[entry]
+id = "COL-0397"
+title = "Singular complexes with transfers and ordinary comparison"
+kind = "comparison"
+section = "transfer-singular-complexes"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers.singularComplex"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field and \(P\colon\operatorname{Cor}_k^{\mathrm{op}}\to\mathbf{Ab}\)
+an additive presheaf. For \(r\geq0\), put
+\(C_r(P)(U)=P(U\times_k\Delta_k^r)\), using the actual barycentric simplex.
+For a signed correspondence \(\alpha\colon V\to U\), the transfer on this term
+is \(P(E_r\alpha)\), where \(E_r\alpha\) extends its support by the diagonal
+simplex parameter and retains its integer coefficients. The maps
+\[
+\partial_{r+1,r}(U)=\sum_{i=0}^{r+1}(-1)^i
+ P\bigl(\Gamma_{1_U\times\delta^i}\bigr)
+\]
+are transfer-natural and square to zero. They define a chain complex \(C_*(P)\)
+in additive transfer presheaves. A coefficient map \(\eta\colon P\to P'\)
+acts in degree \(r\) at \(U\) by \(\eta_{U\times_k\Delta_k^r}\).
+
+Write \(R\) for graph restriction. There is a coefficient-natural chain
+isomorphism \(\theta_P\colon R C_*(P)\xrightarrow{\sim}C_*^{\mathrm{ord}}(RP)\),
+whose component at \((r,U)\) is the identity on
+\(P(U\times_k\Delta_k^r)\). Its target is the ordinary complex of COL-0348.
+
+With the transfer-preserving Nisnevich reflection \(a_{\mathrm{tr}}\) of
+COL-0372, degreewise sheafification gives \(a_{\mathrm{tr}}C_*(P)\) and the
+chain map formed by its canonical units. Let \(a_{\mathrm{Nis}}\) denote
+ordinary sheafification and \(R_s\) forgetting transfers from sheaves. Applying
+the comparison of COL-0373 degreewise gives
+\(b_P\colon a_{\mathrm{Nis}}R C_*(P)\xrightarrow{\sim}R_s a_{\mathrm{tr}}C_*(P)\).
+The actual ordinary comparison is
+\[
+\sigma_P=a_{\mathrm{Nis}}(\theta_P)\circ b_P^{-1}\colon
+ R_s a_{\mathrm{tr}}C_*(P)\xrightarrow{\sim}
+ a_{\mathrm{Nis}}C_*^{\mathrm{ord}}(RP),
+\]
+natural in \(P\), with the same coefficient map and no additional sign.
+
+For \(q\geq0\), extend the chain complex by zero into cochain degree \(q-r\)
+and sheafify. Denote this complex by \(S_q(P)\). Its term identification
+\(\epsilon_r\colon S_q(P)^{q-r}\xrightarrow{\sim}a_{\mathrm{tr}}C_r(P)\)
+transports the original alternating differential:
+\[
+d_{S_q}^{q-r-1,q-r}=\epsilon_r^{-1}\circ
+ a_{\mathrm{tr}}(\partial_{r+1,r})\circ\epsilon_{r+1}.
+\]
+'''
+scope = '''
+The field is arbitrary. Before sheafification, the abelian coefficient universe
+is independent of the field universe. For sheafification take \(k\) in universe
+\(u\) and coefficients `AddCommGrpCat.{u + 1}`. Retain `HasSheafify` on the
+correspondence Nisnevich site, and its `HasSheafCompose` and
+`PreservesSheafification` assumptions for the forgetful functor to types.
+The ordinary comparison also retains `HasSheafify` on the smooth Nisnevich site.
+These are the imported abelian-group sheafification interfaces of COL-0372/0373.
+
+Both \(R\) and \(R_s\) refer to the actual graph functor. The ordinary complex
+uses the same literal relative products, so \(\theta_P\) is the identity on
+sections; it is not the categorical-product pullback used in the migration
+source. The placement \(S_q\) has no extra differential sign. Its signed-shift
+comparison, after choosing the reduced torus, is COL-0398. No assertion here
+identifies the sheafification unit with a quasi-isomorphism or proves strict
+\(\mathbb A^1\)-invariance of sheaf cohomology.
+'''
+proof = '''
+The genuine simplex exterior operation is additive, preserves composition and
+identities, and intertwines the parameter graph maps. Applying \(P\) gives
+transfer-natural simplicial maps. Mathlib's alternating-face complex supplies
+the differential and its square-zero law. The original naturality of \(\eta\)
+gives the coefficient chain map.
+
+For graph arrows the exterior operation is the graph of the literal product
+map. Thus both ordinary restrictions have identical terms, restrictions and
+alternating differentials, giving \(\theta_P\). Apply the additive reflector
+termwise. Naturality of its unit is the chain-map equation. Map COL-0373 through
+`mapHomologicalComplex`, invert that comparison, and compose with the sheafified
+\(\theta_P\) to obtain \(\sigma_P\). The native extension embedding
+\(r\mapsto q-r\) supplies \(S_q\) and its differential formula.
+
+The internal transfer construction adapts
+[@motivic_source_a6805c4, Motivic/Transfers/SingularComplex/Presheaf.lean:41-165,216-276,282-311].
+Its sheafification and ordinary comparison adapt
+[@motivic_source_a6805c4, Motivic/Transfers/SingularComplex/Sheafification.lean:33-141].
+The source comparison is adapted to the literal-product ordinary complex of
+COL-0348 and COL-0395 rather than retained as a second ordinary chain model.
+'''

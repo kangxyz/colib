@@ -1,0 +1,70 @@
+[entry]
+id = "COL-0400"
+title = "Base-field evaluation of the canonical motivic complex"
+kind = "comparison"
+section = "motivic-hypercohomology"
+order = 20
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicBaseEvaluationComparison"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field and retain the canonical complex \(K_q=R_s\mathbb Z(q)\)
+and the derived-Hom definition of COL-0399. Put \(B=\operatorname{Spec}k\),
+the actual base object in its own smooth Nisnevich site. Define the literal
+sections complex \(B_q=K_q(B)\) by
+\[
+B_q^i=K_q^i(B),\qquad d_{B_q}^{i,j}=(d_{K_q}^{i,j})_B.
+\]
+For every \(p\in\mathbb Z\) and \(q\geq0\), there is a canonical additive
+equivalence
+\[
+E_{p,q}\colon H^{p,q}(B,\mathbb Z)\xrightarrow{\sim}H^p(B_q).
+\]
+
+This is the inverse of the projective-corepresentation map \(\Phi_{K_q,p}\)
+of COL-0394, with \(Z=F_B\) and the native natural identification
+\(\operatorname{Hom}(F_B,-)\cong(-)(B)\). More explicitly, put \(P=F_B[0]\)
+in the cochain category. A class \(z\in H^p(B_q)\) corresponds to a homotopy
+class \(\Theta(z)\colon P\to K_q[p]\). With \(Q_h\) the localization from
+the homotopy category, \(q_M\colon Q_h([M])\xrightarrow{\sim}Q(M)\) the
+quotient comparison, \(s\colon F_B[0]_D\xrightarrow{\sim}Q(P)\) the
+single-complex comparison, and
+\(c\colon Q(K_q[p])\xrightarrow{\sim}Q(K_q)[p]\) the shift comparison,
+the inverse equivalence is
+\[
+E_{p,q}^{-1}(z)=c\circ q_{K_q[p]}\circ Q_h(\Theta(z))\circ q_P^{-1}\circ s.
+\]
+Thus the comparison retains the actual localization, representing-sheaf and
+shift maps, not just an abstract isomorphism of abelian groups.
+'''
+scope = '''
+The field, large coefficient universe, explicit sheafification assumptions and
+independent derived universe are those of COL-0399. No perfection,
+characteristic-zero or separable-closedness assumption is imposed. The
+comparison is an additive equivalence because its two groups can live in
+different universes. It applies to all integer degrees despite the complex
+being unbounded below.
+
+Evaluation is at the base field itself, not at an arbitrary extension field
+viewed as an object of the original site. The result computes the derived
+definition from the literal evaluated sheaf complex. It does not further
+identify its terms with unsheafified correspondence groups, compute its
+cohomology in a weight, or establish arbitrary-field base change or strict
+\(\mathbb A^1\)-invariance.
+'''
+proof = '''
+By COL-0343 every covering sieve at \(B\) is maximal. Therefore sections at
+\(B\) send epimorphisms of abelian sheaves to surjections, and the same free
+representing sheaf \(F_B\) used in COL-0399 is projective. Apply COL-0394 to
+that representing object, its native sections corepresentation, and \(K_q\).
+The single complex \(F_B[0]\) is K-projective, so localization identifies its
+homotopy morphisms with derived morphisms. The Hom-complex comparison and
+localization isomorphisms give the displayed formula; invert it to obtain
+\(E_{p,q}\).
+
+The specialization adapts
+[@motivic_source_a6805c4, Motivic/Cohomology/SuslinVoevodsky/Hypercohomology.lean:70-85,115-126].
+The generic unbounded evaluation theorem is COL-0394, while its actual geometric
+projectivity input is COL-0343. This is a theorem about the group already
+defined in COL-0399, not a new definition of motivic cohomology.
+'''

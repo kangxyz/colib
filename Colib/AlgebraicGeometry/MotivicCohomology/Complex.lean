@@ -283,3 +283,17 @@ attribute [colib_ref "motivic_source_a6805c4"
   AlgebraicGeometry.PresheafWithTransfers.motivicComplex
   AlgebraicGeometry.PresheafWithTransfers.motivicComplexPlacementIso_hom_f
   AlgebraicGeometry.PresheafWithTransfers.motivicComplex_d_faces
+
+attribute [colib_tag "COL-0398"]
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplex
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplex_eq
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexXIso
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplex_d_faces
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexPlacementIso
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexPlacementIso_hom_f
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexPlacementIso_comm
+  AlgebraicGeometry.PresheafWithTransfers.isZero_motivicComplex_X
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexUnderlyingXIso
+  AlgebraicGeometry.PresheafWithTransfers.motivicComplexOrdinaryXIso
+  AlgebraicGeometry.PresheafWithTransfers.motivicSingularPresheaf_obj
+  AlgebraicGeometry.PresheafWithTransfers.motivicSingularPresheaf_map
