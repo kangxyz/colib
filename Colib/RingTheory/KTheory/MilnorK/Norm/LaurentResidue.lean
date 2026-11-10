@@ -95,7 +95,9 @@ local instance (p : MonicIrreducibleOfDegree k d) : IsLocalHom
   rw [AdjoinRoot.algebraMap_eq]
   exact AdjoinRoot.isLocalHom_of_monic ((monic p).map _)
 
-local instance (p : MonicIrreducibleOfDegree k d) :
+/-- The native algebra from the power series root extension to the Laurent series root field. -/
+local instance laurentResiduePowerSeriesToLaurentRootAlgebra
+    (p : MonicIrreducibleOfDegree k d) :
     Algebra (AdjoinRoot ((poly p).map (PowerSeries.C : k →+* PowerSeries k)))
       (AdjoinRoot ((poly p).map (algebraMap k (LaurentSeries k)))) :=
   (Stacks.AdjoinRootFraction.toMapAdjoinRoot (LaurentSeries k)

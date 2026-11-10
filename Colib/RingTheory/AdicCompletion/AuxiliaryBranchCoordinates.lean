@@ -51,7 +51,7 @@ theorem exists_auxiliaryBranchTensorEquiv_of_native_normalization
     [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
     [CommRing S] [IsDomain S] [IsDiscreteValuationRing S]
     [Algebra R S] [IsDiscreteValuationRing.IsExtension R S]
-    [Field F] [Algebra R F] [IsFractionRing R F]
+    [Field F] [Algebra R F]
     [Field E] [Algebra S E] [IsFractionRing S E] [Algebra F E]
     [CommRing B] [IsDomain B] [IsDiscreteValuationRing B]
     [Algebra R B] [IsLocalHom (algebraMap R B)]

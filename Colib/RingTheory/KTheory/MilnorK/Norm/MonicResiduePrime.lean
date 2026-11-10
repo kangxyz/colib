@@ -70,7 +70,9 @@ local instance : IsLocalHom (algebraMap R (AdjoinRoot p)) := by
   rw [AdjoinRoot.algebraMap_eq]
   exact AdjoinRoot.isLocalHom_of_monic (Fact.out : p.Monic)
 
-local instance : Algebra (AdjoinRoot p) (AdjoinRoot (p.map (algebraMap R F))) :=
+/-- The fraction-field root algebra induced by the original coefficient map. -/
+local instance monicResiduePrimeFractionRootAlgebra :
+    Algebra (AdjoinRoot p) (AdjoinRoot (p.map (algebraMap R F))) :=
   (Stacks.AdjoinRootFraction.toMapAdjoinRoot F (p := p) rfl).toAlgebra
 
 local instance : IsScalarTower R (AdjoinRoot p) (AdjoinRoot (p.map (algebraMap R F))) := by
