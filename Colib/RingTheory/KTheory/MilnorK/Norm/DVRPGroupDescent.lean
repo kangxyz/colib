@@ -44,7 +44,7 @@ universe u
 error by the coefficient field degree. No ramification scalar is cancelled. -/
 theorem finrank_smul_norm_residue_difference_eq_zero_of_pGroup_branches
     {F L : Type u} [Field F] [CharZero F] [Field L] [CharZero L]
-    [Algebra F L] [FiniteDimensional F L]
+    [Algebra F L]
     (R S T : Type u)
     [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
     [Algebra R F] [IsFractionRing R F] [CharZero (ResidueField R)]
@@ -54,7 +54,7 @@ theorem finrank_smul_norm_residue_difference_eq_zero_of_pGroup_branches
     [Algebra R T] [IsLocalHom (algebraMap R T)]
     [Module.Finite R T] [Module.IsTorsionFree R T]
     [Algebra T L] [IsFractionRing T L] [Algebra R L]
-    [IsScalarTower R F L] [IsScalarTower R T L] [IsIntegralClosure T R L]
+    [IsScalarTower R F L] [IsScalarTower R T L]
     {d : ℕ} (p : MonicIrreducibleOfDegree F d)
     [Algebra S (AdjoinRoot (poly p))] [IsFractionRing S (AdjoinRoot (poly p))]
     [Algebra R S] [IsScalarTower R S (AdjoinRoot (poly p))]

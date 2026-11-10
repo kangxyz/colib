@@ -26,7 +26,7 @@ local instance consumerRootFinite {k : Type*} [Field k] {d : ℕ}
 
 example
     {F L : Type u} [Field F] [CharZero F] [Field L] [CharZero L]
-    [Algebra F L] [FiniteDimensional F L]
+    [Algebra F L]
     (R S T : Type u)
     [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
     [Algebra R F] [IsFractionRing R F] [CharZero (ResidueField R)]
@@ -36,7 +36,7 @@ example
     [Algebra R T] [IsLocalHom (algebraMap R T)]
     [Module.Finite R T] [Module.IsTorsionFree R T]
     [Algebra T L] [IsFractionRing T L] [Algebra R L]
-    [IsScalarTower R F L] [IsScalarTower R T L] [IsIntegralClosure T R L]
+    [IsScalarTower R F L] [IsScalarTower R T L]
     {d : ℕ} (p : MonicIrreducibleOfDegree F d)
     [Algebra S (AdjoinRoot (poly p))] [IsFractionRing S (AdjoinRoot (poly p))]
     [Algebra R S] [IsScalarTower R S (AdjoinRoot (poly p))]
