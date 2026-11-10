@@ -166,6 +166,15 @@ points of the intersection can be replaced relative to its endpoints
 by a path in \(U\).
 '''
 
+
+COL-0515 = '''
+A homotopy under a source determines a specific basepoint track for a displayed
+comparison. COL-0515 retains that track for nonabelian fundamental groups and
+proves invariance of all target-local-system chains in the stated common
+universe. The comparison and its homotopy are supplied; no comparison existence
+or classical CW uniqueness theorem is asserted.
+'''
+
 [[sections]]
 id = "geometric-realization"
 title = "Geometric realization"

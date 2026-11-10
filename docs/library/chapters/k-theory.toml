@@ -544,3 +544,19 @@ fibres enter the \(T_1\) verification for the cone and double
 cylinder. Looping preserves the resulting separation condition,
 which can then be propagated through the finite iterates.
 '''
+
+COL-0514 = '''
+The strict-square construction also transports four compatible moving corner maps.
+Keeping both quotient heights separate from the moving parameter gives the whole cone
+action. Its four generator formulas characterize that action uniquely, providing the
+recognition input used later by the tensor-generated Bass recipe.
+'''
+
+COL-0516 = '''
+The four-corner action can now be assembled over an indexing category. Literal zero
+preservation fixes the transported null endpoints; the specified inverse index
+interchange gives the natural cone track and its original source-null formula.
+Source-seed transport additionally retains the stated scalar-track intertwining
+condition, rather than supplying an unproved seed compatibility.
+'''
+

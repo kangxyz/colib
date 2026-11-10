@@ -1,0 +1,41 @@
+[entry]
+id = "COL-0514"
+title = "Whole strict-square actions and four-generator cone recognition"
+kind = "comparison"
+section = "bass-construction"
+order = 30
+statement = """
+Four based homotopies of the corners of two strict square maps, satisfying the four
+edge equations at every time, induce homotopies of the original reduced-span,
+mapping-cone and parameter-looped maps. Each time slice is the original strict-square
+map evaluated on the same corner tracks. The complete cone homotopy is uniquely
+determined by its Laurent inclusion, positive-chart, negative-chart and overlap-cylinder
+formulas, and the descended cone homotopy satisfies those four formulas.
+"""
+scope = """
+Arbitrary strict squares of loop prespectra and arbitrary levels, including zero.
+The coefficient-homotopy parameter, outer cone height, inner overlap height, output
+loop parameter and structure parameter retain their original independent meanings.
+There is no local compactness, separation or weak-equivalence hypothesis.
+The uniqueness statement concerns the specified original quotient cone and four
+specified corner tracks. It is not uniqueness among external Bass towers, a generated
+finite tensor recursion, an identification of classical nonconnective K-theory,
+or the localization theorem of Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+primary = "Topology.LoopPrespectrum.StrictSquare.MapHomotopy.eq_cone_of_generatorLaw"
+proof_kind = "outline"
+proof = """
+For the span, curry the independent moving parameter into the interval mapping
+space before descending through the original reduced quotient. The strict edge
+relations give the original overlap-cylinder square. The cone uses the same
+compact-open currying construction for its two sides, and parameter looping applies
+the resulting whole homotopy pointwise. Quotient induction identifies all three
+time slices with the original functorial maps.
+
+The descended cone action satisfies the four generator formulas literally. Conversely,
+continuous-map extensionality followed by induction over the outer reduced cone and
+inner reduced double cylinder reduces equality to exactly those four formulas.
+Neither quotient height is identified with the homotopy parameter.
+"""
+source_checked_on = "2026-11-10"

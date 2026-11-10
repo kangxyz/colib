@@ -1574,6 +1574,7 @@ public import Colib.FieldTheory.SylowFixedField
 public import Colib.GroupTheory.IsPerfect
 public import Colib.GroupTheory.MonoidHom.CentralKernel
 public import Colib.GroupTheory.MonoidHom.CentralLifts
+public import Colib.GroupTheory.MonoidHom.KernelComparison
 public import Colib.GroupTheory.Perm.AdjacentPresentation
 public import Colib.GroupTheory.StableGeneralLinear.Basic
 public import Colib.GroupTheory.StableGeneralLinear.Elementary
@@ -1608,11 +1609,15 @@ public import Colib.GroupTheory.Steinberg.RankTwo
 public import Colib.GroupTheory.Steinberg.Symbols
 public import Colib.GroupTheory.Steinberg.Torus
 public import Colib.GroupTheory.Steinberg.Universal
+public import Colib.KTheory.Bass.ConeGeneratorRecognition
+public import Colib.KTheory.Bass.ConeTrack
 public import Colib.KTheory.Bass.StrictDiagram
+public import Colib.KTheory.Bass.StrictDiagramHomotopy
 public import Colib.KTheory.Bass.StrictDiagramMap
 public import Colib.KTheory.Bass.StrictDiagramPointHEP
 public import Colib.KTheory.Bass.StrictDiagramSeparation
 public import Colib.KTheory.Bass.StrictDiagramVanishing
+public import Colib.KTheory.Bass.StrictDiagramZeroMap
 public import Colib.KTheory.GrothendieckComparison.Factorization
 public import Colib.KTheory.GrothendieckComparison.Injectivity
 public import Colib.KTheory.GrothendieckComparison.Naturality
@@ -2881,6 +2886,7 @@ public import Colib.Topology.LocalCoefficients.HomotopySquare
 public import Colib.Topology.LocalCoefficients.HomotopyTransportLaws
 public import Colib.Topology.LocalCoefficients.IntegralChainEvaluation
 public import Colib.Topology.LocalCoefficients.IntegralChains
+public import Colib.Topology.LocalCoefficients.MapCancellation
 public import Colib.Topology.LocalCoefficients.MapComposition
 public import Colib.Topology.LocalCoefficients.MapQuasiIso
 public import Colib.Topology.LocalCoefficients.MapSquares
@@ -3014,6 +3020,8 @@ public import Colib.Topology.PathSubdivision.SlabCover
 public import Colib.Topology.PathSubdivision.TailMaps
 public import Colib.Topology.PathSubdivision.TimePaths
 public import Colib.Topology.PlusConstruction.Basic
+public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
+public import Colib.Topology.PlusConstruction.DisplayedComparisonFundamentalGroup
 public import Colib.Topology.Prespectrum.ConeArrowHomotopy
 public import Colib.Topology.Prespectrum.ConeDescNaturality
 public import Colib.Topology.Prespectrum.ConeDescStableEquivalence
@@ -3025,6 +3033,7 @@ public import Colib.Topology.Prespectrum.ConeHomotopySquare
 public import Colib.Topology.Prespectrum.ConeHomotopySquareFactorization
 public import Colib.Topology.Prespectrum.ConeLinearExcision
 public import Colib.Topology.Prespectrum.ConeLoopSeparation
+public import Colib.Topology.Prespectrum.ConeMapHomotopy
 public import Colib.Topology.Prespectrum.ConeParameterLooping
 public import Colib.Topology.Prespectrum.ConeParameterLoopingExcision
 public import Colib.Topology.Prespectrum.ConeParameterLoopingStable
@@ -3071,6 +3080,7 @@ public import Colib.Topology.Prespectrum.PushoutArrowHomotopy
 public import Colib.Topology.Prespectrum.PushoutHomotopy
 public import Colib.Topology.Prespectrum.PushoutHomotopySquare
 public import Colib.Topology.Prespectrum.PushoutHomotopySquareEquivalence
+public import Colib.Topology.Prespectrum.PushoutMapHomotopy
 public import Colib.Topology.Prespectrum.PushoutMovingHomotopy
 public import Colib.Topology.Prespectrum.PushoutReduction
 public import Colib.Topology.Prespectrum.PushoutVanishing
@@ -3121,11 +3131,14 @@ public import Colib.Topology.Prespectrum.StableLocalization
 public import Colib.Topology.Prespectrum.StableOmega
 public import Colib.Topology.Prespectrum.StableShift
 public import Colib.Topology.Prespectrum.StrictSquareCone
+public import Colib.Topology.Prespectrum.StrictSquareMapHomotopy
 public import Colib.Topology.Prespectrum.StrictSquareNull
 public import Colib.Topology.Prespectrum.StrictSquarePointHEP
+public import Colib.Topology.Prespectrum.StrictSquareSeedHomotopy
 public import Colib.Topology.Prespectrum.StrictSquareSeedNaturality
 public import Colib.Topology.Prespectrum.StrictSquareSeparation
 public import Colib.Topology.Prespectrum.StrictSquareVanishing
+public import Colib.Topology.Prespectrum.StrictSquareZeroMap
 public import Colib.Topology.Prespectrum.Telescope
 public import Colib.Topology.Prespectrum.TelescopeCompactness
 public import Colib.Topology.Prespectrum.TelescopeCone
