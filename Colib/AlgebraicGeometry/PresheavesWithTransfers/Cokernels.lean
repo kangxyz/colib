@@ -35,7 +35,7 @@ namespace AlgebraicGeometry.PresheafWithTransfers
 variable {k : Type u} [Field k]
 
 /-- Evaluating the actual categorical cokernel gives the original section quotient. -/
-@[colib_tag "COL-0380", colib_ref "motivic_source_a6805c4"
+@[colib_tag "COL-0390", colib_ref "motivic_source_a6805c4"
   "Motivic/Transfers/Presheaf/Contraction.lean:119-125"
   "adaptation" "General native transfer-presheaf cokernel, before any geometric contraction"]
 def cokernelSectionsIsoQuotient {P Q : PresheafWithTransfers.{v} k}
@@ -81,7 +81,7 @@ attribute [colib_ref "MVW2006"
   "adaptation" "Objectwise cokernels in additive presheaves with transfers"]
   cokernelSectionsIsoQuotient
 
-attribute [colib_tag "COL-0380"]
+attribute [colib_tag "COL-0390"]
   cokernel_π_sectionsIsoQuotient_hom
   cokernel_π_app_surjective
   cokernel_π_transfer

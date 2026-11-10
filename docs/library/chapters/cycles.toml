@@ -125,7 +125,7 @@ order = 30
 introduction = 'The sectionwise quotient description first concerns additive presheaves. Passing through the Nisnevich reflection gives an abelian category with enough injectives. Sheafified signed representables then provide the first variable of transfer Ext; comparison with ordinary cohomology is a separate question.'
 
 [sections.transitions]
-COL-0380 = '''
+COL-0390 = '''
 For a morphism of the additive presheaves in COL-0368, evaluation preserves its
 cokernel. The resulting group quotient keeps the transfer action because the
 cokernel projection is natural for every signed correspondence.
@@ -135,13 +135,13 @@ Cokernels in the sheaf category require the reflection of COL-0372. Its
 finite-limit preservation gives an abelian category; exact filtered colimits
 and a separator descend through the same adjunction, giving enough injectives.
 '''
-COL-0382 = '''
+COL-0391 = '''
 For a smooth scheme, lift its signed correspondence representable to the
 coefficient universe and apply the reflector. The adjunction reduces maps out
 of this sheaf to additive Yoneda, with evaluation at the full identity cycle.
 '''
-COL-0383 = '''
-Use the sheafified representable of COL-0382 as the first Ext variable.
+COL-0392 = '''
+Use the sheafified representable of COL-0391 as the first Ext variable.
 Covariance of that representable and contravariance of Ext give restriction
 along each signed correspondence. This defines transfer Ext without identifying
 it with the cohomology of an underlying ordinary sheaf.
@@ -170,7 +170,7 @@ by all their images. Naturality of the projection fixes its transfer action.
 id = "exterior-parameters"
 title = "Exterior parameters and graph incidence"
 order = 50
-introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Changing that parameter gives a comparison of actual graph-incidence schemes on a compatible source component. The section stops before a matched-component Tor calculation or a general composition law.'
+introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Reindexing the actual graph components gives preservation of full graph and identity cycles. Changing the parameter gives a comparison of actual graph-incidence schemes on a compatible source component. The section stops before a matched-component Tor calculation or a general composition law.'
 
 [sections.transitions]
 COL-0386 = '''
@@ -179,9 +179,17 @@ parameter and use the same parameter coordinate on both sides. Geometric
 integrality makes this a single integral support; its finite source projection
 and component image allow the integer-linear extension of COL-0374.
 '''
+COL-0388 = '''
+Apply the exterior operation of COL-0386 to each component of an actual graph.
+The projection \(X\times_kT\to X\) identifies the source components by preimage,
+and each exterior graph prime is the corresponding product graph prime with
+coefficient one. Reindexing the finite sum gives the full graph equation;
+the identity morphism then gives the full diagonal identity.
+'''
 COL-0387 = '''
-Now change the parameter by a morphism. Choose a component of its graph whose
-source image contains the exterior source image. The graph projection is an
+COL-0388 keeps the parameter fixed. Now change it by a morphism and choose a
+component of its graph whose source image contains the exterior source image.
+The graph projection is an
 open immersion, so the source map lifts uniquely into it. Together with the
 parameter map on the exterior support, this lift identifies the actual incidence
 scheme and retains its source-target finite map.

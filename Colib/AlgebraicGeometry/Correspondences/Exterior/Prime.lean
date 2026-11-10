@@ -37,7 +37,7 @@ include hz
 /-- The literal image ideal has integral subscheme, not an auxiliary replacement. -/
 theorem nativeExteriorImage_isIntegral :
     IsIntegral (exteriorIdentityInclusion X Y T (integralComponentAt z)).ker.subscheme := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   let := nativeExteriorSupport_isIntegral X Y T z hz
   let e := exteriorIdentityInclusion X Y T (integralComponentAt z)
   let : IsIso e.toImage := IsClosedImmersion.instIsIsoSchemeToImage e
@@ -49,7 +49,7 @@ theorem nativeExteriorImage_isIntegral :
   "adaptation" "Native prime cycle on the actual closed image of diagonal-parameter support"]
 def nativeExteriorPrime :
     finiteCorrespondences (SmoothSite.product X T).hom (SmoothSite.product Y T).hom := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   let := nativeExteriorSupport_isIntegral X Y T z hz
   let e := exteriorIdentityInclusion X Y T (integralComponentAt z)
   let : IsIso e.toImage := IsClosedImmersion.instIsIsoSchemeToImage e

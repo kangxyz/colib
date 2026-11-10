@@ -12,9 +12,9 @@ open AlgebraicGeometry.Scheme Stacks.Chow
 universe u
 variable {S : Scheme.{u}} (X Y : SmoothSite S) (φ : X ⟶ Y) (t : genericPoints X.left)
 
-example : exteriorSupport_sourceProjection X Y (nativeGraphComponent X Y φ t) ≫ φ.left =
-    exteriorSupport_targetProjection X Y (nativeGraphComponent X Y φ t) :=
+example : exteriorSupportSourceProjection X Y (nativeGraphComponent X Y φ t) ≫ φ.left =
+    exteriorSupportTargetProjection X Y (nativeGraphComponent X Y φ t) :=
   nativeGraphComponent_projection_graph X Y φ t
-example : Set.range (exteriorSupport_sourceProjection X Y (nativeGraphComponent X Y φ t)) =
+example : Set.range (exteriorSupportSourceProjection X Y (nativeGraphComponent X Y φ t)) =
     closure ({t.val} : Set X.left) :=
   nativeGraphComponent_source_range X Y φ t

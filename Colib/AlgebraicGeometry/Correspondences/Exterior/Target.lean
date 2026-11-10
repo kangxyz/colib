@@ -30,23 +30,23 @@ variable {S : Scheme.{u}} (X Y T : SmoothSite S)
 /-- The target projection is also the actual base change of its original map. -/
 theorem exteriorIdentityTarget_isPullback :
     IsPullback (exteriorIdentityTarget X Y T W)
-      (pullback.fst (exteriorSupport_sourceProjection X Y W ≫ X.hom) T.hom)
-      (pullback.fst Y.hom T.hom) (exteriorSupport_targetProjection X Y W) := by
+      (pullback.fst (exteriorSupportSourceProjection X Y W ≫ X.hom) T.hom)
+      (pullback.fst Y.hom T.hom) (exteriorSupportTargetProjection X Y W) := by
   apply IsPullback.flip
   refine IsPullback.of_bot (t := IsPullback.of_hasPullback Y.hom T.hom) ?_
     (exteriorIdentityTarget_fst X Y T W).symm
   simpa only [exteriorIdentityTarget_snd, ← exteriorSupport_projection_base X Y W] using
-    (IsPullback.of_hasPullback (exteriorSupport_sourceProjection X Y W ≫ X.hom) T.hom)
+    (IsPullback.of_hasPullback (exteriorSupportSourceProjection X Y W ≫ X.hom) T.hom)
 
 /-- The target image of the actual support is the literal Cartesian preimage. -/
 theorem exteriorIdentityTarget_range :
     Set.range (exteriorIdentityTarget X Y T W) =
-      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupport_targetProjection X Y W) := by
+      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupportTargetProjection X Y W) := by
   let h := exteriorIdentityTarget_isPullback X Y T W
   rw [← h.isoPullback_hom_fst]
   change Set.range (fun x =>
     (pullback.fst (pullback.fst Y.hom T.hom)
-      (exteriorSupport_targetProjection X Y W)) (h.isoPullback.hom x)) = _
+      (exteriorSupportTargetProjection X Y W)) (h.isoPullback.hom x)) = _
   have hh : Function.Surjective h.isoPullback.hom :=
     (Scheme.homeoOfIso h.isoPullback).surjective
   exact (hh.range_comp _).trans (Scheme.Pullback.range_fst _ _)
@@ -64,10 +64,10 @@ theorem exteriorIdentityImage_toTarget :
   exact exteriorIdentityInclusion_snd X Y T W
 
 /-- Passing to the actual image ideal preserves exactly the target image. -/
-theorem exteriorIdentityImage_target_range [IsFinite (exteriorSupport_sourceProjection X Y W)] :
+theorem exteriorIdentityImage_target_range [IsFinite (exteriorSupportSourceProjection X Y W)] :
     Set.range ((exteriorIdentityInclusion X Y T W).ker.subschemeι ≫
       pullback.snd (SmoothSite.product X T).hom (SmoothSite.product Y T).hom) =
-      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupport_targetProjection X Y W) := by
+      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupportTargetProjection X Y W) := by
   let e := exteriorIdentityInclusion X Y T W
   let : IsIso e.toImage := IsClosedImmersion.instIsIsoSchemeToImage e
   have hr := e.toImage.surjective.range_comp

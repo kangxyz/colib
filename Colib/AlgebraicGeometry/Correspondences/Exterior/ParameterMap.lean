@@ -36,15 +36,15 @@ def exteriorParameterMap (ψ : T ⟶ U) :
 @[reassoc (attr := simp)]
 theorem exteriorParameterMap_fst (ψ : T ⟶ U) :
     exteriorParameterMap X Y W ψ ≫
-      pullback.fst (exteriorSupport_sourceProjection X Y W ≫ X.hom) U.hom =
-    pullback.fst (exteriorSupport_sourceProjection X Y W ≫ X.hom) T.hom := by
+      pullback.fst (exteriorSupportSourceProjection X Y W ≫ X.hom) U.hom =
+    pullback.fst (exteriorSupportSourceProjection X Y W ≫ X.hom) T.hom := by
   simp [exteriorParameterMap]
 
 @[reassoc (attr := simp)]
 theorem exteriorParameterMap_snd (ψ : T ⟶ U) :
     exteriorParameterMap X Y W ψ ≫
-      pullback.snd (exteriorSupport_sourceProjection X Y W ≫ X.hom) U.hom =
-    pullback.snd (exteriorSupport_sourceProjection X Y W ≫ X.hom) T.hom ≫ ψ.left := by
+      pullback.snd (exteriorSupportSourceProjection X Y W ≫ X.hom) U.hom =
+    pullback.snd (exteriorSupportSourceProjection X Y W ≫ X.hom) T.hom ≫ ψ.left := by
   simp [exteriorParameterMap]
 
 @[simp]

@@ -618,6 +618,28 @@ zero. These exact restrictions give the strict
 coefficient prespectrum after small models and
 iteration of \(S\).
 '''
+COL-0380 = '''
+For an open immersion \(j\colon U\hookrightarrow\operatorname{Spec}R\), impose
+acyclicity after \(j^*\) on identity evaluation in COL-0355. Restricting its
+categorical equivalence preserves the original sections and complexes. Their
+independently chosen zeros are compared by a canonical normalization isomorphism,
+which makes the actual evaluation a strict model map with coherent inverse tracks.
+'''
+COL-0358 = '''
+For a fixed commutative ring \(R\), the evaluation equivalence of COL-0355,
+followed by the small-model lift, gives the specified prespectrum map.
+Normalize its actual categorical inverse at the chosen zero. The original
+unit and counit then give whole inverse homotopies, hence level equivalences
+and isomorphisms of stable homotopy groups in every integer degree.
+'''
+COL-0382 = '''
+The supported evaluation of COL-0380 lands in bounded-flat perfect complexes.
+For a quasi-compact scheme \(X\), bounded-flat replacement preserves acyclicity
+on any open \(U\), including that of the admissible quotient. Thus the literal
+inclusion into all supported perfect complexes satisfies approximation. Its
+original \(K\)-map determines a stable equivalence, and the support-forgetting
+square retains a whole coherent homotopy.
+'''
 COL-0359 = '''
 Fully faithful identity evaluation lifts a global-unit
 automorphism to the actual affine cocartesian sections.
@@ -649,6 +671,14 @@ followed by cone inclusion. The loop is the reverse of
 \(N\), followed by \(V\) followed by \(N\), with
 right-associated concatenation. Naturality of both tracks
 gives the coefficient-natural one-step Bass seed.
+'''
+COL-0379 = '''
+To use the Laurent square of COL-0361 with a fixed affine open over
+\(R\), retain the specified structure arrow \(R\to A\) at every corner.
+Both routes from \(A\) to \(A[t,t^{-1}]\) are the coefficient inclusion,
+although the two polynomial charts have opposite coordinates. Forgetting
+\(R\) recovers the ring square, while its actual algebra arrows also
+induce the contravariant maps between the chosen open pullbacks.
 '''
 COL-0362 = '''
 Iterate the strict polynomial and Laurent Bass functor

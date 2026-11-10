@@ -14,11 +14,11 @@ variable {S : Scheme.{u}} (X Y T : SmoothSite S)
   (W : (pullback X.hom Y.hom).IdealSheafData)
 
 example : Set.range (exteriorIdentityTarget X Y T W) =
-    (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupport_targetProjection X Y W) :=
+    (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupportTargetProjection X Y W) :=
   exteriorIdentityTarget_range X Y T W
 
-example [IsFinite (exteriorSupport_sourceProjection X Y W)] :
+example [IsFinite (exteriorSupportSourceProjection X Y W)] :
     Set.range ((exteriorIdentityInclusion X Y T W).ker.subschemeι ≫
       pullback.snd (SmoothSite.product X T).hom (SmoothSite.product Y T).hom) =
-      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupport_targetProjection X Y W) :=
+      (pullback.fst Y.hom T.hom) ⁻¹' Set.range (exteriorSupportTargetProjection X Y W) :=
   exteriorIdentityImage_target_range X Y T W

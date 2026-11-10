@@ -30,7 +30,7 @@ variable {k : Type u} [Field k] (X Y T U : SmoothSite (Spec (.of k)))
   (z : pullback (C := Scheme) X.hom Y.hom)
   (hz : IsFiniteCorrespondencePoint X.hom Y.hom z)
   (t : genericPoints (SmoothSite.product X T).left)
-  (hne : Set.range (exteriorSupport_sourceProjection (SmoothSite.product X T)
+  (hne : Set.range (exteriorSupportSourceProjection (SmoothSite.product X T)
     (SmoothSite.product X U)
     (nativeGraphComponent (SmoothSite.product X T) (SmoothSite.product X U)
       (SmoothSite.productMap (𝟙 X) ψ) t)) ≠
@@ -55,7 +55,7 @@ theorem nativeMixedGraphIncidence_isEmpty :
   constructor
   intro w
   have hg : nativeMixedGraphSource X Y T U ψ z hz t w ∈
-      Set.range (exteriorSupport_sourceProjection (SmoothSite.product X T)
+      Set.range (exteriorSupportSourceProjection (SmoothSite.product X T)
         (SmoothSite.product X U)
         (nativeGraphComponent (SmoothSite.product X T) (SmoothSite.product X U)
           (SmoothSite.productMap (𝟙 X) ψ) t)) :=

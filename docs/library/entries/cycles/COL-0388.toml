@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0388"
+title = "Exterior extension of full graph and identity cycles"
+kind = "theorem"
+section = "exterior-parameters"
+order = 15
+primary = "Stacks.Chow.nativeExterior_graphFunctor"
+statement = '''
+Let \(k\) be a field and let \(X,Y,T\) be smooth separated finite-type \(k\)-schemes, with \(T\) geometrically integral. Write \(E_T\) for the additive exterior operation of COL-0386 and \(\Gamma\) for the graph functor of COL-0367. For every morphism \(\varphi:X\to Y\),
+\[ E_T(\Gamma(\varphi))=\Gamma(\varphi\times\mathrm{id}_T) \quad\text{in }\operatorname{Cor}_k(X\times_kT,Y\times_kT). \]
+In particular,
+\[ E_T(1_X)=1_{X\times_kT}. \]
+Each graph is the full sum of its integral source-component graph cycles, with coefficient one on every component. Both equalities allow disconnected and empty sources.
+'''
+scope = '''
+All schemes and the field lie in universe \(u\). The operation and graph cycles use the existing native finite integer-cycle groups. The component comparison identifies the literal integral image ideals and the corresponding generic points; it retains coefficient one on each graph prime and introduces no sign. Integer multiples and negatives follow from the additive operation of COL-0386. No perfectness of \(k\) or flatness of \(\varphi\) is assumed.
+
+This adapts the full graph calculation in [@motivic_source_a6805c4, Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/Graph.lean:176-222] and the full identity calculation in [@motivic_source_a6805c4, Motivic/AlgebraicGeometry/Correspondences/Exterior/Identity/Unit.lean:151-193] to the native cycles. It does not assert compatibility with arbitrary correspondence composition, matched-component Tor multiplicity, a full graph-interchange identity, or a parameter-product functor.
+'''
+proof_kind = "outline"
+proof = '''
+Let \(p:X\times_kT\to X\) be the projection. Geometric integrality of \(T\) gives the component bijection \(C\mapsto p^{-1}(C)\), and the native generic-point correspondence gives the same reindexing of graph primes. For each component \(C\), the exterior image of its integral graph support has source image \(p^{-1}(C)\) and lies in the graph of \(\varphi\times\mathrm{id}_T\). Uniqueness of an integral closed support in that graph with the specified source image identifies it with the corresponding product graph component. Their native prime cycles therefore agree with coefficient one.
+
+Express \(\Gamma(\varphi)\) as the finite sum over all source components. Additivity of \(E_T\) and the component bijection reindex this sum into the full product graph. Taking \(\varphi=\mathrm{id}_X\), the graph functor's identity law and \(\mathrm{id}_X\times\mathrm{id}_T=\mathrm{id}_{X\times_kT}\) give the second equality.
+'''
+review = "author_checked"

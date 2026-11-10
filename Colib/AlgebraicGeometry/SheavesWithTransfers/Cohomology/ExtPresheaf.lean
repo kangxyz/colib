@@ -38,7 +38,7 @@ def transferExtCoefficientMap {F G : SheafWithTransfers.{u + 1} k} (a : F ⟶ G)
   naturality {_X _Y} f :=
     (((extFunctor.{w} n).map ((transferRepresentable k).map f.unop).op).naturality a).symm
 
-attribute [colib_tag "COL-0383"]
+attribute [colib_tag "COL-0392"]
   transferExtPresheaf
   transferExtCoefficientMap
 

@@ -44,12 +44,14 @@ abbrev nativeMixedGraphIncidence : Scheme.{u} :=
     (SmoothSite.product Y U).hom (nativeParameterGraphPoint X T U ψ t)
     (nativeExteriorPoint X Y U z hz)
 
+/-- Projection of the actual mixed incidence to the source of the parameter graph. -/
 abbrev nativeMixedGraphSource : nativeMixedGraphIncidence X Y T U ψ z hz t ⟶
     (SmoothSite.product X T).left :=
   correspondenceIncidenceLeft (SmoothSite.product X T).hom (SmoothSite.product X U).hom
     (SmoothSite.product Y U).hom (nativeParameterGraphPoint X T U ψ t)
     (nativeExteriorPoint X Y U z hz)
 
+/-- Projection of the actual mixed incidence to the literal support over the changed parameter. -/
 abbrev nativeMixedGraphToChangedSupport : nativeMixedGraphIncidence X Y T U ψ z hz t ⟶
     exteriorIdentitySupport X Y U (integralComponentAt z) :=
   pullback.snd _ _ ≫ (nativeExteriorSupportIso X Y U z hz).inv
@@ -65,7 +67,7 @@ theorem nativeMixedGraph_support_condition :
   have hg := nativeGraphComponent_projection_graph (SmoothSite.product X T)
     (SmoothSite.product X U) (SmoothSite.productMap (𝟙 X) ψ) t
   simpa only [nativeGraphComponent, nativeParameterGraphPoint,
-    exteriorSupport_sourceProjection, exteriorSupport_targetProjection, Category.assoc] using
+    exteriorSupportSourceProjection, exteriorSupportTargetProjection, Category.assoc] using
     congrArg (fun f => pullback.fst _ _ ≫ f) hg.symm
 
 /-- The actual mixed incidence lifts into the literal original exterior support. -/

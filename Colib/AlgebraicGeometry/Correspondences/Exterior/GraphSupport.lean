@@ -29,14 +29,14 @@ namespace Stacks.Chow
 variable {S : Scheme.{u}} (X Y T : SmoothSite S)
   (W : (pullback X.hom Y.hom).IdealSheafData)
   (φ : X ⟶ Y)
-  (hW : exteriorSupport_sourceProjection X Y W ≫ φ.left =
-    exteriorSupport_targetProjection X Y W)
+  (hW : exteriorSupportSourceProjection X Y W ≫ φ.left =
+    exteriorSupportTargetProjection X Y W)
 
 include hW
 
 /-- The native support inclusion factors through the original graph. -/
 theorem exteriorSupport_inclusion_eq_graph :
-    W.subschemeι = exteriorSupport_sourceProjection X Y W ≫
+    W.subschemeι = exteriorSupportSourceProjection X Y W ≫
       pullback.lift (𝟙 X.left) φ.left
         (by simp only [Category.id_comp, MorphismProperty.Over.w]) := by
   apply pullback.hom_ext
@@ -58,16 +58,16 @@ theorem exteriorIdentitySource_graph :
     exact h.trans (Category.comp_id _)
   apply pullback.hom_ext
   · simpa only [Category.assoc, hfst, exteriorIdentitySource_fst_assoc,
-      exteriorIdentityTarget_fst, exteriorSupport_sourceProjection] using
+      exteriorIdentityTarget_fst, exteriorSupportSourceProjection] using
       congrArg (fun a =>
-        pullback.fst (exteriorSupport_sourceProjection X Y W ≫ X.hom) T.hom ≫ a) hW
+        pullback.fst (exteriorSupportSourceProjection X Y W ≫ X.hom) T.hom ≫ a) hW
   · simp only [Category.assoc, hsnd, exteriorIdentitySource_snd, exteriorIdentityTarget_snd]
 
 /-- The native image ideal, not only its parameterized source, satisfies the graph relation. -/
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/Graph.lean:85-111"
   "adaptation" "Actual exterior-image ideal retains the product graph relation"]
-theorem exteriorIdentityImage_graph [IsFinite (exteriorSupport_sourceProjection X Y W)] :
+theorem exteriorIdentityImage_graph [IsFinite (exteriorSupportSourceProjection X Y W)] :
     (exteriorIdentityInclusion X Y T W).ker.subschemeι ≫
         pullback.fst (SmoothSite.product X T).hom (SmoothSite.product Y T).hom ≫
           (SmoothSite.productMap φ (𝟙 T)).left =

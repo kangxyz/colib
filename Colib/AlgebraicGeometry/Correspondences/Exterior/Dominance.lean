@@ -35,19 +35,19 @@ include hz
 
 theorem nativeExteriorSupport_isIntegral [GeometricallyIntegral T.hom] :
     IsIntegral (exteriorIdentitySupport X Y T (integralComponentAt z)) := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   let : IsLocallyNoetherian X.left := LocallyOfFiniteType.isLocallyNoetherian
     (show X.left ⟶ Spec (.of k) from X.hom)
   let : IsLocallyNoetherian (integralComponentAt z).subscheme :=
     LocallyOfFiniteType.isLocallyNoetherian
-      (exteriorSupport_sourceProjection X Y (integralComponentAt z))
+      (exteriorSupportSourceProjection X Y (integralComponentAt z))
   let : IsIntegral (integralComponentAt z).subscheme := isIntegral_integralComponentAt z
   infer_instance
 
 /-- Universal openness is proved from actual admissibility and smoothness. -/
 theorem nativeExteriorSource_universallyOpen :
     UniversallyOpen (exteriorIdentitySource X Y T (integralComponentAt z)) := by
-  let : UniversallyOpen (exteriorSupport_sourceProjection X Y (integralComponentAt z)) :=
+  let : UniversallyOpen (exteriorSupportSourceProjection X Y (integralComponentAt z)) :=
     universallyOpen_finiteCorrespondenceProjection_of_smooth X.hom Y.hom z hz
   exact MorphismProperty.of_isPullback
     (exteriorIdentitySource_isPullback X Y T (integralComponentAt z)).flip inferInstance
@@ -59,7 +59,7 @@ theorem nativeExteriorSource_universallyOpen :
 theorem nativeExteriorSource_range_mem [GeometricallyIntegral T.hom] :
     Set.range (exteriorIdentitySource X Y T (integralComponentAt z)) ∈
       irreducibleComponents (SmoothSite.product X T).left := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   let := nativeExteriorSupport_isIntegral X Y T z hz
   let := nativeExteriorSource_universallyOpen X Y T z hz
   let p := exteriorIdentitySource X Y T (integralComponentAt z)

@@ -14,9 +14,9 @@ universe u
 variable {S : Scheme.{u}} (X Y T : SmoothSite S)
   (W : (pullback X.hom Y.hom).IdealSheafData)
 
-example [IsFinite (exteriorSupport_sourceProjection X Y W)] :
+example [IsFinite (exteriorSupportSourceProjection X Y W)] :
     IsFinite (exteriorIdentitySource X Y T W) := inferInstance
-example [IsFinite (exteriorSupport_sourceProjection X Y W)] :
+example [IsFinite (exteriorSupportSourceProjection X Y W)] :
     IsClosedImmersion (exteriorIdentityInclusion X Y T W) := inferInstance
 example [GeometricallyIntegral T.hom] [IsIntegral W.subscheme]
     [IsLocallyNoetherian W.subscheme] : IsIntegral (exteriorIdentitySupport X Y T W) :=
@@ -27,5 +27,5 @@ example : exteriorIdentitySource X Y T W ≫ pullback.snd X.hom T.hom =
 
 example (z : pullback (C := Scheme) X.hom Y.hom) (hz : IsFiniteCorrespondencePoint X.hom Y.hom z) :
     IsClosedImmersion (exteriorIdentityInclusion X Y T (integralComponentAt z)) := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   infer_instance

@@ -33,6 +33,7 @@ variable {k : Type u} [Field k] (X Y T U : SmoothSite (Spec (.of k)))
   (hz : IsFiniteCorrespondencePoint X.hom Y.hom z)
   (t : genericPoints (SmoothSite.product X T).left)
 
+/-- Source projection of the actual integral component of the parameter graph. -/
 abbrev nativeParameterGraphSource :=
   (integralComponentAt (nativeParameterGraphPoint X T U ψ t)).subschemeι ≫
     pullback.fst (SmoothSite.product X T).hom (SmoothSite.product X U).hom

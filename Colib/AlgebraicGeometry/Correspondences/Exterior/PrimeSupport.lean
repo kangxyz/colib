@@ -44,7 +44,7 @@ theorem nativeExteriorPoint_ideal :
 /-- The actual literal support is isomorphic to the native cycle's actual integral support. -/
 def nativeExteriorSupportIso : exteriorIdentitySupport X Y T (integralComponentAt z) ≅
     (integralComponentAt (nativeExteriorPoint X Y T z hz)).subscheme := by
-  let : IsFinite (exteriorSupport_sourceProjection X Y (integralComponentAt z)) := hz.1
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt z)) := hz.1
   let e := exteriorIdentityInclusion X Y T (integralComponentAt z)
   let : IsIso e.toImage := IsClosedImmersion.instIsIsoSchemeToImage e
   exact asIso e.toImage ≪≫

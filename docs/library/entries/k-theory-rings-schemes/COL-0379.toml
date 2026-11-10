@@ -1,0 +1,33 @@
+[entry]
+id = "COL-0379"
+title = "The Laurent square over a fixed coefficient ring"
+kind = "theorem"
+section = "k-theory-of-schemes"
+order = 3495
+statement = '''
+Fix a commutative ring \(R\). For every \(R\)-algebra \(A\), the two
+coefficient inclusions \(A\to A[t]\), the positive chart
+\(A[t]\to A[t,t^{-1}]\), and the inverse chart
+\(A[t]\to A[t,t^{-1}]\) form a commutative square of \(R\)-algebras.
+The right chart sends \(t\) to \(t\); the bottom chart sends \(t\)
+to \(t^{-1}\). Both composites are the Laurent coefficient inclusion.
+Every morphism of \(R\)-algebras induces the four canonical coefficient
+maps, strictly preserving identity and composition. Forgetting the fixed
+base gives the ordinary Laurent square, including its morphisms.
+'''
+scope = '''
+Arbitrary commutative rings and coefficient maps, including the zero ring,
+without flatness or finiteness assumptions. The objects retain their specified
+structure maps from \(R\). For \(R\to S\), restriction from
+\(S\)-algebras to \(R\)-algebras preserves polynomial and Laurent extension,
+both coefficient inclusions, both charts, and the whole square functor.
+This restriction changes the fixed base by precomposition; it is not tensor
+extension. Exponent inversion in the bottom chart is distinct from multiplication
+by the forward Laurent unit. The square supplies the fixed-base coefficient
+diagram for supported Bass constructions; no supported-section comparison or
+localization theorem is asserted.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-09"
+provenance = "aglib"
+primary = "CommRingCat.PolynomialLaurent.laurentUnderSquareFunctor"

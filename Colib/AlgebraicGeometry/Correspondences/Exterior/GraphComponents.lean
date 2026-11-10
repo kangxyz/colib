@@ -35,8 +35,8 @@ abbrev nativeGraphComponent : (pullback X.hom Y.hom).IdealSheafData :=
 
 /-- The original component satisfies the actual graph relation as a scheme-map equality. -/
 theorem nativeGraphComponent_projection_graph :
-    exteriorSupport_sourceProjection X Y (nativeGraphComponent X Y φ t) ≫ φ.left =
-      exteriorSupport_targetProjection X Y (nativeGraphComponent X Y φ t) := by
+    exteriorSupportSourceProjection X Y (nativeGraphComponent X Y φ t) ≫ φ.left =
+      exteriorSupportTargetProjection X Y (nativeGraphComponent X Y φ t) := by
   let j := correspondenceGraphMap X.hom Y.hom φ.left (MorphismProperty.Over.w φ)
   let : IsClosedImmersion j :=
     isClosedImmersion_correspondenceGraphMap X.hom Y.hom φ.left (MorphismProperty.Over.w φ)
@@ -53,7 +53,7 @@ theorem nativeGraphComponent_projection_graph :
   "Motivic/AlgebraicGeometry/Correspondences/Exterior/Simplex/Graph.lean:121-147"
   "adaptation" "Original native graph component has its exact source-component image"]
 theorem nativeGraphComponent_source_range :
-    Set.range (exteriorSupport_sourceProjection X Y (nativeGraphComponent X Y φ t)) =
+    Set.range (exteriorSupportSourceProjection X Y (nativeGraphComponent X Y φ t)) =
       closure ({t.val} : Set X.left) := by
   let j := correspondenceGraphMap X.hom Y.hom φ.left (MorphismProperty.Over.w φ)
   let : IsClosedImmersion j :=

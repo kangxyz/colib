@@ -96,7 +96,7 @@ theorem transferSectionsEquiv_naturality_left (F : SheafWithTransfers.{u + 1} k)
   rw [Adjunction.homEquiv_naturality_left]
   exact liftedYoneda_naturality_left k F.obj a _
 
-attribute [colib_tag "COL-0382"]
+attribute [colib_tag "COL-0391"]
   transferRepresentable
   transferSectionsEquiv
   transferSectionsEquiv_apply
