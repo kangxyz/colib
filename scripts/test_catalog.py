@@ -582,6 +582,9 @@ class LibraryTests(unittest.TestCase):
             "COL-1032": "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
             "COL-1033": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology",
             "COL-1034": "Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot",
+            "COL-1035": "Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveDivisorRoot",
+            "COL-1036":
+                "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -623,7 +626,8 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": ([374, *range(363, 368)], ["COL-0374", "COL-0366"]),
-            "transfers-nisnevich": (range(368, 374), ["COL-0368", "COL-0370", "COL-0372"]),
+            "transfers-nisnevich": ([368, 1036, *range(369, 374)],
+                                     ["COL-0368", "COL-0370", "COL-0372"]),
         }
         for section_id, (numbers, starts) in expected.items():
             section = self.library["sections"][section_id]
@@ -873,7 +877,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
         self.assertEqual(cor.count('class="section-transition"'), 6)
-        self.assertEqual(transfers.count('class="section-transition"'), 6)
+        self.assertEqual(transfers.count('class="section-transition"'), 7)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', transfers)

@@ -53,6 +53,15 @@ cohomological shifts and signs.
   equivalence between the two Picard models transports the root equation,
   and native representatives give an invertible module and tensor-power
   isomorphism. No Jacobian theory is reimplemented.
+- COL-1035 computes the degree of the literal `O(D) ⊗ O(-E)` from the full
+  scheme lengths of the divisors and produces its actual tensor root.
+  For section kernels, native Cartier theory and image factorization supply
+  both the Cartier instances and length one. Nilpotent multiplicities are
+  retained throughout.
+- COL-1036 proves equality of actual affine-cylinder endpoint transfer actions
+  on ordinary HI coefficients. Its torsion consumer preserves the original
+  graph restrictions and an explicit signed endpoint difference. It does not
+  supply the required geometric principal family or moving-divisor identity.
 
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
@@ -61,11 +70,11 @@ whole-program validation report.
 
 ## Remaining mathematical chain
 
-1. Construct the actual section-divisor difference and prove its degree is
-   zero in the same native Picard model. COL-1034 supplies the closed-curve
-   tensor root over a separably closed field, and COL-1031 supplies a global
-   root. The actual section-divisor identification and all its pullback maps
-   still need to be connected.
+1. Identify the pullback of the global section-divisor difference with the
+   closed-fibre section-kernel difference on the same native modules and
+   maps. COL-1035 supplies its closed-curve tensor root, and COL-1031 then
+   supplies a global root. The relative divisor/base-change identification
+   is still required; the closed-curve degree computation is already present.
 2. Construct the prescribed trivialization on the actual finite boundary and
    identify the pullback of the root's tensor power with the tensor power of
    its actual pullback. COL-1032 then supplies the exact compatible frame,
@@ -74,8 +83,10 @@ whole-program validation report.
    principal correspondence identity. Preserve scheme-length multiplicities,
    signs and the original graph maps. Evaluate the identity using additivity,
    annihilation by `n` and actual homotopy-invariant principal nullity.
-   A full framed Picard group or general Picard pairing is not a prerequisite
-   if this concrete identity supplies the needed section comparison.
+   COL-1036 supplies the final HI/torsion endpoint consumer once that actual
+   family and relation are constructed. A full framed Picard group or general
+   Picard pairing is not a prerequisite if this concrete identity supplies
+   the needed section comparison.
 4. Define values on geometric henselian bases by the actual filtered
    neighborhood colimit. Descend the finite presentation data to a common
    stage, prove the henselization induction and pass to conservative étale

@@ -518,6 +518,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SmoothReduced
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecNaturality
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecSectionsExact
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
+public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
@@ -1143,6 +1144,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Stalks
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Basic
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Cokernels
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Contraction

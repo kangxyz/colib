@@ -80,6 +80,14 @@ title = "Sheafification and comparison"
 start = "COL-0372"
 
 [sections.transitions]
+COL-1036 = '''
+Before imposing a sheaf condition, ordinary homotopy invariance makes the
+actual affine-cylinder sections act identically. Signed correspondence
+composition and torsion cancellation retain the original graph restrictions.
+This is the action-theoretic consumer for rigidity; its geometric moving
+family remains a separate input.
+'''
+
 COL-0368 = '''
 An additive functor on the opposite of the category in COL-0366 turns each
 signed correspondence into a homomorphism in the reverse direction. Its
