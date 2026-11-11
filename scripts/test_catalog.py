@@ -506,6 +506,8 @@ class LibraryTests(unittest.TestCase):
             "COL-0402": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex",
             "COL-0403": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.SheafComparison",
             "COL-0404": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
+            "COL-1008": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.IntegralEquivalence",
+            "COL-1007": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -627,7 +629,9 @@ class LibraryTests(unittest.TestCase):
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
             "weight-one-norm": ["COL-0401"],
-            "weight-one-comparison": ["COL-0402", "COL-0403", "COL-0404"],
+            "weight-one-comparison": [
+                "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"
+            ],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():
@@ -673,6 +677,83 @@ class LibraryTests(unittest.TestCase):
             matches = [row for row in records if row.get("id") == identifier]
             self.assertEqual(len(matches), 1)
             self.assertEqual(matches[0]["path"], f"tag/{identifier}/")
+
+    def test_weight_one_normalization_registration_and_binding_sources(self):
+        # These are metadata fixtures, not evidence of native Lean elaboration.
+        expected = {
+            "COL-1008": (
+                "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.IntegralEquivalence",
+                "AlgebraicGeometry.MotivicCohomology.WeightOne",
+                "weightOneEquiv", "comparison", 40,
+                ["motivicNorm", "weightOneEquiv", "motivicNorm_integralCycleClass",
+                 "motivicNorm_integralGraphUnitClass", "weightOneEquiv_symm_apply",
+                 "motivicNorm_eq_derivedWeightOneComparison"],
+            ),
+            "COL-1007": (
+                "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne",
+                "AlgebraicGeometry.MotivicCohomology.WeightOneFiniteCoefficients",
+                "weightOneFiniteEquiv", "theorem", 50,
+                ["weightOneFiniteEquiv", "weightOneFiniteEquiv_integralReduction",
+                 "weightOneFiniteEquiv_symm_graph", "weightOneFiniteEquiv_symm_graphUnitClass",
+                 "weightOneFiniteEquiv_graphUnitClass", "weightOneFiniteEquiv_cycleClass",
+                 "finiteGraphUnitClass_eq_zero_iff_power"],
+            ),
+        }
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, (module, namespace, primary, kind, order, names) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], "weight-one-comparison")
+            self.assertEqual(item["path"],
+                             f"docs/library/entries/motivic-cohomology/{identifier}.toml")
+            self.assertEqual((item["kind"], item["order"]), (kind, order))
+            self.assertEqual(item["primary"], f"{namespace}.{primary}")
+            self.assertEqual(built["declarations"][item["primary"]]["module"], module)
+            source = (catalog.ROOT / (module.replace(".", "/") + ".lean")).read_text()
+            self.assertIn(f"namespace {namespace}", source)
+            if identifier == "COL-1008":
+                bindings = re.findall(
+                    r'@\[[^\]]*colib_tag "COL-1008"[^\]]*\]\s*(?:def|theorem)\s+(\w+)',
+                    source,
+                )
+            else:
+                groups = re.findall(
+                    r'attribute \[colib_tag "COL-1007",[^\]]*\]\n((?:  \w+\n)+)',
+                    source,
+                )
+                bindings = [name for group in groups for name in group.split()]
+            self.assertEqual(bindings, names)
+            for name in names:
+                self.assertRegex(source, rf"\b(?:def|theorem)\s+{name}\b")
+        transitions = self.library["sections"]["weight-one-comparison"]["transitions"]
+        self.assertIn("COL-0403", transitions["COL-1008"])
+        self.assertIn("COL-1008", transitions["COL-1007"])
+
+    def test_weight_one_normalization_imports_and_consumers_are_discovered(self):
+        modules = [
+            "Colib.Algebra.Homology.Embedding.SingleComponent",
+            "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitNormalization",
+            "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne",
+        ] + [
+            f"Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.{leaf}"
+            for leaf in ("ChainNormalization", "FieldComponent", "FieldEquivalence",
+                         "IntegralEquivalence", "NormCoordinates", "PointNormalization",
+                         "TargetNormalization")
+        ]
+        imports = (catalog.ROOT / "Colib.lean").read_text().splitlines()
+        for module in modules:
+            self.assertTrue((catalog.ROOT / (module.replace(".", "/") + ".lean")).is_file())
+            self.assertEqual(imports.count(f"public import {module}"), 1)
+        for leaf in ("ActualUnitNormalization", "ActualWeightOneNormCoordinates",
+                     "WeightOneRecoveredComponents", "WeightOneRecoveredFieldNormalization",
+                     "WeightOneRecoveredIntegralNormalization", "WeightOneRecoveredFiniteNormalization"):
+            for path in ("scripts/check.sh", ".github/workflows/lean-ci.yml"):
+                self.assert_test_in_checks(f"ColibTest.{leaf}", path)
+        source = (catalog.ROOT / "ColibTest/WeightOneRecoveredFiniteNormalization.lean").read_text()
+        self.assertEqual(len(re.findall(r"^example\b", source, re.M)), 11)
+        for formula in ("weightOneFiniteEquiv k 0", "finiteGraphUnitClass k 0",
+                        "subsingleton_level_one k", "weightOneFiniteEquiv k 6",
+                        "[CharP k p]", "weightOneFiniteEquiv_cycleClass k n z"):
+            self.assertIn(formula, source)
 
     def test_native_exterior_graph_identity_scope_and_outline(self):
         item = self.library["entries"]["COL-0388"]
