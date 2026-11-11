@@ -27,6 +27,7 @@ open Stacks.SheafOfModules.OnSpace
 universe u
 namespace AlgebraicGeometry.Scheme.Modules
 
+/-- The native sheaf-of-modules monoidal structure on the scheme. -/
 local instance tensorUnitScalarMonoidal (X : Scheme.{u}) :
     MonoidalCategory X.Modules := monoidal X.toRingedSpace
 local instance tensorUnitScalarPreadditive (X : Scheme.{u}) :

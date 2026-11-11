@@ -28,6 +28,7 @@ open scoped Simplicial Topology unitInterval
 universe u
 namespace AlgebraicGeometry.Scheme.Modules
 
+/-- The native sheaf-of-modules monoidal structure on the scheme. -/
 local instance tensorUnitIteratedPrismMonoidal (X : Scheme.{u}) :
     MonoidalCategory X.Modules := Stacks.SheafOfModules.OnSpace.monoidal X.toRingedSpace
 

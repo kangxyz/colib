@@ -25,6 +25,7 @@ open scoped ZeroObject
 universe u
 namespace AlgebraicGeometry.Scheme.Modules
 
+/-- The native sheaf-of-modules monoidal structure on the scheme. -/
 local instance complexTensorZeroMonoidal (X : Scheme.{u}) : MonoidalCategory X.Modules :=
   Stacks.SheafOfModules.OnSpace.monoidal X.toRingedSpace
 local instance complexTensorZeroPreadditive (X : Scheme.{u}) : MonoidalPreadditive X.Modules :=
