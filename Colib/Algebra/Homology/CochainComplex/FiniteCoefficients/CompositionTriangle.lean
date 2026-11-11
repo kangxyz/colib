@@ -100,4 +100,9 @@ attribute [colib_tag "COL-1018"]
   compositionTriangle_derived_distinguished
   modBockstein_comp_shift
 
+attribute [colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/Algebra/Homology/HomotopyCategory/Triangulated.lean:34-50,193-201"
+  "adaptation" "The cone-composition triangle for repeated multiplication by n"]
+  compositionTriangle_derived_distinguished
+
 end CochainComplex.finiteCoefficients

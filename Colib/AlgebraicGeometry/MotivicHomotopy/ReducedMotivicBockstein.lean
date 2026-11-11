@@ -53,4 +53,9 @@ attribute [colib_tag "COL-1019"]
   reducedMotivicModBockstein
   reducedMotivicModBockstein_comp_eq_zero
 
+attribute [colib_ref "Voevodsky2003ReducedPowers" "Section 8, opening paragraph, p. 29"
+  "adaptation" "The coefficient Bockstein and its square-zero identity on reduced cohomology"]
+  reducedMotivicModBockstein
+  reducedMotivicModBockstein_comp_eq_zero
+
 end AlgebraicGeometry.MotivicHomotopy

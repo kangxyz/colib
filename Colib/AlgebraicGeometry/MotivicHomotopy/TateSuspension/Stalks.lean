@@ -88,4 +88,8 @@ attribute [colib_tag "COL-1020"]
   stalkwiseWeakEquivalences_tateConeToSphere
   isIso_toStalkwiseHomotopyCategory_map_tateConeToSphere
 
+attribute [colib_ref "MorelVoevodsky1999" "Section 3.2, proof of Lemma 2.15, p. 111"
+  "adaptation" "The collapse to the pointed Tate quotient as a simplicial weak equivalence"]
+  stalkwiseWeakEquivalences_tateConeToSphere
+
 end AlgebraicGeometry.MotivicHomotopy
