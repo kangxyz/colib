@@ -100,7 +100,7 @@ private theorem completeFinite_defect_of_restriction
     [IsLocalHom (algebraMap R T)]
     [Field F] [Algebra R F] [IsFractionRing R F]
     [Field L] [Algebra F L] [Algebra R L] [IsScalarTower R F L]
-    [Algebra T L] [IsScalarTower R T L] [IsFractionRing T L] [FiniteDimensional F L]
+    [Algebra T L] [IsScalarTower R T L] [IsFractionRing T L]
     {π : R} {τ : T} (hπ : Irreducible π) (hτ : Irreducible τ)
     (v : Tˣ) (a : ℕ) (ha : algebraMap R T π = (v : T) * τ ^ a)
     (n : ℕ) (x y : MilnorKTheory (ResidueField R) n) (z : MilnorKTheory (ResidueField T) n)

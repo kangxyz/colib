@@ -789,8 +789,8 @@ The general DVR, Dedekind and curve packet uses the Aglib revision
 `4f65be4eafa8964bd1f7a83682e99aa8165bd418`. COL-1001–COL-1006 record the
 complete DVR square, its original-branch version, finite-support residue
 pushforward, curve reciprocity and the weighted affine endpoint formulas.
-The local results retain residue characteristic zero. The curve results
-keep characteristic zero for the base field. COL-1024 records the
+The original local results used residue characteristic zero, and the
+curve results used characteristic zero for the base field. COL-1024 records the
 complete DVR square for purely inseparable prime extensions.
 
 The four archived inseparable producer and consumer pairs are part of
@@ -815,6 +815,18 @@ formula, retaining the orders and residue-field norms at the original
 points. The Steinberg relation gives the forward symbol, and the
 all-weight finite norm comparison identifies its value on a norm
 with the actual finite pushforward. Both directions respect scalar
-pullback and finite corestriction. This comparison retains the original
-characteristic-zero hypothesis. COL-1025 and COL-1026 are in the
-Motivic Cohomology chapter.
+pullback and finite corestriction. The original migrated comparison used
+characteristic zero.
+
+### Integral diagonal comparison over arbitrary fields
+
+COL-1026 now gives the graph-symbol isomorphism in every weight over any
+field. The original DVR and Dedekind formulas in COL-1002 and COL-1003 and
+the affine norm and endpoint formulas in COL-1005 and COL-1006 apply in
+arbitrary characteristic. The finite norm comparison uses the local
+lengths of the actual Artin fibers in the polynomial branch formulas.
+The finite DVR norm–residue square gives the weighted endpoint equality used in
+boundary descent. The resulting isomorphism and its inverse commute with
+scalar pullback and finite pushforward, including inseparable extensions.
+In Motivic Cohomology, the weight-zero and weight-one comparisons in
+COL-1023 precede the finite pushforward and all-weight comparison.

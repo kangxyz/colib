@@ -139,7 +139,7 @@ chains by COL-0400. In weight zero, the structural graph gives the integer
 degree. In weight one, the geometric norm of COL-1008 reads the rational
 graph class as its unit. These calculations identify the first two native
 Milnor groups with their diagonal motivic groups. COL-1026 gives the
-comparison in all weights over fields of characteristic zero.
+comparison in all weights.
 '''
 
 [sections.transitions]
@@ -163,8 +163,8 @@ before applying the base-field comparison of COL-0400 to define the
 derived transfer.
 '''
 COL-1026 = '''
-Rational graph classes satisfy the Milnor relations in characteristic zero.
-The norm of each closed point gives the inverse after the full endpoint
-comparison shows that it kills boundaries. Use the finite transfers of
-COL-1025 to return from each residue field to the base field.
+The Milnor relations give the symbol map on rational graphs. The weighted
+endpoint comparison shows that closed-point norms kill the boundary.
+Finite pushforward in COL-1025 expresses each closed point as the
+pushforward of its rational graph over its residue field.
 '''
