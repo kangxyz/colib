@@ -12,7 +12,6 @@ permissions:
 concurrency:
   group: Colib CI-refs/heads/ci/strict-a1-dependencies-20261111
   cancel-in-progress: true
-  queue: max
 
 defaults:
   run:
