@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0524"
+title = "Actual Collar Acyclicity and Positive Homology of the Unreduced Cone"
+kind = "comparison"
+section = "homotopy-groups"
+order = 130
+primary = "Topology.ReducedMappingCone.unreducedCone_positive_homology_isZero_of_quasiIso"
+statement = '''For an actual double-cylinder pushout of attaching maps \(f:A\to B\) and \(g:A\to C\), choose two collar bounds with a point in their overlap band and a fixed integral module \(V\). If the original constant-coefficient chain map of \(f\) is a quasi-isomorphism, the actual overlap inclusion is a quasi-isomorphism and the double-cylinder chain complex relative to its right collar is acyclic. Vanishing of the degree-\(n\) homology of \(C\) then implies vanishing of that degree for the double cylinder.
+
+Specializing to the original unreduced cone of \(f:X\to Y\), a quasi-isomorphism of its original constant-coefficient chain map forces all positive homology groups of that cone to vanish. The same conclusion holds for mathlib's ordinary singular homology with the identical coefficient object.'''
+scope = '''The actual attaching map, pushout square, collar bounds, overlap band and coefficient module are retained. The cone conclusions quantify over arbitrary coefficients in the original common universe. No simple connectedness, Hurewicz comparison, first-obstruction vanishing or weak homotopy equivalence is added as an assumption or asserted as a conclusion. This proves the homological input for a later obstruction argument, not Whitehead recognition or CW existence.'''
+proof = '''The original collar deformation retractions and attaching-map square identify the overlap chain map with the given quasi-isomorphism. Apply actual open excision to the relative right-collar quotient, then the genuine short exact homology sequence to transfer vanishing from the right end [@quillen, Quillen/Topology/LocalCoefficients/DoubleCylinderHomology.lean:33-99].
+
+For the unreduced cone, take the other attaching map to the one-point space. Its positive singular homology vanishes, so the proved two-collar theorem gives the cone conclusion. The existing natural constant-chain comparison retains mathlib's actual ordinary singular homology [@quillen, Quillen/Topology/HomotopyCofiber/UnreducedConeHomology.lean:31-50].'''
+review = "author_checked"

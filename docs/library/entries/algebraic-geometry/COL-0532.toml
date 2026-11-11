@@ -1,0 +1,20 @@
+[entry]
+id = "COL-0532"
+title = "Geometric index squares and independent-factor interchange"
+kind = "theorem"
+section = "scheme-products-and-index-squares"
+order = 1
+statement = """
+Pullback with a fixed scheme over the integral terminal scheme defines an endofunctor. The literal swap of independent factors gives an involutive natural isomorphism. The polynomial and Laurent charts form the original opposite index square; this square commutes with an independent factor and its projection.
+"""
+scope = """
+All schemes in the fixed universe, with native terminal schemes, pullbacks and polynomial/Laurent charts. No quasi-compactness assumption is needed. The optional full-subcategory lifts and the final geometric tensor strictification are not asserted.
+"""
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.PolynomialLaurent.GlobalIndex.squareIso_projection"
+proof_kind = "outline"
+proof = """
+Follow the original constructions and their displayed naturality and projection equations.
+The source references identify each transported proof and its original hypotheses.
+"""
+source_checked_on = "2026-11-11"

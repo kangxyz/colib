@@ -363,6 +363,8 @@ class LibraryTests(unittest.TestCase):
             "bass-construction": "Colib.KTheory.Bass.StrictDiagram",
             "homology-colimits": "Colib.Algebra.Category.ModuleCat.FilteredColimits",
             "affine-open-pairs": "Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor",
+            "scheme-products-and-index-squares":
+                "Colib.AlgebraicGeometry.Scheme.PolynomialLaurentIndexSquare",
             "perfect-complexes": "Colib.AlgebraicGeometry.Modules.PerfectWaldhausen",
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
@@ -469,8 +471,8 @@ class LibraryTests(unittest.TestCase):
                          ["finite-correspondences", "transfers-nisnevich",
                           "transfer-homological-algebra", "exterior-parameters"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
-                         ["affine-open-pairs", "perfect-complexes", "nisnevich-sites",
-                          "algebraic-simplices"])
+                         ["affine-open-pairs", "scheme-products-and-index-squares",
+                          "perfect-complexes", "nisnevich-sites", "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")
@@ -1379,6 +1381,14 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(item["section"], section)
             self.assertEqual(item["path"],
                              f"docs/library/entries/{chapter}/{identifier}.toml")
+
+
+    def test_tt_successor_topics_keep_chapter_owners(self):
+        expected = {'COL-0519': ('bass-construction', 'docs/library/entries/k-theory/COL-0519.toml'), 'COL-0520': ('homotopy-groups', 'docs/library/entries/topology/COL-0520.toml'), 'COL-0521': ('bass-construction', 'docs/library/entries/k-theory/COL-0521.toml'), 'COL-0522': ('homotopy-groups', 'docs/library/entries/topology/COL-0522.toml'), 'COL-0523': ('bass-construction', 'docs/library/entries/k-theory/COL-0523.toml'), 'COL-0524': ('homotopy-groups', 'docs/library/entries/topology/COL-0524.toml'), 'COL-0525': ('bass-construction', 'docs/library/entries/k-theory/COL-0525.toml'), 'COL-0526': ('homotopy-groups', 'docs/library/entries/topology/COL-0526.toml'), 'COL-0527': ('bass-construction', 'docs/library/entries/k-theory/COL-0527.toml'), 'COL-0528': ('bass-construction', 'docs/library/entries/k-theory/COL-0528.toml'), 'COL-0529': ('bass-construction', 'docs/library/entries/k-theory/COL-0529.toml'), 'COL-0530': ('bass-construction', 'docs/library/entries/k-theory/COL-0530.toml'), 'COL-0531': ('bass-construction', 'docs/library/entries/k-theory/COL-0531.toml'), 'COL-0532': ('scheme-products-and-index-squares', 'docs/library/entries/algebraic-geometry/COL-0532.toml')}
+        for identifier, (section, path) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], path)
 
 
 if __name__ == "__main__":

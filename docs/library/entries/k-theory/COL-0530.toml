@@ -1,0 +1,31 @@
+[entry]
+id = "COL-0530"
+title = "Ordered first-row transformation cylinders"
+kind = "theorem"
+section = "bass-construction"
+order = 87
+statement = """
+The finite S-construction applied to a weak transformation after first-row
+insertion assembles into an ordered double cylinder. Its realization equals the
+original spectrum structure map applied to the complete transformation track.
+The resulting spectrum homotopy retains both intervals in positive degrees and
+the additional input-loop coordinate in degree zero.
+"""
+scope = """
+Native small Waldhausen categories and zero-preserving exact functors, with an
+objectwise weak natural transformation. The first-row interval is outermost and
+the transformation interval is inner. No tensor-product qualification, stable
+comparison, geometric realization of tensor generators or localization endpoint
+is claimed.
+"""
+review = "author_checked"
+primary = "CategoryTheory.Waldhausen.IteratedS.rowTransformationSpectrumHomotopy_succ"
+proof_kind = "outline"
+proof = """
+Use finite transformation postcomposition to identify the independently specified
+simplex with the transformation cylinder followed by the row cylinder. This
+identity supplies simplicial naturality. Apply realization-cylinder naturality
+without swapping either interval, then specialize the original row stabilization
+map at positive and zero spectrum levels.
+"""
+source_checked_on = "2026-11-10"

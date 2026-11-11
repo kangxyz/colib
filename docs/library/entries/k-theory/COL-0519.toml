@@ -1,0 +1,47 @@
+[entry]
+id = "COL-0519"
+title = "Natural distinguished-row refinements and whole homotopies"
+kind = "comparison"
+section = "bass-construction"
+order = 60
+statement = """
+An actual based levelwise row interchange defines a distinguished-row prespectrum.
+The initial two-structure exchange equation gives a whole comparison from the original
+prespectrum, including its explicit degree-zero double-loop component. Maps preserving
+the specified interchange act functorially on these refinements, and the comparison
+is natural. Coefficient-natural families give refined diagrams. A prescribed whole
+homotopy satisfying its all-time row square induces a coefficient-natural whole
+homotopy on the actual refined diagrams, with its original time unchanged.
+"""
+scope = """
+Arbitrary loop-prespectra and indexing categories in the stated universes. The levelwise
+family fixes the original point. The comparison assumes the initial two-structure
+exchange equation, while maps and whole homotopies retain their explicit row-square
+hypotheses. Endpoint squares alone do not suffice for the whole-homotopy construction.
+Degree zero is constructed as the original double loop with identity structure map;
+no loop-extension property of the original source is assumed. Both degree-zero row
+coordinates, the positive-level row coordinate and homotopy time stay independent.
+No involutivity, stable equivalence, tensor unit, completed generated trace, negative
+K-theory localization or Thomason--Trobaugh 7.4 is asserted by this construction.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.DiagramRowRefinement.homotopy_naturality"
+proof_kind = "outline"
+proof = """
+Compose the original based-loop maps with loop transposition and the specified row
+interchange to construct the positive structure map. At a fixed structure time this
+acts on the entire row by a single based continuous map. The explicit double-loop
+zero space and identity structure complete the prespectrum. The initial exchange
+equation verifies the whole comparison using the original source structure maps.
+
+A row-preserving map acts pointwise on positive loops and twice on the zero-level
+loop. Path extensionality proves strict identity, composition and comparison
+naturality. The same pointwise formulas transport the whole homotopy at its unchanged
+time; its all-time row square proves compatibility with the refined structure.
+
+Finally, apply these constructions to each coefficient object. Original arrow
+naturality gives the refined diagram and comparison. Naturality of the prescribed
+whole homotopy, evaluated at each independent row coordinate, proves its actual
+coefficient-natural diagram equation at positive levels and degree zero alike.
+"""
+source_checked_on = "2026-11-10"

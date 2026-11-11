@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0526"
+title = "Point-Relative Homology, Spherical Cycles and Finite Boundaries"
+kind = "comparison"
+section = "homotopy-groups"
+order = 150
+primary = "FundamentalGroupoid.LocalCoefficients.pointRelativeHomologyIso"
+statement = '''For a space with a chosen point and an integral coefficient module, the actual singular-chain quotient by that point induces an isomorphism on homology in every positive degree, including degree one. Its forward map is exactly the quotient homology map. An integral simplex evaluation vanishing on the basepoint constant factors through equality in this quotient.
+
+A spherical simplex, with coefficient exactly the lifted integer one, determines a cycle in the actual point-relative complex. More generally, for any subspace and local coefficient system, a relative cycle with zero homology class is the relative boundary of a finite sum of actual ambient singular simplices with their original coefficient fibers.'''
+scope = '''The point, quotient, coefficient object and actual chain maps are retained in the original common universe. The degree-one argument uses the split point inclusion on degree-zero homology, not vanishing of that homology. The spherical generator is asserted to be a relative cycle, not an absolute cycle. No connectivity, Hurewicz comparison, homotopy obstruction or Whitehead conclusion is assumed or proved here.'''
+proof = '''Use the actual short exact sequence for the point inclusion, the positive-degree homology of a point and the splitting on degree-zero homology to prove the quotient comparison. Degreewise exactness then proves descent of integral evaluation [@quillen, Quillen/Topology/LocalCoefficients/PointRelativeHomology.lean:23-97] [@quillen, Quillen/Topology/LocalCoefficients/PointRelativeEvaluation.lean:40-57].
+
+Each face of the original spherical simplex is basepoint-constant, hence dies in the quotient; this constructs the actual relative cycle. Vanishing of its homology class gives an actual boundary in the chain complex. Lift that boundary through the quotient and use finite support of singular chains [@quillen, Quillen/Topology/LocalCoefficients/SphericalRelativeCycle.lean:38-129] [@quillen, Quillen/Topology/LocalCoefficients/RelativeFiniteBoundary.lean:24-58].'''
+review = "author_checked"

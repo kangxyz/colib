@@ -99,3 +99,18 @@ canonical homology comparison. To use integer cochain degrees, place chain
 degree \(r\) in degree \(q-r\); the specified term isomorphisms carry the original
 differential, without yet identifying this placement with a signed shift.
 '''
+
+[[sections]]
+id = "scheme-products-and-index-squares"
+title = "Scheme products and geometric index squares"
+order = 15
+introduction = "Products over the integral terminal scheme retain their fixed-factor maps. Their interchange defines the geometric polynomial and Laurent index squares and the projection equations used by scheme K-theory."
+
+[sections.transitions]
+COL-0532 = '''
+For two schemes over the integral terminal scheme, the two nested pullbacks have
+three coordinate projections. Their interchange fixes the base coordinate and
+exchanges the two independent factors. Applied to the polynomial and Laurent
+charts, these maps assemble into the opposite index square and retain the
+projection to its original source leg.
+'''

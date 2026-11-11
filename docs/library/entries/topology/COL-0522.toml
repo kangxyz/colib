@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0522"
+title = "Twisted Chains and Maps of Supplied Simply Connected Covers"
+kind = "comparison"
+section = "homotopy-groups"
+order = 120
+primary = "FundamentalGroupoid.LocalCoefficients.coveringUniverseLiftSingularArrowIso"
+statement = '''Let \(p:E\to B\) and \(p':E'\to B'\) be supplied covering maps with simply connected total spaces, and let actual continuous maps \(k:E\to E'\) and \(f:B\to B'\) satisfy the specified equality \(p'k=fp\). Regular twisted chains on the base identify with ordinary integral chains on its cover by lifting each simplex from the monodromy endpoint of its basis path. This identification commutes with all simplicial restrictions and with the actual maps of the covering square.
+
+Assume in addition that \(B\) is path connected and the original based first-homotopy-group map of \(f\) is bijective. The original universe-lifted twisted-chain arrow of \(f\), with the regular system based at \(p'(k(e_0))\), is isomorphic as an arrow to mathlib's actual integral singular-chain arrow of \(k\). Thus quasi-isomorphisms for all original target local systems imply that this actual singular-chain map of \(k\) is a quasi-isomorphism.'''
+scope = '''All spaces and coefficients use the original common universe; integral coefficients are the lifted integers in that universe. Both covering maps, simple connectedness of their total spaces, the actual commuting square, its literal basepoint equality, source-base path connectedness and the original first-homotopy-group bijection are retained where required. The coefficient inverse is proved from the original regular-system map, not assumed as a final arrow comparison. No covering space is constructed, and no covering hypotheses are inferred from CW homotopy type. No Whitehead recognition, CW comparison existence or existence of a plus space is asserted.'''
+proof = '''Use the canonical path-class/covering-fiber equivalence and the canonical unique simplex lift. The regular and integral free-basis isomorphisms then give a simplicial-module isomorphism, including the first-face transport, and hence a chain isomorphism [@quillen, Quillen/Topology/LocalCoefficients/CoveringChains.lean:45-140]. The actual lift and monodromy naturality identities establish the square for the original maps [@quillen, Quillen/Topology/LocalCoefficients/CoveringNaturality.lean:42-109].
+
+Cancel the proved regular coefficient isomorphism in that square. The domain comparison is its actual inverse followed by the source-cover chain comparison; the codomain comparison is the target-cover chain comparison. Retain these maps under the original universe-lift and ordinary-chain identifications, then transfer quasi-isomorphism through the resulting arrow isomorphisms [@quillen, Quillen/Topology/LocalCoefficients/CoveringHomologyComparison.lean:41-143].'''
+review = "author_checked"

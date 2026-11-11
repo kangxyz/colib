@@ -167,6 +167,10 @@ by a path in \(U\).
 '''
 COL-0515 = "A homotopy under a source determines a specific basepoint track for a displayed\ncomparison. COL-0515 retains that track for nonabelian fundamental groups and\nproves invariance of all target-local-system chains in the stated common\nuniverse. The comparison and its homotopy are supplied; no comparison existence\nor classical CW uniqueness theorem is asserted.\n"
 COL-0518 = "When a homological plus certificate already admits coefficients in a common maximum universe,\nCOL-0518 transports it along the actual lift homeomorphisms. The based path, exact kernel and\noriginal twisted-chain maps are retained; this does not enlarge a smaller coefficient hypothesis\nor assert the existence of a CW comparison.\n"
+COL-0520 = "COL-0520 constructs the actual regular coefficient conversion and its chain isomorphism from\na bijection on the original first homotopy groups. The faithful regular monodromy, simplex\nbasis and specified basepoint equality remain explicit. Covering homology and Whitehead\ncomparisons require separate results.\n"
+COL-0522 = "COL-0522 compares the original twisted-chain arrow with the original integral singular-chain\narrow of a supplied map of simply connected covers. The actual commuting square and basepoint\nequality remain explicit. This supplies a chain comparison, not cover existence or Whitehead\nrecognition.\n"
+COL-0524 = "COL-0524 derives actual collar-relative acyclicity and positive unreduced-cone homology\nvanishing from the original attaching-map quasi-isomorphism. This supplies the homological\ninput to a later obstruction argument, without assuming a Hurewicz or Whitehead conclusion.\n"
+COL-0526 = "The point-relative comparison records the chain input needed before a homological\nobstruction argument: it retains the actual quotient map, constructs spherical relative\ncycles and extracts finite ambient boundaries. It does not yet identify those boundaries\nwith a homotopy trivialization. That later step needs genuine face-compatible spherical\nstraightening and addition, not an assumed Hurewicz or Whitehead certificate.\n"
 
 [[sections]]
 id = "geometric-realization"
