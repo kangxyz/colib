@@ -518,6 +518,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SmoothReduced
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecNaturality
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecSectionsExact
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
+public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth
 public import Colib.AlgebraicGeometry.GroupScheme.UnitPoints
@@ -1238,6 +1239,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Parameters
 public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Presheaf
 public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Products
 public import Colib.AlgebraicGeometry.Sites.Smooth.Coproducts
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers
 public import Colib.AlgebraicGeometry.Sites.Smooth.GroupSchemes
 public import Colib.AlgebraicGeometry.Sites.Smooth.Hypercohomology.FieldEvaluation
@@ -2763,6 +2765,7 @@ public import Colib.RingTheory.DiscreteValuationRing.CompleteExtension
 public import Colib.RingTheory.DiscreteValuationRing.FractionOrder
 public import Colib.RingTheory.DiscreteValuationRing.RamificationDegree
 public import Colib.RingTheory.DiscreteValuationRing.RamificationSquare
+public import Colib.RingTheory.Henselian.FiniteAlgebraUnits
 public import Colib.RingTheory.Henselian.PrincipalRoots
 public import Colib.RingTheory.Henselian.UniformizerNormalization
 public import Colib.RingTheory.IntegralClosure.CompleteTower

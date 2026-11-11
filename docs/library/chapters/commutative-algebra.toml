@@ -206,6 +206,12 @@ order = 30
 introduction = "Simple-root Hensel lifting supplies residue-one roots for invertible exponents and normalizes actual uniformizer equations. The native local fundamental identity identifies the supplied ramification exponent and residue degree with the actual fraction-field degree, without a separate norm-order model. The existing fraction order is then identified with the actual negative valuation logarithm, including integer powers, poles and independence of a chosen irreducible."
 
 [sections.transitions]
+COL-1029 = '''
+Over a strictly henselian base, extend the local root calculation of COL-0195
+to an arbitrary finite algebra. Its native henselian product decomposition
+has strictly henselian local factors. Roots in these factors recombine into
+a root in the original algebra, including nonreduced finite boundaries.
+'''
 COL-0196 = '''
 For a finite torsion-free extension of DVRs, let \(e\) be the exponent in the
 given uniformizer equation and \(f\) the residue-field degree. The local

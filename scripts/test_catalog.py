@@ -432,6 +432,9 @@ class LibraryTests(unittest.TestCase):
             "ext-scalars": "Colib.Algebra.Homology.DerivedCategory.Ext.Quotient",
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
+            "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
+            "proper-etale-specialization":
+                "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
             "algebraic-simplices": "Colib.RingTheory.AlgebraicSimplex.Basic",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
@@ -570,6 +573,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1024": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete",
             "COL-1026": "Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorEquivalence",
             "COL-1027": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniversesFinite",
+            "COL-1028": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
+            "COL-1029": "Colib.RingTheory.Henselian.FiniteAlgebraUnits",
+            "COL-1030":
+                "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -632,7 +639,8 @@ class LibraryTests(unittest.TestCase):
                           "transfer-homological-algebra", "exterior-parameters"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "scheme-products-and-index-squares",
-                          "perfect-complexes", "nisnevich-sites", "algebraic-simplices"])
+                          "perfect-complexes", "nisnevich-sites", "smooth-etale-sites",
+                          "proper-etale-specialization", "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")

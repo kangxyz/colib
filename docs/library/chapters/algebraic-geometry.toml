@@ -80,6 +80,29 @@ Nisnevich fibers. Conservativity relates their lifts back to the same covers.
 '''
 
 [[sections]]
+id = "smooth-etale-sites"
+title = "Étale topology on smooth schemes"
+order = 35
+introduction = '''
+Keep the smooth separated finite-type objects and their original scheme maps
+from COL-0340. Jointly surjective étale families give a finer topology on this
+same category. Restriction of its sheaves to the Nisnevich topology changes
+neither their sections nor their morphisms.
+'''
+
+[[sections]]
+id = "proper-etale-specialization"
+title = "Proper étale specialization"
+order = 37
+introduction = '''
+For a proper scheme over a strictly henselian local base, its closed fibre
+is a geometric fibre. Native proper base change and dimension shifting
+identify the canonical restriction on ordinary small-site étale cohomology
+with finite-exponent coefficients. These maps are the specialization inputs
+for subsequent Kummer and Picard comparisons.
+'''
+
+[[sections]]
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
