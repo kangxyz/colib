@@ -984,6 +984,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.TargetNormaliz
 public import Colib.AlgebraicGeometry.MotivicHomotopy.AffineLineRepresentative
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane
 public import Colib.AlgebraicGeometry.MotivicHomotopy.NisnevichRepresentative
+public import Colib.AlgebraicGeometry.MotivicHomotopy.ReducedMotivicBockstein
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Stalks
@@ -1519,6 +1520,7 @@ public import Colib.CategoryTheory.Sites.Simplicial.KInjectiveRepresentativeMaps
 public import Colib.CategoryTheory.Sites.Simplicial.MappingCofiber
 public import Colib.CategoryTheory.Sites.Simplicial.PointedPresheaf
 public import Colib.CategoryTheory.Sites.Simplicial.RealizationChainInvariance
+public import Colib.CategoryTheory.Sites.Simplicial.ReducedBockstein
 public import Colib.CategoryTheory.Sites.Simplicial.ReducedChains
 public import Colib.CategoryTheory.Sites.Simplicial.ReducedChainsFiber
 public import Colib.CategoryTheory.Sites.Simplicial.ReducedConeChains

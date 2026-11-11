@@ -32,6 +32,7 @@ weight-one norm and graph formulas for checking the represented degree-one class
    resulting Bockstein on the represented classes. COL-1018 identifies the positive
    mod-\(n\) Bockstein as the connecting map of the actual
    \(K/n\to K/n^2\to K/n\) triangle and proves its square-zero formula on cochains.
+   COL-1019 gives the action of the same map on reduced motivic cohomology.
 
 The construction uses the Nisnevich localization and the specified K-injective resolutions.
 The smooth-site specialization imports the existing motivic coefficient complexes. Keep the

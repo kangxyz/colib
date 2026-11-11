@@ -34,3 +34,9 @@ Pass the two pushouts of COL-1017 to a Nisnevich fiber. The simplicial
 cone contracts, and the Laurent open remains a monomorphism. These
 facts identify the actual collapse to the quotient as a weak equivalence.
 '''
+
+[[sections]]
+id = "reduced-cohomology-operations"
+title = "Operations on reduced cohomology"
+order = 40
+introduction = '''The finite coefficient triangle of COL-1018 supplies the positive Bockstein. Shifted postcomposition gives its action on the reduced hypercohomology of pointed simplicial presheaves.'''

@@ -445,6 +445,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane",
             "affine-line-representatives":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.AffineLineRepresentative",
+            "reduced-cohomology-operations":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.ReducedMotivicBockstein",
             "pointed-simplicial-presheaves":
                 "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
