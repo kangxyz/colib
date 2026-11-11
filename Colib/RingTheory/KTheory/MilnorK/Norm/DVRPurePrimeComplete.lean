@@ -190,7 +190,10 @@ variable (R S F E : Type u)
 
 /-- All classes in a purely inseparable prime-degree finite
 local extension over a complete DVR satisfy the native norm-residue square. -/
-@[colib_tag "COL-1024"]
+@[colib_tag "COL-1024",
+  colib_ref "axiom_stacks_5ed82d14"
+    "StacksFrontier/RingTheory/DiscreteValuationRing/FundamentalIdentity.lean:33-52" "ingredient"
+    "The local ramification index times the residue degree gives the fraction-field degree"]
 theorem dvrMilnorTameSymbol'_milnorKNorm_of_complete_of_isPurelyInseparable_of_prime
     (hp : Nat.Prime (finrank F E)) (n : ℕ) (x : MilnorKTheory E (n + 1)) :
     dvrMilnorTameSymbol' R F n (milnorKNorm F E (n + 1) x) =

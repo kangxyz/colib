@@ -158,14 +158,14 @@ theorem ambientMap_isPullback (r q : ℕ) :
   productMap_isPullback (sourceMap_isPullback r) (torusMap_isPullback q)
 
 /-- The ambient projection preserves the actual source projection. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem ambientMap_fst (r q : ℕ) :
     ambientMap (k := k) (E := E) r q ≫ pullback.fst (source k r).hom (target k q).hom =
       pullback.fst (source E r).hom (target E q).hom ≫ sourceMap (k := k) (E := E) r :=
   pullback.lift_fst _ _ _
 
 /-- The ambient projection preserves the actual torus projection. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem ambientMap_snd (r q : ℕ) :
     ambientMap (k := k) (E := E) r q ≫ pullback.snd (source k r).hom (target k q).hom =
       pullback.snd (source E r).hom (target E q).hom ≫ torusMap (k := k) (E := E) q :=
@@ -231,14 +231,12 @@ def cyclePushforward (r q : ℕ) :
     Subtype.ext (map_add (finiteCyclePushforward (ambientMap (k := k) (E := E) r q)) α.val β.val)
 
 /-- The cycle transfer has the same value as the original native finite pushforward. -/
-@[simp]
 theorem cyclePushforward_val (r q : ℕ)
     (α : finiteCorrespondences (source E r).hom (target E q).hom) :
     (cyclePushforward (k := k) (E := E) r q α).val =
       finiteCyclePushforward (ambientMap (k := k) (E := E) r q) α.val := rfl
 
 /-- A signed prime retains its coefficient times the actual image residue degree. -/
-@[simp]
 theorem cyclePushforward_single (r q : ℕ) (z : ambient E r q)
     (hz : IsFiniteCorrespondencePoint (source E r).hom (target E q).hom z) (n : ℤ) :
     cyclePushforward (k := k) (E := E) r q

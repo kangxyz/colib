@@ -221,6 +221,11 @@ attribute [colib_tag "COL-1021"]
   milnorKNormRingAcross_comp_milnorKNormRingAcross_of_isSeparable
   milnorKNormAcross_tower_of_isSeparable milnorKNormAcross_comp_milnorKNormAcross_of_isSeparable
 
+attribute [colib_ref "axiom_stacks_milnor_norm_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/SimpleNorm.lean:176-206" "ingredient"
+  "The simple norm is the negative infinity residue of a single-residue lift"]
+  milnorKNormAcross_comp_milnorKNormAcross_of_isSeparable
+
 end Stacks.Chow
 
 end

@@ -125,7 +125,7 @@ def cycleValue (k : Type u) [Field k] (q : ℕ) :
   liftFiniteCorrespondence_single _ _ _ _ _ _
 
 /-- The coefficient-one cycle evaluates by the norm from its actual support field. -/
-@[simp] theorem cycleValue_cycle :
+theorem cycleValue_cycle :
     cycleValue k q (singleFiniteCorrespondence _ _ Z.val Z.property 1) = generatorValue Z := by
   rw [cycleValue_single, one_zsmul]
 

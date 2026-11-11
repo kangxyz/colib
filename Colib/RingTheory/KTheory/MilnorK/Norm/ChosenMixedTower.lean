@@ -186,6 +186,11 @@ attribute [colib_tag "COL-1022"]
   milnorKNorm_comp_milnorKNorm_of_injective_nsmul
   milnorKNorm_comp_milnorKNorm_of_degreewise_injective_nsmul
 
+attribute [colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/MilnorNorm/FieldNorm.lean:188-200" "ingredient"
+  "The literal recursion chooses a simple generator and recurses on the smaller extension"]
+  exists_pow_zsmul_milnorKNormRing_tower_sub_eq_zero
+
 end Stacks.Chow
 
 end
