@@ -1,0 +1,2063 @@
+{
+  "snapshotUTC": "2026-11-11T07:44:29.659619+00:00",
+  "scope": "Frozen owner-listed strict A1 successors only; not full repository or a buildable closed overlay. Signed-germs batch04 and later excluded; batch02 superseded by batch02-v2. No original/reference upstream trees.",
+  "base_main": "525c376bff5dd798475623345198c2a012f29983",
+  "motivic_source_revision": "a6805c4a87cdfd7717dd7a94039246a167f15380",
+  "full_strict_A1_acceptance": false,
+  "compiler_pass_count": 5,
+  "not_compiled_count": 128,
+  "source_count": 133,
+  "files": [
+    {
+      "path": "Colib/Algebra/Category/Ring/PolynomialPushout.lean",
+      "sha256": "0c5897c284339dc03a18157518fc0cf845ffcf951ce3e9e979eb70a5c27efc55",
+      "bytes": 1114,
+      "git_blob": "79ebf9aa581dc959e832fd41bad8feaf592ae2d4",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/Algebra/Category/Ring/PolynomialPushout.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.lean",
+      "sha256": "05551ef2d7a834b9eadc6a9615cceced23b043df86b45b9d571fa9cb63269108",
+      "bytes": 3981,
+      "git_blob": "c1c1729d08fc6b0043f500667852dce08e332e06",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+        "source_blob": "5597531e423024d3812d68335de8389e3e26024f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.lean",
+      "sha256": "458b00f45e9c621dd3969478b249df82d6b5a76658a370db28a230de5b5dd98c",
+      "bytes": 3511,
+      "git_blob": "d0b82b4f7372f60bb1883f83eaec95f2e1c1c8bb",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.lean",
+        "source_blob": "38a209d3c4b54dffc25d8ca6214e361476d9972d",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.lean",
+      "sha256": "690734a0987a9324d4ff626331e95f60c564f2ffaa6dbe66748012fa9547ffb4",
+      "bytes": 2348,
+      "git_blob": "950d6ddfc1b44b5da8c0554195b6331b73fbd8b1",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.lean",
+        "source_blob": "73a0d71a0f7f19fa8c03fb4dd6799ff9b31214af",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+      "sha256": "e122e8b4951d0dd1cab975a43a02d7f0b88991d9514cbe6a13f1c92606fe873b",
+      "bytes": 3867,
+      "git_blob": "672c7ac9223b1875cc755fdc4a88893fb2169ec2",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+        "source_blob": "5597531e423024d3812d68335de8389e3e26024f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean",
+      "sha256": "c1ccdcd694e00e89b1b132b34799607620f8bd03672bdd3eca27270c0dedc942",
+      "bytes": 2731,
+      "git_blob": "76de9e11f150bc681a756d2234ba50d0d3450bbd",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean",
+        "source_blob": "24404b462fb49ca7105806d75494ad5cf6447e8f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.lean",
+      "sha256": "cd0b827a42017849e90133f60d1fa98e13cd6e6bb398986f58067adabec4b21c",
+      "bytes": 4147,
+      "git_blob": "c0ec0213b88dbebb72e2c7cd03019cc963303a35",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+        "source_blob": "5597531e423024d3812d68335de8389e3e26024f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.lean",
+      "sha256": "4e9523d314a45f0a02c7940d3f541cc730a310e1136af19bd8cfacd1d4da3a12",
+      "bytes": 3205,
+      "git_blob": "37b488aa4ea61ea12c0d9e338257e5cdbbba587b",
+      "source_location": "strict-a1-work/signed-germs/batch01/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch01/source-manifest.json",
+      "owner_manifest_sha256": "bcb983ac16848d4282648c565812c0535a3cb82c1b861ba72cbc194042b6d6d1",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/Composition/PointControl.lean",
+        "blob": "a406042039c0a29d86e865a2ec06b2214e3b4d66"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.lean",
+      "sha256": "357ffc0a7a65d9528589dd0bff70e64110b623184eb1a3c0e1954fdb6bcf7836",
+      "bytes": 4564,
+      "git_blob": "8948b0ea48dee078a58f43b327db2d348f5033a2",
+      "source_location": "strict-a1-work/signed-germs/batch02-v2/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch02-v2/source-manifest.json",
+      "owner_manifest_sha256": "7c3879a5f91b535fe2c7e2f00df48f41fdb01605199c36c07806812701a60875",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/Composition/PointControl.lean",
+        "blob": "a406042039c0a29d86e865a2ec06b2214e3b4d66"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineCylinderIso.lean",
+      "sha256": "74c4cc231e9b8ea47d9e4d8fa4cdfde82bd1f4d651e23e5891c8cb62dcfe1e56",
+      "bytes": 3323,
+      "git_blob": "3a4c8430338e5521c05786f727fc14789cfba77f",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineCylinderIso.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineCylinderIsoOverBase.lean",
+      "sha256": "ca35a918856a75535ee813b71321930bad6ec85d329d917a8b3bd4d8b9893d67",
+      "bytes": 2061,
+      "git_blob": "7441cf6150f46364a368ad9c1f49345cf78e00aa",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineCylinderIsoOverBase.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineDivisorEtaleComparisonOverBase.lean",
+      "sha256": "2c70522d8be3de701f2cc68bb61f5365fa5315ab7e290e17f83322da80446b5e",
+      "bytes": 6998,
+      "git_blob": "43ced7ef704fd2a7a886de977472e513d2c6d71a",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffineDivisorEtaleComparisonOverBase.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffinePrincipalDivisorChart.lean",
+      "sha256": "c720ffebd0fd539b3518efbf0c2ee7c8304e9a6a4b52ba2c431b1183cca6ed5b",
+      "bytes": 5383,
+      "git_blob": "0d1dbad863615fce31fefe5ff5519a6656bf58dd",
+      "source_location": "strict-a1-work/cartier/batch03/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/AffinePrincipalDivisorChart.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch03/source-manifest.json",
+      "owner_manifest_sha256": "e642e74049628c8b9bd8433b15072ed6a97648373e1ba49f14a50c6cc0750657",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/OriginalDivisorNeighborhoodOverBase.lean",
+      "sha256": "9edf582c4f36b293ae3f013b8dbb569116ad83792300e0dd7e4b1b086ab65487",
+      "bytes": 4845,
+      "git_blob": "3f7c9e8ba7143c0d57913ec15e77c54433cb0ad3",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/OriginalDivisorNeighborhoodOverBase.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/SmoothAffinePresentation.lean",
+      "sha256": "5f7fdd460be9a6f4733e6cc090ef2c1c970064b110a7fcd14ef2c05241e66cf5",
+      "bytes": 4239,
+      "git_blob": "039d062b0fa95ccef70a91dbff35cd2df1fc8726",
+      "source_location": "strict-a1-work/cartier/batch03/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/SmoothAffinePresentation.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch03/source-manifest.json",
+      "owner_manifest_sha256": "e642e74049628c8b9bd8433b15072ed6a97648373e1ba49f14a50c6cc0750657",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/SmoothEtaleComparisonOverBase.lean",
+      "sha256": "c076d026eea2b740118fcff2cfad8a0304ff3c493b77d537974ba1e8982135a9",
+      "bytes": 6464,
+      "git_blob": "94e2e4ba6fe5c90b7af84e8b881d91273e1595f8",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/EffectiveCartierDivisor/EtaleComparison/SmoothEtaleComparisonOverBase.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/GroupScheme/LaurentComplement.lean",
+      "sha256": "3986c7b74eeeced7a0b5bf0fa7f52ccc51ba9091885cf2d73e660fc2ac52dd27",
+      "bytes": 1940,
+      "git_blob": "1fa4011ddf37b9655a9261bc9954449e374e4683",
+      "source_location": "strict-a1-work/cartier/Colib/AlgebraicGeometry/GroupScheme/LaurentComplement.lean",
+      "owner_manifest": "strict-a1-work/cartier/source-manifest.json",
+      "owner_manifest_sha256": "91a6a1b1ff370e1e09843d810786d1e8e4359e4060d12714e12cdc456dc2b909",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/GroupScheme/LaurentComplementBaseChange.lean",
+      "sha256": "8bd887bf61a48ac96c01907368a38e842a40716fcb5bfefbfb95bd7bcc66675a",
+      "bytes": 4521,
+      "git_blob": "34582add9d7074e32e8f8491de5134a0750253c9",
+      "source_location": "strict-a1-work/cartier/batch02/Colib/AlgebraicGeometry/GroupScheme/LaurentComplementBaseChange.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch02/source-manifest.json",
+      "owner_manifest_sha256": "0e0dad3a2a565381a49450b5a2441a2c8b7aa26087175dee83da758c2663feb2",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.lean",
+      "sha256": "a15b6a6443d7d58ad5ec68e330e647cf44ae12ca70f2cb716889c1237f0ee774",
+      "bytes": 1836,
+      "git_blob": "5f640eefabeb180fc618c1c3ab489787ef6f132e",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.lean",
+        "source_blob": "5f640eefabeb180fc618c1c3ab489787ef6f132e",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.lean"
+      },
+      "validation": "COMPILER PASSED ONLY; full acceptance pending",
+      "compiler_receipt": {
+        "run_id": "1794382333108673034",
+        "exit_code": 0,
+        "source_sha256": "a15b6a6443d7d58ad5ec68e330e647cf44ae12ca70f2cb716889c1237f0ee774",
+        "output_hashes": {
+          "leaf.olean": "e7e9ddd37da0795e8ccef8e8d37b82b9c28e5565b84d6c98caf22bace6f4b97b",
+          "leaf.ir.sig": "5e9a97a56542d9ee383f40aa82cefe9d17cd9b590b04b838d4eb489d30a4f5c3",
+          "leaf.olean.server": "5b6186e7f2367975d0eaf0fefda45d37995606152819faedec1e83a644f0db48",
+          "leaf.ilean": "2de05a5ba649f52edd07c114f9c98f9b3156bbbccebcc9b68babcfa048ba44fd",
+          "leaf.olean.private": "aa127a0b063cd538d634dae359f73fa5b339d32bd28064737686e4c2e5a43d11",
+          "leaf.ir": "f2dcbdc50198a7d3f7362224378e48a96bbbba353653808300d5ecda474bddc2"
+        },
+        "final_sha256": "b8f2e0e2dc72828e147a85bb48119799b351e54f1bac5e22e4d10970f9a8d524"
+      }
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/BaseChange/ClosedSubschemeOpenExtension.lean",
+      "sha256": "25aff6871d1303aef177b19880abba8e89495703be2bbeaf076d219503c1357b",
+      "bytes": 2625,
+      "git_blob": "64cae2e8febe861f794b6ba6c1cf48cf8c47bbdf",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/BaseChange/ClosedSubschemeOpenExtension.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/Fibers/AffinePresentation.lean",
+      "sha256": "03e343191c41a859ac827663ea94199d7f872cb07906bb5b1f03a443cd90aad6",
+      "bytes": 2576,
+      "git_blob": "92447190f9d0830e90fe527c13bb8f6708cc187a",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/Fibers/AffinePresentation.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/Fibers/PolynomialZeroFiberSquare.lean",
+      "sha256": "09ff21f917c0234a2c0bf3afa723e8e473bcd237b6bcdfd21dcd47811cb827c1",
+      "bytes": 3121,
+      "git_blob": "4806b3bcb404820eb05b15736253b78d3d3e9bf4",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Morphisms/ClosedImmersion/Fibers/PolynomialZeroFiberSquare.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/FieldCoproduct.lean",
+      "sha256": "baf29cca72402e65fe58fdfc54c11115b2fbd941dd4ec7439598cf32004cd7a6",
+      "bytes": 3226,
+      "git_blob": "6f5b4510307354c84b282eb482611d381ad5e75e",
+      "source_location": "strict-a1-work/acyclicity/batch04/Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/FieldCoproduct.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/FieldCoproduct.lean",
+        "blob": "b016590039ad5108336780c595667f2eec404f64",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/FieldCoproduct.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/OriginalFiberCoproduct.lean",
+      "sha256": "b918483b52bc8fd75e768456fbfc6e570e81e63f4d59cdffd58c0883e41833fa",
+      "bytes": 4446,
+      "git_blob": "bc0395fd30d7d2eff4b47b3258f84ac1bda25a1e",
+      "source_location": "strict-a1-work/acyclicity/batch14/Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/OriginalFiberCoproduct.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/OriginalFiberCoproduct.lean",
+        "blob": "12c9932dad91e23930c54908c5794b7d4464de26",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/OriginalFiberCoproduct.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean",
+      "sha256": "0682778e5206203ba9b2dc9149dc870e06d9bd4d09ec980954289581a4be5da5",
+      "bytes": 2850,
+      "git_blob": "092a256784164ff8b56e00eb1997060a7578f528",
+      "source_location": "strict-a1-work/acyclicity/batch11/Colib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean",
+        "blob": "25212e71687abf5cb30794b71b1dc6e19d4327be",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleDiagonalNeighborhood.lean",
+      "sha256": "d92ee9edb31fe30b19979b8c7d84d1d2f647d25a4184f509803d8c102e28ac54",
+      "bytes": 4796,
+      "git_blob": "c2f7e0d79310d1777f77da576d8b15e718b4d44a",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleDiagonalNeighborhood.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleNeighborhoodTransport.lean",
+      "sha256": "af516d9957d0bbfda5b934707cb8c1c83343a800a795e26193bc6c0c018dd4cb",
+      "bytes": 2276,
+      "git_blob": "fb0389b6f722d9624f69a76a3a717a2fbbcf060f",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleNeighborhoodTransport.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.lean",
+      "sha256": "807d3bdb6865f4310652e016401c49c98abb2045b60b428e3ce6979ce06f7796",
+      "bytes": 2897,
+      "git_blob": "a5a82f02e06fd91add24f84925fb6a7069214d65",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.lean",
+        "source_blob": "a5a82f02e06fd91add24f84925fb6a7069214d65",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean",
+      "sha256": "a70d6da53e7d9d25bf80e820bd66edf7ef1b9828fe0f2ae7fc8d082ae204727a",
+      "bytes": 2047,
+      "git_blob": "24a8ccdbcb8f4cacfe24ff4f63445286933d6f46",
+      "source_location": "strict-a1-work/acyclicity/batch08/Colib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean",
+        "blob": "1b7fe867befac17e9d681d5d530c3315e2969493",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean",
+      "sha256": "60286eeafd9feb7d84e74e67794afe4b24ad41df7a06e6857af2067ba1dba6d4",
+      "bytes": 2640,
+      "git_blob": "eb80d3d8d88e38b5c1a9df7965be1babdd0aeba9",
+      "source_location": "strict-a1-work/acyclicity/batch08/Colib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean",
+        "blob": "a4b2e46e645c01016797c5cfc706901c0bf66cfb",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.lean",
+      "sha256": "c92659b80544778e2cca56443adf2ebae30caf9f2ef0bc223a674f5d05e58de0",
+      "bytes": 2886,
+      "git_blob": "1b916a276aada9f215f1faf3efb9268ade94e1c8",
+      "source_location": "strict-a1-work/foundation/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.lean",
+      "owner_manifest": "strict-a1-work/foundation/SHA256SUMS",
+      "owner_manifest_sha256": "bd867835fb9b57902744db2541d8f62269ff890a1ec748d27489da36b3d54f78",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/LocalVanishing/OpenImage.lean",
+      "sha256": "478682aea3904ab1da0cfb001c3748745d209207b06fa02e37e4ca15557bed93",
+      "bytes": 2108,
+      "git_blob": "4b12b91fe869ece4ed5800e03279cadda7bef445",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/PresheavesWithTransfers/LocalVanishing/OpenImage.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Cohomology/A1/LocalVanishing/OpenImage/General.lean",
+        "source_blob": "1d3e9c4769ba28505bc05a9edaa74a105fdd088c",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Cohomology/A1/LocalVanishing/OpenImage/General.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/LocalVanishing/ZeroDimensional.lean",
+      "sha256": "5c7e8a0dd61c4a82037ae86a476978f2c5e145c189399e460cb9308b1e14b6c5",
+      "bytes": 2792,
+      "git_blob": "8a8ed28800c66022d663fb40ba74631eecc7d537",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/PresheavesWithTransfers/LocalVanishing/ZeroDimensional.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Cohomology/A1/Moving/ZeroDimensional.lean",
+        "source_blob": "6976192f4ec4531b54295cec1e83eb2fc69291af",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Cohomology/A1/Moving/ZeroDimensional.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean",
+      "sha256": "cb5d0eeb2b9b99686f1c6f580775853cc2c61705dace106bfd61594a2ef8b2fe",
+      "bytes": 2045,
+      "git_blob": "898baaea211f2875c51bc8ff35c8f00655c2f2fe",
+      "source_location": "strict-a1-work/acyclicity/batch04/Colib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean",
+        "blob": "5bf728901371eb55f5c21e01cfe074674482201d",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.lean",
+      "sha256": "99eaeed78bcd41bb909af1bea6de1690a1e8c85469d3e47f958d1c85f7af6019",
+      "bytes": 2570,
+      "git_blob": "734b63d1d86a46ef34c3f94cc10f85d6dca68d76",
+      "source_location": "strict-a1-work/acyclicity/batch04/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedEtaleIso.lean",
+        "blob": "d553061435537f79995d5f69689cb9a7cb9d18fa",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedEtaleIso.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean",
+      "sha256": "52c77fdd090a52eadf19adcb45b528a4b1a3c1503b7b9506e3e6a912ec634d04",
+      "bytes": 2952,
+      "git_blob": "378ec893239bd5314d9f34bbc13a343cd863ad4d",
+      "source_location": "strict-a1-work/acyclicity/batch07/Colib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean",
+        "blob": "20cc154cbbdb5cb6ccaaaf22a9df161cd2830c08",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/CartesianRange.lean",
+      "sha256": "3f32f8d82cc85e7c66e33de10e922570aa6a2f19277d9e2419784e19fe29edef",
+      "bytes": 1157,
+      "git_blob": "92029b7b78158c7bac279ccb43763c7780f091e8",
+      "source_location": "strict-a1-work/cartier/batch02/Colib/AlgebraicGeometry/Scheme/CartesianRange.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch02/source-manifest.json",
+      "owner_manifest_sha256": "0e0dad3a2a565381a49450b5a2441a2c8b7aa26087175dee83da758c2663feb2",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.lean",
+      "sha256": "c114269acfaa56fd6bdb71ab68840a0a39c5ca3f4634872c25813411e974b31f",
+      "bytes": 1148,
+      "git_blob": "bb4c3144956a5c195da70063b9c901d3150c7253",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.lean",
+        "source_blob": "bb4c3144956a5c195da70063b9c901d3150c7253",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.lean",
+      "sha256": "9ef4c2ccb87945c131cc565b300e83c51e3912f4c4254046f9c272ae4483d96c",
+      "bytes": 2289,
+      "git_blob": "e2ef1373eaf24e5d8c35732c6ebde0e7f46c47bd",
+      "source_location": "strict-a1-work/finite-local-zero/successor-next/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/NATIVE_FORGET_MANIFEST.json",
+      "owner_manifest_sha256": "6920c41e306b835b868906e749e4b0df214b7dcd4cbfb522880bb0d209cf761a",
+      "original_provenance": {
+        "source": "Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean",
+        "source_blob": "24404b462fb49ca7105806d75494ad5cf6447e8f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Scheme/PolynomialProduct.lean",
+      "sha256": "75723730575451e283193f529513db22fa31243cf6576626ec94aa34f39e3ccb",
+      "bytes": 1965,
+      "git_blob": "fae4d6d471fb77d711d3de00affbb739af591d07",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Scheme/PolynomialProduct.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/Basic.lean",
+      "sha256": "2382f72b0509e3f015e3a7ccd5c8712479820cdff867e5dbb944200076f11e3b",
+      "bytes": 3058,
+      "git_blob": "8498312831130181ffa3642405fae859b8cbeba9",
+      "source_location": "strict-a1-work/acyclicity/batch15/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/Basic.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Cohomology/Basic.lean",
+        "blob": "08d0ede205f3816f0734d3e5864398bd8e16fc4c",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Cohomology/Basic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/Ordinary.lean",
+      "sha256": "7d182671aa8637140a22450459f43136c38426d254a23b09f8713dc380d32f8b",
+      "bytes": 8245,
+      "git_blob": "9d0322614085c01d51a19e21940b41f3e724cf44",
+      "source_location": "strict-a1-work/acyclicity/batch15/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/Ordinary.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Cohomology/Ordinary.lean",
+        "blob": "15c600b222c5b2832187fe6b83f0ad875a2cd126",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Cohomology/Ordinary.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparison.lean",
+      "sha256": "f28c5c49fea37f251fe74c3b28b2fec34213082c8e0a2ab4b78b026f5bf1c107",
+      "bytes": 5417,
+      "git_blob": "fe387eea89947fff05657d2ef4e73871285fa129",
+      "source_location": "strict-a1-work/acyclicity/batch15/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparison.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Cohomology/Ext/OrdinaryComparison.lean",
+        "blob": "eb41eab442059755edeba337ff7b7ac0511cade4",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Cohomology/Ext/OrdinaryComparison.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.lean",
+      "sha256": "8c5cc594a17f3f6cf9bc4a99841eb21c057199faf172fd37224e8499b54b15fe",
+      "bytes": 3844,
+      "git_blob": "7462aa1bd693c7128c2cc1e7cfaa09acf8c6a9b7",
+      "source_location": "strict-a1-work/acyclicity/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.lean",
+      "sha256": "60b45c6fc92baf414a31b6ff909ffbd8ec67ca2c59323e77a0c66050e5457bd0",
+      "bytes": 5422,
+      "git_blob": "e76b0f8d8ab3b12e2ae3d41620ded3811baa2c62",
+      "source_location": "strict-a1-work/foundation/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.lean",
+      "owner_manifest": "strict-a1-work/foundation/SHA256SUMS",
+      "owner_manifest_sha256": "bd867835fb9b57902744db2541d8f62269ff890a1ec748d27489da36b3d54f78",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.lean",
+      "sha256": "75dede840774bb7440e0c6190bbf627c3a3582176bd3b6fa60eb5d572255b46f",
+      "bytes": 2630,
+      "git_blob": "04b74e29ea45ed9551a0e6a035440ad370c4edd0",
+      "source_location": "strict-a1-work/foundation/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.lean",
+      "owner_manifest": "strict-a1-work/foundation/SHA256SUMS",
+      "owner_manifest_sha256": "bd867835fb9b57902744db2541d8f62269ff890a1ec748d27489da36b3d54f78",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.lean",
+      "sha256": "96df54bf7d4378a0ace9d2b7f6f6f4d3261196bf921c939b6e26b425f0abf0ef",
+      "bytes": 5756,
+      "git_blob": "4ab94120a09e8aaaed62ad148845cdd0a643212f",
+      "source_location": "strict-a1-work/foundation/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.lean",
+      "owner_manifest": "strict-a1-work/foundation/SHA256SUMS",
+      "owner_manifest_sha256": "bd867835fb9b57902744db2541d8f62269ff890a1ec748d27489da36b3d54f78",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Germs/Envelope/Acyclic.lean",
+      "sha256": "8dab9b58c95057201d7273cac6faa9536d5ae52c121ec543d474ee427607628b",
+      "bytes": 3729,
+      "git_blob": "2d5ab40522c619228eefd7b200105f99ade8887b",
+      "source_location": "strict-a1-work/acyclicity/batch15/Colib/AlgebraicGeometry/SheavesWithTransfers/Germs/Envelope/Acyclic.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Sheaf/Germs/Envelope/Acyclic.lean",
+        "blob": "8a6d5eedd7bf57362dda055ad018c1cb358e63b9",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Sheaf/Germs/Envelope/Acyclic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Germs/Envelope/Product.lean",
+      "sha256": "fd2753f5f0753936d67ba1df45cafcd1bcce9e0c7899e2bc0164b2ecb8473d65",
+      "bytes": 10018,
+      "git_blob": "6d5e8aebae4b94e3d879a547e6184b658f7be342",
+      "source_location": "strict-a1-work/acyclicity/batch15/Colib/AlgebraicGeometry/SheavesWithTransfers/Germs/Envelope/Product.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Sheaf/Germs/Envelope/Product.lean",
+        "blob": "daf2ae700bb1638fbe9b322beed8530663be8603",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Sheaf/Germs/Envelope/Product.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Ordinary/FieldFamilyAcyclic.lean",
+      "sha256": "6d73b82a52c779c71fe1d5554723cda47d43fd798e932d3bb515860b16d1929f",
+      "bytes": 7671,
+      "git_blob": "af4332a6303dabb45527a4ac128442d51f6d05b9",
+      "source_location": "strict-a1-work/acyclicity/batch05/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Ordinary/FieldFamilyAcyclic.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Ordinary/FieldFamilyAcyclic.lean",
+        "blob": "a9da9b2831d516d1670e41b8f9664d284c986ecd",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Ordinary/FieldFamilyAcyclic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Original/FiberSections.lean",
+      "sha256": "3c7d1c718edfcf69294452f496329b8127b26cf63a0597d4597a2a1adefdb0b4",
+      "bytes": 10519,
+      "git_blob": "bd98c416e84da68625387423a08d1721959c2cd1",
+      "source_location": "strict-a1-work/acyclicity/batch14/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Original/FiberSections.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Original/FiberSections.lean",
+        "blob": "eaaccbf750f47e953543f10941cec76f12ee5639",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Cohomology/Original/FiberSections.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologyComparison.lean",
+      "sha256": "5e64954bddc27b44ec8e7b86b5008bfeff1976df2260a7f0865dfce1e28ba96f",
+      "bytes": 3655,
+      "git_blob": "cdfe8232709f7f61dbff3a8ecf9ff12ff55dfbf9",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologyComparison.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologyComparison.lean",
+        "blob": "d63d76603fa46dc7dbcfc24eabde3299884d1775",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologyComparison.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean",
+      "sha256": "d645860f4adc065571abe7cb57ac1d6c0a92a8aabe59e450eac2627f9c665baa",
+      "bytes": 1767,
+      "git_blob": "7afe9af519b8c70fa3b38696cb57426cfe69404f",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean",
+        "blob": "c666abac28cddafcf8ee47ea74052e3d0c9fae75",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean",
+      "sha256": "9088f34680d8b853fb174211c4a651e3177fd084ffc444d33df4f5506063aa7c",
+      "bytes": 3141,
+      "git_blob": "7b901b811e698262d9a5fbd40049aea4196eb6a4",
+      "source_location": "strict-a1-work/acyclicity/batch02/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean",
+        "blob": "4187a0aa9b7d0d722d25b02354cb95210a55c25a",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ExtensionExact.lean",
+      "sha256": "3e2930342afef6ffe799b6d3972e705ee02566136236407460e123f17266584a",
+      "bytes": 4568,
+      "git_blob": "2b3fad8da329a5e3fff5b2f4e22ff7cd7bf4cbee",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ExtensionExact.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ExtensionExact.lean",
+        "blob": "7c7c20db26d4002dde457cf6c606fe83a192752d",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ExtensionExact.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/DirectImageExact.lean",
+      "sha256": "bf13be871060f21af00281e47a5be2ba1257840a4eb68137991dce174c11c328",
+      "bytes": 2855,
+      "git_blob": "b23df470d788316e3a6a43f77c9d19e450a3dd6b",
+      "source_location": "strict-a1-work/acyclicity/batch04/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/DirectImageExact.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/DirectImageExact.lean",
+        "blob": "6159aedf9fc301ab87db8d0b570b7a1c86d3726a",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/DirectImageExact.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Evaluation.lean",
+      "sha256": "36349e8f52c952d5ff6e5909baae5327aa55863151303edc6bd76288ba7672fd",
+      "bytes": 2760,
+      "git_blob": "201686fb04603a44d0bc43124c3d52c2f33d5e78",
+      "source_location": "strict-a1-work/acyclicity/batch03/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Evaluation.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Evaluation.lean",
+        "blob": "a4df1637f9e8c79e7ce7dd2bb29df398af782079",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Evaluation.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/MarkedUnit.lean",
+      "sha256": "3996d3e6e8fdc8484705f2987aa1d4d2fbc0b0da4b3ac6f450875ce4443134f0",
+      "bytes": 2255,
+      "git_blob": "9cadf922530d3de6ec5c2a0736039a5b9c8d3b3c",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/MarkedUnit.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/MarkedUnit.lean",
+        "blob": "247a1bf3e887c2caf2c1d9e5b2de0862e8906ba1",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/MarkedUnit.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/ObjectEvaluation.lean",
+      "sha256": "d0016d53cda7caad31e27e9e35a2dae40f04ab28ca84e7b94f107e48cde239a0",
+      "bytes": 9116,
+      "git_blob": "81791b35c123a248c1c26eadcfe021c3bc2cd4a4",
+      "source_location": "strict-a1-work/acyclicity/batch04/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/ObjectEvaluation.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/ObjectEvaluation.lean",
+        "blob": "2ce5350202dc8324a47ff30b98ecffbf1dd7aa97",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/ObjectEvaluation.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean",
+      "sha256": "0760eb4273596a455a58f7abfad1b8c3068c657cb4d133264b43ce508ffe2e1f",
+      "bytes": 4292,
+      "git_blob": "9d8251e92d99b8f246d1d87cdf59902d75bf2632",
+      "source_location": "strict-a1-work/acyclicity/batch03/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean",
+        "blob": "bac4e056d880308475a15ebb628d4a184adf2a3f",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/InverseImage.lean",
+      "sha256": "9cd91ae2072b88363b6bfc16e28f60c39a864ec5b559981f0f5c87bb19f1ae3f",
+      "bytes": 2386,
+      "git_blob": "b6653a3570a5f6950b8e56e0094bae1a8485eea8",
+      "source_location": "strict-a1-work/acyclicity/batch11/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/InverseImage.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/InverseImage.lean",
+        "blob": "b7bf564fbdcd976de657151558fad0e06895ab70",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/InverseImage.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Naturality.lean",
+      "sha256": "3aca62652eeb413e6b8de6c1fcfe83ce4628548fb65786cce115d73bbff2e20b",
+      "bytes": 3484,
+      "git_blob": "f1cfbaedf7d5e6da5ae6fe0e6a162be06e0a8abb",
+      "source_location": "strict-a1-work/acyclicity/batch12/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Naturality.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Naturality.lean",
+        "blob": "1843990abd5a1481c4fe0e27d40b06b337768eed",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Naturality.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Neighborhood.lean",
+      "sha256": "7b75b4442d8215776d373537b9bef01d0a34576b1b4f54575102700b76c91feb",
+      "bytes": 7517,
+      "git_blob": "3dda6e09e02cf068fb9d5c5bba4568f1aaace5b4",
+      "source_location": "strict-a1-work/acyclicity/batch11/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Neighborhood.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Neighborhood.lean",
+        "blob": "4f255e973a950c35b5728756e143949a580fc513",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Neighborhood.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Unit.lean",
+      "sha256": "b9f072574e3af87fb4bb62ea6f2e31bea8109ef7fd4323e53b7fc92e3dd49010",
+      "bytes": 7720,
+      "git_blob": "3282658458cbfb114d87eaa05ff400eb89d2138a",
+      "source_location": "strict-a1-work/acyclicity/batch12/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Unit.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Unit.lean",
+        "blob": "d19f991b26bd51abe2f7c1e86fbae8701b957179",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Unit.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageAdjunction.lean",
+      "sha256": "65567493700da59d3d3229a3673620462403fad28642202731cb59568d7ad933",
+      "bytes": 2245,
+      "git_blob": "064c2f64a3b19ae274ac59e75e796c84335b31db",
+      "source_location": "strict-a1-work/acyclicity/batch02/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageAdjunction.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Boundary/Cokernel.lean",
+        "blob": "f1f4e3f99cf84b82951ebb24c1f1648b1197fe3e",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Boundary/Cokernel.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageExact.lean",
+      "sha256": "0fa8078c5ba9103af699f19b015cd01e8d31c7f7a884e2b7e977c19508bc1282",
+      "bytes": 4508,
+      "git_blob": "0cd43eb2e5f3d8d265cfd3cf399a70d1c70d1f1b",
+      "source_location": "strict-a1-work/acyclicity/batch02/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageExact.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageExact.lean",
+        "blob": "586929bf560310a65f9ca24700cd108b1bb15407",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageExact.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageFamily.lean",
+      "sha256": "c72e831651e66d10ed7507f29a184de519159189dfaf054f1984964c36dd59e1",
+      "bytes": 3934,
+      "git_blob": "57a5b988a12e7e1c9a1d532a8b66bf5b11563574",
+      "source_location": "strict-a1-work/acyclicity/batch03/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageFamily.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageFamily.lean",
+        "blob": "6d61021e56ea57469e514f3545352dcefbe3d18a",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ImageFamily.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean",
+      "sha256": "2acd12af3c46f1584e139c32673e21e5f7585acbbb7f92d583ed9c51d8e0a1f0",
+      "bytes": 2127,
+      "git_blob": "6bd0eb86a9f1ccdc97d18a9f3af8583455c3e261",
+      "source_location": "strict-a1-work/acyclicity/batch02/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean",
+        "blob": "a8ad5b4550dbb3d00f56a4c1c48145b3b08e8311",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean",
+      "sha256": "c302e86a69069006a78eb95d79b9e630bfb501e0870d1c7f23648921819cb630",
+      "bytes": 8424,
+      "git_blob": "896e4a2496d663d279c594ffa9feca81d34633bd",
+      "source_location": "strict-a1-work/acyclicity/batch02/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean",
+        "blob": "6dc37f4c93fcadbbb1ca30e45b6a6d9bdce4b10e",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/SmoothSlice.lean",
+      "sha256": "2a68340c8b7f7b124bec3b1c2a9ca01c4e0bda9a117440ccca5bbd185ab85162",
+      "bytes": 3325,
+      "git_blob": "5e56213917c64f8df9cfb626deab69de6a13f56c",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/SmoothSlice.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/SmoothSlice.lean",
+        "blob": "b0e6cfa1fa3808841e223c7c2ab0821677204b24",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/SmoothSlice.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean",
+      "sha256": "2d69aa46201d386f68d42d73e45b5467c656f7a4ce82f9924a8c40eb20e056cf",
+      "bytes": 8937,
+      "git_blob": "83f36d9b3463ab2815412e0690d35c84f91c0590",
+      "source_location": "strict-a1-work/signed-germs/batch03/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch03/source-manifest.json",
+      "owner_manifest_sha256": "2875970a5bb928a440a1b44749fcd347062e9f4b3dff1f70bcc899a4d8bcd29c",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean",
+        "blob": "47a24686f1fc83db17fbec40919f85feeeffe06a"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Affine/Basic.lean",
+      "sha256": "6f16e6cde0e09f1743426fcaa9c8990d1691f573511bf765f0f7533b01e18e50",
+      "bytes": 1891,
+      "git_blob": "3d415e5eab7311d36dbcadf91126801e6321aeab",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/Affine/Basic.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Spec/PolynomialQuotient/ScalarMap.lean",
+        "source_blob": "7653510d0ce4597e41983335434a511fa9dd33de",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Spec/PolynomialQuotient/ScalarMap.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Affine/Coordinates.lean",
+      "sha256": "9c8f3a7452ed572c35f1d4ca365f9bcf08eb5d969c3a8cf3438991279a26e416",
+      "bytes": 3231,
+      "git_blob": "3bc4e6dfb754b59118b3b945a6f2f086fa68c36b",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/Affine/Coordinates.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Affine/Coordinates.lean",
+        "source_blob": "76037f829bdb41f16ce92b682d42d2b3ee3f05e2",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Affine/Coordinates.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Affine/ScalarCoordinates.lean",
+      "sha256": "79d1c85b5613cf63311cd2338d7df63dd66d1d49155bdf4630d4fc00c18b0a57",
+      "bytes": 4218,
+      "git_blob": "cf8c7ab3d872b00558bc00b75c549e493bdceb1d",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/Affine/ScalarCoordinates.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Affine/ScalarCoordinates.lean",
+        "source_blob": "8bf0162a2e77394df1c9d82d030ea41dbb72c586",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Affine/ScalarCoordinates.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/BaseChange.lean",
+      "sha256": "556f37d7ca3eb2f468cfe21502d770cd73dc2d3e36b04abb9091b03ca13d1386",
+      "bytes": 6090,
+      "git_blob": "baaccbe31a4305b61d2e9ca0681d1dd1e967c175",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/BaseChange.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange.lean",
+        "source_blob": "3756e3df981d72707ebe8f1366d5aa070fca13c0",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarComparison.lean",
+      "sha256": "b55c53c956eedfabc4791f76ca703bd68cb29fcd59fbe2f9cdefa79f5f1b61db",
+      "bytes": 3472,
+      "git_blob": "dd07b40490eb3942b344d3e7e1bf45ff4a0ec496",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarComparison.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarComparison.lean",
+        "source_blob": "b7a656e8b471051a8851a541fcb1eaf6d1a00527",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarComparison.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarMarkedOpen.lean",
+      "sha256": "b9c41358af8e7b9b564a670b7f1894440e125c1752cd350ca74b8ae5d78e673b",
+      "bytes": 5372,
+      "git_blob": "19874f1c6a994c0692ce10090703ba67d6083660",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarMarkedOpen.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarMarkedOpen.lean",
+        "source_blob": "a3edf5e7cd56388def5a1f2409a7ed6b3cc4acc6",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/BaseChange/FiniteScalarMarkedOpen.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/CylinderComparison.lean",
+      "sha256": "880a2fc890a97999c70759b7846e57eda00508b31164251fa1f2ad29a9409e21",
+      "bytes": 8106,
+      "git_blob": "83a073e8609c8b03ce15395b34e669d94216d0c1",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/CylinderComparison.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/CylinderComplement.lean",
+      "sha256": "0d94aad97aaa7d43592ac68650d2dc340b68d685ce4a83f52ed5aeec21cab891",
+      "bytes": 3350,
+      "git_blob": "5410d4b4a8e04b84f2f52df27bcc8bdad75083ef",
+      "source_location": "strict-a1-work/cartier/batch02/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/CylinderComplement.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch02/source-manifest.json",
+      "owner_manifest_sha256": "0e0dad3a2a565381a49450b5a2441a2c8b7aa26087175dee83da758c2663feb2",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/MarkedCylinderComparison.lean",
+      "sha256": "2707ecf4dcbc3448b001d1d3e562f27d5dfb8d65f154ce4d6371cf3cc47c7d3e",
+      "bytes": 2300,
+      "git_blob": "7079571242f6f8ff2aa427419823dbacc5c13def",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/MarkedCylinderComparison.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/NativeSections.lean",
+      "sha256": "1cbd368b764da7347b3b68c6227d7f96654e48d2583aa45f98d53e630a7780c6",
+      "bytes": 4390,
+      "git_blob": "7936b0c4678333ed18cf56f6b7fc84711ec8e0af",
+      "source_location": "strict-a1-work/cartier/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/NativeSections.lean",
+      "owner_manifest": "strict-a1-work/cartier/source-manifest.json",
+      "owner_manifest_sha256": "91a6a1b1ff370e1e09843d810786d1e8e4359e4060d12714e12cdc456dc2b909",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/PunctureComparison.lean",
+      "sha256": "64f4a02d2d10782b12711f6acf023579eb911f18a00c84303bb6a30e259afff7",
+      "bytes": 3874,
+      "git_blob": "6e14a72383dc66476a35117aa4f92c3c41149ebd",
+      "source_location": "strict-a1-work/cartier/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/PunctureComparison.lean",
+      "owner_manifest": "strict-a1-work/cartier/source-manifest.json",
+      "owner_manifest_sha256": "91a6a1b1ff370e1e09843d810786d1e8e4359e4060d12714e12cdc456dc2b909",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Cartier/ZeroComparison.lean",
+      "sha256": "bbf3321c99b59783ab2bc51dd5f0985d9274e48b1f77a6a7037fb369369cd78e",
+      "bytes": 6017,
+      "git_blob": "6109d8f13431a613a3eac4c3900aa356bb29aee0",
+      "source_location": "strict-a1-work/cartier/batch02/Colib/AlgebraicGeometry/Sites/Smooth/Cartier/ZeroComparison.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch02/source-manifest.json",
+      "owner_manifest_sha256": "0e0dad3a2a565381a49450b5a2441a2c8b7aa26087175dee83da758c2663feb2",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.lean",
+      "sha256": "87835d5a9eec4c0998e77fd0d667aa913858aac9a76ef66b4c3fa4741c6d6c7f",
+      "bytes": 2730,
+      "git_blob": "9ea4c161d4f2374caa4c23319c33d3204c917ef7",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/ForgetBase.lean",
+        "source_blob": "5410ee64da85ed4bd0f3109e3e12d90fd13129c0",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/ForgetBase.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/DiagramTransport.lean",
+      "sha256": "252c1e5d48248ba34eb75ae21f952df4a691f6ffc7dbfa1bdd8ecc62580d3930",
+      "bytes": 2416,
+      "git_blob": "56c846b49166f83202fce432985682cad7d4f164",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/DiagramTransport.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/DiagramTransport.lean",
+        "blob": "a97977ecef954958ca33fb31a657fb512772c1fe",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/DiagramTransport.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/EtalePullback.lean",
+      "sha256": "a733ca68e4087e91edbb6be38194ad8ab1cfecc5c68f773e718f2e0cb80cf9cb",
+      "bytes": 11549,
+      "git_blob": "797c140b8fccc6b4429efc81e616dff3e4593f9b",
+      "source_location": "strict-a1-work/acyclicity/batch10/Colib/AlgebraicGeometry/Sites/Smooth/Germs/EtalePullback.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/EtalePullback.lean",
+        "blob": "2775e5afc947d470f9584dcb0fe36bac905a8b2a",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/EtalePullback.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/FiberProduct.lean",
+      "sha256": "004ebe5f297444b1ef341df69891469bcf615fd9c4d2fe4166b76511271d39bb",
+      "bytes": 5927,
+      "git_blob": "ec8826074d3d7b1a4cd1f2ad012749129573163c",
+      "source_location": "strict-a1-work/acyclicity/batch14/Colib/AlgebraicGeometry/Sites/Smooth/Germs/FiberProduct.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Transfers/Sheaf/Germs/Original/FiberProduct.lean",
+        "blob": "3154ed99677c34de392e9cc9002c01c5f872d51a",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Transfers/Sheaf/Germs/Original/FiberProduct.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImage.lean",
+      "sha256": "c1a61a038cf730728ac94e8c4a5e42d1580829bbfaca761cfa28da4357c11ed6",
+      "bytes": 3850,
+      "git_blob": "9db7e00848fcb8e328fc475d96ee851f2816a817",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImage.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImage.lean",
+        "blob": "004fd3cb7ec1f9a35b6169ae1fc8b74777e88afd",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImage.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageGraph.lean",
+      "sha256": "9840f10464bc976af101d3d9e3118339dcb61b0f84db5c3cb0211d3f01636427",
+      "bytes": 3407,
+      "git_blob": "708e637f6b34c60cd3ea3a63457b42b4101d34c2",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageGraph.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageGraph.lean",
+        "blob": "5bf428568e25bfe6140f57038f839adb06bec74c",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageGraph.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageNaturality.lean",
+      "sha256": "05c09380ab2cad0946fd8b7ffc9c812b1892c9eb3f91f42211345ebd3b5a383b",
+      "bytes": 3802,
+      "git_blob": "10082bcfa2e80dfdb191de95f4bf11693decdc4f",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageNaturality.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageNaturality.lean",
+        "blob": "3c0bdaccfdf133c4cd70c7dd4cc1af35975e0bbd",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageNaturality.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRepresentative.lean",
+      "sha256": "4fb4a124f5839156a8165b5fbc06e542dd2f83a60a63aa8b75becd84681d5c36",
+      "bytes": 4196,
+      "git_blob": "7ba8ce1c4bcb14788686849a6940d4823b0fefe2",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRepresentative.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRepresentative.lean",
+        "blob": "0bd792713568ff5c7d98837b980ade6186922862",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRepresentative.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRestriction.lean",
+      "sha256": "0ef307f7b67702853df22de4377748a2ad3fcb08ff47363668738f900b59c1a3",
+      "bytes": 3032,
+      "git_blob": "a8984e3f0bf9eb9823bd34c70a51df0f6c6fe996",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRestriction.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRestriction.lean",
+        "blob": "cbf48a62aa47f1511a9cbe26766b8632508f1cd6",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/InverseImageRestriction.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/Pullback.lean",
+      "sha256": "264b87a753d63900a94f015a743af26b63afb294874710d527ef55afa9aa9e4b",
+      "bytes": 8844,
+      "git_blob": "117df161146f1d88242b5003b84e3f1d0e21baad",
+      "source_location": "strict-a1-work/acyclicity/batch10/Colib/AlgebraicGeometry/Sites/Smooth/Germs/Pullback.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/Pullback.lean",
+        "blob": "aa234a4e92d32d234ff16801b84eb40b7ed71b32",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/Pullback.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/RelativeNeighborhood.lean",
+      "sha256": "f693a098581c2fb9c195d8e3d5b30cedc390f7503ca5a72e305848fa0edbd892",
+      "bytes": 10000,
+      "git_blob": "cd3302d2d0764f13494e394991fcd5c22fee81f6",
+      "source_location": "strict-a1-work/acyclicity/batch12/Colib/AlgebraicGeometry/Sites/Smooth/Germs/RelativeNeighborhood.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/RelativeNeighborhood.lean",
+        "blob": "f30f9560836f78b548610b9d39b57f7ad1655bbe",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/RelativeNeighborhood.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/SectionDetection.lean",
+      "sha256": "23915508deb8191362d4e5c7a0ef97cc0bb159733ff197b85ce8b3315a9ae877",
+      "bytes": 2908,
+      "git_blob": "cd3304b2b42d967017c4f2a881b2287b830ee0d5",
+      "source_location": "strict-a1-work/acyclicity/batch09/Colib/AlgebraicGeometry/Sites/Smooth/Germs/SectionDetection.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SectionDetection.lean",
+        "blob": "3b467e790d3568c59c252b10e470c764fe0cac20",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SectionDetection.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRelativeNeighborhood.lean",
+      "sha256": "1d7120d2028a2024cb3490355d38d3e92041164f08b751ad3ab340201d52161a",
+      "bytes": 5250,
+      "git_blob": "9b43e2e047658c5578729f48bd4bf9528fec4c5f",
+      "source_location": "strict-a1-work/acyclicity/batch12/Colib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRelativeNeighborhood.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRelativeNeighborhood.lean",
+        "blob": "14f03cc86061be7ae5e91818b229526823c83c89",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRelativeNeighborhood.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRepresentative.lean",
+      "sha256": "22b12d0190e65790e8ec8b381e6a7d6b641648b28f96628df472af999ccbd888",
+      "bytes": 2674,
+      "git_blob": "2960447ebd6ec849234ac5d1312eaca7c7e94566",
+      "source_location": "strict-a1-work/acyclicity/batch13/Colib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRepresentative.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRepresentative.lean",
+        "blob": "4c21d546a3d7018b8b44444785b3a086b2282d72",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Germs/SmallRepresentative.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteFamilyLifting.lean",
+      "sha256": "ad89cfb39b0ce4726e757b68178df79e1889478207059e977a49bd4e5a9d0a6c",
+      "bytes": 7264,
+      "git_blob": "1903623808add972da28f63cd9a2afb947333fc1",
+      "source_location": "strict-a1-work/signed-germs/batch03/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteFamilyLifting.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch03/source-manifest.json",
+      "owner_manifest_sha256": "2875970a5bb928a440a1b44749fcd347062e9f4b3dff1f70bcc899a4d8bcd29c",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteFamilyLifting.lean",
+        "blob": "ced25b1032971573acf1d896a1821c5ef1e9ca8e"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean",
+      "sha256": "4d00d7942fefef67bde41b018c06346aef0675eb63a9c458ee328d2c90c70ff9",
+      "bytes": 4706,
+      "git_blob": "b8e538aa6cc77454979d9757a12bb2dfc61c8d04",
+      "source_location": "strict-a1-work/acyclicity/batch07/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean",
+        "blob": "63e4e1af8c6a2093d72aff741837517d2d39d2e5",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean",
+      "sha256": "db7fcf9b6d8f176844b243c42a48b0802b11ce94a608c24491e9350ba46679d7",
+      "bytes": 10077,
+      "git_blob": "02fd52392d5c071e2ca58ce500daba891424a755",
+      "source_location": "strict-a1-work/acyclicity/batch07/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean",
+        "blob": "821f7409f17168d630e0769397f0e88eba7bbe53",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ChosenLifting.lean",
+      "sha256": "d937353e53a4ea4c87634236a16b2e1137e60622e17dec31901dbee2182c4ce0",
+      "bytes": 3126,
+      "git_blob": "935e97c6e3ac4b83683d544a5fc3802c25c76e38",
+      "source_location": "strict-a1-work/signed-germs/batch03/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ChosenLifting.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch03/source-manifest.json",
+      "owner_manifest_sha256": "2875970a5bb928a440a1b44749fcd347062e9f4b3dff1f70bcc899a4d8bcd29c",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ChosenLifting.lean",
+        "blob": "55195e46b70835e5ced6af9005a170fcff783519"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/CommonRefinement.lean",
+      "sha256": "b94fbd813a52bbd35f402c0aa3f791a1ef9447093e6dbb4c668832a2334433a5",
+      "bytes": 6667,
+      "git_blob": "cdf9355de48f7d41e18ddab1610adcd219c3f0cf",
+      "source_location": "strict-a1-work/acyclicity/batch09/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/CommonRefinement.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/CommonRefinement.lean",
+        "blob": "c2a770d599ccc6a86b6faf3a14cf093a20bfdab5",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/CommonRefinement.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ControlledLifting.lean",
+      "sha256": "2c561b97be55b04c3c50e88d6c54907ecdadcb61ae1195010a64ad405f1f1566",
+      "bytes": 2981,
+      "git_blob": "9fe44f7272e9a4b0b6033e32c8d6fa1740a7a755",
+      "source_location": "strict-a1-work/signed-germs/batch03/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ControlledLifting.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch03/source-manifest.json",
+      "owner_manifest_sha256": "2875970a5bb928a440a1b44749fcd347062e9f4b3dff1f70bcc899a4d8bcd29c",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/ControlledLifting.lean",
+        "blob": "e69f3e9421f4f86d718a65dbc5f577a7c8d0b3c4"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/FamilyLifting.lean",
+      "sha256": "c53663f92ebfe232a610c63aa2ae8819749d1b5398c059f3693aeb0d8c196126",
+      "bytes": 2431,
+      "git_blob": "4684c314af782b03e562ae8bd0c55e570bc8d5a6",
+      "source_location": "strict-a1-work/signed-germs/batch03/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/FamilyLifting.lean",
+      "owner_manifest": "strict-a1-work/signed-germs/batch03/source-manifest.json",
+      "owner_manifest_sha256": "2875970a5bb928a440a1b44749fcd347062e9f4b3dff1f70bcc899a4d8bcd29c",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/FamilyLifting.lean",
+        "blob": "1356fe784b89fbbb44117c5459d36fe6c01d1ffc"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean",
+      "sha256": "f3307d3e541bdac109a72f95253874ff4479dcae12eb0b5fdbe22b9e6b8c2927",
+      "bytes": 4702,
+      "git_blob": "f98aecd1ab85984062b4711ff8ae01d618f18181",
+      "source_location": "strict-a1-work/acyclicity/batch07/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean",
+        "blob": "5c64dd9b8eb87492b098798132c68df9deec2105",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Normalization.lean",
+      "sha256": "9e88a41732bb02ef86524905f4d4903e0cecf9bf626ae67378692b05e7000f62",
+      "bytes": 5281,
+      "git_blob": "c2bcd81b2a670c5ba5422bdd2dbade3f329668a1",
+      "source_location": "strict-a1-work/acyclicity/batch08/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Normalization.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Normalization.lean",
+        "blob": "afc5c5f290007b2407f67c33d7e6c814567ccfe8",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Normalization.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Sections.lean",
+      "sha256": "138b00dfa35eebb9389309c9fe02dc8f563892087b715d4755aebdb8e9bdf312",
+      "bytes": 6094,
+      "git_blob": "b611731dcd971e43af3be2226df07ebb51f32707",
+      "source_location": "strict-a1-work/acyclicity/batch09/Colib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Sections.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Sections.lean",
+        "blob": "1125fc02f2c5f2559bc5d1675187e7c75d9fbb10",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Sections.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.lean",
+      "sha256": "6c7f61f7b96b16225fb48e47fc331775ad2352347067d3c49f49f6c8725368e3",
+      "bytes": 940,
+      "git_blob": "33e36724407b7f94ccc03a62737e52d0f1829db2",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Noetherian.lean",
+        "source_blob": "2ae7265b1da1f1a25ae63edc2b2b01e0aa9aeafa",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Noetherian.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/ScalarExtension/Finite/Basic.lean",
+      "sha256": "471b59c248eb4f1e3ea0a6e46ebcc0907299b89eebc8f0bdba434fc7ec8d8106",
+      "bytes": 3876,
+      "git_blob": "0f254f03f6d61df1867eb34684f6980d8fb4aa7e",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/AlgebraicGeometry/Sites/Smooth/ScalarExtension/Finite/Basic.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/ScalarExtension/Finite/Basic.lean",
+        "source_blob": "1483d803fb538ec459b378bf348adf0a062e0857",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/ScalarExtension/Finite/Basic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean",
+      "sha256": "a4a13e5f1c45c245095c50f4b7bfd02c2c5af328b8338337f6926b6dc849055d",
+      "bytes": 2248,
+      "git_blob": "31c82a0b63e7099eb01370f632a25d4ee7d1ea5d",
+      "source_location": "strict-a1-work/acyclicity/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean",
+        "blob": "aa0cf9d3da2b84d86548eee2974f1b59af81b566",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean"
+      },
+      "validation": "COMPILER PASSED ONLY; full acceptance pending",
+      "compiler_receipt": {
+        "run_id": "1794382185942939407",
+        "exit_code": 0,
+        "source_sha256": "a4a13e5f1c45c245095c50f4b7bfd02c2c5af328b8338337f6926b6dc849055d",
+        "output_hashes": {
+          "leaf.olean": "378c21ab6d67e87ad770bd5722056bab4bfc68c0b63890d701aae501b2f15f53",
+          "leaf.ir.sig": "e8dd5b3ac60e992d7b7e5437f74eac1383eb3807dc41ecb10007ced6a764c8ec",
+          "leaf.olean.server": "5d6a8872eea89e11ad8c74446dd429711265d870795a6d2f10fe01adc83b4741",
+          "leaf.ilean": "04f5fbbc986ebe29e9abbcf246fd205220e1831168b0f2e10f5603c59c0263d1",
+          "leaf.olean.private": "078a6460ba4c0f8f172637f6f8a7fdec7f1207163178b093cb5bb4a8561dbdfa",
+          "leaf.ir": "a959e597ba897e22ba38a5d9955244a0fe70767c807fd0b8042805908f5910b3"
+        },
+        "final_sha256": "8566f36143cce0dd250bf1b0fd5f67778332fbc854c3dea1f9cbcc7a9d6116c2"
+      }
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/Cohomology/DegreeZero.lean",
+      "sha256": "273f5a10ca1fb8cfc57bb9481b0ae569d8bb36e4e78bebf6273f4d43dab1e5c9",
+      "bytes": 1708,
+      "git_blob": "3e8027a68c609be0e58ac64315adb98906c02c33",
+      "source_location": "strict-a1-work/foundation/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.lean",
+      "owner_manifest": "strict-a1-work/foundation/SHA256SUMS",
+      "owner_manifest_sha256": "bd867835fb9b57902744db2541d8f62269ff890a1ec748d27489da36b3d54f78",
+      "original_provenance": {},
+      "validation": "COMPILER PASSED ONLY; full acceptance pending",
+      "compiler_receipt": {
+        "run_id": "1794382143581126395",
+        "exit_code": 0,
+        "source_sha256": "273f5a10ca1fb8cfc57bb9481b0ae569d8bb36e4e78bebf6273f4d43dab1e5c9",
+        "output_hashes": {
+          "leaf.olean": "675ab40992f1de37f9395c47ca3cb182ef8645b45c01d6d53ac1f292af83ed37",
+          "leaf.ir.sig": "64efc5df474d8f127e639840f611f81b3eb46716abbdff87644858777faae8ed",
+          "leaf.olean.server": "847b3514342e5ef0bf559fc3086ff875a919167e4911ba665b1412c97d81ce4a",
+          "leaf.ilean": "6394a8748b78fea749ad0c41ad2c5daf0c5a2ca08f3a90bc1fc720805d32ef1b",
+          "leaf.olean.private": "9660e66808e05ffffd3bf62a6f4b78141826d10cd98dd9249a809dd7b46c93d3",
+          "leaf.ir": "40bfdfd37f421a84220f97f9f94f13311a58a6a180edf005e63885c5951f7efd"
+        },
+        "final_sha256": "088790a4a9637d812b7835388aa315969eeeafd87190ef5e8b5ab5666f6d74a0"
+      }
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.lean",
+      "sha256": "04b17532bf223abfb9c21a6c38d33abf9e80fd84e1b5456dcf2d4e88ba8c5b45",
+      "bytes": 2849,
+      "git_blob": "ce59a318cdb8c075bf32ea69d7e1605a70263820",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/RestrictionSource.lean",
+        "blob": "eaa5eeb7994561c0bef22b8398a55df532b52c21",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/RestrictionSource.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean",
+      "sha256": "65dfb5417b25600ee0d201555cdb1cc222e13adfc0e351a80b8ddcb5ecf24c5f",
+      "bytes": 3447,
+      "git_blob": "8792882790f01f62d41ef07dde758df6d3fc7b7b",
+      "source_location": "strict-a1-work/acyclicity/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean",
+        "blob": "578e9ac8b46c9736977c0eaeae9cd06286f1c882",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean"
+      },
+      "validation": "COMPILER PASSED ONLY; full acceptance pending",
+      "compiler_receipt": {
+        "run_id": "1794382244005280407",
+        "exit_code": 0,
+        "source_sha256": "65dfb5417b25600ee0d201555cdb1cc222e13adfc0e351a80b8ddcb5ecf24c5f",
+        "output_hashes": {
+          "leaf.olean": "dc2a45eeb364cfb0784f275e055a6af1b3d5b6511db10eb18cab410d7c895a1d",
+          "leaf.ir.sig": "aa154a5a7c0aea63e77226bcf3610b94276e57744155dca95a5af4752618794e",
+          "leaf.olean.server": "6e56b21a94d2b4fef114a81d3f4e5f7bb85f3e21d271eb72077b35a2fa4d9170",
+          "leaf.ilean": "513765d83bfe1d577da9f098eac0674bec4667a503d64c07dd5bb5c5b9d682d4",
+          "leaf.olean.private": "5fd5e425420df3c3fd5d55227a80e02c260ceb107931e520f351c85d46292dca",
+          "leaf.ir": "b6fe0600fa6890b77ec77d05f68dcf7d171000e227261fbd402bcc25f2fcaa1a"
+        },
+        "final_sha256": "c755553f18e5cf81afbf21bc2207a4f6b3eb22a8a82db22086237be53941d952"
+      }
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/SheafProducts/Sections.lean",
+      "sha256": "f9c6c89fa3c6de0314d10d0198d3369ceac96457a41e47f77cdb64ec3749376f",
+      "bytes": 2585,
+      "git_blob": "5e81fae91d6d0c6e61c2ac7e5e6156d9970a79ad",
+      "source_location": "strict-a1-work/acyclicity/Colib/CategoryTheory/Sites/SheafProducts/Sections.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/SheafProducts/Sections.lean",
+        "blob": "0c0d676034c472fed976a7f654d5ea534c7b37b2",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/SheafProducts/Sections.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/SheafProducts/ShortExact.lean",
+      "sha256": "52c650e7fdd3acb9989f74910bf4342100d36852a6c8d0762d218bf141cbad7d",
+      "bytes": 2920,
+      "git_blob": "fb834fddd6c70dc413e80a00cc66c18e887608ff",
+      "source_location": "strict-a1-work/acyclicity/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ShortExact.lean",
+        "blob": "5e33ffa655b170f5e2a1dfb9b4546aa3f91acf77",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ShortExact.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/Slice/PresheafExtension.lean",
+      "sha256": "a60ff4ba1f173e7efc227fc34b2bbb59f58c115ea5c2c5f938f0532dfff574fc",
+      "bytes": 6526,
+      "git_blob": "89ced99e98bafc3fba9ad3daafcbea60ec660863",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/CategoryTheory/Sites/Slice/PresheafExtension.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/Slice/PresheafExtension.lean",
+        "blob": "10ca5e8bdc5b736b324120f7c4748ba4673023fe",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/Slice/PresheafExtension.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/CategoryTheory/Sites/Slice/SheafExtension.lean",
+      "sha256": "64fc9e5b02b0bc7a763ea64a2bdb01216a73fef5dd637e94348e55ebd6c6c3c5",
+      "bytes": 2448,
+      "git_blob": "a30538ced3d5357bb2d9b37077740a94d5830582",
+      "source_location": "strict-a1-work/acyclicity/batch06/Colib/CategoryTheory/Sites/Slice/SheafExtension.lean",
+      "owner_manifest": "strict-a1-work/acyclicity/candidate-import-inventory.json",
+      "owner_manifest_sha256": "7a1a3a145e55879c06918fd82bf0329314f38e1febb5a19a0d91013cf98e0bce",
+      "original_provenance": {
+        "source": "Motivic/Aglib/CategoryTheory/Sites/Slice/SheafExtension.lean",
+        "blob": "dd48a6792d235f9f345bbec1a71960a95d26a070",
+        "url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/CategoryTheory/Sites/Slice/SheafExtension.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/AdaptedPolynomialChart.lean",
+      "sha256": "88948aafd77e0eb6a8eff3a87e0f733f4747035eecb830c6fedf0a6554308025",
+      "bytes": 5002,
+      "git_blob": "bf2630dca601c0c1828c8a46f1d8d4b04c897587",
+      "source_location": "strict-a1-work/cartier/batch03/Colib/RingTheory/Etale/AdaptedPolynomialChart.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch03/source-manifest.json",
+      "owner_manifest_sha256": "e642e74049628c8b9bd8433b15072ed6a97648373e1ba49f14a50c6cc0750657",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/AdaptedPolynomialCylinder.lean",
+      "sha256": "07d28616865e96ef9e91fa5c9ed19c1fe8b550f854b269fd96d09657d53b10cc",
+      "bytes": 2783,
+      "git_blob": "4c79329a596f01d5a85c7eaeaf110ca856c6002e",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/RingTheory/Etale/AdaptedPolynomialCylinder.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/AdaptedPolynomialCylinderOverBase.lean",
+      "sha256": "a617afd673f066f75e357821eb1fce6b663a120169b6ed2b9e5f06b36416cf8c",
+      "bytes": 2137,
+      "git_blob": "3c130e139dfdd199df00e9c249672d8d9556cd07",
+      "source_location": "strict-a1-work/cartier/batch04/Colib/RingTheory/Etale/AdaptedPolynomialCylinderOverBase.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch04/source-manifest.json",
+      "owner_manifest_sha256": "c409bb320206dc5aabeacbe65c3d90983c473d1d376b246440be01a9883484f1",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/DifferentialCriterion.lean",
+      "sha256": "50061a4d2bbead5a736302f3d86373b99930ca95524a713ba1497d8cce01295b",
+      "bytes": 1931,
+      "git_blob": "58673404ec4c7187e8656660af4ad59d37998181",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Etale/DifferentialCriterion.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Etale/DifferentialCriterion.lean",
+        "source_blob": "58673404ec4c7187e8656660af4ad59d37998181",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Etale/DifferentialCriterion.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/PolynomialDifferentialBasis.lean",
+      "sha256": "a60649d846ae56f392ed44abdff2af88f462b6b4de758e22a4e61c25aa88f2c9",
+      "bytes": 1554,
+      "git_blob": "89f02d8c0732e081bc073203d09acdf914a98254",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Etale/PolynomialDifferentialBasis.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Etale/PolynomialDifferentialBasis.lean",
+        "source_blob": "80a96781986148e9d58931cbae2740d08856beb8",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Etale/PolynomialDifferentialBasis.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/PolynomialTrdeg.lean",
+      "sha256": "ec0c9424e325616ced29ca7e2213d06098bade055f0cd013750b1b873429fdc5",
+      "bytes": 2750,
+      "git_blob": "c0ca7f10b48943a71847f2cbdf59bd583aef20d1",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Etale/PolynomialTrdeg.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Etale/PolynomialTrdeg.lean",
+        "source_blob": "af195dae3a7ec068375636cdfc89194b562ec238",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Etale/PolynomialTrdeg.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/ResidueCoordinateCriterion.lean",
+      "sha256": "5014c58407124f9cac1252f297e3bc4d31047fe014304366eff713e947ef917b",
+      "bytes": 3825,
+      "git_blob": "9af738d9379761063ea98f6b43c787878dded247",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Etale/ResidueCoordinateCriterion.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Etale/ResidueCoordinateCriterion.lean",
+        "source_blob": "5d2a929db0da6c305ee6ac10ecf6530cf86231de",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Etale/ResidueCoordinateCriterion.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Etale/ResidueCotangentTrdeg.lean",
+      "sha256": "846113afb31a59966c2326a8e4ee930bbab93593b5db4e94c67266ed565775a5",
+      "bytes": 2302,
+      "git_blob": "287b16cabcefb4158579de0af577420500ad6f44",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Etale/ResidueCotangentTrdeg.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Etale/ResidueCotangentTrdeg.lean",
+        "source_blob": "7e686a82e97e9a0b711c6201d73b27258ebd0a66",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Etale/ResidueCotangentTrdeg.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Kaehler/PrescribedLocalBasis.lean",
+      "sha256": "0a967e28cb00be05773d11a6b09740446ffc2094b0400925c088f0f5aeef55e8",
+      "bytes": 3668,
+      "git_blob": "0372585a9e5c76d3a1a9a2a1d3b09ce4260c036b",
+      "source_location": "strict-a1-work/cartier/batch03/Colib/RingTheory/Kaehler/PrescribedLocalBasis.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch03/source-manifest.json",
+      "owner_manifest_sha256": "e642e74049628c8b9bd8433b15072ed6a97648373e1ba49f14a50c6cc0750657",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Kaehler/PrincipalConormal.lean",
+      "sha256": "64b962cfcf98d9a5a6228c228758b725b6c7ba08970be08cb36ded2b148cce02",
+      "bytes": 5175,
+      "git_blob": "aa353e8c404088637cf0cf2276d69a14c3d691ac",
+      "source_location": "strict-a1-work/cartier/batch03/Colib/RingTheory/Kaehler/PrincipalConormal.lean",
+      "owner_manifest": "strict-a1-work/cartier/batch03/source-manifest.json",
+      "owner_manifest_sha256": "e642e74049628c8b9bd8433b15072ed6a97648373e1ba49f14a50c6cc0750657",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Kaehler/ResidueFunctionBasis.lean",
+      "sha256": "5df984d1a90d60c1e0f8a15fd3364a25f51bb1cb99a4600bd0ceed923fdeefdb",
+      "bytes": 3525,
+      "git_blob": "d48579bfa3e95cf89eb81f71716e1891af792ea8",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Kaehler/ResidueFunctionBasis.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Kaehler/ResidueFunctionBasis.lean",
+        "source_blob": "d48579bfa3e95cf89eb81f71716e1891af792ea8",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Kaehler/ResidueFunctionBasis.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/Kaehler/SmoothCotangentTrdeg.lean",
+      "sha256": "a24e668d72a04d7a810ec625f92daf8d6f250323b3215743228265a00ff4f513",
+      "bytes": 4512,
+      "git_blob": "7fe53c7c98bd6b07d01456fcbf7dbb39233d9162",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/Kaehler/SmoothCotangentTrdeg.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/Kaehler/SmoothCotangentTrdeg.lean",
+        "source_blob": "6772423b0e6421f3afa1d7e02f6650438564424f",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/Kaehler/SmoothCotangentTrdeg.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/RingTheory/QuasiFinite/Algebraic.lean",
+      "sha256": "0464d04841ce018963385c84192cb7c7c4bd6dbf1b4df188a732f95cd24a49a3",
+      "bytes": 1039,
+      "git_blob": "403a5a73bf1e81f739fa9bcee6193d5e9709bec7",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/RingTheory/QuasiFinite/Algebraic.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/RingTheory/QuasiFinite/Algebraic.lean",
+        "source_blob": "403a5a73bf1e81f739fa9bcee6193d5e9709bec7",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/RingTheory/QuasiFinite/Algebraic.lean"
+      },
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "Colib/Topology/JacobsonOpenCover.lean",
+      "sha256": "e9c4ab879abb9ca309ebf0cfabf802476b518c737f3b4f079870df1ec36bb55d",
+      "bytes": 1381,
+      "git_blob": "f216aaacbc4c836b5d22316daeba47b923add12f",
+      "source_location": "strict-a1-work/finite-local-zero/successor/Colib/Topology/JacobsonOpenCover.lean",
+      "owner_manifest": "strict-a1-work/finite-local-zero/SOURCE_MANIFEST.json",
+      "owner_manifest_sha256": "0481f43cfe72bb1fcc5528d9f16da7b0975eb33b92f2eaf1138f05ccaf3348cd",
+      "original_provenance": {
+        "source_path": "Motivic/Aglib/Topology/JacobsonOpenCover.lean",
+        "source_blob": "b7d1437b5f6c83a362684e60c363a6bd8de11761",
+        "source_url": "https://github.com/kangxyz/motivic/blob/a6805c4a87cdfd7717dd7a94039246a167f15380/Motivic/Aglib/Topology/JacobsonOpenCover.lean"
+      },
+      "validation": "COMPILER PASSED ONLY; full acceptance pending",
+      "compiler_receipt": {
+        "run_id": "1794382291987440474",
+        "exit_code": 0,
+        "source_sha256": "e9c4ab879abb9ca309ebf0cfabf802476b518c737f3b4f079870df1ec36bb55d",
+        "output_hashes": {
+          "leaf.olean": "7e1457e7c604d9a9cddc92c1dd899de75aa2a939160b3b9949c949e7fcdc673e",
+          "leaf.ir.sig": "f05a759666de6d954e5d32b880c3d8510936f096600365911a2783d23cdddef9",
+          "leaf.olean.server": "a3d8fc8cdf60db9fe5a0c5d62492cdc48cdecb3deb1a47b805887927cd38359a",
+          "leaf.ilean": "02f9e45b3d53d336440c084e150c7ee3468f880ff896a864059d4a8545c23772",
+          "leaf.olean.private": "ec06143f1d1bd26dd137e17ff4809480f9fc5859eaca73980607908a5da250ab",
+          "leaf.ir": "c1ce63a6f3e88cd5d36296707f15fa9944280414462f4b850f86944b8722afdf"
+        },
+        "final_sha256": "3f62921ba1c48bfdd3313b31fa95097827c4f6817ec0986945a9a957860e132a"
+      }
+    },
+    {
+      "path": "ColibTest/StrictA1DegreeZero.lean",
+      "sha256": "f819f2cd5a809e1567d90bd546cccbd0112410c1f7397c708e777b0feb4d85a2",
+      "bytes": 3462,
+      "git_blob": "a32b0db28017bfc34858ae126fe0fb24315b1310",
+      "source_location": "strict-a1-work/foundation-tests/ColibTest/StrictA1DegreeZero.lean",
+      "owner_manifest": "strict-a1-work/foundation-tests/SHA256SUMS",
+      "owner_manifest_sha256": "b9762aadece7037f6b919c567f58a86b31d90b98a73e9b6b9a10f538a84a695a",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    },
+    {
+      "path": "ColibTest/TransferOrdinarySource.lean",
+      "sha256": "c009576a3f68b97772835395932238ddfe60e3a49b03ff8fbd1e0ad56b4d7d28",
+      "bytes": 1864,
+      "git_blob": "a82a7757bd13ee1186eb67892733266fcdd63b39",
+      "source_location": "strict-a1-work/foundation-tests/ColibTest/TransferOrdinarySource.lean",
+      "owner_manifest": "strict-a1-work/foundation-tests/SHA256SUMS",
+      "owner_manifest_sha256": "b9762aadece7037f6b919c567f58a86b31d90b98a73e9b6b9a10f538a84a695a",
+      "original_provenance": {},
+      "validation": "NOT COMPILED"
+    }
+  ],
+  "pins": {
+    "lean-toolchain": "leanprover/lean4:v4.35.0",
+    "lake-manifest": {
+      "version": "1.3.0",
+      "packagesDir": ".lake/packages",
+      "packages": [
+        {
+          "url": "https://github.com/AxiomMath/Stacks",
+          "type": "git",
+          "subDir": null,
+          "scope": "",
+          "rev": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7",
+          "name": "Stacks",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7",
+          "inherited": false,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/mathlib4",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+          "name": "mathlib",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+          "inherited": false,
+          "configFile": "lakefile.lean"
+        },
+        {
+          "url": "https://github.com/leanprover-community/plausible",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+          "name": "plausible",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "main",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/LeanSearchClient",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+          "name": "LeanSearchClient",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "main",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/import-graph",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+          "name": "importGraph",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "main",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/ProofWidgets4",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+          "name": "proofwidgets",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "main",
+          "inherited": true,
+          "configFile": "lakefile.lean"
+        },
+        {
+          "url": "https://github.com/leanprover-community/aesop",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+          "name": "aesop",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "master",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/quote4",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+          "name": "Qq",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "master",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover-community/batteries",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover-community",
+          "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+          "name": "batteries",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "main",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        },
+        {
+          "url": "https://github.com/leanprover/lean4-cli",
+          "type": "git",
+          "subDir": null,
+          "scope": "leanprover",
+          "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+          "name": "Cli",
+          "manifestFile": "lake-manifest.json",
+          "inputRev": "v4.35.0",
+          "inherited": true,
+          "configFile": "lakefile.toml"
+        }
+      ],
+      "name": "Colib",
+      "lakeDir": ".lake",
+      "fixedToolchain": false
+    }
+  },
+  "foundation_original_blobs": {
+    "Motivic/Cohomology/A1/Basic.lean": "b2bd41fcf3b449c6e0a2b11a66429287eeab9e40",
+    "Motivic/Cohomology/A1/StrictInvariance/DegreeZero.lean": "8bcc6186e6ece037a08b6f6a22abc2d13ba6883c",
+    "Motivic/Transfers/Cohomology/Ext/OrdinarySource.lean": "3299b08d82e4b2c4634406d1fdaa9958a3c0bc71"
+  }
+}
