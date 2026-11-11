@@ -26,7 +26,7 @@ open CategoryTheory.Waldhausen.AlgebraicGrothendieck
 universe u
 namespace AlgebraicGeometry.Scheme.Modules
 variable {U X U' X' : Scheme.{u}} [hU : CompactSpace U] [hX : CompactSpace X]
-  [hU' : CompactSpace U'] [hX' : CompactSpace X']
+  [hX' : CompactSpace X']
   (j : U ⟶ X) (j' : U' ⟶ X') [IsOpenImmersion j] [IsOpenImmersion j']
   (p : X' ⟶ X) (q : U' ⟶ U) (h : q ≫ j = j' ≫ p)
 

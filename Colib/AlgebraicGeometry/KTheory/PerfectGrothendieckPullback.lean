@@ -33,7 +33,7 @@ namespace AlgebraicGeometry.Scheme.Modules
 @[colib_ref "quillen"
   "Quillen/AlgebraicGeometry/PerfectComplexes/GrothendieckPullback.lean:33"
   "adaptation" "Original derived Grothendieck pullback through actual K comparison"]
-def perfectGrothendieckPullback {X Y : Scheme.{u}} [CompactSpace X] [CompactSpace Y]
+def perfectGrothendieckPullback {X Y : Scheme.{u}} [CompactSpace Y]
     (f : X ⟶ Y) : Group (perfectComplexesWaldhausen Y.toRingedSpace) →+ Group
       (perfectComplexesWaldhausen X.toRingedSpace) :=
   ((perfectGrothendieckKZeroEquiv X).symm.toMonoidHom.comp
@@ -44,7 +44,7 @@ def perfectGrothendieckPullback {X Y : Scheme.{u}} [CompactSpace X] [CompactSpac
   "Quillen/AlgebraicGeometry/PerfectComplexes/GrothendieckPullback.lean:39"
   "adaptation" "Original derived Grothendieck pullback through actual K comparison"]
 theorem perfectGrothendieckPullback_comparison {X Y : Scheme.{u}}
-    [CompactSpace X] [CompactSpace Y] (f : X ⟶ Y) (x : Group (perfectComplexesWaldhausen
+    [CompactSpace Y] (f : X ⟶ Y) (x : Group (perfectComplexesWaldhausen
       Y.toRingedSpace)) :
     perfectGrothendieckKZeroEquiv X (Multiplicative.ofAdd (perfectGrothendieckPullback f x)) =
       perfectKPullback f 0 (perfectGrothendieckKZeroEquiv Y (Multiplicative.ofAdd x)) :=
@@ -55,7 +55,7 @@ theorem perfectGrothendieckPullback_comparison {X Y : Scheme.{u}}
   "Quillen/AlgebraicGeometry/PerfectComplexes/GrothendieckPullback.lean:46"
   "adaptation" "Original derived Grothendieck pullback through actual K comparison"]
 theorem perfectGrothendieckPullback_comp {X Y Z : Scheme.{u}}
-    [CompactSpace X] [CompactSpace Y] [CompactSpace Z] (f : X ⟶ Y) (g : Y ⟶ Z) :
+    [CompactSpace Y] [CompactSpace Z] (f : X ⟶ Y) (g : Y ⟶ Z) :
     perfectGrothendieckPullback (f ≫ g) =
       (perfectGrothendieckPullback f).comp (perfectGrothendieckPullback g) := by
   apply AddMonoidHom.ext
@@ -74,7 +74,7 @@ theorem perfectGrothendieckPullback_comp {X Y Z : Scheme.{u}}
   "Quillen/AlgebraicGeometry/PerfectComplexes/GrothendieckPullback.lean:62"
   "adaptation" "Original derived Grothendieck pullback through actual K comparison"]
 theorem perfectGrothendieckPullback_restrict {U X : Scheme.{u}}
-    [CompactSpace U] [CompactSpace X] (j : U ⟶ X) [IsOpenImmersion j] :
+    [CompactSpace X] (j : U ⟶ X) [IsOpenImmersion j] :
     perfectGrothendieckPullback j =
       map (perfectComplexesWaldhausen X.toRingedSpace) (perfectComplexesRestrictOpenImmersion j)
         (perfectComplexesRestrictOpenImmersion_isExact j) := by
@@ -91,7 +91,7 @@ theorem perfectGrothendieckPullback_restrict {U X : Scheme.{u}}
   "Quillen/AlgebraicGeometry/PerfectComplexes/GrothendieckPullback.lean:75"
   "adaptation" "Original derived Grothendieck pullback through actual K comparison"]
 theorem perfectGrothendieckPullback_boundedFlat_objectClass {X Y : Scheme.{u}}
-    [CompactSpace X] [CompactSpace Y] (f : X ⟶ Y) (K : (boundedAboveFlatPerfectComplex
+    [CompactSpace Y] (f : X ⟶ Y) (K : (boundedAboveFlatPerfectComplex
       Y.toRingedSpace).FullSubcategory) :
     perfectGrothendieckPullback f
       (objectClass (perfectComplexesWaldhausen Y.toRingedSpace) ((boundedAboveFlatPerfectInclusion
