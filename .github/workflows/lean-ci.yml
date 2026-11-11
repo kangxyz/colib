@@ -382,6 +382,57 @@ jobs:
         if: ${{ !inputs.prepared-dependencies }}
         working-directory: ${{ inputs.package-directory }}
         run: &mathlib-cache-get lake exe cache get
+      - name: Stage pinned Mathlib cache for local reuse
+        if: ${{ github.ref == 'refs/heads/codex/weight-one-final-ci-20261111' }}
+        timeout-minutes: 15
+        working-directory: ${{ inputs.package-directory }}
+        run: |
+          staged="$RUNNER_TEMP/weight-one-mathlib-cache"
+          test ! -e "$staged"
+          mkdir -p "$staged"
+          test "$(git -C .lake/packages/mathlib rev-parse HEAD)" = 56a005855ea17e0b0958f73ec801ae140b0a1679
+          git -C .lake/packages/mathlib diff --exit-code HEAD -- '*.lean' lean-toolchain lake-manifest.json
+          lake --no-build exe cache stage! --staging-dir="$staged" Mathlib
+          MATHLIB_CACHE_DIR="$staged" lake --no-build exe cache lookup Mathlib > "$staged/root-lookup.txt"
+          python3 - <<'PYEXPORT'
+          import hashlib, json, os, re, shutil, subprocess
+          from pathlib import Path
+          staged = Path(os.environ['RUNNER_TEMP']) / 'weight-one-mathlib-cache'
+          files = sorted(staged.glob('*.ltar'))
+          assert files and all(p.is_file() and not p.is_symlink() and
+              re.fullmatch(r'[0-9a-f]{16}\.ltar', p.name) for p in files)
+          assert shutil.disk_usage(staged).free > sum(p.stat().st_size for p in files) + 5 * 1024**3
+          checksums = []
+          for p in files + [staged / 'root-lookup.txt']:
+              with p.open('rb') as stream:
+                  checksums.append(hashlib.file_digest(stream, 'sha256').hexdigest() + '  ' + p.name)
+          (staged / 'SHA256SUMS').write_text('\n'.join(checksums) + '\n')
+          manifest = json.loads(Path('lake-manifest.json').read_text())
+          producer = {
+              'repository': os.environ['GITHUB_REPOSITORY'], 'revision': os.environ['GITHUB_SHA'],
+              'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+              'compiler': subprocess.check_output(['lean', '--version'], text=True).strip(),
+              'lean_toolchain': Path('lean-toolchain').read_text().strip(),
+              'packages': {p['name']: p['rev'] for p in manifest['packages']},
+              'root': 'Mathlib', 'ltar_count': len(files),
+              'manifest_sha256': hashlib.sha256(Path('lake-manifest.json').read_bytes()).hexdigest(),
+              'checksums_sha256': hashlib.sha256((staged / 'SHA256SUMS').read_bytes()).hexdigest(),
+              'scope': 'Pinned upstream Mathlib import closure; compilation cache, not Colib validation'}
+          (staged / 'producer.json').write_text(json.dumps(producer, indent=2) + '\n')
+          PYEXPORT
+          tar -cf "$RUNNER_TEMP/weight-one-mathlib-cache.tar" -C "$staged" .
+          (cd "$RUNNER_TEMP" && sha256sum weight-one-mathlib-cache.tar > weight-one-mathlib-cache.tar.sha256)
+      - name: Upload pinned Mathlib cache for local reuse
+        if: ${{ github.ref == 'refs/heads/codex/weight-one-final-ci-20261111' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: weight-one-pinned-mathlib-cache
+          path: |
+            ${{ runner.temp }}/weight-one-mathlib-cache.tar
+            ${{ runner.temp }}/weight-one-mathlib-cache.tar.sha256
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 7
       - name: Restore published native dependency caches
         if: ${{ !inputs.prepared-dependencies }}
         working-directory: ${{ inputs.package-directory }}
