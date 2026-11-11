@@ -1,0 +1,14 @@
+[entry]
+id = "COL-0549"
+title = "Normalized row operations and refined cone boundaries"
+kind = "definition"
+section = "bass-construction"
+order = 89
+statement = "A based self-homotopy H of a map f : F → Row(E,q) determines the original inverse-prefix-normalized map F → parameterLooping(Row(E,q)). Its positive levels are the specified normalized self-tracks, and its zero level is the explicit double-loop transpose of the positive operation applied to the original structure map. For a diagram square with a basepoint-preserving, coefficient-natural row interchange satisfying the two-structure equation, a supplied diagonal self-cell gives the refined cone map by this normalization followed by parameter looping of the original inclusion."
+scope = "The source self-cell is supplied. The fixed inverse-prefix cancellation and right-associated null-conjugation word are unchanged. The source space needs no local-compactness assumption. This construction does not identify the result with a separately prescribed cofiber nullhomotopy and does not assert moving-prefix naturality, a Bass equivalence, generator recognition or localization."
+proof_kind = "outline"
+proof = "Curry the continuous fixed-prefix family and its original cancellation without adding local compactness. Prove basepoint and positive structure equations using pointwise naturality of the original normalization. Define level zero by the actual double-loop transpose and prove its structure equation. For the diagram square, use the native row carrier, corner comparison and cone inclusion, and compose their supplied diagonal cell with the normalized operation."
+review = "author_checked"
+primary = "Topology.LoopPrespectrum.RowRefinement.normalizedOperation"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

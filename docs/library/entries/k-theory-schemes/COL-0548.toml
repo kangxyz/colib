@@ -1,0 +1,14 @@
+[entry]
+id = "COL-0548"
+title = "Global evaluation, geometric pullback and its exact inverse"
+kind = "comparison"
+section = "global-sections-and-parameters"
+order = 90
+statement = "For every scheme X, normalized identity evaluation from the original global cocartesian section category to the small category of native bounded-above flat perfect complexes has an exact categorical inverse and induces a stable equivalence of the associated prespectra. For every scheme morphism f : X → Y, the two routes consisting of global section reindexing followed by evaluation and evaluation followed by normalized geometric pullback are connected by the specified whole prespectrum homotopy. The comparison also intertwines the forward action of each unit of Γ(X, O_X)."
+scope = "No quasi-compactness or flatness hypothesis on f is added. Bounded-above flat means native perfect sheaf complexes with an upper term bound and flat terms, not bounded strictly perfect complexes. Both chosen-zero normalizations and the original inverse unit/counit are retained. This is not the omitted localized equivalence, K-group naturality or perfect-inclusion comparison, and it proves no TT endpoint."
+proof_kind = "outline"
+proof = "Use the original evaluation equivalence and AsSmall equivalence, transport the chosen evaluation functor by its zero-normalization isomorphism, prove exactness of its actual inverse, and apply ExactModelEquivalence.isStableEquivalence. Whisker the actual geometric evaluation transition with the two zero normalizations to construct the whole pullback homotopy. Naturality of the same scalar automorphism gives the displayed unit square."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.evaluationModel_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

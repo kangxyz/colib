@@ -1,0 +1,14 @@
+[entry]
+id = "COL-0551"
+title = "Finite Bass strictification of the returned tensor action"
+kind = "theorem"
+section = "returned-tensor-cells"
+order = 20
+statement = "For each fixed parameter scheme Q, every finite Bass stage i and scheme-index object X, the independently returned-tensor-started row-cell recursion equals the original scheme-model row cell. Applying the original inverse-prefix normalization and refined cone inclusion identifies its entire normalized forward map with the original scheme-model normalized boundary at that same stage."
+scope = "The starting action is tensorModelMap followed by evaluationInverseModel, with its actual returned isomorphism and unit intertwining, not a newly stipulated action or comparison hypothesis. The generic scheme specialization uses its stated unit-preservation and intertwining hypotheses. Native geometric square maps and their actual diagonal remain unchanged. This is an equality of constructed finite-stage maps; it is not a stable equivalence, a generated-tensor recipe/recurrence theorem, a family theorem, a cofiber-null comparison or the TT localization endpoint."
+proof_kind = "outline"
+proof = "Use the actual polynomial/Laurent square and its diagonal factorization to supply the original scheme row seed. Specialize the already proved generic returned-action row-cell recursion to the existing native scheme-model diagram. Its all-stage whole-cell equality is transported through the same diagonal cell, normalized operation and refined cone inclusion. Instantiate this with the actual returned tensor functor, return isomorphism, scalar transformation and proved intertwining."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.strictifiedNormalizedForward_eq"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -455,6 +455,7 @@ class LibraryTests(unittest.TestCase):
 "perfect-pullback": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "global-sections-and-parameters": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
 "tensor-unit-prisms": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorModelUnit",
+"returned-tensor-cells": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
 "affine-evaluation": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "affine-bass-constructions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
             "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
@@ -471,6 +472,10 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0548": "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalEvaluationEquivalence",
+            "COL-0549": "Colib.Topology.Prespectrum.RowNormalizedOperation",
+            "COL-0550": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
+            "COL-0551": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedStrictification",
             "COL-0058": "Colib.Topology.ClassifyingSpace.NerveHomotopy",
             "COL-0098": "Colib.Analysis.Convex.StdSimplex.BoundaryRetraction",
             "COL-0388": "Colib.AlgebraicGeometry.Correspondences.Exterior.Graph",
@@ -1482,6 +1487,34 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(item["section"], "tensor-unit-prisms")
             self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
 
+
+
+    def test_returned_geometric_items_keep_owners_and_primaries(self):
+        expected = {'COL-0548': {'chapter': 'k-theory-schemes',
+                      'section': 'global-sections-and-parameters',
+                      'primary': 'AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.evaluationModel_isStableEquivalence',
+                      'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalEvaluationEquivalence'},
+         'COL-0549': {'chapter': 'k-theory',
+                      'section': 'bass-construction',
+                      'primary': 'Topology.LoopPrespectrum.RowRefinement.normalizedOperation',
+                      'module': 'Colib.Topology.Prespectrum.RowNormalizedOperation'},
+         'COL-0550': {'chapter': 'k-theory-schemes',
+                      'section': 'returned-tensor-cells',
+                      'primary': 'AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.returnedPasting',
+                      'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell'},
+         'COL-0551': {'chapter': 'k-theory-schemes',
+                      'section': 'returned-tensor-cells',
+                      'primary': 'AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.strictifiedNormalizedForward_eq',
+                      'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedStrictification'}}
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, want in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], want["section"])
+            self.assertEqual(item["path"],
+                             f"docs/library/entries/{want['chapter']}/{identifier}.toml")
+            self.assertEqual(item["primary"], want["primary"])
+            declaration = built["declarations"][want["primary"]]
+            self.assertEqual(declaration["module"], want["module"])
 
 if __name__ == "__main__":
     unittest.main()

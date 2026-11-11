@@ -1,0 +1,14 @@
+[entry]
+id = "COL-0550"
+title = "Geometric tensor cells returned through exact evaluation"
+kind = "comparison"
+section = "returned-tensor-cells"
+order = 10
+statement = "Fix a parameter scheme Q and a scheme-index object X. Construct the tensor-unit coefficient cell independently as the ordered double simplicial cylinder, prolong it through every finite S-stage and evaluate its input at the original global section model. Its realization is the actual first-row tensor-unit transformation cell. Compose the tensor model with the exact global-evaluation inverse to obtain the returned action R and its specified return isomorphism e. The returned cell T and movement E satisfy a whole endpoint-relative homotopy from I followed by E to E followed by T, where I is the original ambient initial cell. Evaluation and return preserve the complete at-t spectrum maps, not merely their endpoints or induced homotopy classes."
+scope = "Native perfect sheaf complexes, their existing bounded-above flat full subcategory, exact maps and chosen zeros are unchanged. Finite S-stages retain unequal source object/morphism universes in the AsSmall transport. The ordered realization is row time outside unit time; the pasting comparison has its own independent time, and level zero retains the extra input-loop coordinate. Q is fixed in the geometric endpoint claim. No later ReturnedTensorFamily, generator recognition, coefficient K1 identification, recurrence or additional parameter/coefficient naturality is asserted."
+proof_kind = "outline"
+proof = "Construct the actual tensor coefficient simplex and identify its ordered cylinder, then carry it through AsSmall and finite S-constructions. Input precomposition and row realization identify the independently evaluated tensor cylinder with the whole tensor-model cell, in positive levels and degree zero. The evaluation unit and actual tensor unitor construct e through the exact inverse, and the original unit square proves its intertwining. Realize that square with endpoint-relative row pasting, retaining its full boundary. Postcomposition at unchanged time proves the initial and returned whole-spectrum identities."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.returnedPasting"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -129,6 +129,7 @@ COL-0538 = "The restriction of COL-0535 can now retain its Waldhausen data as we
 COL-0539 = "The ambient and supported diagrams of COL-0534 retain the global section objects. To form the relative-open diagram, change only which maps become weak after the original open restriction. Its factorization remembers that the relative model and the actual model on the open are different objects."
 COL-0540 = "The raw unit of COL-0537 now supplies a whole realized track. Restricting the same unit, rather than choosing another automorphism, gives the supported track. Its comparison with the ambient track keeps every homotopy time through the actual support-forgetting map."
 COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-0539. The first comparison is the identity on the original unit, while the second uses its fixed-factor pullback law. Thus both arrows of the restriction factorization retain the entire Laurent track without claiming a localization equivalence."
+COL-0548 = "Global sections retain the original geometric fibers while making reindexing strict. Their identity evaluation now has its actual exact inverse. The whole comparison with geometric pullback retains both chosen zeros and the forward scalar action, so the later tensor cell can be returned to the same section category."
 
 [[sections]]
 id = "tensor-unit-prisms"
@@ -143,3 +144,13 @@ COL-0544 = "Insert the tensor coefficient as a genuine first row rather than rep
 COL-0545 = "Use the first-row scalar comparison to identify the coefficient prism while preserving its endpoints. Reindexing the two grid directions and the nerve-cylinder direction separately gives the simultaneous naturality equation, before any later parameter normalization."
 COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
 COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
+
+[[sections]]
+id = "returned-tensor-cells"
+title = "Returned tensor cells and finite Bass strictification"
+order = 59
+introduction = "The independently realized tensor-unit cell is returned through the exact global-evaluation inverse to the original section category. The same actual returned action supplies the concrete data for the existing finite Bass row-cell recursion. The resulting normalized forwards agree at every finite stage; tensor-generator recognition and nonconnective localization remain outside this section."
+
+[sections.transitions]
+COL-0550 = "The coefficient prisms of COL-0547 provide a comparison of the actual tensor action with evaluated section units. Realize that comparison in the original first row, with both cylinder directions still visible. The exact evaluation inverse returns the entire cell and its moving endpoint to the original section category, yielding an endpoint-relative comparison there."
+COL-0551 = "The returned tensor action now supplies the concrete data required by the abstract returned-action iteration of COL-0531. Run that original recursion on each finite geometric Bass square, then normalize its whole cell before the original cone inclusion. The resulting map agrees with the existing normalized forward at every finite stage, without yet claiming generated-trace recognition or localization."
