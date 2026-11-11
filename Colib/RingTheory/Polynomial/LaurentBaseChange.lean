@@ -62,7 +62,7 @@ lemma polynomial_isPushout {R S : CommRingCat.{u}} (f : R ⟶ S) :
       simpa only [Polynomial.map_X] using hx
 
 /-- The native Laurent coefficient map preserves every original constant. -/
-@[simp, colib_ref "aglib"
+@[colib_ref "aglib"
   "Aglib/Algebra/Polynomial/Laurent/BaseChange.lean:95"
   "adaptation" "Original coefficient pushout, same evaluation and literal forward coordinate"]
 lemma laurentMap_C {R S : CommRingCat.{u}} (f : R ⟶ S) (r : R) :
@@ -71,7 +71,7 @@ lemma laurentMap_C {R S : CommRingCat.{u}} (f : R ⟶ S) (r : R) :
   AddMonoidAlgebra.mapRingHom_single f.hom 0 r
 
 /-- The native Laurent coefficient map fixes every original monomial. -/
-@[simp, colib_ref "aglib"
+@[colib_ref "aglib"
   "Aglib/Algebra/Polynomial/Laurent/BaseChange.lean:99"
   "adaptation" "Original coefficient pushout, same evaluation and literal forward coordinate"]
 lemma laurentMap_T {R S : CommRingCat.{u}} (f : R ⟶ S) (n : ℤ) :
@@ -168,7 +168,7 @@ lemma laurent_isPushout {R S : CommRingCat.{u}} (f : R ⟶ S) :
       rwa [laurentMap_T] at hx
 
 /-- The actual native polynomial coefficient maps preserve composition. -/
-@[simp, colib_ref "aglib"
+@[colib_ref "aglib"
   "Aglib/Algebra/Polynomial/Laurent/BaseChange.lean:171"
   "adaptation" "Original coefficient pushout, same evaluation and literal forward coordinate"]
 lemma polynomialMap_comp {R S T : CommRingCat.{u}} (f : R ⟶ S) (g : S ⟶ T) :
@@ -180,7 +180,7 @@ lemma polynomialMap_comp {R S T : CommRingCat.{u}} (f : R ⟶ S) (g : S ⟶ T) :
   exact (Polynomial.map_map f.hom g.hom p).symm
 
 /-- The actual native Laurent coefficient maps preserve composition. -/
-@[simp, colib_ref "aglib"
+@[colib_ref "aglib"
   "Aglib/Algebra/Polynomial/Laurent/BaseChange.lean:178"
   "adaptation" "Original coefficient pushout, same evaluation and literal forward coordinate"]
 lemma laurentMap_comp {R S T : CommRingCat.{u}} (f : R ⟶ S) (g : S ⟶ T) :
