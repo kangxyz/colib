@@ -438,6 +438,8 @@ class LibraryTests(unittest.TestCase):
             "exact-categories": "Colib.CategoryTheory.ExactCategory.Basic",
             "bicategories": "Colib.CategoryTheory.Bicategory.IsoQuotient",
             "restricted-spans": "Colib.CategoryTheory.QConstruction.Basic",
+            "pointed-simplicial-presheaves":
+                "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",

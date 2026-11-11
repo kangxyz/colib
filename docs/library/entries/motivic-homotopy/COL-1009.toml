@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1009"
+title = "Reduced suspension and the native simplicial circle"
+kind = "comparison"
+section = "pointed-simplicial-presheaves"
+order = 10
+primary = "CategoryTheory.PointedSimplicialPresheaf.reducedSuspensionCircleIso"
+statement = '''
+For a pointed simplicial presheaf \(X\), the cofiber of
+\(X\to *\) is naturally isomorphic to \(X\wedge S^1_s\).
+Here \(S^1_s\) is the constant presheaf of the native simplicial
+circle in the required simplex universe. The isomorphism
+identifies the map out of the actual reduced cone with the
+smash of the identity on \(X\) and the interval quotient.
+'''
+proof = '''
+The native circle coequalizes the two vertices of the standard
+interval. Universe lift and the constant presheaf functor
+preserve this coequalizer, and product with \(X\) preserves it.
+A map out of the reduced cone that kills the cone inclusion
+therefore descends to the product with the circle. It respects
+the two axes, so it descends to the smash. This gives the
+pushout universal property on the original maps.
+'''
+scope = '''
+The comparison holds for pointed simplicial presheaves on an
+arbitrary category. On simplices, the universe comparison
+preserves the original order map. The constant circle and
+smash description of suspension correspond to
+[@MorelVoevodsky1999, Section 3.2, pp. 110–111].
+'''
+review = "author_checked"

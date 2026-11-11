@@ -333,3 +333,19 @@ authors = ["kangxyz and Aglib contributors"]
 version = "Git commit 4f65be4eafa8964bd1f7a83682e99aa8165bd418"
 url = "https://github.com/kangxyz/aglib/tree/4f65be4eafa8964bd1f7a83682e99aa8165bd418"
 locator_roots = ["Aglib"]
+
+[sources.MorelVoevodsky1999]
+kind = "article"
+title = "A1-homotopy theory of schemes"
+authors = ["Fabien Morel", "Vladimir Voevodsky"]
+year = 1999
+version = "Publications Mathématiques de l’IHÉS, volume 90, pages 45–143"
+url = "https://numdam.org/item/PMIHES_1999__90__45_0/"
+
+[sources.Voevodsky2003ModTwo]
+kind = "article"
+title = "Motivic cohomology with Z/2-coefficients"
+authors = ["Vladimir Voevodsky"]
+year = 2003
+version = "Publications Mathématiques de l’IHÉS, volume 98, pages 59–104"
+url = "https://numdam.org/item/10.1007/s10240-003-0010-6.pdf"

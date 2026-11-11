@@ -1,0 +1,11 @@
+[chapter]
+id = "motivic-homotopy"
+title = "Motivic Homotopy"
+order = 56
+introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site."
+
+[[sections]]
+id = "pointed-simplicial-presheaves"
+title = "Pointed simplicial presheaves"
+order = 10
+introduction = "The reduced cone and the native simplicial circle give two descriptions of suspension. Their comparison retains the quotient map from the cone."
