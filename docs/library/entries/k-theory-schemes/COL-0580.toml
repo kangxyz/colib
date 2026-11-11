@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0580"
+title = "The integral Spec-to-fine telescope comparison"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1580
+statement = '''
+For Q over Spec of the lifted integers and a ring object a under the lifted integers, the
+component at a of fineTelescopeComparison Q is a stable equivalence. This comparison is the
+Spec-whiskered parameter-telescope isomorphism followed by the actual global-to-coefficient
+telescope restriction.
+'''
+scope = '''
+For Q over Spec of the lifted integers and every coefficient object a under the lifted integers,
+the Spec-whiskered parameter telescope maps stably to the native coefficient ambient Bass
+telescope. This is the integral Spec-to-fine comparison, not a localization or G7 endpoint.
+'''
+proof_kind = "outline"
+proof = '''
+Verify the actual parameter/coefficient square, scalar track and seed compatibility; construct the
+rowwise telescope isomorphism. The fine comparison is its forward map composed with
+global-to-coefficient telescope restriction, and stability follows by composition.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.fineTelescopeComparison_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

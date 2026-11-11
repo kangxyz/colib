@@ -138,6 +138,8 @@ COL-0540 = "The raw unit of COL-0537 now supplies a whole realized track. Restri
 COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-0539. The first comparison is the identity on the original unit, while the second uses its fixed-factor pullback law. Thus both arrows of the restriction factorization retain the entire Laurent track without claiming a localization equivalence."
 COL-0548 = "Global sections retain the original geometric fibers while making reindexing strict. Their identity evaluation now has its actual exact inverse. The whole comparison with geometric pullback retains both chosen zeros and the forward scalar action, so the later tensor cell can be returned to the same section category."
 COL-0572 = "COL-0571 exchanges cone directions before specialization. For schemes, the corresponding integer-base index swap and its sixteen cell identities assemble into a natural geometric permutation."
+COL-0579 = "The section-unit identities identify the global and coefficient Laurent seeds. Their exact restriction maps therefore remain stably invertible through the finite Bass stages and the telescope."
+COL-0580 = "Combine the integral Spec square with the parameter-row seed identity to obtain a telescope isomorphism. Composing it with the global-to-coefficient restriction gives the actual fine comparison."
 
 [[sections]]
 id = "tensor-unit-prisms"

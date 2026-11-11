@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0577"
+title = "Finite Bass preservation for exact model equivalences"
+kind = "theorem"
+section = "bass-construction"
+order = 1577
+statement = '''
+For a square functor Q on a category C and zero-preserving model diagrams F and G, let η : F ⟶ G
+be a natural transformation. Suppose each η_X is exactly the forward functor of an equivalence e_X
+and each inverse functor is exact. For every finite stage i and object X, the actual map obtained
+by applying strictDiagramIterate Q i to η and the prespectrum functor is a stable equivalence.
+'''
+scope = '''
+Exact categorical equivalences whose forward functors are exactly the given zero-preserving model
+maps induce stable equivalences of every finite Bass iterate; the inverse functors must be exact.
+The general linear-growth version retains its topology and growth hypotheses.
+'''
+proof_kind = "outline"
+proof = '''
+Supply the established point HEP, T1 and all-point growth properties of the original iterated-S
+models to finite Bass preservation, then identify the actual forward map with the
+exact-equivalence comparison.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.modelDiagramIterate_map_isStableEquivalence_of_exactEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

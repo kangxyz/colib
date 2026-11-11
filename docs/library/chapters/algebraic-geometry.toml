@@ -121,3 +121,5 @@ charts, these maps assemble into the opposite index square and retain the
 projection to its original source leg.
 '''
 COL-0536 = "The independent-factor products of COL-0532 also transport an open immersion in the fixed factor. As the scheme parameter varies, the two product maps retain the entire commuting square. This gives the actual open-pair family used for supported sections in COL-0534."
+COL-0578 = "Polynomial and Laurent base-change squares provide the geometric comparison required to apply the index-change construction to the integral Spec functor."
+
