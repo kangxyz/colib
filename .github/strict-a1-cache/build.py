@@ -46,17 +46,55 @@ def source(module):
 
 
 def imports(path):
-    # Remove nested Lean comments before inspecting the source header.
+    # Lex only the header. Comments or strings inside proof bodies are irrelevant.
     text = path.read_text()
-    text = re.sub(r'--[^\n]*', '', text)
-    while '/-' in text:
-        new = re.sub(r'/-(?:(?!/-|-/)[\s\S])*-/', '', text)
-        require(new != text, 'Unclosed source comment: ' + str(path))
-        text = new
+    pos = 0
+    def token():
+        nonlocal pos
+        while pos < len(text):
+            if text[pos].isspace():
+                pos += 1
+            elif text.startswith('--', pos):
+                end = text.find('\n', pos)
+                pos = len(text) if end < 0 else end + 1
+            elif text.startswith('/-', pos):
+                pos += 2
+                depth = 1
+                while depth and pos < len(text):
+                    if text.startswith('/-', pos):
+                        depth += 1
+                        pos += 2
+                    elif text.startswith('-/', pos):
+                        depth -= 1
+                        pos += 2
+                    else:
+                        pos += 1
+                require(depth == 0, 'Unclosed header comment: ' + str(path))
+            else:
+                match = re.match(r"[A-Za-z_][A-Za-z0-9_'.]*", text[pos:])
+                if match:
+                    pos += len(match[0])
+                    return match[0]
+                return None
+        return None
     result = []
-    pattern = r"(?m)^\s*(?:(?:public|private|meta)\s+)*import\s+([A-Za-z_][A-Za-z0-9_'.]*(?:[ \t]+[A-Za-z_][A-Za-z0-9_'.]*)*)"
-    for match in re.finditer(pattern, text):
-        result.extend(match[1].split())
+    current = token()
+    while current in ('module', 'prelude'):
+        current = token()
+    while current is not None:
+        while current in ('public', 'private', 'meta'):
+            current = token()
+        if current != 'import':
+            break
+        current = token()
+        if current == 'all':
+            current = token()
+        require(current is not None, 'Missing imported module: ' + str(path))
+        result.append(current)
+        current = token()
+        while current and current[0].isupper() and current not in ('module', 'prelude'):
+            result.append(current)
+            current = token()
     return result
 
 

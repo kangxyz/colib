@@ -10,8 +10,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: ${{ vars.COLIB_PARALLEL_RUNNER_ENABLED != 'true' && 'Colib EC2' || format('Colib CI-{0}', github.ref) }}
-  cancel-in-progress: false
+  group: Colib CI-refs/heads/ci/strict-a1-dependencies-20261111
+  cancel-in-progress: true
   queue: max
 
 defaults:
@@ -25,7 +25,7 @@ env:
 
 jobs:
   build:
-    name: Build exact strict A1 dependencies
+    name: lean / Build
     if: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner }}
     runs-on: ${{ vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true' && fromJSON(format('["colib-ci-run-{0}-{1}"]', github.run_id, github.run_attempt)) || fromJSON('["colib-dependency-warmup"]') }}
     timeout-minutes: 240
