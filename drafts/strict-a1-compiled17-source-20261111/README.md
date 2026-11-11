@@ -1,0 +1,3 @@
+# Strict A1 canonical source checkpoint
+
+Source backup only. 247 frozen sources, including the exact compiled17 packet (15 production and 2 consumers) and two separately recorded compiler-passed leaves. All other sources are outside that passing scope. Family batch03 supersedes the failed batch02 and is uncompiled. Basic and DegreeZero retain namespace warnings. Compilation uses validation baseline db74eb2403109105cc51ceba1a4e8a8391a4543c, not the observed current main. No lint, axiom, full strict theorem, or merge acceptance is claimed. No compilation or CI is requested by this backup. See manifest.json for UTC cutoff, pins, hashes, warnings, provenance and exclusions.
