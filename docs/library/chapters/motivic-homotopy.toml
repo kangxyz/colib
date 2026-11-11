@@ -9,3 +9,15 @@ id = "pointed-simplicial-presheaves"
 title = "Pointed simplicial presheaves"
 order = 10
 introduction = "The reduced cone and the native simplicial circle give two descriptions of suspension. Their comparison retains the quotient map from the cone."
+
+[[sections]]
+id = "eilenberg-mac-lane-representatives"
+title = "Nisnevich Eilenberg–Mac Lane representatives"
+order = 20
+introduction = '''Use the Nisnevich points of COL-1010 and the K-injective comparison of COL-1014 to represent the actual integral and cone-coefficient motivic cohomology groups.'''
+
+[[sections]]
+id = "tate-sphere-and-suspension"
+title = "The pointed Tate quotient"
+order = 30
+introduction = '''Point the native affine line and multiplicative group at one. The Laurent open gives the Tate quotient and its cone maps. The target of the affine-line collapse is the reduced suspension used in COL-1009.'''

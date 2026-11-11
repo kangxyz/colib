@@ -214,6 +214,19 @@ projectively corepresented additive functor, then identifies hypercohomology at
 the site object with the cohomology of its sections complex.
 '''
 
+COL-1011 = '''
+For a pointed simplicial presheaf, replace the single representing sheaf of
+COL-0342 by its reduced normalized chains. The fiber comparison retains the
+simplex generators and the specified basepoint when passing to the stalk.
+'''
+
+COL-1014 = '''
+COL-1013 supplies the weak-equivalence invariance used with COL-1011. The
+reduced cochains therefore descend to the stalkwise localization. Apply
+Dold–Kan to the good truncation of the shifted K-injective coefficient to
+identify maps into its actual pointed representative with reduced derived Hom.
+'''
+
 [[sections]]
 id = "ext-products"
 title = "External Ext products"

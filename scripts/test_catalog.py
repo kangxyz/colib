@@ -438,6 +438,9 @@ class LibraryTests(unittest.TestCase):
             "exact-categories": "Colib.CategoryTheory.ExactCategory.Basic",
             "bicategories": "Colib.CategoryTheory.Bicategory.IsoQuotient",
             "restricted-spans": "Colib.CategoryTheory.QConstruction.Basic",
+            "tate-sphere-and-suspension": "Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere",
+            "eilenberg-mac-lane-representatives":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane",
             "pointed-simplicial-presheaves":
                 "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",

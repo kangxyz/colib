@@ -349,3 +349,26 @@ authors = ["Vladimir Voevodsky"]
 year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 59–104"
 url = "https://numdam.org/item/10.1007/s10240-003-0010-6.pdf"
+
+[sources.Voevodsky2003ReducedPowers]
+kind = "article"
+title = "Reduced power operations in motivic cohomology"
+authors = ["Vladimir Voevodsky"]
+year = 2003
+version = "Publications Mathématiques de l’IHÉS, volume 98, pages 1–57"
+url = "https://numdam.org/item/10.1007/s10240-003-0009-z.pdf"
+
+[sources.mathlib_dold_kan_pin]
+kind = "software"
+title = "Mathlib normalized Moore complexes and simplicial chain homotopies"
+authors = ["The mathlib community"]
+version = "Git commit 56a005855ea17e0b0958f73ec801ae140b0a1679"
+url = "https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[sources.May1967SimplicialObjects]
+kind = "book"
+title = "Simplicial Objects in Algebraic Topology"
+authors = ["J. Peter May"]
+year = 1967
+version = "Author-hosted scan with original pagination"
+url = "https://www.math.uchicago.edu/~may/BOOKS/Simp.pdf"

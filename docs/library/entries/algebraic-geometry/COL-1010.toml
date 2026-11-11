@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1010"
+title = "Enough points on the smooth Nisnevich site"
+kind = "theorem"
+section = "nisnevich-sites"
+order = 40
+primary = "AlgebraicGeometry.Scheme.SmoothSite.nisnevichTopology_hasEnoughPoints"
+review = "author_checked"
+statement = '''
+Let \(S\) be a quasi-separated scheme in universe \(u\), and equip its smooth
+separated finite-type category with the Nisnevich topology of COL-0340. Use a
+small affine basis of smooth objects over \(S\). At each scheme point \(x\) of
+a basis object \(U\), take the cofiltered diagram of affine étale maps
+\(V\to U\) marked by a lift of \(\operatorname{Spec}\kappa(x)\to U\). These
+diagrams define a small conservative family of site points in universe \(u\)
+and in universe \(u+1\). In either universe, a sieve on a smooth object \(X\)
+is covering exactly when each germ of the representable of \(X\) at each point
+of the family lifts through a member of the sieve.
+'''
+proof = '''
+Pull a covering sieve back to a marked neighborhood. Nisnevich field lifting
+lifts its marking, and an affine refinement gives a new marked neighborhood.
+The original map on this refinement factors through a member of the sieve.
+This gives the cover-lifting condition for the site point.
+
+Conversely, factor a field-valued point of \(X\) through its residue field and
+choose an affine basis open through its image. A lift of the associated germ
+through the sieve yields, after refinement of the representatives, an étale
+neighborhood map in the sieve. Its marking lifts the given residue point. The
+étale members of the sieve thus lift all field-valued points, which is the
+Nisnevich covering criterion.
+'''
+scope = '''
+Both `HasEnoughPoints` instances use the same marked neighborhood diagrams.
+The construction adapts the Nisnevich point family in
+[@MorelVoevodsky1999, Section 3.1, pp. 99–100, before Lemma 1.11].
+'''
