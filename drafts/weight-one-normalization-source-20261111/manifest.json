@@ -24,9 +24,9 @@
       "proposed_destination": "Colib/Algebra/Homology/Embedding/SingleComponent.lean",
       "kind": "production",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 1926,
-      "sha256": "9143f34b86ba7837db83583f953e7f3cffb273c9d52eca2ee798fc55295da181",
-      "git_blob_sha1": "25ad1a79278fdbab96274c515f0d667aecef4aa2"
+      "bytes": 1915,
+      "sha256": "26787aab4543965cdea611749c3331c7cf33d737d55ec4182d2698c089f2cff7",
+      "git_blob_sha1": "a383601a2ea7991af00a880d1e874102ecd12502"
     },
     {
       "source": "sources/Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/ChainNormalization.lean",
@@ -78,9 +78,9 @@
       "proposed_destination": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/TargetNormalization.lean",
       "kind": "production",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 6993,
-      "sha256": "fa34751ed6fdd77f18e6489ab94922e1c75e2ee9c839806ac3c4af2085dc2c70",
-      "git_blob_sha1": "e5da9f5982d638d875ca6c20f8e9fa35d2ec7cbb"
+      "bytes": 6982,
+      "sha256": "f19c3e3e82709ccaaef42e4f9be9449fc8299bb37b687cba0e14623904719ca8",
+      "git_blob_sha1": "62f3014d973a6dc576313023dc84619e56f2eee6"
     },
     {
       "source": "sources/ColibTest/WeightOneRecoveredComponents.lean",
@@ -114,36 +114,36 @@
       "proposed_destination": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/NormCoordinates.lean",
       "kind": "production",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 4646,
-      "sha256": "a3fa3919c306ef91ed29a7b60047420134639d3411b142c55b0696a70ad65d87",
-      "git_blob_sha1": "4d2563d5d5526a1703cce45cd171c1e12388330b"
+      "bytes": 4635,
+      "sha256": "43e137dab97b0c185e81dd6ae3eee32b267db549f2c9090eff0a82f13a0e94f4",
+      "git_blob_sha1": "bce4cf288eaf86724b811f83c6ec4acfca83955a"
     },
     {
       "source": "sources/ColibTest/ActualWeightOneNormCoordinates.lean",
       "proposed_destination": "ColibTest/ActualWeightOneNormCoordinates.lean",
       "kind": "consumer",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 2560,
-      "sha256": "886ecfbdafce16fac802f905dcb287402a440db28a58afeaf04cdc5978b3b8d0",
-      "git_blob_sha1": "5afa6405fa051c2d8111f5b988460a982e69db3e"
+      "bytes": 2549,
+      "sha256": "09ddf3d0613a9fc3526b44a2f10776633090928a41e75e4525022a5fb19c8be4",
+      "git_blob_sha1": "e8bb94494cd39173cc60980a2fc2c2c59805021f"
     },
     {
       "source": "sources/Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitNormalization.lean",
       "proposed_destination": "Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitNormalization.lean",
       "kind": "production",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 4334,
-      "sha256": "8122076a0f7cee82c219a867ab607e4fc4119bce8c6f328969babf586bab2b91",
-      "git_blob_sha1": "8db1426aaad983745fcdca6840a08b0a47e01086"
+      "bytes": 4323,
+      "sha256": "268f85a900b51973e90fb7e34751ca30b2eaeb7b59e7e39511c9e4f02702edc3",
+      "git_blob_sha1": "70d3f64645c1d14d0c6dccf0f45f2ff6434b651f"
     },
     {
       "source": "sources/ColibTest/ActualUnitNormalization.lean",
       "proposed_destination": "ColibTest/ActualUnitNormalization.lean",
       "kind": "consumer",
       "status": "NOT_COMPILED_NOT_NATIVE_ACCEPTED",
-      "bytes": 2009,
-      "sha256": "8c760469fcdaa23df8333e6a109d50a78c5bdb17a09e6699b16522e60894ce9f",
-      "git_blob_sha1": "e4b597c6f230606ce55b033b3b558e22ba575ed1"
+      "bytes": 1998,
+      "sha256": "869fdaf4fd6866dfed05f561364cfc1b7a3d026dd77fe64f4c66a53daaaca977",
+      "git_blob_sha1": "6ea746fecdb6545108e319042070a507d03c99a3"
     },
     {
       "source": "sources/Colib/AlgebraicGeometry/MotivicCohomology/Finite/WeightOne.lean",
@@ -206,5 +206,17 @@
     "Resolve elaboration and proof failures, then run the applicable repository checks, tests, linters, native export, axiom audit, and Library validation.",
     "Reconcile live main, permanent IDs COL-1007 and COL-1008, chapter placement, root imports, and exact source correspondence before a later contribution.",
     "Obtain independent mathematical review before claiming independent review or established status."
-  ]
+  ],
+  "authorship_correction": {
+    "parent_snapshot": "ee5e3ee95babd2761a22bccdabdaa99af0d592c7",
+    "changed_files": [
+      "sources/Colib/Algebra/Homology/Embedding/SingleComponent.lean",
+      "sources/Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/TargetNormalization.lean",
+      "sources/Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/NormCoordinates.lean",
+      "sources/ColibTest/ActualWeightOneNormCoordinates.lean",
+      "sources/Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitNormalization.lean",
+      "sources/ColibTest/ActualUnitNormalization.lean"
+    ],
+    "scope": "Only six generic Authors lines changed to kangxyz. Copyright, license and every proof-body byte are unchanged. Source-only; no native acceptance is asserted."
+  }
 }
