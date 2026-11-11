@@ -1,0 +1,66 @@
+# Isolated successor: registration requires native acceptance and live-ID reconciliation.
+[entry]
+id = "COL-1008"
+title = "The integral weight-one norm and its rational graph inverse"
+kind = "comparison"
+section = "weight-one-comparison"
+order = 40
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-11"
+statement = '''
+Let \(k\) be a field. For the signed motivic complex of COL-0398 and the
+hypercohomology definition of COL-0399, the specified geometric comparison
+of COL-0403 induces an isomorphism
+\[
+N_k:H^{1,1}(\operatorname{Spec}k,\mathbb Z)\xrightarrow{\sim}k^\times.
+\]
+Its source is written additively and its target multiplicatively. If
+\(z=\sum_Z m_Z[Z]\) is a finite correspondence from the point to
+\(\mathbb G_m\), with forward coordinate \(t_Z\) on the finite support
+algebra \(A_Z\), then its actual integral cycle class satisfies
+\[
+N_k(\operatorname{cl}(z))
+ =\prod_Z\det_k(\mu_{t_Z}:A_Z\to A_Z)^{m_Z}.
+\]
+For a unit \(a\in k^\times\), the inverse sends \(a\) to the existing
+integral class of its rational graph \(\Gamma_a\). In particular,
+\(N_k(\operatorname{cl}(\Gamma_a))=a\), with no inversion or additional sign.
+'''
+scope = '''
+The field is arbitrary. The Lean target is \(\operatorname{Additive}(k^\times)\),
+and the coefficient category is `AddCommGrpCat.{u + 1}`. A chosen derived
+category is used only for the existing hypercohomology definition and its
+base-field evaluation. The forward map is identified with the actual derived
+sheaf comparison, not merely with an unspecified isomorphism of groups.
+The determinant uses the entire finite support algebra and retains all
+integer multiplicities, including negative multiplicities. No perfection,
+algebraic closure or separability assumption is added. This item does not
+assert arbitrary field-change compatibility, tower coherence, strict
+\(\mathbb A^1\)-invariance or a higher-weight computation.
+'''
+proof = '''
+Use the actual base-field evaluation of COL-0400 to pass to the raw singular
+complex. Its comparison with COL-0403 is already a quasi-isomorphism.
+To determine the induced map, first retain the zero-extension coordinates
+and the ordinary underlying singular comparison. Naturality of the transfer
+sheafification unit, followed by ordinary sheafification naturality, cancels
+these coordinates after evaluation. The units sheafification counit and the
+inverse zero-simplex pullback then identify the degree-one component with the
+geometric norm of COL-0401. The canonical spectrum coordinates give the
+stated determinant formula on literal point cycles.
+
+The shifted-single homology coordinate retains the original signed shift.
+The resulting raw norm is bijective because it is the homology map of the
+specified quasi-isomorphism. A rational graph has determinant equal to its
+unit, so injectivity identifies the inverse with that same graph class.
+Transporting this result through base-field evaluation gives the displayed
+integral isomorphism and its compatibility with the derived sheaf map.
+
+The public endpoints adapt
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Equivalence.lean]
+and the norm/graph conclusions of
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/HomologyNorm.lean].
+The component normalization here uses the existing sheaf comparison directly;
+it does not assert migration of every separate interpolation helper in those sources.
+'''
