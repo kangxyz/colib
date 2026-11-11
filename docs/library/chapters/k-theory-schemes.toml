@@ -145,6 +145,10 @@ COL-0545 = "Use the first-row scalar comparison to identify the coefficient pris
 COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
 COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
 COL-0556 = "COL-0544 and COL-0546 retain the actual coefficient row and its zero normalization. Specialize that construction to the degree-zero structure complex. Identifying the whole weak-object square, before taking a homotopy class, fixes the forward Laurent-unit orientation needed by returned-tensor recognition."
+COL-0560 = "Support preservation allows the actual tensor unit and its parameter tracks to restrict to the supported categories."
+COL-0561 = "With those supported units fixed, the coefficient rows retain their exactness and the input maps carry the corresponding normalization."
+COL-0562 = "The normalized coefficient rows then give whole coefficient cylinders, whose two time coordinates survive realization and native AsSmall transport."
+COL-0563 = "Finally, the raw evaluation-forget square passes through the specified zero-object rebases and native Model maps to the parameter forget rectangle."
 
 [[sections]]
 id = "returned-tensor-cells"

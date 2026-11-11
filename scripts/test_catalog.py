@@ -472,6 +472,16 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0559":
+                "Colib.CategoryTheory.Functor.IsoRouteTargetNormalization",
+            "COL-0560":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalTensorNormalizedSupport",
+            "COL-0561":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientExact",
+            "COL-0562":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientSmallCylinder",
+            "COL-0563":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorSupportedForgetRectangle",
             "COL-0556":
                 "Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitCoefficientKOne",
             "COL-0557":
@@ -1579,6 +1589,53 @@ class LibraryTests(unittest.TestCase):
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], section)
             self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_supported_forget_items_keep_native_owners(self):
+        expected = [
+            (
+                'COL-0559',
+                'functor-constructions',
+                'CategoryTheory.Functor.isoSquareTargetNormalization_rectangle',
+                'Colib.CategoryTheory.Functor.IsoRouteTargetNormalization',
+                'category-theory',
+            ),
+            (
+                'COL-0560',
+                'tensor-unit-prisms',
+                'AlgebraicGeometry.Scheme.Modules.GlobalTensorNormalizedSupport.supportedUnit_naturality',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalTensorNormalizedSupport',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0561',
+                'tensor-unit-prisms',
+                'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedTensorUnitFirstRow_exact',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientExact',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0562',
+                'tensor-unit-prisms',
+                'AlgebraicGeometry.Scheme.Modules.tensorSupportedPairSmallCoefficientCylinder_eq',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientSmallCylinder',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0563',
+                'tensor-unit-prisms',
+                'AlgebraicGeometry.Scheme.Modules.ParameterTensorSupportedRow.modelEvaluationForgetRectangle',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorSupportedForgetRectangle',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
             self.assertEqual(item["primary"], primary)
             self.assertEqual(built["declarations"][primary]["module"], module)
 

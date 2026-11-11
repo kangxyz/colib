@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0561"
+title = "Supported coefficient rows and input normalization"
+kind = "proposition"
+section = "tensor-unit-prisms"
+order = 1561
+statement = '''
+The first supported coefficient row of the tensor-unit construction is an exact functor.
+'''
+scope = '''
+The bounded-above flat perfect supported category and the specified coefficient row. Its relative
+cofibrations, row grids, pushouts and induced automorphisms are retained, together with the input
+and pair normalizations.
+'''
+proof_kind = "outline"
+proof = '''
+Construct the supported row from the actual tensor coefficient rows and their support conditions.
+Compare it with the original exact row by the row isomorphism. Transport the cofibration and
+pushout data through that comparison, and use the rowwise naturality identities for the input
+normalization.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedTensorUnitFirstRow_exact"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

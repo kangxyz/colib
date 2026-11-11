@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0563"
+title = "Supported tensor-forget rectangles"
+kind = "proposition"
+section = "tensor-unit-prisms"
+order = 1563
+statement = '''
+For an open immersion of schemes, the two specified parameter evaluation-forget routes are equal
+as natural isomorphisms between the associated Model functors.
+'''
+scope = '''
+The full supported tensor/evaluation/forget rectangle, including the source equality transport,
+the four zero-object normalizations, the AsSmall comparisons and the final parameter evaluation.
+'''
+proof_kind = "outline"
+proof = '''
+Prove the raw rectangle using the actual pullback-forget and tensor-evaluation comparisons.
+Conjugate its four corners by the chosen zero-object normalizations and apply the generic
+rectangle transport. Pass to AsSmall and Model, then specialize the resulting whole isomorphism
+equality to the parameter construction.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorSupportedRow.modelEvaluationForgetRectangle"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0560"
+title = "Supported tensor units and parameter tracks"
+kind = "proposition"
+section = "tensor-unit-prisms"
+order = 1560
+statement = '''
+For an open immersion of schemes, the tensor-unit automorphism on supported bounded-above flat
+perfect complexes commutes with the specified reindexing isomorphism.
+'''
+scope = '''
+The actual tensor unit, global-section scalar and supported parameter categories. The accompanying
+formulas identify its global normalization, its image under the support-forgetful functor and its
+restriction to the open subscheme.
+'''
+proof_kind = "outline"
+proof = '''
+Conjugate tensor multiplication by the tensor unitor and identify the resulting scalar
+automorphism after global-section evaluation. Use the fully faithful evaluation functor to recover
+the equality on complexes. Restrict the resulting naturality identity to the supported objects and
+their parameter tracks.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalTensorNormalizedSupport.supportedUnit_naturality"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0559"
+title = "Isomorphism-route rectangles under normalization"
+kind = "proposition"
+section = "functor-constructions"
+order = 1559
+statement = '''
+For a rectangle of natural isomorphisms, equality of its two composite routes is preserved when
+both targets are normalized by the specified natural isomorphisms.
+'''
+scope = '''
+Arbitrary categories and the functors and natural isomorphisms forming the rectangle. The
+companion results allow conjugation at all four corners and transport to AsSmall, without
+identifying distinct source or target functors.
+'''
+proof_kind = "outline"
+proof = '''
+Expand the two normalized composites and use associativity and naturality to move the
+normalization isomorphisms to the outside. Cancel each inverse-hom pair. The remaining equality is
+the original rectangle; applying the same route construction gives its AsSmall form.
+'''
+review = "author_checked"
+primary = "CategoryTheory.Functor.isoSquareTargetNormalization_rectangle"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

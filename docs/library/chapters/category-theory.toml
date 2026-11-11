@@ -219,6 +219,7 @@ Restriction of sections composes by precomposition. On the original coefficient 
 composition is expressed by the pseudofunctor constraint. Comparing the two descriptions
 requires the transports relating identity evaluations, including the unit comparison.
 '''
+COL-0559 = "Conjugation and target normalization preserve the entire rectangle, supplying the transport used below for native AsSmall routes."
 
 [[sections]]
 id = "waldhausen-categories"

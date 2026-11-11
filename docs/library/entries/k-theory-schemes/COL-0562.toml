@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0562"
+title = "Supported coefficient cylinders and parameter rows"
+kind = "proposition"
+section = "tensor-unit-prisms"
+order = 1562
+statement = '''
+The supported coefficient cylinder transported through AsSmall agrees with the specified
+normalized coefficient cylinder.
+'''
+scope = '''
+The entire coefficient cylinder, with independent row and coefficient time coordinates. The
+related formulas describe its realized spectrum homotopy and its evaluation on the parameter first
+row.
+'''
+proof_kind = "outline"
+proof = '''
+Use the naturality of the coefficient stage cylinder under precomposition to identify the
+supported cylinder. Apply the pair normalization and the row prism identities before realization.
+Transport the equality through AsSmall and evaluate both time coordinates, retaining the original
+cylinder throughout.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.tensorSupportedPairSmallCoefficientCylinder_eq"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
