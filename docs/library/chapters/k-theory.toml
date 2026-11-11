@@ -229,4 +229,5 @@ COL-0565 = "The finite Model topology and loop-strength comparisons make the str
 COL-0567 = "The same finite stage maps also preserve each prescribed null track at its unchanged time, supplying the comparison needed for null-based lifts."
 COL-0576 = "An index comparison of the actual square functors first identifies each finite Bass stage. Compatibility with the specified seeds then gives inverse maps on the whole telescopes."
 COL-0577 = "The index comparison preserves the actual maps. For zero-preserving model diagrams, exact categorical equivalences also give stable equivalences at every finite Bass stage."
+COL-0581 = "The natural cofiber comparison must preserve the specified null before it can be applied to a Laurent seed. The strict-diagram descent identity supplies this compatibility at every time."
 
