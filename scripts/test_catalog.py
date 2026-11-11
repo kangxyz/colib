@@ -1402,6 +1402,13 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("does not yet bundle", self.library["entries"]["COL-0535"]["scope"])
 
 
+    def test_joint_models_and_laurent_tracks_keep_scheme_owner(self):
+        for identifier in ['COL-0538', 'COL-0539', 'COL-0540', 'COL-0541']:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], "global-sections-and-parameters")
+            self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
+
+
 if __name__ == "__main__":
     unittest.main()
 

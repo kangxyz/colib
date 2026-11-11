@@ -1,0 +1,13 @@
+[entry]
+id = "COL-0538"
+title = "Exact joint coefficient models and global restriction"
+kind = "comparison"
+section = "global-sections-and-parameters"
+order = 50
+statement = "Fix a commutative ring R and the original joint scheme-and-coefficient index. Identity evaluation transports the bounded-flat perfect fiber Waldhausen structure to its coefficient sections, retaining the original chosen zero. Exact reindexing gives a strict diagram of zero-preserving models and its iterated-S prespectrum diagram. Global section restriction is a natural transformation of these exact models; its underlying functor is the original restriction, with the same identity evaluation. Each restriction component is an equivalence of categories, and both it and its specified inverse are exact."
+scope = "The scheme coordinate ranges over schemes over Spec R, not only affine schemes. The fibers remain the native Stacks-perfect bounded-flat complexes with their original admissible quotients. This upgrades the categorical restriction of COL-0535 to exact chosen-zero-preserving models. It does not assert a new levelwise or stable equivalence of prespectra, a Bass comparison, returned-action qualification or TT localization."
+proof_kind = "outline"
+proof = "Transport the original fiber structure through identity evaluation and retain the joint zero section. The evaluation comparison proves exactness of reindexing. Its strict functor and zero laws assemble the model diagram, followed by the existing prespectrum functor. The original global restriction and its literal naturality then bundle into model maps. Reflection through the evaluation equivalences proves inverse exactness."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatGlobalCoefficientModelRestriction"
+provenance = "quillen"

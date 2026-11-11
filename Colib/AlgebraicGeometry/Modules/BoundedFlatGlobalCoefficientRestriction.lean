@@ -6,7 +6,7 @@ Authors: Quillen K-theory contributors
 module
 
 public import Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSectionUnit
-public import Colib.AlgebraicGeometry.Modules.BoundedFlatCoefficientSections
+public import Colib.AlgebraicGeometry.Modules.BoundedFlatCoefficientSectionZero
 public import Colib.CategoryTheory.FiberedCategory.SectionChangeIndexZero
 public import Colib.CategoryTheory.FiberedCategory.SectionChangeIndexUnit
 
@@ -31,14 +31,6 @@ open CategoryTheory.GrothendieckZeroSections
 open AlgebraicGeometry.Scheme.BaseChange AlgebraicGeometry.Scheme.BaseChange.Coefficients
 universe u
 namespace AlgebraicGeometry.Scheme.Modules
-
-/-- The original joint section zero restricts the same global geometric zero family. -/
-def boundedAboveFlatCoefficientSectionZero {R : CommRingCat.{u}} (i : Index R) :
-    BoundedAboveFlatCoefficientSections i :=
-  sectionZero (boundedAboveFlatCoefficientPseudofunctor R)
-    (fun i => boundedAboveFlatGlobalFiberZero ((Coefficients.functor R).obj i))
-    (fun i => boundedAboveFlatGlobalFiberZero_isZero ((Coefficients.functor R).obj i))
-    (fun {_ _} f => boundedAboveFlatGlobalFiberZero_map_isZero ((Coefficients.functor R).map f)) i
 
 /-- Restriction is the actual functor along the complete joint coefficient family. -/
 @[colib_ref "quillen"
