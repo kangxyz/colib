@@ -78,8 +78,9 @@ attribute [colib_tag "COL-1015"]
   motivicNisnevichRepresentativeHomEquiv_naturality
   motivicFiniteNisnevichRepresentativeHomEquiv_naturality
 
-attribute [colib_ref "Voevodsky2003ReducedPowers" "Section 2, Theorem 2.1 and equation (2.9), pp. 3–5"
-  "ingredient" "The reduced derived-Hom formula used before affine-line localization"]
+attribute [colib_ref "Voevodsky2003ReducedPowers"
+  "Section 2, Theorem 2.1 and equation (2.9), pp. 3–5" "ingredient"
+  "The reduced derived-Hom formula used before affine-line localization"]
   motivicNisnevichRepresentativeHomEquiv motivicFiniteNisnevichRepresentativeHomEquiv
 
 end AlgebraicGeometry.MotivicHomotopy
