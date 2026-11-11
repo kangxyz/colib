@@ -57,7 +57,8 @@ theorem evaluationGraphIdeal_top :
   let e := (Scheme.ΓSpecIso (.of R[X])).symm.commRingCatIsoToRingEquiv
   change (Ideal.span {Polynomial.X - Polynomial.C a}).comap e.symm =
     Ideal.span {e (Polynomial.X - Polynomial.C a)}
-  rw [← Ideal.map_comap_of_equiv e, Ideal.map_span, Set.image_singleton]
+  rw [← Ideal.map_comap_of_equiv e, Ideal.map_span, Set.image_singleton,
+    RingEquiv.coe_toRingHom]
 
 /-- Monicity makes the equation regular over arbitrary, possibly nonreduced, coefficients. -/
 theorem evaluationGraphEquation_regular : IsRegular (evaluationGraphEquation R a) := by

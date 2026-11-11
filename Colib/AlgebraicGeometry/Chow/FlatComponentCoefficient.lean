@@ -88,6 +88,7 @@ theorem finiteCyclePushforward_comap_fundamentalCycle_apply_generic
       unfold closedImmersionQuotientStalkLength
       rw [Scheme.IdealSheafData.ker_subschemeι]
 
+omit [AlgebraicGeometry.IsNoetherian D] in
 /-- Actual flat pullback generic coefficients assemble with all original weights. -/
 theorem fundamentalCycle_apply_eq_sum_flat_components [Fintype (genericPoints D)]
     (x : genericPoints E) :
