@@ -1,0 +1,28 @@
+[entry]
+id = "COL-0574"
+title = "Twisted input maps preserve the chosen null homotopy"
+kind = "theorem"
+section = "supported-localization"
+order = 1574
+statement = '''
+Let \(A\), \(B\) and \(D\) be Laurent tracks, let \(a\) and \(b\) be equivariant input maps, and
+let \(N\) be a chosen null homotopy of their composite whose every time slice is equivariant. The
+normalized-to-twisted conjugacy commutes with the induced null homotopies at every scheme,
+spectrum level, homotopy time and telescope point.
+'''
+scope = '''
+The generic statement retains the original whole-time equivariance hypothesis on \(N\). The
+full-open and auxiliary-support applications use their already proved chosen null and
+equivariance; the comparison does not replace that null by a different witness.
+'''
+proof_kind = "outline"
+proof = '''
+First use naturality of the conjugating isomorphism to obtain the twisted transition square and
+hence the twisted input map. Descend the original finite-stage null through the telescope.
+Quotient induction reduces the whole-height null square to the finite conjugacy identity, keeping
+the null time unchanged.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.SchemeNaturalSeed.conjugacyTelescopeMap_null"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

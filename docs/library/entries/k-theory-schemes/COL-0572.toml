@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0572"
+title = "Naturality of geometric cone permutation"
+kind = "comparison"
+section = "global-sections-and-parameters"
+order = 1572
+statement = '''
+The double geometric cone functor on prespectrum-valued functors on schemes admits the natural
+permutation isomorphism obtained by exchanging its two cone directions.
+'''
+scope = '''
+Naturality includes maps of prespectrum-valued functors, scheme pullbacks, and an external scheme
+parameter \(U\) over \(\operatorname{Spec}\mathbb Z\). The accompanying formulas retain all
+target, upper, lower and overlap cells; no flatness or compactness assumption is introduced.
+'''
+proof_kind = "outline"
+proof = '''
+Build the actual integer-base index transports and the cone target isomorphism. Check the sixteen
+pairs of cells and descend through the strict-square cell eliminator. The scheme and diagram
+identities assemble the component isomorphisms into a natural isomorphism; the external square
+follows from the corresponding index-factor and swap identities.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.GeometricConeInterchange.permutationFunctorIso"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

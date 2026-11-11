@@ -69,6 +69,9 @@ COL-0566 = "Applying those finite stable comparisons to the specified scheme-ind
 COL-0568 = "The full-open selected null has the scalar compatibility required to pass through the current and normalized telescope constructions."
 COL-0569 = "For auxiliary support, actual full-open acyclicity constructs the chosen-zero null and its two-time compatibility before telescope comparison."
 COL-0570 = "The stable maps on all three objects and the same-time null squares now compare stability of the current and normalized fiber lifts."
+COL-0573 = "COL-0570 compares current and normalized lifts. The next object-level comparison changes normalized transitions to twisted ones using the fixed geometric cone words and finite loop reversal."
+COL-0574 = "The conjugacy maps must also commute with the input maps and with the same chosen null at every time. Whole-time equivariance allows these finite identities to descend to the two telescopes."
+COL-0575 = "The three stable object maps from COL-0573 and the unchanged-null square from COL-0574 now supply the hypotheses of fiber-lift naturality. This compares the two stability assertions without assuming either one."
 
 [[sections]]
 id = "perfect-pullback"
@@ -134,6 +137,7 @@ COL-0539 = "The ambient and supported diagrams of COL-0534 retain the global sec
 COL-0540 = "The raw unit of COL-0537 now supplies a whole realized track. Restricting the same unit, rather than choosing another automorphism, gives the supported track. Its comparison with the ambient track keeps every homotopy time through the actual support-forgetting map."
 COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-0539. The first comparison is the identity on the original unit, while the second uses its fixed-factor pullback law. Thus both arrows of the restriction factorization retain the entire Laurent track without claiming a localization equivalence."
 COL-0548 = "Global sections retain the original geometric fibers while making reindexing strict. Their identity evaluation now has its actual exact inverse. The whole comparison with geometric pullback retains both chosen zeros and the forward scalar action, so the later tensor cell can be returned to the same section category."
+COL-0572 = "COL-0571 exchanges cone directions before specialization. For schemes, the corresponding integer-base index swap and its sixteen cell identities assemble into a natural geometric permutation."
 
 [[sections]]
 id = "tensor-unit-prisms"

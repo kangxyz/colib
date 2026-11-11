@@ -483,6 +483,16 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0571":
+                "Colib.Topology.Prespectrum.StrictSquareConeInterchange",
+            "COL-0572":
+                "Colib.AlgebraicGeometry.KTheory.Bass.GeometricConeSchemeNaturality",
+            "COL-0573":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedTelescope",
+            "COL-0574":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedNull",
+            "COL-0575":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullTwistedFiberComparison",
             "COL-0564":
                 "Colib.Topology.Prespectrum.ZigzagSequentializationColimit",
             "COL-0565":
@@ -1795,6 +1805,53 @@ class LibraryTests(unittest.TestCase):
                 'supported-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_normalized_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentFiberComparison',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_normalized_twisted_fiber_items_keep_native_owners(self):
+        expected = [
+            (
+                'COL-0571',
+                'homotopy-colimits',
+                'Topology.LoopPrespectrum.StrictSquare.coneInterchangeIso',
+                'Colib.Topology.Prespectrum.StrictSquareConeInterchange',
+                'topology',
+            ),
+            (
+                'COL-0572',
+                'global-sections-and-parameters',
+                'KTheory.Bass.GeometricConeInterchange.permutationFunctorIso',
+                'Colib.AlgebraicGeometry.KTheory.Bass.GeometricConeSchemeNaturality',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0573',
+                'supported-localization',
+                'KTheory.Bass.SchemeNaturalSeed.model_conjugacyTelescopeMap_stable',
+                'Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedTelescope',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0574',
+                'supported-localization',
+                'KTheory.Bass.SchemeNaturalSeed.conjugacyTelescopeMap_null',
+                'Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedNull',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0575',
+                'supported-localization',
+                'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.normalized_twisted_lift_stable_iff',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullTwistedFiberComparison',
                 'k-theory-schemes',
             ),
         ]
