@@ -409,6 +409,8 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
+            "laurent-coefficient-constructions":
+                "Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction",
             "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
             "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
             "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
@@ -483,6 +485,20 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0586":
+                "Colib.KTheory.Bass.StrictDiagramIndexRowMapTelescopeNaturality",
+            "COL-0587":
+                "Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction",
+            "COL-0588":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFiberBassTelescope",
+            "COL-0589":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedOpenKZeroExact",
+            "COL-0590":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFullOpenBassLocalization",
+            "COL-0591":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalAuxiliaryParameterTelescopeComparison",
+            "COL-0592":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentLocalization",
             "COL-0581":
                 "Colib.KTheory.Bass.StrictDiagramCofiberDescent",
             "COL-0582":
@@ -1966,6 +1982,67 @@ class LibraryTests(unittest.TestCase):
                 'global-sections-and-parameters',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.iterated_twisted_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterIteratedTwistedFiber',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_auxiliary_current_localization_keeps_three_chapters_and_native_owners(self):
+        expected = [
+            (
+                'COL-0586',
+                'bass-construction',
+                'KTheory.Bass.StrictDiagramIndexRowMap.telescopeMap_stable',
+                'Colib.KTheory.Bass.StrictDiagramIndexRowMapTelescopeNaturality',
+                'k-theory',
+            ),
+            (
+                'COL-0587',
+                'laurent-coefficient-constructions',
+                'KTheory.Bass.LaurentSeed.ModelAction.seedDiagramNull',
+                'Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction',
+                'k-theory-rings',
+            ),
+            (
+                'COL-0588',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeOpenConeMap_isStableEquivalence',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFiberBassTelescope',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0589',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedOpenModel_KZero_exact',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedOpenKZeroExact',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0590',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeFullOpenFiberMap_isStableEquivalence',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFullOpenBassLocalization',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0591',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.GlobalAuxiliaryParameterCoefficient.fiberTelescopeComparison_stable',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalAuxiliaryParameterTelescopeComparison',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0592',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryCurrentFiber.currentLift_integer_isStableEquivalence',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentLocalization',
                 'k-theory-schemes',
             ),
         ]

@@ -46,3 +46,13 @@ introduction = "Localization of finite modules over a Noetherian ring gives a co
 
 [sections.transitions]
 COL-0274 = "If \\(r^nM=0\\), the finite filtration by \\(r^iM\\) has\nquotients annihilated by \\(r\\). Those factors are\nmodules over \\(R/(r)\\). Dévissage identifies the\nsupported term through the original restriction-of-scalars\nmap, so the localization boundary transports through\nthat same equivalence.\n"
+
+[[sections]]
+id = "laurent-coefficient-constructions"
+title = "Laurent coefficient diagrams"
+order = 60
+introduction = "A coefficient diagram over a commutative ring carries its Laurent scalar action through the corresponding Waldhausen Models. When the specified zero endotransformation is weak, this action contracts the associated Bass seed by a coefficient-natural whole homotopy."
+
+[sections.transitions]
+COL-0587 = "The Laurent coefficient action supplies a seed track. Weakness of its specified zero endotransformation contracts that track while preserving coefficient naturality."
+
