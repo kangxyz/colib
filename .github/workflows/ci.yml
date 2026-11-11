@@ -1,4 +1,4 @@
-# Same authorized frozen-root proof batch, minimal error-repair phase2. No main merge, publication, or kernel replay.
+# Same authorized frozen-root proof batch, minimal error-repair phase3. No main merge, publication, or kernel replay.
 name: Colib CI
 
 on:
@@ -58,8 +58,46 @@ jobs:
       - name: Acquire the official pinned Mathlib cache
         timeout-minutes: 20
         run: lake exe cache get
-      - name: Compile the frozen proof DAG with actual package options
+      - name: Compile only the repaired upstream frontier
+        id: frontier
+        timeout-minutes: 185
+        run: |
+          set -euo pipefail
+          available=$(( $(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE) / 1048576 - 2048 ))
+          (( available > 0 ))
+          memory=57344
+          if (( available < memory )); then memory=$available; fi
+          printf 'Native compiler group memory %s MiB, at most eight independent module workers.\n' "$memory"
+          python3 -c "import json; p=json.load(open('.github/strict-a1-proof/phase2-overlay.json')); print('expand-successors='+str(p['expand_successors']).lower())" >> "$GITHUB_OUTPUT"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          set +e
+          sudo --preserve-env systemd-run --scope --quiet --collect --unit="${COMPILER_SCOPE%.scope}-frontier.scope" \
+            --uid="$(id -u)" --gid="$(id -g)" --property="MemoryMax=${memory}M" --property=MemorySwapMax=0 \
+            /usr/bin/env "PATH=$PATH" LEAN_NUM_THREADS=8 \
+            timeout --signal=INT --kill-after=60s 180m python3 -u .github/strict-a1-proof/build.py --frontier \
+            2>&1 | tee .lake/strict-a1-proof-result/frontier-build.log
+          statuses=("${PIPESTATUS[@]}")
+          set -e
+          printf '%s\n' "${statuses[0]}" > .lake/strict-a1-proof-result/frontier-process-exit.txt
+          printf 'true-exit=%s\n' "${statuses[0]}" >> "$GITHUB_OUTPUT"
+          test "${statuses[1]}" = 0
+          exit "${statuses[0]}"
+      - name: Publish immediate frontier diagnostics
+        if: ${{ always() && steps.frontier.outputs.attempted == 'true' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: strict-a1-frozen-proofs-frontier
+          path: |
+            .lake/strict-a1-proof-result/*.json
+            .lake/strict-a1-proof-result/*.txt
+            .lake/strict-a1-proof-result/*.log
+            .lake/strict-a1-proof-result/logs/*.log
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Expand successors only after every frontier target passes
         id: build
+        if: ${{ steps.frontier.outcome == 'success' && steps.frontier.outputs.expand-successors == 'true' }}
         timeout-minutes: 185
         run: |
           set -euo pipefail
@@ -70,10 +108,10 @@ jobs:
           printf 'Native compiler group memory %s MiB, at most eight independent module workers.\n' "$memory"
           echo 'attempted=true' >> "$GITHUB_OUTPUT"
           set +e
-          sudo --preserve-env systemd-run --scope --quiet --collect --unit="$COMPILER_SCOPE" \
+          sudo --preserve-env systemd-run --scope --quiet --collect --unit="${COMPILER_SCOPE%.scope}-remaining.scope" \
             --uid="$(id -u)" --gid="$(id -g)" --property="MemoryMax=${memory}M" --property=MemorySwapMax=0 \
             /usr/bin/env "PATH=$PATH" LEAN_NUM_THREADS=8 \
-            timeout --signal=INT --kill-after=60s 180m python3 -u .github/strict-a1-proof/build.py \
+            timeout --signal=INT --kill-after=60s 180m python3 -u .github/strict-a1-proof/build.py --remaining \
             2>&1 | tee .lake/strict-a1-proof-result/build.log
           statuses=("${PIPESTATUS[@]}")
           set -e
@@ -83,13 +121,16 @@ jobs:
           exit "${statuses[0]}"
       - name: Quiesce the exact compiler scope
         id: quiesce
-        if: ${{ always() && steps.build.outputs.attempted == 'true' }}
+        if: ${{ always() && (steps.frontier.outputs.attempted == 'true' || steps.build.outputs.attempted == 'true') }}
         timeout-minutes: 3
         run: |
           set -euo pipefail
-          if [[ "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" != not-found ]]; then
-            sudo systemctl stop "$COMPILER_SCOPE" || test "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" = not-found
-          fi
+          for stage in frontier remaining; do
+            scope="${COMPILER_SCOPE%.scope}-${stage}.scope"
+            if [[ "$(sudo systemctl show -p LoadState --value "$scope")" != not-found ]]; then
+              sudo systemctl stop "$scope" || test "$(sudo systemctl show -p LoadState --value "$scope")" = not-found
+            fi
+          done
       - name: Upload small proof build manifest and logs
         if: ${{ always() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
@@ -115,7 +156,7 @@ jobs:
           compression-level: 6
           retention-days: 14
       - name: Preserve separately labeled partial proof products
-        if: ${{ failure() && steps.build.outcome == 'failure' && steps.quiesce.outcome == 'success' }}
+        if: ${{ always() && steps.quiesce.outcome == 'success' && (steps.frontier.outcome == 'failure' || steps.build.outcome == 'failure' || (steps.frontier.outcome == 'success' && steps.build.outcome == 'skipped')) }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: strict-a1-frozen-proofs-partial
@@ -127,19 +168,34 @@ jobs:
       - name: Require the true complete result
         if: ${{ always() }}
         env:
+          EXPAND_SUCCESSORS: ${{ steps.frontier.outputs.expand-successors }}
+          FRONTIER_OUTCOME: ${{ steps.frontier.outcome }}
           BUILD_OUTCOME: ${{ steps.build.outcome }}
           QUIESCE_OUTCOME: ${{ steps.quiesce.outcome }}
         run: |
           set -euo pipefail
-          test "$BUILD_OUTCOME" = success
+          test "$FRONTIER_OUTCOME" = success
           test "$QUIESCE_OUTCOME" = success
-          test "$(cat .lake/strict-a1-proof-result/process-exit.txt)" = 0
+          if [[ "$EXPAND_SUCCESSORS" == true ]]; then
+            test "$BUILD_OUTCOME" = success
+            test "$(cat .lake/strict-a1-proof-result/process-exit.txt)" = 0
+          else
+            test "$BUILD_OUTCOME" = skipped
+            test "$(cat .lake/strict-a1-proof-result/frontier-process-exit.txt)" = 0
+          fi
           python3 - <<'PY'
           import json
           p = json.load(open('.lake/strict-a1-proof-result/producer.json'))
-          assert p['build_true_exit'] == 0 and p['completed_candidate_count'] == p['candidate_count'] == 439
-          assert not p['failures'] and not p['blocked_dependents'] and p['status'] == 'complete-frozen-candidate-compiler-check'
-          assert p['phase'] == 2 and p['no_new_mathematical_roots']
-          assert p['package_accepted_candidate_count'] == 438 and p['reused_baseline_candidate_count'] == 1
-          print('Verified439 frozen-root compiler DAG:438 candidate package-option checks plus one exact db74 baseline reuse. Prior passes are distinct from new checks. Not full strict A1 completion or kernel replay.')
+          import os
+          assert p['build_true_exit'] == 0 and p['phase'] == 3 and p['no_new_mathematical_roots']
+          assert p['frontier_gate_passed'] and not p['failures'] and not p['blocked_dependents']
+          if os.environ['EXPAND_SUCCESSORS'] == 'true':
+              assert p['completed_candidate_count'] == p['candidate_count'] == 439
+              assert p['status'] == 'complete-frozen-candidate-compiler-check'
+              assert p['package_accepted_candidate_count'] == 438 and p['reused_baseline_candidate_count'] == 1
+              print('Verified439 frozen-root compiler DAG. Not full strict A1 completion or kernel replay.')
+          else:
+              assert p['stage'] == 'frontier' and p['status'] == 'frontier-passed-awaiting-successors'
+              assert p['frontier_target_count'] == 37 and p['deferred_candidate_modules']
+              print('Verified37 repaired frontier only; remaining successors deliberately deferred. Not439 completion or kernel replay.')
           PY

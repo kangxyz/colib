@@ -27,7 +27,7 @@ open Stacks.Cohomology.FreeYonedaUnivLE
 universe w u
 
 namespace AlgebraicGeometry.SheafWithTransfers
-open Scheme Scheme.SmoothSite.Contraction
+open _root_.AlgebraicGeometry.Scheme Scheme.SmoothSite.Contraction
 
 variable {k : Type u} [Field k]
 variable [HasSheafify (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1}]

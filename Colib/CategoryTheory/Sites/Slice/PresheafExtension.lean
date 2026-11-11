@@ -10,7 +10,8 @@ public import Mathlib.CategoryTheory.Abelian.GrothendieckAxioms.Basic
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/CategoryTheory/Sites/Slice/PresheafExtension.lean`, blob `10ca5e8bdc5b736b324120f7c4748ba4673023fe`.
+`Motivic/Aglib/CategoryTheory/Sites/Slice/PresheafExtension.lean`,
+blob `10ca5e8bdc5b736b324120f7c4748ba4673023fe`.
 
  Additive extension from a slice is a sum indexed by structure maps, not a
 finite-limit-preserving functor of sites. -/

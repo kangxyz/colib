@@ -151,7 +151,11 @@ theorem finite_relativeCartier_zeroScheme_on_open_of_proper {C X S : Scheme.{u}}
         (pullbackGlobalSections j L a)).subschemeι ≫ (j ≫ p)) ∧
       IsRelativeEffectiveCartierDivisor (j ≫ p)
         (zeroScheme C ((Scheme.Modules.pullback j).obj L) (pullbackGlobalSections j L a)) := by
-  simpa only [Stacks.Divisors.zeroScheme_pullback j L a] using
+  let P : C.IdealSheafData → Prop := fun I =>
+    IsFinite (I.subschemeι ≫ (j ≫ p)) ∧ IsRelativeEffectiveCartierDivisor (j ≫ p) I
+  have hz : zeroScheme C ((Modules.pullback j).obj L) (pullbackGlobalSections j L a) =
+      (zeroScheme X L a).comap j := Stacks.Divisors.zeroScheme_pullback j L a
+  exact Eq.mp (congrArg P hz).symm
     (finite_relativeCartier_on_open_of_proper p j (zeroScheme X L a)
       (isLocallyPrincipal_zeroScheme X L a) h)
 

@@ -12,7 +12,8 @@ public import Mathlib.CategoryTheory.Sites.Pullback
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean`, blob `6dc37f4c93fcadbbb1ca30e45b6a6d9bdce4b10e`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean`,
+blob `6dc37f4c93fcadbbb1ca30e45b6a6d9bdce4b10e`.
 
  # The finite-type small Nisnevich site
 

@@ -67,10 +67,11 @@ theorem existsUnique_hom_of_disjoint_restrictions {X : Scheme.{u}} {ι : Type u}
       exact Scheme.Hom.image_mono _ le_top
     have hV : V = ⊥ := le_bot_iff.1 ((le_inf hVi hVj).trans
       (disjoint_iff.1 (hdisj hij)).le)
-    subst V
+    have : Subsingleton Γ(N, V) := by
+      rw [hV]
+      exact ⟨sections_empty_ext N⟩
     ext s
-    exact sections_empty_ext (X := X) N
-      ((localApp (a i) (e i) h₁) s) ((localApp (a j) (e j) h₂) s)
+    exact Subsingleton.elim _ _
 
 /-- Exact isomorphisms on disjoint components glue, including their inverses. -/
 theorem exists_iso_of_disjoint_restrictions {X : Scheme.{u}} {ι : Type u}

@@ -20,7 +20,7 @@ markings are retained. Geometric pencil production is not asserted here.
 open CategoryTheory AlgebraicGeometry Opposite
 universe u
 namespace AlgebraicGeometry.PresheafWithTransfers
-open Scheme
+open _root_.AlgebraicGeometry.Scheme
 
 /-- Literal lifting of restrictions of original sections, not all new sections. -/
 def HasRestrictionDifferenceLifting {k : Type u} [Field k]

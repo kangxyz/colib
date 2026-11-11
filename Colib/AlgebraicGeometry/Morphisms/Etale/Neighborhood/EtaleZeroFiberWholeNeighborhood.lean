@@ -10,7 +10,9 @@ public import Colib.AlgebraicGeometry.Morphisms.Etale.Neighborhood.AffineClosedS
 /-! # Whole closed neighborhoods after the actual zero-fiber base change -/
 
 /-!
-Adapted from `Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleZeroFiberWholeNeighborhood.lean` at
+Adapted from
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/EtaleZeroFiberWholeNeighborhood.lean`
+at
 `motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
 blob `fd862430cc9ba21f63b1609f50db3002a3c1767a`. The actual native cylinder, Laurent open,
 whole closed fiber and original residue marking are retained.

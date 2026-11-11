@@ -59,7 +59,7 @@ theorem exists_incidence_point_of_incidenceTorCorrespondence_ne_zero
     (c : (integralComponentAt b).subscheme) :
     ∃ a : correspondenceIncidence f g h z w,
       correspondenceIncidenceMap f g h z w a = (integralComponentAt b).subschemeι c := by
-  letI : IsFinite (correspondenceIncidenceMap f g h z w) :=
+  let : IsFinite (correspondenceIncidenceMap f g h z w) :=
     isFinite_correspondenceIncidenceMap f g h z w hz hw
   apply exists_point_over_integralComponent_of_finiteCyclePushforward_ne_zero
     (correspondenceIncidenceMap f g h z w) (incidenceTorCycle f g h z w hw) b

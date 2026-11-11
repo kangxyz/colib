@@ -42,10 +42,11 @@ variable {k L : Type u} [Field k] [Field L]
   {X Y Z : Scheme.{u}} (r : Spec (.of L) ⟶ Spec (.of k))
   (f : X ⟶ Spec (.of L)) (g : Y ⟶ Spec (.of L)) (h : Z ⟶ Spec (.of L))
   [IsSeparated r] [FormallyUnramified r] [LocallyOfFiniteType r]
-  [Smooth g] [Smooth h] [IsSeparated g] [IsSeparated h]
-  [Smooth (g ≫ r)] [Smooth (h ≫ r)]
+  [Smooth g] [Smooth h] [instIsSeparatedG : IsSeparated g] [IsSeparated h]
+  [Smooth (g ≫ r)] [instSmoothHR : Smooth (h ≫ r)]
   (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
 
+include instIsSeparatedG instSmoothHR in
 /-- Every native generic incidence coefficient survives the actual isomorphism pushforward. -/
 theorem forgetBase_incidenceTorCycle (hw : IsFiniteCorrespondencePoint g h w) :
     finiteCyclePushforward (forgetBaseIncidenceMap r f g h z w)

@@ -36,6 +36,9 @@ namespace AlgebraicGeometry.Scheme.RelativeCurvePencil
 
 variable {X Z : Scheme.{u}}
 
+local instance (L : X.Modules) [hL : IsInvertibleModule X L] :
+    AlgebraicGeometry.SheafOfModules.IsInvertible X.sheaf.obj X.ringCatSheaf.property L := hL
+
 /-- Multiplication by a global section, at the actual sheaf-module spelling. -/
 def sectionUnitHom (L : X.Modules) (s : Γ(L, ⊤)) :
     SheafOfModules.unit X.ringCatSheaf ⟶ L :=
@@ -43,8 +46,8 @@ def sectionUnitHom (L : X.Modules) (s : Γ(L, ⊤)) :
 
 @[simp]
 theorem sectionUnitHom_app_one (L : X.Modules) (s : Γ(L, ⊤)) :
-    (sectionUnitHom L s).app ⊤ 1 = s := by
-  rw [show (sectionUnitHom L s).app ⊤ 1 =
+    Modules.Hom.app (sectionUnitHom L s) ⊤ (1 : Γ(X, ⊤)) = s := by
+  rw [show Modules.Hom.app (sectionUnitHom L s) ⊤ (1 : Γ(X, ⊤)) =
     (1 : Γ(X, ⊤)) • L.presheaf.map (homOfLE (le_top : (⊤ : X.Opens) ≤ ⊤)).op s from
     Stacks.NonvanishingSpelling.unitHom_app X L s ⊤ 1]
   simp
@@ -58,8 +61,8 @@ theorem isIso_sectionUnitHom_of_zeroScheme_eq_top (L : X.Modules)
   intro U
   rw [ConcreteCategory.isIso_iff_bijective]
   change Function.Bijective (fun a : Γ(X, U.unop) =>
-    (sectionUnitHom L s).app U.unop a)
-  simp_rw [show ∀ a : Γ(X, U.unop), (sectionUnitHom L s).app U.unop a =
+    Modules.Hom.app (sectionUnitHom L s) U.unop a)
+  simp_rw [show ∀ a : Γ(X, U.unop), Modules.Hom.app (sectionUnitHom L s) U.unop a =
     a • L.presheaf.map (homOfLE (le_top : U.unop ≤ ⊤)).op s from
     fun a => Stacks.NonvanishingSpelling.unitHom_app X L s U.unop a]
   apply Stacks.NonvanishingSpelling.bijective_smul X L s
@@ -78,9 +81,9 @@ def frameOfZeroSchemeTop (L : X.Modules) [IsInvertibleModule X L]
 @[simp]
 theorem frameOfZeroSchemeTop_section (L : X.Modules) [IsInvertibleModule X L]
     (s : Γ(L, ⊤)) (hs : zeroScheme X L s = ⊤) :
-    (frameOfZeroSchemeTop L s hs).hom.app ⊤ s = 1 := by
-  letI := isIso_sectionUnitHom_of_zeroScheme_eq_top L s hs
-  have h := congrArg (fun m => m.app ⊤ (1 : Γ(X, ⊤)))
+    Modules.Hom.app (frameOfZeroSchemeTop L s hs).hom ⊤ s = (1 : Γ(X, ⊤)) := by
+  let := isIso_sectionUnitHom_of_zeroScheme_eq_top L s hs
+  have h := congrArg (fun m => Modules.Hom.app m ⊤ (1 : Γ(X, ⊤)))
     (IsIso.hom_inv_id (sectionUnitHom L s))
   simpa only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app,
     CategoryTheory.comp_apply, CategoryTheory.id_apply, sectionUnitHom_app_one] using h
@@ -101,8 +104,10 @@ theorem canonicalSection_zeroScheme_on_disjoint_boundary
     (h : Disjoint (Set.range i) (D.support : Set X)) :
     zeroScheme Z ((Modules.pullback i).obj (divisorSheaf D))
       (pullbackGlobalSections i (divisorSheaf D) (divisorSheafGlobalSection D)) = ⊤ := by
-  rw [Stacks.Divisors.zeroScheme_pullback, zeroScheme_canonicalSection]
-  exact divisor_comap_eq_top_of_disjoint D i h
+  exact (Stacks.Divisors.zeroScheme_pullback i (divisorSheaf D)
+    (divisorSheafGlobalSection D)).trans
+      ((congrArg (fun I : X.IdealSheafData => I.comap i)
+        (zeroScheme_canonicalSection D)).trans (divisor_comap_eq_top_of_disjoint D i h))
 
 /-- The actual frame of the graph line on a whole disjoint boundary. It is
 constructed from the canonical section and contains no supplied frame. -/
@@ -117,7 +122,7 @@ theorem canonicalDisjointBoundaryFrame_coordinate (D : X.IdealSheafData)
     [IsEffectiveCartierDivisor D] (i : Z ⟶ X)
     (h : Disjoint (Set.range i) (D.support : Set X)) :
     (canonicalDisjointBoundaryFrame D i h).hom.app ⊤
-      (pullbackGlobalSections i (divisorSheaf D) (divisorSheafGlobalSection D)) = 1 :=
+      (pullbackGlobalSections i (divisorSheaf D) (divisorSheafGlobalSection D)) = (1 : Γ(Z, ⊤)) :=
   frameOfZeroSchemeTop_section _ _ _
 
 variable {S V : Scheme.{u}} (q : X ⟶ S) (r : V ⟶ S)
@@ -127,7 +132,8 @@ variable {S V : Scheme.{u}} (q : X ⟶ S) (r : V ⟶ S)
 theorem relativeGraph_disjoint_boundary [IsSeparated r]
     (i : Z ⟶ pullback q r)
     (h : Disjoint (Set.range (i ≫ pullback.snd q r)) (Set.range φ)) :
-    Disjoint (Set.range i) ((relativeGraphIdeal q r φ hφ).support : Set (pullback q r)) := by
+    Disjoint (Set.range i)
+      ((relativeGraphIdeal q r φ hφ).support : Set (pullback q r : Scheme)) := by
   rw [relativeGraphIdeal, Scheme.Hom.support_ker,
     (IsClosedImmersion.isClosedEmbedding (relativeGraph q r φ hφ)).isClosed_range.closure_eq]
   apply Set.disjoint_left.2
@@ -151,7 +157,7 @@ theorem relativeGraphBoundaryFrame_coordinate [IsSeparated r]
     (h : Disjoint (Set.range (i ≫ pullback.snd q r)) (Set.range φ)) :
     (relativeGraphBoundaryFrame q r φ hφ i h).hom.app ⊤
       (pullbackGlobalSections i (divisorSheaf (relativeGraphIdeal q r φ hφ))
-        (divisorSheafGlobalSection (relativeGraphIdeal q r φ hφ))) = 1 :=
+        (divisorSheafGlobalSection (relativeGraphIdeal q r φ hφ))) = (1 : Γ(Z, ⊤)) :=
   canonicalDisjointBoundaryFrame_coordinate _ _ _
 
 end AlgebraicGeometry.Scheme.RelativeCurvePencil

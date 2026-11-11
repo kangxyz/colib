@@ -65,14 +65,14 @@ theorem ofFiniteFlatSpan_val [IsNoetherian A]
 theorem ofFiniteFlatSpan_id_left (a : X ⟶ Y) :
     ofFiniteFlatSpan (𝟙 X.left) a.left (by simp) =
       (graphFunctor k).map a := by
-  letI : IsReduced ((Functor.fromPUnit (Spec (.of k))).obj X.right) :=
+  let : IsReduced ((Functor.fromPUnit (Spec (.of k))).obj X.right) :=
     inferInstanceAs (IsReduced (Spec (.of k)))
-  letI : IsLocallyNoetherian ((Functor.fromPUnit (Spec (.of k))).obj X.right) :=
+  let : IsLocallyNoetherian ((Functor.fromPUnit (Spec (.of k))).obj X.right) :=
     inferInstanceAs (IsLocallyNoetherian (Spec (.of k)))
-  letI : IsNoetherian ((𝟭 Scheme).obj X.left) :=
+  let : IsNoetherian ((𝟭 Scheme).obj X.left) :=
     inferInstanceAs (IsNoetherian X.left)
   have : GeometricallyReduced X.hom := geometricallyReduced_of_smooth _
-  letI : IsReduced ((𝟭 Scheme).obj X.left) :=
+  let : IsReduced ((𝟭 Scheme).obj X.left) :=
     GeometricallyReduced.isReduced_of_flat_of_isLocallyNoetherian X.hom
   apply Subtype.ext
   exact finiteCyclePushforward_fundamentalCycle_graph X.hom Y.hom a.left

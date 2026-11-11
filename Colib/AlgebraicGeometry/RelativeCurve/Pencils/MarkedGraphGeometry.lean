@@ -65,10 +65,14 @@ theorem markedProductMap_isPullback :
       simp only [Category.assoc]
     refine ⟨pullback.lift (t.fst ≫ pullback.fst (j ≫ q) q) t.snd hc,
       ?_, pullback.lift_snd _ _ _, ?_⟩
-    · apply pullback.hom_ext
+    · change pullback.lift (t.fst ≫ pullback.fst (j ≫ q) q) t.snd hc ≫
+        markedProductMap q j z = t.fst
+      apply pullback.hom_ext
       · simp [markedProductMap]
       · simpa [markedProductMap] using t.condition.symm
     · intro v hv hw
+      change v ≫ markedProductMap q j z = t.fst at hv
+      change v ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q) = t.snd at hw
       apply pullback.hom_ext (f := j ≫ q) (g := z ≫ j ≫ q)
       · have he := congrArg (fun r ↦ r ≫ pullback.fst (j ≫ q) q) hv
         simpa [markedProductMap] using he
@@ -89,10 +93,13 @@ theorem compactificationGraphMarked_isPullback [Mono j] :
       have he := congrArg (fun r ↦ r ≫ pullback.snd (j ≫ q) q) t.condition
       simpa [compactificationGraph, relativeGraph, markedProductMap] using he.symm
     refine ⟨t.snd ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q), hz, ?_, ?_⟩
-    · apply pullback.hom_ext
+    · change (t.snd ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q)) ≫
+        markedProductGraph q j z = t.snd
+      apply pullback.hom_ext
       · simpa [markedProductGraph] using hz.trans hf
       · simp [markedProductGraph]
     · intro v _ hv
+      change v ≫ markedProductGraph q j z = t.snd at hv
       have he := congrArg (fun r ↦ r ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q)) hv
       simpa [markedProductGraph] using he)⟩
 
@@ -104,8 +111,8 @@ instance markedProductGraph_isClosedImmersion [IsSeparated q] [IsOpenImmersion j
     IsClosedImmersion (markedProductGraph q j z) := by
   have : IsClosedImmersion
       (markedProductGraph q j z ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q)) := by
-    simp [markedProductGraph]
-    infer_instance
+    simpa only [markedProductGraph, pullback.lift_snd] using
+      (inferInstance : IsClosedImmersion (𝟙 Z))
   exact IsClosedImmersion.of_comp _ (pullback.snd (j ≫ q) (z ≫ j ≫ q))
 
 /-- The restriction retains the actual kernel ideal, not just its support. -/
@@ -136,7 +143,8 @@ theorem compactificationGraphIdeal_isEffectiveCartierDivisor [IsSeparated q]
     MorphismProperty.of_isPullback (markedProductMap_isPullback q j (𝟙 Y)).flip hbase
   apply Stacks.Chow.isEffectiveCartierDivisor_of_comap_of_isOpenImmersion
     (compactificationGraph q j).ker (markedProductMap q j (𝟙 Y))
-  · change ((compactificationGraph q j).ker.support : Set _) ⊆ _
+  · change ((compactificationGraph q j).ker.support :
+      Set (pullback (j ≫ q) q : Scheme)) ⊆ _
     rw [Scheme.Hom.support_ker,
       (IsClosedImmersion.isClosedEmbedding (compactificationGraph q j)).isClosed_range.closure_eq]
     rintro _ ⟨y, rfl⟩

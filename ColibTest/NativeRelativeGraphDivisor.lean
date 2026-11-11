@@ -22,7 +22,7 @@ example : IsEffectiveCartierDivisor (relativeGraphIdeal q r φ hφ) := inferInst
 example : Flat ((relativeGraphIdeal q r φ hφ).subschemeι ≫ pullback.fst q r) :=
   (relativeCartier_relativeGraphIdeal q r φ hφ).2
 
-example : zeroScheme (pullback q r) (divisorSheaf (relativeGraphIdeal q r φ hφ))
+example : Stacks.Divisors.zeroScheme (pullback q r) (divisorSheaf (relativeGraphIdeal q r φ hφ))
     (divisorSheafGlobalSection (relativeGraphIdeal q r φ hφ)) = relativeGraphIdeal q r φ hφ :=
   zeroScheme_relativeGraphCanonicalSection q r φ hφ
 

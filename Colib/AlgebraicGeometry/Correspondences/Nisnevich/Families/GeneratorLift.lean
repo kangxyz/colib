@@ -334,8 +334,10 @@ include hFclosed hFtop hb in
 branches. Every surviving integral support retains both its whole-support map
 and a point preimage in its own original piece. The index universe is arbitrary. -/
 @[colib_ref "motivic_source_a6805c4"
-  "Correspondences/Nisnevich/Families/GeneratorLift.lean: exists_graph_family_factorization_with_fiber_lift"
-  "adaptation" "native signed Tor coefficients, residue degrees, whole support maps and all-point lifts"]
+  "Correspondences/Nisnevich/Families/GeneratorLift.lean: \
+    exists_graph_family_factorization_with_fiber_lift"
+  "adaptation"
+  "native signed Tor coefficients, residue degrees, whole support maps and all-point lifts"]
 theorem exists_graph_family_factorization_with_fiber_lift :
     ∃ β : ∀ j, Cor.mk U ⟶ Cor.mk (V (label j)),
       (∑ j, β j ≫ (graphFunctor k).map (q (label j))) =

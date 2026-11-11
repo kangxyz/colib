@@ -38,7 +38,7 @@ theorem polynomialCoordinate_isPushout (f : R →+* B) :
   let : Algebra R[X] B[X] := Polynomial.algebra R B
   have : IsScalarTower R R[X] B[X] :=
     IsScalarTower.of_algebraMap_eq fun r => by
-      show C (f r) = mapRingHom f (C r)
+      change C (f r) = mapRingHom f (C r)
       simp
   exact CommRingCat.isPushout_of_isPushout R B R[X] B[X]
 
@@ -82,14 +82,16 @@ def markedCoordinateProductIso (z : R[X] →+* B) :
 theorem markedCoordinateProductIso_hom_fst (z : R[X] →+* B) :
     (markedCoordinateProductIso R B z).hom ≫ pullback.fst _ _ =
       Spec.map (CommRingCat.ofHom (mapRingHom (z.comp C))) := by
-  simp [markedCoordinateProductIso, pullback.congrHom]
+  rw [markedCoordinateProductIso, Iso.trans_hom, Category.assoc,
+    pullback.congrHom_hom, pullback.lift_fst, Category.comp_id]
   exact polynomialCoordinateProductIso_hom_fst R B (z.comp C)
 
 @[reassoc (attr := simp)]
 theorem markedCoordinateProductIso_hom_snd (z : R[X] →+* B) :
     (markedCoordinateProductIso R B z).hom ≫ pullback.snd _ _ =
       Spec.map (CommRingCat.ofHom (C : B →+* B[X])) := by
-  simp [markedCoordinateProductIso, pullback.congrHom]
+  rw [markedCoordinateProductIso, Iso.trans_hom, Category.assoc,
+    pullback.congrHom_hom, pullback.lift_snd, Category.comp_id]
   exact polynomialCoordinateProductIso_hom_snd R B (z.comp C)
 
 /-- The literal graph of the mark in the affine-line product. -/

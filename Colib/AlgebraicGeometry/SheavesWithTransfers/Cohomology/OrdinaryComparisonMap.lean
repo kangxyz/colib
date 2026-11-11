@@ -12,7 +12,8 @@ public import Mathlib.Algebra.Homology.DerivedCategory.Ext.MapBijective
 # The canonical map from transfer Ext to ordinary cohomology
 
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Transfers/Cohomology/Ext/OrdinaryComparison.lean`, blob `eb41eab442059755edeba337ff7b7ac0511cade4`.
+`Motivic/Transfers/Cohomology/Ext/OrdinaryComparison.lean`,
+blob `eb41eab442059755edeba337ff7b7ac0511cade4`.
 Only the canonical map, its Yoneda compatibility and degree-zero bijectivity
 are established here. Higher-degree bijectivity requires a separate proof of
 ordinary acyclicity of transfer-injectives and is not asserted in this file.

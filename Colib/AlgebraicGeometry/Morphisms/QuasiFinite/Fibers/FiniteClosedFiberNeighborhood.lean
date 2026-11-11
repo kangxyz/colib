@@ -9,7 +9,8 @@ public import Colib.AlgebraicGeometry.Morphisms.QuasiFinite.Fibers.ClosedCenters
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean`, blob `a4b2e46e645c01016797c5cfc706901c0bf66cfb`.
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/FiniteClosedFiberNeighborhood.lean`,
+blob `a4b2e46e645c01016797c5cfc706901c0bf66cfb`.
 
 
 # Isolating one branch over finitely many closed centers

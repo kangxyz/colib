@@ -72,7 +72,6 @@ theorem retainedSourceChange_isPullback :
       · simp only [Category.assoc, retainedSourceChange_snd, pullback.lift_snd]
     · exact pullback.lift_fst _ _ _
     · intro l hl₁ hl₂
-      change (l : s.pt ⟶ pullback q' r) = _
       change l ≫ retainedSourceChange q q' r f hf = s.fst at hl₁
       change l ≫ pullback.fst q' r = s.snd at hl₂
       apply pullback.hom_ext (f := q') (g := r)

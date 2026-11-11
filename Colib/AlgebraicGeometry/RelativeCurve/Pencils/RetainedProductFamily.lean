@@ -59,7 +59,7 @@ theorem parameterMap_isPullback {D X : Scheme.{u}} (b : X ⟶ Spec (.of R)) (p :
       · simp [l, parameterMap]
     refine ⟨l, hl, hr, ?_⟩
     intro m hm hn
-    change (m : s.pt ⟶ parameterSpace (p ≫ b)) = l
+    change m ≫ parameterMap b p = s.snd at hn
     apply pullback.hom_ext (f := p ≫ b)
       (g := Spec.map (CommRingCat.ofHom Polynomial.C))
     · exact hm.trans hl.symm

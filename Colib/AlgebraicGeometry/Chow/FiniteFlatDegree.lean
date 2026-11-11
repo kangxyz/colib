@@ -47,10 +47,10 @@ theorem length_stalk_eq_mul_localFiberLength (f : X ⟶ Y) [Flat f] (x : X) :
             (IsLocalRing.maximalIdeal (Y.presheaf.stalk (f x)))) := by
   let A := Y.presheaf.stalk (f x)
   let B := X.presheaf.stalk x
-  letI : Algebra A B := (f.stalkMap x).hom.toAlgebra
-  letI : IsLocalHom (algebraMap A B) :=
+  let : Algebra A B := (f.stalkMap x).hom.toAlgebra
+  let : IsLocalHom (algebraMap A B) :=
     inferInstanceAs (IsLocalHom (f.stalkMap x).hom)
-  letI : Module.Flat A B := (RingHom.flat_algebraMap_iff).mp (by
+  let : Module.Flat A B := (RingHom.flat_algebraMap_iff).mp (by
     change (f.stalkMap x).hom.Flat
     exact Flat.stalkMap f x)
   have h := IsLocalRing.length_baseChange A B A
@@ -66,7 +66,7 @@ theorem fundamentalCycle_mul_residueDegree_eq
       AlgebraicCycle.fundamentalCycle Y (f x) * flatQuasiFiniteWeight f x *
         (Field.finSepDegree (Y.residueField (f x)) (X.residueField x) : ℤ) := by
   classical
-  letI := (f.residueFieldMap x).hom.toAlgebra
+  let := (f.residueFieldMap x).hom.toAlgebra
   by_cases hx : x ∈ genericPoints X
   · have hy := mem_genericPoints_of_flat f hx
     have hl := congrArg (fun n : ℕ∞ => (n.toNat : ℤ))

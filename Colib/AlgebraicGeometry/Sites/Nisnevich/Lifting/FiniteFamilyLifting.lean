@@ -9,7 +9,8 @@ public import Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FiniteLifting
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean`, blob `47a24686f1fc83db17fbec40919f85feeeffe06a`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean`,
+blob `47a24686f1fc83db17fbec40919f85feeeffe06a`.
 
 # Nisnevich lifting through an arbitrary étale family
 

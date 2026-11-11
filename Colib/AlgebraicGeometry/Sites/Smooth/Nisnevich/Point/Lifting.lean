@@ -10,7 +10,8 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.FiniteLifting
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean`, blob `5c64dd9b8eb87492b098798132c68df9deec2105`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Lifting.lean`,
+blob `5c64dd9b8eb87492b098798132c68df9deec2105`.
 
 
 # Finite-support lifting in the actual Nisnevich-neighborhood index

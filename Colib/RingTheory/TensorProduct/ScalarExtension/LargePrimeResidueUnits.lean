@@ -73,7 +73,7 @@ theorem exists_two_large_prime_scalar_extensions_with_residue_units
   let L := ULift.{u} (FiniteField.Extension k p r)
   have heval : MvPolynomial.eval₂ (algebraMap k L) c q ≠ 0 ∧
       (MvPolynomial.eval₂Hom (algebraMap k L) c) (∏ i, Q i) ≠ 0 := by
-    simpa only [MvPolynomial.eval₂_mul, mul_ne_zero_iff] using hc
+    simpa only [MvPolynomial.coe_eval₂Hom, MvPolynomial.eval₂_mul, mul_ne_zero_iff] using hc
   refine ⟨hdegree, hdomain, hunique, c, heval.1, ?_⟩
   let : Algebra (MvPolynomial σ k) L :=
     (MvPolynomial.eval₂Hom (algebraMap k L) c).toAlgebra

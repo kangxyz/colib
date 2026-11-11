@@ -11,7 +11,8 @@ public import Mathlib.AlgebraicGeometry.Artinian
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedEtaleIso.lean`, blob `d553061435537f79995d5f69689cb9a7cb9d18fa`.
+`Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedEtaleIso.lean`,
+blob `d553061435537f79995d5f69689cb9a7cb9d18fa`.
 
 
 # Canonical residue fields of a reduced discrete scheme

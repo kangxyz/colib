@@ -44,7 +44,7 @@ theorem flat_integralComponentAt_to_dedekind
     {R : Type u} [CommRing R] [IsDedekindDomain R] {D : Scheme.{u}}
     (p : D ⟶ Spec (.of R)) [Flat p] (z : genericPoints D) :
     Flat ((integralComponentAt z.val).subschemeι ≫ p) := by
-  letI : IsIntegral (integralComponentAt z.val).subscheme :=
+  let : IsIntegral (integralComponentAt z.val).subscheme :=
     isIntegral_integralComponentAt z.val
   apply flat_of_genericPoint_map_eq
   have hpoint : (integralComponentAt z.val).subschemeι

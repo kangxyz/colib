@@ -104,7 +104,7 @@ with tarfile.open(t) as tar:
   bundle(m);restored[m]={'provenance':'prior-proof-package-accepted' if is_new else 'local-accepted-direct-compiler-only','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':prior['run_id'] if is_new else e['original_run_id'],'original_head':prior['head'] if is_new else None,'package_options_validated':is_new,'original_package_options':e.get('package_options'),'original_compiler_exit':e['compiler_exit'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']}
   if is_new:accepted.add(m)
  require(len(new_seen)==633 and len(old_seen)==47 and accepted==set(OVERLAY['prior_partial_eligible_modules']),'Prior reuse scope differs from frozen plan')
-print('Restored prior633 successful package-checked products separately from old47 import-only.',flush=True)
+print('Restored eligible prior successful package products: '+str(len(accepted))+'; old import-only remains unqualified.',flush=True)
 # Four source-frozen local repairs, if present, require their exact successful
 # package-option receipts; no post-cutoff mathematical roots are admitted.
 local=OVERLAY['local_package_cutoff']
@@ -119,14 +119,49 @@ with tarfile.open(archive) as tar:
   m=e['module'];require(m in NODES and m in local['modules'] and e['compiler_exit']==0,'Wrong local repair scope or exit')
   require(e['source_sha256']==NODES[m]['source_sha256'] and sha(source(m))==e['source_sha256'],'Wrong local repair source')
   require(e['package_options']==package_options(m),'Local repair package options differ')
-  require(e['source_dag_sha256']==current_fingerprints[m],'Local repair source dependency identity changed')
+  # A changed source-DAG makes a historically valid product ineligible,
+  # not an archive corruption. It must be recompiled in this same DAG.
+  eligible=e['source_dag_sha256']==current_fingerprints[m]
+  require(eligible==(m in OVERLAY['local_package_eligible_modules']),'Local source-DAG eligibility differs from frozen plan')
   require(set(e['dependency_product_fingerprints'])==set(NODES[m]['source_imports'])&NODES.keys(),'Missing local repair native dependency identity')
-  for d,expected in e['dependency_product_fingerprints'].items():require(product_fingerprint(record(d,'local-input-identity-check')['products'])==expected,'Local repair dependency product identity changed: '+d)
+  if eligible:
+   for d,expected in e['dependency_product_fingerprints'].items():require(product_fingerprint(record(d,'local-input-identity-check')['products'])==expected,'Local repair dependency product identity changed: '+d)
   require({entry['path'] for entry in e['products']}=={p.relative_to(ROOT).as_posix() for p in products(m)},'Wrong local repair product set')
   for entry in e['products']:
    blob=tar.extractfile(members[entry['archive_path']]).read();require(len(blob)==entry['size'] and hashlib.sha256(blob).hexdigest()==entry['sha256'],'Local repair product mismatch')
-   dest=ROOT/entry['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+   if eligible:
+    dest=ROOT/entry['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+  if not eligible:continue
   bundle(m);restored[m]={'provenance':'local-repair-package-accepted','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':e['run_id'],'package_options_validated':True,'original_package_options':e['package_options'],'original_compiler_exit':0,'dependency_product_fingerprints':e['dependency_product_fingerprints'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']}
 require(set(e['module'] for e in packet['modules'])==set(local['modules']),'Local cutoff module mismatch')
+# Exact newly successful phase2 products. Reused phase2 bundles are integrity
+# checked but not reclassified or used to override their original provenance.
+z=WORK/'phase2-proof.zip';download('repos/kangxyz/colib/actions/artifacts/13856407932/zip',z,7341425,'f22fee66a7463acee7338a3d0e254c7b22409e8017b1d659cfa59a45b0f41635')
+with zipfile.ZipFile(z) as archive_zip:
+ require(archive_zip.namelist()==['strict-a1-frozen-proofs.tar'],'Unexpected phase2 proof ZIP members')
+ with archive_zip.open('strict-a1-frozen-proofs.tar') as inp,(WORK/'phase2-proof.tar').open('wb') as out:shutil.copyfileobj(inp,out)
+t=WORK/'phase2-proof.tar';require(sha(t)=='c1d008dfa7eae5545372997524baf8b821d4142fd03f64b2493edc217ddfacde','Phase2 proof tar SHA mismatch')
+with tarfile.open(t) as tar:
+ members={m.name:m for m in safe_members(tar)};producer_blob=tar.extractfile(members['producer.json']).read()
+ require(hashlib.sha256(producer_blob).hexdigest()=='0f2d1d8040a03ce23409dc0276ee18065b95af82302d4492da9a53868d598e6e','Phase2 producer identity mismatch')
+ phase2=json.loads(producer_blob)
+ require(phase2['head']=='ef008c3d3795c9e8a4efa42aeb22de0e478376ad' and phase2['run_id']=='43023778647' and phase2['pins']==PINS and phase2['build_true_exit']==1 and phase2['phase']==2,'Wrong phase2 producer')
+ seen=set();accepted=set()
+ for e in phase2['modules']:
+  m=e['module'];require(m not in seen,'Duplicate phase2 module');seen.add(m)
+  require({entry['path'] for entry in e['products']}=={p.relative_to(ROOT).as_posix() for p in products(m)},'Wrong phase2 product set')
+  blobs={}
+  for entry in e['products']:
+   blob=tar.extractfile(members[entry['path']]).read();require(len(blob)==entry['size'] and hashlib.sha256(blob).hexdigest()==entry['sha256'],'Phase2 product size/SHA mismatch');blobs[entry['path']]=blob
+  if e['provenance']!='compiled-this-proof-run-with-package-options':continue
+  require(m in NODES and e['source_sha256']==NODES[m]['source_sha256'] and sha(source(m))==e['source_sha256'],'Phase2 source mismatch')
+  require(e['source_dag_sha256']==current_fingerprints[m],'Phase2 dependency source identity changed')
+  require(e['compiler_exit']==0 and e['package_options_validated'] is True and e['package_options']==package_options(m) and e['package_options']==[v for v in e['command'] if v.startswith('-D')],'Phase2 package options mismatch')
+  require(set(e['dependency_product_fingerprints'])==set(NODES[m]['source_imports'])&NODES.keys(),'Missing phase2 native input identities')
+  for path,blob in blobs.items():
+   dest=ROOT/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+  bundle(m);restored[m]={'provenance':'phase2-proof-package-accepted','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':phase2['run_id'],'original_head':phase2['head'],'package_options_validated':True,'original_package_options':e['package_options'],'original_compiler_exit':0,'dependency_product_fingerprints':e['dependency_product_fingerprints'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']};accepted.add(m)
+ require(len(seen)==120 and accepted==set(OVERLAY['phase2_partial_eligible_modules']),'Phase2 reuse scope differs from frozen plan')
+print('Restored exact phase2 new successful bundles: '+str(len(accepted)),flush=True)
 write('restored.json',restored)
-print('Restored exact source/dependency identities; old47 still require fresh package acceptance.',flush=True)
+print('Restored exact eligible source/dependency identities; remaining old23 require package acceptance.',flush=True)

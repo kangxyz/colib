@@ -46,7 +46,9 @@ theorem stalk_integralComponentAt_self (z : D) :
   rw [ker_stalkMap_eq_idealStalk_ker, Scheme.IdealSheafData.ker_subschemeι] at h
   have hz : (integralComponentAt z).subschemeι (genericPoint Z) = z := by
     simpa only [genericPointOf, Z] using genericPointOf_integralComponentAt z
-  simpa only [hz] using h
+  let P : D → Prop := fun x => IdealSheafData.stalk (integralComponentAt z) x =
+    IsLocalRing.maximalIdeal (D.presheaf.stalk x)
+  exact Eq.mp (congrArg P hz) h
 
 /-- Actual generic self-length after flat base change, with its actual component ideal. -/
 theorem length_stalk_self_eq_mul_comap_component
@@ -67,6 +69,7 @@ theorem length_stalk_self_eq_mul_comap_component
 
 variable [IsNoetherian D] [IsNoetherian E] (f : E ⟶ D) [Flat f]
 
+omit [IsNoetherian D] [Flat f] in
 /-- A full pulled component has its exact ambient quotient coefficient over a
 generic point of the whole pullback. -/
 theorem finiteCyclePushforward_comap_fundamentalCycle_apply_generic

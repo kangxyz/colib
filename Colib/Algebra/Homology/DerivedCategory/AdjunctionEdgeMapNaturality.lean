@@ -11,7 +11,8 @@ public import Colib.Algebra.Homology.DerivedCategory.AdjunctionEdgeMap
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/Algebra/Homology/DerivedCategory/AdjunctionEdgeMapNaturality.lean`, blob `337740d444ff8caafa3744f3c59eced05a7f6d3c`.
+`Motivic/Aglib/Algebra/Homology/DerivedCategory/AdjunctionEdgeMapNaturality.lean`,
+blob `337740d444ff8caafa3744f3c59eced05a7f6d3c`.
 
 Source candidate only; no elaboration result is asserted.
 -/

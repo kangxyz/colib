@@ -70,7 +70,9 @@ theorem exists_eventually_surjective_twisted_quotient
       ((SheafOfModules.evaluation X.ringCatSheaf (op ⊤)).map
         ((twistFunctor L (n : ℤ)).map π)).hom :=
   exists_eventually_surjective_twisted_sections f L hL (ShortComplex.kernelSequence π)
-    { exact := ShortComplex.kernelSequence_exact π, epi_g := inferInstance }
+    { exact := ShortComplex.kernelSequence_exact π
+      mono_f := show Mono (kernel.ι π) from inferInstance
+      epi_g := show Epi π from inferInstance }
     (AlgebraicGeometry.CoherentAbelian.isCoherent_kernel π)
 
 /-- One common Serre bound lifts two independently prescribed whole-boundary values.

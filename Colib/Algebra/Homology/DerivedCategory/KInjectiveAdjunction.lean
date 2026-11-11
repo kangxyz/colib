@@ -12,7 +12,8 @@ public import Colib.Algebra.Homology.DerivedCategory.ResolutionExtension
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/Algebra/Homology/DerivedCategory/KInjectiveAdjunction.lean`, blob `a4f1c0a9761165fb524fee0301c0679037707dcc`.
+`Motivic/Aglib/Algebra/Homology/DerivedCategory/KInjectiveAdjunction.lean`,
+blob `a4f1c0a9761165fb524fee0301c0679037707dcc`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

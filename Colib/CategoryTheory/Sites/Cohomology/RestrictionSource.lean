@@ -10,7 +10,8 @@ public import Mathlib.CategoryTheory.Sites.Pullback
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/RestrictionSource.lean`, blob `eaa5eeb7994561c0bef22b8398a55df532b52c21`.
+`Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/RestrictionSource.lean`,
+blob `eaa5eeb7994561c0bef22b8398a55df532b52c21`.
 
  The actual free abelian representing source under a continuous-site adjunction.
 No exactness of restriction or of its left adjoint is assumed here. -/

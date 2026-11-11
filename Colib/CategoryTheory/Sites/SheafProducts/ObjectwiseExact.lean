@@ -13,7 +13,8 @@ public import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean`, blob `578e9ac8b46c9736977c0eaeae9cd06286f1c882`.
+`Motivic/Aglib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean`,
+blob `578e9ac8b46c9736977c0eaeae9cd06286f1c882`.
 
  # Products of sectionwise-surjective ordinary sheaf morphisms
 

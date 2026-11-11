@@ -30,7 +30,7 @@ open CategoryTheory AlgebraicGeometry Opposite
 universe w t v u
 
 namespace AlgebraicGeometry.SheafWithTransfers
-open Scheme Scheme.SmoothSite.Contraction
+open _root_.AlgebraicGeometry.Scheme Scheme.SmoothSite.Contraction
 open Stacks.Cohomology.FreeYonedaUnivLE
 
 variable {k : Type u} [Field k]

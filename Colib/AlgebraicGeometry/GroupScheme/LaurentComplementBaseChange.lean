@@ -32,11 +32,16 @@ abbrev integralAdditiveZero : Spec (.of (ULift.{u} ℤ)) ⟶ additiveGroup.{u} :
 @[reassoc (attr := simp)]
 theorem integralAdditiveZero_over :
     integralAdditiveZero.{u} ≫ (additiveGroup ↘ Spec (.of (ULift.{u} ℤ))) = 𝟙 _ := by
-  change Spec.map _ ≫ Spec.map _ = 𝟙 _
+  change Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (0 : ULift.{u} ℤ))) ≫
+    Spec.map (CommRingCat.ofHom
+      (Polynomial.C : ULift.{u} ℤ →+* Polynomial (ULift.{u} ℤ))) = 𝟙 _
   rw [← Spec.map_comp]
   have h : CommRingCat.ofHom (Polynomial.C : ULift.{u} ℤ →+* Polynomial (ULift.{u} ℤ)) ≫
       CommRingCat.ofHom (Polynomial.evalRingHom (0 : ULift.{u} ℤ)) = 𝟙 _ := by
-    ext r
+    apply CommRingCat.hom_ext
+    apply RingHom.ext
+    intro r
+    change (Polynomial.C r).eval (0 : ULift.{u} ℤ) = r
     exact Polynomial.eval_C
   rw [h, Spec.map_id]
 

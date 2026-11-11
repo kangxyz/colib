@@ -10,7 +10,8 @@ public import Mathlib.Algebra.Homology.DerivedCategory.Ext.EnoughInjectives
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean`, blob `aa0cf9d3da2b84d86548eee2974f1b59af81b566`.
+`Motivic/Aglib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean`,
+blob `aa0cf9d3da2b84d86548eee2974f1b59af81b566`.
 
  # Ordinary Ext dimension shifting along explicit closed resolution steps
 

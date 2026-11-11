@@ -21,7 +21,7 @@ graph source components without making the source integral.
 @[expose] public noncomputable section
 
 open AlgebraicGeometry CategoryTheory TopologicalSpace
-open scoped BigOperators Classical
+open scoped BigOperators
 
 universe u v
 
@@ -45,6 +45,7 @@ theorem fundamentalCycle_apply_clopen (i : D ⟶ X)
     rw [AlgebraicCycle.fundamentalCycle_apply_of_notMem D d hd,
       AlgebraicCycle.fundamentalCycle_apply_of_notMem X (i d) hx]
 
+open Classical in
 /-- Extension by zero along the actual clopen immersion, in the native cycle group. -/
 theorem finiteCyclePushforward_fundamentalCycle_clopen_apply (i : D ⟶ X)
     [IsClosedImmersion i] [IsOpenImmersion i] (x : X) :
@@ -54,7 +55,7 @@ theorem finiteCyclePushforward_fundamentalCycle_clopen_apply (i : D ⟶ X)
   by_cases hx : x ∈ Set.range i
   · obtain ⟨d, rfl⟩ := hx
     rw [ite_eq_left (Set.mem_range_self d), finiteCyclePushforward_apply_of_isClosedImmersion,
-      fundamentalCycle_apply_clopen]
+      fundamentalCycle_apply_clopen i d]
   · rw [ite_eq_right hx,
       finiteCyclePushforward_fundamentalCycle_eq_zero_of_notMem_range i x hx]
 
