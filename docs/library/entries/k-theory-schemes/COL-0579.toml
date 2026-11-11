@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0579"
+title = "Global-to-coefficient Bass telescope restriction"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1579
+statement = '''
+For a commutative ring object R, a scheme P over Spec R and a coefficient object a under R, the
+actual restriction from the global-row Bass telescope to
+boundedAboveFlatCoefficientAmbientBassTelescopeFunctor P is a stable equivalence at a. The same
+restriction is stable at every finite Bass stage.
+'''
+scope = '''
+For a commutative ring object R, P over Spec R and every coefficient object a under R, the actual
+bounded-above flat global-row restriction is a stable equivalence at each finite Bass stage and on
+the telescope. No extra qcqs condition is inserted into this statement.
+'''
+proof_kind = "outline"
+proof = '''
+The section-unit identities identify the original Laurent scalar and seed after restriction. Apply
+finite Bass preservation to the actual exact coefficient restriction equivalences, then apply
+telescope stability to the compatible finite maps.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.telescopeRestriction_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

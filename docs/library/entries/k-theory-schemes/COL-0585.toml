@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0585"
+title = "Original and twisted parameter fiber lifts"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1585
+statement = '''
+For an open immersion f : P → Q and every scheme X, the actual full-open iterated fiber lift is a
+stable equivalence if and only if the twisted lift is.
+'''
+scope = '''
+The original parameter iterated forget/open maps and whole null, auxiliary parameter companion
+comparison, and the consequent current-to-iterated stable-iff. No claim is made that either
+endpoint is stable; no additional qcqs hypothesis is inserted.
+'''
+proof_kind = "outline"
+proof = '''
+Apply native same-null fiber-lift naturality to the actual supported, ambient-Q and ambient-P
+telescope comparisons. The input squares and whole-null square supply compatibility, and genuine
+Model telescope stability supplies the three component equivalences. Use the already proved
+current/twisted comparison for the current/iterated equivalence.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.iterated_twisted_lift_stable_iff"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

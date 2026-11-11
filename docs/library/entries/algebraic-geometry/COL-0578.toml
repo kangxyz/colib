@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0578"
+title = "Integral Spec comparison of polynomial and Laurent squares"
+kind = "comparison"
+section = "scheme-products-and-index-squares"
+order = 1578
+statement = '''
+For the contravariant integral Spec functor on rings under the lifted integers, there is a natural
+isomorphism specUnder ⋙ squareFunctor ≅ laurentUnderSquareFunctor ℤ ⋙ specUnder.mapArrow.mapArrow.
+It identifies the polynomial and Laurent arrows through their actual pullback isomorphisms and
+transports the Laurent coordinate unit.
+'''
+scope = '''
+Polynomial and Laurent ring pushouts yield the integral Spec square comparison; actual coefficient
+and parameter rows, projections, units and both scheme and coefficient naturality are retained.
+'''
+proof_kind = "outline"
+proof = '''
+Prove the polynomial and Laurent pushout identities, pass to Spec pullbacks and their comparison
+isomorphisms, and identify the canonical integral rows and Laurent unit pullbacks.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.PolynomialLaurent.IntegerSpec.specSquare"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

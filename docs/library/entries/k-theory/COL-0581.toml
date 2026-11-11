@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0581"
+title = "Strict diagram cofiber descent"
+kind = "theorem"
+section = "bass-construction"
+order = 1581
+statement = '''
+For a category C, Q : C → Arrow (Arrow C), prespectrum-valued diagrams F,G,K, transformations a,b,
+and a chosen null homotopy of a followed by b natural at every time, the strict-diagram cofiber
+comparison followed by the Bass image of cone descent equals descent for the induced whole null.
+'''
+scope = '''
+Natural coefficient squares, the looped-cone comparison, and all times in the original cone null;
+no Model or geometric compactness assumption.
+'''
+proof_kind = "outline"
+proof = '''
+Build the comparison from the actual square cofiber map. Naturality follows from the coefficient
+cube; identify the transformed cone descent and induced null with their square forms and apply the
+original square descent identity.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.strictDiagramCofiberComparison_desc"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

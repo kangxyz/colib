@@ -1,0 +1,25 @@
+[entry]
+id = "COL-0584"
+title = "Stable comparison of the original and twisted telescopes"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1584
+statement = '''
+For a genuine Model-valued diagram M and a Laurent Track A on its prespectrum diagram, the
+original iterated-to-twisted telescope map is a stable equivalence at every scheme.
+'''
+scope = '''
+The explicit finite-stage and whole-cylinder formulas, input-map squares and the whole chosen-null
+square. General construction needs a Track; stability uses the actual Model input and its proved
+finite-stage stability/T1 properties.
+'''
+proof_kind = "outline"
+proof = '''
+Use seed rotation to show that the existing finite-stage maps commute with transitions and descend
+to telescopes. Apply the telescope stability theorem with actual Model T1 spaces and finite stable
+maps. Obtain input and null compatibility from the same quotient/cylinder formulas at every time.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.SchemeIteratedSeedTelescope.model_iteratedTwistedTelescopeMap_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

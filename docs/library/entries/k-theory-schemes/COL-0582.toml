@@ -1,0 +1,23 @@
+[entry]
+id = "COL-0582"
+title = "Geometric seed comparison and the two-cone permutation"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1582
+statement = '''
+For any scheme-opposite prespectrum diagram F and scheme X, the actual geometric chi comparison
+equals cone strength followed by the parameter-looping map of its genuine two-cone permutation.
+'''
+scope = '''
+The whole unit square, Laurent seed cospan, scalar formulas and geometric cone involution,
+including both cone coordinates. No qcqs assumptions are imposed on this general diagram identity.
+'''
+proof_kind = "outline"
+proof = '''
+Evaluate the comparison on target, upper, lower and overlap cone cells. The four scalar identities
+identify the entire map by cone-cell induction, preserving both parameters in the overlap case.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.GeometricChiPermutation.comparison"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

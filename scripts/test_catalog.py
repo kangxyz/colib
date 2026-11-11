@@ -485,6 +485,26 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0581":
+                "Colib.KTheory.Bass.StrictDiagramCofiberDescent",
+            "COL-0582":
+                "Colib.AlgebraicGeometry.KTheory.Bass.GeometricChiPermutation",
+            "COL-0583":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeSeedRotation",
+            "COL-0584":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeIteratedSeedTelescope",
+            "COL-0585":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterIteratedTwistedFiber",
+            "COL-0576":
+                "Colib.KTheory.Bass.StrictDiagramIndexRowTelescope",
+            "COL-0577":
+                "Colib.KTheory.Bass.ModelDiagramStableEquivalence",
+            "COL-0578":
+                "Colib.AlgebraicGeometry.Scheme.IntegerBaseSpecSquare",
+            "COL-0579":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalSectionTelescope",
+            "COL-0580":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalParameterFineTelescope",
             "COL-0571":
                 "Colib.Topology.Prespectrum.StrictSquareConeInterchange",
             "COL-0572":
@@ -1860,6 +1880,100 @@ class LibraryTests(unittest.TestCase):
                 'supported-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.normalized_twisted_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullTwistedFiberComparison',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_integral_spec_fine_items_keep_native_owners(self):
+        expected = [
+            (
+                'COL-0576',
+                'bass-construction',
+                'KTheory.Bass.StrictDiagramIndexRow.telescopeIso',
+                'Colib.KTheory.Bass.StrictDiagramIndexRowTelescope',
+                'k-theory',
+            ),
+            (
+                'COL-0577',
+                'bass-construction',
+                'KTheory.Bass.modelDiagramIterate_map_isStableEquivalence_of_exactEquivalence',
+                'Colib.KTheory.Bass.ModelDiagramStableEquivalence',
+                'k-theory',
+            ),
+            (
+                'COL-0578',
+                'scheme-products-and-index-squares',
+                'AlgebraicGeometry.Scheme.PolynomialLaurent.IntegerSpec.specSquare',
+                'Colib.AlgebraicGeometry.Scheme.IntegerBaseSpecSquare',
+                'algebraic-geometry',
+            ),
+            (
+                'COL-0579',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.telescopeRestriction_isStableEquivalence',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalSectionTelescope',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0580',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.fineTelescopeComparison_stable',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalParameterFineTelescope',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_iterated_twisted_items_keep_native_owners(self):
+        expected = [
+            (
+                'COL-0581',
+                'bass-construction',
+                'KTheory.Bass.strictDiagramCofiberComparison_desc',
+                'Colib.KTheory.Bass.StrictDiagramCofiberDescent',
+                'k-theory',
+            ),
+            (
+                'COL-0582',
+                'global-sections-and-parameters',
+                'KTheory.Bass.GeometricChiPermutation.comparison',
+                'Colib.AlgebraicGeometry.KTheory.Bass.GeometricChiPermutation',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0583',
+                'global-sections-and-parameters',
+                'KTheory.Bass.SchemeIteratedSeedTransition.seed_cone_rotation',
+                'Colib.AlgebraicGeometry.KTheory.Bass.SchemeSeedRotation',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0584',
+                'global-sections-and-parameters',
+                'KTheory.Bass.SchemeIteratedSeedTelescope.model_iteratedTwistedTelescopeMap_stable',
+                'Colib.AlgebraicGeometry.KTheory.Bass.SchemeIteratedSeedTelescope',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0585',
+                'global-sections-and-parameters',
+                'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.iterated_twisted_lift_stable_iff',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterIteratedTwistedFiber',
                 'k-theory-schemes',
             ),
         ]
