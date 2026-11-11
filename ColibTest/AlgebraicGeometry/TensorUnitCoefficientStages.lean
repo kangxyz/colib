@@ -23,7 +23,7 @@ example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) :
       (stageTransformationCylinder 0 (tensorUnitPullbackModelTransformation f r)
         (tensorUnitPullbackModelTransformation_weak f r) ▷ Δ[1]) ≫
         stageCylinder 0 (asSmallCategory (boundedAboveFlatPerfectWaldhausen X.toRingedSpace)) :=
-  tensorUnitPullbackSmallCoefficientCylinder_eq f r 
+  tensorUnitPullbackSmallCoefficientCylinder_eq f r
 
 example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) (k : ℕ) :
     tensorUnitPullbackCoefficientStageCylinder f r k =
@@ -35,5 +35,5 @@ example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) (k : ℕ) :
 example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) :
     tensorUnitPullbackCoefficientStageCylinder f r 0 =
       tensorUnitPullbackSmallCoefficientCylinder f r :=
-  tensorUnitPullbackCoefficientStageCylinder_zero f r 
+  tensorUnitPullbackCoefficientStageCylinder_zero f r
 

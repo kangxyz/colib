@@ -25,7 +25,7 @@ example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) :
     tensorUnitPullbackCoefficientCylinder f r =
       (tensorUnitPullbackNormalizedCylinder f r ▷ Δ[1]) ≫
         suspensionCylinder (boundedAboveFlatPerfectWaldhausen X.toRingedSpace) :=
-  tensorUnitPullbackCoefficientCylinder_eq f r 
+  tensorUnitPullbackCoefficientCylinder_eq f r
 
 example {X Y : Scheme.{u}} (f : X ⟶ Y) (r : (Γ(X, ⊤))ˣ) (s t : unitInterval)
     (x : (boundedAboveFlatPerfectWaldhausen Y.toRingedSpace).Delooping) :
