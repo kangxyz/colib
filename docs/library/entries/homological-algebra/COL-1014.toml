@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1014"
+title = "K-injective representatives in the stalkwise localization"
+kind = "comparison"
+section = "derived-hom-comparisons"
+order = 60
+primary = "CategoryTheory.PointedSimplicialPresheaf.stalkwiseCochainRepresentativeHomEquiv"
+statement = '''
+For a K-injective coefficient complex \(K\), apply inverse Dold–Kan
+to the good nonpositive truncation of \(K[p]\) and take the pointed
+underlying simplicial presheaf \(R_p(K)\). Write \(Q_J\) for the
+stalkwise localization functor. If the chosen reduced chains on
+pointed simplicial sets take realization weak equivalences to
+quasi-isomorphisms, there is a natural bijection
+\[
+\operatorname{Hom}(Q_J X,Q_J R_p(K))
+\simeq \widetilde H^p_J(X,K).
+\]
+The bijection takes the image of an original strict pointed map
+to its actual derived class.
+'''
+proof = '''
+The strict reduced-chain adjunction gives the cochain map into
+\(K[p]\). K-injectivity gives surjectivity onto derived Hom and
+identifies equality of classes with cochain homotopy. Transport
+that homotopy through good truncation. On the actual pointed
+simplicial cylinder, the first-vertex weight realizes the
+homotopy with the two original endpoint maps.
+
+The cylinder projection is a stalkwise equivalence, so the
+strict maps with the same class agree after localization. The
+chain-invariance premise and COL-1011 give the descended
+derived-chain functor. COL-1013 supplies the chain-invariance premise. The inverse to the comparison on strict
+maps extends by the localization universal property and
+Yoneda.
+'''
+scope = '''
+Use a locally small site with enough points and left exact
+abelian sheafification in the value universe. The stalkwise
+category inverts the maps that are weak equivalences on every site fiber. The comparison uses the
+reduced derived-Hom expression of
+[@Voevodsky2003ReducedPowers, Section 2, equation (2.9)].
+The interval comparison for a coefficient requires its
+interval locality.
+'''
+review = "author_checked"

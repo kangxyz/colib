@@ -1,0 +1,42 @@
+[chapter]
+id = "motivic-homotopy"
+title = "Motivic Homotopy"
+order = 56
+introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site."
+
+[[sections]]
+id = "pointed-simplicial-presheaves"
+title = "Pointed simplicial presheaves"
+order = 10
+introduction = "The reduced cone and the native simplicial circle give two descriptions of suspension. Their comparison retains the quotient map from the cone."
+
+[[sections]]
+id = "eilenberg-mac-lane-representatives"
+title = "Nisnevich Eilenberg–Mac Lane representatives"
+order = 20
+introduction = '''Use the Nisnevich points of COL-1010 and the K-injective comparison of COL-1014 to represent the actual integral and cone-coefficient motivic cohomology groups.'''
+
+[[sections]]
+id = "affine-line-representatives"
+title = "Affine-line localization of representatives"
+order = 25
+introduction = '''Use the native affine line as the interval. Invariance of reduced hypercohomology under the pointed cylinder projections gives the criterion for the Nisnevich representative to compute the same groups after interval localization.'''
+
+[[sections]]
+id = "tate-sphere-and-suspension"
+title = "The pointed Tate quotient"
+order = 30
+introduction = '''Point the native affine line and multiplicative group at one. The Laurent open gives the Tate quotient and its cone maps. The target of the affine-line collapse is the reduced suspension used in COL-1009.'''
+
+[sections.transitions]
+COL-1020 = '''
+Pass the two pushouts of COL-1017 to a Nisnevich fiber. The simplicial
+cone contracts, and the Laurent open remains a monomorphism. These
+facts identify the actual collapse to the quotient as a weak equivalence.
+'''
+
+[[sections]]
+id = "reduced-cohomology-operations"
+title = "Operations on reduced cohomology"
+order = 40
+introduction = '''The finite coefficient triangle of COL-1018 supplies the positive Bockstein. Shifted postcomposition gives its action on the reduced hypercohomology of pointed simplicial presheaves.'''

@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1011"
+title = "Stalks of reduced normalized chains"
+kind = "comparison"
+section = "derived-hom-comparisons"
+order = 40
+primary = "CategoryTheory.PointedSimplicialPresheaf.sheafifiedReducedChainsFiberIso"
+review = "author_checked"
+statement = '''
+Let \((C,J)\) be a locally \(w\)-small site admitting left exact sheafification
+\(a_J\) for abelian groups in universe \(w\). For a pointed simplicial
+presheaf \(X\), let \(\widetilde{\mathbb Z}[X]\) be the degreewise free
+abelian presheaf modulo the generator of the specified basepoint. Sheafify in
+each simplicial degree and take the normalized Moore complex \(N\).
+For every site point \(\Phi\) in universe \(w\) there is a natural isomorphism
+\[
+\Phi^*N(a_J\widetilde{\mathbb Z}[X])
+\xrightarrow{\sim}N(\widetilde{\mathbb Z}[\Phi^*X]),
+\]
+where the fiber \(\Phi^*X\) has the point induced by the original basepoint.
+If \(J\) has enough points in universe \(w\), a map of these sheafified
+reduced chain complexes induced by \(f\colon X\to Y\) is a quasi-isomorphism
+exactly when \(N(\widetilde{\mathbb Z}[\Phi^*f])\) is a quasi-isomorphism at
+every such \(\Phi\).
+'''
+proof = '''
+Before normalization the comparison sends the class of a free generator of a
+simplex to the class of the generator of its germ. It intertwines the two
+cokernel projections killing the respective basepoints. The abelian fiber
+commutes with normalization through the normalized Moore comparison.
+Exactness identifies the fiber of each homology
+map with the homology map of the fiber complex. A conservative family then
+detects whether the original homology maps are isomorphisms.
+'''
+scope = '''
+Enough points are used for detection. The smooth Nisnevich site of COL-1010
+supplies them in both stated universes. Descent along stalkwise weak
+equivalences additionally needs reduced normalized chains of pointed
+simplicial sets to take realization weak equivalences to quasi-isomorphisms.
+'''

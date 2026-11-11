@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1013"
+title = "The realization unit on simplicial chains"
+kind = "theorem"
+section = "geometric-realization"
+order = 330
+primary = "SSet.quasiIso_realizationChainComparison"
+statement = '''
+For a simplicial set \(X\) and a constant \(\mathbb Z\)-module
+\(V\), the native unit \(X\to\operatorname{Sing}|X|\) induces a
+quasi-isomorphism from the simplicial chains with coefficients
+in \(V\) to the singular chains of the actual realization.
+In degree \(n\) the map takes a simplex to its original
+characteristic singular simplex.
+'''
+proof = '''
+The unit comparison on a standard simplex follows from its
+simplicial and topological contractions. At a skeletal
+attachment, use the comparison for its boundary from the
+dimension induction and the short exact relative chain
+sequences. Simplicial pushouts and singular attachment
+excision compare the actual relative cokernel maps.
+
+The comparison passes through arbitrary coproducts of cells
+and the exhaustive skeletal colimit. Compact factorization
+and eventual equality retain the actual singular simplices in
+that colimit. Filtered homology then gives the comparison for
+arbitrary \(X\).
+'''
+scope = '''
+The integral instance corresponds to
+[@May1967SimplicialObjects, Section 16, Proposition 16.2(i), p. 63].
+The construction uses the original simplicial and singular
+chain functors. The original weak realization equivalence of
+COL-1012 induces a quasi-isomorphism on pointed reduced
+normalized chains by the split basepoint row and exact
+normalization.
+'''
+review = "author_checked"

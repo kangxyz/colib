@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1012"
+title = "Homotopy inverses of realization weak equivalences"
+kind = "theorem"
+section = "geometric-realization"
+order = 320
+primary = "SSet.IsRealizationWeakEquivalence.homotopyEquiv"
+review = "author_checked"
+statement = '''
+Let \(f\colon X\to Y\) be a map of simplicial sets whose geometric realization
+is a weak homotopy equivalence. There is a topological homotopy equivalence
+between \(|X|\) and \(|Y|\) whose forward continuous map is exactly \(|f|\).
+'''
+proof = '''
+The endpoint projection of the mapping path of \(|f|\) lifts against the
+literal finite cube boundary inclusions. Dropping the zeroth barycentric
+coordinate identifies the standard simplex with the corner given by
+\(x_i\geq 0\) and \(\sum_i x_i\leq 1\). An ambient homeomorphism carries the
+corner onto the cube and its frontier onto the cube frontier. This identifies
+the realized simplex and its boundary with the cube and its boundary, so the
+lifting property transports to every realized simplicial boundary, including
+dimension zero.
+
+Realized simplicial monomorphisms inherit this lifting property. Lifting the
+empty inclusion into \(Y\) gives a section of the mapping-path endpoint. Its
+source projection gives the inverse map, and its paths give the homotopy on
+\(|Y|\). Lifting the two simplicial cylinder endpoints of \(X\) gives the
+other homotopy after taking the source projection.
+'''
+scope = '''
+The weak-equivalence test includes surjectivity on path components and
+bijections on the finite based homotopy sets in all degrees. The inverse and
+its homotopies are continuous and unbased. For the classical CW counterpart,
+see [@HatcherAT, Section 4.1, Theorem 4.5, p. 346].
+'''

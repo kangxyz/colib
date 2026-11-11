@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1019"
+title = "The Bockstein on reduced motivic cohomology"
+kind = "definition"
+section = "reduced-cohomology-operations"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.reducedMotivicModBockstein"
+review = "author_checked"
+statement = '''
+For a field \(k\), let \(X\) be a pointed simplicial presheaf on the
+smooth Nisnevich site in the coefficient universe. Use the actual
+ordinary weight-\(q\) motivic complex \(K_q\) and the multiplication cone
+\(K_q/n\). The Bockstein is a natural transformation
+\[
+\widetilde H^{p,q}(X,\mathbb Z/n)
+  \xrightarrow{\beta_n}
+\widetilde H^{p+1,q}(X,\mathbb Z/n)
+\]
+for every integer \(p\) and every natural \(q,n\).
+Two successive Bocksteins compose to zero.
+'''
+proof = '''
+Use the positive connecting map of COL-1018 followed by shifted
+integral insertion. Take its image in the derived category and use
+the native shift isomorphisms to postcompose a reduced derived-Hom
+class with this map. The square-zero identity for cochains passes
+to shifted composition in the derived category.
+'''
+scope = '''
+The coefficient notation denotes the original multiplication cone
+at every natural level. The input is reduced Nisnevich hypercohomology
+of pointed simplicial presheaves. The operation retains the actual
+coefficient map and the independent derived category universe.
+'''

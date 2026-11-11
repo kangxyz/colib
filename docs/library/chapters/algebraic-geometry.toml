@@ -73,6 +73,12 @@ sheaves the native representing object is projective. Apply COL-0394 to compute
 unbounded hypercohomology from the literal sections complex at the base field.
 '''
 
+COL-1010 = '''
+The field-valued lifting test of COL-0340 applies in each affine étale
+neighborhood of a scheme point. The marked neighborhood diagrams give actual
+Nisnevich fibers. Conservativity relates their lifts back to the same covers.
+'''
+
 [[sections]]
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"

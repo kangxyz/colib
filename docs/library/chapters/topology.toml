@@ -362,6 +362,18 @@ parameter spaces. Lifts of based cubes and of their boundary-fixed
 homotopies give the comparison on homotopy groups.
 '''
 
+COL-1012 = '''
+The comparison now starts with a weak equivalence on the actual realizations.
+Transport the finite cube lifting criterion along the simplex boundary
+comparison to obtain an inverse of the realized map up to homotopy.
+'''
+
+COL-1013 = '''
+The realization unit sends each simplex to its characteristic singular
+simplex. Compare chains first on the relative cells and then on the
+skeletal colimit to transport the homotopy invariance to simplicial chains.
+'''
+
 [[sections]]
 id = "homotopy-colimits"
 title = "Homotopy invariance of colimits"

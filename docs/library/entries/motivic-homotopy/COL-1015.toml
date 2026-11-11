@@ -1,0 +1,47 @@
+[entry]
+id = "COL-1015"
+title = "Nisnevich representatives of motivic cohomology"
+kind = "comparison"
+section = "eilenberg-mac-lane-representatives"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.motivicNisnevichRepresentativeHomEquiv"
+statement = '''
+Let \(k\) be a field and \(U\) a smooth separated finite-type \(k\)-scheme.
+Write \(Q\) for the stalkwise localization functor in the coefficient
+universe and \(h_{U,+}\) for the freely pointed smooth representable in
+that universe. For \(p\in\mathbb Z\), \(q,n\in\mathbb N\), let
+\(R_p(K)\) be the pointed Dold–Kan representative of the good
+nonpositive truncation of a chosen K-injective resolution of \(K\),
+shifted by \(p\). Taking \(K=\mathbb Z(q)\) or the multiplication cone
+\(K=\operatorname{Cone}(n\colon\mathbb Z(q)\to\mathbb Z(q))\) gives the
+natural comparisons
+\[
+\operatorname{Hom}(Qh_{U,+},QR_p(\mathbb Z(q)))
+   \simeq H^{p,q}(U,\mathbb Z),\qquad
+\operatorname{Hom}(Qh_{U,+},QR_p(K))
+   \simeq H^{p,q}(U,\mathbb Z/n).
+\]
+The second notation refers to the cone for all \(n\). For an actual
+smooth-site map \(f\colon U\to V\), precomposition with \(Qh_{f,+}\)
+corresponds to the original restriction on the indicated motivic groups.
+'''
+proof = '''
+Use the realization comparison of COL-1013 and the Nisnevich points
+of COL-1010 in the K-injective representability construction of
+COL-1014. The reduced chains on the freely pointed representable are
+the native free abelian representing sheaf in degree zero. The
+comparison precomposes with the inverse of that identification and
+postcomposes with the inverse of the localized resolution inclusion.
+Insert the actual ordinary underlying signed complex of COL-0398
+and its cone coefficient. This recovers the derived Hom from the same
+representing sheaf used in the original groups and restrictions.
+'''
+scope = '''
+The category inverts the maps that are realization weak equivalences on
+every smooth Nisnevich site fiber. The coefficient sheaf universe is
+\(u+1\) for \(k\colon\mathrm{Type}\,u\), with an explicit independent
+derived category universe. The comparison applies before affine-line
+localization. The reduced derived-Hom expression is the one used in
+[@Voevodsky2003ReducedPowers, Section 2, equation (2.9), p. 5].
+'''
+review = "author_checked"

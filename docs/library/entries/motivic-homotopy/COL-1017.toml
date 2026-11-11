@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1017"
+title = "The pointed Tate quotient and its cone maps"
+kind = "definition"
+section = "tate-sphere-and-suspension"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.tateSphere"
+review = "author_checked"
+statement = '''
+Let \(R\) be a commutative ring and work on the smooth site of
+\(\operatorname{Spec}R\). Let \(G\) and \(A\) be the discrete Yoneda
+presheaves of the native multiplicative group and affine line, pointed
+at one. The pointed map \(j\colon G\to A\) acts by postcomposition with
+the positive Laurent open of COL-0298. The Tate quotient is the pushout
+\[
+T=A\amalg_G *.
+\]
+
+Let \(C(G)\) be the reduced simplicial cone with inclusion
+\(\iota\colon G\to C(G)\). There are specified maps
+\[
+T\longleftarrow A\amalg_G C(G)\longrightarrow *\amalg_G C(G).
+\]
+The first collapses \(C(G)\) and the second collapses \(A\). The right
+target is the reduced simplicial suspension of \(G\).
+'''
+scope = '''
+These are strict pushouts in pointed simplicial presheaves. The maps
+are the presheaf constructions underlying the comparison in
+[@MorelVoevodsky1999, Section 3.2, pp. 110–111 and Lemma 2.15].
+'''
+proof = '''
+The torus identity maps to the chosen affine point, so postcomposition
+gives a pointed morphism. The maps to \(T\) from \(A\) and \(C(G)\)
+agree on \(G\) because the quotient collapses the Laurent open. They
+therefore induce the first map by the pushout property. The collapse
+\(A\to *\) and the identity of \(G\) give a map from the arrow \(j\) to
+\(G\to *\), which induces the second map by functoriality of the reduced
+mapping cofiber.
+'''
