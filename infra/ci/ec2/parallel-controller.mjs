@@ -173,6 +173,23 @@ async function pages(github, path, property) {
   }
 }
 
+export async function listPendingRuns(github) {
+  const workflow = '/actions/workflows/ci.yml/runs'
+  const [recent, queued, running] = await Promise.all([
+    github(`${workflow}?per_page=100&page=1`),
+    pages(github, `${workflow}?status=queued`, 'workflow_runs'),
+    pages(github, `${workflow}?status=in_progress`, 'workflow_runs')
+  ])
+  if (!Array.isArray(recent?.workflow_runs)) throw new Error('Missing GitHub workflow_runs')
+  // The status-filtered results can omit recent runs with queued jobs.
+  const runs = new Map()
+  for (const run of [...recent.workflow_runs, ...queued, ...running]) {
+    const known = runs.get(run.id)
+    if (!known || run.run_attempt > known.run_attempt) runs.set(run.id, run)
+  }
+  return [...runs.values()].filter(run => run.status === 'queued' || run.status === 'in_progress')
+}
+
 export async function handler(_event, context) {
   const { EC2Client, DescribeInstancesCommand, RunInstancesCommand, TerminateInstancesCommand } = await import('@aws-sdk/client-ec2')
   const { SSMClient, GetParameterCommand, PutParameterCommand, DeleteParameterCommand } = await import('@aws-sdk/client-ssm')
@@ -214,13 +231,7 @@ export async function handler(_event, context) {
     },
     run: id => github(`/actions/runs/${id}`),
     jobs: run => pages(github, `/actions/runs/${run.id}/attempts/${run.run_attempt}/jobs`, 'jobs'),
-    async pendingRuns() {
-      const workflow = '/actions/workflows/ci.yml/runs'
-      return [
-        ...await pages(github, `${workflow}?status=queued`, 'workflow_runs'),
-        ...await pages(github, `${workflow}?status=in_progress`, 'workflow_runs')
-      ]
-    },
+    pendingRuns: () => listPendingRuns(github),
     async findInstance(key) {
       const response = await ec2.send(new DescribeInstancesCommand({ Filters: [
         { Name: `tag:${environment.Key}`, Values: [environment.Value] },
