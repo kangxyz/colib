@@ -114,3 +114,14 @@ COL-0504 = "COL-0504 constructs the relative-open section diagram using the orig
 COL-0509 = "The original supported-section inclusion also admits a specified initial cone comparison with the relative-open section model. Its null track is the reversed original weak zero-to-section transformation, not an arbitrary replacement. Actual evaluation preserves the inherited acyclic zero, the literal inclusion square and the entire null cylinder; the resulting cone descent is a native stable equivalence in every integer degree and retains the signed connecting formula through this same track's fiber lift. This initial comparison does not identify the coarse endpoint with full open K-theory or establish Bass nonconnective localization.\n"
 COL-0510 = "The actual affine section evaluation also compares the original polynomial span, moving-square cone and parameter-looped one-step Bass construction. Each named map is a weak homotopy equivalence at every level, including zero, and a stable equivalence in every integer degree. This preserves the original coefficient homotopies and square filler; it does not yet compare iterated Bass towers or identify nonconnective K-theory.\n"
 
+[[sections]]
+id = "global-sections-and-parameters"
+title = "Global sections and scheme parameters"
+order = 55
+introduction = "Global cocartesian sections retain the original bounded-flat perfect fibers while organizing their exact pullbacks over all schemes. Support, joint coefficient restriction and the raw parameter Laurent unit use the same evaluation and selected zero. These constructions precede the affine and Bass comparisons below."
+
+[sections.transitions]
+COL-0533 = "The perfect pullbacks above can also be organized over all schemes at once. Identity evaluation retains the geometric fiber, while the original cocartesian sections make reindexing strict. The same evaluation lifts global units without changing their scalar components."
+COL-0534 = "Impose acyclicity on an open in the sections of COL-0533. Reindexing retains that condition along a commuting open-pair square. The support-forgetting maps then form a single natural transformation, which can be restricted to the product families of COL-0536."
+COL-0535 = "Apply the global sections of COL-0533 to the full scheme-and-coefficient family. Restriction keeps identity evaluation and the selected zero literally. Its coefficient naturality is already an equality of the original functors, before any additional Waldhausen model bundling."
+COL-0537 = "Pull the Laurent coordinate through the same fixed-factor projection used in COL-0536. The global scalar lift of COL-0533 turns it into an ambient section unit. Its two naturalities keep the parameter map and the fixed-factor map separate; no returned-action or localization identification is supplied here."

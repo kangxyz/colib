@@ -1,0 +1,13 @@
+[entry]
+id = "COL-0536"
+title = "Product open pairs over scheme parameters"
+kind = "definition"
+section = "scheme-products-and-index-squares"
+order = 20
+statement = "Let f: P → Q be an open immersion of schemes. For every scheme S, the product of f with S over the integral terminal scheme is an open immersion S × P → S × Q. These open pairs form a covariant functor in S. A parameter map induces the original product maps on both sides, and their commuting square is the naturality square of the product transformation."
+scope = "Arbitrary schemes and parameter maps in the fixed universe. The products use the actual native pullbacks over the integral terminal scheme. No compactness, flatness or extra cartesianness hypothesis is imposed. This item only constructs the geometric open-pair family; supported section models and their contravariant reindexing belong to COL-0534."
+proof_kind = "outline"
+proof = "The base product transformation of f has open-immersion components. Package each component as an open pair and its naturality square as a morphism of open pairs. Identity and composition follow from the two product functors. The left and right projections are their literal component maps."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.GlobalSupportedParameter.pairs"
+provenance = "quillen"

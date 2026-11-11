@@ -391,6 +391,7 @@ class LibraryTests(unittest.TestCase):
 "scalar-operations-and-boundaries": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "supported-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "perfect-pullback": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"global-sections-and-parameters": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
 "affine-evaluation": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "affine-bass-constructions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
             "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
@@ -1389,6 +1390,16 @@ class LibraryTests(unittest.TestCase):
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], section)
             self.assertEqual(item["path"], path)
+
+
+    def test_global_scheme_geometry_items_keep_scope_and_owners(self):
+        expected = {'COL-0533': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0534': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0535': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0536': ('algebraic-geometry', 'scheme-products-and-index-squares'), 'COL-0537': ('k-theory-schemes', 'global-sections-and-parameters')}
+        for identifier, (chapter, section) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{chapter}/{identifier}.toml")
+        self.assertIn("not a returned", self.library["entries"]["COL-0537"]["scope"])
+        self.assertIn("does not yet bundle", self.library["entries"]["COL-0535"]["scope"])
 
 
 if __name__ == "__main__":

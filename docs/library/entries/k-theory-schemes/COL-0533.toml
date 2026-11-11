@@ -1,0 +1,13 @@
+[entry]
+id = "COL-0533"
+title = "Global bounded-flat section models and scalar units"
+kind = "definition"
+section = "global-sections-and-parameters"
+order = 10
+statement = "For every scheme X, take the cocartesian sections of the original bounded-above-flat perfect-complex family over schemes mapping to X. Identity evaluation is an equivalence with the original fiber. The transported Waldhausen structure and its specified zero give a strict contravariant diagram on all schemes. A global unit on X lifts to an automorphism of the identity section functor; evaluation preserves its scalar action, and geometric reindexing preserves the action of the pulled-back unit."
+scope = "All schemes in the fixed universe; no affine or quasi-compactness hypothesis. The fibers retain native Stacks-perfect complexes and the original bounded-flat admissible quotients. The section construction organizes these same fibers, not a replacement perfect-complex model. This item does not construct a Laurent spectrum track or identify Bass or nonconnective K-theory."
+proof_kind = "outline"
+proof = "Transport the original fiber Waldhausen structure through identity evaluation. Exact geometric reindexing and the literal chosen-zero laws assemble the strict model diagram. Lift the geometric scalar automorphism through the same evaluation equivalence. Evaluation and scalar pullback identify its components and establish reindexing naturality."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatGlobalSectionModelFunctor"
+provenance = "quillen"

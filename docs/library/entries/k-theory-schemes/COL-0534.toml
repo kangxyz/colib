@@ -1,0 +1,13 @@
+[entry]
+id = "COL-0534"
+title = "Supported global section diagrams on open pairs"
+kind = "definition"
+section = "global-sections-and-parameters"
+order = 20
+statement = "For an open immersion j: U → X, retain the global bounded-flat sections whose identity evaluations become acyclic after restriction to U. Every commuting morphism of open pairs induces the original exact reindexing functor, preserving the specified zero literally. These maps form a strict contravariant diagram of Waldhausen models. Forgetting support is a natural transformation to the ambient global section diagram. Pulling both diagrams back along a fixed product-open-pair family gives the corresponding scheme-parameter diagrams."
+scope = "Arbitrary schemes, open immersions and commuting open-pair maps in the fixed universe. No quasi-compactness or cartesian-square assumption is added. Support means acyclicity on the stated open; admissible quotients and geometric evaluation are unchanged. This is a model diagram and its support-forgetting map, not a relative-open localization equivalence, prespectrum comparison or TT localization theorem."
+proof_kind = "outline"
+proof = "Restrict identity evaluation to the original support condition. Its geometric pullback comparison transports exactness to supported reindexing. Literal zero preservation gives the model maps; the underlying functor identity and composition equations give the diagram laws. The original forgetful square supplies naturality, and parameter diagrams are obtained by composition."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalSupportedSection.pairSupported"
+provenance = "quillen"
