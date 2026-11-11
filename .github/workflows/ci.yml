@@ -1,40 +1,143 @@
+# One authorized frozen-proof validation run. No main merge, publication, or kernel replay.
 name: Colib CI
 
 on:
   push:
-  pull_request:
-  workflow_dispatch:
-    inputs:
-      runner-profile:
-        description: Runner profile for this CI run
-        type: choice
-        options: [ec2, hosted]
-        default: ec2
+    branches: [ci/strict-a1-frozen-proofs-20261111]
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  # A single EC2 host retains the checkout from Build through Test.
-  group: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && vars.COLIB_PARALLEL_RUNNER_ENABLED != 'true' && 'Colib EC2' || format('Colib CI-{0}', github.ref) }}
-  cancel-in-progress: false
-  queue: max
+  group: Colib CI-refs/heads/ci/strict-a1-frozen-proofs-20261111
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI_CHECKPOINT_PATH: .lake/ci-checkpoints
+  LAKE_NO_CACHE: 'true'
+  LAKE_ARTIFACT_CACHE: 'false'
 
 jobs:
-  lean:
-    permissions:
-      contents: write
-      actions: read
-      pull-requests: read
-    uses: ./.github/workflows/lean-ci.yml
-    with:
-      package-directory: .
-      build-targets: Colib
-      runner-labels: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && (vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true' && format('["colib-ci-run-{0}-{1}"]', github.run_id, github.run_attempt) || '["colib-dependency-warmup"]') || '["ubuntu-24.04"]' }}
-      native-memory-mib: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 57344 || 13824 }}
-      lake-threads: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 8 || 4 }}
-      lint-workers: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 8 || 4 }}
-      job-timeout-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 90 || 360 }}
-      reuse-build-host: ${{ (vars.COLIB_EC2_SHARED_HOST == 'true' || vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true') && vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) }}
-      build-job-timeout-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 240 || 0 }}
-      build-compiler-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 180 || 0 }}
+  build:
+    name: lean / Build
+    if: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner }}
+    runs-on: ${{ vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true' && fromJSON(format('["colib-ci-run-{0}-{1}"]', github.run_id, github.run_attempt)) || fromJSON('["colib-dependency-warmup"]') }}
+    timeout-minutes: 240
+    env:
+      COMPILER_SCOPE: colib-strict-a1-proof-${{ github.run_id }}-${{ github.run_attempt }}.scope
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Initialize the existing native cache context
+        id: context
+        run: |
+          set -euo pipefail
+          mkdir -p "$CI_CHECKPOINT_PATH" .lake/strict-a1-proof-result
+          printf 'LAKE_CACHE_DIR=%s/lake-native-cache\nMATHLIB_CACHE_DIR=%s/mathlib-cache\n' "$RUNNER_TEMP" "$RUNNER_TEMP" >> "$GITHUB_ENV"
+          python3 .github/ci-cache/checkpoint.py context --root . --github-output "$GITHUB_OUTPUT"
+      - name: Configure pinned Lean
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/ci-cache/configure-lean.sh
+      - name: Materialize exact pinned dependency sources
+        timeout-minutes: 10
+        run: lake env true
+      - name: Restore exact pinned caches and local compiler products
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 -u .github/strict-a1-proof/restore.py 2>&1 | tee .lake/strict-a1-proof-result/restore.log
+      - name: Acquire the official pinned Mathlib cache
+        timeout-minutes: 20
+        run: lake exe cache get
+      - name: Compile the frozen proof DAG with actual package options
+        id: build
+        timeout-minutes: 185
+        run: |
+          set -euo pipefail
+          available=$(( $(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE) / 1048576 - 2048 ))
+          (( available > 0 ))
+          memory=57344
+          if (( available < memory )); then memory=$available; fi
+          printf 'Native compiler group memory %s MiB, at most eight independent module workers.\n' "$memory"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          set +e
+          sudo --preserve-env systemd-run --scope --quiet --collect --unit="$COMPILER_SCOPE" \
+            --uid="$(id -u)" --gid="$(id -g)" --property="MemoryMax=${memory}M" --property=MemorySwapMax=0 \
+            /usr/bin/env "PATH=$PATH" LEAN_NUM_THREADS=8 \
+            timeout --signal=INT --kill-after=60s 180m python3 -u .github/strict-a1-proof/build.py \
+            2>&1 | tee .lake/strict-a1-proof-result/build.log
+          statuses=("${PIPESTATUS[@]}")
+          set -e
+          printf '%s\n' "${statuses[0]}" > .lake/strict-a1-proof-result/process-exit.txt
+          printf 'true-exit=%s\n' "${statuses[0]}" >> "$GITHUB_OUTPUT"
+          test "${statuses[1]}" = 0
+          exit "${statuses[0]}"
+      - name: Quiesce the exact compiler scope
+        id: quiesce
+        if: ${{ always() && steps.build.outputs.attempted == 'true' }}
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          if [[ "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" != not-found ]]; then
+            sudo systemctl stop "$COMPILER_SCOPE" || test "$(sudo systemctl show -p LoadState --value "$COMPILER_SCOPE")" = not-found
+          fi
+      - name: Upload small proof build manifest and logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: strict-a1-frozen-proofs-metadata
+          path: |
+            .lake/strict-a1-proof-result/*.json
+            .lake/strict-a1-proof-result/*.txt
+            .lake/strict-a1-proof-result/*.sha256
+            .lake/strict-a1-proof-result/*.log
+            .lake/strict-a1-proof-result/logs/*.log
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload exact complete proof product artifact
+        if: ${{ steps.build.outcome == 'success' && steps.quiesce.outcome == 'success' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: strict-a1-frozen-proofs-complete
+          path: .lake/strict-a1-proof-result/strict-a1-frozen-proofs.tar
+          include-hidden-files: true
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 14
+      - name: Preserve separately labeled partial proof products
+        if: ${{ failure() && steps.build.outcome == 'failure' && steps.quiesce.outcome == 'success' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: strict-a1-frozen-proofs-partial
+          path: .lake/strict-a1-proof-result/strict-a1-frozen-proofs.tar
+          include-hidden-files: true
+          if-no-files-found: ignore
+          compression-level: 6
+          retention-days: 14
+      - name: Require the true complete result
+        if: ${{ always() }}
+        env:
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          QUIESCE_OUTCOME: ${{ steps.quiesce.outcome }}
+        run: |
+          set -euo pipefail
+          test "$BUILD_OUTCOME" = success
+          test "$QUIESCE_OUTCOME" = success
+          test "$(cat .lake/strict-a1-proof-result/process-exit.txt)" = 0
+          python3 - <<'PY'
+          import json
+          p = json.load(open('.lake/strict-a1-proof-result/producer.json'))
+          assert p['build_true_exit'] == 0 and p['completed_candidate_count'] == p['candidate_count'] == 439
+          assert not p['failures'] and p['status'] == 'complete-frozen-candidate-compiler-check'
+          print('Verified frozen candidate compiler DAG. Local imported inputs retain their weaker option provenance; this is not full strict A1 completion or kernel replay.')
+          PY

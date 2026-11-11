@@ -1,0 +1,2940 @@
+{
+  "scope": "exact relevant previously accepted native import products",
+  "lower_source_revision": "db74eb2403109105cc51ceba1a4e8a8391a4543c",
+  "pins": {
+    "lean_version": "4.35.0",
+    "lean_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks_revision": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+  },
+  "compiler_command": [
+    "lean",
+    "-j1",
+    "-M4983",
+    "-o",
+    "MODULE.olean",
+    "-i",
+    "MODULE.ilean",
+    "SOURCE.lean"
+  ],
+  "package_options_validated": false,
+  "original_input_archive_sha256": "4b60b00e0a13d277ba96939fb3f7c561da1abc46c205e0abd4b1a97d5bda1bd8",
+  "entries": [
+    {
+      "module": "Colib.CategoryTheory.Sites.Cohomology.DegreeZero",
+      "source_sha256": "273f5a10ca1fb8cfc57bb9481b0ae569d8bb36e4e78bebf6273f4d43dab1e5c9",
+      "source_path": "Colib/CategoryTheory/Sites/Cohomology/DegreeZero.lean",
+      "directImports": [
+        [
+          "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.FreeYonedaSectionsUnivLE",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794382143581126395",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "675ab40992f1de37f9395c47ca3cb182ef8645b45c01d6d53ac1f292af83ed37",
+          "size": 14656,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.olean"
+        },
+        {
+          "sha256": "64efc5df474d8f127e639840f611f81b3eb46716abbdff87644858777faae8ed",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.ir.sig"
+        },
+        {
+          "sha256": "847b3514342e5ef0bf559fc3086ff875a919167e4911ba665b1412c97d81ce4a",
+          "size": 1640,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.olean.server"
+        },
+        {
+          "sha256": "6394a8748b78fea749ad0c41ad2c5daf0c5a2ca08f3a90bc1fc720805d32ef1b",
+          "size": 6509,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.ilean"
+        },
+        {
+          "sha256": "9660e66808e05ffffd3bf62a6f4b78141826d10cd98dd9249a809dd7b46c93d3",
+          "size": 47720,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.olean.private"
+        },
+        {
+          "sha256": "40bfdfd37f421a84220f97f9f94f13311a58a6a180edf005e63885c5951f7efd",
+          "size": 1704,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/DegreeZero.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Abelian.Ext.ResolutionSteps",
+      "source_sha256": "a4a13e5f1c45c245095c50f4b7bfd02c2c5af328b8338337f6926b6dc849055d",
+      "source_path": "Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.lean",
+      "directImports": [
+        [
+          "Mathlib.Algebra.Homology.DerivedCategory.Ext.ExactSequences",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Homology.DerivedCategory.Ext.EnoughInjectives",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794382185942939407",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "378c21ab6d67e87ad770bd5722056bab4bfc68c0b63890d701aae501b2f15f53",
+          "size": 17912,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.olean"
+        },
+        {
+          "sha256": "e8dd5b3ac60e992d7b7e5437f74eac1383eb3807dc41ecb10007ced6a764c8ec",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.ir.sig"
+        },
+        {
+          "sha256": "5d6a8872eea89e11ad8c74446dd429711265d870795a6d2f10fe01adc83b4741",
+          "size": 1864,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.olean.server"
+        },
+        {
+          "sha256": "04f5fbbc986ebe29e9abbcf246fd205220e1831168b0f2e10f5603c59c0263d1",
+          "size": 5086,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.ilean"
+        },
+        {
+          "sha256": "078a6460ba4c0f8f172637f6f8a7fdec7f1207163178b093cb5bb4a8561dbdfa",
+          "size": 101272,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.olean.private"
+        },
+        {
+          "sha256": "a959e597ba897e22ba38a5d9955244a0fe70767c807fd0b8042805908f5910b3",
+          "size": 1792,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Abelian/Ext/ResolutionSteps.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.ObjectwiseExact",
+      "source_sha256": "65dfb5417b25600ee0d201555cdb1cc222e13adfc0e351a80b8ddcb5ecf24c5f",
+      "source_path": "Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.lean",
+      "directImports": [
+        [
+          "Mathlib.Algebra.Category.Grp.AB",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Abelian.Exact",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Abelian.GrothendieckAxioms.FunctorCategory",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Sites.Abelian",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794382244005280407",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "dc2a45eeb364cfb0784f275e055a6af1b3d5b6511db10eb18cab410d7c895a1d",
+          "size": 16616,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.olean"
+        },
+        {
+          "sha256": "aa154a5a7c0aea63e77226bcf3610b94276e57744155dca95a5af4752618794e",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.ir.sig"
+        },
+        {
+          "sha256": "6e56b21a94d2b4fef114a81d3f4e5f7bb85f3e21d271eb72077b35a2fa4d9170",
+          "size": 2200,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.olean.server"
+        },
+        {
+          "sha256": "513765d83bfe1d577da9f098eac0674bec4667a503d64c07dd5bb5c5b9d682d4",
+          "size": 12466,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.ilean"
+        },
+        {
+          "sha256": "5fd5e425420df3c3fd5d55227a80e02c260ceb107931e520f351c85d46292dca",
+          "size": 106016,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.olean.private"
+        },
+        {
+          "sha256": "b6fe0600fa6890b77ec77d05f68dcf7d171000e227261fbd402bcc25f2fcaa1a",
+          "size": 2512,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ObjectwiseExact.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.Topology.JacobsonOpenCover",
+      "source_sha256": "e9c4ab879abb9ca309ebf0cfabf802476b518c737f3b4f079870df1ec36bb55d",
+      "source_path": "Colib/Topology/JacobsonOpenCover.lean",
+      "directImports": [
+        [
+          "Mathlib.Topology.JacobsonSpace",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Topology.Sets.Opens",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794382291987440474",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "7e1457e7c604d9a9cddc92c1dd899de75aa2a939160b3b9949c949e7fcdc673e",
+          "size": 14160,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.olean"
+        },
+        {
+          "sha256": "f05a759666de6d954e5d32b880c3d8510936f096600365911a2783d23cdddef9",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.ir.sig"
+        },
+        {
+          "sha256": "a3d8fc8cdf60db9fe5a0c5d62492cdc48cdecb3deb1a47b805887927cd38359a",
+          "size": 1896,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.olean.server"
+        },
+        {
+          "sha256": "02f9e45b3d53d336440c084e150c7ee3468f880ff896a864059d4a8545c23772",
+          "size": 3159,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.ilean"
+        },
+        {
+          "sha256": "ec06143f1d1bd26dd137e17ff4809480f9fc5859eaca73980607908a5da250ab",
+          "size": 13448,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.olean.private"
+        },
+        {
+          "sha256": "c1ce63a6f3e88cd5d36296707f15fa9944280414462f4b850f86944b8722afdf",
+          "size": 1624,
+          "archive_path": "products/Colib/Colib/Topology/JacobsonOpenCover.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.IdealSheaf.Complement.AffineOpenComplementIdeal",
+      "source_sha256": "a15b6a6443d7d58ad5ec68e330e647cf44ae12ca70f2cb716889c1237f0ee774",
+      "source_path": "Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794382333108673034",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "e7e9ddd37da0795e8ccef8e8d37b82b9c28e5565b84d6c98caf22bace6f4b97b",
+          "size": 25296,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.olean"
+        },
+        {
+          "sha256": "5e9a97a56542d9ee383f40aa82cefe9d17cd9b590b04b838d4eb489d30a4f5c3",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.ir.sig"
+        },
+        {
+          "sha256": "5b6186e7f2367975d0eaf0fefda45d37995606152819faedec1e83a644f0db48",
+          "size": 2288,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.olean.server"
+        },
+        {
+          "sha256": "2de05a5ba649f52edd07c114f9c98f9b3156bbbccebcc9b68babcfa048ba44fd",
+          "size": 6636,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.ilean"
+        },
+        {
+          "sha256": "aa127a0b063cd538d634dae359f73fa5b339d32bd28064737686e4c2e5a43d11",
+          "size": 28456,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.olean.private"
+        },
+        {
+          "sha256": "f2dcbdc50198a7d3f7362224378e48a96bbbba353653808300d5ecda474bddc2",
+          "size": 3640,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/IdealSheaf/Complement/AffineOpenComplementIdeal.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic",
+      "source_sha256": "75dede840774bb7440e0c6190bbf627c3a3582176bd3b6fa60eb5d572255b46f",
+      "source_path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.SheavesWithTransfers.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.FreeYonedaSectionsUnivLE",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794384646625833360",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "738f5ad78c71da275b5299b017d314eb88c86ccb2c76d90d305b88728a45d06e",
+          "size": 30056,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.olean"
+        },
+        {
+          "sha256": "36a05a1ff94cdd6ea6d639ab684137aca81016c612c222e7f4a225db0c718294",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.ir.sig"
+        },
+        {
+          "sha256": "e90ae321e38f8b14de29645414d262e94a9f0b63886cafe8ace5ed95254597d9",
+          "size": 4016,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.olean.server"
+        },
+        {
+          "sha256": "aaa50308aade63d1c2e53d5bc0cbfb00467135d236a4fbc43d29b8a0be2582c2",
+          "size": 9026,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.ilean"
+        },
+        {
+          "sha256": "a0bf253805b3d30d89b20cabfca9f5cecb687ae7077beb71c52516276637754d",
+          "size": 3496,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.olean.private"
+        },
+        {
+          "sha256": "efad06a991058ddf6955a1cf9747de0568bc000c075ad5f3a0e5ec8ab1dd3ad3",
+          "size": 2256,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/Basic.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinarySource",
+      "source_sha256": "60b45c6fc92baf414a31b6ff909ffbd8ec67ca2c59323e77a0c66050e5457bd0",
+      "source_path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.SheavesWithTransfers.Representable",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.Util.References",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.FreeYonedaSectionsUnivLE",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794384518639171473",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "666f8bd50450fe1a694e3f856ef837b95c42e6aa1737ede42d96bd3cf9358adc",
+          "size": 91672,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.olean"
+        },
+        {
+          "sha256": "37b60235b60e4955a3523ca8e85eac26b1b7866e7e3b66476330eb7a91260220",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.ir.sig"
+        },
+        {
+          "sha256": "1529eeb17d8bfaf6e3afde97042fe6742785e4812195635d874dee97cb0d5b87",
+          "size": 3432,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.olean.server"
+        },
+        {
+          "sha256": "4db8db0c5527b71cf04680deb29e056609089da7ca2882c42fc1ddbe11e9d779",
+          "size": 19841,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.ilean"
+        },
+        {
+          "sha256": "0be1147db950e1a3362ea53d2469c1817dde97a5e1c9df333fa9a59a2f16e7a3",
+          "size": 137120,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.olean.private"
+        },
+        {
+          "sha256": "74d4f70c2ed24778b5e5a4e388e54f88dbef65dc1516aee8fb924f9f4007a7cd",
+          "size": 2248,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinarySource.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Finite.Open.FiniteMarkedOpenDescent",
+      "source_sha256": "807d3bdb6865f4310652e016401c49c98abb2045b60b428e3ce6979ce06f7796",
+      "source_path": "Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794383891016136390",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "957dd9e93d2efe2332d810aefc3c8b41004a2189ffe15741594def593f4c42b0",
+          "size": 42608,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.olean"
+        },
+        {
+          "sha256": "5c45790b32ebd87d8c8e939dfa0c1a3b6d70e6f212fe78b2189cd8b3e962d834",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.ir.sig"
+        },
+        {
+          "sha256": "c2a6482269402e937cbe78d686b4717105a815ad3e71a1d9b86ef81cfa7d1b56",
+          "size": 3712,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.olean.server"
+        },
+        {
+          "sha256": "a1d44ba904c53f4f4405a0def3bccf60e5ab60644ffe2d4da9a95eb530d28d1c",
+          "size": 6283,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.ilean"
+        },
+        {
+          "sha256": "ae5a30edbac4669ab506b003db9632e69ca5c13840726f92a61cfb8cd9f84e3f",
+          "size": 33424,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.olean.private"
+        },
+        {
+          "sha256": "ad5feff586e77cea1fbfb7cb91cc5f46f891fc742146104b681632ec381451b5",
+          "size": 3672,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/Open/FiniteMarkedOpenDescent.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian",
+      "source_sha256": "c114269acfaa56fd6bdb71ab68840a0a39c5ca3f4634872c25813411e974b31f",
+      "source_path": "Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Noetherian",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.QuasiCompact",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794383960594405097",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "64b2e9f10a50991d128371124db305f7d60445122aeee7ff1d5fdddb3acbe4f1",
+          "size": 6048,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.olean"
+        },
+        {
+          "sha256": "d019f649f95819a512037d40e48730a0dbe5e541d06203839b6f692df6f6f7b1",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.ir.sig"
+        },
+        {
+          "sha256": "4b00974c1f82e53d78fc541bd339e1f433096ed6c9bf8bb23da600c82f1085a0",
+          "size": 1704,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.olean.server"
+        },
+        {
+          "sha256": "2ac62bfe76cddafc57bf45015e311a1d911b8bcd714a17fd56e63ae7bb158eb4",
+          "size": 2244,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.ilean"
+        },
+        {
+          "sha256": "6b5d40cbdfb3072ec6ef8f0ac378f988767f7a562677876f368a713000cf88e4",
+          "size": 5168,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.olean.private"
+        },
+        {
+          "sha256": "b2c70820f4d659cb8a7a902d2a95f9a274909c70bf2df853c6c9dc68907578e0",
+          "size": 1648,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/FiniteTypeNoetherian.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.Sections",
+      "source_sha256": "f9c6c89fa3c6de0314d10d0198d3369ceac96457a41e47f77cdb64ec3749376f",
+      "source_path": "Colib/CategoryTheory/Sites/SheafProducts/Sections.lean",
+      "directImports": [
+        [
+          "Colib.CategoryTheory.Sites.SheafProducts.ObjectwiseExact",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Limits.Types.Products",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794383861768842451",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "fdcfbc2be385808dc4ecc087dc1637b9085c87e6555922a76811a647091b3661",
+          "size": 53504,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.olean"
+        },
+        {
+          "sha256": "d27beebd267c2ed006693bd49fa36021d660787e117111ff8cd9bf9df304a03b",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.ir.sig"
+        },
+        {
+          "sha256": "fd6c1a711ffed429874e341e3d6f31d89ac81ed92897fb65dbd8b488dc36dc5d",
+          "size": 2008,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.olean.server"
+        },
+        {
+          "sha256": "0d0471018864e2ca586311975cf79482bc701182197d6420ebf9d32440d43fb2",
+          "size": 10289,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.ilean"
+        },
+        {
+          "sha256": "c6abf077817b20fc05920a054dd227ee2454771a39e8e7c8558a1fc513c4c4c3",
+          "size": 80928,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.olean.private"
+        },
+        {
+          "sha256": "f232b887b97cdea2b5353ba14004de9fa6d52a1e95fd928d2c9f787c4b612e4a",
+          "size": 1960,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/Sections.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.ShortExact",
+      "source_sha256": "52c650e7fdd3acb9989f74910bf4342100d36852a6c8d0762d218bf141cbad7d",
+      "source_path": "Colib/CategoryTheory/Sites/SheafProducts/ShortExact.lean",
+      "directImports": [
+        [
+          "Colib.CategoryTheory.Sites.SheafProducts.ObjectwiseExact",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794383761146675061",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "4dcb682d4dd686004b98b2fca5b21b224e59f11747bac4bf42b9a8ac961cf283",
+          "size": 38000,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.olean"
+        },
+        {
+          "sha256": "9ef0660571cab28ef534184591e5d8a554fb5c0bb093756ca7f3d6cba865420d",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.ir.sig"
+        },
+        {
+          "sha256": "5f244658fcb45ed7ea064d2a13ae9cc5ec61aa423773264e81b1936fee58848a",
+          "size": 2400,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.olean.server"
+        },
+        {
+          "sha256": "b7d121b88a63d88273e1ec222286d03adbb92d63329122a9b6b5b6c815006e96",
+          "size": 11923,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.ilean"
+        },
+        {
+          "sha256": "fc6d6218ccb78d9dc89e90da952d1ce1ed26e7f59697a2e39a663a2fd8dc5951",
+          "size": 106048,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.olean.private"
+        },
+        {
+          "sha256": "4b1615ba20b5b30a0153e143f049e07e2a06a2e6bd828c1af004cfc1f48c84a7",
+          "size": 1600,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/SheafProducts/ShortExact.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.RingTheory.Etale.DifferentialCriterion",
+      "source_sha256": "50061a4d2bbead5a736302f3d86373b99930ca95524a713ba1497d8cce01295b",
+      "source_path": "Colib/RingTheory/Etale/DifferentialCriterion.lean",
+      "directImports": [
+        [
+          "Mathlib.RingTheory.Etale.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.Kaehler.JacobiZariski",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794383997273769813",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "7e5b479176d3cadef953105b81d142a72e53735e7b176a9dd56e2a996b7c7d93",
+          "size": 24600,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.olean"
+        },
+        {
+          "sha256": "57c21c974e2a36fe62c36f113e1c80c9c994d048ce849fb08bc2cc184729ee4f",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.ir.sig"
+        },
+        {
+          "sha256": "79c422fcf5d19eafe2a2d65fafd1ad20b1d7a0f4090096c0d1b8806eb1c48c65",
+          "size": 2008,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.olean.server"
+        },
+        {
+          "sha256": "b1c3a649dbf6ba1fce9c8ae6f7c3df525b7771261258117c230f3a9b5c1eb596",
+          "size": 5741,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.ilean"
+        },
+        {
+          "sha256": "9796abc0cb07d00a90fa91feba3e90a16a8935ad4cf21b6693ff9285538af120",
+          "size": 100208,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.olean.private"
+        },
+        {
+          "sha256": "975b15cba5c9d804c1fb2f844461ecef16cd5040e419302aa370b5042a10df48",
+          "size": 1696,
+          "archive_path": "products/Colib/Colib/RingTheory/Etale/DifferentialCriterion.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.DegreeZero",
+      "source_sha256": "96df54bf7d4378a0ace9d2b7f6f6f4d3261196bf921c939b6e26b425f0abf0ef",
+      "source_path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1ProjectionIso",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.CategoryTheory.Sites.Cohomology.DegreeZero",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794385967152293211",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "744574561391c2bc82432bb65826c4d8e919740036a2a422bc1d37c496e9c51f",
+          "size": 78656,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.olean"
+        },
+        {
+          "sha256": "be6bdb1b437da05c4ec35acff5315df84164735ae73e2d83f5efc0fd32a86698",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.ir.sig"
+        },
+        {
+          "sha256": "d6c5905e5d9885b558b289a03de7fee7eb23fbc7064e7cd1b895a72eb4d1d7e4",
+          "size": 6776,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.olean.server"
+        },
+        {
+          "sha256": "f3a13f2122fae125982406cc8e6d272c3d6f06ccacbd50186da9643d5653d9b5",
+          "size": 23763,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.ilean"
+        },
+        {
+          "sha256": "f8f69946a8d9d37e654f1f5ce0151f355a2cf8fad8f786bd8df487403db3eb40",
+          "size": 25176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.olean.private"
+        },
+        {
+          "sha256": "d14b367f9fbd3c8fb1731b12e9f0ca8f1a0372f3d4e31e23a588507d6514844c",
+          "size": 2192,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/StrictA1/DegreeZero.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1ProjectionIso",
+      "source_sha256": "427a98d93051cdf2f9e4ee7b2e4412bbf7ce60668564d8528a291810654aac6b",
+      "source_path": "Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794385606901792170",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "e3f3e94f05cc1c739d4605df0a4eb3bfd3e4eaf05fd7e3d8ab6202f4cacdb862",
+          "size": 38032,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.olean"
+        },
+        {
+          "sha256": "cf97db6ecd1b2ab3f427656107d910dac91286682a3f00f47ee51de4b2c53ee1",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.ir.sig"
+        },
+        {
+          "sha256": "d68b3dad258923b35c89b77ab47f1534548220d1ab65b8e2c10bb963f1338afa",
+          "size": 3336,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.olean.server"
+        },
+        {
+          "sha256": "5d3c023e1cd049e0c8c39de0b62b68d1b717cadea2da39a3d4fa4c2edd870108",
+          "size": 11478,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.ilean"
+        },
+        {
+          "sha256": "3fd1b5965cd22ae7706d9dc5cdc40a0a759868dc9cf7fe9a9c722b4d79c189a6",
+          "size": 48336,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.olean.private"
+        },
+        {
+          "sha256": "826de5a7e93e61f2a2015e40d0dcb485c760c4d8cfef2e3a48a2844a5d4cdde4",
+          "size": 1544,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/PresheavesWithTransfers/A1ProjectionIso.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinaryComparisonMap",
+      "source_sha256": "8c5cc594a17f3f6cf9bc4a99841eb21c057199faf172fd37224e8499b54b15fe",
+      "source_path": "Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinarySource",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Homology.DerivedCategory.Ext.MapBijective",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794385662787129364",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "810943a6c94a87ac726430d11ac70f85f06f5057a025ce87e336f911b9394dbf",
+          "size": 179736,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.olean"
+        },
+        {
+          "sha256": "42bea0a3769cc78e7b922df6cb2a3ab38627d3ba04c09ef75536692e2b8e0b03",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.ir.sig"
+        },
+        {
+          "sha256": "d9319bdc7973445b6c273269abbaf5bc07d07a206937118a327baaf66751455e",
+          "size": 2824,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.olean.server"
+        },
+        {
+          "sha256": "c0e88f7006681af321a3826d924bf4e75abbe657a40a61c458939df19990286b",
+          "size": 15666,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.ilean"
+        },
+        {
+          "sha256": "1cd145aac30279ecd9bb4e772f999a315f8ddaf79ea6a11173c0ba374359cd65",
+          "size": 200288,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.olean.private"
+        },
+        {
+          "sha256": "f605e6c5d3ab76c68cc082ad42ff9aea2ced35898607132b430f6280dcacbaa0",
+          "size": 2112,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/SheavesWithTransfers/Cohomology/OrdinaryComparisonMap.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.PointControl",
+      "source_sha256": "4e9523d314a45f0a02c7940d3f541cc730a310e1136af19bd8cfacd1d4da3a12",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.TorCycle",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794386406139938288",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "bd7a6dfceac4e353c38ca0edcd851f9426bd172880aca609f7677ad15e6ea18c",
+          "size": 37656,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.olean"
+        },
+        {
+          "sha256": "2dafb7063ab8452807bffe068564a70f2115f0b2b1b4e01ae011b00cf91f498e",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.ir.sig"
+        },
+        {
+          "sha256": "4b27cc6ff2f9374b956da9453a902c554965d290eece828341ff490f82f7877d",
+          "size": 3808,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.olean.server"
+        },
+        {
+          "sha256": "11f5e4eacf8632f0237d97b821f582302606dd02be3504df828958a880b9ce5f",
+          "size": 10113,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.ilean"
+        },
+        {
+          "sha256": "0289c152d1205d94f8095d9a55203c799d62164b03f90c94072399acac0cc851",
+          "size": 31424,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.olean.private"
+        },
+        {
+          "sha256": "efd6134f2a8af2e3f5beb5ee0a7496e509be93996eb9c0dc96e714a33c8e80e4",
+          "size": 1616,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/PointControl.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct",
+      "source_sha256": "9ef4c2ccb87945c131cc565b300e83c51e3912f4c4254046f9c272ae4483d96c",
+      "source_path": "Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.FormallyUnramified",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794386488775564264",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "dd074d2556c02fb330813d3e31eb5386cf0d3871d9f0a79e2c9b6816803ca240",
+          "size": 30488,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.olean"
+        },
+        {
+          "sha256": "ff7f55aabe0098eafe833246e01e815f2c4888be898510a027afe0dd6e9340af",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.ir.sig"
+        },
+        {
+          "sha256": "f855818c78e7be89ab2336093be5651fb2d4f3632747562b6fc73e48ce496ec3",
+          "size": 3008,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.olean.server"
+        },
+        {
+          "sha256": "05a5551d6fb07bc4c9ca44326f3fc9e696517a473d704de15e090fc5fed3f4aa",
+          "size": 7063,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.ilean"
+        },
+        {
+          "sha256": "f155d1e68834164c085b3764caa26ea6ece27f1376c080e4a7acf16741e9ca0c",
+          "size": 33512,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.olean.private"
+        },
+        {
+          "sha256": "af651982c31e5ac46f267cad7c8a85d816c4ae437efa8d9a1168b1060c8cea38",
+          "size": 1656,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Scheme/ForgetBaseProduct.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.SignedPointControl",
+      "source_sha256": "357ffc0a7a65d9528589dd0bff70e64110b623184eb1a3c0e1954fdb6bcf7836",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.PointControl",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.Pairing",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794386895674728012",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "00b7b3d85cb604675e12f5e49987dd7e78231f200987b50b483f73ea45714868",
+          "size": 98248,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.olean"
+        },
+        {
+          "sha256": "e79da41b650949b0cb35e14d001e6a8da1e44c41349b7d6934b39fc72eb6fdfb",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.ir.sig"
+        },
+        {
+          "sha256": "795dff8b353fe17232fcb39f03ac0a1fa6d39ba36e0d4e5ed0ef797a13c72272",
+          "size": 2656,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.olean.server"
+        },
+        {
+          "sha256": "918e615d4be7d58b250e91cd39d8dc8e9bd5e2eed0b1ad7aad60de99b7bf130d",
+          "size": 14107,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.ilean"
+        },
+        {
+          "sha256": "556cf77a9388140e90b5ac1bb65f4b4a6df571a9989aed392aad29bbf86c6305",
+          "size": 238296,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.olean.private"
+        },
+        {
+          "sha256": "77b38b3fbfbd3de455dd251191a85509d9abb5862bef8fd35ee2c61fe6a13454",
+          "size": 1720,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/SignedPointControl.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Chow.FiniteFlatDegree",
+      "source_sha256": "fc185b66d26e7cffbaf1b15a23572e635010c015196fb8cfc303d1b47a08da4e",
+      "source_path": "Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Chow.FiniteFlatFundamental",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.MoreMorphisms.Weighting.FlatLength",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392016092507936",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "863e29e14b299bc2c74dce05ac2e2d907705cc86f589b3b1eacdb28c7cf421fe",
+          "size": 44464,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.olean"
+        },
+        {
+          "sha256": "86541221af9b1c7655bcb4207e742bf070b1836aee90870b74c9eb182f0ee051",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.ir.sig"
+        },
+        {
+          "sha256": "27ca1f545d56d918ec81bfd3101b7a4d692a2ee0ca1977363836a591be09047c",
+          "size": 5224,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.olean.server"
+        },
+        {
+          "sha256": "7da53d1af8d6149499833a7ef1d6aeb26ccc6b69b707085ff94ecd9cc53e9175",
+          "size": 19200,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.ilean"
+        },
+        {
+          "sha256": "ec6bbabf96d5962b23c5447696cfbbc80618868b9dbc74cf2cc4412d572192b2",
+          "size": 153016,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.olean.private"
+        },
+        {
+          "sha256": "b431f3cc7c3bd72bbf1acb444cb78a7ec3652e9654578bb95821214fe7053d41",
+          "size": 1920,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Chow/FiniteFlatDegree.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Cycle",
+      "source_sha256": "7a05037a779b43817650b1e046bf362f1fd95513bb08b2d56eb74e7ecb7277bd",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.Pushforward",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387293593418930",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "f214c2f9c8fb982ae4d587600d077d3e325fbdb29de04a279b3658ab2b07b346",
+          "size": 93992,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.olean"
+        },
+        {
+          "sha256": "98e402a03aff1e29a2c8e3a66e0a12a4dbcea10b37efe0d0305eca7e2812944e",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.ir.sig"
+        },
+        {
+          "sha256": "94b9cd999ca8c4efa19e91f4dd4b1a04c682cdcec4d7db287a254ff30f1e3f7c",
+          "size": 3480,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.olean.server"
+        },
+        {
+          "sha256": "7d9e45d45d928df5f42896756f02149668980e0268617b2d0bd5ffddcf4dfe58",
+          "size": 8932,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.ilean"
+        },
+        {
+          "sha256": "160277d994626b2ed2595c8a027e51c4076869a5799947c9e629323f5c0b5a6e",
+          "size": 36752,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.olean.private"
+        },
+        {
+          "sha256": "7c2166424df916ce3e0f537f7747fc44cbd97e989a80878afaca38f29f7e307d",
+          "size": 1808,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Cycle.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Support",
+      "source_sha256": "11903d925164c23ba0860fcd7a0cee718a436991838ae65e88b0e8221effcfc8",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Chow.FlatPullback.InvertibleChernCapComponent",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387321259927206",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "40509e77500bad3c1c4d702a4533a6718a83f6ba14eddc55b1bdb24f44ea9be5",
+          "size": 60168,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.olean"
+        },
+        {
+          "sha256": "da394126ea3841acbb45ada8c05b62247ddcf2e9a6e7a1a568772dd994c6d77d",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.ir.sig"
+        },
+        {
+          "sha256": "c3acfe6d206f2ff38f937167f135ab2d481f637dcc4f20e1aaa458894e1d7444",
+          "size": 3504,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.olean.server"
+        },
+        {
+          "sha256": "eaf58f53658ca79144b6e5f48f694970d40d609b3582e229a37bf8334b324b85",
+          "size": 6048,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.ilean"
+        },
+        {
+          "sha256": "806cb6a01eecc5f663cb63800819ff34e08355350bba55a78b9bbe9326e98af8",
+          "size": 28072,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.olean.private"
+        },
+        {
+          "sha256": "559282bc209536d248abce0c98c659cb17b74a8d5068f6e5451b3f47ae7da5fb",
+          "size": 1928,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Support.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.CenterControl",
+      "source_sha256": "cd0e6fc6123c3f6d1ad139ffb5f5797b153dfe403e73443cb940087de9077822",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.SignedPointControl",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387345626197380",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "e6a74f21488f94c4c68aefab49ec41e99ea5c12523708ecff456d4853bca2321",
+          "size": 111104,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.olean"
+        },
+        {
+          "sha256": "7bd123a0ea8a3cfff6fde9710dd3d2c9c5dd9a972c3ec10a65f6d14cc9f07431",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.ir.sig"
+        },
+        {
+          "sha256": "467ea9f162c1cd23d8cad4d47836f50b81e78a88da7c9d2f39590cf970f06bc9",
+          "size": 2368,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.olean.server"
+        },
+        {
+          "sha256": "15701f2540ccb4585c9b5731ed84190a0a82b1708a476673413b810c0027588c",
+          "size": 13583,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.ilean"
+        },
+        {
+          "sha256": "dd2b2fc175715d921d01b6157e06e455f3e7701fcf3eec8737da73584fdcf7bf",
+          "size": 271896,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.olean.private"
+        },
+        {
+          "sha256": "a9ec520112f45f2b7e4f3fbb3f59825b6123b0b7a0a97086790bb5eb0d10c6a2",
+          "size": 1624,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Composition/CenterControl.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Graph.FiniteSupportPointControl",
+      "source_sha256": "b68f37311955f44484bcfb9c28e62f2509c09b5aeed2ccdc8f7678432e3c3f3f",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Graph.FiniteSupportPushforward",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.PointControl",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387373099422928",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "206201f7a60893313e9303477c911e7e2f347926e42d8e863256eb0d98f033cc",
+          "size": 76072,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.olean"
+        },
+        {
+          "sha256": "171fb15ae120b756b7761660217af89bad463ea7815dbde01d8ad768fb6522b7",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.ir.sig"
+        },
+        {
+          "sha256": "a470e2e5eaf4d7662877fc2cc0e45bba36c258555d8560a39ffaf13762db5b6b",
+          "size": 2568,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.olean.server"
+        },
+        {
+          "sha256": "89fefbe2cb9a1a3fe467a30a7bf2e37e91309043d8e890a0172ff81374123846",
+          "size": 9074,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.ilean"
+        },
+        {
+          "sha256": "f35855fbd61f58566d9e3d4beaa792e71e2f8e9df543780c1583943e4eecc436",
+          "size": 106672,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.olean.private"
+        },
+        {
+          "sha256": "b2f368b1d8fb5e7e8c53bf4133933ac59178aa219d65b84b5ef95fbd940b178e",
+          "size": 1816,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/FiniteSupportPointControl.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Ambient",
+      "source_sha256": "05551ef2d7a834b9eadc6a9615cceced23b043df86b45b9d571fa9cb63269108",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Support",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.Diagonal",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387922352421879",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "14680da191a07f772e1168ed6d7cd057187e323df6601ff78129a7dce89bac2d",
+          "size": 78864,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.olean"
+        },
+        {
+          "sha256": "7b5c20db5442c53a20ee657dd4efab28dd8c3b64346b78f284645c06d82f3feb",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.ir.sig"
+        },
+        {
+          "sha256": "903bf4d1b18e321dfb3197066bfcfcec526231af792c325d4353915822c22ab5",
+          "size": 4696,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.olean.server"
+        },
+        {
+          "sha256": "3c685c89b05a345acdb4997d8856e76687635a5e699547dcf2c3e97ddbb151a6",
+          "size": 11458,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.ilean"
+        },
+        {
+          "sha256": "28e72b842009e24ef66a462d1829d7051516628ca9745f2322a0c08b0c5fa733",
+          "size": 70120,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.olean.private"
+        },
+        {
+          "sha256": "3db02383fe9ea78a6eaadc727bc5560f0419190a70d0e09629600b17ff5e336c",
+          "size": 1872,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Ambient.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Graph",
+      "source_sha256": "690734a0987a9324d4ff626331e95f60c564f2ffaa6dbe66748012fa9547ffb4",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Cycle",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Graph.Components",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794387955907803433",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "d8967120d8ba0e0a9f409f569be781182062f65a5ccfe3bc5e21d7dda78baf1b",
+          "size": 55816,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.olean"
+        },
+        {
+          "sha256": "e2c286c5d8bc78ee7536a680a44af484d53e9047dab2e10a66197fa285fc7199",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.ir.sig"
+        },
+        {
+          "sha256": "4436dbf539bc5681bdb238815c7676981e8934264c8fc47575fb7a7f66725bab",
+          "size": 2408,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.olean.server"
+        },
+        {
+          "sha256": "896867c29be7b359f4021ef1abd6950d4b0612cc444dff32a88d3efdc2d8d947",
+          "size": 5406,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.ilean"
+        },
+        {
+          "sha256": "04fc54b1f7f1871b206116d759fc5a6e7c53a40edf7dc3a303fef816a15cf01d",
+          "size": 58000,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.olean.private"
+        },
+        {
+          "sha256": "09b2632a9cc054f9e3120f1addd33b37ceb38e9a9041c9fd0c80b95354734a36",
+          "size": 1864,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Graph.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Nisnevich.Families.GeneratorLift",
+      "source_sha256": "fe76ef35adf8c871e0a83577e58be5833ce788942eca35e3cfbfcb83d59fed68",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Nisnevich.GeneratorLift",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Graph.PrecompositionSum",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Morphisms.ClosedImmersion.BaseChange.ClosedImageBaseChange",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388040047755674",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "f82cd336761d4363eb0224f2ff5c27590baecf90c30627ae61fde330a8a3b335",
+          "size": 103728,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.olean"
+        },
+        {
+          "sha256": "ef8251e86aba328495a2c3fd8d05f54fbaf31b10c981611fe7c6e1f456eb1956",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.ir.sig"
+        },
+        {
+          "sha256": "ff546f9d716c8ea1d6e924c7ba5c52c635ed677dd5720ce0024bea8d9aef1983",
+          "size": 5200,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.olean.server"
+        },
+        {
+          "sha256": "72d11115d98a8222b923256558c1a95a0a140b0d6afa2ee594f69addf282468c",
+          "size": 141611,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.ilean"
+        },
+        {
+          "sha256": "bef5d1c12f232ac7bf4fa9fb80090c3ca949b26701a2f81d45dc6972161bb8f4",
+          "size": 1089976,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.olean.private"
+        },
+        {
+          "sha256": "0431e5deb5bcf6a3cc9402a6180d06116dc937922807e05dfba62b2f43982b89",
+          "size": 2168,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Nisnevich/Families/GeneratorLift.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Finite.ProperQuasiAffine",
+      "source_sha256": "aa21f4fbd19fa3af5236b9b94cd6d9a45cba74b9b522b51a3d93be75fc6e3a7d",
+      "source_path": "Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.QuasiAffine",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.IsIso",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388131273894803",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "2df8010147e663be1adf5c81fdef85bd86f95f2d6cf104c71911d886d8256c4c",
+          "size": 6400,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.olean"
+        },
+        {
+          "sha256": "add225f9bfb989a6bbaefb7880ee6e3506e2a500c9791c051b434d1024d70653",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.ir.sig"
+        },
+        {
+          "sha256": "ebaf62bdcbda86c2cdfa7bd41bc179a8dcd9892af8fcae7e22926be4ee0079f8",
+          "size": 1592,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.olean.server"
+        },
+        {
+          "sha256": "fbbb93885465319303ba3aac86f03a180dd81e0189adaf461881dc50e3eff41a",
+          "size": 5388,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.ilean"
+        },
+        {
+          "sha256": "f30d5eb195a95f42b30223e16cd3b9b494177e0d19a69dabd89fe0b6c682a849",
+          "size": 27864,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.olean.private"
+        },
+        {
+          "sha256": "d8cd53ee96ec2b269e0bee7a42ca1fdd7e607d468211c5c7843334b28437796b",
+          "size": 1744,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Finite/ProperQuasiAffine.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Graph.PointControl",
+      "source_sha256": "d19c9dc1850cf1e89a70c8b67789d160528231e156eef1caa3e917cf3ade1057",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.CenterControl",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Graph.Functor",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388652909391060",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "392a86e8168fbef081ac91a578d9aeb07669733b2673aae23b0c6ced192e1376",
+          "size": 81280,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.olean"
+        },
+        {
+          "sha256": "cb624ddde93c80ccd5e7c041b86986b4ed515d24326e16a474b9641f39d978fb",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.ir.sig"
+        },
+        {
+          "sha256": "3eeb2bb4b3defc81519a5f2fb5959bf03475347ce8649cf2887a16b1c3f8d9cd",
+          "size": 2440,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.olean.server"
+        },
+        {
+          "sha256": "6faf9ea80f3707a85c52560390f2f9865dbeac98b61b2587d98145444e31c0f8",
+          "size": 17518,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.ilean"
+        },
+        {
+          "sha256": "67c9c0cb7a0c518dde2878b9a9fc2edaff20e5c0d1f89cf6c1fb0768d3452815",
+          "size": 299696,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.olean.private"
+        },
+        {
+          "sha256": "b92784a14fcd006dee7ef4fe7ac993e17f51dd453ec07d91676e444990a3d4c8",
+          "size": 1792,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Graph/PointControl.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Intersection.FlatProjectionStalkTor",
+      "source_sha256": "6c7eb512f05d38c042a96f7c381387b3af409b6f99ace9cf97ab48df13682de2",
+      "source_path": "Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Intersection.OpenSectionPulledStalk",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.Algebra.Category.ModuleCat.Tor.FlatRestriction",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388700462916084",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "85ed314b74646c5e2fde3ddb819c60a00b1202c5eb69b785eeb17e837087e25a",
+          "size": 176560,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.olean"
+        },
+        {
+          "sha256": "1ac28122bfc0e4da8071dc07753cf7546b5ab4ae024eb7230f111ef5ee461d27",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.ir.sig"
+        },
+        {
+          "sha256": "d05d180583f5f0ce8871095ffa345bd23c6f78632521fd1b9d7bb04a3e975e08",
+          "size": 3296,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.olean.server"
+        },
+        {
+          "sha256": "b8b39ee4ff251991449ac90032e156c418a7432c35ec6e83046b43d27ca7e0a0",
+          "size": 28155,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.ilean"
+        },
+        {
+          "sha256": "cb0cbb274df57f71390c822d2e2d255d191b0192897ba1abe9392f54b93e2ec3",
+          "size": 36720,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.olean.private"
+        },
+        {
+          "sha256": "6a18453bc28479421bfdc2d7cd282e7656cbc5f3a96e8dcefc76ae1aa6b27708",
+          "size": 1960,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Intersection/FlatProjectionStalkTor.ir"
+        }
+      ]
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.Flat.DedekindBase",
+      "source_sha256": "f64095692c68a3f7a9c1c3a9d1b54926e3a17b51cfa79bc8e5f352fc90394c82",
+      "source_path": "StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.FunctionField",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Flat",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.Flat.TorsionFree",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.Dominant.IntegralSchemes",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.Normalization.Affine",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksCore.Tactic.EgaSgaAttribute",
+          true,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388735421050662",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "76d43d0025bf6e07bfce4aba3b77470e0c4524cc0ff16a3f9e8ee737ef16ebe0",
+          "size": 32384,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.olean"
+        },
+        {
+          "sha256": "0912fb78178b896b8722eb830b5d096c830f1ec016385deed29db58373cf65db",
+          "size": 176,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.ir.sig"
+        },
+        {
+          "sha256": "82a426bae9bde00846971849d0db75fd4481cfdb7b738e2131873092ffa2e432",
+          "size": 4712,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.olean.server"
+        },
+        {
+          "sha256": "2edad04c61ef6679f1893c8252fbf6080d5998c4de568049119bff0eb0b77bff",
+          "size": 45002,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.ilean"
+        },
+        {
+          "sha256": "fa63885696acc9e513c8eb4b6064e4384e1fb0d107363fc91c475dac884289cf",
+          "size": 431408,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.olean.private"
+        },
+        {
+          "sha256": "8ff859656a81613a5ac237d3f70ea78386da3492ab30b0ad1ccb3cab54c354ac",
+          "size": 2648,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/Flat/DedekindBase.ir"
+        }
+      ]
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.WeightedFibreSum",
+      "source_sha256": "d899a5fc445bc0fc623aa48d9ad13eb9c3e860fdd8e20c03af4f67b9b2755aa7",
+      "source_path": "StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.FieldTheory.SeparableClosure",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksCore.Tactic.StacksAttribute",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794388758215728914",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "bdf721085bfc31ddfd45dfd3e94e1181b5c45551f0bb99085695dad67cf570db",
+          "size": 133760,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.olean"
+        },
+        {
+          "sha256": "33340c6c95cf907536cd7ceca06e603fdeddc1632f6a9fd769718d9e8d4ede2c",
+          "size": 176,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.ir.sig"
+        },
+        {
+          "sha256": "eef339b32b7f14474d626b519d7cac2d3dbe13e65f728a098042ad42f4a9301c",
+          "size": 11656,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.olean.server"
+        },
+        {
+          "sha256": "8a143015839569c903722b06385356750d7e3de4e19793fb27835ec160cb102e",
+          "size": 100833,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.ilean"
+        },
+        {
+          "sha256": "8b92a640d13f355c2dc5972c94ff1e02cd732f90001715dfc10de91baa428df0",
+          "size": 562856,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.olean.private"
+        },
+        {
+          "sha256": "6c547903278a21159b1eed49306708f39bd77db7f624eb289b894a2c67094d21",
+          "size": 2000,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/WeightedFibreSum.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Incidence",
+      "source_sha256": "28e30e5174f334a0e2748e306dcb35c04e47fc9ff4d28ca22af264fb032c4af1",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Ambient",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794389720124602977",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "9ac8a6a605d02c570ae61218a51e1c1c6d38cd59a1b771032b19f3790476fa6a",
+          "size": 103920,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.olean"
+        },
+        {
+          "sha256": "08897992efa34c195766e837beab9e4ad4a8b5f4e2feea1dc92975945421ff5e",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.ir.sig"
+        },
+        {
+          "sha256": "84b43b786771ea8b1243064863f9f1d04e1ac7d38e6b04a8389229e3f6ea08f0",
+          "size": 4424,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.olean.server"
+        },
+        {
+          "sha256": "2d3dd9c761cbe6440c4e436db70960105592fa061913304e3449a2ca670a7f38",
+          "size": 9752,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.ilean"
+        },
+        {
+          "sha256": "145aad774a18532d5577852a2349516c974b7bd97ec890a255afc8dec8d887d3",
+          "size": 87312,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.olean.private"
+        },
+        {
+          "sha256": "ed952c5798462cbe0ab28426345ca277e1c6bc7979b4d12ae0c516bcb8fc7a6a",
+          "size": 1680,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Incidence.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Noetherian",
+      "source_sha256": "6c7f61f7b96b16225fb48e47fc331775ad2352347067d3c49f49f6c8725368e3",
+      "source_path": "Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Sites.Smooth.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794389772612364576",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "df15c8df4cfc4cafc96249badd973c7015ee29ca2601728773f769422398099e",
+          "size": 13304,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.olean"
+        },
+        {
+          "sha256": "1329d96b3dab0d5b72a3b081fd8759f80723ad7c47b7dfd900cdbe65b95b4cb1",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.ir.sig"
+        },
+        {
+          "sha256": "8f485103f7f3bcf11c70744c3e586bb38247449bdba83a6aa7f4e2defea81b14",
+          "size": 1640,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.olean.server"
+        },
+        {
+          "sha256": "8c744d708a261e76c8d8824bed7108d3662917819665415b0a77ffede1c4331b",
+          "size": 3391,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.ilean"
+        },
+        {
+          "sha256": "e59356548698ec6a07ae9201b250c74801f1e1b82a57db746d8c1386de8faae3",
+          "size": 5720,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.olean.private"
+        },
+        {
+          "sha256": "7cb18aa0807939adcfd1ac7b26631dd6c71423af3aecfa860cc433558df84b69",
+          "size": 1784,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/Noetherian.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Flat.AffineLineComponents",
+      "source_sha256": "ef9f11cac32175f87eb1867b82da8188531253e65403a2ee82c255e630d211e6",
+      "source_path": "Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.lean",
+      "directImports": [
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.Flat.DedekindBase",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.Normalization.FlatCodimensionZero",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Chow.GysinConstruction.IntegralComponent",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.Algebra.Polynomial.FieldDivision",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794389785305650302",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "f10f962c215013d273fbcab4f6907f314d205043d89962d899b76cc30165e37b",
+          "size": 17944,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.olean"
+        },
+        {
+          "sha256": "cb3a38eeabc317990e8753f183b7720bb07567e4e59ccf5e1151c01c6d426278",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.ir.sig"
+        },
+        {
+          "sha256": "293059d9426dcf19cd3633b76f28f83e5c6b68fc946cde4be95df5e97f800997",
+          "size": 4000,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.olean.server"
+        },
+        {
+          "sha256": "622ede12a241d9c991200bba32cdf4b1fbd7f8f252a30a9a9718d19200e9fda4",
+          "size": 8553,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.ilean"
+        },
+        {
+          "sha256": "eef4d32b30db8c1d308851f52b92666c8993709047d428a607cc1afb3d8ac26c",
+          "size": 27032,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.olean.private"
+        },
+        {
+          "sha256": "63e9957c5f600d7451f314fd5b732d98fdfbe2d5151d656fa2a354f92cd74228",
+          "size": 2432,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Morphisms/Flat/AffineLineComponents.ir"
+        }
+      ]
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.Weighting",
+      "source_sha256": "b1d53c2b3a0d038f72776cc27441c48414385f627025e9081d849e67810f3b09",
+      "source_path": "StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.WeightedFibreSum",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksCore.Tactic.StacksAttribute",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794389800078104426",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "18450e5cd2a0355a27d26248062b9bbb49159d1e91cfbae8c13938a375748aaf",
+          "size": 25864,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.olean"
+        },
+        {
+          "sha256": "93ccb8e155dc844decbeaf575dfceded6e1f5554f6bc25eaf76d4b769ea4ec2f",
+          "size": 176,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.ir.sig"
+        },
+        {
+          "sha256": "7aec07e2cc7b8eb9eb063defb378746e9e51917840509fc03d42a846952a2c49",
+          "size": 4344,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.olean.server"
+        },
+        {
+          "sha256": "bcb378bd99163bb27e393489575ff0614651f9b1bd6a696c582ec7aa767e71e0",
+          "size": 6760,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.ilean"
+        },
+        {
+          "sha256": "05aeb354e9e1a68e6c4e82c9e7d44e4fd54dff66f7e667a254480f31e5fd9e9f",
+          "size": 43320,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.olean.private"
+        },
+        {
+          "sha256": "8d8322202fc7469623d8227501643762540fad02237bfceb97a8442d7a33f0b3",
+          "size": 2240,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/Morphisms/WeaklyEtale/Weighting.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.SupportProduct",
+      "source_sha256": "6e84bbe8c6e20b8f437f9b4cbdd64a310dfcbd68b07642711810ff86b3e4a098",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Incidence",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794390132650157000",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "a6f275ddfca2b980fc5ee077b99af7fd92bdbad0707aea5958b56f43265ccb8c",
+          "size": 112896,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.olean"
+        },
+        {
+          "sha256": "7a5cc8b0641036843e1565c32c9b7620456fac8e576a327e598bf32fd554f9bd",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.ir.sig"
+        },
+        {
+          "sha256": "2e503b2d8231b15127840860ba4ed307428c67b1efdfbf2cea5874a989f17627",
+          "size": 4504,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.olean.server"
+        },
+        {
+          "sha256": "516c4b6a88df1d3a03026a78ee7dd863229d610a4d38919a404e2a83d1ff692c",
+          "size": 10015,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.ilean"
+        },
+        {
+          "sha256": "e620e6d22f2f175c0d268ed9a3e41130f281adce3cf68c5a72f92253b785a1b5",
+          "size": 84464,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.olean.private"
+        },
+        {
+          "sha256": "e47ea28c3a673a95e69f2758113742b9b60e9d7be06f97112883a1b12279ec94",
+          "size": 1688,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/SupportProduct.ir"
+        }
+      ]
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.MoreMorphisms.Weighting.FlatLength",
+      "source_sha256": "b75f75c06f97cbd9e7c354665f9f74cf53e6601be04f42144fb4e8f9538cab6e",
+      "source_path": "StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.lean",
+      "directImports": [
+        [
+          "Mathlib.FieldTheory.SeparableClosure",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.FieldTheory.PurelyInseparable.Tower",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.LocalRing.Length",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.RamificationInertia.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.Unramified.LocalRing",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.FlatRank",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.F6Rank128.FiberResidueField",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.FiniteLocallyFree.FiniteFlat",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.CohenMacaulay.FibreStalk",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.QuasiFinite.ResidueField",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.Weighting",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.RingTheory.Length.RingEquiv",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.RingTheory.Length.SemiLocal",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksCore.Tactic.StacksAttribute",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794390206943592175",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "0af2914cc441f0dc1c7ac1a16abe7f6709128960e23e475752838e5a263941d2",
+          "size": 53656,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.olean"
+        },
+        {
+          "sha256": "572b6365a6dfd363a222a1e82666a4504264ef75772099ad7920e7877a773b92",
+          "size": 176,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.ir.sig"
+        },
+        {
+          "sha256": "6fa1688230e2abea42eb1c9a6efa6d5d857785119741cfee7992eca09e75658d",
+          "size": 19032,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.olean.server"
+        },
+        {
+          "sha256": "add638d5cc64a2b7b48d214a12cb3fe02886f58dfdac6a6fc9992f3bd78f2129",
+          "size": 377532,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.ilean"
+        },
+        {
+          "sha256": "6c7405aab9388392889569771eee6c9ac27049f6149c2eba1b290a5e0e6c20b2",
+          "size": 1922928,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.olean.private"
+        },
+        {
+          "sha256": "a4ca5c55644739383a73817d30c5e77d6f3f02cb0d3cdc8ef015524121a07617",
+          "size": 4200,
+          "archive_path": "products/Stacks/StacksFrontier/AlgebraicGeometry/MoreMorphisms/Weighting/FlatLength.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.ForgetBase",
+      "source_sha256": "87835d5a9eec4c0998e77fd0d667aa913858aac9a76ef66b4c3fa4741c6d6c7f",
+      "source_path": "Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Sites.Smooth.Basic",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.Etale.Field",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794390556670188848",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "2dfb4fd18819563a4cbb42eb02759f7b1aa904eaff89c84c233747ff0d069906",
+          "size": 94904,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.olean"
+        },
+        {
+          "sha256": "8e6522591e39025d4df4dc401d65ad3acfa1c3b89be6f8ea0acf93eecc0e2f04",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.ir.sig"
+        },
+        {
+          "sha256": "d87983f84062769f5a438945f27cb9f33a0c4f8e7b0b2e0ce3cfa2408bc9baf9",
+          "size": 3440,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.olean.server"
+        },
+        {
+          "sha256": "fd5f75f6ea7e43b42ba612c832605b02478a93a7e74020d068b736b0b94ffbc2",
+          "size": 13500,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.ilean"
+        },
+        {
+          "sha256": "bfebd3d0456f565e15d3d40835f435b69f7f51b359a9e9b32dde183851f6b579",
+          "size": 39648,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.olean.private"
+        },
+        {
+          "sha256": "26042b0288ca11179ccf626418aca5d9778333a0fe48ecba2eb8d4b4bacde8cf",
+          "size": 10424,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Smooth/ForgetBase.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Single",
+      "source_sha256": "7e2bf9e16ff59cfbd7b88712d5410d437b74ce88d402d550d5e6977ff3030505",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Cycle",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Additive",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794390971659174258",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "b1dabe59d31acb2c599899d971131f0e89308deaa06420f3995c5946378844de",
+          "size": 39416,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.olean"
+        },
+        {
+          "sha256": "7b50250c81f7fbcd16597d9cdc411b16377592de9b89de016c4098f8fa9e18d5",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.ir.sig"
+        },
+        {
+          "sha256": "4e16635559b4016309ac4426d0ea444433d2ea19d203c44794b5202cb5f6b744",
+          "size": 2136,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.olean.server"
+        },
+        {
+          "sha256": "f24cd5960ff98028a0c0880efcc39c1b4847d94d3f9c3a3a4279de5adb688eb5",
+          "size": 4679,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.ilean"
+        },
+        {
+          "sha256": "661767cdca694f8b9ef05bbdc0c426b0ddd27cb95ccd5197dd7f77ed88f87fae",
+          "size": 23352,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.olean.private"
+        },
+        {
+          "sha256": "8700760ca0e251fa782500aebe0cad8691e2a92abfc3ed62764181c36b670d30",
+          "size": 1792,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/Single.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.IncidenceTor",
+      "source_sha256": "3c96e279ec41a2dfd9550047ba19b4565248c201bc8d94f7685e7b645b201000",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.SupportProduct",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.GenericTorLength",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Intersection.OpenStalkComparison",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794390993582786870",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "152e6476a2231509e9d41cd4d67775d8169bdbbadaf09a2e9a95d1aadcee72e9",
+          "size": 34536,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.olean"
+        },
+        {
+          "sha256": "167b37f2d7af80c75e5e0f543143dd5c4824b6f7ebdcf03b3adc10e953870dde",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.ir.sig"
+        },
+        {
+          "sha256": "eb20688d6605ae920b3a972f43209ae625fbf076838549505a11286055091010",
+          "size": 2160,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.olean.server"
+        },
+        {
+          "sha256": "f9d21cd0b87fc46215578485b495b7df436ffc30c559c0737a52d16aec6cf2fa",
+          "size": 18229,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.ilean"
+        },
+        {
+          "sha256": "5bb5d798dbdc8b12ba3725ee356299e88a747361f22ca2afe4a03e5fee9b933a",
+          "size": 358648,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.olean.private"
+        },
+        {
+          "sha256": "be1931978a54bb4c4655c97ce5ca9d1bcb32da901ebd18e2e346e803c5a05d1b",
+          "size": 2088,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/IncidenceTor.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.RelativeCurve.Pencils.PolynomialSections",
+      "source_sha256": "4b186ba4fa676df3f9f4c6f64f8a119fdfb467ddf18f25a778a5c413682fe702",
+      "source_path": "Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Sites.Smooth.Contraction.AffineComparison",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Chow.ZeroSchemePullback.CartesianSquare",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794391021350232741",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "833ee00cc6b69d2093bb4b36f92f30fc254dc38feeb1432a1176f0f99b2b1b4f",
+          "size": 157376,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.olean"
+        },
+        {
+          "sha256": "07998625f821dd7289447654b284a391bb59f0b238b863847ad04865fc5ca09b",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.ir.sig"
+        },
+        {
+          "sha256": "e74d0b01ab437bc44430a9cde1da709aef890143667727d39955ad2bd64032c2",
+          "size": 10632,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.olean.server"
+        },
+        {
+          "sha256": "d615e751d5d019c35c8becff53d3c51fce49e851d639eb5c276ee45f21d8cada",
+          "size": 42061,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.ilean"
+        },
+        {
+          "sha256": "4b2085d75efe343d76ea594fe808116cda217d2840e7357620c43a3cbce349bc",
+          "size": 188760,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.olean.private"
+        },
+        {
+          "sha256": "3752ec427fb2b25483c0b39f5273664d5b546e6250d84f1a52345e65b607e5b6",
+          "size": 2072,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialSections.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.TorCoefficients",
+      "source_sha256": "f97643ad1f0c551833ed1f4c216b471815b25bce77ed88b9f383a52cbfd1683f",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.IncidenceTor",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.ActualTorCoefficients",
+          false,
+          false,
+          false
+        ],
+        [
+          "StacksFrontier.AlgebraicGeometry.Chow.Bivariant42.FlatPullbackComponent",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794391403596948069",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "27f67f7c87af362f4f9ae28eb1617d93c709b35a95b991cbc7e6136572fc101d",
+          "size": 87296,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.olean"
+        },
+        {
+          "sha256": "e5edf8aff30e3caddaaa5b23ea3e7afc3347d6f9fa154e65c949a05ac3a76f37",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.ir.sig"
+        },
+        {
+          "sha256": "160ba58cde1f9e77dc74189ae39166b47a1b858ef0b3750cc7792012fec081a6",
+          "size": 3216,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.olean.server"
+        },
+        {
+          "sha256": "adee6707cd55cecb03d5106880d72b0b540a4ac81eed2a90a10d76d2b4e5b4db",
+          "size": 7246,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.ilean"
+        },
+        {
+          "sha256": "4e8db08ac0a45d335ea9c71526203a740ec0428c568d84f6b94dbeef6863f90b",
+          "size": 30320,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.olean.private"
+        },
+        {
+          "sha256": "987d1a640b8519e09e3c9598e35326060e257e02947231dad1c13d00ca8cf94e",
+          "size": 2272,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCoefficients.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Spans.FiniteFlat.Basic",
+      "source_sha256": "3f9c5680fe00688991394eea800d7c96814487d7fb59319e0355373e851ad495",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Chow.FiniteFlatFundamental",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Graph.Functor",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Sites.Smooth.Noetherian",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794391444193326898",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "f91ba82b8fff9e82db3971aad2ab57c5776959510e4d63fa767fee439de68c18",
+          "size": 85328,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.olean"
+        },
+        {
+          "sha256": "4ef6adc3d47f227c15d0f677663693aa8c6dfe45755a0a837b8b0e79f58c42bf",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.ir.sig"
+        },
+        {
+          "sha256": "6d03b728a8bac2302a01af85d0d8afc9ef7f11eeb402d5921877ed6394fec824",
+          "size": 5144,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.olean.server"
+        },
+        {
+          "sha256": "b956a3a3993238e890c3d1a2e77815b9c8acca487b780ce9da30d12397380c33",
+          "size": 13971,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.ilean"
+        },
+        {
+          "sha256": "339f1c451d886ba30f20bcdec272b220484d5a91e62279c791a261767eaf83bc",
+          "size": 40520,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.olean.private"
+        },
+        {
+          "sha256": "43eb3d7c0ef1c793242cb96f8d0771df01b031d14402cf196cc3e14ae520b96c",
+          "size": 2048,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/Spans/FiniteFlat/Basic.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.RingTheory.Polynomial.EvaluationKernelFrame",
+      "source_sha256": "48d0f045621338b505309398d5554e41d5f07a71de7f8ae3550896d152a72b27",
+      "source_path": "Colib/RingTheory/Polynomial/EvaluationKernelFrame.lean",
+      "directImports": [
+        [
+          "Mathlib.RingTheory.Polynomial.Ideal",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794391533467572412",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "d9fed4b45d52981f7c8d37d2e9ae7f3d31a291b943238bc3b1e89b23000af95b",
+          "size": 82792,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.olean"
+        },
+        {
+          "sha256": "236ff13783381e3888f0c9e953fc704133eac15063bf79fd192ebb56d23b4e18",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.ir.sig"
+        },
+        {
+          "sha256": "c2b1b62972567f6511e355349ea67b87b3a151d00c65443f4d583e0adafb4eab",
+          "size": 3456,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.olean.server"
+        },
+        {
+          "sha256": "1d994ed50f4c405e9af7f5b0745ba3c3c6ce80b7d195adc346edd44d13845227",
+          "size": 7067,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.ilean"
+        },
+        {
+          "sha256": "24b78a02467282c3dc7635f26827996b99c370d604ebf2d7e42fd9a1e232eb1b",
+          "size": 73560,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.olean.private"
+        },
+        {
+          "sha256": "28e7c0d646d4384e15b2a6779d7176d2213cac9e48031743124578141a2c4096",
+          "size": 1520,
+          "archive_path": "products/Colib/Colib/RingTheory/Polynomial/EvaluationKernelFrame.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.TorCycle",
+      "source_sha256": "0766601496e0adf80152eb51a8307aa288dd4d44b3fd273c2f48f2e723d7589d",
+      "source_path": "Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Single",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.TorCoefficients",
+          false,
+          false,
+          false
+        ],
+        [
+          "Colib.AlgebraicGeometry.Correspondences.Composition.TorCycle",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392711516191337",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "4000adb4998d4d3f842919b396491fe5cbbd64f7b176b0ce1af996172d3a5b57",
+          "size": 55016,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.olean"
+        },
+        {
+          "sha256": "ebf7f583eeb111ba1bd772fe26982686d31b3cfc46353712d4c9ea9a9a23f812",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.ir.sig"
+        },
+        {
+          "sha256": "04606d8e8afb5f7689d317f555382ef75bc5070d0cea91dfdfa5c1ab8dddc05e",
+          "size": 3864,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.olean.server"
+        },
+        {
+          "sha256": "323b7cb326e80d824118562e6e829ddddbd29640d806123cc465a1135425c74d",
+          "size": 14064,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.ilean"
+        },
+        {
+          "sha256": "26116506e06dd9913f8f6bdf5e7e93a9c6b487723983b14fa4fc8649f276a175",
+          "size": 122408,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.olean.private"
+        },
+        {
+          "sha256": "e42f90822b8644500e44c9e731a334676a184a7802b4a6e9d32de5cdb2027860",
+          "size": 1984,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Correspondences/BaseChange/Forget/TorCycle.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.RelativeCurve.Pencils.PolynomialCoordinateProduct",
+      "source_sha256": "8e3039f394bc1e745bf7502eea5315f49886b609754b9eeead29a4304dd50ba1",
+      "source_path": "Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Pullbacks",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.RingTheory.PolynomialAlgebra",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392749215827014",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "a9db6ed41641f73c1d75a355144f873e47f5b8e6a4d8d2b89d20dc980726df1f",
+          "size": 71448,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.olean"
+        },
+        {
+          "sha256": "deff61af95926e177688c74d47a65ba58ff7178710f6d24ca74f2e6a8b8dcc36",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.ir.sig"
+        },
+        {
+          "sha256": "bfa0f08d23d30928cb47d0955c78b2e3eeb2282d4dcf3e65d359a53560082659",
+          "size": 5704,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.olean.server"
+        },
+        {
+          "sha256": "3336efc39077e5d7bfc6625ed67f79167bfffb6440fb08563cefe97a0d5070fc",
+          "size": 20726,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.ilean"
+        },
+        {
+          "sha256": "325bd3a1265c2e73031a2afcc3d84dc596cbd6426fe7085954ac8dfb5d7e8be7",
+          "size": 91696,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.olean.private"
+        },
+        {
+          "sha256": "06f993d0f237bb7bedbd10dc8969da9d34566e10c131983f22f4cf8f9b679133",
+          "size": 1656,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/RelativeCurve/Pencils/PolynomialCoordinateProduct.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich",
+      "source_sha256": "c302e86a69069006a78eb95d79b9e630bfb501e0870d1c7f23648921819cb630",
+      "source_path": "Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Limits.MorphismProperty",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.MorphismProperty.OverAdjunction",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Sites.Pullback",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392766922695461",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "0af6c4b95845e137b0d623a1186af0e5a0cfe2a609fc2cb4e227ccec1a2c37c5",
+          "size": 114376,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.olean"
+        },
+        {
+          "sha256": "8c41eb544d11a7d03aa0aefcbb498d4b0c3278e13b0701749bcf6ad710ef43ff",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.ir.sig"
+        },
+        {
+          "sha256": "cfb303c9b212f68e34ffc46bfebb5f743bfc511b842524e315ebec41c96e011c",
+          "size": 8328,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.olean.server"
+        },
+        {
+          "sha256": "c145b1577794255b8c6640b14948601f303b3ecded9adbefddb4a4c8c1f48bd6",
+          "size": 45505,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.ilean"
+        },
+        {
+          "sha256": "b0b532c28d101326498486370a28c8b3725152c131af4a9c66d277685505fcaa",
+          "size": 167624,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.olean.private"
+        },
+        {
+          "sha256": "7a4bee2c362c0963b10fccb89447059ce1b106738a7fe2eab75f93e7d0be068c",
+          "size": 19520,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Nisnevich.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.Slice.PresheafExtension",
+      "source_sha256": "a60ff4ba1f173e7efc227fc34b2bbb59f58c115ea5c2c5f938f0532dfff574fc",
+      "source_path": "Colib/CategoryTheory/Sites/Slice/PresheafExtension.lean",
+      "directImports": [
+        [
+          "Mathlib.CategoryTheory.Sites.Over",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Abelian.GrothendieckAxioms.Basic",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392785979573514",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "9a1b0e7f835cc32402526af081daa9bef3aa683eb4fbf368435a1a88c6421e20",
+          "size": 229768,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.olean"
+        },
+        {
+          "sha256": "8d04db6a72edd2182c410a2c017be9c491ab001cbd81832a15740f34c259dc23",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.ir.sig"
+        },
+        {
+          "sha256": "d882a2f72ac4781726c00791c9263e425d1dbb95c80c9fe4d095f095a0555898",
+          "size": 5760,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.olean.server"
+        },
+        {
+          "sha256": "2bf4b31544692e57082435c0f0b1d424decc66eea53219fb233a28daaec2a485",
+          "size": 24585,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.ilean"
+        },
+        {
+          "sha256": "880f4fc9001d39e2a47f3e2acd4f0628f8403dc9b3afdf8a8f24617c66e1a2cb",
+          "size": 411128,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.olean.private"
+        },
+        {
+          "sha256": "7db06953e5539e6e87d08c75734d1d78b2d61e5c8e70114d7623e712c201e62f",
+          "size": 7608,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Slice/PresheafExtension.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Properties.Discrete.ResidueFields",
+      "source_sha256": "99eaeed78bcd41bb909af1bea6de1690a1e8c85469d3e47f958d1c85f7af6019",
+      "source_path": "Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.lean",
+      "directImports": [
+        [
+          "Mathlib.AlgebraicGeometry.Properties",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.ResidueField",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.AlgebraicGeometry.Artinian",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392803451239114",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "08ba8e860522da1c9ce73e9986289fdd17090a040f4758953b7c06b1532472d1",
+          "size": 20320,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.olean"
+        },
+        {
+          "sha256": "5807e998936723aa694a69ece8b559035a7fc61424a10e2e516de53dd88a21b4",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.ir.sig"
+        },
+        {
+          "sha256": "1eb78b5b3c8d9f8a3c3fe24cdaca09a0806153ebcf4005b07db505fe940ab36d",
+          "size": 2432,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.olean.server"
+        },
+        {
+          "sha256": "a897e128531d1f7226b34aa8a1852590a82e7dc76757ac1ef6054c57f8ef26d4",
+          "size": 10571,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.ilean"
+        },
+        {
+          "sha256": "2b185d606da717ea6ebd5ed1edaf201c8ff4a741e865815f9d3e46752a178b47",
+          "size": 34112,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.olean.private"
+        },
+        {
+          "sha256": "53344292fe2a1523ebe49acba3d4502213ab767f17e204155b9f845d475c663a",
+          "size": 1680,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Properties/Discrete/ResidueFields.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.Cohomology.RestrictionSource",
+      "source_sha256": "04b17532bf223abfb9c21a6c38d33abf9e80fd84e1b5456dcf2d4e88ba8c5b45",
+      "source_path": "Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.lean",
+      "directImports": [
+        [
+          "StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.FreeYonedaSectionsUnivLE",
+          false,
+          false,
+          false
+        ],
+        [
+          "Mathlib.CategoryTheory.Sites.Pullback",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392822329154403",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "30b96be2f4c73b2d6e8b2d5ddd70cfe828cf3b7222315f4d72788da219a2874a",
+          "size": 89168,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.olean"
+        },
+        {
+          "sha256": "41cc5148d29fde18712a4cb0b3349e1c2bcb28224d3363b6afacc8b8720c7502",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.ir.sig"
+        },
+        {
+          "sha256": "a3ad031ef7a6bb17a1779e77d4f7547a5d1b0412d81e0d9ad2425f23de3ae159",
+          "size": 2632,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.olean.server"
+        },
+        {
+          "sha256": "9e6529b4362697afdc0649673e9567a5bd355916dbbac33566ea57f9a761f76f",
+          "size": 9332,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.ilean"
+        },
+        {
+          "sha256": "8fc29de34099d7c16112317e840809e911cd903c73890e809ad56c629c90f51c",
+          "size": 26840,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.olean.private"
+        },
+        {
+          "sha256": "c838eae1207833fba606036b87b403cacb316e314f2081904aba9705053b20bc",
+          "size": 1952,
+          "archive_path": "products/Colib/Colib/CategoryTheory/Sites/Cohomology/RestrictionSource.ir"
+        }
+      ]
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FiniteFamilyLifting",
+      "source_sha256": "2d69aa46201d386f68d42d73e45b5467c656f7a4ce82f9924a8c40eb20e056cf",
+      "source_path": "Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.lean",
+      "directImports": [
+        [
+          "Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FiniteLifting",
+          false,
+          false,
+          false
+        ]
+      ],
+      "run_id": "1794392840176405523",
+      "provenance": "local direct Lean compiler, exact source and six products verified",
+      "package_options_validated": false,
+      "products": [
+        {
+          "sha256": "4ff7472cacaecad13f5194574519489bc979821d074062cef21062222a526839",
+          "size": 49152,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.olean"
+        },
+        {
+          "sha256": "c906b24d4b1df1b61fdfc5b3e1df7339da81d2d92613dc6886d932644f92fd30",
+          "size": 176,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.ir.sig"
+        },
+        {
+          "sha256": "6ad7bb6421911469fd2360d15e62dd2958d3682e514793113f4a20bd9d0f6873",
+          "size": 2736,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.olean.server"
+        },
+        {
+          "sha256": "f802d24ab7ca5bf088b430772c47d69f688dbf2b76a34f6640b96b40abe6b51f",
+          "size": 26924,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.ilean"
+        },
+        {
+          "sha256": "0dda6a61d492c7b621217e39166e0e3c5fcb27ab761536bb0a0fdb1e6c76733d",
+          "size": 1211800,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.olean.private"
+        },
+        {
+          "sha256": "c617cda2f5ff497c8f4fd42a2ac70bfebd8888a8d9afae6955d688358dfc991d",
+          "size": 1680,
+          "archive_path": "products/Colib/Colib/AlgebraicGeometry/Sites/Nisnevich/Lifting/FiniteFamilyLifting.ir"
+        }
+      ]
+    }
+  ]
+}

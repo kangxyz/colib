@@ -1,0 +1,313 @@
+{
+  "compile_acceptance_only": true,
+  "lake_package_options_injected": false,
+  "lint_or_warningAsError_acceptance": false,
+  "diagnostic_counts": [
+    {
+      "module": "Colib.CategoryTheory.Sites.Cohomology.DegreeZero",
+      "run_id": "1794382143581126395",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Abelian.Ext.ResolutionSteps",
+      "run_id": "1794382185942939407",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.ObjectwiseExact",
+      "run_id": "1794382244005280407",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.Topology.JacobsonOpenCover",
+      "run_id": "1794382291987440474",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.IdealSheaf.Complement.AffineOpenComplementIdeal",
+      "run_id": "1794382333108673034",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic",
+      "run_id": "1794384646625833360",
+      "warning_count": 1,
+      "frontend_log_sha256": "dd7dcb290c2d4ab770ee2afb277107bc9044df7bc89dd3becb78a914492b3cd0"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinarySource",
+      "run_id": "1794384518639171473",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Finite.Open.FiniteMarkedOpenDescent",
+      "run_id": "1794383891016136390",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian",
+      "run_id": "1794383960594405097",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.Sections",
+      "run_id": "1794383861768842451",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.SheafProducts.ShortExact",
+      "run_id": "1794383761146675061",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.RingTheory.Etale.DifferentialCriterion",
+      "run_id": "1794383997273769813",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.DegreeZero",
+      "run_id": "1794385967152293211",
+      "warning_count": 1,
+      "frontend_log_sha256": "712d467c14b2ee4012caee726e45da86bb89d3c69300979137883c30464825e3"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1ProjectionIso",
+      "run_id": "1794385606901792170",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinaryComparisonMap",
+      "run_id": "1794385662787129364",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.PointControl",
+      "run_id": "1794386406139938288",
+      "warning_count": 1,
+      "frontend_log_sha256": "4c072dd3e69b1a20b493d3f48b156d68eb4d0862c0646fc24e9dd559a7064756"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct",
+      "run_id": "1794386488775564264",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.SignedPointControl",
+      "run_id": "1794386895674728012",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Chow.FiniteFlatDegree",
+      "run_id": "1794392016092507936",
+      "warning_count": 4,
+      "frontend_log_sha256": "18ee110b5ec96879d29bdaa97b5834d6dcbd560aa8f1e3495e2b1b897d27a496"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Cycle",
+      "run_id": "1794387293593418930",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Support",
+      "run_id": "1794387321259927206",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Composition.CenterControl",
+      "run_id": "1794387345626197380",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Graph.FiniteSupportPointControl",
+      "run_id": "1794387373099422928",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Ambient",
+      "run_id": "1794387922352421879",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Graph",
+      "run_id": "1794387955907803433",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Nisnevich.Families.GeneratorLift",
+      "run_id": "1794388040047755674",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Finite.ProperQuasiAffine",
+      "run_id": "1794388131273894803",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Graph.PointControl",
+      "run_id": "1794388652909391060",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Intersection.FlatProjectionStalkTor",
+      "run_id": "1794388700462916084",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.Flat.DedekindBase",
+      "run_id": "1794388735421050662",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.WeightedFibreSum",
+      "run_id": "1794388758215728914",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Incidence",
+      "run_id": "1794389720124602977",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Noetherian",
+      "run_id": "1794389772612364576",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Morphisms.Flat.AffineLineComponents",
+      "run_id": "1794389785305650302",
+      "warning_count": 1,
+      "frontend_log_sha256": "cf4dcca9da1f97db2c5c70909a43c8fb2c93afa18a9bb3db17e8a642b823db79"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.Morphisms.WeaklyEtale.Weighting",
+      "run_id": "1794389800078104426",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.SupportProduct",
+      "run_id": "1794390132650157000",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "StacksFrontier.AlgebraicGeometry.MoreMorphisms.Weighting.FlatLength",
+      "run_id": "1794390206943592175",
+      "warning_count": 3,
+      "frontend_log_sha256": "1e080c1338d9cd9970d90ea035b4e2d585adc03a7c795a12f4dbd3261ad38cf3"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.ForgetBase",
+      "run_id": "1794390556670188848",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.Single",
+      "run_id": "1794390971659174258",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.IncidenceTor",
+      "run_id": "1794390993582786870",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.RelativeCurve.Pencils.PolynomialSections",
+      "run_id": "1794391021350232741",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.TorCoefficients",
+      "run_id": "1794391403596948069",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.Spans.FiniteFlat.Basic",
+      "run_id": "1794391444193326898",
+      "warning_count": 4,
+      "frontend_log_sha256": "b5d288c04d4ea4e9a679fc13ee34eaca524d8d1e7ec028e7e13adc97da7b3f52"
+    },
+    {
+      "module": "Colib.RingTheory.Polynomial.EvaluationKernelFrame",
+      "run_id": "1794391533467572412",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Correspondences.BaseChange.Forget.TorCycle",
+      "run_id": "1794392711516191337",
+      "warning_count": 1,
+      "frontend_log_sha256": "2444e06d6a8d59784f0152d858fd9569296e3aa29458e373ebffba06e0a7e54f"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.RelativeCurve.Pencils.PolynomialCoordinateProduct",
+      "run_id": "1794392749215827014",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich",
+      "run_id": "1794392766922695461",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.Slice.PresheafExtension",
+      "run_id": "1794392785979573514",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Properties.Discrete.ResidueFields",
+      "run_id": "1794392803451239114",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.CategoryTheory.Sites.Cohomology.RestrictionSource",
+      "run_id": "1794392822329154403",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FiniteFamilyLifting",
+      "run_id": "1794392840176405523",
+      "warning_count": 0,
+      "frontend_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

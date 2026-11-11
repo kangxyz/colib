@@ -9,6 +9,10 @@ public import Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FiniteLifting
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Pullbacks
 
 /-!
+Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean`, blob `63e4e1af8c6a2093d72aff741837517d2d39d2e5`.
+
+
 # Finite-support Nisnevich lifting in the smooth site
 
 Over an affine base, actual residue-field lifts of a separated étale morphism
@@ -17,10 +21,6 @@ Nisnevich neighborhood in the smooth site. The scheme-level neighborhood is
 restricted to an affine open around its distinguished point. Affineness gives
 separatedness and quasi-compactness of its structure morphism; neither property
 is assumed of the original étale neighborhood.
-
-Implementation adapted from
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean`
-at motivic commit a6805c4a87cdfd7717dd7a94039246a167f15380.
 -/
 
 @[expose] public noncomputable section
@@ -31,11 +31,10 @@ universe u
 
 namespace AlgebraicGeometry.Scheme.SmoothSite
 
+set_option backward.defeqAttrib.useBackward true in
+set_option backward.isDefEq.respectTransparency false in
 /-- Lift the whole finite support after an actual smooth-site Nisnevich
 neighborhood. The fiber may be empty and the support may be nonreduced. -/
-@[colib_ref "motivic_source_a6805c4"
-  "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean:31-60"
-  "adaptation" "Whole finite-support lifting in the genuine smooth site over any affine base"]
 theorem exists_nisnevich_lift_of_isFinite
     {S : Scheme.{u}} [IsAffine S] (X : SmoothSite S)
     {Z V : Scheme.{u}} (p : Z ⟶ X.left) [IsFinite p] (x : X.left)
@@ -51,9 +50,7 @@ theorem exists_nisnevich_lift_of_isFinite
   let U : SmoothSite S := mk (j ≫ h ≫ X.hom)
   let g : U ⟶ X := homMk (j ≫ h) (by simp [U])
   let a : pullback p g.left ⟶ pullback p h :=
-    pullback.map p g.left p h (𝟙 Z) j (𝟙 X.left) (by simp) (by
-      change (j ≫ h) ≫ 𝟙 X.left = j ≫ h
-      exact Category.comp_id _)
+    pullback.map p g.left p h (𝟙 Z) j (𝟙 X.left) (by simp) (by simp [g])
   refine ⟨U, g, ?_, u, ?_, ?_, a ≫ b, ?_⟩
   · change Etale (j ≫ h)
     infer_instance
@@ -61,19 +58,16 @@ theorem exists_nisnevich_lift_of_isFinite
     rw [hu, hw]
   · change IsIso ((j ≫ h).residueFieldMap u)
     rw [Scheme.residueFieldMap_comp]
-    have hbase : IsIso (h.residueFieldMap (j u)) := by rw [hu]; exact hr
-    have hopen : IsIso (j.residueFieldMap u) :=
-      Scheme.instIsIsoCommRingCatResidueFieldMapOfIsOpenImmersion (f := j) (x := u)
-    exact IsIso.comp_isIso' hbase hopen
+    have : IsIso (h.residueFieldMap (j u)) := by rw [hu]; exact hr
+    infer_instance
   · rw [Category.assoc, hb]
     simp [a]
 
+set_option backward.defeqAttrib.useBackward true in
+set_option backward.isDefEq.respectTransparency false in
 /-- A finite family of pointed smooth-site Nisnevich neighborhoods has a common
 pointed refinement in the same smooth site, with actual maps to every member.
 The empty family is allowed. -/
-@[colib_ref "motivic_source_a6805c4"
-  "Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteLifting.lean:67-110"
-  "adaptation" "Actual common pointed smooth Nisnevich refinements, including the empty family"]
 theorem exists_common_nisnevich_refinement
     {S : Scheme.{u}} [IsAffine S] (X : SmoothSite S) (x : X.left) (n : ℕ)
     (U : Fin n → SmoothSite S) (g : ∀ i, U i ⟶ X)
@@ -102,10 +96,8 @@ theorem exists_common_nisnevich_refinement
     rw [hw', hw]
   · change IsIso ((j ≫ h).residueFieldMap w')
     rw [Scheme.residueFieldMap_comp]
-    have hbase : IsIso (h.residueFieldMap (j w')) := by rw [hw']; exact hwr
-    have hopen : IsIso (j.residueFieldMap w') :=
-      Scheme.instIsIsoCommRingCatResidueFieldMapOfIsOpenImmersion (f := j) (x := w')
-    exact IsIso.comp_isIso' hbase hopen
+    have : IsIso (h.residueFieldMap (j w')) := by rw [hw']; exact hwr
+    infer_instance
   · intro i
     apply MorphismProperty.Over.Hom.ext
     change (j ≫ a i) ≫ (g i).left = j ≫ h
@@ -115,3 +107,4 @@ theorem exists_common_nisnevich_refinement
     rw [hw', haw]
 
 end AlgebraicGeometry.Scheme.SmoothSite
+
