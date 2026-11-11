@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { reconcile } from './parallel-controller.mjs'
+import { listPendingRuns, reconcile } from './parallel-controller.mjs'
 
-function fixture() {
+function fixture(limit = 2) {
   const runs = new Map()
   const jobs = new Map()
   const leases = new Map()
@@ -57,7 +57,7 @@ function fixture() {
   return {
     io, runs, jobs, leases, instances, launched, registered, disposed, orphans, run,
     advance: seconds => { now += seconds },
-    tick: () => reconcile(io, { now, limit: 2, templateVersion: '1' })
+    tick: () => reconcile(io, { now, limit, templateVersion: '1' })
   }
 }
 
@@ -86,6 +86,47 @@ test('two branches get private instances; the third waits and Test retains the B
   await f.tick()
   assert.deepEqual(f.disposed, ['101-1'])
   assert.deepEqual(f.launched, ['100-1', '101-1', '102-1'])
+})
+
+test('a queued run missing from the status-filtered list gets its turn', async () => {
+  const f = fixture()
+  const active = f.run(100, 'work/active')
+  await f.tick()
+  active.status = 'in_progress'
+  f.jobs.get(active.id)[0].status = 'in_progress'
+
+  const completed = f.run(99, 'work/completed', { status: 'completed' })
+  const main = f.run(101, 'main')
+  const later = f.run(102, 'work/later')
+  const filteredOnly = f.run(103, 'work/filtered-only')
+  const workflow = '/actions/workflows/ci.yml/runs'
+  const responses = new Map([
+    [`${workflow}?per_page=100&page=1`, [later, main, active, completed]],
+    [`${workflow}?status=queued&per_page=100&page=1`, [filteredOnly, later, { ...completed, status: 'queued' }]],
+    [`${workflow}?status=in_progress&per_page=100&page=1`, [active]]
+  ])
+  f.io.pendingRuns = () => listPendingRuns(async path => {
+    assert(responses.has(path), path)
+    return { workflow_runs: responses.get(path) }
+  })
+  assert.deepEqual((await f.io.pendingRuns()).map(run => run.id), [102, 101, 100, 103])
+  await f.tick()
+  assert.deepEqual(f.launched, ['100-1', '101-1'])
+})
+
+test('the fourth attempt waits for a slot when the limit is three', async () => {
+  const f = fixture(3)
+  const first = f.run(600, 'work/a')
+  f.run(601, 'work/b')
+  f.run(602, 'work/c')
+  f.run(603, 'work/d')
+  await f.tick()
+  assert.deepEqual(f.launched, ['600-1', '601-1', '602-1'])
+
+  first.status = 'completed'
+  await f.tick()
+  assert.deepEqual(f.disposed, ['600-1'])
+  assert.deepEqual(f.launched, ['600-1', '601-1', '602-1', '603-1'])
 })
 
 test('a lost launch reply is adopted and a terminated attempt releases the registration', async () => {
