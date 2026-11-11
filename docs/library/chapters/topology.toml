@@ -441,4 +441,5 @@ representatives in a common later stage. These two statements
 give the homotopy colimit comparison and its stable-group version.
 '''
 COL-0564 = "The canonical positive pushout stages have closed transition maps, which connects the original zigzag telescope to its actual ordinary sequential colimit."
+COL-0571 = "To exchange the two cone directions of a strict-square morphism, retain its four corner maps and the span comparison. The double-cone transpose then identifies the resulting comparison cones."
 

@@ -1,0 +1,28 @@
+[entry]
+id = "COL-0575"
+title = "Same-null normalized and twisted fiber-lift comparison"
+kind = "comparison"
+section = "supported-localization"
+order = 1575
+statement = '''
+For an open immersion \(f\) and a scheme \(X\), the full-open fiber lift defined by the chosen
+normalized null is a stable equivalence if and only if the lift defined by the corresponding
+twisted null is. The analogous equivalence holds for auxiliary support with an open subset \(T\)
+of the target.
+'''
+scope = '''
+The full-open comparison also composes with the current-to-normalized equivalence to give
+current-to-twisted stability equivalence. These are equivalences between stability assertions;
+they do not prove stability of either endpoint lift.
+'''
+proof_kind = "outline"
+proof = '''
+Apply the existing homotopy-fiber-lift naturality theorem to the three conjugacy telescope maps.
+The input squares and the same-null square identify the actual lifts, while the Model telescope
+theorem proves stability of each of the three component maps. Compose the resulting equivalence
+with the earlier current-to-normalized one for the final full-open assertion.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.normalized_twisted_lift_stable_iff"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

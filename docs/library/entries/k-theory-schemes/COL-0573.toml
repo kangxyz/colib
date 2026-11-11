@@ -1,0 +1,28 @@
+[entry]
+id = "COL-0573"
+title = "Stable normalized-to-twisted telescope comparison"
+kind = "theorem"
+section = "supported-localization"
+order = 1573
+statement = '''
+For a zero-preserving native `Model`-valued functor M on schemes, a Laurent track \(A\) on its
+associated prespectrum functor, and a scheme \(X\), the normalized-to-twisted conjugacy telescope
+map at X is a stable equivalence.
+'''
+scope = '''
+The comparison uses the prescribed finite loop reversal and accumulated geometric cone word. It
+preserves each stage inclusion and the entire cylinder height. Fixed-word equivariance and
+adjacent transition conjugacy are proved for the actual maps, not supplied as additional
+hypotheses.
+'''
+proof_kind = "outline"
+proof = '''
+Establish naturality and external equivariance of the finite cone words, combine them with the
+finite loop conjugacy identities, and prove the adjacent transition square. These squares define a
+map of the two telescopes. Native `Model` supplies the levelwise \(T_1\) spaces, and the stagewise
+conjugating isomorphisms satisfy the telescope stable-equivalence criterion.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.SchemeNaturalSeed.model_conjugacyTelescopeMap_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

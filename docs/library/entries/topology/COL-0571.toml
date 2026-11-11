@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0571"
+title = "Double mapping-cone interchange for strict squares"
+kind = "comparison"
+section = "homotopy-colimits"
+order = 1571
+statement = '''
+For a morphism \(a\) between strict squares of loop prespectra, the mapping cone of the induced
+map between their comparison cones is isomorphic to the comparison cone of the square formed by
+the four corner cones.
+'''
+scope = '''
+The construction retains the original four face maps. Its target inclusion is unchanged, and its
+double-cylinder formula exchanges the two cone times while applying the span interchange.
+'''
+proof_kind = "outline"
+proof = '''
+Construct the square of corner cones using the given commutativity equations. Identify the cone of
+the span map with the span of these cones, then compose the double-cone transpose with the
+mapping-cone image of the comparison isomorphism. The two displayed coordinate formulas follow
+directly from these maps.
+'''
+review = "author_checked"
+primary = "Topology.LoopPrespectrum.StrictSquare.coneInterchangeIso"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
