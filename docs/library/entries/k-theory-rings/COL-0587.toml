@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0587"
+title = "A natural null homotopy for a Laurent seed"
+kind = "definition"
+section = "laurent-coefficient-constructions"
+order = 1587
+statement = '''
+Let R be a commutative ring object and C:Under R→WideSubcategory(preservesZero) a coefficient
+diagram of Waldhausen Models. Let A be a ModelAction on C: at each Laurent coefficient it
+specifies an automorphism of the identity functor, preserved by coefficient changes. Assume hz:
+for every coefficient a and object X, the zero endotransformation of the Laurent coefficient
+functor is a weak equivalence at X. The seed of the realized action A.track admits a
+DiagramNullHomotopy against the identity of its strict Laurent Bass target. This null homotopy is
+natural in every coefficient map and retains the full contraction family.
+'''
+scope = '''
+The weak-zero hypothesis is explicit and is not replaced by a conclusion about K-groups. The
+pullback-unit map is weak because it is an isomorphism. The construction keeps the source-leg
+null, contraction time, source-null time and loop coordinate distinct.
+'''
+proof_kind = "outline"
+proof = '''
+Whisker the given unit automorphism along the Laurent coefficient functor and apply
+prespectrumEndotransformationContraction using its weak hom and hz. Postcompose this relative
+contraction into the mapping cone, conjugate by the fixed source-leg null, and cancel the
+resulting backtracking paths. Curry the resulting relative comparison to obtain seedNullHomotopy;
+its coefficient naturality supplies seedDiagramNull.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.LaurentSeed.ModelAction.seedDiagramNull"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

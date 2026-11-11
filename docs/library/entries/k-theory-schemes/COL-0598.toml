@@ -1,0 +1,33 @@
+[entry]
+id = "COL-0598"
+title = "Ordinary current-stage full-open fiber localization"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1598
+statement = '''
+Let $f:P\to Q$ be an open immersion of schemes, with compact $P,Q$ and quasi-separated $Q$.
+Evaluate the original current-stage parameter construction at
+$\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The actual current-stage full-open fiber
+lift, defined using its original support-forgetting map, full-open restriction and selected null,
+is a stable equivalence. Consequently its induced map on stable homotopy groups is an isomorphism
+for every $d\in\mathbb{Z}$. For a pair over integral Spec, the same conclusion holds at every
+integral Spec-row coefficient.
+'''
+scope = '''
+This is the ordinary current-stage lift, without an auxiliary open. The proof preserves the
+original iterated, twisted and current models and their same-null comparisons. It establishes
+localization for this constructed parameter model, not an additional identification with classical
+nonconnective K-theory.
+'''
+proof = '''
+Use the three actual stable Spec telescope comparisons and their support-forgetting,
+full-restriction and whole-null squares in the fiber-lift stability equivalence. Ordinary
+coefficient full-open localization gives stability of the original iterated lift. Transfer it
+through the existing iterated-twisted and current-twisted equivalences, then use the integral
+terminal structural maps and identity coefficient to obtain the current integer-base result.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.currentLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

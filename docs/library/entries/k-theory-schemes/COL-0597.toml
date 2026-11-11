@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0597"
+title = "Integral Spec comparison preserves the whole full-open null"
+kind = "comparison"
+section = "global-sections-and-parameters"
+order = 1597
+statement = '''
+Let $f:P\to Q$ be an open immersion over $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$,
+and $a\in\operatorname{Under}(\operatorname{ULift}\mathbb{Z})$. Let $h_{\mathrm{par}}$ be the
+original iterated-parameter full-open null and $h_{\mathrm{coeff}}$ the original coefficient
+full-open null. Write $e_S,e_P$ for the actual supported and open fine telescope comparisons along
+integral Spec. At every spectrum level $n$, null time $s\in[0,1]$ and point $x$ of the supported
+parameter telescope, $e_P(h_{\mathrm{par}}(s,x))=h_{\mathrm{coeff}}(s,e_S(x))$. The intermediate
+telescope isomorphisms satisfy the corresponding identity with the original global full-open null.
+'''
+scope = '''
+No compactness or quasi-separatedness is required for these identities. The original
+support-forgetting and full-restriction squares, their finite stages and their cylinder formulas
+identify the actual maps. The equality retains the entire chosen null, not merely its endpoints or
+a transported substitute.
+'''
+proof = '''
+Prove the Model and coefficient null square, then its finite time-slice square. Quotient induction
+on a telescope point applies that finite square at its unchanged stage and cylinder height.
+Postcompose the resulting global null identity with the actual global-to-coefficient restriction
+and use its original whole-null compatibility.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.telescope_fullNull_fine_square"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

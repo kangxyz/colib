@@ -1,0 +1,31 @@
+[entry]
+id = "COL-0590"
+title = "Auxiliary-supported full-open localization on Bass telescopes"
+kind = "comparison"
+section = "global-sections-and-parameters"
+order = 1590
+statement = '''
+Let f:P→Q be an open immersion over Spec R, let T⊆Q be open, and assume compact P, Q and T and
+quasi-separated Q. For a∈Under R, use the actual supported fiber telescope, ambient telescope,
+full-open restriction and the whole null obtained by postcomposing the coarse localization null.
+The resulting map from the supported fiber telescope to the homotopy fiber of full-open
+restriction is a stable equivalence. Its composite with fiber projection is the supported-forget
+telescope map.
+'''
+scope = '''
+The assertion concerns these auxiliary-supported Models and this selected whole null. The signed
+connecting maps agree with those of the same cone descent. Projection and connecting identities
+retain their more general statements without the compactness assumptions needed for stability.
+'''
+proof_kind = "outline"
+proof = '''
+The graded Laurent action supplies a natural seed contraction, yielding the stable
+coarse-to-full-open telescope restriction. Compose that stable restriction with the supported
+coarse telescope cone equivalence. Identify this composite with the cone descent for the
+postcomposed null, then apply homotopyFiberLift_isStableEquivalence_of_coneDesc together with the
+supported telescope cone-fiber stable equivalence.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeFullOpenFiberMap_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
