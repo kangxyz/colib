@@ -16,9 +16,9 @@ cp.supported(ROOT,materialized=True);cp.restore(argparse.Namespace(root=ROOT,lay
 print('Restored exact official pinned Stacks checkpoint.',flush=True)
 # Exact successful 445 dependency products from the already finished independent run.
 z=WORK/'dependencies.zip';download('repos/kangxyz/colib/actions/artifacts/13846402806/zip',z,68251580,'8d80fe8ca19a9a3eab54e64735ac6d0d6e82c4786313ea3b2f8de59deee04552')
-with zipfile.ZipFile(z) as zip:
- require(zip.namelist()==['strict-a1-dependencies.tar'],'Unexpected dependency ZIP members')
- with zip.open('strict-a1-dependencies.tar') as inp,(WORK/'dependencies.tar').open('wb') as out:shutil.copyfileobj(inp,out)
+with zipfile.ZipFile(z) as archive_zip:
+ require(archive_zip.namelist()==['strict-a1-dependencies.tar'],'Unexpected dependency ZIP members')
+ with archive_zip.open('strict-a1-dependencies.tar') as inp,(WORK/'dependencies.tar').open('wb') as out:shutil.copyfileobj(inp,out)
 t=WORK/'dependencies.tar';require(sha(t)=='36a1308da79a65161af9c8dad665a528cae5278fde4970843e6c14d3fde8e5fb','Dependency inner archive mismatch')
 restored={}
 with tarfile.open(t) as tar:
