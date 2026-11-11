@@ -130,6 +130,26 @@ passing to the quotient, including at level zero and in positive characteristic.
 '''
 
 [[sections]]
+id = "milnor-motivic-comparison"
+title = "Low-degree comparison with motivic cohomology"
+order = 65
+introduction = '''
+The original base-field motivic groups are computed from signed singular
+chains by COL-0400. In weight zero, the structural graph gives the integer
+degree. In weight one, the geometric norm of COL-1008 reads the rational
+graph class as its unit. These calculations identify the first two native
+Milnor groups with their diagonal motivic groups. COL-1026 gives the
+comparison in all weights over fields of characteristic zero.
+'''
+
+[sections.transitions]
+COL-1023 = '''
+Under these identifications the empty Milnor symbol gives the structural
+graph with coefficient one. A one-entry symbol gives the rational graph
+with that coordinate.
+'''
+
+[[sections]]
 id = "diagonal-motivic-comparison"
 title = "Milnor K-theory and diagonal motivic cohomology"
 order = 70

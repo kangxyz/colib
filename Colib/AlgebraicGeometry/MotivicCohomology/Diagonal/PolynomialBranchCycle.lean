@@ -7,19 +7,19 @@ module
 
 public import Colib.AlgebraicGeometry.Chow.IntegralFundamental
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.PolynomialSpan
-public import Colib.RingTheory.AdjoinRoot.FactorIndexEquiv
+public import Colib.RingTheory.AdjoinRoot.LocalLength
 
 import Colib.RingTheory.AdjoinRoot.Map
 import Mathlib.RingTheory.Artinian.Module
-import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
 
 /-!
 # Scalar polynomial quotients and their branch cycles
 
 The tensor comparison identifies the literal scalar polynomial quotient with the
-Cartesian pullback of spectra. The fundamental cycle of a squarefree monic
-quotient is the sum of the cycles of its literal irreducible factor fields. The
-index is the native monic irreducible factor subtype used by Milnor norm base change.
+Cartesian pullback of spectra. At a branch the localization of the whole quotient
+has length equal to the multiplicity of its irreducible factor. Thus the native
+fundamental cycle is the weighted sum of the literal factor field cycles.
+The index is the monic irreducible factor subtype used by Milnor norm base change.
 -/
 
 @[expose] public noncomputable section
@@ -133,18 +133,36 @@ private theorem branchMap_genericPoint (f : k[X])
   rw [genericPoint_eq_bot_of_affine, PrimeSpectrum.asIdeal_bot]
   rfl
 
-/-- Each distinct irreducible factor contributes one native prime cycle. -/
-theorem fundamentalCycle_eq_sum_branches (f : k[X]) (hf : f.Monic) (hs : Squarefree f)
+/-- The actual Artin stalk over an irreducible factor has the full factor multiplicity. -/
+theorem branch_stalkLength (f : k[X]) (hf : f ≠ 0)
+    (r : {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f}) :
+    let z : Spec (.of (AdjoinRoot f)) := (nativeFactorMaximal f r).toPrimeSpectrum
+    Module.length ((Spec (.of (AdjoinRoot f))).presheaf.stalk z)
+      ((Spec (.of (AdjoinRoot f))).presheaf.stalk z) = multiplicity (poly r.1.2) f := by
+  let z : Spec (.of (AdjoinRoot f)) := (nativeFactorMaximal f r).toPrimeSpectrum
+  let A := Localization.AtPrime z.asIdeal
+  let R := (Spec (.of (AdjoinRoot f))).presheaf.stalk z
+  let e : R ≃+* A :=
+    (AlgebraicGeometry.Spec.stalkIso (.of (AdjoinRoot f)) z).commRingCatIsoToRingEquiv
+  let : RingHomInvPair (e : R →+* A) (e.symm : A →+* R) := RingHomInvPair.of_ringEquiv e
+  let : RingHomInvPair (e.symm : A →+* R) (e : R →+* A) :=
+    RingHomInvPair.symm (e : R →+* A) (e.symm : A →+* R)
+  have h : Module.length R R = Module.length A A := by
+    apply WithBot.coe_injective
+    rw [Module.coe_length, Module.coe_length,
+      Order.krullDim_eq_of_orderIso (Submodule.orderIsoMapComap e.toSemilinearEquiv)]
+  exact h.trans (AdjoinRoot.branch_localLength f hf r)
+
+/-- The full quotient cycle has the native multiplicity on each original branch. -/
+theorem fundamentalCycle_eq_weighted_sum_branches (f : k[X]) (hf : f.Monic)
     [Fintype {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f}] :
     fundamentalCycle (Spec (.of (AdjoinRoot f))) =
       ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f},
-        finiteCyclePushforward (branchMap f r)
+        (multiplicity (poly r.1.2) f : ℤ) • finiteCyclePushforward (branchMap f r)
           (fundamentalCycle (Spec (.of (AdjoinRoot (poly r.1.2))))) := by
   classical
   let : Module.Finite k (AdjoinRoot f) := hf.finite_adjoinRoot
   let : IsArtinianRing (AdjoinRoot f) := .of_finite k _
-  let : _root_.IsReduced (AdjoinRoot f) := (Ideal.isRadical_iff_quotient_reduced _).mp
-    (isRadical_iff_span_singleton.mp hs.isRadical)
   let := NativeTorusPolynomial.projection_isFinite f hf
   have hgeneric (a : Spec (.of (AdjoinRoot f))) : a ∈ genericPoints (Spec (.of (AdjoinRoot f))) :=
     mem_genericPoints_of_isFinite_image (NativeTorusPolynomial.projection f) a (by
@@ -156,12 +174,40 @@ theorem fundamentalCycle_eq_sum_branches (f : k[X]) (hf : f.Monic) (hs : Squaref
       (IsArtinianRing.primeSpectrumEquivMaximalSpectrum.symm.trans
         (Equiv.subtypeUnivEquiv hgeneric).symm)
   let := (fundamentalCycle_genericPoints_finite (Spec (.of (AdjoinRoot f)))).fintype
-  rw [fundamentalCycle_eq_ofGenericCoefficients_one, ofGenericCoefficients_eq_sum]
+  rw [fundamentalCycle, ofGenericCoefficients_eq_sum]
   symm
   apply Fintype.sum_equiv e
   intro r
   let : Fact (Irreducible (poly r.1.2)) := ⟨irreducible r.1.2⟩
   rw [finiteCyclePushforward_fundamentalCycle_integral, branchMap_genericPoint]
-  rfl
+  let z : Spec (.of (AdjoinRoot f)) := (nativeFactorMaximal f r).toPrimeSpectrum
+  change (multiplicity (poly r.1.2) f : ℤ) • single z (1 : ℤ) =
+    single z ((Module.length ((Spec (.of (AdjoinRoot f))).presheaf.stalk z)
+      ((Spec (.of (AdjoinRoot f))).presheaf.stalk z)).toNat : ℤ)
+  rw [branch_stalkLength f hf.ne_zero r, ENat.toNat_natCast]
+  apply Function.locallyFinsuppWithin.ext
+  intro x
+  simp only [coe_zsmul, Pi.smul_apply, single_apply]
+  split_ifs <;> simp
+
+/-- An irreducible branch of a squarefree polynomial has multiplicity one. -/
+theorem branch_multiplicity_eq_one_of_squarefree (f : k[X]) (hf : f ≠ 0) (hs : Squarefree f)
+    (r : {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f}) :
+    multiplicity (poly r.1.2) f = 1 := by
+  have hq := (irreducible r.1.2).not_isUnit
+  apply Nat.le_antisymm
+  · apply multiplicity_le_of_emultiplicity_le
+    exact ((squarefree_iff_emultiplicity_le_one f).mp hs (poly r.1.2)).resolve_right hq
+  · exact Nat.succ_le_of_lt (multiplicity_pos_of_dvd r.2 (FiniteMultiplicity.of_not_isUnit hq hf))
+
+/-- Each distinct irreducible factor contributes one native prime cycle in the squarefree case. -/
+theorem fundamentalCycle_eq_sum_branches (f : k[X]) (hf : f.Monic) (hs : Squarefree f)
+    [Fintype {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f}] :
+    fundamentalCycle (Spec (.of (AdjoinRoot f))) =
+      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree k e // poly r.2 ∣ f},
+        finiteCyclePushforward (branchMap f r)
+          (fundamentalCycle (Spec (.of (AdjoinRoot (poly r.1.2))))) := by
+  simpa only [branch_multiplicity_eq_one_of_squarefree f hf.ne_zero hs, Nat.cast_one, one_zsmul]
+    using fundamentalCycle_eq_weighted_sum_branches f hf
 
 end AlgebraicGeometry.MotivicCohomology.DiagonalPolynomialBranchCycle

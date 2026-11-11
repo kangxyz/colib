@@ -6,7 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.RingTheory.KTheory.MilnorK.Dedekind.AffineEndpointNormAllDegrees
-public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenEquivariance
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
 public import Colib.RingTheory.Localization.FiniteTypeResidue
 
 /-!
@@ -24,10 +24,10 @@ local order and works in degree zero as well as positive degrees.
 namespace Stacks.Chow.DedekindResidue
 
 open Polynomial PolynomialResidue PolynomialDedekindResidue IsLocalRing IsDedekindDomain
-attribute [local instance] Classical.decEq polynomialPointResidueCharZero
+attribute [local instance] Classical.decEq
 
 universe u
-variable (k S : Type u) [Field k] [CharZero k]
+variable (k S : Type u) [Field k]
   [CommRing S] [IsDedekindDomain S] [Algebra k[X] S] [Module.Finite k[X] S]
   [Module.IsTorsionFree k[X] S] [Algebra k S] [IsScalarTower k k[X] S]
 
@@ -84,10 +84,8 @@ theorem endpoint_branchNorm_eq (a : k) (n : ℕ)
         ((endpointResidueEquiv k a).symm_apply_apply c)
     rw [IsScalarTower.algebraMap_apply k (ResidueField (Localization.AtPrime p.asIdeal)), hc]
     rfl
-  let : CharZero (ResidueField (Localization.AtPrime p.asIdeal)) :=
-    polynomialPointResidueCharZero k p
   let κQ := ResidueField (Localization.AtPrime q.val)
-  have h := milnorKNorm_map_ringEquiv (endpointResidueEquiv k a).toRingEquiv
+  have h := milnorKNorm_map_ringEquiv_of_finite (endpointResidueEquiv k a).toRingEquiv
     (RingEquiv.refl κQ) (RingHom.ext hs) n x
   have htransport : milnorKTransport (RingEquiv.refl κQ).toRingHom n x = x :=
     milnorKTransport_id_apply (k₁ := κQ) n x

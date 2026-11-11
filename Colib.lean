@@ -1082,6 +1082,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorBoundaryD
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorEquivalence
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorNormRetraction
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorSymbol
+public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorSymbolSurjectivity
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MixedPointNorm
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.NormalizedEndpointCycles
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.NormalizedEndpointNorm
@@ -2716,6 +2717,7 @@ public import Colib.RingTheory.AdicCompletion.OriginalBranch
 public import Colib.RingTheory.AdicCompletion.SemilocalBranches
 public import Colib.RingTheory.AdjoinRoot.EtaleNormalization
 public import Colib.RingTheory.AdjoinRoot.FactorIndexEquiv
+public import Colib.RingTheory.AdjoinRoot.LocalLength
 public import Colib.RingTheory.AdjoinRoot.Map
 public import Colib.RingTheory.AdjoinRoot.MapEquiv
 public import Colib.RingTheory.AdjoinRoot.MaximalFactors
@@ -2760,9 +2762,11 @@ public import Colib.RingTheory.Charpoly.ResidueBranchCountOneSeparable
 public import Colib.RingTheory.Charpoly.TensorProduct
 public import Colib.RingTheory.DiscreteValuationRing.BranchDegree
 public import Colib.RingTheory.DiscreteValuationRing.CompleteExtension
+public import Colib.RingTheory.DiscreteValuationRing.CompleteExtensionFinite
 public import Colib.RingTheory.DiscreteValuationRing.FractionOrder
 public import Colib.RingTheory.DiscreteValuationRing.RamificationDegree
 public import Colib.RingTheory.DiscreteValuationRing.RamificationSquare
+public import Colib.RingTheory.DiscreteValuationRing.TensorFiberLengths
 public import Colib.RingTheory.Henselian.PrincipalRoots
 public import Colib.RingTheory.Henselian.UniformizerNormalization
 public import Colib.RingTheory.IntegralClosure.CompleteTower
@@ -2811,6 +2815,8 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniverses
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniversesFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AdjoinSimpleChoice
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AdjoinSimpleEquivarianceAcross
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ArtinNormBaseChange
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ArtinNormSum
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AuxiliaryMixedBranchError
 public import Colib.RingTheory.KTheory.MilnorK.Norm.AuxiliaryMixedBranchErrorSeparable
 public import Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorNativeSquare
@@ -2821,6 +2827,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorTransport
 public import Colib.RingTheory.KTheory.MilnorK.Norm.BranchFactorTransportSeparable
 public import Colib.RingTheory.KTheory.MilnorK.Norm.BranchNormRetraction
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparison
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonSeparable
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenEquivariance
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenEquivarianceAcross
@@ -2834,6 +2841,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenPureBaseChange
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenRecursion
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenScalarBaseChange
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTensorBaseChange
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTensorBaseChangeFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTower
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerNormalPrimePower
@@ -2850,8 +2858,11 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRBranchWeightedErrorSepara
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRComplete
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteAdjoinRoot
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteBranchSum
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletePGroup
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletePGroupDescent
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletePGroupFinite
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletePrime
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteRamifiedBranch
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteScalarBranch
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletedBranchCoordinatesSeparable
@@ -2862,6 +2873,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRInertConstantSeparable
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRMixed
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRMixedCharZero
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRMixedCore
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRMixedPrime
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRNativeAuxiliaryCoordinatesSeparable
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPGroupDescent
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation
@@ -2879,8 +2891,10 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRResidueRamificationOneSep
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRResidueTrace
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRRestrictionKernel
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRSquareEquiv
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRSquareFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRSquareTower
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRWeightedBaseChange
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRWeightedBaseChangeFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.FieldPresentation
 public import Colib.RingTheory.KTheory.MilnorK.Norm.FieldPresentationEquivariance
 public import Colib.RingTheory.KTheory.MilnorK.Norm.FiniteReciprocity
@@ -2919,6 +2933,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.PolynomialResidueSupport
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PresentationBaseChange
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PresentationSupport
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeChosenPresentation
+public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeCoprimeBaseChangeFinite
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeDiamond
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeDiamondPure
 public import Colib.RingTheory.KTheory.MilnorK.Norm.PrimeDiamondSeparable
@@ -2972,6 +2987,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.SimpleInseparableTrace
 public import Colib.RingTheory.KTheory.MilnorK.Norm.SimpleSeparableClosureFactorization
 public import Colib.RingTheory.KTheory.MilnorK.Norm.SimpleTowerDegreeOne
 public import Colib.RingTheory.KTheory.MilnorK.Norm.SplitBaseChange
+public import Colib.RingTheory.KTheory.MilnorK.Norm.TensorResidueFactors
 public import Colib.RingTheory.KTheory.MilnorK.Norm.Tower
 public import Colib.RingTheory.KTheory.MilnorK.Norm.TowerFactorTransport
 public import Colib.RingTheory.KTheory.MilnorK.Norm.TowerPresentation
@@ -3119,6 +3135,7 @@ public import Colib.RingTheory.Multiplicity.PrincipalEuler.Support
 public import Colib.RingTheory.MvPolynomial.RegularSequence
 public import Colib.RingTheory.Norm.DVROrder
 public import Colib.RingTheory.Norm.DVRPrimeUniformizer
+public import Colib.RingTheory.Norm.DVRPrimeUniformizerFinite
 public import Colib.RingTheory.Norm.DVRResidue
 public import Colib.RingTheory.Norm.DVRUniformizer
 public import Colib.RingTheory.Norm.FiniteAlgebra

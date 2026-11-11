@@ -10,17 +10,18 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.PolynomialNormC
 import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.CorestrictionDegree
 import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.CorestrictionMixed
 import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.SymbolFieldChange
-import Colib.RingTheory.KTheory.MilnorK.FiniteMixedGeneration
+import Colib.RingTheory.KTheory.MilnorK.FiniteMixedGenerationArbitrary
 import Colib.RingTheory.KTheory.MilnorK.Norm.LowDegree
 import Mathlib.RingTheory.Coprime.Lemmas
 
 /-!
 # Prime-degree induction for the diagonal polynomial norm comparison
 
-Restriction to the actual root field gives only strict lower-degree factors.
-A classwise auxiliary extension of coprime degree gives a mixed-symbol expansion
-in the literal coefficient image. Applying finite corestriction to each equality
-of restrictions annihilates the same difference by two coprime degrees.
+Restriction to the actual root field gives only strict lower-degree factors,
+each with its original multiplicity. A classwise auxiliary extension of coprime
+degree gives a mixed-symbol expansion in the literal coefficient image. Applying
+finite corestriction to each equality of restrictions annihilates the same
+difference by two coprime degrees, including for inseparable prime extensions.
 -/
 
 @[expose] public noncomputable section
@@ -44,14 +45,10 @@ local instance rootFinite {F : Type u} [Field F] {d : ℕ}
     (p : MonicIrreducibleOfDegree F d) : FiniteDimensional F (AdjoinRoot (poly p)) :=
   (AdjoinRoot.powerBasis' (monic p)).finite
 
-local instance rootCharZero {F : Type u} [Field F] [CharZero F] {d : ℕ}
-    (p : MonicIrreducibleOfDegree F d) : CharZero (AdjoinRoot (poly p)) :=
-  charZero_of_injective_algebraMap (algebraMap F (AdjoinRoot (poly p))).injective
-
-variable {k : Type u} [Field k] [CharZero k]
+variable {k : Type u} [Field k]
 
 private theorem rawSymbol_mixed {E : Type u} [Field E] [Algebra k E]
-    [FiniteDimensional k E] [CharZero E] (m : ℕ) (a : Fin m → kˣ) (b : Eˣ) :
+    [FiniteDimensional k E] (m : ℕ) (a : Fin m → kˣ) (b : Eˣ) :
     rawSymbol k (m + 1) (milnorKNorm k E (m + 1)
       (milnorKTupleSymbol (Fin.snoc (Units.map (algebraMap k E).toMonoidHom ∘ a) b))) =
       corestriction (k := k) (m + 1) (rawSymbol E (m + 1)
@@ -93,7 +90,7 @@ private theorem rawSymbol_mixed {E : Type u} [Field E] [Algebra k E]
     DiagonalCorestrictionMixed.corestriction_graphSymbol_varying, hk]
 
 private theorem rawSymbol_of_mixed_expansion {E : Type u} [Field E] [Algebra k E]
-    [FiniteDimensional k E] [CharZero E] (m : ℕ)
+    [FiniteDimensional k E] (m : ℕ)
     (c : ((Fin m → kˣ) × Eˣ) →₀ ℤ) (x : MilnorKTheory E (m + 1))
     (hc : (c.sum fun ab z => z • milnorKTupleSymbol
       (Fin.snoc (Units.map (algebraMap k E).toMonoidHom ∘ ab.1) ab.2)) = x) :
@@ -106,7 +103,6 @@ private theorem rawSymbol_of_mixed_expansion {E : Type u} [Field E] [Algebra k E
   exact congrArg (fun z : (motivicRawBaseComplex k (m + 1)).homology ((m + 1 : ℕ) : ℤ) =>
     c ab • z) (rawSymbol_mixed m ab.1 ab.2)
 
-omit [CharZero k] in
 private theorem finrank_smul_difference_eq_zero_of_fieldChange_eq
     {L : Type u} [Field L] [Algebra k L] [Module.Finite k L]
     (n : ℕ) (a b : (motivicRawBaseComplex k n).homology n)
@@ -144,7 +140,7 @@ lower-degree comparison in that coefficient field. -/
   "Motivic/Cohomology/Diagonal/PolynomialNormInduction.lean:39-66"
   "adaptation" "Comparison of the complete native branch sums in smaller degrees"]
 theorem restriction_comparison_of_lower_degrees
-    {L : Type u} [Field L] [CharZero L] [Algebra k L] (n : ℕ)
+    {L : Type u} [Field L] [Algebra k L] (n : ℕ)
     (hp : 1 < d) (f : AdjoinRoot (poly p) →ₐ[k] L)
     (ih : ∀ {e : ℕ} (r : MonicIrreducibleOfDegree L e), e < d →
       ∀ y : MilnorKTheory (AdjoinRoot (poly r)) n,
@@ -156,24 +152,28 @@ theorem restriction_comparison_of_lower_degrees
         (corestriction (k := k) n (rawSymbol (AdjoinRoot (poly p)) n x)) := by
   classical
   let _ := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
-  rw [rawSymbol_fieldChange, milnorKTheoryMap_milnorKNorm_polynomial,
-    fieldChange_corestriction_rawSymbol_polynomial]
-  simp only [map_sum]
+  rw [rawSymbol_fieldChange, milnorKTheoryMap_milnorKNorm_polynomial_weighted,
+    fieldChange_corestriction_rawSymbol_polynomial_weighted]
+  simp only [map_sum, map_zsmul]
   apply Finset.sum_congr rfl
   intro r _
-  apply ih r.1.2
-  by_contra! hge
-  have hdeg : ((poly p).map (algebraMap k L)).natDegree ≤ (poly r.1.2).natDegree := by
-    simpa only [natDegree_map, natDegree_eq] using hge
-  have hq : poly r.1.2 = (poly p).map (algebraMap k L) :=
-    Polynomial.eq_of_monic_of_associated (monic r.1.2) ((monic p).map _)
-      (associated_of_dvd_of_natDegree_le r.2 ((monic p).map _).ne_zero hdeg)
-  have hirr : Irreducible ((poly p).map (algebraMap k L)) := hq ▸ irreducible r.1.2
-  apply hirr.not_isRoot_of_natDegree_ne_one
-    (by simpa only [natDegree_map, natDegree_eq] using hp.ne')
-  change ((poly p).map (algebraMap k L)).IsRoot (f (AdjoinRoot.root (poly p)))
-  rw [IsRoot, eval_map, ← aeval_def, aeval_algHom_apply, AdjoinRoot.aeval_eq,
-    AdjoinRoot.mk_self, map_zero]
+  have hlt : r.1.1 < d := by
+    by_contra! hge
+    have hdeg : ((poly p).map (algebraMap k L)).natDegree ≤ (poly r.1.2).natDegree := by
+      simpa only [natDegree_map, natDegree_eq] using hge
+    have hq : poly r.1.2 = (poly p).map (algebraMap k L) :=
+      Polynomial.eq_of_monic_of_associated (monic r.1.2) ((monic p).map _)
+        (associated_of_dvd_of_natDegree_le r.2 ((monic p).map _).ne_zero hdeg)
+    have hirr : Irreducible ((poly p).map (algebraMap k L)) := hq ▸ irreducible r.1.2
+    apply hirr.not_isRoot_of_natDegree_ne_one
+      (by simpa only [natDegree_map, natDegree_eq] using hp.ne')
+    change ((poly p).map (algebraMap k L)).IsRoot (f (AdjoinRoot.root (poly p)))
+    rw [IsRoot, eval_map, ← aeval_def, aeval_algHom_apply, AdjoinRoot.aeval_eq,
+      AdjoinRoot.mk_self, map_zero]
+  exact congrArg (fun z : (motivicRawBaseComplex L n).homology n =>
+    (multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) • z)
+    (ih r.1.2 hlt (milnorKTheoryMap
+      (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2) n x))
 
 private theorem degree_smul_comparison_defect_eq_zero (n : ℕ) (hp : 1 < d)
     (ih : ∀ {e : ℕ} (r : MonicIrreducibleOfDegree (AdjoinRoot (poly p)) e), e < d →
@@ -197,15 +197,13 @@ private theorem exists_coprime_smul_comparison_defect_eq_zero (hp : d.Prime) (m 
     ∃ e : ℕ, d.Coprime e ∧ (e : ℤ) •
       (rawSymbol k (m + 1) (milnorKNorm k (AdjoinRoot (poly p)) (m + 1) x) -
         corestriction (k := k) (m + 1) (rawSymbol (AdjoinRoot (poly p)) (m + 1) x)) = 0 := by
-  obtain ⟨_, _, S, hfinite, _, hcop, _, hq, hgen⟩ :=
-    exists_finite_coprime_milnorK_mixed_expansion (poly p) (monic p)
+  obtain ⟨_, _, S, hfinite, hcop, _, hq, hgen⟩ :=
+    exists_finite_coprime_milnorK_mixed_expansion_arbitrary (poly p) (monic p)
       (by simpa only [natDegree_eq] using hp) m x
   let : FiniteDimensional k S := hfinite
-  let : CharZero S := charZero_of_injective_algebraMap (algebraMap k S).injective
   let : Fact (Irreducible ((poly p).map (algebraMap k S))) := ⟨hq⟩
   let M := AdjoinRoot ((poly p).map (algebraMap k S))
   let : FiniteDimensional S M := (AdjoinRoot.powerBasis' ((monic p).map _)).finite
-  let : CharZero M := charZero_of_injective_algebraMap (algebraMap S M).injective
   let y : MilnorKTheory M (m + 1) := milnorKTheoryMap
     (AdjoinRoot.map (algebraMap k S) (poly p) ((poly p).map (algebraMap k S)) dvd_rfl) (m + 1) x
   dsimp only at hgen

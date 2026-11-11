@@ -11,13 +11,16 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.PolynomialPoint
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenScalarBaseChange
 public import Colib.RingTheory.KTheory.MilnorK.Symbols.Transport
 
+import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
+
 /-!
 # The scalar branch comparisons for polynomial norms and corestriction
 
 The native Milnor norm and the actual finite motivic corestriction have scalar
-branch formulas on the same literal quotient fields. The motivic formula is the
-signed cycle comparison on tuple generators, extended additively to the native
-homogeneous Milnor group.
+branch formulas on the same literal quotient fields, with the multiplicities
+of the original coefficient image. The motivic formula is the signed cycle
+comparison on tuple generators, extended additively to the native homogeneous
+Milnor group.
 -/
 
 @[expose] public noncomputable section
@@ -39,14 +42,29 @@ local instance normRootFinite {F : Type u} [Field F] {d : ℕ}
     (p : MonicIrreducibleOfDegree F d) : FiniteDimensional F (AdjoinRoot (poly p)) :=
   (AdjoinRoot.powerBasis' (monic p)).finite
 
-local instance normRootCharZero {F : Type u} [Field F] [CharZero F] {d : ℕ}
-    (p : MonicIrreducibleOfDegree F d) : CharZero (AdjoinRoot (poly p)) :=
-  charZero_of_injective_algebraMap (algebraMap F (AdjoinRoot (poly p))).injective
+variable {k L : Type u} [Field k] [Field L] [Algebra k L]
 
-variable {k L : Type u} [Field k] [Field L] [Algebra k L] [CharZero k]
+/-- The chosen homogeneous norm has the original multiplicity of every scalar factor. -/
+theorem milnorKTheoryMap_milnorKNorm_polynomial_weighted (n : ℕ) {d : ℕ}
+    (p : MonicIrreducibleOfDegree k d) (x : MilnorKTheory (AdjoinRoot (poly p)) n) :
+    let _ := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
+    milnorKTheoryMap (algebraMap k L) n (milnorKNorm k (AdjoinRoot (poly p)) n x) =
+      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
+          poly r.2 ∣ (poly p).map (algebraMap k L)},
+        (multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) •
+          milnorKNorm L (AdjoinRoot (poly r.1.2)) n
+            (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2) n x) := by
+  let := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
+  have hrefl :
+      (AlgEquiv.refl : AdjoinRoot (poly p) ≃ₐ[k] AdjoinRoot (poly p)).toRingEquiv.toRingHom =
+        RingHom.id _ := rfl
+  simpa only [milnorKTheoryMap_eq_transport, AddMonoidHom.coe_toIntLinearMap, hrefl,
+    RingHom.comp_id] using
+    milnorKNorm_map_eq_weighted_sum_scalarFactors_of_finite (algebraMap k L) p
+      (AlgEquiv.refl : AdjoinRoot (poly p) ≃ₐ[k] AdjoinRoot (poly p)) n x
 
 /-- All scalar factors of the native polynomial presentation occur in the homogeneous norm. -/
-theorem milnorKTheoryMap_milnorKNorm_polynomial (n : ℕ) {d : ℕ}
+theorem milnorKTheoryMap_milnorKNorm_polynomial [CharZero k] (n : ℕ) {d : ℕ}
     (p : MonicIrreducibleOfDegree k d) (x : MilnorKTheory (AdjoinRoot (poly p)) n) :
     let _ := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
     milnorKTheoryMap (algebraMap k L) n (milnorKNorm k (AdjoinRoot (poly p)) n x) =
@@ -62,10 +80,45 @@ theorem milnorKTheoryMap_milnorKNorm_polynomial (n : ℕ) {d : ℕ}
     milnorKNorm_map_eq_sum_scalarFactors_of_algEquiv (algebraMap k L) p
       (AlgEquiv.refl : AdjoinRoot (poly p) ≃ₐ[k] AdjoinRoot (poly p)) n x
 
-/-- The actual corestriction of a diagonal Milnor class has the full scalar branch sum. -/
+/-- The actual corestriction of a diagonal Milnor class has the full weighted scalar branch sum. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/MilnorNormBaseChange.lean:35-62"
-  "adaptation" "Extension of the actual signed cycle base change from tuple symbols"]
-theorem fieldChange_corestriction_rawSymbol_polynomial [CharZero L]
+  "adaptation" "Extension of the actual weighted signed cycle base change from tuple symbols"]
+theorem fieldChange_corestriction_rawSymbol_polynomial_weighted
+    (n : ℕ) {d : ℕ} (p : MonicIrreducibleOfDegree k d)
+    (x : MilnorKTheory (AdjoinRoot (poly p)) n) :
+    let _ := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
+    fieldChange (algebraMap k L) n
+        (corestriction (k := k) n (rawSymbol (AdjoinRoot (poly p)) n x)) =
+      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
+          poly r.2 ∣ (poly p).map (algebraMap k L)},
+        (multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) •
+          corestriction (k := L) n (rawSymbol (AdjoinRoot (poly r.1.2)) n
+            (milnorKTheoryMap
+              (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2) n x)) := by
+  classical
+  let := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
+  have h : (fieldChange (algebraMap k L) n).comp
+      ((corestriction (k := k) n).comp (rawSymbol (AdjoinRoot (poly p)) n)) =
+      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
+          poly r.2 ∣ (poly p).map (algebraMap k L)},
+        (multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) •
+          (corestriction (k := L) n).comp ((rawSymbol (AdjoinRoot (poly r.1.2)) n).comp
+            (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2)
+              n).toAddMonoidHom) := by
+    apply milnorKTheory_addHom_ext
+    intro a
+    simp only [AddMonoidHom.comp_apply, AddMonoidHom.finsetSum_apply, AddMonoidHom.zsmul_apply,
+      LinearMap.toAddMonoidHom_coe,
+      milnorKTheoryMap_tupleSymbol, rawSymbol_symbol, corestriction_graphSymbol]
+    rw [fieldChange_cycleClass,
+      pointPushforward_graph_fieldChange_polynomial_weighted p a]
+    simp only [map_sum, map_zsmul, Function.comp_def]
+  simpa only [AddMonoidHom.comp_apply, AddMonoidHom.finsetSum_apply, AddMonoidHom.zsmul_apply,
+    LinearMap.toAddMonoidHom_coe]
+    using DFunLike.congr_fun h x
+
+/-- In characteristic zero the original coefficient image has only multiplicities one. -/
+theorem fieldChange_corestriction_rawSymbol_polynomial [CharZero k]
     (n : ℕ) {d : ℕ} (p : MonicIrreducibleOfDegree k d)
     (x : MilnorKTheory (AdjoinRoot (poly p)) n) :
     let _ := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
@@ -75,24 +128,11 @@ theorem fieldChange_corestriction_rawSymbol_polynomial [CharZero L]
           poly r.2 ∣ (poly p).map (algebraMap k L)},
         corestriction (k := L) n (rawSymbol (AdjoinRoot (poly r.1.2)) n
           (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2) n x)) := by
-  classical
-  let := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
-  have h : (fieldChange (algebraMap k L) n).comp
-      ((corestriction (k := k) n).comp (rawSymbol (AdjoinRoot (poly p)) n)) =
-      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
-          poly r.2 ∣ (poly p).map (algebraMap k L)},
-        (corestriction (k := L) n).comp ((rawSymbol (AdjoinRoot (poly r.1.2)) n).comp
-          (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p) (poly r.1.2) r.2)
-            n).toAddMonoidHom) := by
-    apply milnorKTheory_addHom_ext
-    intro a
-    simp only [AddMonoidHom.comp_apply, AddMonoidHom.finsetSum_apply, LinearMap.toAddMonoidHom_coe,
-      milnorKTheoryMap_tupleSymbol, rawSymbol_symbol, corestriction_graphSymbol]
-    rw [fieldChange_cycleClass,
-      pointPushforward_graph_fieldChange_polynomial p a (irreducible p).separable]
-    simp only [map_sum, Function.comp_def]
-  simpa only [AddMonoidHom.comp_apply, AddMonoidHom.finsetSum_apply, LinearMap.toAddMonoidHom_coe]
-    using DFunLike.congr_fun h x
+  rw [fieldChange_corestriction_rawSymbol_polynomial_weighted n p x]
+  apply Finset.sum_congr rfl
+  intro r _
+  rw [multiplicity_eq_one_of_separable_map (algebraMap k L) p r.1.2
+    (irreducible p).separable r.2, Nat.cast_one, one_zsmul]
 
 private theorem sum_scalarFactors_of_irreducible (f : L[X]) (hf : f.Monic) (hi : Irreducible f)
     [Fintype {r : Σ e : ℕ, MonicIrreducibleOfDegree L e // poly r.2 ∣ f}]
@@ -113,6 +153,18 @@ private theorem sum_scalarFactors_of_irreducible (f : L[X]) (hf : f.Monic) (hi :
       ((irreducible r.1.2).associated_of_dvd hi r.2)
   · simp
 
+private theorem weighted_sum_scalarFactors_of_irreducible (f : L[X]) (hf : f.Monic)
+    (hi : Irreducible f)
+    [Fintype {r : Σ e : ℕ, MonicIrreducibleOfDegree L e // poly r.2 ∣ f}]
+    {A : Type*} [AddCommGroup A]
+    (g : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e // poly r.2 ∣ f} → A) :
+    (∑ r, (multiplicity (poly r.1.2) f : ℤ) • g r) =
+      g ⟨⟨f.natDegree, ⟨f, hf, hi, rfl⟩⟩, dvd_rfl⟩ := by
+  rw [sum_scalarFactors_of_irreducible f hf hi]
+  change (multiplicity f f : ℤ) • _ = _
+  rw [multiplicity_self (FiniteMultiplicity.of_not_isUnit hi.not_isUnit hi.ne_zero),
+    Nat.cast_one, one_zsmul]
+
 /-- If the coefficient image remains irreducible, restriction of the norm has one term. -/
 theorem milnorKTheoryMap_milnorKNorm_irreducible (n : ℕ) {d : ℕ}
     (p : MonicIrreducibleOfDegree k d) (hp : Irreducible ((poly p).map (algebraMap k L)))
@@ -125,28 +177,25 @@ theorem milnorKTheoryMap_milnorKNorm_irreducible (n : ℕ) {d : ℕ}
         (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p)
           ((poly p).map (algebraMap k L)) dvd_rfl) n x) := by
   let := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
-  rw [milnorKTheoryMap_milnorKNorm_polynomial,
-    sum_scalarFactors_of_irreducible _ ((monic p).map _) hp]
+  rw [milnorKTheoryMap_milnorKNorm_polynomial_weighted,
+    weighted_sum_scalarFactors_of_irreducible _ ((monic p).map _) hp]
   rfl
 
 /-- If the coefficient image remains irreducible, restriction of corestriction has one term. -/
-theorem fieldChange_corestriction_rawSymbol_irreducible [CharZero L] (n : ℕ) {d : ℕ}
+theorem fieldChange_corestriction_rawSymbol_irreducible (n : ℕ) {d : ℕ}
     (p : MonicIrreducibleOfDegree k d) (hp : Irreducible ((poly p).map (algebraMap k L)))
     (x : MilnorKTheory (AdjoinRoot (poly p)) n) :
     let _ : Fact (Irreducible ((poly p).map (algebraMap k L))) := ⟨hp⟩
     let _ : Module.Finite L (AdjoinRoot ((poly p).map (algebraMap k L))) :=
       (AdjoinRoot.powerBasis' ((monic p).map _)).finite
-    let _ : CharZero (AdjoinRoot ((poly p).map (algebraMap k L))) :=
-      charZero_of_injective_algebraMap
-        (algebraMap L (AdjoinRoot ((poly p).map (algebraMap k L)))).injective
     fieldChange (algebraMap k L) n
         (corestriction (k := k) n (rawSymbol (AdjoinRoot (poly p)) n x)) =
       corestriction (k := L) n (rawSymbol (AdjoinRoot ((poly p).map (algebraMap k L))) n
         (milnorKTheoryMap (AdjoinRoot.map (algebraMap k L) (poly p)
           ((poly p).map (algebraMap k L)) dvd_rfl) n x)) := by
   let := coefficientFactorFintype (algebraMap k L) (poly p) (ne_zero p)
-  rw [fieldChange_corestriction_rawSymbol_polynomial,
-    sum_scalarFactors_of_irreducible _ ((monic p).map _) hp]
+  rw [fieldChange_corestriction_rawSymbol_polynomial_weighted,
+    weighted_sum_scalarFactors_of_irreducible _ ((monic p).map _) hp]
   rfl
 
 end AlgebraicGeometry.MotivicCohomology.DiagonalCorestrictionBaseChange

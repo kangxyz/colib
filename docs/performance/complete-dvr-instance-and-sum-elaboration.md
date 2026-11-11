@@ -75,3 +75,74 @@ lake build +Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompletePGroupDescent \
   +ColibTest.MilnorDVRCompletePGroupDescent \
   +Colib.RingTheory.KTheory.MilnorK.Norm.DVR +ColibTest.MilnorOriginalDVRNorm
 ```
+
+## Reverse dependencies of the prime mixed-span formula
+
+During the arbitrary-field extension on Colib `5004c34`, adding the new
+coefficient and mixed-span declarations directly to the old providers
+invalidated the legacy auxiliary comparison. Its unchanged source
+`AuxiliaryMixedBranchError` took 806 seconds in native run
+`remote-29ebed9cee4a415fa4c2d6ae14ce3627`. That frontend exited zero.
+The surrounding batch was closed after retaining its successful outputs.
+
+The new formulas now live in `DVRPrimeUniformizerFinite` and
+`DVRMixedPrime`, which import the byte-identical old providers. The
+new complete prime proof uses these new leaves. Run
+`remote-7b36c165f0c64006992b328e90d6ad9d` compiled both relocated
+modules with the same dependency pins and proof budgets. This isolates
+the arbitrary-residue generalization from the old reverse dependencies.
+
+```sh
+lake build +Colib.RingTheory.KTheory.MilnorK.Norm.DVRMixedPrime
+```
+
+## Tensor residue lengths and norm transport
+
+The first combined localization length proof exceeded the 200,000-heartbeat
+limit at `whnf` in `remote-2a0fae45201e41ff871f88c3c1c8709d`. The repair
+isolates the flat local length identity from the construction of the
+closed-fiber quotient equivalence. It identifies the actual contraction
+map before converting the length expression. The resulting
+`TensorResidueFactors` passed in
+`remote-bc9b0327bad04ffabb59dbdf1a1e6d5c` in 7 seconds.
+
+The combined weighted norm proof reached another `whnf` timeout in
+`remote-8bb0246532134974ac267bf027f14b53`. Separating the simple
+presentation, the tensor tower proof and the final factor formulas
+moved compilation to three explicit type errors in
+`remote-45d25786c93a4e3496aca771611e3a98`. The final repair selects
+`IsLocalRing.ResidueField.algebra` from the actual coefficient fiber
+and uses its `Algebra.toModule` on each residue field. This fixes the
+coherence with the generic point sum, whose residue module comes from
+that coefficient algebra. The actual tensor tower, both final
+factor formulas and their weighted DVR consumer passed in
+`remote-5660b8a041434d09902524e4e44751a9` at the same limit.
+
+## The complete finite square with weighted residue branches
+
+The conditional complete-finite probe with SHA-256
+`ea361ed527dac1a5fec6b68c4f12d5033b310f2da42e91fb395bb4d55a3f45b9`
+exceeded 200,000 heartbeats at `isDefEq` while rewriting a branch norm,
+then at `whnf` in the enclosing declaration in
+`remote-50d2cff4a985466abb1ebd5d40f313bd`.
+
+The production proof fixes the residue and norm additive maps before
+taking the sum. Typed helpers handle the comparison in one complete
+branch and the annihilation after restriction. The weighted comparison
+receives the family of actual subalgebra carriers explicitly. The
+ramification coefficient is transported as a natural scalar by
+`map_nsmul`.
+
+With unchanged compiler limits, run
+`remote-8d6e5341faa34f00ad634fe3b64b40c9` compiled
+`DVRCompleteFinite` in 28 seconds, then `CompletionBranch` and
+`DVR` in 12 and 55 seconds respectively. The complete producer,
+with SHA-256
+`cd21cc8359fe36e65fec706750d43f912a539ed75b99a9e3ff3a968f428ff7df`,
+uses the actual weighted residue theorem and the unconditional
+prime-power norm squares.
+
+```sh
+lake build +Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteFinite \
+  +Colib.RingTheory.KTheory.MilnorK.Norm.DVR
+```

@@ -155,7 +155,7 @@ private theorem residuePointCycle_val (x : T) (n : ℤ) :
       rw [hy]
     _ = finiteCyclePushforward j (single x n) := (finiteCyclePushforward_single j x n).symm
 
-private theorem cycleValue_residuePointCycle [CharZero k]
+private theorem cycleValue_residuePointCycle
     (a : Fin q → Γ(T, ⊤)ˣ) (ha : ∀ i, schemeCoordinateUnit j i = a i) (x : T) (n : ℤ) :
     cycleValue k q (residuePointCycle p j hp x n) = n • residueValue p a x := by
   let := finiteSchemeArtinian p
@@ -176,7 +176,7 @@ private theorem cycleValue_residuePointCycle [CharZero k]
   rw [residue_coordinate, ha]
 
 include hp in
-private theorem cycleValue_eq_residue_sum [CharZero k] [Fintype T]
+private theorem cycleValue_eq_residue_sum [Fintype T]
     (a : Fin q → Γ(T, ⊤)ˣ) (ha : ∀ i, schemeCoordinateUnit j i = a i)
     (α : finiteCorrespondences (𝟙 (Spec (.of k))) (SmoothSite.torusPower (Spec (.of k)) q).hom)
     (c : AlgebraicCycle T ℤ) (hα : α.val = finiteCyclePushforward j c) :
@@ -205,7 +205,7 @@ norm sum, with all the specified original unit coordinates. -/
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/Cohomology/Diagonal/ResiduePointEvaluation.lean:146-213" "adaptation"
   "Evaluation of the native finite fundamental pushforward by actual residue norms"]
-theorem cycleValue_eq_residue_sum_of_finite [CharZero k]
+theorem cycleValue_eq_residue_sum_of_finite
     (a : Fin q → Γ(T, ⊤)ˣ) (ha : ∀ i, schemeCoordinateUnit j i = a i)
     (α : finiteCorrespondences (𝟙 (Spec (.of k))) (SmoothSite.torusPower (Spec (.of k)) q).hom)
     (hα : let := finiteSchemeArtinian p

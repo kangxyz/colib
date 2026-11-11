@@ -24,7 +24,7 @@ namespace Stacks.Chow.DedekindResidue
 open Polynomial PolynomialResidue IsDedekindDomain
 
 universe u
-variable (k S E : Type u) [Field k] [CharZero k]
+variable (k S E : Type u) [Field k]
   [CommRing S] [IsDedekindDomain S] [Algebra k[X] S] [Module.Finite k[X] S]
   [Module.IsTorsionFree k[X] S]
   [Field E] [Algebra S E] [IsFractionRing S E]
@@ -32,7 +32,6 @@ variable (k S E : Type u) [Field k] [CharZero k]
   [Algebra (RatFunc k) E] [IsScalarTower k[X] (RatFunc k) E]
   [FiniteDimensional (RatFunc k) E]
 
-omit [CharZero k] in
 /-- Constant restriction is surjective on the actual native K₀, through its integer comparison. -/
 theorem constant_restriction_zero_surjective :
     Function.Surjective (milnorKTheoryMap (RatFunc.C : k →+* RatFunc k) 0) := by

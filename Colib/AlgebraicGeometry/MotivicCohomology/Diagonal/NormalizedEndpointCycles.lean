@@ -149,10 +149,10 @@ abbrev normalizedFiber (a : k) := fiber (normalizationBaseMap Z) a
 abbrev normalizedFiberBase (a : k) : normalizedFiber Z a ⟶ Spec (.of k) :=
   pullback.fst (endpoint a) (normalizationBaseMap Z)
 
-instance normalizedFiberBaseFinite [CharZero k] (a : k) : IsFinite (normalizedFiberBase Z a) :=
+instance normalizedFiberBaseFinite (a : k) : IsFinite (normalizedFiberBase Z a) :=
   inferInstanceAs (IsFinite (pullback.fst (endpoint a) (normalizationBaseMap Z)))
 
-instance normalizedFiberNoetherian [CharZero k] (a : k) : IsNoetherian (normalizedFiber Z a) :=
+instance normalizedFiberNoetherian (a : k) : IsNoetherian (normalizedFiber Z a) :=
   fiber_isNoetherian (normalizationBaseMap Z) a
 
 /-- The actual restriction of the normalization morphism to the original polynomial endpoint. -/
@@ -182,7 +182,7 @@ theorem normalizedPolynomialFiberMap_isPullback (a : k) :
   · exact normalizedPolynomialFiberMap_support Z a
   · exact IsPullback.of_hasPullback (endpoint a) (polynomialProjection Z)
 
-instance normalizedPolynomialFiberMapFinite [CharZero k] (a : k) :
+instance normalizedPolynomialFiberMapFinite (a : k) :
     IsFinite (normalizedPolynomialFiberMap Z a) :=
   MorphismProperty.of_isPullback (normalizedPolynomialFiberMap_isPullback Z a).flip
     (inferInstance : IsFinite (normalizationMap Z))
@@ -191,13 +191,13 @@ instance normalizedPolynomialFiberMapFinite [CharZero k] (a : k) :
 def normalizedFiberMap (a : k) : normalizedFiber Z a ⟶ graphFiber Z a :=
   normalizedPolynomialFiberMap Z a ≫ (graphFiberIso Z a).inv
 
-instance normalizedFiberMapFinite [CharZero k] (a : k) : IsFinite (normalizedFiberMap Z a) :=
+instance normalizedFiberMapFinite (a : k) : IsFinite (normalizedFiberMap Z a) :=
   inferInstanceAs (IsFinite (normalizedPolynomialFiberMap Z a ≫ (graphFiberIso Z a).inv))
 
 /-- The actual normalized endpoint map into the original point-to-torus ambient. -/
 def normalizedFiberInclusion (a : k) := normalizedFiberMap Z a ≫ graphFiberInclusion Z a
 
-instance normalizedFiberInclusionFinite [CharZero k] (a : k) :
+instance normalizedFiberInclusionFinite (a : k) :
     IsFinite (normalizedFiberInclusion Z a) :=
   inferInstanceAs (IsFinite (normalizedFiberMap Z a ≫ graphFiberInclusion Z a))
 
@@ -217,8 +217,6 @@ instance normalizedFiberInclusionFinite [CharZero k] (a : k) :
 def normalizedFiberScalar (a : k) : normalizationRing Z →+* Γ(normalizedFiber Z a, ⊤) :=
   (fiberInclusion (normalizationBaseMap Z) a).appTop.hom.comp
     (Scheme.ΓSpecIso (.of (normalizationRing Z))).inv.hom
-
-variable [CharZero k]
 
 private theorem finiteCyclePushforward_congr_hom {A B : Scheme.{u}}
     (f g : A ⟶ B) [IsFinite f] [IsFinite g] (h : f = g) (c : AlgebraicCycle A ℤ) :
@@ -243,7 +241,6 @@ theorem normalizedPolynomialFiberMap_fundamentalCycle (a : k) :
   rw [finiteCyclePushforward_comp_apply]
   exact (finiteCyclePushforward_congr_hom _ _ (normalizedPolynomialFiberMap_support Z a) _).trans h
 
-omit [CharZero k] in
 /-- The original graph fiber of the finite support is Noetherian. -/
 theorem graphFiberNoetherian (a : k) : IsNoetherian (graphFiber Z a) := by
   let : IsNoetherian (SmoothSite.base (Spec (.of k))).left :=

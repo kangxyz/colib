@@ -7,7 +7,7 @@ module
 
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVR
 public import Colib.RingTheory.KTheory.MilnorK.Residue.Automorphism
-public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTower
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
 public import Colib.RingTheory.KTheory.MilnorK.Dedekind.ResidueSupport
 public import Colib.RingTheory.Localization.FiniteResidue
 public import Colib.RingTheory.Localization.DedekindFractions
@@ -20,9 +20,10 @@ same original fraction field. No residue compatibility premise is introduced.
 
 Adapted from `Aglib/KTheory/MilnorK/Dedekind/ResiduePushforward.lean`,
 revision `4f65be4eafa8964bd1f7a83682e99aa8165bd418`, lines 25–129.
-The source characteristic-zero hypotheses, actual original prime indices and
-localization-to-original-field triangles are retained. The native chosen norm
-requires the norm fields to share a universe.
+The original prime indices and localization-to-original-field triangles are
+retained. Finite norm equivariance and the original-branch DVR formula extend
+the source's characteristic-zero comparison to arbitrary fields in a common
+universe.
 -/
 
 @[expose] public noncomputable section
@@ -37,7 +38,7 @@ universe u
 original base residue field. -/
 theorem residueNorm_eq_of_localAlgEquiv
     {R S T E : Type u}
-    [CommRing R] [IsLocalRing R] [CharZero (ResidueField R)]
+    [CommRing R] [IsLocalRing R]
     [CommRing S] [IsDomain S] [IsDiscreteValuationRing S]
     [CommRing T] [IsDomain T] [IsDiscreteValuationRing T]
     [Algebra R S] [Algebra R T]
@@ -58,7 +59,7 @@ theorem residueNorm_eq_of_localAlgEquiv
       DFunLike.congr_fun
         (dvrMilnorTameSymbol'_map_ringEquiv j.toRingEquiv (RingHom.id E) hj n) x
   rw [hr]
-  exact (milnorKNorm_map_algEquiv (ResidueField.mapAlgEquiv' j) n _).symm
+  exact (milnorKNorm_map_algEquiv_of_finite (ResidueField.mapAlgEquiv' j) n _).symm
 
 open _root_.AdicCompletion IsDedekindDomain
 attribute [local instance] Classical.decEq
@@ -67,11 +68,11 @@ section Dedekind
 variable (A S F E : Type u) [CommRing A] [IsDedekindDomain A]
   [CommRing S] [IsDedekindDomain S] [Algebra A S] [Module.Finite A S]
   [Module.IsTorsionFree A S]
-  [Field F] [CharZero F] [Algebra A F] [IsFractionRing A F]
+  [Field F] [Algebra A F] [IsFractionRing A F]
   [Field E] [Algebra S E] [IsFractionRing S E]
   [Algebra A E] [IsScalarTower A S E]
   [Algebra F E] [IsScalarTower A F E] [FiniteDimensional F E]
-  (p : HeightOneSpectrum A) [CharZero (ResidueField (Localization.AtPrime p.asIdeal))]
+  (p : HeightOneSpectrum A)
 
 omit F in
 /-- The actual norm of the original residue at one original prime above `p`. -/
@@ -147,5 +148,5 @@ end Stacks.Chow
 attribute [colib_tag "COL-1002",
   colib_ref "aglib_milnor_4f65be4e"
     "KTheory/MilnorK/Dedekind/ResiduePushforward.lean:83-129" "adaptation"
-    "The local norm–residue identity at a height-one point of the base"]
+    "The local norm–residue identity at an original point in arbitrary characteristic"]
   Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_atPrime

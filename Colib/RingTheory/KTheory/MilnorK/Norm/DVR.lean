@@ -9,6 +9,8 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.CompletionBranch
 public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTensorBaseChange
 public import Colib.RingTheory.AdicCompletion.FractionBranches
 
+import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTensorBaseChangeFinite
+
 /-!
 # Chosen norm and residue over every actual original DVR branch
 
@@ -19,9 +21,10 @@ square through the inverse actual completion residue map. The conclusion keeps
 the specified original fraction field and each original localized DVR.
 
 Adapted from `Aglib/KTheory/MilnorK/Norm/FiniteExtension/DVR.lean`, revision
-`4f65be4eafa8964bd1f7a83682e99aa8165bd418`, lines 30–98. The original residue
-characteristic-zero hypothesis and all branches are retained. No norm square,
-branch enumeration, uniformizer or completeness witness is an input.
+`4f65be4eafa8964bd1f7a83682e99aa8165bd418`, lines 30–98. The cited proof assumes
+residue characteristic zero. Finite norm base change over the actual tensor
+decomposition and the complete finite norm square give the formula in arbitrary
+characteristic.
 -/
 
 @[expose] public noncomputable section
@@ -34,10 +37,9 @@ open scoped TensorProduct
 universe u
 
 variable (R S F E : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
-  [CharZero (ResidueField R)]
   [CommRing S] [IsDedekindDomain S] [Algebra R S] [Module.Finite R S]
   [Module.IsTorsionFree R S] [DecidableEq (Ideal S)]
-  [Field F] [CharZero F] [Algebra R F] [IsFractionRing R F]
+  [Field F] [Algebra R F] [IsFractionRing R F]
   [Field E] [Algebra R E] [Algebra S E] [IsScalarTower R S E] [IsFractionRing S E]
   [Algebra F E] [IsScalarTower R F E] [FiniteDimensional F E]
 
@@ -70,9 +72,6 @@ theorem dvrMilnorTameSymbol'_milnorKNorm_eq_sum_originalBranches
   let := fun q : IdealBranch J => localCompletionFractionAlgebra R S q
   let := fun q : IdealBranch J => localCompletionFractionIsScalarTower R S q
   let := fun q : IdealBranch J => localCompletionFractionFinite R S q
-  have : CharZero (ResidueField CR) := (eR).symm.toRingHom.charZero
-  have : CharZero CR := (IsLocalRing.residue CR).charZero
-  have : CharZero QR := charZero_of_injective_algebraMap (IsFractionRing.injective CR QR)
   let ε : (QR ⊗[F] E) ≃ₐ[QR] (∀ q : IdealBranch J, C q) :=
     fractionTensorEquivLocalFractionFields R S F E
   have hscalar : IsFractionRing.lift (A := R) (K := F)
@@ -93,7 +92,7 @@ theorem dvrMilnorTameSymbol'_milnorKNorm_eq_sum_originalBranches
       ∑ q : IdealBranch J, milnorKNorm QR (C q) (n + 1)
         (milnorKTransport ((Pi.evalRingHom C q).comp
           (ε.toRingHom.comp Algebra.TensorProduct.includeRight.toRingHom)) (n + 1) x) :=
-    milnorKNorm_map_eq_sum_tensorProductPiEquiv ε (n + 1) x
+    milnorKNorm_map_eq_sum_tensorProductPiEquiv_of_finite ε (n + 1) x
   let A : MilnorKTheory QR (n + 1) →+ MilnorKTheory (ResidueField R) n :=
     (milnorKTransport (eR).symm.toRingHom n).comp (dvrMilnorTameSymbol' CR QR n)
   refine hcompletion.symm.trans ((congrArg A hbase).trans ?_)
@@ -144,6 +143,6 @@ end
 attribute [colib_tag "COL-1002",
   colib_ref "aglib_milnor_4f65be4e"
     "KTheory/MilnorK/Norm/FiniteExtension/DVR.lean:39-98" "adaptation"
-    "The norm–residue identity summed over the original DVR branches"]
+    "The original all-branch formula, extended here to arbitrary characteristic"]
   Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_eq_sum_originalBranches
   Stacks.Chow.dvrMilnorTameSymbol'_comp_milnorKNorm_eq_sum_originalBranches

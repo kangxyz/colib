@@ -24,7 +24,7 @@ namespace Stacks.Chow.DedekindResidue
 open Polynomial IsLocalRing IsDedekindDomain
 
 universe u
-variable (k S E : Type u) [Field k] [CharZero k]
+variable (k S E : Type u) [Field k]
   [CommRing S] [IsDedekindDomain S] [Algebra k[X] S] [Module.Finite k[X] S]
   [Module.IsTorsionFree k[X] S]
   [Field E] [Algebra S E] [IsFractionRing S E]
@@ -38,10 +38,6 @@ theorem norm_mem_constant_range_of_totalResidue_zero (n : ℕ)
     milnorKNorm (RatFunc k) E (n + 1) x ∈
       LinearMap.range (milnorKTheoryMap (RatFunc.C : k →+* RatFunc k) (n + 1)) := by
   classical
-  let : ∀ p : HeightOneSpectrum k[X],
-      CharZero (ResidueField (Localization.AtPrime p.asIdeal)) := fun p =>
-    charZero_of_injective_algebraMap
-      (algebraMap k (ResidueField (Localization.AtPrime p.asIdeal))).injective
   have hz : totalResidue k[X] (RatFunc k) n
       (milnorKNorm (RatFunc k) E (n + 1) x) = 0 := by
     rw [totalResidue_milnorKNorm k[X] S (RatFunc k) E, hx, map_zero]

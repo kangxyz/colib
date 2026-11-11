@@ -694,6 +694,7 @@ class LibraryTests(unittest.TestCase):
             "weight-one-comparison": [
                 "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"
             ],
+            "milnor-motivic-comparison": ["COL-1023"],
             "diagonal-motivic-comparison": ["COL-1025", "COL-1026"],
         }
         self.assertEqual(chapter["sections"], list(expected))
