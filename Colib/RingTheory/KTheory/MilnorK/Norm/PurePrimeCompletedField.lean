@@ -28,8 +28,8 @@ universe u
 namespace Stacks.Chow
 
 private theorem subsingleton_primesOver_of_isPurelyInseparable
-    (R S F E : Type u) [CommRing R] [IsDomain R] [IsIntegrallyClosed R]
-    [CommRing S] [IsDomain S] [Algebra R S] [Algebra.IsIntegral R S]
+    (R S F E : Type u) [CommRing R] [IsIntegrallyClosed R]
+    [CommRing S] [Algebra R S] [Algebra.IsIntegral R S]
     [Field F] [Algebra R F] [IsFractionRing R F]
     [Field E] [Algebra R E] [Algebra S E] [IsScalarTower R S E] [IsFractionRing S E]
     [Algebra F E] [IsScalarTower R F E] [IsPurelyInseparable F E] (m : Ideal R) :

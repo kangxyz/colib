@@ -42,9 +42,11 @@ def towerInclusion : separableClosure K L →ₐ[K] separableClosure M L :=
 theorem coe_towerInclusion_apply (x : separableClosure K L) :
     (towerInclusion K M L x : L) = (x : L) := rfl
 
+/-- The scalar action between the maximal separable subfields over the base of the tower. -/
 scoped instance instAlgebraTowerMap : Algebra (separableClosure K M) (separableClosure K L) :=
   (towerMap K M L).toRingHom.toAlgebra
 
+/-- The scalar action induced by the inclusion of the two separable subfields of the top field. -/
 scoped instance instAlgebraTowerInclusion : Algebra (separableClosure K L) (separableClosure M L) :=
   (towerInclusion K M L).toRingHom.toAlgebra
 

@@ -306,6 +306,7 @@ theorem two_nsmul_cube_symbol (w a c : kˣ)
       add_comm] using hscaled.symm
   exact add_left_cancel he
 
+/-- The field structure on the quotient at a maximal ideal used in the branch degree. -/
 local instance quotientFieldForBound {R : Type u} [CommRing R] (q : MaximalSpectrum R) :
     Field (R ⧸ q.asIdeal) := Ideal.Quotient.field q.asIdeal
 
