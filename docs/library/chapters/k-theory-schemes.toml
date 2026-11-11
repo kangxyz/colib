@@ -135,7 +135,7 @@ COL-0548 = "Global sections retain the original geometric fibers while making re
 id = "tensor-unit-prisms"
 title = "Tensor-unit actions and coefficient prisms"
 order = 58
-introduction = "The actual sheafified tensor unit acts on bounded-flat perfect complexes. Its unitor and scalar comparison determine the original nerve and iterated-S prisms. Coefficient-row normalization and global evaluation compare the two parameter model routes and their unit actions, before external parameter naturality and Bass comparisons."
+introduction = "The actual sheafified tensor unit acts on bounded-flat perfect complexes. Its unitor and scalar comparison determine the original nerve and iterated-S prisms. Coefficient-row normalization and global evaluation compare the two parameter model routes and their unit actions, before external parameter naturality and Bass comparisons. The normalized rank-one coefficient square also computes the original forward global-unit K-one class through the literal perfect inclusion."
 
 [sections.transitions]
 COL-0542 = "Retain the actual structure-module tensor before passing to its unitor. The scalar comparison identifies its components with the global unit action already used on sections, so the later prisms can keep the original tensor edge."
@@ -144,6 +144,7 @@ COL-0544 = "Insert the tensor coefficient as a genuine first row rather than rep
 COL-0545 = "Use the first-row scalar comparison to identify the coefficient prism while preserving its endpoints. Reindexing the two grid directions and the nerve-cylinder direction separately gives the simultaneous naturality equation, before any later parameter normalization."
 COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
 COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
+COL-0556 = "COL-0544 and COL-0546 retain the actual coefficient row and its zero normalization. Specialize that construction to the degree-zero structure complex. Identifying the whole weak-object square, before taking a homotopy class, fixes the forward Laurent-unit orientation needed by returned-tensor recognition."
 
 [[sections]]
 id = "returned-tensor-cells"
@@ -151,11 +152,13 @@ title = "Returned tensor cells and current Bass boundaries"
 order = 59
 introduction = '''
 The independently realized tensor-unit cell is returned through the exact global-evaluation
-inverse to the original section category. The same actual returned action supplies the finite
-Bass row-cell recursion. Its normalized forwards first agree with the original scheme-model
-boundaries; the whole prescribed null and the actual suspension backward triangle then compare
-those boundaries with the current finite Bass transitions. Tensor-generator recognition and
-nonconnective localization remain outside this section.
+inverse to the original section category. The same actual returned action supplies the finite Bass
+row-cell recursion. Its normalized forwards first agree with the original scheme-model boundaries;
+the whole prescribed null and the actual suspension backward triangle then compare those
+boundaries with the current finite Bass transitions. The four corner-generator formulas recognize
+this actual returned action, and its generator-defined finite left recursion retains the original
+index and loop/row coordinates. Stable equivalence and nonconnective localization remain outside
+this section.
 '''
 
 [sections.transitions]
@@ -168,3 +171,6 @@ normalized boundary. Now retain the original whole source null, natural seed and
 triangle. The independent `forward` comparison and the complete normalization prism connect that
 boundary with the literal current Bass transition.
 '''
+COL-0557 = "COL-0550 returns the whole independently realized tensor cell, and COL-0555 supplies the current-boundary comparison for the original scheme model. Keep that same returned model and proved unit intertwining. The four-generator recognition theorem COL-0514 can now be applied to its actual geometric square; the coefficient calculation fixes the forward Laurent action rather than leaving it as additional input."
+COL-0558 = "The preceding item recognizes the actual starting cone action, including its forward coefficient and return prism. Feed those concrete data into the original finite generator recipe COL-0528. Carry the index map, row strength and old-loop conversion through each left-recursive step. The whole boundary comparison of COL-0555 then applies to these tensor-rooted cells without replacing their prescribed null or backward map."
+

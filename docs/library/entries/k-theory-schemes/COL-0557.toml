@@ -1,0 +1,35 @@
+[entry]
+id = "COL-0557"
+title = "Returned tensor actions are determined by their cone generators"
+kind = "theorem"
+section = "returned-tensor-cells"
+order = 40
+statement = '''
+Fix a scheme parameter \(Q\). The actual returned tensor model, return isomorphism and proved unit
+intertwining define a family natural in the opposite-scheme index. If \(I\) is its strict initial
+cell, \(E\) the return movement and \(T\) the independently returned tensor cell, there is an
+endpoint-relative homotopy \(I*E\simeq E*T\). On every original polynomial/Laurent square, the
+Laurent, positive-chart, negative-chart and overlap generator formulas determine the entire
+descended cone action uniquely. The positive and negative generators keep their outer cone height;
+the overlap keeps both quotient heights. Loop evaluation keeps coefficient time separate from loop
+time. The projected Laurent coefficient has the forward rank-one unit class computed in the
+preceding coefficient item.
+'''
+scope = '''
+Q is fixed. Naturality is in the existing opposite-scheme variable, with its actual four-arrow
+square maps; this item does not claim a new external-parameter naturality theorem. The entire cone
+homotopy is determined, not merely its induced class. The family is instantiated by actual
+returned tensor data, not supplied as a new abstract comparison hypothesis.
+'''
+proof_kind = "outline"
+proof = '''
+Identify the actual family cell with the initial strict cell using its proved unit conjugation and
+apply the whole returned prism of COL-0550. Instantiate the native four-generator criterion and
+quotient-induction uniqueness of COL-0514 on the original geometric square. The looping formula
+evaluates the old loop point first. Specialize the coefficient K-one inclusion to the same Laurent
+scheme and projected scalar.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensorSquare_unique"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

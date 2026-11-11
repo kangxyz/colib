@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0556"
+title = "The normalized tensor coefficient represents the forward unit class"
+kind = "comparison"
+section = "tensor-unit-prisms"
+order = 70
+statement = '''
+For a scheme \(X\) and a global unit \(r\in\Gamma(X,\mathcal O_X)^\times\), apply the degree-zero
+single functor to the actual coefficient row \(0,\mathcal O_X,0\). Its displayed
+zero/identity/zero comparison identifies the normalized coefficient square with the weak-object
+square of the original forward multiplication by \(r\). Realization gives equality of the entire
+loop path before class formation. The existing inverse-prefix normalization therefore gives the
+automorphism class of \(r\), and the literal bounded-flat perfect inclusion carries it to
+`perfectGlobalUnitKOneClass X r (rankOnePerfectComplex X)`.
+'''
+scope = '''
+The native Stacks perfect complexes and the existing bounded-above-flat full subcategory are
+unchanged. Nerve time is first and object-row time second. The unit is r, not its inverse. This is
+the rank-one coefficient calculation, not a product on K-theory with arbitrary second inputs.
+'''
+proof_kind = "outline"
+proof = '''
+Use the native finite-free unit sheaf to put the unchanged degree-zero structure complex in the
+bounded-flat subcategory. Identify its single scalar with the native degreewise scalar. Transport
+the complete row automorphism through the displayed row isomorphism, then identify the weak arrow
+and diagonal simplex. Equality of the realized two-time square gives equality of whole loop paths;
+apply the existing K-one normalization and exact inclusion.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.tensorUnitCoefficientKOneClass_inclusion"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

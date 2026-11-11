@@ -472,6 +472,12 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0556":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitCoefficientKOne",
+            "COL-0557":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGenerators",
+            "COL-0558":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGeneratedTrace",
             "COL-0552":
                 "Colib.KTheory.Bass.DiagramRowNormalizedBoundaryHomotopy",
             "COL-0553":
@@ -1564,6 +1570,17 @@ class LibraryTests(unittest.TestCase):
                 self.assertIn(f'attribute [colib_tag "{identifier}"]\n  {primary}', source)
                 self.assertIn(f'"{locator}"', source)
                 self.assertNotIn("Quillen c561118b:", source)
+
+
+    def test_returned_recognition_items_keep_owners_and_primaries(self):
+        expected = [('COL-0556', 'tensor-unit-prisms', 'AlgebraicGeometry.Scheme.Modules.tensorUnitCoefficientKOneClass_inclusion', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitCoefficientKOne'), ('COL-0557', 'returned-tensor-cells', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensorSquare_unique', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGenerators'), ('COL-0558', 'returned-tensor-cells', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensor_generated_trace', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGeneratedTrace')]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
 
 if __name__ == "__main__":
     unittest.main()

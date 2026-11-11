@@ -1,0 +1,41 @@
+[entry]
+id = "COL-0558"
+title = "Tensor-generated finite Bass recursion and current boundaries"
+kind = "theorem"
+section = "returned-tensor-cells"
+order = 50
+statement = '''
+For a fixed scheme parameter \(Q\), the actual returned tensor family generates every finite Bass
+cell by the original left-recursive recipe, with all endpoint, naturality, index and row data
+instantiated. At any stage, a cone homotopy satisfying the four actual corner-generator formulas
+gives exactly the same raw successor after the original index map, forward row strength, parameter
+looping and loop/row inverse. The first successor retains the whole raw level map; the later tail
+is the original left recursion rooted at that first successor. Its positive-level and degree-zero
+formulas retain the independent old-loop and row coordinates. At every finite stage \(i\) and
+scheme index \(X\), the whole normalized tensor forward is homotopic to the actual current
+transition followed by the original backward map. That backward map is exactly successor `eqToHom`
+transport followed by the looped row comparison.
+'''
+scope = '''
+This is finite left recursion, not an assertion that the right-associated rawBass at stage i is
+definitionally stage i+1. At positive levels the coefficient time r, row time s and old-loop time
+t remain independent; at degree zero the displayed u, r, s, t coordinates remain independent. The
+source cast in the whole boundary comparison is strictifiedNormalizedForward_eq.symm. No new
+all-stage comparison hypothesis, stable equivalence, telescope theorem, TT fiber endpoint or
+nonconnective localization theorem is added. Supported-forget constructions are a separate later
+topic.
+'''
+proof_kind = "outline"
+proof = '''
+Instantiate COL-0528 with the actual returned tensor family. At each finite stage, apply the
+four-generator uniqueness theorem before postcomposition by the original index map and row
+strength and before the parameter-loop/row conversion. Unfold only the original left recursion for
+the tail and coordinate equations. For the final whole boundary, specialize COL-0555 to the
+existing ambient parameter model and its actual Laurent unit, cast the source using COL-0551 in
+the required direction, and retain the successor equality and row comparison of the existing
+backward triangle.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensor_generated_trace"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
