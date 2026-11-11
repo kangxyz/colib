@@ -19,7 +19,8 @@ object has the stated bound, remain separate obligations.
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/CategoryTheory/Triangulated/FiniteEdge.lean`, blob `c9a169b67e6f2be5d93401984ca1914c1551ef62`.
+`Motivic/Aglib/CategoryTheory/Triangulated/FiniteEdge.lean`,
+blob `c9a169b67e6f2be5d93401984ca1914c1551ef62`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

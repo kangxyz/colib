@@ -11,7 +11,8 @@ public import Mathlib.AlgebraicGeometry.PullbackCarrier
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/FiniteCoproductCechPoints.lean`, blob `4722ce683f41afe6128b78409b7311819c6e123c`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/FiniteCoproductCechPoints.lean`,
+blob `4722ce683f41afe6128b78409b7311819c6e123c`.
 
 # Actual Čech points in pairs of finite coproduct components
 

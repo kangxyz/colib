@@ -23,7 +23,7 @@ example (k R L K : Type u) [CommRing k] [CommRing R] [CommRing L] [CommRing K]
       a ⊗ₜ[R ⊗[k] L] D L (R ⊗[k] L) (algebraMap R (R ⊗[k] L) r) :=
   scalarResidueEquiv_tmul_D k R L K a r
 
-example (k R L : Type u) [Field k] [CommRing R] [Field L]
+noncomputable example (k R L : Type u) [Field k] [CommRing R] [Field L]
     [Algebra k R] [Algebra k L]
     (x : PrimeSpectrum R) (y : PrimeSpectrum (R ⊗[k] L))
     (hy : PrimeSpectrum.comap (algebraMap R (R ⊗[k] L)) y = x)

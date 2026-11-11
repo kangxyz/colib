@@ -26,6 +26,8 @@ blob `81844c665922764c96de0dd51260c8e7d06c85c5`.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 
 universe u
@@ -62,13 +64,18 @@ theorem retainedSourceChange_isPullback :
       rw [← hf, ← Category.assoc, ← s.condition]
       simp only [Category.assoc, pullback.condition]
     refine ⟨pullback.lift s.snd (s.fst ≫ pullback.snd q r) hc, ?_, ?_, ?_⟩
-    · apply pullback.hom_ext
+    · change pullback.lift s.snd (s.fst ≫ pullback.snd q r) hc ≫
+        retainedSourceChange q q' r f hf = s.fst
+      apply pullback.hom_ext (f := q) (g := r)
       · simp only [Category.assoc, retainedSourceChange_fst, pullback.lift_fst_assoc]
         exact s.condition.symm
       · simp only [Category.assoc, retainedSourceChange_snd, pullback.lift_snd]
     · exact pullback.lift_fst _ _ _
     · intro l hl₁ hl₂
-      apply pullback.hom_ext
+      change (l : s.pt ⟶ pullback q' r) = _
+      change l ≫ retainedSourceChange q q' r f hf = s.fst at hl₁
+      change l ≫ pullback.fst q' r = s.snd at hl₂
+      apply pullback.hom_ext (f := q') (g := r)
       · simpa only [pullback.lift_fst] using hl₂
       · have ht := congrArg (fun a ↦ a ≫ pullback.snd q r) hl₁
         simpa only [Category.assoc, retainedSourceChange_snd,
@@ -81,7 +88,7 @@ local notation "J" => I.comap g
 
 /-- The entire pulled-back support is the actual first-source fiber product. -/
 def retainedSupportPullbackIso :
-    pullback f (I.subschemeι ≫ pullback.fst q r) ≅ J.subscheme :=
+    pullback f (I.subschemeι ≫ pullback.fst q r) ≅ (J).subscheme :=
   wholeFiberIso g (pullback.fst q' r) (pullback.fst q r) f
     (retainedSourceChange_isPullback q q' r f hf) I.subschemeι ≪≫
       (I.comapIso g).symm
@@ -90,7 +97,7 @@ def retainedSupportPullbackIso :
 @[reassoc]
 theorem retainedSupportPullbackIso_hom_source :
     (retainedSupportPullbackIso q q' r f hf I).hom ≫
-        J.subschemeι ≫ pullback.fst q' r =
+        (J).subschemeι ≫ pullback.fst q' r =
       pullback.fst f (I.subschemeι ≫ pullback.fst q r) := by
   simp only [retainedSupportPullbackIso, Iso.trans_hom, Iso.symm_hom, Category.assoc,
     IdealSheafData.comapIso_inv_subschemeι_assoc, wholeFiberIso_hom_base]
@@ -99,7 +106,7 @@ theorem retainedSupportPullbackIso_hom_source :
 @[reassoc]
 theorem retainedSupportPullbackIso_hom_target :
     (retainedSupportPullbackIso q q' r f hf I).hom ≫
-        J.subschemeι ≫ pullback.snd q' r =
+        (J).subschemeι ≫ pullback.snd q' r =
       pullback.snd f (I.subschemeι ≫ pullback.fst q r) ≫
         I.subschemeι ≫ pullback.snd q r := by
   simp only [retainedSupportPullbackIso, Iso.trans_hom, Iso.symm_hom, Category.assoc,
@@ -121,19 +128,19 @@ isomorphism followed by the ordinary base change of the old projection. -/
 theorem retainedSupportPullbackIso_inv_source :
     (retainedSupportPullbackIso q q' r f hf I).inv ≫
       pullback.fst f (I.subschemeι ≫ pullback.fst q r) =
-        J.subschemeι ≫ pullback.fst q' r := by
+        (J).subschemeι ≫ pullback.fst q' r := by
   rw [← retainedSupportPullbackIso_hom_source q q' r f hf I,
     Iso.inv_hom_id_assoc]
 
 /-- Whole finite support stays finite under the actual source change. -/
 theorem retainedSupportSource_isFinite [IsFinite (I.subschemeι ≫ pullback.fst q r)] :
-    IsFinite (J.subschemeι ≫ pullback.fst q' r) := by
+    IsFinite ((J).subschemeι ≫ pullback.fst q' r) := by
   rw [← retainedSupportPullbackIso_inv_source q q' r f hf I]
   infer_instance
 
 /-- Flatness is transported for the whole support, not its integral components. -/
 theorem retainedSupportSource_flat [Flat (I.subschemeι ≫ pullback.fst q r)] :
-    Flat (J.subschemeι ≫ pullback.fst q' r) := by
+    Flat ((J).subschemeι ≫ pullback.fst q' r) := by
   rw [← retainedSupportPullbackIso_inv_source q q' r f hf I]
   infer_instance
 

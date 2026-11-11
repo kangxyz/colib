@@ -12,7 +12,8 @@ public import Mathlib.CategoryTheory.Adjunction.Additive
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/Algebra/Homology/HomotopyCategory/Adjunction.lean`, blob `ef6d210781fbab471feefc53cc31fb8d7f8e319e`.
+`Motivic/Aglib/Algebra/Homology/HomotopyCategory/Adjunction.lean`,
+blob `ef6d210781fbab471feefc53cc31fb8d7f8e319e`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

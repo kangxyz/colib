@@ -77,9 +77,10 @@ def relativeGraphSupportIso [IsSeparated r] :
 theorem relativeGraphSupportIso_hom_graph [IsSeparated r] :
     (relativeGraphSupportIso q r φ hφ).hom ≫ relativeGraph q r φ hφ =
       (relativeGraphIdeal q r φ hφ).subschemeι := by
-  change inv (relativeGraph q r φ hφ).toImage ≫ relativeGraph q r φ hφ = _
-  rw [← (relativeGraph q r φ hφ).toImage_imageι, IsIso.inv_hom_id_assoc]
-  rfl
+  change inv (relativeGraph q r φ hφ).toImage ≫ relativeGraph q r φ hφ =
+    (relativeGraph q r φ hφ).imageι
+  exact (IsIso.inv_comp_eq (relativeGraph q r φ hφ).toImage).2
+    (relativeGraph q r φ hφ).toImage_imageι.symm
 
 @[reassoc]
 theorem relativeGraphSupportIso_hom_base [IsSeparated r] :

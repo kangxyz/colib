@@ -12,7 +12,8 @@ public import Mathlib.CategoryTheory.Abelian.GrothendieckCategory.EnoughInjectiv
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean`, blob `a8ad5b4550dbb3d00f56a4c1c48145b3b08e8311`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Injectives.lean`,
+blob `a8ad5b4550dbb3d00f56a4c1c48145b3b08e8311`.
 
  # Enough injectives on the actual small Nisnevich site -/
 @[expose] public noncomputable section

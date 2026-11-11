@@ -49,7 +49,7 @@ theorem finrank_scalarProjection {X : Scheme.{u}} (q : X ⟶ Spec (.of k)) (x : 
     (pullback.fst q (Spec.map (CommRingCat.ofHom (algebraMap k E)))).finrank x =
       Module.finrank k E := by
   rw [Scheme.Hom.finrank_pullback_fst, Scheme.Hom.finrank_SpecMap_algebraMap]
-  simp only [Module.rankAtStalk_eq_finrank_of_free, Pi.natCast_apply]
+  simp only [Module.rankAtStalk_eq_finrank_of_free, Pi.natCast_apply, Nat.cast_id]
 
 /-- Actual pushforward retains all components and nilpotent lengths and multiplies
 by the full scalar degree, including for inseparable field extensions. -/
@@ -61,6 +61,8 @@ theorem finitePushforward_scalar_fundamentalCycle {X : Scheme.{u}} [IsNoetherian
     finiteCyclePushforward p (AlgebraicCycle.fundamentalCycle _) =
       (Module.finrank k E : ℤ) • AlgebraicCycle.fundamentalCycle X := by
   dsimp only
+  let : IsNoetherian (pullback q (Spec.map (CommRingCat.ofHom (algebraMap k E)))) :=
+    isNoetherian_of_finiteType (pullback.fst q (Spec.map (CommRingCat.ofHom (algebraMap k E))))
   apply finiteCyclePushforward_fundamentalCycle_of_constant_finrank
   exact fun x => finrank_scalarProjection q x
 

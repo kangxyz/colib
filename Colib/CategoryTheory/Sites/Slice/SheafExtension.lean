@@ -10,7 +10,8 @@ public import Mathlib.CategoryTheory.Sites.Pullback
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/CategoryTheory/Sites/Slice/SheafExtension.lean`, blob `dd48a6792d235f9f345bbec1a71960a95d26a070`.
+`Motivic/Aglib/CategoryTheory/Sites/Slice/SheafExtension.lean`,
+blob `dd48a6792d235f9f345bbec1a71960a95d26a070`.
 
  Exact extension for ordinary abelian sheaves from a slice site. -/
 @[expose] public noncomputable section

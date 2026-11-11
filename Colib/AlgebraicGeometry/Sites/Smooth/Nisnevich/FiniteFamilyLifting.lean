@@ -10,7 +10,8 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Pullbacks
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteFamilyLifting.lean`, blob `ced25b1032971573acf1d896a1821c5ef1e9ca8e`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteFamilyLifting.lean`,
+blob `ced25b1032971573acf1d896a1821c5ef1e9ca8e`.
 
 # Arbitrary-family finite-support Nisnevich lifting in the smooth site
 

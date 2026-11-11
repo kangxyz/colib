@@ -13,7 +13,8 @@ public import Mathlib.Algebra.Group.Int.Defs
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/CategoryTheory/Triangulated/ShiftMapWindow.lean`, blob `053c9037e966a8543c7243a344f71c05beb5d7c8`.
+`Motivic/Aglib/CategoryTheory/Triangulated/ShiftMapWindow.lean`,
+blob `053c9037e966a8543c7243a344f71c05beb5d7c8`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 
@@ -79,6 +80,6 @@ theorem map_postcomp_isoSource_bijective {A' : C} (e : A ≅ A')
   intro y
   obtain ⟨x, hx⟩ := h.2 (F.map e.hom ≫ y)
   refine ⟨e.inv ≫ x, ?_⟩
-  simp only [Functor.map_comp, Category.assoc, hx, Iso.map_inv_hom_id_assoc]
+  simp only [Functor.map_comp, Category.assoc, hx, Iso.inv_hom_id_map_assoc]
 
 end CategoryTheory.Functor

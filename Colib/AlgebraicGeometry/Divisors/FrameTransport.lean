@@ -20,6 +20,8 @@ The divisor comparison uses the pinned native canonical-section-preserving map.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory AlgebraicGeometry
 
 universe u
@@ -34,7 +36,10 @@ variable {X Y : Scheme.{u}} (f : X ⟶ Y) (D : Y.IdealSheafData)
 def idealComapEqIso :
     (Stacks.RingedSpace.pullbackFunctor f.toLRSHom.toShHom).obj (Eta.idealSheaf D) ≅
       Eta.idealSheaf E := by
-  have hD : IsPullbackDefined f D := h.symm ▸ inferInstance
+  have hD : IsPullbackDefined f D := by
+    change IsEffectiveCartierDivisor (D.comap f)
+    rw [h]
+    infer_instance
   exact pullbackIdealSheafComapIso f D hD ≪≫ eqToIso (congrArg Eta.idealSheaf h)
 
 /-- The transported ideal comparison preserves its actual inclusion into the structure sheaf. -/
@@ -45,6 +50,7 @@ theorem idealComapEqIso_hom_inclusion :
   subst E
   exact pullbackIdealSheafComapIso_hom_comp_idealSheafι f D inferInstance
 
+include h in
 /-- Equality of Cartier inverse-image ideals gives an isomorphism preserving the actual
 canonical global section. The equality transports both the sheaf and that section. -/
 theorem exists_divisorComapEqIso :
@@ -85,7 +91,9 @@ theorem framePullback_coordinate (e : L ≅ SheafOfModules.unit Y.ringCatSheaf)
       f.appTop (e.hom.app ⊤ s) := by
   change (pullbackUnitIso f).hom.app ⊤
     (((pullback f).map e.hom).app ⊤ (pullbackGlobalSections f L s)) = _
-  rw [← Stacks.AlgebraicGeometry.IdealOfClosedSubscheme.pullbackGlobalSections_naturality]
-  exact AlgebraicGeometry.SectionsEqualizer.pullbackUnitIso_unit f (e.hom.app ⊤ s)
+  exact (congrArg (fun t => (pullbackUnitIso f).hom.app ⊤ t)
+    (Stacks.AlgebraicGeometry.IdealOfClosedSubscheme.pullbackGlobalSections_naturality
+      f e.hom s).symm).trans
+    (AlgebraicGeometry.SectionsEqualizer.pullbackUnitIso_unit f (e.hom.app ⊤ s))
 
 end AlgebraicGeometry.Scheme.Modules

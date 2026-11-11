@@ -11,7 +11,10 @@ public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Point/Persistent/MarkedSection.lean`, blob `9f8ff5275051ed22d1d81ac4845c70273acfaf91`.
+In source directory
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Point/Persistent/`,
+file `MarkedSection.lean`,
+blob `9f8ff5275051ed22d1d81ac4845c70273acfaf91`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

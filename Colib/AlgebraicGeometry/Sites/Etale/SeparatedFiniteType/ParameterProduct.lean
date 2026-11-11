@@ -11,7 +11,8 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Geometry
 /-! # Literal parameter products of small Nisnevich neighborhoods -/
 
 /-!
-Adapted from `Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ParameterProduct.lean` at
+Adapted from
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/ParameterProduct.lean` at
 `motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
 blob `314eccb832e1427cbdeb22ee034a10dac00d2dc9`.
 The actual native additive and multiplicative parameter objects and the existing

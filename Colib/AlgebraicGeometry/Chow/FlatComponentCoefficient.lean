@@ -39,12 +39,14 @@ variable {D E : Scheme.{u}}
 theorem stalk_integralComponentAt_self (z : D) :
     IdealSheafData.stalk (integralComponentAt z) z =
       IsLocalRing.maximalIdeal (D.presheaf.stalk z) := by
-  haveI := isIntegral_integralComponentAt z
+  have := isIntegral_integralComponentAt z
   let Z := (integralComponentAt z).subscheme
   have h := Stacks.AlgebraicGeometry.Tag01YEStalkBridge.ker_stalkMap_eq_maximalIdeal
     (integralComponentAt z).subschemeι (genericPoint Z) (genericPoint_spec Z)
   rw [ker_stalkMap_eq_idealStalk_ker, Scheme.IdealSheafData.ker_subschemeι] at h
-  simpa only [genericPointOf_integralComponentAt] using h
+  have hz : (integralComponentAt z).subschemeι (genericPoint Z) = z := by
+    simpa only [genericPointOf, Z] using genericPointOf_integralComponentAt z
+  simpa only [hz] using h
 
 /-- Actual generic self-length after flat base change, with its actual component ideal. -/
 theorem length_stalk_self_eq_mul_comap_component
@@ -55,9 +57,9 @@ theorem length_stalk_self_eq_mul_comap_component
           (E.presheaf.stalk x ⧸ IdealSheafData.stalk ((integralComponentAt (f x)).comap f) x) := by
   let A := D.presheaf.stalk (f x)
   let B := E.presheaf.stalk x
-  letI : Algebra A B := (f.stalkMap x).hom.toAlgebra
-  haveI : IsLocalHom (algebraMap A B) := LocallyRingedSpace.isLocalHomStalkMap f.toLRSHom x
-  haveI : Module.Flat A B := Flat.stalkMap f x
+  let : Algebra A B := (f.stalkMap x).hom.toAlgebra
+  have : IsLocalHom (algebraMap A B) := LocallyRingedSpace.isLocalHomStalkMap f.toLRSHom x
+  have : Module.Flat A B := Flat.stalkMap f x
   have h := length_baseChange_eq_length_mul_length_quotient A B A
   rw [(TensorProduct.AlgebraTensorModule.rid A B B).length_eq] at h
   rw [IdealSheafData.stalk_comap, stalk_integralComponentAt_self]
@@ -74,10 +76,14 @@ theorem finiteCyclePushforward_comap_fundamentalCycle_apply_generic
       (AlgebraicCycle.fundamentalCycle (I.comap f).subscheme) x.val =
         ((Module.length (E.presheaf.stalk x.val)
           (E.presheaf.stalk x.val ⧸ IdealSheafData.stalk (I.comap f) x.val)).toNat : ℤ) := by
-  haveI := Scheme.isNoetherian_of_finiteType (I.comap f).subschemeι
-  simpa only [closedImmersionQuotientStalkLength, Scheme.IdealSheafData.ker_subschemeι] using
-    finiteCyclePushforward_fundamentalCycle_apply_eq_quotientStalkLength
-      (𝟙 E) (I.comap f).subschemeι x.val x.property
+  have := Scheme.isNoetherian_of_finiteType (I.comap f).subschemeι
+  calc
+    _ = ((closedImmersionQuotientStalkLength (I.comap f).subschemeι x.val).toNat : ℤ) :=
+      finiteCyclePushforward_fundamentalCycle_apply_eq_quotientStalkLength
+        (𝟙 E) (I.comap f).subschemeι x.val x.property
+    _ = _ := by
+      unfold closedImmersionQuotientStalkLength
+      rw [Scheme.IdealSheafData.ker_subschemeι]
 
 /-- Actual flat pullback generic coefficients assemble with all original weights. -/
 theorem fundamentalCycle_apply_eq_sum_flat_components [Fintype (genericPoints D)]
@@ -88,9 +94,10 @@ theorem fundamentalCycle_apply_eq_sum_flat_components [Fintype (genericPoints D)
       ∑ z : genericPoints D,
         ((Module.length (D.presheaf.stalk z.val) (D.presheaf.stalk z.val)).toNat : ℤ) *
           finiteCyclePushforward ((integralComponentAt z.val).comap f).subschemeι
-            (AlgebraicCycle.fundamentalCycle ((integralComponentAt z.val).comap f).subscheme) x.val := by
+            (AlgebraicCycle.fundamentalCycle
+              ((integralComponentAt z.val).comap f).subscheme) x.val := by
   classical
-  letI : ∀ z : genericPoints D, IsNoetherian ((integralComponentAt z.val).comap f).subscheme :=
+  let : ∀ z : genericPoints D, IsNoetherian ((integralComponentAt z.val).comap f).subscheme :=
     fun z => Scheme.isNoetherian_of_finiteType ((integralComponentAt z.val).comap f).subschemeι
   let z₀ : genericPoints D := ⟨f x.val, mem_genericPoints_of_flat f x.property⟩
   rw [Finset.sum_eq_single z₀]

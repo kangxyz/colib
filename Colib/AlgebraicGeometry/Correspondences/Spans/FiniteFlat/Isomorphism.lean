@@ -23,7 +23,7 @@ universe u
 
 namespace AlgebraicGeometry.Cor
 
-open Scheme
+open _root_.AlgebraicGeometry.Scheme
 
 variable {k : Type u} [Field k] {X Y : SmoothSite (Spec (.of k))}
   {D E : Scheme.{u}}
@@ -36,10 +36,10 @@ theorem ofFiniteFlatSpan_eq_of_iso (e : D ≅ E)
     (g' : E ⟶ Y.left) (h' : f' ≫ X.hom = g' ≫ Y.hom)
     (hf : e.hom ≫ f' = f) (hg : e.hom ≫ g' = g) :
     ofFiniteFlatSpan f g h = ofFiniteFlatSpan f' g' h' := by
-  haveI := isNoetherian_of_finiteType f
-  haveI := isNoetherian_of_finiteType f'
-  haveI := isFinite_spanMap f g h
-  haveI := isFinite_spanMap f' g' h'
+  have := isNoetherian_of_finiteType f
+  have := isNoetherian_of_finiteType f'
+  have := isFinite_spanMap f g h
+  have := isFinite_spanMap f' g' h'
   have he : e.hom ≫ pullback.lift f' g' h' = pullback.lift f g h := by
     apply pullback.hom_ext
     · simpa only [Category.assoc, pullback.lift_fst] using hf
@@ -47,6 +47,7 @@ theorem ofFiniteFlatSpan_eq_of_iso (e : D ≅ E)
   apply Subtype.ext
   rw [ofFiniteFlatSpan_val, ofFiniteFlatSpan_val,
     ← finiteCyclePushforward_fundamentalCycle_iso e,
-    finiteCyclePushforward_comp_apply, he]
+    finiteCyclePushforward_comp_apply]
+  simp only [he]
 
 end AlgebraicGeometry.Cor

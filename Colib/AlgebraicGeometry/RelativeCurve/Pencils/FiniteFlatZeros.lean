@@ -33,6 +33,8 @@ blob `d958109332516bc77d1a9f27795c547dd6880b6e`, at
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Stacks.Divisors
 
 universe u
@@ -46,9 +48,13 @@ theorem comapFiberιSubschemeIso_hom_base {X S : Scheme.{u}} (f : X ⟶ S)
     (I : X.IdealSheafData) (s : S) :
     (I.comapFiberιSubschemeIso f s).hom ≫ (I.subschemeι ≫ f).fiberToSpecResidueField s =
       (I.comap (f.fiberι s)).subschemeι ≫ f.fiberToSpecResidueField s := by
-  simp only [Scheme.IdealSheafData.comapFiberιSubschemeIso,
-    Scheme.Hom.fiberToSpecResidueField, Scheme.Hom.fiberι,
-    Iso.trans_hom, Category.assoc, pullbackRightPullbackFstIso_hom_snd,
+  change ((I.comapIso (pullback.fst f (S.fromSpecResidueField s))).hom ≫
+    (pullbackSymmetry (pullback.fst f (S.fromSpecResidueField s)) I.subschemeι).hom ≫
+    (pullbackRightPullbackFstIso f (S.fromSpecResidueField s) I.subschemeι).hom) ≫
+      pullback.snd (I.subschemeι ≫ f) (S.fromSpecResidueField s) =
+    (I.comap (pullback.fst f (S.fromSpecResidueField s))).subschemeι ≫
+      pullback.snd f (S.fromSpecResidueField s)
+  rw [Category.assoc, Category.assoc, pullbackRightPullbackFstIso_hom_snd,
     pullbackSymmetry_hom_comp_snd_assoc, Scheme.IdealSheafData.comapIso_hom_fst_assoc]
 
 /-- A finite locally principal closed subscheme of a smooth relative curve is
@@ -65,8 +71,10 @@ theorem relativeCartier_of_finite_locallyPrincipal {X S : Scheme.{u}} (f : X ⟶
       (IsPullback.of_hasPullback f (S.fromSpecResidueField s)) inferInstance
   have : IsFinite ((I.comap (f.fiberι s)).subschemeι ≫ f.fiberToSpecResidueField s) := by
     rw [← comapFiberιSubschemeIso_hom_base f I s]
-    exact inferInstanceAs (IsFinite ((I.comapFiberιSubschemeIso f s).hom ≫
-      pullback.snd (I.subschemeι ≫ f) (S.fromSpecResidueField s)))
+    have : IsFinite ((I.subschemeι ≫ f).fiberToSpecResidueField s) := by
+      change IsFinite (pullback.snd (I.subschemeι ≫ f) (S.fromSpecResidueField s))
+      exact MorphismProperty.pullback_snd _ _ inferInstance
+    infer_instance
   have : Stacks.Morphisms.IsFiniteLocallyFree
       ((I.comap (f.fiberι s)).subschemeι ≫ f.fiberToSpecResidueField s) :=
     (Stacks.Morphisms.isFiniteLocallyFree_iff_isFinite_flat_of_isLocallyNoetherian _).2
@@ -143,8 +151,8 @@ theorem finite_relativeCartier_zeroScheme_on_open_of_proper {C X S : Scheme.{u}}
         (pullbackGlobalSections j L a)).subschemeι ≫ (j ≫ p)) ∧
       IsRelativeEffectiveCartierDivisor (j ≫ p)
         (zeroScheme C ((Scheme.Modules.pullback j).obj L) (pullbackGlobalSections j L a)) := by
-  rw [Stacks.Divisors.zeroScheme_pullback]
-  exact finite_relativeCartier_on_open_of_proper p j (zeroScheme X L a)
-    (isLocallyPrincipal_zeroScheme X L a) h
+  simpa only [Stacks.Divisors.zeroScheme_pullback j L a] using
+    (finite_relativeCartier_on_open_of_proper p j (zeroScheme X L a)
+      (isLocallyPrincipal_zeroScheme X L a) h)
 
 end AlgebraicGeometry.Scheme.RelativeCurvePencil

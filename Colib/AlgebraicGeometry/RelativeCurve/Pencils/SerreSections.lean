@@ -27,6 +27,8 @@ The proof is rewritten using the pinned Stacks tensor, cohomology and ample-modu
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Opposite
 open Stacks.Ample Stacks.AlgebraicGeometry.RelativeSerreVanishing
 
@@ -37,6 +39,8 @@ namespace AlgebraicGeometry.Scheme.RelativeCurvePencil
 variable {X S : Scheme.{u}} (f : X ⟶ S)
   [IsAffine S] [IsLocallyNoetherian S] [IsProper f]
   (L : X.Modules) [IsInvertibleModule X L] (hL : IsAmple X L)
+
+include f hL
 
 /-- Native relative Serre vanishing makes the whole-source section map of a twisted
 short exact sequence surjective. Only its actual kernel must be coherent. -/
@@ -50,7 +54,7 @@ theorem exists_eventually_surjective_twisted_sections
     Stacks.AlgebraicGeometry.AmpleTwistAcyclicity.absoluteVanishingOverAffineBase
       X S f inferInstance inferInstance inferInstance L hL C.X₁ hK 1 (by decide)
   refine ⟨N, fun n hn => ?_⟩
-  letI := isInvertibleModule_tensorPowModule X L (n : ℤ)
+  let := isInvertibleModule_tensorPowModule X L (n : ℤ)
   have hCn : (C.map (twistFunctor L (n : ℤ))).ShortExact :=
     Stacks.AmpleCohomologicalCriterion.shortExact_map_tensorRight X
       (tensorPowModule X L (n : ℤ)) hC
@@ -80,8 +84,8 @@ theorem exists_eventually_prescribed_twisted_pair
       ∀ q₂ : Γ((twistFunctor L (n : ℤ)).obj Q₂, ⊤),
       ∃ s₁ : Γ((twistFunctor L (n : ℤ)).obj M₁, ⊤),
       ∃ s₂ : Γ((twistFunctor L (n : ℤ)).obj M₂, ⊤),
-        ((twistFunctor L (n : ℤ)).map π₁).app ⊤ s₁ = q₁ ∧
-        ((twistFunctor L (n : ℤ)).map π₂).app ⊤ s₂ = q₂ := by
+        Modules.Hom.app ((twistFunctor L (n : ℤ)).map π₁) ⊤ s₁ = q₁ ∧
+        Modules.Hom.app ((twistFunctor L (n : ℤ)).map π₂) ⊤ s₂ = q₂ := by
   obtain ⟨N₁, h₁⟩ := exists_eventually_surjective_twisted_quotient f L hL π₁
   obtain ⟨N₂, h₂⟩ := exists_eventually_surjective_twisted_quotient f L hL π₂
   refine ⟨max N₁ N₂, fun n hn q₁ q₂ => ?_⟩

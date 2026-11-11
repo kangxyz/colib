@@ -10,7 +10,8 @@ public import Mathlib.CategoryTheory.Sites.CoverLifting
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean`, blob `4187a0aa9b7d0d722d25b02354cb95210a55c25a`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CoverLifting.lean`,
+blob `4187a0aa9b7d0d722d25b02354cb95210a55c25a`.
 
  # Cover lifting from the smooth site to the finite-type small site -/
 

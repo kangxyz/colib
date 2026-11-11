@@ -21,7 +21,7 @@ graph source components without making the source integral.
 @[expose] public noncomputable section
 
 open AlgebraicGeometry CategoryTheory TopologicalSpace
-open scoped BigOperators
+open scoped BigOperators Classical
 
 universe u v
 
@@ -53,9 +53,9 @@ theorem finiteCyclePushforward_fundamentalCycle_clopen_apply (i : D ⟶ X)
   classical
   by_cases hx : x ∈ Set.range i
   · obtain ⟨d, rfl⟩ := hx
-    rw [if_pos (Set.mem_range_self d), finiteCyclePushforward_apply_of_isClosedImmersion,
+    rw [ite_eq_left (Set.mem_range_self d), finiteCyclePushforward_apply_of_isClosedImmersion,
       fundamentalCycle_apply_clopen]
-  · rw [if_neg hx,
+  · rw [ite_eq_right hx,
       finiteCyclePushforward_fundamentalCycle_eq_zero_of_notMem_range i x hx]
 
 /-- A finite actual disjoint clopen cover adds to the full fundamental cycle. -/
@@ -68,14 +68,13 @@ theorem fundamentalCycle_eq_sum_clopen {ι : Type v} [Fintype ι]
   classical
   apply Function.locallyFinsuppWithin.ext
   intro x
-  change AlgebraicCycle.fundamentalCycle X x =
-    ∑ s : ι, finiteCyclePushforward (i s) (AlgebraicCycle.fundamentalCycle (D s)) x
+  rw [Function.locallyFinsuppWithin.coe_sum, Finset.sum_apply]
   obtain ⟨s, hs, huniq⟩ := hcover x
   rw [Finset.sum_eq_single s]
-  · rw [finiteCyclePushforward_fundamentalCycle_clopen_apply, if_pos hs]
+  · rw [finiteCyclePushforward_fundamentalCycle_clopen_apply, ite_eq_left hs]
   · intro t ht hts
     rw [finiteCyclePushforward_fundamentalCycle_clopen_apply,
-      if_neg (fun hx => hts (huniq t hx))]
+      ite_eq_right (fun hx => hts (huniq t hx))]
   · intro hsnot
     exact (hsnot (Finset.mem_univ s)).elim
 

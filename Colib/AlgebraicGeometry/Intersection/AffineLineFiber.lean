@@ -82,13 +82,13 @@ theorem point_stalk (a : k) (x : Spec (.of (Polynomial k))) :
 /-- Localization preserves the nonzero polynomial equation as a nonzerodivisor. -/
 theorem pointScalar_regular (a : k) (x : Spec (.of (Polynomial k))) :
     IsSMulRegular ((Spec (.of (Polynomial k))).presheaf.stalk x) (pointScalar a x) := by
-  letI : Algebra (Polynomial k) ((Spec (.of (Polynomial k))).presheaf.stalk x) :=
+  let : Algebra (Polynomial k) ((Spec (.of (Polynomial k))).presheaf.stalk x) :=
     (StructureSheaf.toStalk (Polynomial k) x).hom.toAlgebra
-  haveI : IsLocalization.AtPrime ((Spec (.of (Polynomial k))).presheaf.stalk x)
+  have : IsLocalization.AtPrime ((Spec (.of (Polynomial k))).presheaf.stalk x)
       x.asIdeal :=
     inferInstanceAs (IsLocalization.AtPrime
       ((Spec.structureSheaf (Polynomial k)).presheaf.stalk x) x.asIdeal)
-  haveI : Module.Flat (Polynomial k) ((Spec (.of (Polynomial k))).presheaf.stalk x) :=
+  have : Module.Flat (Polynomial k) ((Spec (.of (Polynomial k))).presheaf.stalk x) :=
     IsLocalization.flat _ x.asIdeal.primeCompl
   exact (IsSMulRegular.of_ne_zero (M := Polynomial k) (Polynomial.X_sub_C_ne_zero a)).of_flat
 
@@ -143,7 +143,8 @@ def stalkQuotientEquiv (x : fiber f a) :
 /-- The parameter equation is transported by the actual inclusion stalk map. -/
 theorem scalar_comp {E : Scheme.{u}} (j : E ⟶ D) (x : E) :
     scalar (j ≫ f) a x = j.stalkMap x (scalar f a (j x)) := by
-  simp only [scalar, Scheme.Hom.stalkMap_comp, ConcreteCategory.comp_apply]
+  simp only [scalar, Scheme.Hom.stalkMap_comp, ConcreteCategory.comp_apply,
+    Scheme.Hom.comp_apply]
 
 /-- The equation is preserved by an actual stalk map with an explicitly
 specified image point. -/
@@ -158,8 +159,8 @@ theorem scalar_stalkMap_of_eq {E : Scheme.{u}} (j : E ⟶ D) (x : E)
 /-- Flatness is used on the family parameter, never on the endpoint map. -/
 theorem scalar_regular [Flat f] (x : D) :
     IsSMulRegular (D.presheaf.stalk x) (scalar f a x) := by
-  letI := (f.stalkMap x).hom.toAlgebra
-  haveI : Module.Flat ((Spec (.of (Polynomial k))).presheaf.stalk (f x))
+  let := (f.stalkMap x).hom.toAlgebra
+  have : Module.Flat ((Spec (.of (Polynomial k))).presheaf.stalk (f x))
       (D.presheaf.stalk x) := Flat.stalkMap f x
   exact (pointScalar_regular a (f x)).of_flat
 
@@ -187,7 +188,7 @@ theorem component_scalar_regular [Flat f] (z : genericPoints D)
     (x : (integralComponentAt z.val).subscheme) :
     IsSMulRegular ((integralComponentAt z.val).subscheme.presheaf.stalk x)
       (scalar ((integralComponentAt z.val).subschemeι ≫ f) a x) := by
-  haveI := Scheme.Hom.flat_integralComponentAt_to_dedekind f z
+  have := Scheme.Hom.flat_integralComponentAt_to_dedekind f z
   exact scalar_regular _ a x
 
 end AlgebraicGeometry.Scheme.AffineLineFiber

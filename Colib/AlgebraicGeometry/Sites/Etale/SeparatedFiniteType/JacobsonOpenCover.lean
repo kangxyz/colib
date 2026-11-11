@@ -9,7 +9,8 @@ public import Colib.Topology.JacobsonOpenCover
 
 /-! # Closed-point open neighborhoods give genuine small-Nisnevich covers -/
 /-!
-Adapted from `Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/JacobsonOpenCover.lean` at
+Adapted from
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/JacobsonOpenCover.lean` at
 `motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
 blob `c679c1a73ac79fb2c86db44b17c29b925056007f`. All generator and image-sieve maps use the
 actual native Laurent cylinder and closed inverse-image boundary.

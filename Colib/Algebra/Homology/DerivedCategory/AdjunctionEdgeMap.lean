@@ -15,7 +15,8 @@ map followed by the original counit, so it is meaningful before any Leray theore
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/Algebra/Homology/DerivedCategory/AdjunctionEdgeMap.lean`, blob `7e0d2f5b4fbaa09700212c3925be9ae11ac45e92`.
+`Motivic/Aglib/Algebra/Homology/DerivedCategory/AdjunctionEdgeMap.lean`,
+blob `7e0d2f5b4fbaa09700212c3925be9ae11ac45e92`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

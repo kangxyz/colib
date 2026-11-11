@@ -11,7 +11,8 @@ public import Mathlib.CategoryTheory.Limits.Types.Products
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteSections.lean`, blob `909d67a1052cef26917d26022e767d19d1427caf`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/FiniteSections.lean`,
+blob `909d67a1052cef26917d26022e767d19d1427caf`.
  # Actual sections on finite disjoint unions in the smooth Nisnevich site -/
 
 @[expose] public noncomputable section

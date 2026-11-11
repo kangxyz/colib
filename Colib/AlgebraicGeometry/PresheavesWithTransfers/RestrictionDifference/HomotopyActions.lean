@@ -30,6 +30,8 @@ markings are retained. Geometric pencil production is not asserted here.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory AlgebraicGeometry Opposite
 
 universe v u
@@ -51,11 +53,23 @@ theorem transfer_homotopy_endpoints
   let F := (toPresheaf k).obj P
   have hsections : A1.sectionPullback (.of k) F X a =
       A1.sectionPullback (.of k) F X b := by
-    letI := hP X
-    apply (cancel_epi (A1.projectionPullback (.of k) F X)).mp
-    rw [A1.projectionPullback_sectionPullback, A1.projectionPullback_sectionPullback]
-  rw [transfer_comp, transfer_comp]
-  exact congrArg (fun f => transfer P δ ≫ f) hsections
+    calc
+      _ = A1.sectionPullback (.of k) F X a ≫ 𝟙 _ := (Category.comp_id _).symm
+      _ = A1.sectionPullback (.of k) F X a ≫
+          (A1.projectionPullback (.of k) F X ≫ A1.sectionPullback (.of k) F X b) := by
+        rw [A1.projectionPullback_sectionPullback]
+      _ = (A1.sectionPullback (.of k) F X a ≫ A1.projectionPullback (.of k) F X) ≫
+          A1.sectionPullback (.of k) F X b := (Category.assoc _ _ _).symm
+      _ = _ := by
+        rw [A1.sectionPullback_projectionPullback (.of k) F hP X a, Category.id_comp]
+  calc
+    _ = transfer P δ ≫ A1.sectionPullback (.of k) F X a :=
+      transfer_comp P ((Cor.graphFunctor k).map
+        (SmoothSite.Contraction.nativeAffineSection (.of k) X a)) δ
+    _ = transfer P δ ≫ A1.sectionPullback (.of k) F X b :=
+      congrArg (fun f => transfer P δ ≫ f) hsections
+    _ = _ := (transfer_comp P ((Cor.graphFunctor k).map
+      (SmoothSite.Contraction.nativeAffineSection (.of k) X b)) δ).symm
 
 /-- The signed transfer pair is a right inverse to the literal `A` minus `Y`
 restriction map, using the endpoints of the displayed cylinder correspondence. -/
@@ -64,7 +78,8 @@ theorem restriction_difference_rightInverse_of_homotopy
     {B A Y : SmoothSite (Spec (.of k))} (p : B ⟶ A) (i : B ⟶ Y)
     (lam : Cor.mk Y ⟶ Cor.mk B) (ψ : Cor.mk A ⟶ Cor.mk B)
     (α : Cor.mk (SmoothSite.Contraction.affineLineCylinder.obj B) ⟶ Cor.mk B)
-    (h₀ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
+    (h₀ : (Cor.graphFunctor k).map
+      (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
     (h₁ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 1) ≫ α =
       (Cor.graphFunctor k).map i ≫ lam - (Cor.graphFunctor k).map p ≫ ψ)
     (d : sections P (Cor.mk B)) :
@@ -85,7 +100,8 @@ theorem restriction_difference_surjective_of_homotopy
     {B A Y : SmoothSite (Spec (.of k))} (p : B ⟶ A) (i : B ⟶ Y)
     (lam : Cor.mk Y ⟶ Cor.mk B) (ψ : Cor.mk A ⟶ Cor.mk B)
     (α : Cor.mk (SmoothSite.Contraction.affineLineCylinder.obj B) ⟶ Cor.mk B)
-    (h₀ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
+    (h₀ : (Cor.graphFunctor k).map
+      (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
     (h₁ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 1) ≫ α =
       (Cor.graphFunctor k).map i ≫ lam - (Cor.graphFunctor k).map p ≫ ψ) :
     Function.Surjective (fun a : sections P (Cor.mk A) × sections P (Cor.mk Y) =>
@@ -134,7 +150,8 @@ theorem restriction_difference_surjective_of_homotopy
     {B A Y : SmoothSite (Spec (.of k))} (p : B ⟶ A) (i : B ⟶ Y)
     (lam : Cor.mk Y ⟶ Cor.mk B) (ψ : Cor.mk A ⟶ Cor.mk B)
     (α : Cor.mk (SmoothSite.Contraction.affineLineCylinder.obj B) ⟶ Cor.mk B)
-    (h₀ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
+    (h₀ : (Cor.graphFunctor k).map
+      (SmoothSite.Contraction.nativeAffineSection (.of k) B 0) ≫ α = 𝟙 _)
     (h₁ : (Cor.graphFunctor k).map (SmoothSite.Contraction.nativeAffineSection (.of k) B 1) ≫ α =
       (Cor.graphFunctor k).map i ≫ lam - (Cor.graphFunctor k).map p ≫ ψ) :
     Function.Surjective (fun a :

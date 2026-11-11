@@ -1,4 +1,4 @@
-# One authorized frozen-proof validation run. No main merge, publication, or kernel replay.
+# Same authorized frozen-root proof batch, minimal error-repair phase2. No main merge, publication, or kernel replay.
 name: Colib CI
 
 on:
@@ -138,6 +138,8 @@ jobs:
           import json
           p = json.load(open('.lake/strict-a1-proof-result/producer.json'))
           assert p['build_true_exit'] == 0 and p['completed_candidate_count'] == p['candidate_count'] == 439
-          assert not p['failures'] and p['status'] == 'complete-frozen-candidate-compiler-check'
-          print('Verified frozen candidate compiler DAG. Local imported inputs retain their weaker option provenance; this is not full strict A1 completion or kernel replay.')
+          assert not p['failures'] and not p['blocked_dependents'] and p['status'] == 'complete-frozen-candidate-compiler-check'
+          assert p['phase'] == 2 and p['no_new_mathematical_roots']
+          assert p['package_accepted_candidate_count'] == 438 and p['reused_baseline_candidate_count'] == 1
+          print('Verified439 frozen-root compiler DAG:438 candidate package-option checks plus one exact db74 baseline reuse. Prior passes are distinct from new checks. Not full strict A1 completion or kernel replay.')
           PY

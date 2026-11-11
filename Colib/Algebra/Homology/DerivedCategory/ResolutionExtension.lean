@@ -14,7 +14,8 @@ public import Mathlib.CategoryTheory.Abelian.RightDerived
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/Algebra/Homology/DerivedCategory/ExtRightDerived.lean`, blob `f97a4a1bd2958e794b08ef206cc1723b0337f77b`.
+`Motivic/Aglib/Algebra/Homology/DerivedCategory/ExtRightDerived.lean`,
+blob `f97a4a1bd2958e794b08ef206cc1723b0337f77b`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 

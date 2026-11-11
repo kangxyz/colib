@@ -49,7 +49,7 @@ theorem exists_support_point_of_graph_comp_ne_zero
     exists_support_points_of_incidenceTorPairing_ne_zero U.hom X.hom Y.hom
       ((graphFunctor k).map q) α b hb t
   have hz : ((graphFunctor k).map q).val z.val ≠ 0 := by
-    simpa only [Set.Finite.mem_toFinset, support, Function.mem_support] using z.property
+    exact ((graphFunctor k).map q).property.1.mem_toFinset.mp z.property
   have hg := graphCorrespondenceOfComponents_projection_eq U.hom X.hom q.left
     (MorphismProperty.Over.w q) (finite_genericPoints k (Cor.mk U)) z.val hz a
   exact ⟨w, d, hm.symm.trans (hg.trans (congrArg q.left hs)), he⟩
@@ -71,7 +71,7 @@ theorem exists_support_point_of_comp_graph_ne_zero
     exists_support_points_of_incidenceTorPairing_ne_zero X.hom Y.hom V.hom
       α ((graphFunctor k).map q) b hb t
   have hw : ((graphFunctor k).map q).val w.val ≠ 0 := by
-    simpa only [Set.Finite.mem_toFinset, support, Function.mem_support] using w.property
+    exact ((graphFunctor k).map q).property.1.mem_toFinset.mp w.property
   have hg := graphCorrespondenceOfComponents_projection_eq Y.hom V.hom q.left
     (MorphismProperty.Over.w q) (finite_genericPoints k (Cor.mk Y)) w.val hw d
   exact ⟨z, a, hs, (congrArg q.left hm).trans (hg.symm.trans he)⟩

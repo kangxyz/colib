@@ -67,9 +67,9 @@ theorem finiteCyclePushforward_fundamentalCycle_add_of_ideal_product
     finiteCyclePushforward K.subschemeι (AlgebraicCycle.fundamentalCycle K.subscheme) =
       finiteCyclePushforward I.subschemeι (AlgebraicCycle.fundamentalCycle I.subscheme) +
         finiteCyclePushforward J.subschemeι (AlgebraicCycle.fundamentalCycle J.subscheme) := by
-  haveI := Scheme.isNoetherian_of_finiteType (I.subschemeι ≫ p)
-  haveI := Scheme.isNoetherian_of_finiteType (J.subschemeι ≫ p)
-  haveI := Scheme.isNoetherian_of_finiteType (K.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType (I.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType (J.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType (K.subschemeι ≫ p)
   apply finiteCyclePushforward_fundamentalCycle_mul_of_stalk_ker
     p I.subschemeι J.subschemeι K.subschemeι
   intro x hx

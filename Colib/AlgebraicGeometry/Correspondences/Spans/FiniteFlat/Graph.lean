@@ -41,19 +41,20 @@ theorem ofFiniteFlatSpan_comp_graph
       ofFiniteFlatSpan f (g ≫ a.left)
         (by rw [Category.assoc, MorphismProperty.Over.w, h]) := by
   classical
-  letI : IsNoetherian A := isNoetherian_of_finiteType f
+  let : IsNoetherian A := isNoetherian_of_finiteType f
   let m := pullback.lift f g h
   let n := pullback.lift f (g ≫ a.left)
     (by rw [Category.assoc, MorphismProperty.Over.w, h])
-  letI : IsFinite m := isFinite_spanMap f g h
-  letI : IsFinite n := isFinite_spanMap f (g ≫ a.left) _
+  let : IsFinite m := isFinite_spanMap f g h
+  let : IsFinite n := isFinite_spanMap f (g ≫ a.left) _
   have hmn : m ≫ pullback.map X.hom Y.hom X.hom Z.hom
       (𝟙 X.left) a.left (𝟙 _) (by simp)
-      (by simpa using (MorphismProperty.Over.w a).symm) = n := by
+      (by simp) = n := by
     apply pullback.hom_ext <;> simp [m, n, Category.assoc]
   have ha : ∀ t : genericPoints A, IsFiniteCorrespondencePoint X.hom Y.hom (m t.val) := by
     intro t
-    apply isFiniteCorrespondencePoint_finiteMap X.hom Y.hom m t.val
+    apply isFiniteCorrespondencePoint_finiteMap (X := X.left) (Y := Y.left)
+      X.hom Y.hom m t.val
     · simp only [Category.assoc, m, pullback.lift_fst]
       infer_instance
     · simpa only [Category.assoc, m, pullback.lift_fst] using

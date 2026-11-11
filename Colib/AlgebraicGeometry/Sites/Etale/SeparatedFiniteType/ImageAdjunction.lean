@@ -13,7 +13,8 @@ public import Mathlib.CategoryTheory.Functor.Flat
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Boundary/Cokernel.lean`, blob `f1f4e3f99cf84b82951ebb24c1f1648b1197fe3e`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Boundary/Cokernel.lean`,
+blob `f1f4e3f99cf84b82951ebb24c1f1648b1197fe3e`.
 
  # The actual small-Nisnevich inverse/direct-image adjunction
 

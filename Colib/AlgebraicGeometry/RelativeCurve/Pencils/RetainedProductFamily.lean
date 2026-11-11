@@ -30,6 +30,8 @@ at `motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 
 universe u
@@ -57,7 +59,9 @@ theorem parameterMap_isPullback {D X : Scheme.{u}} (b : X ⟶ Spec (.of R)) (p :
       · simp [l, parameterMap]
     refine ⟨l, hl, hr, ?_⟩
     intro m hm hn
-    apply pullback.hom_ext
+    change (m : s.pt ⟶ parameterSpace (p ≫ b)) = l
+    apply pullback.hom_ext (f := p ≫ b)
+      (g := Spec.map (CommRingCat.ofHom Polynomial.C))
     · exact hm.trans hl.symm
     · have hs := congrArg (fun z ↦ z ≫
           pullback.snd b (Spec.map (CommRingCat.ofHom Polynomial.C))) hn
@@ -147,8 +151,9 @@ instance [IsSeparated t] : IsClosedImmersion (retainedFamilyPair t q r L a c) :=
 theorem retainedFamily_base :
     familySource (q ≫ t) (pullback.fst q r) L a c ≫ (projection (q ≫ t) ≫ (q ≫ t)) =
       retainedFamilyTarget t q r L a c ≫ (r ≫ t) := by
-  rw [← retainedFamilyPair_fst, ← retainedFamilyPair_snd]
-  simp only [Category.assoc, pullback.condition]
+  simpa only [← Category.assoc, retainedFamilyPair_fst, retainedFamilyPair_snd] using
+    congrArg (fun m => retainedFamilyPair t q r L a c ≫ m)
+      (pullback.condition (f := projection (q ≫ t) ≫ (q ≫ t)) (g := r ≫ t))
 
 /-- The closed support is exactly the pullback lift of the literal source and target legs. -/
 theorem retainedFamilyPair_eq_lift :
@@ -232,17 +237,21 @@ theorem nativeRetainedFamilyPair_fst :
     nativeRetainedFamilyPair t q r L a c ≫ pullback.fst _ _ =
       familySource (q ≫ t) (pullback.fst q r) L a c ≫
         (nativeParameterIso (.of R) (SmoothSite.mk (q ≫ t))).inv := by
-  simp [nativeRetainedFamilyPair]
+  exact retainedFamilyPairWithParameter_fst t q r L a c
+    (nativeParameterIso (.of R) (SmoothSite.mk (q ≫ t))) _
+    (nativeParameterIso_hom_base (.of R) (SmoothSite.mk (q ≫ t)))
 
 @[reassoc (attr := simp)]
 theorem nativeRetainedFamilyPair_snd :
     nativeRetainedFamilyPair t q r L a c ≫ pullback.snd _ _ =
       retainedFamilyTarget t q r L a c := by
-  simp [nativeRetainedFamilyPair]
+  exact retainedFamilyPairWithParameter_snd t q r L a c
+    (nativeParameterIso (.of R) (SmoothSite.mk (q ≫ t))) _
+    (nativeParameterIso_hom_base (.of R) (SmoothSite.mk (q ≫ t)))
 
 instance [IsSeparated t] : IsClosedImmersion (nativeRetainedFamilyPair t q r L a c) := by
-  unfold nativeRetainedFamilyPair
-  infer_instance
+  unfold nativeRetainedFamilyPair retainedFamilyPairWithParameter
+  exact IsClosedImmersion.comp _ _
 
 end NativeParameter
 

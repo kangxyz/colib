@@ -9,7 +9,8 @@ public import Mathlib.AlgebraicGeometry.ResidueField
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean`, blob `20cc154cbbdb5cb6ccaaaf22a9df161cd2830c08`.
+`Motivic/Aglib/AlgebraicGeometry/ResidueField/ResidueFieldLiftIsomorphism.lean`,
+blob `20cc154cbbdb5cb6ccaaaf22a9df161cd2830c08`.
 
 
 # Residue-field isomorphism at an actual lifted canonical point

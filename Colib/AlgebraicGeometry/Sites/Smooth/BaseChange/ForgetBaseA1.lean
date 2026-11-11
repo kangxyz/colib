@@ -46,11 +46,20 @@ def additiveGroupBaseChangeMap {T S : Scheme.{u}} (r : T ⟶ S) :
 theorem additiveGroupBaseChangeMap_over {T S : Scheme.{u}} (r : T ⟶ S) :
     additiveGroupBaseChangeMap r ≫ (Scheme.SmoothSite.additiveGroupObject S).hom =
       (Scheme.SmoothSite.additiveGroupObject T).hom ≫ r := by
-  rw [additiveGroupBaseChangeMap,
-    ← additiveGroupBaseChangeAffineSpaceIso_hom_over S]
+  let pT : additiveGroupBaseChange T ⟶ T :=
+    (Scheme.SmoothSite.additiveGroupObject T).hom
+  let pS : additiveGroupBaseChange S ⟶ S :=
+    (Scheme.SmoothSite.additiveGroupObject S).hom
+  change additiveGroupBaseChangeMap r ≫ pS = pT ≫ r
+  have hT : (additiveGroupBaseChangeAffineSpaceIso T).hom ≫
+      (AffineSpace (ULift.{u} Unit) T ↘ T) = pT :=
+    additiveGroupBaseChangeAffineSpaceIso_hom_over T
+  have hS : (additiveGroupBaseChangeAffineSpaceIso S).hom ≫
+      (AffineSpace (ULift.{u} Unit) S ↘ S) = pS :=
+    additiveGroupBaseChangeAffineSpaceIso_hom_over S
+  rw [additiveGroupBaseChangeMap, ← hS]
   simp only [Category.assoc, Iso.inv_hom_id_assoc]
-  rw [AffineSpace.map_over, ← Category.assoc,
-    additiveGroupBaseChangeAffineSpaceIso_hom_over]
+  rw [AffineSpace.map_over, ← Category.assoc, hT]
 
 /-- Native affine parameters form the actual Cartesian square over every base map. -/
 theorem additiveGroupBaseChangeMap_isPullback {T S : Scheme.{u}} (r : T ⟶ S) :
@@ -72,8 +81,8 @@ variable (k L : Type u) [Field k] [Field L] [Algebra k L]
   [Module.Finite k L] [Algebra.IsSeparable k L]
 
 local notation "r" => finiteSeparableBaseMap k L
-local notation "F" => finiteSeparableForgetBase k L
 
+omit [Module.Finite k L] [Algebra.IsSeparable k L] in
 /-- The forgotten native L-cylinder is a pullback over the original k-base. -/
 theorem finiteSeparableNativeCylinder_isPullback (X : SmoothSite (Spec (.of L))) :
     IsPullback (productFst X (additiveGroupObject (Spec (.of L)))).left
@@ -85,8 +94,8 @@ theorem finiteSeparableNativeCylinder_isPullback (X : SmoothSite (Spec (.of L)))
 
 /-- The actual native cylinder isomorphism after finite separable base forgetting. -/
 def finiteSeparableForgetBaseA1Iso (X : SmoothSite (Spec (.of L))) :
-    F.obj (product X (additiveGroupObject (Spec (.of L)))) ≅
-      product (F.obj X) (additiveGroupObject (Spec (.of k))) :=
+    (finiteSeparableForgetBase k L).obj (product X (additiveGroupObject (Spec (.of L)))) ≅
+      product ((finiteSeparableForgetBase k L).obj X) (additiveGroupObject (Spec (.of k))) :=
   MorphismProperty.Over.isoMk (finiteSeparableNativeCylinder_isPullback k L X).isoPullback (by
     change (finiteSeparableNativeCylinder_isPullback k L X).isoPullback.hom ≫
         (pullback.fst (X.hom ≫ r) (additiveGroupObject (Spec (.of k))).hom ≫ (X.hom ≫ r)) =
@@ -98,8 +107,8 @@ def finiteSeparableForgetBaseA1Iso (X : SmoothSite (Spec (.of L))) :
 @[reassoc]
 theorem finiteSeparableForgetBaseA1Iso_hom_projection (X : SmoothSite (Spec (.of L))) :
     (finiteSeparableForgetBaseA1Iso k L X).hom ≫
-        productFst (F.obj X) (additiveGroupObject (Spec (.of k))) =
-      F.map (productFst X (additiveGroupObject (Spec (.of L)))) := by
+        productFst ((finiteSeparableForgetBase k L).obj X) (additiveGroupObject (Spec (.of k))) =
+      (finiteSeparableForgetBase k L).map (productFst X (additiveGroupObject (Spec (.of L)))) := by
   apply MorphismProperty.Over.Hom.ext
   exact (finiteSeparableNativeCylinder_isPullback k L X).isoPullback_hom_fst
 

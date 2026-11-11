@@ -10,7 +10,8 @@ public import Mathlib.AlgebraicGeometry.Limits
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean`, blob `5bf728901371eb55f5c21e01cfe074674482201d`.
+`Motivic/Aglib/AlgebraicGeometry/Properties/Discrete/DiscreteReducedCoproduct.lean`,
+blob `5bf728901371eb55f5c21e01cfe074674482201d`.
 
  # Canonical residue-field coproduct decomposition
 

@@ -25,6 +25,8 @@ internal-Hom construction entirely.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
 open Stacks.AlgebraicGeometry.ModuleHomGlue
 
@@ -67,7 +69,8 @@ theorem existsUnique_hom_of_disjoint_restrictions {X : Scheme.{u}} {ι : Type u}
       (disjoint_iff.1 (hdisj hij)).le)
     subst V
     ext s
-    exact sections_empty_ext N _ _
+    exact sections_empty_ext (X := X) N
+      ((localApp (a i) (e i) h₁) s) ((localApp (a j) (e j) h₂) s)
 
 /-- Exact isomorphisms on disjoint components glue, including their inverses. -/
 theorem exists_iso_of_disjoint_restrictions {X : Scheme.{u}} {ι : Type u}
@@ -86,14 +89,14 @@ theorem exists_iso_of_disjoint_restrictions {X : Scheme.{u}} {ι : Type u}
     · intro i
       rw [Functor.map_comp, hg, hh, Iso.hom_inv_id]
     · intro i
-      exact Functor.map_id _ _
+      exact CategoryTheory.Functor.map_id _ _
   have hhg : h ≫ g = 𝟙 N := by
     apply (existsUnique_hom_of_disjoint_restrictions Y a hcover hdisj N N
       (fun i => 𝟙 (N.restrict (a i)))).unique
     · intro i
       rw [Functor.map_comp, hh, hg, Iso.inv_hom_id]
     · intro i
-      exact Functor.map_id _ _
+      exact CategoryTheory.Functor.map_id _ _
   exact ⟨⟨g, h, hgh, hhg⟩, hg⟩
 
 variable {D Z C : Scheme.{u}} (i : D ⟶ C) (j : Z ⟶ C)
@@ -131,11 +134,11 @@ theorem exists_boundaryCoprod_frame (M : C.Modules)
     cases b
     · exact coprod.inr
     · exact coprod.inl
-  letI (b : ULift.{u} Bool) : IsOpenImmersion (a b) := by
+  let (b : ULift.{u} Bool) : IsOpenImmersion (a b) := by
     rcases b with ⟨b⟩
     cases b <;> dsimp [a] <;> infer_instance
   let P := (Modules.pullback (coprod.desc i j)).obj M
-  let O := SheafOfModules.unit (D ⨿ Z).ringCatSheaf
+  let O : (D ⨿ Z).Modules := SheafOfModules.unit (D ⨿ Z).ringCatSheaf
   let e : ∀ b, P.restrict (a b) ≅ O.restrict (a b) := fun b => by
     rcases b with ⟨b⟩
     cases b
@@ -183,7 +186,7 @@ theorem exists_boundaryCoprod_unitAutomorphism (D Z : Scheme.{u})
     cases b
     · exact coprod.inr
     · exact coprod.inl
-  letI (b : ULift.{u} Bool) : IsOpenImmersion (a b) := by
+  let (b : ULift.{u} Bool) : IsOpenImmersion (a b) := by
     rcases b with ⟨b⟩
     cases b <;> dsimp [a] <;> infer_instance
   let O : (D ⨿ Z).Modules := SheafOfModules.unit (D ⨿ Z).ringCatSheaf
@@ -207,7 +210,8 @@ theorem exists_boundaryCoprod_unitAutomorphism (D Z : Scheme.{u})
   have h := hE ⟨false⟩
   change (Modules.restrictFunctor (coprod.inr : Z ⟶ D ⨿ Z)).map E.hom =
     (Modules.restrictUnitIso _).hom ≫ r.hom ≫ (Modules.restrictUnitIso _).inv at h
-  rw [h]
-  simp only [Category.assoc, Iso.inv_hom_id, Category.comp_id]
+  apply (Iso.eq_comp_inv (Modules.restrictUnitIso
+    (coprod.inr : Z ⟶ D ⨿ Z))).mp
+  simpa only [Category.assoc] using h
 
 end AlgebraicGeometry.Scheme.RelativeCurvePencil

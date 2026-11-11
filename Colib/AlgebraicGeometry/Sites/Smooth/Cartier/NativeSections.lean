@@ -58,7 +58,7 @@ theorem productSection_isPullback {S : Scheme.{u}} (X T : SmoothSite S)
       (productFst X T).left = 𝟙 X.left at hf
     rw [hf, MorphismProperty.Over.w]
     change IsPullback (𝟙 X.left) X.hom X.hom (𝟙 S)
-    exact IsPullback.of_horiz_isIso ⟨by simp⟩
+    exact IsPullback.of_id_fst (f := X.hom)
   · exact congrArg (fun f => f.left)
       (productLift_snd (𝟙 X) (Contraction.toBase X ≫ z))
   · exact IsPullback.of_hasPullback X.hom T.hom

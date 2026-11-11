@@ -36,7 +36,7 @@ theorem range_integral_zero_eq_compl_multiplicativeGroupToAdditive :
     (Polynomial.evalRingHom (0 : ULift.{u} ℤ))) =
       (Set.range (PrimeSpectrum.comap
         (algebraMap (Polynomial (ULift.{u} ℤ)) (LaurentPolynomial (ULift.{u} ℤ)))))ᶜ
-  rw [PrimeSpectrum.range_comap_of_surjective _ _
+  rw [_root_.range_comap_of_surjective _ _
     (fun x => ⟨Polynomial.C x, by simp⟩), Polynomial.ker_evalRingHom]
   rw [PrimeSpectrum.localization_away_comap_range
     (LaurentPolynomial (ULift.{u} ℤ)) Polynomial.X]

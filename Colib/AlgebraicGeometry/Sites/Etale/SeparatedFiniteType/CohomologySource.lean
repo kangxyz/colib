@@ -10,7 +10,8 @@ public import Colib.CategoryTheory.Sites.Cohomology.RestrictionSource
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean`, blob `c666abac28cddafcf8ee47ea74052e3d0c9fae75`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/CohomologySource.lean`,
+blob `c666abac28cddafcf8ee47ea74052e3d0c9fae75`.
 
  Actual ordinary cohomology sources for big-to-small Nisnevich restriction. -/
 @[expose] public noncomputable section

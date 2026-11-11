@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Restore only verified native inputs; never use Lake to schedule a build."""
 from common import *
-import argparse,importlib.util,shutil,tarfile,tempfile,zipfile
+import argparse,importlib.util,shutil,tarfile,tempfile,zipfile,base64
 WORK=OUT/'restore';WORK.mkdir(parents=True,exist_ok=True)
 def download(api,path,size,digest):
  if not(path.is_file() and path.stat().st_size==size and sha(path)==digest):
@@ -35,7 +35,10 @@ with tarfile.open(t) as tar:
   bundle(m);restored[m]={'provenance':'ci-run-43000467920','source_sha256':e['source_sha256']}
 print('Restored exact already-compiled remote dependency products: '+str(len(restored)),flush=True)
 # Exact db74 native package LTARs, with independently mapped ilean identities.
-base=json.loads(gzip.decompress((HERE/'lower-cache.json.gz').read_bytes()))
+base=json.loads(gzip.decompress((HERE/'lower-cache.json.gz').read_bytes()))+OVERLAY['lower_cache_additions']
+base_graph={m:dict(e) for m,e in ORIGINAL_NODES.items()}
+for e in OVERLAY['lower_cache_additions']:base_graph[e['module']]=NODES[e['module']]
+base_fingerprints=source_dag_fingerprints(base_graph);current_fingerprints=source_dag_fingerprints(NODES)
 a=WORK/'colib-native.tar';download('repos/kangxyz/colib/releases/assets/734189404',a,77998080,'d40bd0042ed505d5b92d8dd30b9e9af61837d7bea4820f5166a720963a648cb9')
 prefix=Path(subprocess.check_output(['lean','--print-prefix'],text=True).strip());leantar=prefix/'bin/leantar'
 require(sha(leantar)=='06d613dffd2a6fd996b095bfd835c2bb720886f9eb7e13ed2adddd7df4507bf3','Wrong pinned leantar identity')
@@ -43,7 +46,8 @@ with tarfile.open(a) as tar:
  members={m.name.removeprefix('./'):m for m in safe_members(tar)}
  prod=json.load(tar.extractfile(members['producer.json']));require(prod['revision']==PLAN['lower_source_revision'] and PINS['lean_commit'] in prod['compiler'],'Wrong lower producer')
  for e in base:
-  m=e['module'];require(sha(source(m))==NODES[m]['source_sha256'],'Changed db74 lower source')
+  m=e['module'];require(sha(source(m))==e.get('source_sha256',ORIGINAL_NODES[m]['source_sha256']),'Changed db74 lower source')
+  require(base_fingerprints[m]==current_fingerprints[m],'Changed db74 dependency-source identity: '+m)
   blob=tar.extractfile(members[e['ltar']]).read();require(hashlib.sha256(blob).hexdigest()==e['ltar_sha256'],'Wrong lower LTAR')
   with tempfile.TemporaryDirectory(dir=WORK) as tmp:
    tmp=Path(tmp);ltar=tmp/e['ltar'];ltar.write_bytes(blob);lib=tmp/'lib';ir=tmp/'ir';lib.mkdir();ir.mkdir()
@@ -69,5 +73,60 @@ with tarfile.open(a) as tar:
    blob=tar.extractfile(members[name]).read();require(len(blob)==item['size'] and hashlib.sha256(blob).hexdigest()==item['sha256'],'Local product mismatch')
    dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
   bundle(m);restored[m]={'provenance':'local-accepted-direct-compiler-only','source_sha256':e['source_sha256'],'original_run_id':e['run_id'],'package_options_validated':False}
+# Restore successful partial outputs without upgrading old import-only products.
+z=WORK/'prior-proof.zip';download('repos/kangxyz/colib/actions/artifacts/13852113966/zip',z,125903188,'f103398973ebb56ac3bdfaefcc3bf8bddc5eec43514efdc6d72a5ce614a7828e')
+with zipfile.ZipFile(z) as archive_zip:
+ require(archive_zip.namelist()==['strict-a1-frozen-proofs.tar'],'Unexpected prior proof ZIP members')
+ with archive_zip.open('strict-a1-frozen-proofs.tar') as inp,(WORK/'prior-proof.tar').open('wb') as out:shutil.copyfileobj(inp,out)
+t=WORK/'prior-proof.tar';require(sha(t)=='594dd9baa2411359e645324c819b57159b22e4ad702f01a5fea4e6b8210073b4','Prior proof tar SHA mismatch')
+old_fingerprints=source_dag_fingerprints(ORIGINAL_NODES)
+with tarfile.open(t) as tar:
+ members={m.name:m for m in safe_members(tar)};prior_blob=tar.extractfile(members['producer.json']).read()
+ require(hashlib.sha256(prior_blob).hexdigest()=='550db8548161e806c01a922fb985acd6deaf48d68d5a39c93f61ec0cc72defbd','Prior producer identity mismatch')
+ prior=json.loads(prior_blob);require(prior['head']==OVERLAY['previous_head'] and prior['run_id']==OVERLAY['previous_run_id'] and prior['pins']==PINS and prior['build_true_exit']==1,'Wrong partial producer')
+ accepted=set();new_seen=set();old_seen=set()
+ for e in prior['modules']:
+  m=e['module'];is_new=e['provenance']=='compiled-this-proof-run-with-package-options'
+  require(is_new or e['provenance']=='local-accepted-direct-compiler-only','Unknown prior provenance')
+  (new_seen if is_new else old_seen).add(m)
+  require({entry['path'] for entry in e['products']}=={p.relative_to(ROOT).as_posix() for p in products(m)},'Wrong prior product set')
+  blobs={}
+  for entry in e['products']:
+   blob=tar.extractfile(members[entry['path']]).read();require(len(blob)==entry['size'] and hashlib.sha256(blob).hexdigest()==entry['sha256'],'Prior product size/SHA mismatch');blobs[entry['path']]=blob
+  if m not in NODES or e['source_sha256']!=NODES[m]['source_sha256'] or old_fingerprints[m]!=current_fingerprints[m]:continue
+  require(sha(source(m))==e['source_sha256'],'Prior current source mismatch')
+  if is_new:
+   require(m in OVERLAY['prior_partial_eligible_modules'] and e['compiler_exit']==0,'Ineligible partial module')
+   require(e['package_options']==[v for v in e['command'] if v.startswith('-D')] and registered_options_equivalent(e['package_options'],package_options(m)),'Prior package options mismatch')
+  else:require(e['package_options_validated'] is False and e['compiler_exit'] is None,'Old import-only acceptance was upgraded')
+  for path,blob in blobs.items():
+   dest=ROOT/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+  bundle(m);restored[m]={'provenance':'prior-proof-package-accepted' if is_new else 'local-accepted-direct-compiler-only','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':prior['run_id'] if is_new else e['original_run_id'],'original_head':prior['head'] if is_new else None,'package_options_validated':is_new,'original_package_options':e.get('package_options'),'original_compiler_exit':e['compiler_exit'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']}
+  if is_new:accepted.add(m)
+ require(len(new_seen)==633 and len(old_seen)==47 and accepted==set(OVERLAY['prior_partial_eligible_modules']),'Prior reuse scope differs from frozen plan')
+print('Restored prior633 successful package-checked products separately from old47 import-only.',flush=True)
+# Four source-frozen local repairs, if present, require their exact successful
+# package-option receipts; no post-cutoff mathematical roots are admitted.
+local=OVERLAY['local_package_cutoff']
+require(local is not None,'Phase2 local cutoff has not been frozen')
+manifest=HERE/local['manifest_path'];archive=WORK/local['archive_path']
+archive.write_bytes(base64.b64decode((HERE/local['encoded_archive_path']).read_text().strip(),validate=True))
+require(sha(manifest)==local['manifest_sha256'] and archive.stat().st_size==local['archive_bytes'] and sha(archive)==local['archive_sha256'],'Wrong local package cutoff')
+packet=json.loads(manifest.read_text());require(packet['pins']==PINS,'Local package cutoff pins mismatch')
+with tarfile.open(archive) as tar:
+ members={m.name:m for m in safe_members(tar)}
+ for e in packet['modules']:
+  m=e['module'];require(m in NODES and m in local['modules'] and e['compiler_exit']==0,'Wrong local repair scope or exit')
+  require(e['source_sha256']==NODES[m]['source_sha256'] and sha(source(m))==e['source_sha256'],'Wrong local repair source')
+  require(e['package_options']==package_options(m),'Local repair package options differ')
+  require(e['source_dag_sha256']==current_fingerprints[m],'Local repair source dependency identity changed')
+  require(set(e['dependency_product_fingerprints'])==set(NODES[m]['source_imports'])&NODES.keys(),'Missing local repair native dependency identity')
+  for d,expected in e['dependency_product_fingerprints'].items():require(product_fingerprint(record(d,'local-input-identity-check')['products'])==expected,'Local repair dependency product identity changed: '+d)
+  require({entry['path'] for entry in e['products']}=={p.relative_to(ROOT).as_posix() for p in products(m)},'Wrong local repair product set')
+  for entry in e['products']:
+   blob=tar.extractfile(members[entry['archive_path']]).read();require(len(blob)==entry['size'] and hashlib.sha256(blob).hexdigest()==entry['sha256'],'Local repair product mismatch')
+   dest=ROOT/entry['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+  bundle(m);restored[m]={'provenance':'local-repair-package-accepted','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':e['run_id'],'package_options_validated':True,'original_package_options':e['package_options'],'original_compiler_exit':0,'dependency_product_fingerprints':e['dependency_product_fingerprints'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']}
+require(set(e['module'] for e in packet['modules'])==set(local['modules']),'Local cutoff module mismatch')
 write('restored.json',restored)
-print('Restored all applicable exact inputs; full source/hash/import preflight follows.',flush=True)
+print('Restored exact source/dependency identities; old47 still require fresh package acceptance.',flush=True)

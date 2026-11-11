@@ -44,7 +44,7 @@ theorem exists_affine_zero_open_of_iso
     ∃ V : X₀.left.Opens, IsAffineOpen V ∧ x ∈ V ∧
       transfer P ((Cor.graphFunctor k).map
         (SmoothSite.homMk (X := SmoothSite.mk (V.ι ≫ X₀.hom)) (Y := X₀) V.ι rfl)) v = 0 := by
-  letI : IsAffine O.toScheme := hO
+  let : IsAffine O.toScheme := hO
   let S := SmoothSite.mk (O.ι ≫ X.hom)
   let j : S ⟶ X := SmoothSite.homMk O.ι rfl
   let f := j ≫ i.inv

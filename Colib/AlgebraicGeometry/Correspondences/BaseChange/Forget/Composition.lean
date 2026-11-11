@@ -46,11 +46,11 @@ theorem finiteCorrespondencesForgetBase_incidenceTorPairing
         (incidenceTorPairing f g h a)
       map_zero' := by
         ext b
-        simp [incidenceTorPairing_zero_left]
+        simp
       map_add' := by
         intro a a'
         ext b
-        simp [incidenceTorPairing_add_left] }
+        simp }
   let Q : finiteCorrespondences f g →+ finiteCorrespondences g h →+
       finiteCorrespondences (f ≫ r) (h ≫ r) :=
     { toFun := fun a =>
@@ -59,11 +59,11 @@ theorem finiteCorrespondencesForgetBase_incidenceTorPairing
           (finiteCorrespondencesForgetBase r g h)
       map_zero' := by
         ext b
-        simp [incidenceTorPairing_zero_left]
+        simp
       map_add' := by
         intro a a'
         ext b
-        simp [incidenceTorPairing_add_left] }
+        simp }
   have hPQ : P = Q := by
     apply finiteCorrespondences.biaddHom_ext f g h
     intro z hz w hw

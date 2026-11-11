@@ -11,7 +11,8 @@ public import Colib.CategoryTheory.Sites.Cohomology.RestrictionSource
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/CategoryTheory/Sites/RestrictionSourceNaturality.lean`, blob `7673363d0e064b986125c35c2b0922c0d5bbd12d`.
+`Motivic/Aglib/CategoryTheory/Sites/RestrictionSourceNaturality.lean`,
+blob `7673363d0e064b986125c35c2b0922c0d5bbd12d`.
 The source, representing sections equivalence and identity generator are the pinned
 Stacks FreeYonedaUnivLE objects. No legacy free source is defined.
 Source candidate only; no elaboration result is asserted.

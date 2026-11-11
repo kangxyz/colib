@@ -19,6 +19,8 @@ applies on the entire affine scheme, even where the generator vanishes.
 
 @[expose] public noncomputable section
 
+set_option backward.isDefEq.respectTransparency false
+
 open CategoryTheory AlgebraicGeometry Opposite
 open Stacks.SheafOfModules (DualBasisOne dualEval)
 
@@ -47,7 +49,10 @@ instance isIso_divisorBasisFrameHom
   refine ⟨fun μ ν h => dualEval_injective_of_dualBasisOne D bU h, ?_⟩
   intro c
   refine ⟨c • bU.lam, ?_⟩
-  rw [Stacks.SheafOfModules.evalSection_smul_left, bU.eval_self]
+  change dualEval (c • bU.lam) bU.e = c
+  rw [dualEval, Stacks.SheafOfModules.evalSection_smul_left]
+  change c * dualEval bU.lam bU.e = c
+  rw [bU.eval_self]
   exact mul_one c
 
 /-- The dual frame determined by a global basis of the actual ideal. -/
@@ -65,7 +70,8 @@ theorem divisorBasisFrame_canonicalSection
     (divisorBasisFrame D b).hom.app ⊤ (divisorSheafGlobalSection D) =
       idealSheafSection D b.e := by
   change idealSheafSection D
-    ((negativeTwist' D).presheaf.map (homOfLE (le_top : (⊤ : X.Opens) ≤ ⊤)).op b.e) = _
+    ((Scheme.Modules.presheaf (negativeTwist' D)).map
+      (homOfLE (le_top : (⊤ : X.Opens) ≤ ⊤)).op b.e) = _
   simp
 
 variable [IsAffine X] {f : Γ(X, ⊤)}
@@ -80,7 +86,8 @@ def principalDivisorFrame : divisorSheaf D ≅ SheafOfModules.unit X.ringCatShea
 @[simp]
 theorem principalDivisorFrame_canonicalSection :
     (principalDivisorFrame D hf hreg).hom.app ⊤ (divisorSheafGlobalSection D) = f := by
-  rw [principalDivisorFrame, divisorBasisFrame_canonicalSection]
+  refine (divisorBasisFrame_canonicalSection D
+    (dualBasisOneOfPrincipal D ⟨⊤, isAffineOpen_top X⟩ hf hreg)).trans ?_
   have h : ∃ y, idealSheafSection D y = f :=
     (mem_ideal_iff_exists_idealSheafSection D ⟨⊤, isAffineOpen_top X⟩ f).1
       (hf ▸ Ideal.mem_span_singleton_self f)

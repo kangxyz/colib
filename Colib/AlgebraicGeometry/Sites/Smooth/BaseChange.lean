@@ -51,7 +51,7 @@ theorem baseChange_obj_hom (f : T ⟶ S) (X : SmoothSite S) :
 theorem baseChange_map_left (f : T ⟶ S) {X Y : SmoothSite S} (g : X ⟶ Y) :
     ((baseChange f).map g).left =
       pullback.lift (pullback.fst X.hom f ≫ g.left) (pullback.snd X.hom f)
-        (by simp [MorphismProperty.Over.w, pullback.condition]) := rfl
+        (by simp [pullback.condition]) := rfl
 
 @[reassoc (attr := simp)]
 theorem baseChange_map_fst (f : T ⟶ S) {X Y : SmoothSite S} (g : X ⟶ Y) :

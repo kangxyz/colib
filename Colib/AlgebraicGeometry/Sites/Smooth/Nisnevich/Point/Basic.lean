@@ -6,13 +6,15 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology
+public import Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FieldPoints
 public import Mathlib.CategoryTheory.Functor.TypeValuedFlat
 public import Mathlib.CategoryTheory.Filtered.Final
 public import Mathlib.CategoryTheory.Sites.Point.OfIsCofiltered
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean`, blob `821f7409f17168d630e0769397f0e88eba7bbe53`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Nisnevich/Point/Basic.lean`,
+blob `821f7409f17168d630e0769397f0e88eba7bbe53`.
 
 
 # Nisnevich points of the smooth site
@@ -125,7 +127,7 @@ theorem nisnevichNeighborhood_cover_lifting
     have h := mem_nisnevichPrecoverage_iff.mp hQ
     rw [Presieve.map_ofArrows] at h
     exact h
-  obtain ⟨_, _, ⟨i⟩, y, hy⟩ := Nisnevich.mem_fieldLiftingPrecoverage_iff.mp hQ'.2
+  obtain ⟨_, _, ⟨i⟩, y, hy⟩ := Nisnevich.exists_lift_of_field_point hQ'
     (X.left.residueField x) (N.obj.val.left ≫ f.left)
   have : Etale (g i).left := etale_of_mem_nisnevichPrecoverage hQ ⟨i⟩
   let t := pullback.lift y N.obj.val.left hy

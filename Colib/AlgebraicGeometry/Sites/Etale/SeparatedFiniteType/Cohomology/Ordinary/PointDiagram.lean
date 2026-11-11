@@ -13,7 +13,8 @@ public import Mathlib.CategoryTheory.Sites.Point.Basic
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Point/OrdinaryColimit.lean`, blob `584af116905fe4b2e5babf886dc5c1a3d4b0f572`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Point/OrdinaryColimit.lean`,
+blob `584af116905fe4b2e5babf886dc5c1a3d4b0f572`.
 Only the literal diagram is extracted. No derived-direct-image fiber
 comparison or acyclicity statement is silently imported.
 Source candidate only; no elaboration result is asserted.

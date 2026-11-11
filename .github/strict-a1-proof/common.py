@@ -1,8 +1,18 @@
-import gzip,hashlib,json,os,re,subprocess
+import gzip,hashlib,json,os,re,subprocess,tomllib
 from pathlib import Path
 ROOT=Path.cwd().resolve(); HERE=ROOT/'.github/strict-a1-proof'; OUT=ROOT/'.lake/strict-a1-proof-result'
 PLAN=json.loads(gzip.decompress((HERE/'plan.json.gz').read_bytes()))
-NODES={e['module']:e for e in PLAN['sources']}
+ORIGINAL_NODES={e['module']:e for e in PLAN['sources']}
+OVERLAY=json.loads((HERE/'phase2-overlay.json').read_text())
+assert hashlib.sha256((HERE/'plan.json.gz').read_bytes()).hexdigest()==OVERLAY['base_plan_sha256']
+assert len(PLAN['candidate_modules'])==OVERLAY['candidate_root_count']==439
+assert hashlib.sha256(json.dumps(sorted(PLAN['candidate_modules']),separators=(',',':')).encode()).hexdigest()==OVERLAY['candidate_root_sha256']
+assert OVERLAY['no_new_mathematical_roots'] and OVERLAY['no_kernel_replay']
+NODES={m:dict(e) for m,e in ORIGINAL_NODES.items()}
+for e in OVERLAY['replacement_sources']:NODES[e['module']]=e
+assert set(NODES)-set(ORIGINAL_NODES)==set(OVERLAY['additional_dependency_modules'])
+PLAN['sources']=list(NODES.values())
+EFFECTIVE_PLAN_SHA256=hashlib.sha256((HERE/'plan.json.gz').read_bytes()+b'\0'+(HERE/'phase2-overlay.json').read_bytes()).hexdigest()
 SUFFIXES=('.olean','.olean.server','.olean.private','.ilean','.ir','.ir.sig')
 PINS={k:PLAN[k] for k in ('lean_version','lean_commit','mathlib_revision','stacks_revision')}
 def sha(p):
@@ -86,3 +96,37 @@ def imports(path):
             current = token()
     return result
 
+
+def package_options(m):
+ package=ROOT/'.lake/packages/Stacks' if owner(m)=='Stacks' else ROOT
+ config=tomllib.loads((package/'lakefile.toml').read_text())
+ opts=dict(config.get('leanOptions',{}))
+ for lib in config.get('lean_lib',[]):
+  if lib.get('name')==m.split('.')[0]:opts.update(lib.get('leanOptions',{}))
+ def flatten(d,prefix=''):
+  for k,v in d.items():
+   if isinstance(v,dict):yield from flatten(v,prefix+k+'.')
+   else:yield prefix+k,v
+ return ['-D'+k+'='+(str(v).lower() if isinstance(v,bool) else str(v)) for k,v in flatten(opts)]
+
+def registered_options_equivalent(recorded,current):
+ # A successful old compile using the non-weak spelling proves registration.
+ # Do not assert this equivalence for failed or unexecuted commands.
+ normalize=lambda xs:sorted(x.replace('-Dweak.','-D',1) for x in xs)
+ return normalize(recorded)==normalize(current)
+
+def source_dag_fingerprints(nodes):
+ memo={};busy=set()
+ def calc(m):
+  if m in memo:return memo[m]
+  require(m not in busy,'Cycle in source identity graph: '+m);busy.add(m)
+  if m not in nodes:data=['external',m,{k:PINS[k] for k in ('lean_commit','mathlib_revision','stacks_revision')}]
+  else:data=[m,nodes[m]['source_sha256'],[[d,calc(d)] for d in nodes[m]['source_imports']]]
+  busy.remove(m);memo[m]=hashlib.sha256(json.dumps(data,separators=(',',':')).encode()).hexdigest();return memo[m]
+ for m in nodes:calc(m)
+ return memo
+
+def product_fingerprint(entries):
+ return hashlib.sha256(json.dumps(sorted((Path(e['path']).name.split('.',1)[-1],e['size'],e['sha256']) for e in entries),separators=(',',':')).encode()).hexdigest()
+
+CURRENT_SOURCE_FINGERPRINTS=source_dag_fingerprints(NODES)

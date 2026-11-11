@@ -45,7 +45,7 @@ theorem isZero_torStalkComap_succ_of_flat_composite
   apply isZero_torStalkComap_of_flatProjection p I i c d e hd he (n + 1)
   let M := (ModuleCat.restrictScalars ((i ≫ p).stalkMap c).hom).obj
     (ModuleCat.of (C.presheaf.stalk c) (C.presheaf.stalk c))
-  haveI : Module.Flat (X.presheaf.stalk ((i ≫ p) c)) M := Flat.stalkMap (i ≫ p) c
+  have : Module.Flat (X.presheaf.stalk ((i ≫ p) c)) M := Flat.stalkMap (i ≫ p) c
   exact isZero_Tor_succ_of_flat M _ n
 
 /-- The same comparison at a separately named actual ambient incidence point. -/

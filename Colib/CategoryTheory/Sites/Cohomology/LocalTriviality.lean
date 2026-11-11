@@ -28,7 +28,8 @@ comparison or an affine-line acyclicity theorem.
 
 /-!
 Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
-`Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/LocalTriviality.lean`, blob `77bc3a7be300013ed8bde76a93706454e407a71d`.
+`Motivic/Aglib/CategoryTheory/Sites/SheafCohomology/Large/LocalTriviality.lean`,
+blob `77bc3a7be300013ed8bde76a93706454e407a71d`.
 The canonical native objects and displayed maps are retained. Source candidate only.
 -/
 
@@ -54,20 +55,16 @@ theorem boundary_restriction_eq_zero_of_imageSieve
     (cohomologyPresheaf.{w, t} S.X₁ 1).map f.op (y.comp hS.extClass rfl) = 0 := by
   obtain ⟨s, hs⟩ := hf
   let z := (extSectionsAddEquiv.{w, t} Y S.X₂).symm s
-  have hy : (cohomologyPresheaf.{w, t} S.X₃ 0).map f.op y =
-      ((cohomologyPresheafFunctor.{w, t} J 0).map S.g).app (op Y) z := by
+  have hy : (Ext.mk₀ ((freeYoneda.{t} J).map f)).comp y (zero_add 0) =
+      z.comp (Ext.mk₀ S.g) (add_zero 0) := by
     apply (extSectionsAddEquiv.{w, t} Y S.X₃).injective
     rw [extSectionsAddEquiv_naturality_left, extSectionsAddEquiv_naturality]
     exact hs.symm.trans (congrArg (S.g.hom.app (op Y))
       ((extSectionsAddEquiv.{w, t} Y S.X₂).apply_symm_apply s).symm)
-  change Ext (((freeYoneda.{t} J).obj X)) S.X₃ 0 at y
   change (Ext.mk₀ ((freeYoneda.{t} J).map f)).comp
     (y.comp hS.extClass rfl) (zero_add 1) = 0
-  rw [← Ext.comp_assoc_of_second_deg_zero]
-  change ((cohomologyPresheaf.{w, t} S.X₃ 0).map f.op y).comp hS.extClass rfl = 0
-  rw [hy]
-  change (z.comp (Ext.mk₀ S.g) (add_zero 0)).comp hS.extClass rfl = 0
-  rw [Ext.comp_assoc_of_second_deg_zero, hS.comp_extClass, Ext.comp_zero]
+  rw [← Ext.comp_assoc_of_second_deg_zero, hy, Ext.comp_assoc_of_second_deg_zero,
+    hS.comp_extClass, Ext.comp_zero]
 
 variable [EnoughInjectives (Sheaf J AddCommGrpCat.{max v t})]
 

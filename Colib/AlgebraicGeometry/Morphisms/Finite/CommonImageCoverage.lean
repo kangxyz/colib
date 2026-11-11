@@ -9,7 +9,8 @@ public import Colib.AlgebraicGeometry.Morphisms.Finite.CommonImage
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Morphisms/Finite/CommonImageCoverage.lean`, blob `508a86d142a04676ce84daf3a7eff909e1035696`.
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/Finite/CommonImageCoverage.lean`,
+blob `508a86d142a04676ce84daf3a7eff909e1035696`.
 Native finite-image proof follows the existing CommonImage module.
 
 # Pointwise coverage of the actual finite common scheme-theoretic image -/
@@ -76,7 +77,7 @@ theorem exists_finite_common_closed_image_with_coverage [IsSeparated p]
     exists_finite_common_source_with_coverage D f p s hs hf
   let : IsFinite (a ≫ p) := ha
   have : IsFinite a := IsFinite.of_comp a p
-  have : Surjective a.toImage := AlgebraicGeometry.surjective_toImage a p
+  have : Surjective a.toImage := Surjective.of_universallyClosed_of_isDominant a.toImage
   let : IsZariskiLocalAtTarget (@IsFinite : MorphismProperty Scheme.{u}) :=
     isZariskiLocalAtTarget_isFinite
   have hfinite : IsFinite (a.imageι ≫ p) := by

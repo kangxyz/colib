@@ -8,11 +8,13 @@ module
 public import Colib.AlgebraicGeometry.Properties.Discrete.ResidueFields
 public import StacksFrontier.RingTheory.Smooth.GeometricallyReducedFibres
 public import Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite
+public import Mathlib.AlgebraicGeometry.Morphisms.Etale
 public import Mathlib.RingTheory.Unramified.LocalStructure
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean`, blob `25212e71687abf5cb30794b71b1dc6e19d4327be`.
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Fibers/ResidueFieldMap.lean`,
+blob `25212e71687abf5cb30794b71b1dc6e19d4327be`.
 
 
 # Étale residue-field maps

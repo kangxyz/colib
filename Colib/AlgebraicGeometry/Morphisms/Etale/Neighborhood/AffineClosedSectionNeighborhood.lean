@@ -16,7 +16,9 @@ section, not merely an unspecified new section, factors through the result.
 -/
 
 /-!
-Adapted from `Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/AffineClosedSectionNeighborhood.lean` at
+Adapted from
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/Etale/Neighborhood/`
+`AffineClosedSectionNeighborhood.lean` at
 `motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
 blob `d40d5377a26ef08dc68aa091825c386d6a3ea297`. The actual native cylinder, Laurent open,
 whole closed fiber and original residue marking are retained.

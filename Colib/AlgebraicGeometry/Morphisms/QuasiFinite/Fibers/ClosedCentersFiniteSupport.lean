@@ -9,7 +9,8 @@ public import Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean`, blob `1b7fe867befac17e9d681d5d530c3315e2969493`.
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/Fibers/ClosedCentersFiniteSupport.lean`,
+blob `1b7fe867befac17e9d681d5d530c3315e2969493`.
 
 
 # Closed centers of a finite support
@@ -45,7 +46,7 @@ theorem isClosed_target_of_locallyQuasiFinite_source
     {Z X Y : Scheme.{u}} (p : Z ⟶ X) [LocallyQuasiFinite p]
     (t : Z ⟶ Y) [LocallyOfFiniteType t] [JacobsonSpace Y]
     (z : Z) (hx : IsClosed ({p z} : Set X)) : IsClosed ({t z} : Set Y) :=
-  t.closePoints_subset_preimage_closedPoints
+  t.closedPoints_subset_preimage_closedPoints
     (p.isClosed_singleton_of_isClosed_singleton_image z hx)
 
 end AlgebraicGeometry.Scheme.Hom

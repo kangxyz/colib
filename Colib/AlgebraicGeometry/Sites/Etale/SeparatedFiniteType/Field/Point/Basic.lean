@@ -6,11 +6,13 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich
+public import Colib.AlgebraicGeometry.Sites.Nisnevich.Lifting.FieldPoints
 public import Mathlib.CategoryTheory.Sites.Point.Presheaf
 
 /-!
 Adapted from motivic@a6805c4a87cdfd7717dd7a94039246a167f15380,
-`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean`, blob `bac4e056d880308475a15ebb628d4a184adf2a3f`.
+`Motivic/Aglib/AlgebraicGeometry/Sites/Etale/SeparatedFiniteType/Field/Point/Basic.lean`,
+blob `bac4e056d880308475a15ebb628d4a184adf2a3f`.
 
  # Actual field-valued evaluation points on the small Nisnevich site
 
@@ -44,7 +46,7 @@ theorem fieldObject_cover_lifting {V : EtaleSeparatedFiniteType S} (R : Sieve V)
     have h := hQ
     change (Presieve.ofArrows W g).map (forgetScheme S) ∈ Nisnevich.precoverage V.left at h
     rwa [Presieve.map_ofArrows] at h
-  obtain ⟨_, _, ⟨i⟩, b, hb⟩ := Nisnevich.mem_fieldLiftingPrecoverage_iff.mp hscheme.2 K a.left
+  obtain ⟨_, _, ⟨i⟩, b, hb⟩ := Nisnevich.exists_lift_of_field_point hscheme K a.left
   let b' : fieldObject K q ⟶ W i := MorphismProperty.Over.homMk b (by
     change b ≫ (W i).hom = q
     rw [← MorphismProperty.Over.w (g i), ← Category.assoc, hb]
