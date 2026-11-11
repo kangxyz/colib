@@ -128,3 +128,23 @@ Its exact sequence therefore reduces the finite computation to that same
 unit group modulo actual powers. Retain the graph and norm formulas when
 passing to the quotient, including at level zero and in positive characteristic.
 '''
+
+[[sections]]
+id = "diagonal-motivic-comparison"
+title = "Milnor K-theory and diagonal motivic cohomology"
+order = 70
+introduction = '''The base-field evaluation of COL-0400 identifies the diagonal with the homology of actual reduced torus cycles. Finite field extensions give pushforward on these cycles. Rational graphs and the Milnor relations connect the resulting groups with the Milnor K-theory of the base field.'''
+
+[sections.transitions]
+COL-1025 = '''
+Finite pushforward preserves the signed cycles and the identity-coordinate
+relations of COL-0385. Compare its two face maps on the full endpoint fibers
+before applying the base-field comparison of COL-0400 to define the
+derived transfer.
+'''
+COL-1026 = '''
+Rational graph classes satisfy the Milnor relations in characteristic zero.
+The norm of each closed point gives the inverse after the full endpoint
+comparison shows that it kills boundaries. Use the finite transfers of
+COL-1025 to return from each residue field to the base field.
+'''

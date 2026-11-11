@@ -24,7 +24,8 @@ universe u v w a b c
 
 namespace Stacks.Chow
 
-private abbrev liftAlgebra (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L] :
+/-- The original scalar action on the canonical field lifts. -/
+abbrev liftAlgebra (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L] :
     Algebra (ULift.{a} k) (ULift.{b} L) :=
   ULift.algebra' k (ULift.{b} L)
 
@@ -36,7 +37,8 @@ private theorem liftAlgebra_commutes (k : Type u) (L : Type v) [Field k] [Field 
         (ULift.ringEquiv : ULift.{a} k ≃+* k).symm.toRingHom :=
   RingHom.ext fun _ => rfl
 
-private theorem liftFinite (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L]
+/-- Field lifting preserves finite dimensionality over the original base. -/
+theorem liftFinite (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L]
     [FiniteDimensional k L] : FiniteDimensional (ULift.{a} k) (ULift.{b} L) :=
   Module.Finite.of_equiv_equiv ULift.ringEquiv.symm ULift.ringEquiv.symm
     (liftAlgebra_commutes k L).symm
@@ -59,14 +61,16 @@ private theorem liftSeparable (k : Type u) (L : Type v) [Field k] [Field L] [Alg
 
 attribute [local instance] liftSeparable
 
-private theorem liftScalarTower (k : Type u) (M : Type v) (L : Type w)
+/-- A compatible scalar tower lifts with its original algebra maps. -/
+theorem liftScalarTower (k : Type u) (M : Type v) (L : Type w)
     [Field k] [Field M] [Field L] [Algebra k M] [Algebra M L] [Algebra k L]
     [IsScalarTower k M L] :
     IsScalarTower (ULift.{a} k) (ULift.{b} M) (ULift.{c} L) :=
   IsScalarTower.of_algebraMap_eq fun x =>
     congrArg ULift.up (IsScalarTower.algebraMap_apply k M L x.down)
 
-private theorem milnorKRingMapLift_symm_apply
+/-- Native ring transport along an equivalence and its inverse cancels. -/
+theorem milnorKRingMapLift_symm_apply
     {k : Type u} {L : Type v} [Field k] [Field L]
     (e : k ≃+* L) (x : MilnorKRing k) :
     milnorKRingMapLift e.symm.toRingHom (milnorKRingMapLift e.toRingHom x) = x := by
@@ -76,7 +80,7 @@ private theorem milnorKRingMapLift_symm_apply
 
 /-- The additive Milnor norm for a finite extension whose fields may lie in
 independent universes, formed from the native chosen norm. -/
-def milnorKNormRingAcross (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L]
+@[expose] def milnorKNormRingAcross (k : Type u) (L : Type v) [Field k] [Field L] [Algebra k L]
     [FiniteDimensional k L] : MilnorKRing L →+ MilnorKRing k :=
   (milnorKRingMapLift (ULift.ringEquiv : ULift.{max u v} k ≃+* k).toRingHom).toAddMonoidHom.comp
     ((milnorKNormRing (ULift.{max u v} k) (ULift.{max u v} L)).comp

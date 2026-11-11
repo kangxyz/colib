@@ -32,6 +32,13 @@ declaration with the ordinary native build. The
 [Milnor branch consumer case](performance/milnor-branch-consumer-conversion.md)
 records the applicable boundaries and measurements.
 
+When a branch proof combines the construction of a quotient-field
+equivalence with transport of nested norms, prove the two commuting field
+squares first. Compare the norms in a separate typed lemma that takes these
+squares as inputs, and apply it to the literal polynomial factor. The
+[pure prime compositum case](performance/milnor-branch-consumer-conversion.md#pure-prime-compositum)
+records the native kernel timeout and the checked split.
+
 In an instance-heavy DVR argument, isolate the ramification witnesses and
 map injectivity in small typed proofs. For a branch sum, compose the actual
 additive maps before applying the finite-sum theorem once. Use pointwise

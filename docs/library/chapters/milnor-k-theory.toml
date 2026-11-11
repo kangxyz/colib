@@ -260,7 +260,7 @@ start = "COL-0396"
 
 [[sections.topics]]
 id = "inseparable-milnor-norms"
-title = "Inseparable norms and tower defects"
+title = "Inseparable norms and finite towers"
 start = "COL-1022"
 
 [sections.transitions]
@@ -325,6 +325,13 @@ mixed-symbol expansion after an extension of coprime degree
 gives a second annihilator over the complete DVR. Together
 the two annihilators give the integral local square.
 '''
+COL-1027 = '''
+The original finite-place and infinity formulas give the purely
+inseparable prime diamond. Induct on purely inseparable towers and
+compare the separable and purely inseparable parts in their actual
+compositum. The simple Frobenius calculation then connects this
+factorization to the original recursion in every finite tower.
+'''
 
 [[sections]]
 id = "milnor-norms-on-curves"
@@ -382,4 +389,4 @@ The finite-field calculation gives zero for each such symbol.
 id = "milnor-motivic-comparison"
 title = "Low-degree comparison with motivic cohomology"
 order = 60
-introduction = '''The original base-field motivic groups are computed from signed singular chains by COL-0400. In weight zero, the structural graph gives the integer degree. In weight one, the geometric norm of COL-1008 reads the rational graph class as its unit. These calculations identify the first two native Milnor groups with their diagonal motivic groups.'''
+introduction = '''The original base-field motivic groups are computed from signed singular chains by COL-0400. In weight zero, the structural graph gives the integer degree. In weight one, the geometric norm of COL-1008 reads the rational graph class as its unit. These calculations identify the first two native Milnor groups with their diagonal motivic groups. COL-1026 gives the comparison in all weights over fields of characteristic zero.'''

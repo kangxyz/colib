@@ -1,5 +1,8 @@
 # Milnor K-theory handoff, 2026-11-10
 
+The [Milnor handoff completion](MILNOR_MOTIVIC_MIGRATION.md#milnor-handoff-completion)
+records the subsequent migrations and their mathematical scope.
+
 ## Delivery boundary
 
 This is a handoff checkpoint, not a merge-ready or fully verified release. Further Milnor development stops at this handoff. The next maintainer should finish integration before extending the mathematics.

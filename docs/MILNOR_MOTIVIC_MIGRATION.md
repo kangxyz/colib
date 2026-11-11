@@ -782,3 +782,39 @@ and three consumer modules. Precise implementation and inspected MVW 2006
 locators distinguish source adaptations, literature generalizations and native
 proof inputs. See `migration/motivic-nisnevich.md` and
 `migration/motivic-hypercohomology.md` for the exact scope and remaining work.
+
+### Milnor handoff completion
+
+The general DVR, Dedekind and curve packet uses the Aglib revision
+`4f65be4eafa8964bd1f7a83682e99aa8165bd418`. COL-1001–COL-1006 record the
+complete DVR square, its original-branch version, finite-support residue
+pushforward, curve reciprocity and the weighted affine endpoint formulas.
+The local results retain residue characteristic zero. The curve results
+keep characteristic zero for the base field. COL-1024 records the
+complete DVR square for purely inseparable prime extensions.
+
+The four archived inseparable producer and consumer pairs are part of
+the native norm hierarchy. COL-1027 closes general finite transitivity.
+`ChosenTowerNormalPrimePower` uses the prime-degree norm diamond to
+compare actual purely inseparable intermediate fields.
+`SimpleSeparableClosureFactorization` applies the
+original finite-place and infinity norm–residue formulas to the rational
+map `t ↦ t^p`. `ChosenTowerFinite` uses the resulting simple norm
+factorization and the mixed compositum square to identify its tower with
+the actual Stacks selected recursion. `AcrossUniversesFinite` transports
+that result through one common lift. The norm, grading and algebra maps
+are the original ones, including in degree zero.
+
+The higher diagonal comparison adapts Motivic
+`a6805c4a87cdfd7717dd7a94039246a167f15380`. COL-1025 constructs finite
+corestriction on the original reduced cycles and integral diagonal
+cohomology in arbitrary characteristic. The scalar and finite
+pushforward identities use the full fibers of the native cycles.
+The inverse evaluator of COL-1026 descends by the normalized endpoint
+formula, retaining the orders and residue-field norms at the original
+points. The Steinberg relation gives the forward symbol, and the
+all-weight finite norm comparison identifies its value on a norm
+with the actual finite pushforward. Both directions respect scalar
+pullback and finite corestriction. This comparison retains the original
+characteristic-zero hypothesis. COL-1025 and COL-1026 are in the
+Motivic Cohomology chapter.

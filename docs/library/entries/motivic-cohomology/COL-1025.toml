@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1025"
+title = "Finite corestriction on diagonal motivic cohomology"
+kind = "comparison"
+section = "diagonal-motivic-comparison"
+order = 10
+primary = "AlgebraicGeometry.MotivicCohomology.DiagonalCorestriction.integralCorestriction"
+review = "author_checked"
+source_checked_on = "2026-11-11"
+statement = '''
+Let \(E/k\) be a finite field extension and \(q\geq 0\). The native signed
+finite pushforward induces an additive map
+\[
+H^{q,q}(\operatorname{Spec}E,\mathbb Z)
+  \longrightarrow H^{q,q}(\operatorname{Spec}k,\mathbb Z).
+\]
+Under the original base-field evaluation of COL-0400, this map is given
+on a reduced zero-cycle by the class of its actual finite pushforward.
+The pushforward commutes with the two faces of a reduced one-chain and
+therefore with their alternating boundary.
+'''
+scope = '''
+Both fields are in the same Lean universe. The construction applies in
+every weight and characteristic. The original coefficients, signed
+simplicial boundary and base-field comparison are used throughout. Each
+endpoint cycle uses its full scheme-theoretic lengths and each finite
+pushforward uses the actual residue-field degrees.
+'''
+proof = '''
+Use the finite field map on the actual products of the simplex and the
+ordered torus. On a prime correspondence, both compositions in a face
+square are the pushforward of the full endpoint fiber. The polynomial
+endpoint formula identifies the coefficients using the original local
+lengths and residue-field degrees. Additivity extends the formula to
+signed cycles.
+
+Insertion of an identity coordinate commutes with the finite field map,
+so the pushforward passes to the reduced torus. The two face identities
+give the signed boundary identity and hence a map on the zero-homology
+quotient. The base-field comparison of COL-0400 transports this map to
+the original hypercohomology.
+'''

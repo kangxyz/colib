@@ -36,7 +36,8 @@ namespace AlgebraicGeometry.MotivicCohomology.DiagonalReducedPushforward
 open _root_.AlgebraicGeometry.Scheme SmoothSite
 open DiagonalFiniteCyclePushforward PresheafWithTransfers
 
-private theorem torusPower_left_hom_ext {S W : Scheme.{u}} (q : ℕ)
+/-- Maps to the underlying torus power agree when their base and coordinates agree. -/
+theorem torusPower_left_hom_ext {S W : Scheme.{u}} (q : ℕ)
     {f g : W ⟶ (torusPower S q).left}
     (hbase : f ≫ (torusPower S q).hom = g ≫ (torusPower S q).hom)
     (hcoords : ∀ i : Fin q, f ≫ (torusCoordinate S q i).left =

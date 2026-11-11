@@ -59,3 +59,31 @@ lake build +ColibTest.MilnorNestedScalarBranchSquare +ColibTest.MilnorTensorBran
 
 These timings describe individual runs. The successful builds are the evidence
 for the complete consumer declarations at their recorded source hashes.
+
+## Pure prime compositum
+
+On Colib `f0bb6e6d2f6ca12dce146a9795f67bdf37275150` with the same pins,
+`remote-f9be7253b2de410cab3a4abc99ad22fe` reported a deterministic kernel
+timeout in the combined pure prime compositum proof. The module frontend
+ran for 193 seconds and also reported separate quotient-degree conversion
+and scalar tower instance errors.
+
+The repaired proof constructs the equivalence to the literal quotient
+field and proves both field-map equations in a private lemma. A second
+lemma compares the norms for supplied typed quotient equivalences and
+commuting maps. The public proof selects the actual minimal polynomial
+factor and proves its relative-degree divisibility separately. This
+keeps the tensor-swap factor and both relative degrees in the original
+statement.
+
+The corrected source SHA-256 is
+`72e4820af16a9c0a3cdc637ea7717b463ac0e3c85a801b552c7b951d4aee4481`.
+Run `remote-d254138be753404cb543ce41462e63af` compiled the producer in
+114 seconds, its purely inseparable tower consumer in 35 seconds, and
+the general finite tower consumer in 16 seconds at the existing limits.
+These times are separate run observations. The build gives native
+validation of the split proof and its actual consumers.
+
+```sh
+lake build Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerFinite
+```

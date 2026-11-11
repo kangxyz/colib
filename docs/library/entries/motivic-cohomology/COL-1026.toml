@@ -1,0 +1,49 @@
+[entry]
+id = "COL-1026"
+title = "Milnor K-theory and integral diagonal motivic cohomology"
+kind = "comparison"
+section = "diagonal-motivic-comparison"
+order = 20
+primary = "AlgebraicGeometry.MotivicCohomology.DiagonalMilnorEquivalence.motivicEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-11"
+statement = '''
+For a field \(k\) of characteristic zero and every \(q\geq 0\), the rational
+graph symbol gives an additive isomorphism
+\[
+K_q^M(k)\simeq H^{q,q}(\operatorname{Spec}k,\mathbb Z).
+\]
+It sends the ordered symbol of units \(a_1,\ldots,a_q\) to the class of the
+rational point \((a_1,\ldots,a_q)\) in the reduced torus. The inverse sends
+the class of a closed point \(z\) to the Milnor norm from its residue field
+of the symbol of its coordinate units, and extends by signed additivity.
+The comparison respects extension of scalars. For finite extensions, it
+identifies the Milnor norm with motivic corestriction.
+'''
+scope = '''
+The characteristic-zero hypothesis is the one in the original all-weight
+comparison. The groups are the homogeneous components of the Stacks
+Milnor ring and the original integral motivic hypercohomology. The
+base-field comparison of COL-0400 and `FieldCycleEvaluation` identify its
+diagonal with the raw signed cycle homology. The scalar and finite pushforward
+squares use field maps in a common Lean universe. The point and boundary
+formulas retain the original multiplicities and the alternating face sign.
+'''
+proof = '''
+The cubic boundary in weight two and finite corestriction give the
+Steinberg relation for rational graphs. Coordinate insertion gives
+multilinearity and extends the symbol to the Milnor presentation.
+The inverse candidate evaluates the signed point cycle by its residue
+field norms. The normalized endpoint identity compares the full fibers
+with their original lengths and proves that this evaluation kills
+boundaries. Its value on a rational graph is the corresponding symbol.
+
+Conversely, a prime point is the finite pushforward of its rational graph
+over its own residue field. The chosen finite-extension norm comparison, proved by
+prime-degree and Sylow induction on the original polynomial branches,
+identifies the symbol of its Milnor norm with that pushforward. Hence
+the two maps are inverse on every signed cycle class. Scalar pullback
+preserves rational graph symbols, and the finite norm comparison gives
+the transfer square. Both identities pass through the original
+base-field evaluation.
+'''

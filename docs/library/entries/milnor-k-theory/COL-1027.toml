@@ -1,0 +1,48 @@
+[entry]
+id = "COL-1027"
+title = "Milnor norm transitivity in arbitrary finite towers"
+kind = "theorem"
+section = "milnor-norms-and-rational-residues"
+order = 429
+primary = "Stacks.Chow.milnorKNormAcross_comp_milnorKNormAcross_of_finite"
+review = "author_checked"
+source_checked_on = "2026-11-11"
+statement = '''
+Let \(K\subset M\subset L\) be a finite tower with its given compatible
+scalar actions. For every \(q\geq 0\), the native Milnor norm satisfies
+\[
+N_{M/K}\circ N_{L/M}=N_{L/K}
+\quad\text{on }K_q^M(L).
+\]
+The same identity holds for the whole-ring additive norm maps. In a
+common Lean universe these are the original chosen norms. The pairwise
+transports of COL-1021 satisfy the same identities for three independent
+field universes and agree with the original norms whenever their fields
+share a universe.
+'''
+scope = '''
+The field extensions are finite, with arbitrary characteristic and
+arbitrary inseparability degree. The norm retains the actual Stacks
+recursion, grading and simple polynomial norm. Any simple intermediate
+field may be used for the first step of the norm calculation.
+'''
+proof = '''
+The original finite-place and infinity residue formulas in purely
+inseparable prime degree give the prime norm diamond. In a purely
+inseparable tower, induction compares the literal selected simple step
+with each bottom prime step through their actual compositum.
+
+For a simple extension in positive characteristic, the rational field
+map given by \(t\mapsto t^p\) compares the original single-residue lifts.
+Iteration factors the norm through the maximal separable subfield. The
+mixed compositum rectangle follows from the prime diamond and induction
+on the purely inseparable degree. Combining that rectangle with
+separable and purely inseparable transitivity gives the general tower
+identity. Induction on the literal selected recursion identifies the
+factorization with the original chosen norm.
+
+Compatible pairs of field equivalences transport the actual simple
+steps and the chosen norm. Lift all three fields to one universe and
+cancel the two transports at the middle field to get the independent
+universe identities.
+'''

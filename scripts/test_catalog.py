@@ -419,6 +419,7 @@ class LibraryTests(unittest.TestCase):
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
             "weight-one-comparison": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
+            "diagonal-motivic-comparison": "Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.Corestriction",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -547,6 +548,8 @@ class LibraryTests(unittest.TestCase):
             "COL-1021": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniverses",
             "COL-1022": "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenMixedTower",
             "COL-1024": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete",
+            "COL-1026": "Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorEquivalence",
+            "COL-1027": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniversesFinite",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -671,6 +674,7 @@ class LibraryTests(unittest.TestCase):
             "weight-one-comparison": [
                 "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"
             ],
+            "diagonal-motivic-comparison": ["COL-1025", "COL-1026"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():
