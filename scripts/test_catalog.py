@@ -536,6 +536,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1007": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne",
             "COL-1021": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniverses",
             "COL-1022": "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenMixedTower",
+            "COL-1024": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete",
         }
         native["modules"] = [
             {"name": name, "imports": []}

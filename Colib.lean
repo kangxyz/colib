@@ -2706,6 +2706,7 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPGroupDescent
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeCharZero
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeAnnihilation
+public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeCoprimeDescent
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeMixed
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRResidueDegreeOne

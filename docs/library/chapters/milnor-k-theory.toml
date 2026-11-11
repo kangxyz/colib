@@ -318,6 +318,13 @@ exponent the original inseparable degree. Applying the weighted
 norm formula at each selected step compares the two tower
 expressions after restriction.
 '''
+COL-1024 = '''
+The purely inseparable trace in COL-1022 bounds the local
+norm–residue error by the prime fraction-field degree. A
+mixed-symbol expansion after an extension of coprime degree
+gives a second annihilator over the complete DVR. Together
+the two annihilators give the integral local square.
+'''
 
 [[sections]]
 id = "milnor-norms-on-curves"

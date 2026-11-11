@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1024"
+title = "Norm and tame residue in purely inseparable prime degree"
+kind = "theorem"
+section = "milnor-norms-and-rational-residues"
+order = 428
+primary = "Stacks.Chow.dvrMilnorTameSymbol'_milnorKNorm_of_complete_of_isPurelyInseparable_of_prime"
+statement = '''
+Let \(R\to S\) be a finite torsion-free local extension of discrete
+valuation rings with compatible fraction fields \(F\subset E\).
+Assume that \(R\) is complete for its maximal ideal and that \(E/F\)
+is purely inseparable of prime degree. For all \(n\geq 0\) and
+\(x\in K_{n+1}^M(E)\), the original tame residues and chosen norms
+satisfy
+\[
+\partial_R N_{E/F}(x)
+  =N_{\kappa(S)/\kappa(R)}(\partial_S x)
+\quad\text{in }K_n^M(\kappa(R)).
+\]
+'''
+scope = '''
+The two rings, fraction fields and residue fields are in the common
+universe of the original chosen-norm API. Both local fraction and
+residue scalar actions come from the given maps. Finiteness and
+torsion-freeness refer to the given \(R\)-module \(S\). The completeness
+assumption belongs to the lower ring.
+'''
+proof = '''
+The purely inseparable trace and the ramified restriction formula
+annihilate the restricted error after multiplication by the
+ramification index. Norm after restriction multiplies by the residue
+degree. Their product is the prime fraction-field degree.
+
+For a fixed class, choose a finite auxiliary field of coprime degree
+that gives a mixed-symbol expansion. The two auxiliary fraction
+extensions used to form normalizations are separable. The actual
+finite normalizations over the original lower and upper rings give
+a local tower above the complete base. The prime-degree norm formula
+on mixed symbols applies there. Coprime base change for the fraction
+and residue norms identifies the ramification-weighted restriction of
+the original error with the error on the restricted class. Norm back
+down gives the auxiliary degree as a second annihilator. The two
+coprime annihilators imply equality.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-11"

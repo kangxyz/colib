@@ -1,6 +1,5 @@
 /-
-Copyright (c) 2024 Jz Pan. All rights reserved.
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2023 Jz Pan and 2026 Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Jz Pan, kangxyz
 -/
@@ -21,7 +20,7 @@ The ambient field need not be finite over either base, and the three fields may
 have independent universes. Thus `a` may be the image of an element of another
 field under an actual embedding into `D`.
 
-The factor-removal proof adapts the argument in Mathlib's
+The private factor-removal lemma adapts Jz Pan's Lean proof of Mathlib's
 `Polynomial.eq_X_pow_char_pow_sub_C_pow_of_natSepDegree_eq_one`, in
 `Mathlib/FieldTheory/SeparableDegree.lean:592-610` at revision
 `56a005855ea17e0b0958f73ec801ae140b0a1679`. The degree comparisons use the

@@ -13,8 +13,8 @@ public import Mathlib.Data.Int.GCD
 /-!
 # Norm-residue equality for a supplied coprime DVR square
 
-For an actual finite square of DVRs, coprimality of the horizontal field degrees
-forces equality of the two vertical ramification indices and residue degrees.
+When the common horizontal degree is coprime to the common vertical prime degree,
+the two vertical ramification indices and residue degrees agree.
 The native chosen-norm base-change theorem applies to the actual fraction and
 residue fields. A mixed expansion upstairs therefore kills the restricted
 norm-residue error with its actual ramification weight. The residue norm turns
