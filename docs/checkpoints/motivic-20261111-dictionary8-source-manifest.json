@@ -1,0 +1,167 @@
+{
+  "status": "EXACT_DICTIONARY8_NATIVE_ACCEPTANCE_REUSED",
+  "created_utc": "2026-11-11T00:11:28.009593+00:00",
+  "base": "4b8d45af047f5d0b4531abd659ed85dd1ce5bc26",
+  "base_tree": "5c0666c7005e1f5deb5c69255bc3e3528940a1b5",
+  "main_observed": "f376b384a6abaf5aee59a02ba036d09192b83a05",
+  "scope": "dictionary8",
+  "source_count": 8,
+  "production": 5,
+  "consumers": 3,
+  "consumer_examples": 31,
+  "ordinary_axiom_declarations": 125,
+  "pins": {
+    "lean": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7",
+    "original_motivic": "a6805c4a87cdfd7717dd7a94039246a167f15380"
+  },
+  "files": [
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/FieldCycleEvaluation.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.FieldCycleEvaluation",
+      "sha256": "80c542d88d24cd6a5d3e6a201caa1a4ac93af6b68fc1703789d75b882ff79f05",
+      "git_blob": "f307fc0ffdb6528034534b52aed0424768be98e4",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/Finite/WeightOneClasses.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneClasses",
+      "sha256": "7c437d90194a7fcff99bf8c9628f62264477d856bfedb5716fece4a2d59377fb",
+      "git_blob": "a8ac42b9dcc36fd9abb7330de77c508fceca9c89",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/FieldComparisonMap.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.FieldComparisonMap",
+      "sha256": "acdd4e1928deebd752523f57020a10fbaa358e7d395b5e47f781ac1845bd80fe",
+      "git_blob": "b340973a0c1d2e9ae6174ec9b135c204891c411f",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/PointNormDictionary.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.PointNormDictionary",
+      "sha256": "34e255a0c3de0c2180030f128fc570ff23a4f0d17d8dda1a6fc10406f814f1bd",
+      "git_blob": "8d9aff34d8a561722b6351f85ca3704120c522cb",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/RawClasses.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.RawClasses",
+      "sha256": "1433dc66985026e239a3d3903172aefba66e4d225120c7549c5045638b9461a3",
+      "git_blob": "b6cd90fdd1c677d9f6b044440bd95f9d80f78107",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "ColibTest/ActualFiniteWeightOneClasses.lean",
+      "module": "ColibTest.ActualFiniteWeightOneClasses",
+      "sha256": "e89ca2557f2492387b2c2d419b87625dec6df43e64e1be032ffd227b1d204483",
+      "git_blob": "ec7e5d757520f394bc45fde0506115f7f19511c8",
+      "kind": "consumer",
+      "examples": 11
+    },
+    {
+      "path": "ColibTest/ActualWeightOnePointNorm.lean",
+      "module": "ColibTest.ActualWeightOnePointNorm",
+      "sha256": "c3e808b96976ef66cf3a1175a065b7a0b6b46513b14db1d69b276f997cfccafa",
+      "git_blob": "c1cbbc34f5b820eac800c3aa540015fc4387dc24",
+      "kind": "consumer",
+      "examples": 8
+    },
+    {
+      "path": "ColibTest/ActualWeightOneRawDictionary.lean",
+      "module": "ColibTest.ActualWeightOneRawDictionary",
+      "sha256": "628e67d12a192dd440ec0b50d34af1a12b9e6431d0516859e0c8397b4519ba4b",
+      "git_blob": "73e0c82115296663339d779adf485a4c231f51fc",
+      "kind": "consumer",
+      "examples": 12
+    }
+  ],
+  "native15": "PASS",
+  "ordinary_axiom_closure": "PASS",
+  "exact_source_textstyle": "PASS",
+  "ordinary_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_receipts": {
+    "DICTIONARY8_ACCEPTANCE.json": {
+      "filename": "DICTIONARY8_ACCEPTANCE.json",
+      "sha256": "a32ce57c46069f79a90edf4d4f641760bb2e92191386b541c54c94a2ef282c25",
+      "bytes": 16617
+    },
+    "DICTIONARY8_MANIFEST.json": {
+      "filename": "DICTIONARY8_MANIFEST.json",
+      "sha256": "7b4b3c64dfa54e1c066381827082402d3827854e845c6a8f8a7ba0f22241d35d",
+      "bytes": 14378
+    },
+    "DICTIONARY8_ACCEPTED_REGISTRY.json.gz": {
+      "filename": "DICTIONARY8_ACCEPTED_REGISTRY.json.gz",
+      "sha256": "e4fb4fcce1456296088a6eb09cbe788338da31aede6a81fb854d1e4f29e70ee4",
+      "bytes": 85296
+    },
+    "DICTIONARY8_SOURCE_REPAIR.patch": {
+      "filename": "DICTIONARY8_SOURCE_REPAIR.patch",
+      "sha256": "6ede09b30d0440aa6b43b4e725e76779e4d43c9e74df4445f3d1835154b831c3",
+      "bytes": 8547
+    },
+    "DICTIONARY8_LEAN_ONLY_ARCHIVE.json": {
+      "filename": "DICTIONARY8_LEAN_ONLY_ARCHIVE.json",
+      "sha256": "80733fc52767f4dead890ffa4bf3dfeb6a480635b346ca7bb52ea7e292d06f05",
+      "bytes": 396
+    }
+  },
+  "archive": {
+    "sha256": "c286e9c3d4f13d5ef1ff32242dda3123c394378619ec1f23e0b78e618112bff8",
+    "bytes": 14919
+  },
+  "archive_name": "dictionary8-native-accepted-lean-only-20261111.zip",
+  "archive_only_lean": true,
+  "archive_repacked": false,
+  "archive_retested": false,
+  "lower_source_binding": {
+    "reachable_modules": 17521,
+    "lower_colib_sources": 447,
+    "external_sources_byte_bound": 17066,
+    "accepted_product_bindings": 162,
+    "unpublished_dependencies": [],
+    "prior350_byte_identical": true
+  },
+  "catalog_tags_added": [],
+  "catalog_metadata_changed": false,
+  "root_imports_added": 5,
+  "metadata_validation": {
+    "script_tests": 115,
+    "ci_metadata_tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "catalog_chapters": 11,
+    "catalog_sections": 56,
+    "catalog_items": 413,
+    "checker_and_fixtures_unchanged": true,
+    "finite9_parser_repair_and_six_regressions_preserved": true
+  },
+  "new_frontend_calls": 0,
+  "new_aggregate_branch_build": false,
+  "kernel_replay": false,
+  "main_write": false,
+  "ci_policy": "Branch checkpoint uses [skip ci]; no dispatch, rerun, or new aggregate CI claim.",
+  "not_claimed": [
+    "Final unit-coordinate normalization",
+    "Norm-on-homology and graph-inverse dictionary",
+    "D/E assembly",
+    "Full original WeightOne dictionary or facade",
+    "Arbitrary-field base change or naturality",
+    "Unconditional strict A1 invariance",
+    "Independent mathematical review",
+    "New aggregate branch compilation or CI success",
+    "Whole motivic migration completion"
+  ]
+}

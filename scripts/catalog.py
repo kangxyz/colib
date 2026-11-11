@@ -248,15 +248,25 @@ def load_catalog(root=ROOT):
 def check_sources(root=ROOT):
     roots = {"Colib", "Mathlib", "StacksCore", "StacksFrontier"}
     for path in sorted((root / "Colib").rglob("*.lean")):
-        tokens = re.split(r"(/-|-/|--[^\n]*)", path.read_text())
-        depth, code = 0, []
+        tokens = re.split(r"(/-|-/|--|\n)", path.read_text())
+        depth, line_comment, code = 0, False, []
         for token in tokens:
+            if line_comment:
+                if token == "\n":
+                    line_comment = False
+                    code.append(token)
+                continue
             if token == "/-":
                 depth += 1
             elif token == "-/":
+                if depth == 0:
+                    raise ValueError(f"Unbalanced comments in {path}")
                 depth -= 1
-            elif depth == 0 and not token.startswith("--"):
-                code.append(token)
+            elif depth == 0:
+                if token == "--":
+                    line_comment = True
+                else:
+                    code.append(token)
         if depth != 0:
             raise ValueError(f"Unbalanced comments in {path}")
         text = "".join(code)

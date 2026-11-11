@@ -1,0 +1,210 @@
+{
+  "status": "EXACT_COMPARISONS11_NATIVE_ACCEPTANCE_REUSED",
+  "created_utc": "2026-11-10T23:44:48.190108+00:00",
+  "base": "51ef1daed737249b7b5835ea60601cdbcdaa6ed1",
+  "base_tree": "fc23aac21155d9c5c6b41fbd5865d447fde30317",
+  "main_base": "f376b384a6abaf5aee59a02ba036d09192b83a05",
+  "scope": "comparisons11",
+  "source_count": 11,
+  "production": 8,
+  "consumers": 3,
+  "consumer_examples": 24,
+  "ordinary_axiom_declarations": 101,
+  "pins": {
+    "lean": "4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "stacks": "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+  },
+  "files": [
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/OrdinaryShiftComparison.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.OrdinaryShiftComparison",
+      "sha256": "fde4533e4882ab9ab0b9fbcfe0957f068e7102ee30d24207c5e151cc599f66d6",
+      "git_blob": "48330f5212fa4f1b5758d781b98716f540bc8096",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/Hypercohomology.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
+      "sha256": "48744415aca7dc5afbe2310af824ad4d3ba04ebeadefe2157f7301ea9bbad64b",
+      "git_blob": "4f7e86ab16e24400cb040a26279ffe634cf2ea0e",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/MotivicCohomology/WeightOne/SheafComparison.lean",
+      "module": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.SheafComparison",
+      "sha256": "83bb0c8e641a34a65fdf805bca8a48c179b2570cca76a80873ea465299991815",
+      "git_blob": "a7dd617bb99b8ebbfc19fc67def1e3712e4c8a4a",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Simplex/AffineUnitProjection.lean",
+      "module": "Colib.AlgebraicGeometry.Simplex.AffineUnitProjection",
+      "sha256": "1f95b9ce9d2d28f52b9a355841d9d69fd059fd04aee87e38cfda5ed3ca76a9ce",
+      "git_blob": "b3e35fc510755a3b1fe3658cb97ad7581ee8c34a",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitComplex.lean",
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex",
+      "sha256": "e75e839cfc4bd5d773d135306808b534713b403ce833bfeb151c25a38b967fa2",
+      "git_blob": "9f8599439170d5a821f9fbacfc6fe0b66882cd1e",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitHomotopyInvariance.lean",
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitHomotopyInvariance",
+      "sha256": "54dfedc233a96bcfcd0907e8175bcf9c45dc5c43be95e2a943aae97eeada7ceb",
+      "git_blob": "89e433e4c9e73ca06c1a33d9e622e534914cd43a",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/AlgebraicGeometry/Sites/Smooth/Units/UnitSheafification.lean",
+      "module": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitSheafification",
+      "sha256": "ab1fbce1c3113a3f7fe0fe9cc85660a0b4cea1359d9aaa296740d094394484d0",
+      "git_blob": "2362045dfa7f455c995b8e69c9aa64bf481ebc27",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "Colib/RingTheory/AlgebraicSimplex/Units.lean",
+      "module": "Colib.RingTheory.AlgebraicSimplex.Units",
+      "sha256": "76785ce3f470fed7e1ddd843346ebad1652cfcd87682d22ddaa89c4d33270c6a",
+      "git_blob": "4daa2cb18f2a71638611b0002b6eb412ba1d5d83",
+      "kind": "producer",
+      "examples": 0
+    },
+    {
+      "path": "ColibTest/ActualSimplexUnits.lean",
+      "module": "ColibTest.ActualSimplexUnits",
+      "sha256": "c0a25b8ceba56bd0238ba7c53daffa6d8864391dd796ff4a63e496a7d61e45c8",
+      "git_blob": "f0cbe4060b0401c371c593e68734e7306b3a93a2",
+      "kind": "consumer",
+      "examples": 13
+    },
+    {
+      "path": "ColibTest/ActualWeightOneHypercohomology.lean",
+      "module": "ColibTest.ActualWeightOneHypercohomology",
+      "sha256": "01a02b493313a159075326bbd495466026613de7853b18fc8d7e3408ce2dc9f6",
+      "git_blob": "2b8e730591b23e55bd567c33e20f9ad0d404277d",
+      "kind": "consumer",
+      "examples": 5
+    },
+    {
+      "path": "ColibTest/ActualWeightOneSheafComparison.lean",
+      "module": "ColibTest.ActualWeightOneSheafComparison",
+      "sha256": "38a97d6d675ca4eaa9a096f794e3aa33548a51115e4e38f094c76555ae09a516",
+      "git_blob": "21ebc244d4aaa79bd5c9b0d124b326c1d40038b9",
+      "kind": "consumer",
+      "examples": 6
+    }
+  ],
+  "native15": "PASS",
+  "ordinary_axiom_closure": "PASS",
+  "exact_source_textstyle": "PASS",
+  "ordinary_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_receipts": {
+    "COMPARISONS11_ACCEPTANCE.json": {
+      "filename": "COMPARISONS11_ACCEPTANCE.json",
+      "sha256": "886d6686e0f76b183de588c4e7d2b774a2afb365726273f3b3ee9ad22e30bae6",
+      "bytes": 21861
+    },
+    "COMPARISONS11_MANIFEST.json": {
+      "filename": "COMPARISONS11_MANIFEST.json",
+      "sha256": "304e57d8cde0d24a52c76d790ad9f85ebdf846955377fdd8fda1c9f44b1d82fa",
+      "bytes": 14913
+    },
+    "COMPARISONS11_ACCEPTED_REGISTRY.json.gz": {
+      "filename": "COMPARISONS11_ACCEPTED_REGISTRY.json.gz",
+      "sha256": "bb65a2bcbd655fafa38fd436b77152dc47d43a072e10615042a42da0da9a203a",
+      "bytes": 77403
+    },
+    "COMPARISONS11_SOURCE_REPAIR.patch": {
+      "filename": "COMPARISONS11_SOURCE_REPAIR.patch",
+      "sha256": "85bc2961c16584b2398ebb5c84f5a78c4d809d3b4ea1c75ce5de8d4416fd2c5f",
+      "bytes": 11056
+    },
+    "COMPARISONS11_LEAN_ONLY_ARCHIVE.json": {
+      "filename": "COMPARISONS11_LEAN_ONLY_ARCHIVE.json",
+      "sha256": "be418b18741578427a75e01a9f3e3391664de40fff264a350f1df9ccc754be5f",
+      "bytes": 399
+    }
+  },
+  "archive": {
+    "sha256": "b92e4c8551b24ed5bd7d7524fad20435ef496b656060959f1b06ffec4b86c3f3",
+    "bytes": 16427
+  },
+  "archive_name": "comparisons11-native-accepted-lean-only-20261110.zip",
+  "archive_only_lean": true,
+  "lower_source_binding": {
+    "reachable_modules": 17513,
+    "lower_colib_sources": 436,
+    "unpublished_dependencies": [],
+    "prior330_byte_identical": true
+  },
+  "catalog_tags_added": [
+    "COL-0402",
+    "COL-0403",
+    "COL-0404"
+  ],
+  "real_native_tag_bindings": 7,
+  "root_imports_added": 8,
+  "new_frontend_calls": 0,
+  "new_aggregate_branch_build": false,
+  "kernel_replay": false,
+  "ci_policy": "Source-backup checkpoint uses [skip ci]; no dispatch or rerun.",
+  "not_claimed": [
+    "Remaining followon40 scopes",
+    "Full original WeightOne dictionary or facade",
+    "Arbitrary-field base change or naturality",
+    "Strict A1 invariance",
+    "Independent mathematical review",
+    "New aggregate branch compilation",
+    "Whole motivic migration completion"
+  ],
+  "metadata_validation": {
+    "script_tests": 115,
+    "ci_metadata_tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "catalog_chapters": 11,
+    "catalog_sections": 56,
+    "catalog_items": 413,
+    "initial_fixture_failure_retained": true,
+    "fixture_update": "Five additive mappings/expectations for the new section and its three actual owners; no assertions or existing tests removed.",
+    "parser_repair": "Inherited unchanged from finite9; all six regressions retained."
+  },
+  "baseline_ci": [
+    {
+      "id": 42911300175,
+      "name": "Colib CI",
+      "head_sha": "f376b384a6abaf5aee59a02ba036d09192b83a05",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/kangxyz/colib/actions/runs/42911300175",
+      "created_at": "2026-11-10T22:05:46Z",
+      "updated_at": "2026-11-10T22:26:51Z"
+    },
+    {
+      "id": 42908826128,
+      "name": "Colib CI",
+      "head_sha": "f376b384a6abaf5aee59a02ba036d09192b83a05",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/kangxyz/colib/actions/runs/42908826128",
+      "created_at": "2026-11-10T21:49:58Z",
+      "updated_at": "2026-11-10T22:05:13Z"
+    }
+  ]
+}

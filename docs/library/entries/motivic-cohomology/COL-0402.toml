@@ -1,0 +1,68 @@
+[entry]
+id = "COL-0402"
+title = "Simplicial constancy and contraction of global units"
+kind = "comparison"
+section = "weight-one-comparison"
+order = 10
+primary = "AlgebraicGeometry.Scheme.SmoothSite.unitSingularSheafHomotopyEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field and \(G(X)=\Gamma(X,\mathcal O_X)^\times\), viewed as
+an ordinary abelian Nisnevich sheaf on \(\mathrm{Sm}/k\). For every
+\(r\geq0\) and every smooth separated finite-type \(X/k\), pullback along
+the actual projection is an isomorphism
+\[
+\pi_{X,r}^*:G(X)\xrightarrow{\sim}G(X\times_k\Delta_k^r).
+\]
+If \(\alpha:\Delta_k^r\to\Delta_k^s\) is any simplex operator, then
+\((1_X\times\alpha)^*\pi_{X,s}^*=\pi_{X,r}^*\). These maps define a
+simplicial isomorphism from the constant sheaf \(G\) to the simplicial
+sheaf \(U_r(X)=G(X\times_k\Delta_k^r)\).
+
+The alternating-face chain complex \(C_*(U)\) is chain-homotopy equivalent
+to \(G[0]\). Specifically, first identify it with the alternating-face
+complex of constant \(G\) by the inverses of \(\pi_{X,r}^*\), and then
+use the constant augmented simplicial object's extra-degeneracy contraction.
+This gives a fixed chain map \(\varepsilon:C_*(U)\to G[0]\), which is a
+quasi-isomorphism in every nonnegative degree. The canonical sheafification
+counit identifies \(aC_*(G)\) with \(C_*(U)\), retaining the same literal
+product restrictions and the same alternating differential.
+'''
+scope = '''
+The field is arbitrary, in universe \(u\); sheaf coefficients are
+`AddCommGrpCat.{u + 1}`. The result holds on every smooth separated finite-type
+source, including empty and disconnected sources. No homotopy-invariance or
+quasi-isomorphism assumption is supplied by the caller. The algebraic input
+holds for every reduced commutative ring: the constant inclusion into the
+barycentric simplex coordinate ring induces an isomorphism on units.
+
+Only ordinary morphisms over this fixed field occur. Constancy of these unit
+sections is not a claim of strict \(\mathbb A^1\)-invariance of all sheaf
+cohomology. Neither a transfer action on units nor arbitrary-field naturality
+is asserted.
+'''
+proof = '''
+Over a reduced ring \(A\), the barycentric coordinate ring of \(\Delta_A^r\)
+is a polynomial ring in \(r\) variables, and its units are precisely the
+constant units. The actual affine projection pulls back along that constant
+ring map. Transporting through the canonical affine chart and global-sections
+isomorphisms proves that \(\pi_{X,r}^*\) is invertible for affine smooth
+\(X\). The genuine integral-affine covering family detects an isomorphism
+of Nisnevich sheaves, proving the statement for all \(X\).
+
+The equation for \(\alpha\) follows by composing the actual projections;
+it identifies every face and degeneracy with the identity after the projection
+isomorphisms. Apply the alternating-face functor to this simplicial isomorphism
+and compose with the native constant extra-degeneracy homotopy equivalence.
+The raw units complex already uses literal products. Its identity component
+comparison and the sheafification counit therefore give the asserted
+\(aC_*(G)\) comparison without a second product model.
+
+This adapts the actual projection calculation in
+[@motivic_source_a6805c4, Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Units/UnitHomotopyInvariance.lean]
+and the simplicial construction and contraction in
+[@motivic_source_a6805c4, Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Units/UnitComplex.lean:28-103].
+The counit comparison adapts
+[@motivic_source_a6805c4, Motivic/Aglib/AlgebraicGeometry/Sites/Smooth/Units/UnitSheafification.lean].
+'''

@@ -94,6 +94,67 @@ class LibraryTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "outside the dependency boundary"):
                     catalog.check_sources(self.root)
 
+    def test_finite_coefficient_triangle_docstring_is_a_block_comment(self):
+        relative = "Colib/Algebra/Homology/CochainComplex/FiniteCoefficients/Basic.lean"
+        source = catalog.ROOT / relative
+        self.assertIn(
+            "/-- The canonical coefficient triangle `K --n--> K --> K/n --> K[1]`. -/",
+            source.read_text(),
+        )
+        target = self.root / relative
+        target.parent.mkdir(parents=True)
+        shutil.copyfile(source, target)
+        catalog.check_sources(self.root)
+
+    def test_nested_block_comments_keep_dash_pairs_as_text(self):
+        source = self.root / "Colib/NestedComments.lean"
+        source.parent.mkdir()
+        source.write_text(
+            "/- outer -- still in the block /- inner -- axiom hidden -/ outer -/\n"
+            "public import Mathlib.CategoryTheory.Category.Basic\n"
+            "/-- A multiline block -- with /- nested\n"
+            "native_decide -/ and a closing delimiter after --. -/\n"
+        )
+        catalog.check_sources(self.root)
+
+    def test_real_line_comments_ignore_block_delimiters(self):
+        source = self.root / "Colib/MixedComments.lean"
+        source.parent.mkdir()
+        source.write_text(
+            "-- /- This does not open a block.\n"
+            "/- A block -- not a line comment -/ -- -/ This does not close a block.\n"
+            "public import Mathlib.CategoryTheory.Category.Basic\n"
+            "-- /- An unterminated marker inside a final line comment."
+        )
+        catalog.check_sources(self.root)
+
+    def test_unbalanced_block_comments_are_rejected(self):
+        source = self.root / "Colib/UnbalancedComments.lean"
+        source.parent.mkdir()
+        for text in ("/- open", "/- outer /- inner -/", "-/", "-/ /-", "/- -- open\n"):
+            with self.subTest(text=text):
+                source.write_text(text)
+                with self.assertRaisesRegex(ValueError, "Unbalanced comments"):
+                    catalog.check_sources(self.root)
+
+    def test_comments_do_not_hide_following_production_placeholders(self):
+        source = self.root / "Colib/ForbiddenAfterComments.lean"
+        source.parent.mkdir()
+        for declaration in ("axiom forbidden : True", "theorem forbidden : True := by sorry"):
+            with self.subTest(declaration=declaration):
+                source.write_text(
+                    "/- outer -- /- inner -/ outer -/\n-- ignored /-\n" + declaration
+                )
+                with self.assertRaisesRegex(ValueError, "Production placeholder or added axiom"):
+                    catalog.check_sources(self.root)
+
+    def test_comments_do_not_hide_following_external_imports(self):
+        source = self.root / "Colib/ExternalAfterComments.lean"
+        source.parent.mkdir()
+        source.write_text("/- block -- text -/\n-- ignored /-\npublic import External.Module\n")
+        with self.assertRaisesRegex(ValueError, "outside the dependency boundary"):
+            catalog.check_sources(self.root)
+
     def test_independent_milestone_ids_keep_their_owners(self):
         expected = {
             "COL-0263": "milnor-symbols-field-change",
@@ -357,6 +418,7 @@ class LibraryTests(unittest.TestCase):
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
+            "weight-one-comparison": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
@@ -411,6 +473,9 @@ class LibraryTests(unittest.TestCase):
             "COL-0058": "Colib.Topology.ClassifyingSpace.NerveHomotopy",
             "COL-0098": "Colib.Analysis.Convex.StdSimplex.BoundaryRetraction",
             "COL-0388": "Colib.AlgebraicGeometry.Correspondences.Exterior.Graph",
+            "COL-0402": "Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex",
+            "COL-0403": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.SheafComparison",
+            "COL-0404": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -532,6 +597,7 @@ class LibraryTests(unittest.TestCase):
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
             "weight-one-norm": ["COL-0401"],
+            "weight-one-comparison": ["COL-0402", "COL-0403", "COL-0404"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():

@@ -1,0 +1,67 @@
+[entry]
+id = "COL-0404"
+title = "Weight-one hypercohomology and ordinary units cohomology"
+kind = "comparison"
+section = "weight-one-comparison"
+order = 30
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneSheafCohomologyEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-10"
+statement = '''
+Let \(k\) be a field, \(\mathcal A\) the category of ordinary abelian
+Nisnevich sheaves on \(\mathrm{Sm}/k\), and
+\(G(X)=\Gamma(X,\mathcal O_X)^\times\). Choose the unbounded derived
+category of \(\mathcal A\). For every \(p\in\mathbb Z\), localization
+of the actual map \(\eta\) in COL-0403 gives an isomorphism of presheaves
+\[
+H^{p,1}(-,\mathbb Z)\xrightarrow{\sim}\mathbb H^{p-1}(-,G[0]).
+\]
+At \(X\), it sends a derived morphism
+\(x:F_X[0]\to Q(K_1)[p]\) to \(Q(\eta)[p]\circ x\), followed by
+the native shift identification
+\(Q(G[0][-1])[p]\simeq Q(G[0])[p-1]\). Here
+\(F_X=\mathbb Z_{\mathrm{Nis}}[X]\) is the same free representing sheaf
+as in COL-0399 and \(Q\) is localization. For every \(f:X\to Y\), this
+map commutes with restriction by precomposition with \(F_f[0]\).
+
+If the native Ext groups of \(\mathcal A\) are also given, then for every
+\(n\geq0\) and every smooth separated finite-type \(X/k\) there is a
+specified additive equivalence
+\[
+H^{n+1,1}(X,\mathbb Z)\xrightarrow{\sim}
+H^n_{\mathrm{Nis}}(X,G)
+=\operatorname{Ext}^n_{\mathcal A}(F_X,G).
+\]
+It is the preceding comparison at \(p=n+1\), followed by the native
+single-sheaf hypercohomology/Ext comparison.
+'''
+scope = '''
+Take \(k\) in universe \(u\), sheaf coefficients `AddCommGrpCat.{u + 1}`,
+an explicit `HasDerivedCategory.{w}` instance, and, for the last equivalence,
+an explicit `HasExt.{w'}` instance. The derived and Ext universes \(w,w'\)
+are independent; this is why the pointwise result is an additive equivalence
+rather than an identification inside a common universe. All integer degrees
+occur in the presheaf comparison; the ordinary Ext statement has
+\(n\in\mathbb N\).
+
+The source is the unbounded derived-Hom definition of COL-0399. No affineness,
+connectedness, perfection, characteristic or invertibility condition is added.
+Naturality is for ordinary smooth morphisms over a fixed field. No
+arbitrary-field base-change law, transfer action on these groups, strict
+\(\mathbb A^1\)-invariance, Picard computation or roots-of-unity computation
+is part of this item.
+'''
+proof = '''
+The unbounded hypercohomology presheaf functor sends the quasi-isomorphism
+\(\eta\) to an isomorphism. Compose it with the shift comparison and the
+equality \(-1+p=p-1\). Its naturality is the original naturality of that
+presheaf map, so the representing-sheaf restrictions remain unchanged.
+At \(p=n+1\), use \((n+1)-1=n\) and the existing single-sheaf comparison
+between derived Hom and ordinary Ext. This proves the second equivalence
+without imposing a bounded-below condition on the source motivic complex.
+
+These two endpoints adapt respectively
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Hypercohomology.lean:33-49]
+and
+[@motivic_source_a6805c4, Motivic/Cohomology/WeightOne/Hypercohomology.lean:51-74].
+'''

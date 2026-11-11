@@ -87,3 +87,28 @@ identity-coordinate relation has norm one. Ordinary naturality extends this
 map to the smooth site. The kernel must be compared with actual boundary-one
 rational functions before passing from the norm to a quasi-isomorphism.
 '''
+
+[[sections]]
+id = "weight-one-comparison"
+title = "Units and the signed weight-one comparison"
+order = 60
+introduction = 'The unshifted norm target is still a singular complex. Its projection maps identify the simplicial units sheaf with constant units. Combining its contraction with the canonical signed shift gives the weight-one comparison and its effect on unbounded hypercohomology.'
+
+[sections.transitions]
+COL-0402 = '''
+The target of COL-0401 records units on every product with a simplex. To
+replace it by units in degree zero, use pullback along the actual projections,
+then check that these isomorphisms respect all simplex operators.
+'''
+COL-0403 = '''
+Compose the norm of COL-0401 with the contraction of COL-0402 before extending
+chains into cochains. The source of the final map must be the signed complex
+of COL-0398. Its ordinary comparison therefore carries the same shift and
+the same differential sign through the composite.
+'''
+COL-0404 = '''
+Apply the derived-Hom definition of COL-0399 to the particular map in
+COL-0403. Postcomposition keeps the representing-sheaf restriction maps;
+the shift by minus one changes degree p to p minus one. For a single sheaf,
+the existing comparison with ordinary Ext identifies the resulting groups.
+'''
