@@ -27,8 +27,8 @@ variable "parallel_runner_limit" {
   type        = number
   default     = 0
   validation {
-    condition     = contains([0, 1, 2], var.parallel_runner_limit)
-    error_message = "The supported parallel runner limits are zero, one and two."
+    condition     = contains([0, 1, 2, 3], var.parallel_runner_limit)
+    error_message = "The parallel runner limit must be an integer from zero through three."
   }
 }
 

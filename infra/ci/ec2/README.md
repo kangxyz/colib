@@ -166,7 +166,7 @@ dependency warmup, and split CI.
 
 Build the pinned Lambda packages, including `parallel-controller.zip`, with
 `bash fetch-lambdas.sh`. Review a Terraform plan with
-`enabled=true`, `guarded_ci=true`, and `parallel_runner_limit=2` before
+`enabled=true`, `guarded_ci=true`, and `parallel_runner_limit=3` before
 activating the controller. Publish the updated workflow and set
 `COLIB_PARALLEL_RUNNER_ENABLED=true` to route ordinary CI to the private runners.
 Existing branches need the updated workflow before they can use parallel CI.
