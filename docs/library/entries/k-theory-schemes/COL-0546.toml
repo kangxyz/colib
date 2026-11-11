@@ -1,0 +1,13 @@
+[entry]
+id = "COL-0546"
+title = "Normalized coefficient prisms after parameter evaluation"
+kind = "comparison"
+section = "tensor-unit-prisms"
+order = 50
+statement = "The genuine tensor-pullback first row is isomorphic to its original chosen-zero-normalized tensor functor followed by first-row insertion. The transported row automorphism equals the normalized weak transformation on that same row. Its coefficient prism is the original normalized prism. For a fixed factor Q and an arbitrary scheme parameter X, identity evaluation followed by the actual Laurent coefficient pullback gives the corresponding first row, zero-row law, normalization and coefficient-prism formula."
+scope = "The normalization uses the specified tensor-pullback zero isomorphism. Scheme parameter, coefficient pullback, row/grid directions and nerve direction remain the original ones. This item identifies the normalized row and prism; it does not assert a returned/qualified tensor generator, whole parameter model naturality, Bass equivalence or localization."
+proof_kind = "outline"
+proof = "Whisker the original first-row comparison with geometric pullback and compose it with the chosen-zero normalization. Conjugating the coefficient-row automorphism through that isomorphism gives the normalized weak transformation. The prism equation follows for this same transformation. Whiskering by identity evaluation yields the parameter first-row and prism formulas."
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.prism"
+provenance = "quillen"

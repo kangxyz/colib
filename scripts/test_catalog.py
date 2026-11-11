@@ -454,6 +454,7 @@ class LibraryTests(unittest.TestCase):
 "supported-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "perfect-pullback": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "global-sections-and-parameters": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
+"tensor-unit-prisms": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorModelUnit",
 "affine-evaluation": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "affine-bass-constructions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
             "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
@@ -1472,6 +1473,13 @@ class LibraryTests(unittest.TestCase):
         for identifier in ['COL-0538', 'COL-0539', 'COL-0540', 'COL-0541']:
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], "global-sections-and-parameters")
+            self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
+
+
+    def test_tensor_unit_prisms_keep_scheme_owner(self):
+        for identifier in ['COL-0542', 'COL-0543', 'COL-0544', 'COL-0545', 'COL-0546', 'COL-0547']:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], "tensor-unit-prisms")
             self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
 
 

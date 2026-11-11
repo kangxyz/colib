@@ -129,3 +129,17 @@ COL-0538 = "The restriction of COL-0535 can now retain its Waldhausen data as we
 COL-0539 = "The ambient and supported diagrams of COL-0534 retain the global section objects. To form the relative-open diagram, change only which maps become weak after the original open restriction. Its factorization remembers that the relative model and the actual model on the open are different objects."
 COL-0540 = "The raw unit of COL-0537 now supplies a whole realized track. Restricting the same unit, rather than choosing another automorphism, gives the supported track. Its comparison with the ambient track keeps every homotopy time through the actual support-forgetting map."
 COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-0539. The first comparison is the identity on the original unit, while the second uses its fixed-factor pullback law. Thus both arrows of the restriction factorization retain the entire Laurent track without claiming a localization equivalence."
+
+[[sections]]
+id = "tensor-unit-prisms"
+title = "Tensor-unit actions and coefficient prisms"
+order = 58
+introduction = "The actual sheafified tensor unit acts on bounded-flat perfect complexes. Its unitor and scalar comparison determine the original nerve and iterated-S prisms. Coefficient-row normalization and global evaluation compare the two parameter model routes and their unit actions, before external parameter naturality and Bass comparisons."
+
+[sections.transitions]
+COL-0542 = "Retain the actual structure-module tensor before passing to its unitor. The scalar comparison identifies its components with the global unit action already used on sections, so the later prisms can keep the original tensor edge."
+COL-0543 = "Normalize the chosen zero of the actual tensor-pullback map without changing its original coefficient crossing. The categorical two-time interchange lets the prism pass through each S-construction stage, with the structure interval and tensor interval still separate."
+COL-0544 = "Insert the tensor coefficient as a genuine first row rather than replacing that row by an identity model. The row isomorphism transports exactness and compares the complete scalar automorphism; those are the data needed for the two-dimensional coefficient prism."
+COL-0545 = "Use the first-row scalar comparison to identify the coefficient prism while preserving its endpoints. Reindexing the two grid directions and the nerve-cylinder direction separately gives the simultaneous naturality equation, before any later parameter normalization."
+COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
+COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
