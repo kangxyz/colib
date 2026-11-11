@@ -1,0 +1,46 @@
+[entry]
+id = "COL-0517"
+title = "Original row interchange through finite Bass iteration"
+kind = "comparison"
+section = "bass-construction"
+order = 50
+statement = """
+A pointed, coefficient-natural family of levelwise row interchanges descends through
+the original reduced span and mapping cone and acts pointwise on the independent
+old parameter loop. Recursively applying this construction computes a row interchange
+at every finite Bass stage. If the initial family exchanges two consecutive structure
+times, the computed interchange exchanges those times at every finite stage.
+Point preservation and ordinary diagram naturality hold at each stage as well.
+"""
+scope = """
+Arbitrary indexing categories and loop-prespectrum diagrams in the stated universes.
+The Bass-stage index and spectrum-level index are independent. The initial family
+acts at level k+3, fixes the original point and commutes with every coefficient arrow.
+Its two-structure exchange equation is an explicit initial hypothesis; no all-stage
+exchange law, generated trace or involutivity is assumed in the iteration theorem.
+The old loop coordinate, quotient-cylinder height and both structure times remain
+independent. Separate involutivity lemmas retain their explicit involutivity hypothesis.
+This is the finite row-interchange ingredient for the tensor-generated construction,
+not the construction of its tensor unit, complete generated trace, stable equivalence,
+negative K-theory localization, or Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.DiagramRowInterchange.iterate_structure"
+proof_kind = "outline"
+proof = """
+The actual corner maps descend to the original reduced pushout and cone quotients.
+Their generator formulas preserve the old cylinder coordinate. Naturality identifies
+their action on the original source-null cylinder, so the cone interchange commutes
+with coefficient arrows and inherits the initial two-structure equation.
+
+Pointwise action on based loops preserves the independent old loop coordinate.
+Path extensionality transfers point preservation, naturality and the two-structure
+identity to the actual Bass-step interchange.
+
+The finite recursion stores only the proved point and ordinary naturality laws
+needed to construct its next quotient map. Its zero stage is literally the input
+family; its successor applies the same recursion to the transformed diagram and
+the computed Bass-step family. Induction on the Bass-stage index, generalizing the
+diagram, proves the two-structure equation from the initial equation alone.
+"""
+source_checked_on = "2026-11-10"

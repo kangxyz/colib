@@ -193,3 +193,7 @@ introduction = "Strict squares of loop prespectra give cone–loop comparisons a
 
 [sections.transitions]
 COL-0354 = "In the reduced quotient, the basepoint fibre includes the inverse\nimages of the basepoints under the endpoint maps. These closed\nfibres enter the \\(T_1\\) verification for the cone and double\ncylinder. Looping preserves the resulting separation condition,\nwhich can then be propagated through the finite iterates.\n"
+COL-0514 = "The strict-square construction also transports four compatible moving corner maps.\nKeeping both quotient heights separate from the moving parameter gives the whole cone\naction. Its four generator formulas characterize that action uniquely, providing the\nrecognition input used later by the tensor-generated Bass recipe.\n"
+COL-0516 = "The four-corner action can now be assembled over an indexing category. Literal zero\npreservation fixes the transported null endpoints; the specified inverse index\ninterchange gives the natural cone track and its original source-null formula.\nSource-seed transport additionally retains the stated scalar-track intertwining\ncondition, rather than supplying an unproved seed compatibility.\n"
+COL-0517 = "The original row interchange then descends through the reduced span, cone and old\nparameter loop. Its finite Bass iteration is computed recursively, with point and\nordinary naturality laws carried by the recursion. Induction proves the all-stage\ntwo-structure exchange from the initial equation, without assuming a generated trace.\n"
+

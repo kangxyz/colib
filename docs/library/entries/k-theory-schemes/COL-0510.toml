@@ -1,0 +1,46 @@
+[entry]
+id = "COL-0510"
+title = "Weak and stable equivalence of actual affine Bass evaluation"
+kind = "comparison"
+section = "affine-bass-constructions"
+order = 5030
+statement = """
+For every commutative ring, the actual evaluation map from the strict affine-section
+polynomial span to the original bounded-flat geometric span is a weak homotopy equivalence
+at every level. The actual moving-square cone map and its parameter-looped one-step Bass
+map are likewise weak homotopy equivalences at every level. Consequently each of these
+three named prespectrum maps is a stable equivalence in every integer degree.
+"""
+scope = """
+Arbitrary commutative rings, including the zero ring, and every level, including zero.
+The maps are the original actual affine Bass evaluation maps, retaining the coefficient tracks and
+comparison-square filler. The chosen points of the actual source and target constructions
+satisfy the homotopy extension property; these are proved geometric inputs, not supplied
+weak-equivalence or excision hypotheses. The target remains the original homotopy-natural
+bounded-flat construction, not a strict replacement. This proves a single Bass-stage
+comparison, not an iterated raw comparison, a perfect-complex Bass equivalence, a classical
+nonconnective K-theory identification, or Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSectionBassStepEvaluation_isStableEquivalence"
+proof_kind = "outline"
+proof = """
+The actual affine evaluation functor is an equivalence, so its named prespectrum map
+is a weak homotopy equivalence at each level, for the base ring and its polynomial and
+Laurent extensions. The original chosen points satisfy the homotopy extension property.
+
+Factor the actual span map through strict vertex maps and the two arrow-change maps
+carrying its original coefficient homotopies. Each arrow-change map has the explicit
+reverse-track homotopy inverse. Weak invariance of the reduced double cylinder therefore
+makes the original span evaluation a weak homotopy equivalence, without replacing either
+coefficient track or choosing inverses for arbitrary weak vertex maps.
+
+The actual cone map similarly factors through its original whole square homotopy and
+strict cone maps. Reduced-cone weak invariance and the proved source and target point
+extension properties give its levelwise weak equivalence. Applying the based-loop functor
+to this precise cone map gives the named one-step Bass evaluation, again weakly equivalent
+at every level. Finally, each of these three levelwise weak equivalences induces an
+isomorphism at every stage of the defining stable homotopy systems, and hence on their
+filtered colimits in every integer degree.
+"""
+source_checked_on = "2026-11-10"

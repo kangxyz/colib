@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0509"
+title = "The Actual Supported-Section Cone and Relative-Open Endpoint"
+kind = "comparison"
+section = "affine-bass-constructions"
+order = 3507
+statement = '''Let \(R\) be a commutative ring and \(j:U\hookrightarrow\operatorname{Spec}R\) an open immersion. Let \(i\) be the original supported-section inclusion and \(q\) the identity section functor with weak equivalences detected after original evaluation and restriction to \(U\). The original weak zero-to-section transformation, reversed without changing its parameters, specifies a nullhomotopy \(H\) of \(qi\). Its actual cone descent \(C(i)\to F_j^{\mathrm{open}}\) is an equivalence in every integer stable degree.
+
+The literal evaluation square identifies this descent with the original geometric acyclic-cone comparison on the target face and entire cylinder. Its signed connecting map agrees with the original relative-open fiber boundary through the fiber lift specified by this same \(H\).'''
+scope = '''No compactness assumption on the open, extra flatness assumption or replacement section model is imposed. The acyclic category has the inherited ambient zero; independently normalized supported-model comparisons are not identified with the literal inclusion. All homotopy levels, including zero, retain independent homotopy-time and based-loop coordinates. The stable groups are those of the original native prespectra. This is the supported-section initial cone comparison, not a Bass colimit equivalence, a classical negative K-group identification, or Thomason–Trobaugh 7.4.'''
+proof = '''Identify actual geometric acyclic complexes with supported complexes using their original forgetful functors and quotient complexes. The complete coarse fibration supplies the geometric cone comparison. Original evaluation and its genuine inverse are exact for the coarse weak class by the counit conjugation argument; the supported evaluation separately preserves the inherited acyclic zero and the literal inclusion square.
+
+A strict square of chosen-zero-preserving maps transports the entire zero-source transformation track. Apply that identity before reversing the track, then use naturality of cone descent on both faces and every cylinder value. Original S-construction excision and the actual evaluation equivalences prove stability; the original cone-to-fiber boundary formula retains its sign and its specified fiber lift. The endpoint is adapted from [@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/SupportedSectionOpenConeComparison.lean:36-92].'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSupportedSectionOpenConeMap_isStableEquivalence"

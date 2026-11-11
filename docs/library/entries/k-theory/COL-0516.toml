@@ -1,0 +1,51 @@
+[entry]
+id = "COL-0516"
+title = "Natural cone actions with original null and seed formulas"
+kind = "comparison"
+section = "bass-construction"
+order = 40
+statement = """
+The original strict Bass diagram functor preserves the literal pointwise zero
+transformation and carries coefficient-natural whole homotopies, including null
+tracks, to coefficient-natural whole homotopies of its actual maps. A specified
+index interchange satisfying the coefficient-factorization equation then gives a
+natural self-track on the original unlooped cone diagram. Its time slices use the
+original transformation followed by the inverse index interchange, and its action
+on the source-null cylinder retains the original null time.
+"""
+scope = """
+Arbitrary indexing categories and loop-prespectrum diagrams in the stated independent
+universes, and arbitrary levels, including zero. The input corner tracks commute
+with every diagram arrow at every homotopy time. The index interchange is specified,
+and its coefficient-factorization equation is an explicit hypothesis.
+The additional source-seed formula requires two specified scalar self-tracks and
+the explicit all-time intertwining equation for those tracks; it is not asserted
+without this hypothesis. Null time, moving-track time and output-loop time remain
+independent. No zero diagram is identified with a separately chosen point object.
+This gives natural cone transport for the later tensor-generated recipe, not a
+constructed tensor unit, a complete generated trace, an external raw-tower comparison,
+or Thomason--Trobaugh 7.4.
+"""
+review = "author_checked"
+primary = "KTheory.Bass.ConeTrack.action_sourceNull"
+proof_kind = "outline"
+proof = """
+Quotient-generator elimination shows that all-zero corner maps induce the literal
+zero reduced-span and cone maps. Pointwise looping gives the corresponding Bass-zero
+equality. Four compatible moving corners then descend through the original square
+construction. Functoriality and the proved zero equality identify the two endpoints
+of a transported nullhomotopy without changing its values at any time.
+
+Naturality of the original source-null cylinder supplies its exact two-parameter
+formula under the moving square. Given the additional scalar-track intertwining
+condition, the original null-loop naturality theorem yields the complete source-seed
+identity, including its independent output-loop coordinate.
+
+Finally, postcompose the actual cone action with the inverse of the specified index
+interchange. Its coefficient-factorization equation identifies both endpoints with
+the original cone coefficient map. The time-slice equality and ordinary naturality
+of the resulting transformation prove the whole action's naturality. Combining the
+moving source-null formula with the fixed index map gives the stated original null
+cylinder equation, retaining the inverse interchange in the displayed source leg.
+"""
+source_checked_on = "2026-11-10"

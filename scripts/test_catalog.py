@@ -1372,6 +1372,15 @@ class LibraryTests(unittest.TestCase):
             catalog.source_link("OtherLibrary.Result", {}, "main")
 
 
+    def test_reconstructed_quillen_topics_keep_chapter_owners(self):
+        expected = {'COL-0517': ['k-theory', 'bass-construction'], 'COL-0513': ['k-theory-rings', 'quillen-k-theory-of-rings'], 'COL-0507': ['k-theory-schemes', 'supported-localization'], 'COL-0511': ['k-theory-schemes', 'affine-evaluation'], 'COL-0510': ['k-theory-schemes', 'affine-bass-constructions'], 'COL-0518': ['topology', 'homotopy-groups']}
+        for identifier, (chapter, section) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"],
+                             f"docs/library/entries/{chapter}/{identifier}.toml")
+
+
 if __name__ == "__main__":
     unittest.main()
 

@@ -1,0 +1,15 @@
+[entry]
+id = "COL-0504"
+title = "Relative-Open Section Seeds and Change of Weak Equivalences"
+kind = "comparison"
+section = "affine-bass-constructions"
+order = 3506
+statement = '''Let \(R\) be a commutative ring and \(j:U\hookrightarrow\operatorname{Spec}R\) an open immersion. On each specified affine base change of \(j\), retain the original bounded-above flat perfect section category, cofibrations and chosen zero, and detect weak equivalences by the original evaluation followed by restriction to the open. Actual coefficient reindexing gives a strict diagram \(F_j^{\mathrm{open}}\) and the identity section functors give a strict transformation \(c:F^{\mathrm{fine}}\to F_j^{\mathrm{open}}\).
+
+The original Laurent-unit loop and source-null cylinder construct a coefficient-natural Bass seed \(\eta_j^{\mathrm{open}}:F_j^{\mathrm{open}}\to B(F_j^{\mathrm{open}})\). The actual four-corner change-of-weak-equivalence map preserves the entire unit and null tracks at the same parameter, and the two constructed seeds satisfy the strict equality \(B(c)\circ\eta^{\mathrm{fine}}=\eta_j^{\mathrm{open}}\circ c\).'''
+scope = '''The ambient target and source use cocartesian affine sections, not a replacement raw-complex model. Coefficient exactness applies to arbitrary commuting open-pair squares, without flatness, a cartesian-square hypothesis or compactness. The fixed diagram uses `Under R` and the specified pullback open at every algebra; its identity-algebra object is not silently identified with the original open. The literal loop word is `N.symm.trans (H.trans N)` with the forward Laurent unit, and all homotopy levels include zero. This is seed compatibility, not a full-open localization equivalence, a supported cone stable-equivalence, or Thomason–Trobaugh 7.4.'''
+proof = '''Construct the coarse weak predicate as the inverse image of the actual restricted geometric weak class along original evaluation. The genuine evaluation-transition isomorphism and arbitrary-square geometric pullback prove coefficient exactness. The original section functors and zeros then give strict model and prespectrum diagrams.
+
+Realize the unchanged Laurent automorphisms and their actual model squares to obtain the whole same-time tracks. The original source-null cylinder and the four-corner change-of-weak-equivalence map commute before quotienting. Null-loop naturality proves the component seed equality, and the actual restriction comparison upgrades it to the equality of whole natural transformations. The original scope is [@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/Affine/SectionOpenBassSeedChangeWeak.lean:35-113].'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatAffineSectionOpenBassSeed_changeWeak"
