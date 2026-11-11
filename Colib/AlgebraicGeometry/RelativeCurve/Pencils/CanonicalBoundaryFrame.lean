@@ -96,7 +96,8 @@ theorem frameOfZeroSchemeTop_section (L : X.Modules) [IsInvertibleModule X L]
           (op (⊤ : X.Opens)) (1 : Γ(X, ⊤)) =
         (frameOfZeroSchemeTop L s hs).hom.val.app (op (⊤ : X.Opens))
           ((sectionUnitHom L s).val.app (op (⊤ : X.Opens)) (1 : Γ(X, ⊤))) := rfl
-  have hid : (𝟙 (SheafOfModules.unit X.ringCatSheaf)).val.app
+  have hid : PresheafOfModules.Hom.app
+      (SheafOfModules.Hom.val (𝟙 (SheafOfModules.unit X.ringCatSheaf)))
       (op (⊤ : X.Opens)) (1 : Γ(X, ⊤)) = (1 : Γ(X, ⊤)) := rfl
   exact (congrArg (fun t : Γ(L, ⊤) =>
     (frameOfZeroSchemeTop L s hs).hom.val.app (op (⊤ : X.Opens)) t) h₁).symm.trans
