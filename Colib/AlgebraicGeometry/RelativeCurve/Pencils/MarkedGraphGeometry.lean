@@ -99,9 +99,13 @@ theorem compactificationGraphMarked_isPullback [Mono j] :
       · simpa [markedProductGraph] using hz.trans hf
       · simp [markedProductGraph]
     · intro v _ hv
-      change v ≫ markedProductGraph q j z = t.snd at hv
-      have he := congrArg (fun r ↦ r ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q)) hv
-      simpa [markedProductGraph] using he)⟩
+      let v' : t.pt ⟶ Z := v
+      have hv' : v' ≫ markedProductGraph q j z = t.snd := hv
+      have he := congrArg (fun r ↦ r ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q)) hv'
+      have h : v' = t.snd ≫ pullback.snd (j ≫ q) (z ≫ j ≫ q) := by
+        simpa only [markedProductGraph, Category.assoc, pullback.lift_snd,
+          Category.comp_id] using he
+      exact h)⟩
 
 
 instance compactificationGraph_isClosedImmersion [IsSeparated q] :

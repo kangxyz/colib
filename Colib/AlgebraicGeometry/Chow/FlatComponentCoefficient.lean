@@ -69,7 +69,7 @@ theorem length_stalk_self_eq_mul_comap_component
 
 variable [IsNoetherian D] [IsNoetherian E] (f : E ⟶ D) [Flat f]
 
-omit [IsNoetherian D] [Flat f] in
+omit [AlgebraicGeometry.IsNoetherian D] [Flat f] in
 /-- A full pulled component has its exact ambient quotient coefficient over a
 generic point of the whole pullback. -/
 theorem finiteCyclePushforward_comap_fundamentalCycle_apply_generic

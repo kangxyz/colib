@@ -46,7 +46,7 @@ variable {k L : Type u} [Field k] [Field L]
   [Smooth (g ≫ r)] [instSmoothHR : Smooth (h ≫ r)]
   (z : pullback (C := Scheme) f g) (w : pullback (C := Scheme) g h)
 
-include instIsSeparatedG instSmoothHR in
+omit instIsSeparatedG instSmoothHR in
 /-- Every native generic incidence coefficient survives the actual isomorphism pushforward. -/
 theorem forgetBase_incidenceTorCycle (hw : IsFiniteCorrespondencePoint g h w) :
     finiteCyclePushforward (forgetBaseIncidenceMap r f g h z w)

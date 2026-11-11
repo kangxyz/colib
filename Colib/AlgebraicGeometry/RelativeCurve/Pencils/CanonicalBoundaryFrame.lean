@@ -83,7 +83,9 @@ theorem frameOfZeroSchemeTop_section (L : X.Modules) [IsInvertibleModule X L]
     (s : Γ(L, ⊤)) (hs : zeroScheme X L s = ⊤) :
     Modules.Hom.app (frameOfZeroSchemeTop L s hs).hom ⊤ s = (1 : Γ(X, ⊤)) := by
   let := isIso_sectionUnitHom_of_zeroScheme_eq_top L s hs
-  have h := congrArg (fun m => Modules.Hom.app m ⊤ (1 : Γ(X, ⊤)))
+  have h := congrArg (fun m : SheafOfModules.unit X.ringCatSheaf ⟶
+      SheafOfModules.unit X.ringCatSheaf =>
+    Modules.Hom.app (X := X) m ⊤ (1 : Γ(X, ⊤)))
     (IsIso.hom_inv_id (sectionUnitHom L s))
   simpa only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app,
     CategoryTheory.comp_apply, CategoryTheory.id_apply, sectionUnitHom_app_one] using h

@@ -1,4 +1,4 @@
-# Same authorized frozen-root proof batch, minimal error-repair phase3. No main merge, publication, or kernel replay.
+# Same authorized frozen-root proof batch, minimal error-repair phase4. No main merge, publication, or kernel replay.
 name: Colib CI
 
 on:
@@ -187,7 +187,7 @@ jobs:
           import json
           p = json.load(open('.lake/strict-a1-proof-result/producer.json'))
           import os
-          assert p['build_true_exit'] == 0 and p['phase'] == 3 and p['no_new_mathematical_roots']
+          assert p['build_true_exit'] == 0 and p['phase'] == 4 and p['no_new_mathematical_roots']
           assert p['frontier_gate_passed'] and not p['failures'] and not p['blocked_dependents']
           if os.environ['EXPAND_SUCCESSORS'] == 'true':
               assert p['completed_candidate_count'] == p['candidate_count'] == 439
@@ -196,6 +196,6 @@ jobs:
               print('Verified439 frozen-root compiler DAG. Not full strict A1 completion or kernel replay.')
           else:
               assert p['stage'] == 'frontier' and p['status'] == 'frontier-passed-awaiting-successors'
-              assert p['frontier_target_count'] == 37 and p['deferred_candidate_modules']
-              print('Verified37 repaired frontier only; remaining successors deliberately deferred. Not439 completion or kernel replay.')
+              assert p['frontier_target_count'] == 5 and p['deferred_candidate_modules']
+              print('Verified5 repaired frontier only; remaining successors deliberately deferred. Not439 completion or kernel replay.')
           PY

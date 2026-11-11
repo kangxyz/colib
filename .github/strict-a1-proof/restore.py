@@ -163,5 +163,34 @@ with tarfile.open(t) as tar:
   bundle(m);restored[m]={'provenance':'phase2-proof-package-accepted','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':phase2['run_id'],'original_head':phase2['head'],'package_options_validated':True,'original_package_options':e['package_options'],'original_compiler_exit':0,'dependency_product_fingerprints':e['dependency_product_fingerprints'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']};accepted.add(m)
  require(len(seen)==120 and accepted==set(OVERLAY['phase2_partial_eligible_modules']),'Phase2 reuse scope differs from frozen plan')
 print('Restored exact phase2 new successful bundles: '+str(len(accepted)),flush=True)
+# Exact newly successful phase3 products. Reused phase3 bundles are integrity
+# checked but not reclassified or used to override their original provenance.
+z=WORK/'phase3-proof.zip';download('repos/kangxyz/colib/actions/artifacts/13861032162/zip',z,10177296,'95fd6bcc61ae39297ed92e714a3d909722c570cef47dbe52ab0ed7d570c646ff')
+with zipfile.ZipFile(z) as archive_zip:
+ require(archive_zip.namelist()==['strict-a1-frozen-proofs.tar'],'Unexpected phase3 proof ZIP members')
+ with archive_zip.open('strict-a1-frozen-proofs.tar') as inp,(WORK/'phase3-proof.tar').open('wb') as out:shutil.copyfileobj(inp,out)
+t=WORK/'phase3-proof.tar';require(sha(t)=='0f69835d631858bc309dffec8fd64305edf79386a0508e31d0076cf983e39b6f','Phase3 proof tar SHA mismatch')
+with tarfile.open(t) as tar:
+ members={m.name:m for m in safe_members(tar)};producer_blob=tar.extractfile(members['producer.json']).read()
+ require(hashlib.sha256(producer_blob).hexdigest()=='27c81539737c1f18279d41629f16ba760527ef5f57a95104852d3501c3bc28db','Phase3 producer identity mismatch')
+ phase3=json.loads(producer_blob)
+ require(phase3['head']=='0bb9624894eadc3f808e3c59c9ae7100e6114577' and phase3['run_id']=='43029251170' and phase3['pins']==PINS and phase3['build_true_exit']==1 and phase3['phase']==3,'Wrong phase3 producer')
+ seen=set();accepted=set()
+ for e in phase3['modules']:
+  m=e['module'];require(m not in seen,'Duplicate phase3 module');seen.add(m)
+  require({entry['path'] for entry in e['products']}=={p.relative_to(ROOT).as_posix() for p in products(m)},'Wrong phase3 product set')
+  blobs={}
+  for entry in e['products']:
+   blob=tar.extractfile(members[entry['path']]).read();require(len(blob)==entry['size'] and hashlib.sha256(blob).hexdigest()==entry['sha256'],'Phase3 product size/SHA mismatch');blobs[entry['path']]=blob
+  if e['provenance']!='compiled-this-proof-run-with-package-options':continue
+  require(m in NODES and e['source_sha256']==NODES[m]['source_sha256'] and sha(source(m))==e['source_sha256'],'Phase3 source mismatch')
+  require(e['source_dag_sha256']==current_fingerprints[m],'Phase3 dependency source identity changed')
+  require(e['compiler_exit']==0 and e['package_options_validated'] is True and e['package_options']==package_options(m) and e['package_options']==[v for v in e['command'] if v.startswith('-D')],'Phase3 package options mismatch')
+  require(set(e['dependency_product_fingerprints'])==set(NODES[m]['source_imports'])&NODES.keys(),'Missing phase3 native input identities')
+  for path,blob in blobs.items():
+   dest=ROOT/path;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(blob)
+  bundle(m);restored[m]={'provenance':'phase3-proof-package-accepted','source_sha256':e['source_sha256'],'source_dag_sha256':current_fingerprints[m],'original_run_id':phase3['run_id'],'original_head':phase3['head'],'package_options_validated':True,'original_package_options':e['package_options'],'original_compiler_exit':0,'dependency_product_fingerprints':e['dependency_product_fingerprints'],'product_fingerprint':product_fingerprint(e['products']),'products':e['products']};accepted.add(m)
+ require(len(seen)==149 and accepted==set(OVERLAY['phase3_partial_eligible_modules']),'Phase3 reuse scope differs from frozen plan')
+print('Restored exact phase3 new successful bundles: '+str(len(accepted)),flush=True)
 write('restored.json',restored)
-print('Restored exact eligible source/dependency identities; remaining old23 require package acceptance.',flush=True)
+print('Restored exact eligible source/dependency identities; remaining old7 require package acceptance.',flush=True)

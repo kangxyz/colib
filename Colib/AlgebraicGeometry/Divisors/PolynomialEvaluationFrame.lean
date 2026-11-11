@@ -53,7 +53,7 @@ theorem evaluationGraphIdeal_top :
   rw [he, CommRingCat.hom_comp, CommRingCat.hom_comp, ← RingHom.comap_ker,
     RingHom.ker_comp_of_injective _
       (ConcreteCategory.bijective_of_isIso (Scheme.ΓSpecIso (.of R)).inv).injective,
-    Polynomial.ker_evalRingHom]
+    CommRingCat.hom_ofHom, Polynomial.ker_evalRingHom]
   let e := (Scheme.ΓSpecIso (.of R[X])).symm.commRingCatIsoToRingEquiv
   change (Ideal.span {Polynomial.X - Polynomial.C a}).comap e.symm =
     Ideal.span {e (Polynomial.X - Polynomial.C a)}
