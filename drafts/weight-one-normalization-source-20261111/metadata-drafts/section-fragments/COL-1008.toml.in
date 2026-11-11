@@ -1,0 +1,8 @@
+# Merge into [sections.transitions] of the existing weight-one-comparison section.
+COL-1008 = '''
+At the base field, COL-0400 computes the hypercohomology of the actual source
+of COL-0403. Its degree-one target is \(k^\times\). To specify the resulting
+isomorphism rather than only its existence, track a literal point cycle
+through the sheafification and signed-shift coordinates. The determinant norm
+then determines both the forward map and its rational graph inverse.
+'''
