@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1018"
+title = "The finite coefficient composition triangle"
+kind = "theorem"
+section = "finite-coefficient-composition"
+order = 10
+primary = "CochainComplex.finiteCoefficients.compositionTriangle_derived_distinguished"
+review = "author_checked"
+statement = '''
+Let \(K\) be a cochain complex in a preadditive category with binary biproducts.
+For \(n\in\mathbb N\), write \(K/n=\operatorname{Cone}(n\,\operatorname{id}_K)\).
+In the signed coordinates \((a,b)\), the differential is
+\((a,b)\mapsto(da-nb,-db)\). Let \(i_n\) be integral insertion and let
+\(\partial_n\) be the positive connecting map to \(K[1]\). Then
+\(\beta_n=i_n[1]\circ\partial_n\) satisfies \(\beta_n[1]\circ\beta_n=0\).
+
+Insertion \((a,b)\mapsto(na,b)\) and reduction \((a,b)\mapsto(a,nb)\)
+are the first two arrows of the triangle
+\[
+K/n\longrightarrow K/n^2\longrightarrow K/n
+  \xrightarrow{\beta_n} (K/n)[1].
+\]
+The triangle is distinguished after the homotopy quotient when the coefficient
+category has a zero object. Its image is distinguished in the derived
+category when the coefficient category is abelian and has the indicated
+derived category instance.
+'''
+proof = '''
+The identity \(\partial_n\circ i_n=0\) on the original cone gives square
+zero. The two copies of multiplication by \(n\) compose to multiplication
+by \(n^2\). The native cone-composition triangle has the stated insertion,
+reduction, and connecting maps. The derived quotient preserves the
+distinguished triangle obtained in the homotopy category.
+'''
+scope = '''
+The coefficient object is the actual multiplication cone in integer
+cochain degrees. The connecting map keeps its positive cone coordinate
+at every natural level.
+'''

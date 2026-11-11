@@ -435,12 +435,16 @@ class LibraryTests(unittest.TestCase):
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
             "derived-hom-comparisons": "Colib.Algebra.Homology.DerivedCategory.Ext.RightDerived",
+            "finite-coefficient-composition":
+                "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.CompositionTriangle",
             "exact-categories": "Colib.CategoryTheory.ExactCategory.Basic",
             "bicategories": "Colib.CategoryTheory.Bicategory.IsoQuotient",
             "restricted-spans": "Colib.CategoryTheory.QConstruction.Basic",
             "tate-sphere-and-suspension": "Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere",
             "eilenberg-mac-lane-representatives":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane",
+            "affine-line-representatives":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.AffineLineRepresentative",
             "pointed-simplicial-presheaves":
                 "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",

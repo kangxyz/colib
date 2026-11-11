@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1020"
+title = "The Tate cone-to-quotient equivalence"
+kind = "comparison"
+section = "tate-sphere-and-suspension"
+order = 20
+primary = "AlgebraicGeometry.MotivicHomotopy.stalkwiseWeakEquivalences_tateConeToSphere"
+review = "author_checked"
+statement = '''
+Let \(R\) be a commutative ring. Form the pointed Tate quotient
+\(T=\mathbb A^1/(\mathbb A^1-\{0\})\) on the smooth Nisnevich site over
+\(\operatorname{Spec}R\) and the actual reduced mapping cone of its
+pointed Laurent open as in COL-1017. The map from that cone to \(T\)
+collapses the attached reduced cone to the point. At every Nisnevich
+site fiber it induces a weak homotopy equivalence of realizations.
+Consequently the map is an isomorphism in the pointed stalkwise
+localization.
+'''
+proof = '''
+The Laurent open is objectwise a monomorphism. Each fiber preserves
+that monomorphism and the two pushouts presenting the source and
+target. The map from the attached reduced simplicial cone to the
+point is a realization weak equivalence. The pushout comparison
+gives the result for the actual collapse.
+'''
+scope = '''
+The statement uses the original pointed Laurent map and the same
+collapse that specifies the quotient map in COL-1017. The site
+fibers and their realization are taken in the universe of the base ring.
+'''

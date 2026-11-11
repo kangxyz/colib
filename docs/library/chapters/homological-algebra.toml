@@ -228,6 +228,12 @@ identify maps into its actual pointed representative with reduced derived Hom.
 '''
 
 [[sections]]
+id = "finite-coefficient-composition"
+title = "Finite coefficient triangles"
+order = 20
+introduction = '''Compose two multiplication maps on the original cochain complex. The resulting cone triangle identifies its third arrow with the mod-\(n\) Bockstein and fixes its sign.'''
+
+[[sections]]
 id = "ext-products"
 title = "External Ext products"
 order = 25

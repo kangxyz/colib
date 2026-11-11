@@ -32,7 +32,6 @@ variable (C : Type u) [Category.{v} C]
 def uliftPresheaf : (Cᵒᵖ ⥤ SSet.{w}) ⥤ (Cᵒᵖ ⥤ SSet.{max w w'}) :=
   (Functor.whiskeringRight _ _ _).obj SSet.uliftFunctor.{w', w}
 
-@[simp]
 theorem uliftPresheaf_obj_obj_obj (F : Cᵒᵖ ⥤ SSet.{w}) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ) :
     (((uliftPresheaf.{w', w} C).obj F).obj U).obj n = ULift.{w'} ((F.obj U).obj n) := rfl
 
