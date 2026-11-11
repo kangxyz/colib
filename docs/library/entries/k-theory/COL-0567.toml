@@ -1,0 +1,24 @@
+[entry]
+id = "COL-0567"
+title = "Whole selected-null transport through normalization"
+kind = "theorem"
+section = "bass-construction"
+order = 1567
+statement = '''
+Finite normalization carries a prescribed diagram null-homotopy to its normalized null-homotopy at
+every spectrum level, every point and every null time.
+'''
+scope = '''
+Any category-indexed composable pair of prespectrum maps, a chosen DiagramNullHomotopy and a
+square functor. The statement preserves the selected null itself, not merely its homotopy class.
+'''
+proof_kind = "outline"
+proof = '''
+Write the strict iterated null at a fixed time as the induced time-slice map. Apply stage-map
+naturality to that same time slice, and rewrite the normalized side with the normalized-null
+time-slice identity. Their composite is the stated pointwise equality for arbitrary time.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.NormalizedStageMap.stageMap_null"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -1,0 +1,26 @@
+[entry]
+id = "COL-0568"
+title = "The full-open selected null on current and normalized towers"
+kind = "theorem"
+section = "supported-localization"
+order = 1568
+statement = '''
+For an open immersion of schemes, the current-to-normalized comparison preserves the actual
+full-open selected null at every parameter scheme, spectrum level, point and null time.
+'''
+scope = '''
+The support-forgetful map followed by the actual weak-change and open-restriction maps. The same
+supported-open null is postcomposed with restriction; no quasi-compactness or quasi-separatedness
+condition is added to this comparison.
+'''
+proof_kind = "outline"
+proof = '''
+Postcompose the chosen supported-open null with the actual restriction and retain its naturality
+and zero transport. The Laurent interchange identity proves equivariance of every null slice. Use
+that proved compatibility to descend the same null to current and normalized telescopes, then
+apply the whole-null comparison square.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_null_square"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

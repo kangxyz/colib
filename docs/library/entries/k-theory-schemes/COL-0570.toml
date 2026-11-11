@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0570"
+title = "Current and normalized same-null fiber-lift stability"
+kind = "theorem"
+section = "supported-localization"
+order = 1570
+statement = '''
+For an open immersion, the actual current full-open fiber lift is a stable equivalence if and only
+if its normalized lift is. The same equivalence holds for the auxiliary-supported pair associated
+with any open T.
+'''
+scope = '''
+The canonical lifts determined by the actual maps and their specified full-open or auxiliary
+selected nulls. These equivalences transfer stability between the two presentations; they do not
+establish stability of either lift on their own.
+'''
+proof_kind = "outline"
+proof = '''
+Use the naturality squares for the two input maps and the all-time square for the same chosen
+null. The three objectwise current-to-normalized telescope comparisons are stable by the Model
+telescope theorem. Apply the native homotopy-fiber-lift comparison theorem with exactly these
+three maps and this null square, once for the full-open pair and once for the auxiliary pair.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_normalized_lift_stable_iff"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

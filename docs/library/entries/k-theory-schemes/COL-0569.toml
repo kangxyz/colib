@@ -1,0 +1,28 @@
+[entry]
+id = "COL-0569"
+title = "Auxiliary-supported selected-zero null and its comparison"
+kind = "theorem"
+section = "supported-localization"
+order = 1569
+statement = '''
+For an open immersion f and an auxiliary open T in its target, the current-to-normalized
+comparison preserves the selected null of support enlargement followed by restriction, for every
+point and time.
+'''
+scope = '''
+The source consists of objects vanishing on the union of T with the image of f; the target support
+is the inverse image of T. The null is built from the existing chosen zero and the actual
+composite, not from a definition of the source as a homotopy fiber.
+'''
+proof_kind = "outline"
+proof = '''
+Compare the composite forgetful map with full-open restriction of the union-supported object. Its
+full-open evaluation is acyclic, making the unique chosen-zero-to-composite map a weak
+equivalence. Reverse its transformation homotopy to obtain the selected null. Prove the two-time
+Laurent interchange from actual unit preservation, and use it for the current/normalized
+whole-null square.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalSupportedSection.ParameterAuxiliarySupport.current_null_square"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

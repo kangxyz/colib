@@ -225,3 +225,6 @@ The backward triangle fixes the row target and its successor transport. The `for
 still come from the original current seed: retain its right-associated null/unit/null word and
 prove naturality at every time before assembling the natural transformation.
 '''
+COL-0565 = "The finite Model topology and loop-strength comparisons make the strict Bass stage map stably invertible at every finite stage."
+COL-0567 = "The same finite stage maps also preserve each prescribed null track at its unchanged time, supplying the comparison needed for null-based lifts."
+

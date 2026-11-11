@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0564"
+title = "Stable comparison of zigzag telescopes and sequential colimits"
+kind = "theorem"
+section = "homotopy-colimits"
+order = 1564
+statement = '''
+For a zigzag of loop prespectra whose vertex spaces are T1 in every level, the canonical map from
+its pushout sequentialization telescope to its ordinary sequential colimit is a stable
+equivalence.
+'''
+scope = '''
+The actual canonical pushout stages and their ordinary levelwise colimit. Only the positive-tail
+transitions are used as closed embeddings; the original initial arrow need not be injective or
+closed.
+'''
+proof_kind = "outline"
+proof = '''
+Identify each positive transition with a reduced-pushout inclusion and obtain its closed-embedding
+property from the T1 hypotheses. The successor indexing functor is final, so the positive tail has
+the same ordinary colimit. Compose the stable telescope-to-tail map with the actual
+constant-cylinder collapse to that colimit.
+'''
+review = "author_checked"
+primary = "Topology.LoopPrespectrum.ZigzagSequentialization.telescopeToOrdinaryColimit_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

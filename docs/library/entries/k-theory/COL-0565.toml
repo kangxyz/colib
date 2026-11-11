@@ -1,0 +1,27 @@
+[entry]
+id = "COL-0565"
+title = "Stable finite cone-loop normalization"
+kind = "theorem"
+section = "bass-construction"
+order = 1565
+statement = '''
+For any category C, square functor Q, zero-preserving Model-valued functor M and finite stage i,
+the canonical map from the strict Bass iterate to its finite cone-loop normalization is a stable
+equivalence at every object of C.
+'''
+scope = '''
+Native zero-preserving Waldhausen Models at arbitrary stated universes. The point
+homotopy-extension and connectivity estimates required by the induction are proved for the actual
+finite iterates, rather than imposed as additional hypotheses.
+'''
+proof_kind = "outline"
+proof = '''
+Induct on the stage. The zero stage is the identity. At a successor, obtain homotopy extension and
+linear connectivity growth from the finite Model topology; use these to transport the preceding
+stable comparison through the strict square functor. Compose with iterated loop strength and the
+two specified equality transports defining the successor normalization.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.NormalizedStageMap.model_stageMap_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

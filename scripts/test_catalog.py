@@ -472,6 +472,20 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0564":
+                "Colib.Topology.Prespectrum.ZigzagSequentializationColimit",
+            "COL-0565":
+                "Colib.KTheory.Bass.NormalizedStageMapStable",
+            "COL-0566":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeCurrentStageTelescopeStable",
+            "COL-0567":
+                "Colib.KTheory.Bass.NormalizedDiagramNull",
+            "COL-0568":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentNull",
+            "COL-0569":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentNull",
+            "COL-0570":
+                "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentFiberComparison",
             "COL-0559":
                 "Colib.CategoryTheory.Functor.IsoRouteTargetNormalization",
             "COL-0560":
@@ -1709,6 +1723,67 @@ class LibraryTests(unittest.TestCase):
                 'tensor-unit-prisms',
                 'AlgebraicGeometry.Scheme.Modules.ParameterTensorSupportedRow.modelEvaluationForgetRectangle',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorSupportedForgetRectangle',
+                'k-theory-schemes',
+            ),
+        ]
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, section, primary, module, folder in expected:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
+            self.assertEqual(item["primary"], primary)
+            self.assertEqual(built["declarations"][primary]["module"], module)
+
+
+    def test_current_normalized_fiber_items_keep_native_owners(self):
+        expected = [
+            (
+                'COL-0564',
+                'homotopy-colimits',
+                'Topology.LoopPrespectrum.ZigzagSequentialization.telescopeToOrdinaryColimit_isStableEquivalence',
+                'Colib.Topology.Prespectrum.ZigzagSequentializationColimit',
+                'topology',
+            ),
+            (
+                'COL-0565',
+                'bass-construction',
+                'KTheory.Bass.NormalizedStageMap.model_stageMap_stable',
+                'Colib.KTheory.Bass.NormalizedStageMapStable',
+                'k-theory',
+            ),
+            (
+                'COL-0566',
+                'supported-localization',
+                'KTheory.Bass.SchemeNaturalSeed.model_telescopeMap_stable',
+                'Colib.AlgebraicGeometry.KTheory.Bass.SchemeCurrentStageTelescopeStable',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0567',
+                'bass-construction',
+                'KTheory.Bass.NormalizedStageMap.stageMap_null',
+                'Colib.KTheory.Bass.NormalizedDiagramNull',
+                'k-theory',
+            ),
+            (
+                'COL-0568',
+                'supported-localization',
+                'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_null_square',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentNull',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0569',
+                'supported-localization',
+                'AlgebraicGeometry.Scheme.Modules.GlobalSupportedSection.ParameterAuxiliarySupport.current_null_square',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentNull',
+                'k-theory-schemes',
+            ),
+            (
+                'COL-0570',
+                'supported-localization',
+                'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_normalized_lift_stable_iff',
+                'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentFiberComparison',
                 'k-theory-schemes',
             ),
         ]

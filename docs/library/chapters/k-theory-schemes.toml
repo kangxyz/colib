@@ -65,6 +65,10 @@ COL-0505 = "Keep acyclicity on an auxiliary open \\(T\\), but test weak equivale
 COL-0506 = "The relative-acyclic objects are precisely the bounded-flat perfect complexes\nsupported outside the union of the two opens. Their exact equivalence preserves\nthe original admissible quotient. The canonical coarse-fiber comparison then\nretains the original K-theory boundary and the whole null path, with chosen-zero\nnormalization made explicit at the spectrum level and no compactness hypothesis.\n"
 COL-0507 = "Arbitrary commuting open squares pull back the original supported bounded-flat\ncomplexes, their same admissible quotients and restricted weak equivalences.\nThe resulting supported and coarse K-maps preserve restriction and the boundary.\nA single canonical normalization retains the entire fiber path; the original\nunion-supported comparison is transported by explicit coherent homotopies.\n"
 COL-0508 = "Without a support condition on its objects, the bounded-flat relative model has\nweak equivalences detected on the specified open. Arbitrary commuting open squares\ninduce its original K-pullback, with identity, composition and change-of-weak\nnaturality. On a compact ambient scheme, the literal inclusion into the relative\nperfect model is a K-equivalence with its original forward map.\n"
+COL-0566 = "Applying those finite stable comparisons to the specified scheme-indexed Laurent track gives the actual current-to-normalized telescope comparison."
+COL-0568 = "The full-open selected null has the scalar compatibility required to pass through the current and normalized telescope constructions."
+COL-0569 = "For auxiliary support, actual full-open acyclicity constructs the chosen-zero null and its two-time compatibility before telescope comparison."
+COL-0570 = "The stable maps on all three objects and the same-time null squares now compare stability of the current and normalized fiber lifts."
 
 [[sections]]
 id = "perfect-pullback"
