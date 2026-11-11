@@ -91,9 +91,16 @@ theorem frameOfZeroSchemeTop_section (L : X.Modules) [IsInvertibleModule X L]
   have h₁ : (sectionUnitHom L s).val.app (op (⊤ : X.Opens)) (1 : Γ(X, ⊤)) = s :=
     sectionUnitHom_app_one L s
   change (frameOfZeroSchemeTop L s hs).hom.val.app (op (⊤ : X.Opens)) s = (1 : Γ(X, ⊤))
-  simpa only [SheafOfModules.comp_val, SheafOfModules.id_val,
-    PresheafOfModules.comp_app, PresheafOfModules.id_app,
-    CategoryTheory.comp_apply, CategoryTheory.id_apply, h₁] using h
+  have happ :
+      (sectionUnitHom L s ≫ (frameOfZeroSchemeTop L s hs).hom).val.app
+          (op (⊤ : X.Opens)) (1 : Γ(X, ⊤)) =
+        (frameOfZeroSchemeTop L s hs).hom.val.app (op (⊤ : X.Opens))
+          ((sectionUnitHom L s).val.app (op (⊤ : X.Opens)) (1 : Γ(X, ⊤))) := rfl
+  have hid : (𝟙 (SheafOfModules.unit X.ringCatSheaf)).val.app
+      (op (⊤ : X.Opens)) (1 : Γ(X, ⊤)) = (1 : Γ(X, ⊤)) := rfl
+  exact (congrArg (fun t : Γ(L, ⊤) =>
+    (frameOfZeroSchemeTop L s hs).hom.val.app (op (⊤ : X.Opens)) t) h₁).symm.trans
+      (happ.symm.trans (h.trans hid))
 
 /-- A map disjoint from the whole divisor has unit inverse-image ideal. -/
 theorem divisor_comap_eq_top_of_disjoint (D : X.IdealSheafData) (i : Z ⟶ X)
