@@ -5,7 +5,8 @@ import argparse,importlib.util,shutil,tarfile,tempfile,zipfile
 WORK=OUT/'restore';WORK.mkdir(parents=True,exist_ok=True)
 def download(api,path,size,digest):
  if not(path.is_file() and path.stat().st_size==size and sha(path)==digest):
-  with path.open('wb') as out:subprocess.run(['gh','api',api,'-H','Accept: application/octet-stream'],stdout=out,check=True)
+  accept='application/json' if '/actions/artifacts/' in api else 'application/octet-stream'
+  with path.open('wb') as out:subprocess.run(['gh','api',api,'-H','Accept: '+accept],stdout=out,check=True)
  require(path.stat().st_size==size and sha(path)==digest,'Downloaded size/SHA mismatch: '+api)
 # Exact official pinned Stacks cache, using the repository's verified checkpoint loader.
 spec=importlib.util.spec_from_file_location('checkpoint',ROOT/'.github/ci-cache/checkpoint.py');cp=importlib.util.module_from_spec(spec);spec.loader.exec_module(cp)
