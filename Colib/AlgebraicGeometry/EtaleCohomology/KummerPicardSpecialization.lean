@@ -6,7 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
-public import StacksFrontier.AlgebraicGeometry.PicardGroup.TensorPower
+public import Colib.AlgebraicGeometry.Modules.Invertible.PicardRoot
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.Picard.RootsOfUnitySecondCohomology
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.Picard.MultiplicativeFirstCohomologyNaturality
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.KummerTheory.RootsOfUnityModule
@@ -108,21 +108,6 @@ theorem picardKummerClass_naturality {X Y : Scheme.{u}} (π : X ⟶ Y) {n : ℕ}
     π hn0 hY 1 2 rfl x
   rw [hx] at h
   exact h
-
-/-- Divisibility of the class of an invertible module supplies an actual invertible module
-and an isomorphism from its tensor power, not merely another Picard class. -/
-theorem exists_schemeTensorPower_iso_of_picard_nsmul (X : Scheme.{u}) (n : ℕ)
-    (L : X.Modules) (hL : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf L)
-    (h : ∃ c : Picard.ofScheme X, n • c = X.picardClass L hL) :
-    ∃ (M : X.Modules) (hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M),
-      Nonempty (Stacks.SheafOfModules.schemeTensorPower X M hM (n : ℤ) ≅ L) := by
-  obtain ⟨c, hc⟩ := h
-  obtain ⟨M, hM, hMc⟩ := Stacks.SheafOfModules.exists_picardClass_eq
-    X.presheaf X.ringCatIsSheaf c
-  refine ⟨M, hM, (Stacks.SheafOfModules.picardClass_eq_iff _ _ _ _
-    (Stacks.SheafOfModules.isInvertible_schemeTensorPower X M hM (n : ℤ)) hL).1 ?_⟩
-  rw [Stacks.SheafOfModules.picardClass_schemeTensorPower, natCast_zsmul, hMc]
-  exact hc
 
 section Proper
 

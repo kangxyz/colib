@@ -581,6 +581,7 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization",
             "COL-1032": "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
             "COL-1033": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology",
+            "COL-1034": "Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot",
         }
         native["modules"] = [
             {"name": name, "imports": []}

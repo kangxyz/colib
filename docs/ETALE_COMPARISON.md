@@ -47,6 +47,12 @@ cohomological shifts and signs.
   same smooth category. The adjunction retains the canonical sheafification
   unit and counit and inherits finite-limit/colimit preservation and
   additivity under the precise native coefficient hypotheses.
+- COL-1034 assembles native Jacobian, representability, étaleness and point-lifting
+  theorems into degree-zero Picard divisibility on a smooth proper curve over
+  a separably closed field. The actual additive
+  equivalence between the two Picard models transports the root equation,
+  and native representatives give an invertible module and tensor-power
+  isomorphism. No Jacobian theory is reimplemented.
 
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
@@ -55,10 +61,11 @@ whole-program validation report.
 
 ## Remaining mathematical chain
 
-1. Construct the actual section-divisor difference and prove it has a tensor
-   root on the closed curve. COL-1031 then supplies an ordinary global line
-   bundle root with its tensor-power isomorphism. The closed-curve root producer
-   and the connection to the actual section divisors remain to be built.
+1. Construct the actual section-divisor difference and prove its degree is
+   zero in the same native Picard model. COL-1034 supplies the closed-curve
+   tensor root over a separably closed field, and COL-1031 supplies a global
+   root. The actual section-divisor identification and all its pullback maps
+   still need to be connected.
 2. Construct the prescribed trivialization on the actual finite boundary and
    identify the pullback of the root's tensor power with the tensor power of
    its actual pullback. COL-1032 then supplies the exact compatible frame,

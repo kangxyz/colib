@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1034"
+title = "Actual tensor roots of degree-zero curve modules"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 40
+primary = "Stacks.Kummer.exists_schemeTensorPower_iso_of_picardDegree_eq_zero"
+review = "author_checked"
+statement = '''
+Let \(X\to\operatorname{Spec}k\) be a smooth proper curve over a
+separably closed field. If a specified invertible module \(L\) has
+degree zero and \(n\) is invertible in \(k\), there exists an invertible
+module \(M\) and an actual isomorphism \(M^{\otimes n}\simeq L\).
+The degree uses the native scheme Picard group, with the class of \(L\)
+transported through the native additive equivalence between Picard models.
+'''
+proof = '''
+Native proper-curve projectivity, a rational section, and Picard-functor
+representability produce the Jacobian and its additive identification with
+degree-zero Picard classes over the separably closed field. Native
+étaleness of multiplication and separably closed point lifting prove
+n-divisibility of its actual rational-point group, as in [@stacks, Tag 03RP].
+The inverse additive Picard-model equivalence transfers the resulting
+root equation to the module-class Picard group. Native representatives and
+equality-as-isomorphism then return the actual tensor-power isomorphism.
+'''
+scope = '''
+The field and scheme have universe \(u\). The exact geometric hypotheses
+are IsCurve, smoothness and properness over a separably closed field;
+the exponent may be composite. The two Picard models are not identified
+definitionally. Native JacobianPointGroup, PicardFunctorRepresentable,
+SeparablyClosedDivisiblePoints, ZPowEtaleOfIsUnit and GlueingPicardSequence
+in [@axiom_stacks_5ed82d14] supply all geometric inputs and the model
+comparison. No representability or étaleness certificate is assumed.
+This statement does not identify \(L\) with a difference of section divisors.
+'''

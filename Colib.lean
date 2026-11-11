@@ -518,8 +518,10 @@ public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SmoothReduced
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecNaturality
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecSectionsExact
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
+public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
+public import Colib.AlgebraicGeometry.GroupScheme.AbelianVariety.SeparablyClosedPoints
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth
 public import Colib.AlgebraicGeometry.GroupScheme.UnitPoints
@@ -972,6 +974,7 @@ public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroExact
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroStalk
 public import Colib.AlgebraicGeometry.Modules.GlobalScalarPullback
 public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame
+public import Colib.AlgebraicGeometry.Modules.Invertible.PicardRoot
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Basic
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Closure
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Complements
