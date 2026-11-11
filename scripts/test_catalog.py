@@ -476,6 +476,7 @@ class LibraryTests(unittest.TestCase):
             "milnor-norms-and-rational-residues": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation",
             "milnor-norms-on-curves": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRComplete",
             "milnor-degree-two": "Colib.RingTheory.KTheory.MilnorK.Steinberg",
+            "milnor-motivic-comparison": "Colib.AlgebraicGeometry.MotivicCohomology.WeightZero",
             "adic-completion": "Colib.RingTheory.AdicCompletion.FiniteAlgebra",
             "principal-euler": "Colib.RingTheory.Multiplicity.PrincipalEuler.Basic",
             "charpoly-branches": "Colib.RingTheory.Charpoly.DVRBranchCount",
@@ -533,6 +534,8 @@ class LibraryTests(unittest.TestCase):
             "COL-0404": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.Hypercohomology",
             "COL-1008": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.IntegralEquivalence",
             "COL-1007": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne",
+            "COL-1021": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniverses",
+            "COL-1022": "Colib.RingTheory.KTheory.MilnorK.Norm.ChosenMixedTower",
         }
         native["modules"] = [
             {"name": name, "imports": []}

@@ -1,0 +1,48 @@
+[entry]
+id = "COL-1022"
+title = "Purely inseparable Milnor traces and finite tower defects"
+kind = "theorem"
+section = "milnor-norms-and-rational-residues"
+order = 427
+primary = "Stacks.Chow.exists_pow_zsmul_milnorKNormRing_tower_sub_eq_zero"
+statement = '''
+Let \(K\subset L\) be a finite purely inseparable extension. On the native
+Milnor ring of \(L\), restriction after the chosen norm \(N_{L/K}\) is
+multiplication by \([L:K]\).
+
+For any finite tower \(K\subset M\subset L\), let \(p\) be the exponential
+characteristic of \(K\). There is an \(e\geq 0\), depending only on the tower,
+such that every \(x\in K_*^M(L)\) satisfies
+\[
+p^e\bigl(N_{M/K}(N_{L/M}(x))-N_{L/K}(x)\bigr)=0.
+\]
+If multiplication by \(p\) is injective on every \(K_i^M(K)\), the chosen
+norms are transitive on every homogeneous Milnor group.
+'''
+scope = '''
+The fields have a common Lean universe and carry the compatible scalar
+actions of the given tower. The exponential characteristic is one in
+characteristic zero and is the characteristic otherwise. The degree
+annihilation holds without a torsion hypothesis. The integral equality
+in arbitrary degree uses the stated injectivity premise.
+'''
+proof = '''
+For a purely inseparable simple extension, the minimal polynomial splits
+over the upper field as one linear factor with multiplicity equal to the
+extension degree. The weighted simple-norm formula gives the restriction
+identity. Apply it along the literal recursion of the chosen norm and
+multiply the degrees.
+
+For a general tower, adjoin finitely many coefficients from the perfect
+closure of \(K\) to make the compositum of \(L\) separable over the new
+base \(B\). At each chosen step the simple-norm base change has one factor
+weighted by the inseparable degree. Induction on the original field
+degree and the separable tower law of COL-0396 give the formula for the
+chosen norm. Inseparable degrees multiply in the tower, so the two
+original norm expressions restrict to the same class over \(B\).
+The norm after restriction multiplies by \([B:K]\), a power of \(p\).
+This single degree works for every \(x\). Injectivity in each homogeneous
+degree gives injectivity on the Milnor ring through its internal grading.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-11"

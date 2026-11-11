@@ -258,6 +258,11 @@ id = "finite-separable-milnor-norms"
 title = "Finite separable norm presentations and towers"
 start = "COL-0396"
 
+[[sections.topics]]
+id = "inseparable-milnor-norms"
+title = "Inseparable norms and tower defects"
+start = "COL-1022"
+
 [sections.transitions]
 COL-0261 = '''
 Write \(\delta(x)\) for the residue of the chosen generic norm of \(x\) minus the residue-field norm of its residue. Let \(\ell\) be the generic degree of the prime Galois extension. Restricting the generic norm back to the upper fraction field gives a sum of conjugates. The ramified residue formula of COL-0150 and the residue-field trace show that the ramification index annihilates the restricted error. Applying the residue-field norm multiplies by the residue degree. The product of these two degrees is \(\ell\), so \(\ell\,\delta(x)=0\).
@@ -297,6 +302,21 @@ extension, the original recursive norm equals this simple norm
 in every actual polynomial presentation. The canonical relative
 factor then relates the presentations in a tower and identifies
 the composite with the norm of the total extension.
+'''
+COL-1021 = '''
+Changing the coefficient field by an isomorphism carries
+each polynomial residue and the residue at infinity to
+their counterparts. This permits the finite separable
+norms to be compared in a common universe and transported
+back to the original Milnor groups.
+'''
+COL-1022 = '''
+A purely inseparable change of the coefficient field can make
+the compositum separable. The image of a selected minimal
+polynomial is then a power of one irreducible factor, with
+exponent the original inseparable degree. Applying the weighted
+norm formula at each selected step compares the two tower
+expressions after restriction.
 '''
 
 [[sections]]
@@ -350,3 +370,9 @@ Over a finite field it suffices to compute the degree-two
 symbols, since they generate the integral homogeneous group.
 The finite-field calculation gives zero for each such symbol.
 '''
+
+[[sections]]
+id = "milnor-motivic-comparison"
+title = "Low-degree comparison with motivic cohomology"
+order = 60
+introduction = '''The original base-field motivic groups are computed from signed singular chains by COL-0400. In weight zero, the structural graph gives the integer degree. In weight one, the geometric norm of COL-1008 reads the rational graph class as its unit. These calculations identify the first two native Milnor groups with their diagonal motivic groups.'''

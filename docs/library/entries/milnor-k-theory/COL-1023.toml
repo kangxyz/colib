@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1023"
+title = "Milnor symbols and diagonal motivic cohomology in degrees zero and one"
+kind = "comparison"
+section = "milnor-motivic-comparison"
+order = 10
+primary = "AlgebraicGeometry.MotivicCohomology.WeightZero.milnorEquiv"
+statement = '''
+For any field \(k\), the native Milnor groups in degrees zero and one
+are identified with the corresponding integral motivic groups of the
+base field:
+\[
+K_0^M(k)\simeq H^{0,0}(\operatorname{Spec}k,\mathbb Z),
+\qquad
+K_1^M(k)\simeq H^{1,1}(\operatorname{Spec}k,\mathbb Z).
+\]
+The empty symbol gives the structural graph class of degree one. For
+\(a\in k^\times\), the symbol \(\{a\}\) gives the integral class of the
+rational graph with coordinate \(a\).
+'''
+scope = '''
+The groups on the right use the actual signed reduced-transfer complex
+and its Nisnevich hypercohomology. The comparisons use the native
+degree-zero and degree-one Milnor equivalences on the left and the
+specified original cycle classes on the right. The statements are
+integral and apply in every characteristic.
+'''
+proof = '''
+In weight zero, each integral simplex has a single structural graph
+support for correspondences to the base. Its coefficient identifies
+the chain group with the integers. Both endpoint restrictions preserve
+that coefficient, so the degree-one boundary into zero-chains vanishes.
+The actual top homology therefore has the structural graph as its
+degree-one generator. Compose this calculation with base-field
+evaluation and the native degree-zero Milnor equivalence.
+
+In weight one, compose the native equivalence to the unit group
+with the inverse of COL-1008. Its inverse reads the unit as the same
+rational graph class, which gives the singleton formula.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-11"

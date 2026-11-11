@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1021"
+title = "Finite separable Milnor norm towers across field universes"
+kind = "comparison"
+section = "milnor-norms-and-rational-residues"
+order = 426
+primary = "Stacks.Chow.milnorKNormAcross_comp_milnorKNormAcross_of_isSeparable"
+statement = '''
+Let \(K\subset M\subset L\) be a finite separable field tower with the
+specified compatible scalar actions. The fields may have independent
+Lean universes. For every \(n\geq 0\), the transported norm maps on the
+original homogeneous Milnor groups satisfy
+\[
+N_{M/K}\circ N_{L/M}=N_{L/K}
+\quad\text{as maps }K_n^M(L)\longrightarrow K_n^M(K).
+\]
+The whole-ring additive norm maps satisfy the same equation. When the
+two fields of a finite separable extension lie in a common universe,
+the transported map agrees with the original chosen norm.
+'''
+scope = '''
+Each pair of fields is lifted to the maximum of its two universe levels.
+The comparison acts on the original fields and Milnor groups through the
+given field transports. The simultaneous norm comparison and tower law
+use finite separability. The grading retains degree zero.
+'''
+proof = '''
+Transport a single-residue lift by the coefficient isomorphism and
+the induced quotient map. Polynomial and infinity residues commute with
+these maps. Negative infinity residue therefore gives the transported
+simple norm. The finite separable presentation comparison of COL-0396
+gives the corresponding statement for the chosen norm.
+
+Lift all three fields to one common universe for the tower calculation.
+Simultaneous equivariance identifies the transported pairwise norms with
+the three norms computed in that universe. The two transports through
+the middle field cancel, and the original finite separable tower law
+gives the equality. Grading gives the homogeneous equations.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-11"
