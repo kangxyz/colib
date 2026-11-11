@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0554"
+title = "The whole coefficient-natural null/unit/null seed"
+kind = "definition"
+section = "bass-construction"
+order = 92
+statement = '''
+Let S be a commutative square of prespectrum-valued diagrams on C and let A be a self-homotopy
+of its diagonal natural transformation that is natural at every unchanged time. With N the
+original source-null homotopy for the actual square cone and j its original inclusion, the word
+`N.symm` followed by ((`A.postcomp j`) followed by N) is a self-homotopy of the zero map. This
+same word is natural at every time and its zero-loop map assembles to a natural seed from the
+upper-left diagram to parameter looping of the actual cone of the square comparison.
+'''
+scope = '''
+Retain the exact right-associated trans expression and both original half-clock subdivisions.
+Coefficient naturality means every morphism of the indexing category acts on the same time
+slice, not only on the endpoints or homotopy class. The cone, pushout and source null are the
+existing original constructions. No Bass-strength comparison, seed stability, telescope theorem
+or generator recognition is claimed.
+'''
+proof_kind = "outline"
+proof = '''
+Construct the pointwise pushout and natural cone inclusion, and obtain the actual square
+source-null homotopy with its naturality. Whole-homotopy naturality is closed under reversal,
+concatenation and postcomposition, so the right-associated null/unit/null word is natural. Apply
+the existing zero-loop map construction to this whole natural word.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.WholeSeedCospan.seed"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

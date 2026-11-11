@@ -1,0 +1,35 @@
+[entry]
+id = "COL-0553"
+title = "Actual suspension evaluation and the finite Bass backward triangle"
+kind = "comparison"
+section = "bass-construction"
+order = 91
+statement = '''
+For a loop prespectrum E, the original `forward` suspension-cylinder unit η and evaluation
+counit ε satisfy η at parameterLooping(E), followed by parameterLoopingMap(ε at E), equals the
+identity. For an indexing category C, a square-valued diagram Q and a diagram M of
+chosen-zero-preserving small Waldhausen models, define the finite backward map as the actual
+unit on the literal successor vertex followed by `currentRefinement` . At every finite stage n
+this map is exactly the successor equality transport followed by parameter looping of the
+original computed row comparison.
+'''
+scope = '''
+The suspension is the mapping cone of the zero map to the point prespectrum; evaluation uses the
+same original loop time without reversal or transpose. The current refinement retains the
+complete successor-object equality transport. The result is an equality of whole prespectrum
+maps and does not assert stability of the backward map, connectivity, telescope comparison or
+localization. The model diagram is the existing native input, not a new perfect-complex
+realization.
+'''
+proof_kind = "outline"
+proof = '''
+Construct the point, reduced suspension cone, evaluation homotopy and `forward` cylinder unit.
+The unit-counit triangle follows by extensionality at every original loop time. Apply
+parameter-looping functoriality to the actual row comparison, then transport the unit along the
+original finite successor equality. This proves `current_unit_refinement` and hence the
+independently defined `backward_eq` .
+'''
+review = "author_checked"
+primary = "KTheory.Bass.ModelRowZigzagSequentialization.backward_eq"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

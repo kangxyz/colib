@@ -472,6 +472,14 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0552":
+                "Colib.KTheory.Bass.DiagramRowNormalizedBoundaryHomotopy",
+            "COL-0553":
+                "Colib.KTheory.Bass.ModelRowZigzagBackward",
+            "COL-0554":
+                "Colib.KTheory.Bass.WholeSeedWord",
+            "COL-0555":
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeModelRowCurrentBoundary",
             "COL-0548": "Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalEvaluationEquivalence",
             "COL-0549": "Colib.Topology.Prespectrum.RowNormalizedOperation",
             "COL-0550": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
@@ -1515,6 +1523,47 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(item["primary"], want["primary"])
             declaration = built["declarations"][want["primary"]]
             self.assertEqual(declaration["module"], want["module"])
+
+    def test_current_boundary_items_keep_owners_and_primaries(self):
+        expected = (
+            (
+                "COL-0552", "k-theory", "bass-construction",
+                "KTheory.Bass.DiagramRowSeed.normalizedBoundaryHomotopy",
+                "Colib.KTheory.Bass.DiagramRowNormalizedBoundaryHomotopy",
+                "Quillen/KTheory/Bass/DiagramRowNormalizedBoundary.lean:74",
+            ),
+            (
+                "COL-0553", "k-theory", "bass-construction",
+                "KTheory.Bass.ModelRowZigzagSequentialization.backward_eq",
+                "Colib.KTheory.Bass.ModelRowZigzagBackward",
+                "Quillen/KTheory/Bass/ModelRowZigzagSequentialization.lean:45",
+            ),
+            (
+                "COL-0554", "k-theory", "bass-construction",
+                "KTheory.Bass.WholeSeedCospan.seed",
+                "Colib.KTheory.Bass.WholeSeedWord",
+                "Quillen/KTheory/Bass/WholeSeedCospan.lean:76",
+            ),
+            (
+                "COL-0555", "k-theory-schemes", "returned-tensor-cells",
+                "KTheory.Bass.SchemeModelRowSeed.normalizedBoundaryCurrentHomotopy",
+                "Colib.AlgebraicGeometry.KTheory.Bass.SchemeModelRowCurrentBoundary",
+                "Quillen/KTheory/Bass/SchemeModelRowNormalizedBoundary.lean:57",
+            ),
+        )
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, chapter, section, primary, module, locator in expected:
+            with self.subTest(identifier=identifier):
+                item = self.library["entries"][identifier]
+                self.assertEqual(item["section"], section)
+                self.assertEqual(item["path"],
+                                 f"docs/library/entries/{chapter}/{identifier}.toml")
+                self.assertEqual(item["primary"], primary)
+                self.assertEqual(built["declarations"][primary]["module"], module)
+                source = (catalog.ROOT / (module.replace(".", "/") + ".lean")).read_text()
+                self.assertIn(f'attribute [colib_tag "{identifier}"]\n  {primary}', source)
+                self.assertIn(f'"{locator}"', source)
+                self.assertNotIn("Quillen c561118b:", source)
 
 if __name__ == "__main__":
     unittest.main()

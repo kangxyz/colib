@@ -1,0 +1,38 @@
+[entry]
+id = "COL-0555"
+title = "Whole scheme boundaries and the current Bass transition"
+kind = "comparison"
+section = "returned-tensor-cells"
+order = 30
+statement = '''
+Let M be a diagram on opposite schemes of chosen-zero-preserving small Waldhausen models,
+equipped on the actual Laurent coefficient diagram with unit automorphisms preserved by every
+coefficient map. For every finite Bass stage i and scheme-index object X, construct `forward`
+independently from the original whole row cell and source null. Its entire map equals the
+current transition induced by the original coefficient-natural seed followed by the actual
+backward map. The independently normalized boundary is joined by a based, structure-compatible
+prespectrum homotopy to that same current-transition/backward composite.
+'''
+scope = '''
+The generic scheme input is the existing M with its stated unit-preservation hypothesis; no new
+perfect-complex model or adapter is introduced. The polynomial/Laurent square, geometric
+diagonal, finite-stage action and opposite successor equality transports remain the original
+ones. The normalization homotopy retains all times and its original degree-zero input-loop
+coordinate. This closes the current-boundary comparison after COL-0551; it does not prove a new
+tensor-family naturality theorem, K1 coefficient identification, generator/recipe recognition,
+recurrence, stable equivalence or TT localization endpoint.
+'''
+proof_kind = "outline"
+proof = '''
+Apply the coefficient-natural whole seed to the original geometric source track and iterate the
+actual Laurent action to construct `currentTransition` . Compare the independently iterated row
+cell with that track at each whole time slice. The original whole-null seed comparison gives
+`forward_eq_seed` . Insert the inverse successor transports and use `backward_eq` to prove
+`forward_eq_current` , rather than defining `forward` as this composite. Specialize the general
+normalization prism to obtain `normalizedBoundaryHomotopy` , then cast only its terminal
+endpoint using the proved `forward_eq_current` .
+'''
+review = "author_checked"
+primary = "KTheory.Bass.SchemeModelRowSeed.normalizedBoundaryCurrentHomotopy"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -147,10 +147,24 @@ COL-0547 = "Use global identity evaluation with its chosen-zero normalization to
 
 [[sections]]
 id = "returned-tensor-cells"
-title = "Returned tensor cells and finite Bass strictification"
+title = "Returned tensor cells and current Bass boundaries"
 order = 59
-introduction = "The independently realized tensor-unit cell is returned through the exact global-evaluation inverse to the original section category. The same actual returned action supplies the concrete data for the existing finite Bass row-cell recursion. The resulting normalized forwards agree at every finite stage; tensor-generator recognition and nonconnective localization remain outside this section."
+introduction = '''
+The independently realized tensor-unit cell is returned through the exact global-evaluation
+inverse to the original section category. The same actual returned action supplies the finite
+Bass row-cell recursion. Its normalized forwards first agree with the original scheme-model
+boundaries; the whole prescribed null and the actual suspension backward triangle then compare
+those boundaries with the current finite Bass transitions. Tensor-generator recognition and
+nonconnective localization remain outside this section.
+'''
 
 [sections.transitions]
 COL-0550 = "The coefficient prisms of COL-0547 provide a comparison of the actual tensor action with evaluated section units. Realize that comparison in the original first row, with both cylinder directions still visible. The exact evaluation inverse returns the entire cell and its moving endpoint to the original section category, yielding an endpoint-relative comparison there."
 COL-0551 = "The returned tensor action now supplies the concrete data required by the abstract returned-action iteration of COL-0531. Run that original recursion on each finite geometric Bass square, then normalize its whole cell before the original cone inclusion. The resulting map agrees with the existing normalized forward at every finite stage, without yet claiming generated-trace recognition or localization."
+
+COL-0555 = '''
+COL-0551 identifies the returned-tensor normalized `forward` with the existing scheme-model
+normalized boundary. Now retain the original whole source null, natural seed and actual backward
+triangle. The independent `forward` comparison and the complete normalization prism connect that
+boundary with the literal current Bass transition.
+'''

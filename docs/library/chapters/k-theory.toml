@@ -207,3 +207,21 @@ COL-0530 = "The original independently specified first-row transformation cell n
 COL-0531 = "Conjugate the specified returned action by its actual return isomorphism. The\nintertwining equation identifies it with the original unit only after this\nconstruction. Its first-row realization and the unchanged finite Bass iteration\nthen retain the complete cell, its time coordinates and index naturality.\n"
 COL-0549 = "The returned-action recursion already supplies whole row cells. Before specializing it geometrically, normalize an arbitrary supplied self-cell with the original inverse-prefix cancellation. Composing the resulting prespectrum map with the refined cone inclusion gives the same boundary interface used by finite scheme stages."
 
+
+COL-0552 = '''
+COL-0549 constructs the normalized operation without identifying a prescribed null. Keep the
+entire original null and apply the moving-prefix prism. Its structure-compatible lift compares
+the normalized refined boundary with the actual null/unit/null seed.
+'''
+
+COL-0553 = '''
+The normalized boundary lands in the computed row-compatible cone target. To compare it with the
+current finite Bass stage, construct the actual suspension evaluation and retain the literal
+successor transport. The unit-counit triangle then identifies the backward leg exactly.
+'''
+
+COL-0554 = '''
+The backward triangle fixes the row target and its successor transport. The `forward` side must
+still come from the original current seed: retain its right-associated null/unit/null word and
+prove naturality at every time before assembling the natural transformation.
+'''

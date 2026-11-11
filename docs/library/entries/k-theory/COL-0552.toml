@@ -1,0 +1,37 @@
+[entry]
+id = "COL-0552"
+title = "Whole normalization prisms and the prescribed null boundary"
+kind = "comparison"
+section = "bass-construction"
+order = 90
+statement = '''
+For a based loop family γ, a self-homotopy α and a specified whole nullhomotopy N of γ, the
+original moving-prefix prism joins the inverse-prefix normalization to the null-conjugate formed
+from that same N. It preserves all three times under a based output map and any input reindexing
+that preserve γ, α and N, and is relative to any set on which all three inputs are constant. For
+a row-refined prespectrum target, this prism gives a based, structure-compatible homotopy from
+`normalizedOperation(f,H)` to `H.nullLoopMap(N)` , with the original source-loop extension in
+degree zero. For a diagram square with the stated row-interchange laws, applying it after the
+actual cone inclusion gives a whole homotopy from `normalizedBoundary(K)` to the seed formed
+with the original source null.
+'''
+scope = '''
+The diagram hypotheses are basepoint preservation, coefficient naturality and the two-structure
+interchange equation. The diagonal self-cell K is independently supplied and need not be
+identified with a scalar action. The relative conclusion assumes constancy of the component,
+self-track and prescribed null on the chosen set. No local compactness, alternative contraction,
+homotopy-group detection, stable equivalence or localization conclusion is used.
+'''
+proof_kind = "outline"
+proof = '''
+Use the original moving-prefix family and its cancellation, then remove the initial pause,
+terminal pause and constant inner prefix in the prescribed order. Pointwise dependence gives
+whole naturality and relative fixedness. At positive prespectrum levels the row evaluation maps
+preserve this prism; at level zero apply its explicit double-loop transpose to the original
+source structure map. Normalization commutes with the original Laurent inclusion, so the same
+prism with the included original source null gives `normalizedBoundaryHomotopy` .
+'''
+review = "author_checked"
+primary = "KTheory.Bass.DiagramRowSeed.normalizedBoundaryHomotopy"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
