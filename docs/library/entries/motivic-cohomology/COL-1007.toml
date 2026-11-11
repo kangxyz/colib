@@ -1,0 +1,89 @@
+[entry]
+id = "COL-1007"
+title = "Finite weight-one cohomology and units modulo powers"
+kind = "theorem"
+section = "weight-one-comparison"
+order = 50
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOneFiniteCoefficients.weightOneFiniteEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-11"
+statement = '''
+Let \(k\) be a field, let \(n\in\mathbb N\), and put \(B=\operatorname{Spec}k\).
+Use the canonical signed motivic complex \(K_1=R_s\mathbb Z(1)\) of COL-0398
+and COL-0399, with its finite-coefficient complex given by the actual cochain
+cone of \(n:K_1\to K_1\). Let
+\(\rho_n:H^{1,1}(B,\mathbb Z)\to H^{1,1}(B,\mathbb Z/n)\)
+be the original positive integral insertion. Write
+\(\nu:H^{1,1}(B,\mathbb Z)\to k^\times\)
+for the geometric determinant norm of COL-1008, and let \(\gamma(a)\) be the integral
+class of the literal rational graph of \(a\in k^\times\), transported by
+the inverse raw base-field evaluation comparison.
+
+Set \((k^\times)^n=\{b^n:b\in k^\times\}\), a subgroup of the actual unit
+group. There is a specified additive equivalence
+\[
+\Phi_n:H^{1,1}(B,\mathbb Z/n)\xrightarrow{\sim}
+\operatorname{Additive}\bigl(k^\times/(k^\times)^n\bigr)
+\]
+with the normalization formulas
+\[
+\Phi_n(\rho_n(x))=[\nu(x)],\qquad
+\Phi_n^{-1}([a])=\rho_n(\gamma(a)).
+\]
+The brackets denote the ordinary multiplicative quotient coset, viewed
+additively. Thus a finite rational graph class vanishes exactly when its
+unit is an \(n\)-th power in the same field. If
+\(z:B\rightsquigarrow\mathbb G_{m,k}\) is a signed finite correspondence,
+\(c(z)\) its integral cycle class, and \(N_{\mathrm{cyc}}(z)\) its original
+signed determinant norm, then
+\[
+\Phi_n(\rho_n(c(z)))=[N_{\mathrm{cyc}}(z)].
+\]
+'''
+scope = '''
+The field lies in universe \(u\), the ordinary smooth Nisnevich sheaf
+coefficients are `AddCommGrpCat.{u + 1}`, and an explicit
+`HasDerivedCategory.{w}` instance is retained with independent derived
+universe \(w\). The source is the actual derived-Hom finite group, not a
+new definition by the unit quotient. The target is the usual quotient by
+the range of `powMonoidHom n`.
+
+Every natural level is included: \(n=0\), \(n=1\), composite levels, and
+levels divisible by the positive characteristic. There is no invertibility,
+perfection, separability or characteristic-zero assumption. At zero the
+power subgroup is \(\{1\}\); at one it is all of \(k^\times\) and the
+finite group is zero. The cone definition is retained also at zero.
+
+Both formulas use the existing positive integral insertion and forward
+Laurent coordinate. Signed point multiplicities remain integer exponents
+in the product of the support determinant norms. There is no inverse-unit
+or negative-insertion convention. This computes degree \((1,1)\) over the
+base field only. It asserts neither a roots-of-unity computation in degree
+zero, a general-scheme computation, arbitrary-field naturality, a transfer
+action on units, strict \(\mathbb A^1\)-invariance, nor a higher-weight
+or Milnor K-theory comparison.
+'''
+proof = '''
+The literal raw weight-one complex has zero term in degree two. The actual
+raw evaluation comparison therefore gives \(H^{2,1}(B,\mathbb Z)=0\).
+The original coefficient exact sequence makes \(\rho_n\) surjective and
+identifies its kernel with the subgroup of \(n\)-multiples in integral
+\(H^{1,1}\).
+
+By COL-1008 the normalized integral equivalence is the geometric norm \(\nu\), and
+its inverse sends \(a\) to \(\gamma(a)\). Consequently the additive
+homomorphism \(a\mapsto\rho_n(\gamma(a))\) is surjective, with kernel
+precisely the actual \(n\)-th powers. Apply the first isomorphism theorem
+to this homomorphism in multiplicative notation and invert the resulting
+quotient equivalence. Its defining coset equation gives both displayed
+normalization formulas. Applying the integral signed-cycle norm formula
+before reduction gives the final cycle formula.
+
+The quotient construction and normalization formulas adapt
+[@motivic_source_a6805c4, Motivic/Cohomology/Coefficients/Finite/WeightOne.lean:38-182].
+In particular, the power-kernel calculation is at lines 84-112, the first
+isomorphism theorem at lines 122-148, and the actual norm and graph formulas
+at lines 150-177. The construction extends the signed comparison of
+COL-0403 and its field evaluation, keeping the original coefficient cone
+and graph representatives.
+'''

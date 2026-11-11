@@ -112,3 +112,19 @@ COL-0403. Postcomposition keeps the representing-sheaf restriction maps;
 the shift by minus one changes degree p to p minus one. For a single sheaf,
 the existing comparison with ordinary Ext identifies the resulting groups.
 '''
+
+COL-1008 = '''
+At the base field, COL-0400 computes the hypercohomology of the actual source
+of COL-0403. Its degree-one target is \(k^\times\). Track a literal point cycle
+through the sheafification and signed-shift coordinates. The determinant norm
+then determines both the forward map and its rational graph inverse.
+'''
+
+COL-1007 = '''
+At the base field, the normalized integral comparison of COL-1008 sends the literal
+rational graph to its unit. The original coefficient cone has positive
+integral insertion, and degree-two integral weight-one cohomology vanishes.
+Its exact sequence therefore reduces the finite computation to that same
+unit group modulo actual powers. Retain the graph and norm formulas when
+passing to the quotient, including at level zero and in positive characteristic.
+'''
