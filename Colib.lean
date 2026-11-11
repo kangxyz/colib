@@ -518,6 +518,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SmoothReduced
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecNaturality
 public import Colib.AlgebraicGeometry.Correspondences.Torus.Affine.SpecSectionsExact
 public import Colib.AlgebraicGeometry.Cycles.FiniteAlgebra
+public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.GroupScheme.LaurentOpen
 public import Colib.AlgebraicGeometry.GroupScheme.Smooth
@@ -970,6 +971,7 @@ public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroComplex
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroExact
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroStalk
 public import Colib.AlgebraicGeometry.Modules.GlobalScalarPullback
+public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Basic
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Closure
 public import Colib.AlgebraicGeometry.Modules.OpenDerivedImage.Complements
@@ -1239,6 +1241,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Parameters
 public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Presheaf
 public import Colib.AlgebraicGeometry.Sites.Smooth.Contraction.Products
 public import Colib.AlgebraicGeometry.Sites.Smooth.Coproducts
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers
 public import Colib.AlgebraicGeometry.Sites.Smooth.GroupSchemes

@@ -88,6 +88,8 @@ Keep the smooth separated finite-type objects and their original scheme maps
 from COL-0340. Jointly surjective étale families give a finer topology on this
 same category. Restriction of its sheaves to the Nisnevich topology changes
 neither their sections nor their morphisms.
+Native sheafification on this same smooth category gives the ordinary
+change-of-topology left adjoint with its canonical unit and counit.
 '''
 
 [[sections]]
@@ -98,8 +100,11 @@ introduction = '''
 For a proper scheme over a strictly henselian local base, its closed fibre
 is a geometric fibre. Native proper base change and dimension shifting
 identify the canonical restriction on ordinary small-site étale cohomology
-with finite-exponent coefficients. These maps are the specialization inputs
-for subsequent Kummer and Picard comparisons.
+with finite-exponent coefficients. The native Kummer boundary embeds the
+Picard group modulo n into roots-of-unity cohomology and reflects divisibility
+from the closed fibre. Finite-algebra unit roots then adjust an existing frame
+on the full finite affine boundary, preserving nilpotents and its actual
+tensor-power equation.
 '''
 
 [[sections]]

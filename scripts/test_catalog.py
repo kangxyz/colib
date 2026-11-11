@@ -577,6 +577,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1029": "Colib.RingTheory.Henselian.FiniteAlgebraUnits",
             "COL-1030":
                 "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
+            "COL-1031":
+                "Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization",
+            "COL-1032": "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
+            "COL-1033": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology",
         }
         native["modules"] = [
             {"name": name, "imports": []}

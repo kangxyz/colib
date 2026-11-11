@@ -20,7 +20,7 @@ small-site étale cohomology and proper base change are the pinned Stacks object
 Comparisons must retain the original graph actions, coefficient maps,
 cohomological shifts and signs.
 
-## First contributions
+## Current contributions
 
 - COL-1028 constructs the actual étale topology on Colib's smooth category and
   its refinement of the Nisnevich topology. Restriction retains literal
@@ -33,6 +33,20 @@ cohomological shifts and signs.
   effaceability criterion into bijectivity of the canonical closed-fibre
   restriction for finite-exponent abelian sheaves over a strictly henselian
   base. It does not assume the injective-fibre acyclicity criterion it uses.
+- COL-1031 constructs the canonical Picard Kummer class and injection
+  `Pic(X)/n → H²(X, μ_n)`, proves pullback naturality, and reflects
+  `n`-divisibility of Picard classes from the proper closed fibre. A native
+  representative argument then produces an actual global tensor root from
+  existence of a fibre tensor root, without claiming the chosen fibre root
+  extends. No vanishing of `H²(X, Gm)` is assumed.
+- COL-1032 uses native semilocal triviality to obtain a frame on a module-finite
+  affine boundary, then adjusts it to realize a specified trivialization of
+  the tensor power. No initial frame is assumed. The tensor-power equation
+  holds on the original, possibly nonreduced scheme.
+- COL-1033 constructs ordinary Nisnevich-to-étale change of topology on the
+  same smooth category. The adjunction retains the canonical sheafification
+  unit and counit and inherits finite-limit/colimit preservation and
+  additivity under the precise native coefficient hypotheses.
 
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
@@ -41,14 +55,14 @@ whole-program validation report.
 
 ## Remaining mathematical chain
 
-1. Use the native Picard-to-first-cohomology map, Kummer connecting map and
-   their pullback naturality to construct the canonical injection
-   `Pic(X)/n → H²(X, μ_n)`. Derive specialization injectivity from COL-1030
-   with the actual inverse-image coefficient comparison. No vanishing of
-   `H²(X, Gm)` is required for this injection.
-2. Extract an actual line bundle root of a section-divisor difference and
-   adjust its frame on the entire finite boundary using COL-1029. The frame
-   equation must hold on the original, possibly nonreduced boundary.
+1. Construct the actual section-divisor difference and prove it has a tensor
+   root on the closed curve. COL-1031 then supplies an ordinary global line
+   bundle root with its tensor-power isomorphism. The closed-curve root producer
+   and the connection to the actual section divisors remain to be built.
+2. Construct the prescribed trivialization on the actual finite boundary and
+   identify the pullback of the root's tensor power with the tensor power of
+   its actual pullback. COL-1032 then supplies the exact compatible frame,
+   including on the original nonreduced boundary.
 3. Convert that framed root into finite-flat effective divisor data and a
    principal correspondence identity. Preserve scheme-length multiplicities,
    signs and the original graph maps. Evaluate the identity using additivity,
@@ -60,8 +74,8 @@ whole-program validation report.
    stage, prove the henselization induction and pass to conservative étale
    stalks. Handle the arbitrary-field inseparable comparison separately;
    do not silently retain a perfect-field assumption in the final target.
-5. For motivic-to-étale comparison, construct exact ordinary change of
-   topology on the same smooth site, preserve its canonical unit and
+5. Use COL-1033 to extend ordinary change of topology to the required
+   transfer and derived constructions, preserve its canonical unit and the
    finite-coefficient cone, and connect the existing signed motivic complex
    to the native small-site coefficients. The integral and finite weight-one
    field equivalences already in Colib are not themselves this comparison.

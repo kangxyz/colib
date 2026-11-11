@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1032"
+title = "Tensor-power-compatible frames on a finite boundary"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 30
+primary = "AlgebraicGeometry.exists_compatible_frame_of_module_finite"
+review = "author_checked"
+statement = '''
+Let \(B\) be any module-finite algebra over a strictly henselian local ring
+\(R\), and let \(n\) be invertible in \(R\). Suppose an invertible module
+sheaf \(L\) is given on \(\operatorname{Spec}B\), and let
+\(\alpha\colon L^{\otimes n}\simeq\mathcal O\) be any specified
+trivialization. There exists a frame \(e'\) whose actual native tensor-power
+isomorphism, followed by the structure-sheaf tensor-power isomorphism, equals
+\(\alpha\). The same conclusion applies to the actual module pullback
+along any morphism from \(\operatorname{Spec}B\).
+'''
+proof = '''
+A module-finite algebra over a local ring has finite maximal spectrum.
+Its Picard group is trivial, and native affine sheaf triviality supplies
+an initial frame \(e\). Compare \(\alpha\) with its tensor power using the
+native trivialization ratio. Transport this unit through the canonical affine
+global-sections isomorphism to \(B^\times\), and use COL-1029 to take an
+\(n\)-th root. The native Kummer pair-isomorphism criterion supplies an
+automorphism of \(L\) with exactly the required tensor-power compatibility.
+Compose it with \(e\); native tensor-power composition gives the claimed
+equality of sheaf isomorphisms.
+'''
+scope = '''
+The base ring and finite algebra may have independent universes. No
+reducedness, locality, flatness or nonzero assumption is imposed on \(B\),
+and composite exponents are allowed. The equation holds on the original
+scheme, including its nilpotents. No initial frame is assumed. Existence of
+the ordinary global line bundle root and the prescribed boundary
+trivialization remain separate inputs. Native semilocal triviality,
+trivialization ratios and pair isomorphisms come from SemilocalFibre/Basic,
+PicardUFD/Affine and KummerTheory/Basic in [@axiom_stacks_5ed82d14].
+'''
