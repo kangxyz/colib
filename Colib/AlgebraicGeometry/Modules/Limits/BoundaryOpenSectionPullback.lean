@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryRoot
+public import Colib.AlgebraicGeometry.Divisors.FrameTransport
 public import StacksFrontier.AlgebraicGeometry.Descent.EffectiveEpi.QuasicoherentSectionsEqualizer.GlobalSections
 public import StacksFrontier.AlgebraicGeometry.IdealOfClosedSubscheme.Basic
 public import StacksFrontier.AlgebraicGeometry.PullbackSections.Affine
@@ -95,12 +96,8 @@ theorem pullbackBoundaryTrivialization_openSection_one {A B C D : Scheme.{u}}
     (Hom.app ((pullback f).map e.hom) ⊤
       (Hom.app (pullbackSquareIso f g h k w N).inv ⊤ _)) = _
   rw [hi]
-  have hn := Stacks.AlgebraicGeometry.IdealOfClosedSubscheme.pullbackGlobalSections_naturality
-    f e.hom (pullbackSectionHom g N U ⊤ hg s)
-  exact (congrArg (Hom.app (pullbackUnitIso f).hom ⊤) hn.symm).trans
-    ((congrArg (fun z => Hom.app (pullbackUnitIso f).hom ⊤
-      (pullbackGlobalSections f (SheafOfModules.unit B.ringCatSheaf) z)) hs).trans
-        ((SectionsEqualizer.pullbackUnitIso_unit f (1 : Γ(B, ⊤))).trans
-          (map_one f.appTop.hom)))
+  exact (framePullback_coordinate f e (pullbackSectionHom g N U ⊤ hg s)).trans
+    ((congrArg (fun z => f.appTop z) hs).trans (map_one f.appTop.hom))
+
 
 end AlgebraicGeometry.Scheme.Modules

@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
+public import Colib.AlgebraicGeometry.IdealSheaf.CartesianKernel
 public import Mathlib.AlgebraicGeometry.Morphisms.Separated
 
 /-!
@@ -28,8 +28,7 @@ theorem ker_eq_comap_of_isPullback
     {Z' Z X' X : Scheme.{u}} (i' : Z' ⟶ X') (g : Z' ⟶ Z)
     (f : X' ⟶ X) (i : Z ⟶ X) [IsClosedImmersion i]
     (h : IsPullback i' g f i) : i'.ker = i.ker.comap f := by
-  rw [← h.isoPullback_hom_fst, Scheme.Hom.ker_comp_of_isIso,
-    Scheme.IdealSheafData.ker_fst_of_isClosedImmersion]
+  exact Scheme.Hom.ker_eq_comap_of_isPullback i' g f i h
 
 /-- Compatible original sections of a Cartesian family form a Cartesian section square. -/
 theorem isPullback_section_of_isPullback
