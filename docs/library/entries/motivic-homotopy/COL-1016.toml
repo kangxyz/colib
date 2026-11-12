@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1016"
-title = "Conditional affine-line representability"
+title = "Affine-line representability of motivic cochain coefficients"
 kind = "comparison"
 section = "affine-line-representatives"
 order = 10
@@ -22,6 +22,13 @@ coefficients in \(K\). Then
 \operatorname{Hom}(Q_I X,Q_I R_p(K))
   \simeq \widetilde{\mathbb H}^{p}_{\mathrm{Nis}}(X,K).
 \]
+It suffices that ordinary Nisnevich hypercohomology of \(K\) in every
+degree be invariant under the affine-line projection of each smooth
+representable. Over a perfect field this condition holds for the
+integral motivic complex and its native finite coefficient cone by
+COL-1033, so the comparison applies to every pointed simplicial
+presheaf with these coefficients.
+
 For the freely pointed smooth representable \(h_{U,+}\), the target
 identifies with ordinary Nisnevich hypercohomology of \(U\).
 Precomposition by the image of an actual smooth-site map
@@ -35,11 +42,18 @@ the coefficient representative interval-local. Maps into that object
 are preserved by the interval localization. On a smooth representable,
 the reduced derived chains identify with the original free representing
 sheaf in degree zero. That identification gives ordinary hypercohomology
-and its original restriction.
+and its original restriction. To pass from representables to all pointed
+objects, identify the reduced presheaf cochains of the cylinder with a
+coproduct indexed by the parameter maps. Its fold is adjoint to ordinary
+projection pullback. Evaluation on sections makes the latter a
+quasi-isomorphism for the K-injective coefficient model. The homotopy
+adjunction and exact sheafification then give the required cylinder
+invariance.
 '''
 scope = '''
 The coefficient sheaves take values in abelian groups in universe \(u+1\)
 for \(S\colon\mathrm{Scheme}\,u\). The sheafification, Grothendieck abelian
 structure, and independent derived category universe are explicit. The
-cohomological hypothesis concerns all pointed cylinders in the given degree.
+general representable criterion tests all cohomological degrees. The
+integral and finite motivic conclusions use a perfect base field.
 '''

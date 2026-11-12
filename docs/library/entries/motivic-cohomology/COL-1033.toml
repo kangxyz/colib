@@ -1,0 +1,31 @@
+[entry]
+id = "COL-1033"
+title = "Affine-line invariance of motivic cohomology on smooth schemes"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "motivic-hypercohomology"
+order = 30
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicCohomologyPresheaf_isA1Invariant"
+statement = '''
+Let \(k\) be a perfect field. For a smooth separated finite-type
+\(k\)-scheme \(X\), pullback along \(X\times_k\mathbb A^1\to X\) is an
+isomorphism on motivic cohomology in every cohomological degree
+\(p\in\mathbb Z\) and every nonnegative weight \(q\). This holds for
+the integral complex and for the cone of multiplication by any
+coefficient level on that complex.
+'''
+scope = '''
+The integral complex is the signed complex of COL-0398. The finite
+coefficient statement uses the native multiplication cone of COL-1018.
+The isomorphism is restriction along the actual projection in the smooth
+site, with the ordinary Nisnevich hypercohomology groups of COL-0399.
+'''
+proof = '''
+Apply COL-1032 to \(X\) and its affine-line cylinder. In a fixed degree,
+their common finite bound reduces the actual hypercohomology map to
+the canonical finite window of cohomology sheaves. Each of those sheaves
+has invariant ordinary Nisnevich cohomology by COL-1031. For the cone
+coefficients, apply exactness of the coefficient triangle to the same
+restriction in all degrees.
+'''

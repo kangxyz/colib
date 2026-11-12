@@ -358,6 +358,22 @@ year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 1–57"
 url = "https://numdam.org/item/10.1007/s10240-003-0009-z.pdf"
 
+[sources.Voevodsky2008NisnevichCD]
+kind = "article"
+title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4576v1"
+url = "https://arxiv.org/abs/0805.4576v1"
+
+[sources.Voevodsky2008CDTopologies]
+kind = "article"
+title = "Homotopy theory of simplicial sheaves in completely decomposable topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4578v1"
+url = "https://arxiv.org/abs/0805.4578v1"
+
 [sources.mathlib_dold_kan_pin]
 kind = "software"
 title = "Mathlib normalized Moore complexes and simplicial chain homotopies"

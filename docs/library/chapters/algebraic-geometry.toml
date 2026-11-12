@@ -64,6 +64,12 @@ map \(V\to X\) that is an isomorphism over the closed complement give a Nisnevic
 cover. On \(V\times_X V\), the diagonal and the part lying over \(U\) provide
 the cover used to check compatibility of the two restrictions.
 '''
+COL-1032 = '''
+Use finite refinements by these distinguished squares and the natural
+Mayer–Vietoris boundary for ordinary cohomology. The standard density
+filtration controls the degree of the open on which a class vanishes,
+giving the bound by the Krull dimension.
+'''
 COL-0343 = '''
 For the base object \(\operatorname{Spec}k\), the residue-field condition gives
 a lift of its field point through any Nisnevich cover. The resulting section

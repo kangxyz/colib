@@ -20,7 +20,12 @@ introduction = '''Use the Nisnevich points of COL-1010 and the K-injective compa
 id = "affine-line-representatives"
 title = "Affine-line localization of representatives"
 order = 25
-introduction = '''Use the native affine line as the interval. Invariance of reduced hypercohomology under the pointed cylinder projections gives the criterion for the Nisnevich representative to compute the same groups after interval localization.'''
+introduction = '''
+Use the native affine line as the interval. The parameter coproduct
+extends invariance on smooth representables to all pointed cylinders.
+With COL-1033, the integral and finite motivic representatives compute
+the same groups after interval localization.
+'''
 
 [[sections]]
 id = "tate-sphere-and-suspension"
