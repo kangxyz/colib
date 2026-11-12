@@ -5,6 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.AlgebraicGeometry.RelativeCurve.Pencils.RetainedProductFamily
+
 public import Mathlib.AlgebraicGeometry.OpenImmersion
 public import Mathlib.RingTheory.Polynomial.Basic
 public import Mathlib.AlgebraicGeometry.FunctionField
@@ -269,4 +271,51 @@ theorem complement_subset_ambientUnitOpen {R : Type u} [CommRing R]
   simpa only [Scheme.Hom.comp_apply, hwz, hzx] using hw
 
 end AlgebraicGeometry.PrincipalFamilyUnitOpen
+end
+
+/-!
+## Compatibility with the strict affine-line parameter geometry
+
+Uncompiled integration draft. The public legacy definitions above are retained.
+The comparison target is the actual parameter construction from
+`codex/strict-a1-final@6fac947390fb8144a79ee31acbb98686baf0f7f2`.
+No definitional equality of the two map expressions is assumed.
+-/
+
+@[expose] public noncomputable section
+
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+
+namespace AlgebraicGeometry.PrincipalFamilyUnitOpen
+
+variable {R : Type u} [CommRing R] {X : Scheme.{u}} (b : X ⟶ Spec (.of R))
+
+/-- The legacy and shared parameter objects are the identical polynomial pullback. -/
+theorem parameterSpace_eq_polynomialSectionPencil :
+    parameterSpace b = Scheme.PolynomialSectionPencil.parameterSpace b := rfl
+
+/-- Both projections are the first projection of the identical pullback. -/
+theorem projection_eq_polynomialSectionPencil :
+    projection b = Scheme.PolynomialSectionPencil.projection b := rfl
+
+/-- Both parameter sections are the same image of the polynomial variable. -/
+theorem parameter_eq_polynomialSectionPencil :
+    parameter b = Scheme.PolynomialSectionPencil.parameter b := rfl
+
+/-- Both endpoint maps use the same polynomial evaluation and pullback lift. -/
+theorem endpoint_eq_polynomialSectionPencil (c : R) :
+    endpoint b c = Scheme.PolynomialSectionPencil.endpoint b c := rfl
+
+/-- The legacy map and shared parameter map have the same two projections.
+This is a proved map equality rather than a claimed definitional equality. -/
+theorem lineMap_eq_parameterMap {D : Scheme.{u}} (f : D ⟶ X) :
+    lineMap b f = Scheme.PolynomialSectionPencil.parameterMap b f := by
+  apply pullback.hom_ext
+  · simp [lineMap, Scheme.PolynomialSectionPencil.parameterMap,
+      Scheme.PolynomialSectionPencil.projection, projection, pullback.map]
+  · simp [lineMap, Scheme.PolynomialSectionPencil.parameterMap,
+      Scheme.PolynomialSectionPencil.projection, projection, pullback.map]
+
+end AlgebraicGeometry.PrincipalFamilyUnitOpen
+
 end

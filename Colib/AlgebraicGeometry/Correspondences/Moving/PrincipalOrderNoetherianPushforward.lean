@@ -21,6 +21,7 @@ actual residue degree is retained, together with image collisions and signs.
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits Stacks.Chow TopologicalSpace
 open Function.locallyFinsuppWithin
+attribute [local instance] Classical.propDecidable
 universe u
 namespace AlgebraicGeometry.AlgebraicCycle
 
@@ -37,7 +38,7 @@ theorem noetherianCyclePushforward_eq_sum_of_retained_points
       ∑ z : (Function.locallyFinsupp.finite_support c).toFinset,
         single (m (l z)) (c z.val * (m.residueDegree (l z) : ℤ)) := by
   have hd := finiteCyclePushforward_eq_sum_of_retained_points j (𝟙 V) c d h l hl
-  simp only [finiteCyclePushforward_id, Scheme.Hom.id_apply] at hd
+  simp only [finiteCyclePushforward_id] at hd
   rw [hd, map_sum]
   apply Finset.sum_congr rfl
   intro z _
@@ -59,6 +60,7 @@ variable {k : Type u} [Field k] {X Y : SmoothSite (Spec (.of k))} [IsAffine X.le
 local instance retainedOpen_dominant : IsDominant j :=
   ((tfae_isDominant_of_isIntegral j).out 1 2).mpr (genericPoint_eq_of_isOpenImmersion j)
 
+set_option backward.isDefEq.respectTransparency false in
 /-- The original principal correspondence is the weighted pushforward along the
 actual retained structure map, without imposing a closed immersion on that map. -/
 theorem correspondence_val_eq_noetherianPushforward

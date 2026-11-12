@@ -35,6 +35,47 @@ theorem avoids_support_comap_square {B' B X' X : Scheme.{u}}
   rw [← hw]
   exact hD (b y)
 
+private theorem boundary_frame_tensor_preimage_of_iso {B X : Scheme.{u}}
+    (i : B ⟶ X) (D E : X.IdealSheafData)
+    [IsEffectiveCartierDivisor D] [IsEffectiveCartierDivisor E]
+    (hD : ∀ y : B, i y ∉ D.support) (hE : ∀ y : B, i y ∉ E.support)
+    (e : (Scheme.Modules.pullback i).obj (differenceSheaf D E) ≅
+      SheafOfModules.unit B.ringCatSheaf)
+    (he : e = differenceSheafBoundaryIsoOfComapEqTop i D E
+      (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE))
+    (U : X.Opens) (a : Γ(negativeTwist' E, U))
+    (ha : idealSheafSection E a = (1 : Γ(X, U))) :
+    e.hom.app (i ⁻¹ᵁ U)
+      (pullbackSectionHom i (differenceSheaf D E) U (i ⁻¹ᵁ U) le_rfl
+        (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)) = (1 : Γ(B, i ⁻¹ᵁ U)) := by
+  exact (congrArg (fun t : (Scheme.Modules.pullback i).obj (differenceSheaf D E) ≅
+    SheafOfModules.unit B.ringCatSheaf => t.hom.app (i ⁻¹ᵁ U)
+      (pullbackSectionHom i (differenceSheaf D E) U (i ⁻¹ᵁ U) le_rfl
+        (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a))) he).trans
+    (differenceSheafBoundaryIso_tensor_canonical_preimage i D E
+      (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE)
+      U a ha)
+
+private theorem boundary_frame_tensor_one_of_iso {B X : Scheme.{u}}
+    (i : B ⟶ X) (D E : X.IdealSheafData)
+    [IsEffectiveCartierDivisor D] [IsEffectiveCartierDivisor E]
+    (hD : ∀ y : B, i y ∉ D.support) (hE : ∀ y : B, i y ∉ E.support)
+    (e : (Scheme.Modules.pullback i).obj (differenceSheaf D E) ≅
+      SheafOfModules.unit B.ringCatSheaf)
+    (he : e = differenceSheafBoundaryIsoOfComapEqTop i D E
+      (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE))
+    (U : X.Opens) (hi : ⊤ ≤ i ⁻¹ᵁ U) (a : Γ(negativeTwist' E, U))
+    (ha : idealSheafSection E a = (1 : Γ(X, U))) :
+    e.hom.app ⊤ (pullbackSectionHom i (differenceSheaf D E) U ⊤ hi
+      (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)) = (1 : Γ(B, ⊤)) :=
+  frame_pullbackSectionHom_top_of_preimage i (differenceSheaf D E) U e
+    (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a) hi
+    (boundary_frame_tensor_preimage_of_iso i D E hD hE e he U a ha)
+
 private theorem boundary_frame_tensor_one {B X : Scheme.{u}}
     (i : B ⟶ X) (D E : X.IdealSheafData)
     [IsEffectiveCartierDivisor D] [IsEffectiveCartierDivisor E]
@@ -43,19 +84,10 @@ private theorem boundary_frame_tensor_one {B X : Scheme.{u}}
     (ha : idealSheafSection E a = (1 : Γ(X, U))) :
     (differenceSheafBoundaryIso i D E hD hE).hom.app ⊤
       (pullbackSectionHom i (differenceSheaf D E) U ⊤ hi
-        (canonicalDifferenceTensorSection D E U a)) = (1 : Γ(B, ⊤)) := by
-  let e := differenceSheafBoundaryIsoOfComapEqTop i D E
-    (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE)
-  have hpre := differenceSheafBoundaryIso_tensor_canonical_preimage i D E
-    (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE)
-    U a ha
-  have htop := frame_pullbackSectionHom_top_of_preimage i (differenceSheaf D E) U e
-    (canonicalDifferenceTensorSection D E U a) hi hpre
-  exact (congrArg (fun t : (Scheme.Modules.pullback i).obj (differenceSheaf D E) ≅
-    SheafOfModules.unit B.ringCatSheaf => t.hom.app ⊤
-      (pullbackSectionHom i (differenceSheaf D E) U ⊤ hi
-        (canonicalDifferenceTensorSection D E U a)))
-    (differenceSheafBoundaryIso_eq_ofComap i D E hD hE)).trans htop
+        (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)) = (1 : Γ(B, ⊤)) :=
+  boundary_frame_tensor_one_of_iso i D E hD hE (differenceSheafBoundaryIso i D E hD hE)
+    (differenceSheafBoundaryIso_eq_ofComap i D E hD hE) U hi a ha
 
 private theorem canonical_tensor_pullback {X' X : Scheme.{u}}
     (f : X' ⟶ X) (D E : X.IdealSheafData)
@@ -64,8 +96,11 @@ private theorem canonical_tensor_pullback {X' X : Scheme.{u}}
     (U : X.Opens) (a : Γ(negativeTwist' E, U)) :
     (differenceSheafPullbackIso f D E).hom.app (f ⁻¹ᵁ U)
       (pullbackSectionHom f (differenceSheaf D E) U (f ⁻¹ᵁ U) le_rfl
-        (canonicalDifferenceTensorSection D E U a)) =
-      canonicalDifferenceTensorSection (D.comap f) (E.comap f) (f ⁻¹ᵁ U)
+        (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)) =
+      Stacks.SheafOfModules.tensorSectionsAt X'.sheaf.obj X'.ringCatSheaf.property
+        (op (f ⁻¹ᵁ U)) (divisorSheaf (D.comap f)) (negativeTwist' (E.comap f))
+        ((canonicalSection' (D.comap f)).eval (op (f ⁻¹ᵁ U)))
         ((pullbackIdealSheafComapIso f E inferInstance).hom.val.app (op (f ⁻¹ᵁ U))
           (pullbackSectionHom f (negativeTwist' E) U (f ⁻¹ᵁ U) le_rfl a)) := by
   have H := differenceSheafPullbackIso_tensorSection_preimage f D E U
@@ -96,19 +131,22 @@ private theorem boundary_frame_pullback_tensor_one {B' X' X : Scheme.{u}}
       differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE).hom.app ⊤
       (pullbackSectionHom i' ((Scheme.Modules.pullback f).obj (differenceSheaf D E))
         (f ⁻¹ᵁ U) ⊤ hi (pullbackSectionHom f (differenceSheaf D E) U (f ⁻¹ᵁ U)
-          le_rfl (canonicalDifferenceTensorSection D E U a))) = (1 : Γ(B', ⊤)) := by
+          le_rfl (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a))) = (1 : Γ(B', ⊤)) := by
   let d := (pullbackIdealSheafComapIso f E inferInstance).hom.val.app (op (f ⁻¹ᵁ U))
     (pullbackSectionHom f (negativeTwist' E) U (f ⁻¹ᵁ U) le_rfl a)
   have hd : idealSheafSection (E.comap f) d = (1 : Γ(X', f ⁻¹ᵁ U)) :=
     idealSheafSection_pullbackIdealOne_preimage f E U a ha
   let ρ := differenceSheafPullbackIso f D E
   let c := pullbackSectionHom f (differenceSheaf D E) U (f ⁻¹ᵁ U) le_rfl
-    (canonicalDifferenceTensorSection D E U a)
+    (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+          (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)
   apply frame_mapIso_section_one i' _ _ ρ
     (differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE) (f ⁻¹ᵁ U) hi c
   have hc := canonical_tensor_pullback f D E U a
-  change ρ.hom.app (f ⁻¹ᵁ U) c = canonicalDifferenceTensorSection
-    (D.comap f) (E.comap f) (f ⁻¹ᵁ U) d at hc
+  change ρ.hom.app (f ⁻¹ᵁ U) c = Stacks.SheafOfModules.tensorSectionsAt X'.sheaf.obj X'.ringCatSheaf.property
+      (op (f ⁻¹ᵁ U)) (divisorSheaf (D.comap f)) (negativeTwist' (E.comap f))
+      ((canonicalSection' (D.comap f)).eval (op (f ⁻¹ᵁ U))) d at hc
   exact (congrArg (fun t =>
     (differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE).hom.app ⊤
       (pullbackSectionHom i' (differenceSheaf (D.comap f) (E.comap f))
@@ -133,7 +171,8 @@ theorem differenceSheafBoundaryIso_pullback_square {B' B X' X : Scheme.{u}}
   let V := f ⁻¹ᵁ U
   let N := differenceSheaf D E
   let τ := differenceSheafBoundaryIso i D E hD hE
-  let a := canonicalDifferenceTensorSection D E U (idealOneSection E)
+  let a := Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property (op U)
+    (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) (idealOneSection E)
   have hi : (⊤ : B.Opens) ≤ i ⁻¹ᵁ U :=
     (preimage_canonicalDifferenceRegularOpen_eq_top i E hE).ge
   have hi' : (⊤ : B'.Opens) ≤ i' ⁻¹ᵁ V := by

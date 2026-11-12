@@ -6,6 +6,8 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.RationalUnitPrincipalAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Actions.PrincipalOrder
+public import Colib.AlgebraicGeometry.Correspondences.Moving.PrincipalOrderNoetherianPushforward
 
 /-! # Original boundary-normalized rational-unit actions -/
 
@@ -55,10 +57,19 @@ theorem transfer_boundaryNormalized_rationalUnit_eq_zero
   let : IsIntegral W.val.toScheme := inferInstance
   obtain ⟨b, hb, hb1⟩ := denseOpen_boundary_factor W i hBW u.val hu1
   have hc : (Set.range j)ᶜ ⊆ Set.range (b ≫ W.val.ι) := by simpa only [hb] using hcover
-  apply transfer_principal_polynomial_eq_zero P hP X Y q j W.val.ι b hc
-    (W.val.topIso.inv u.val) hb1 g hg L
-  let := retainedCurve_isNoetherian j
-  rw [hL, pushforward_principalDivisor_denseUnit j _ W u F hu]
+  letI := retainedCurve_isNoetherian j
+  let hW := Cor.PrincipalOrder.canonical_boundary_cover j W.val b hc
+  let m := retainedCurveMap X.hom Y.hom q j g hg
+  have hm₁ : m ≫ CategoryTheory.Limits.pullback.fst X.hom Y.hom = j ≫ q :=
+    CategoryTheory.Limits.pullback.lift_fst _ _ _
+  have hm₂ : m ≫ CategoryTheory.Limits.pullback.snd X.hom Y.hom = g :=
+    CategoryTheory.Limits.pullback.lift_snd _ _ _
+  have he : L = Cor.PrincipalOrder.correspondence q j W.val hW u.val u.isUnit g hg := by
+    apply Subtype.ext
+    exact hL.trans (Cor.PrincipalOrder.correspondence_val_eq_pushforward_principalDivisor
+      q j g hg W hW u F hu m hm₁ hm₂).symm
+  rw [he]
+  exact transfer_principalOrder_open_eq_zero P hP X Y q j W.val u.val u.isUnit b hc hb1 g hg
 
 include hP i hcover in
 /-- General smooth-base torsion consumer for the actual signed relation produced
