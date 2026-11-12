@@ -95,8 +95,8 @@ theorem originalOrderCycle_endpoint_chart_apply (a : k)
   simp only [c, map_sub, coe_sub, Pi.sub_apply]
   rw [polynomialEndpointMap_sectionZero_apply q a N x hx hN,
     polynomialEndpointMap_sectionZero_apply q a D x hx
-      (by simpa only [D, denominator_endpoint] using hd)]
-  simp only [N, D, denominator_endpoint]
+      (by simpa only [← endpoint_eq_polynomialSectionPencil, D, denominator_endpoint] using hd)]
+  simp only [← endpoint_eq_polynomialSectionPencil, N, D, denominator_endpoint]
 
 omit [IsNoetherian C] [IsLocallyNoetherian W] in
 /-- The specified open section is nonzero as a rational germ. -/
