@@ -375,6 +375,14 @@ year = 2010
 version = "Documenta Mathematica, Extra Volume Suslin, pages 671–685"
 url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf"
 
+[sources.Voevodsky2000TriangulatedMotives]
+kind = "article"
+title = "Triangulated categories of motives over a field"
+authors = ["Vladimir Voevodsky"]
+year = 2000
+version = "Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, pages 188–238"
+url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s5.pdf"
+
 [sources.Voevodsky2008NisnevichCD]
 kind = "article"
 title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"

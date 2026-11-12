@@ -56,6 +56,17 @@ the Tate class in bidegree \((2,1)\).
 '''
 
 [[sections]]
+id = "effective-motives"
+title = "Effective motives with transfers"
+order = 35
+introduction = '''
+The bounded-above derived category of Nisnevich sheaves with transfers
+contains the objects with \(\mathbb A^1\)-invariant cohomology. The
+signed singular construction and Nisnevich sheafification give the
+representatives of smooth schemes in this category.
+'''
+
+[[sections]]
 id = "reduced-cohomology-operations"
 title = "Operations on reduced cohomology"
 order = 40

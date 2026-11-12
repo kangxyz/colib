@@ -310,8 +310,10 @@ the existing exact transfer sheafification. This is the representative
 motive of a smooth scheme when applied to its actual transfer
 representable. Prove the localization property of this construction
 on bounded-above complexes by the augmentation and the native
-geometric interval homotopy. Use finite sums in each degree of the
-bounded-above total complex.
+geometric interval homotopy. Use Mathlib's cochain totalization with
+coefficient degree first. If the coefficient complex vanishes above
+\(b\), the summands in total degree \(i\) can be nonzero only for
+coefficient degrees in \([i,b]\).
 
 The torus projection on the underlying Nisnevich site gives the
 right-derived reindexing functor. Start at the original section functors
@@ -324,6 +326,13 @@ naturality to identify this with the higher derived reindexing of an
 injective resolution. For the corresponding small-site direct image,
 identify the base-change diagram of the torus projection and apply the
 existing derived point-fibre colimit comparison.
+
+Use the pinned Stacks functorial K-injective resolution to construct
+the actual right-derived torus sections on the derived category.
+Compare its unit with the single-degree collapse on homotopy invariant
+coefficients. The degree bound for each smooth representable gives a
+finite truncation window in which to compare the derived unit with
+the sheafified singular torus map.
 
 For degree zero compare sheafification and torus reindexing on an
 \(\mathbb A^1\)-invariant presheaf with transfers. The kernel and cokernel
@@ -344,14 +353,16 @@ complexes of equation (4.3).
 For the left adjoint, extend the actual additive torus product
 functor \(F\) from transfer representables. On a presheaf \(P\) and
 source \(X\), use the sum of
-\(\operatorname{Cor}(X,FY)\otimes_{\mathbb Z}P(Y)\) over \(Y\) and impose
+\(P(Y)\otimes_{\mathbb Z}\operatorname{Cor}(X,FY)\) over \(Y\) and impose
 the relations for the actual maps of the correspondence category.
 The adjunction with reindexing has unit represented by
-\(\operatorname{id}_{FY}\otimes p\), and counit given by transfer on
-the first factor. Check these formulas on the original representable
+\(p\otimes\operatorname{id}_{FY}\), and counit given by transfer on
+the correspondence factor. Check these formulas on the original representable
 generators. Sums of the large transfer representables give projective
-presentations before sheafification. Derive the extension using these
-presentations and verify descent through the actual Nisnevich and
+presentations before sheafification. The native bounded-above resolution
+of Stacks Tag 0646 and Mathlib's K-projective comparison compute the
+extension on the actual projective representatives. Verify descent
+through the actual Nisnevich and
 effective localizations. Check descent on the generating Nisnevich
 relations and the literal product of the affine-line projections.
 The complementary unit projector gives tensoring with the reduced
