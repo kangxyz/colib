@@ -1,0 +1,33 @@
+[entry]
+id = "COL-0592"
+title = "The auxiliary current-stage same-null localization lift"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1592
+statement = '''
+Let f:P→Q be an open immersion of schemes, with P, Q and an auxiliary open T⊆Q compact and Q
+quasi-separated. Evaluate at the integer base Spec(CommRingCat.of(ULift ℤ)). More generally, for
+schemes over this base, the comparison is available at every coefficient a in its under-category.
+The actual auxiliary current-stage lift into the homotopy fiber of current restriction, formed
+from its selected whole null, is a stable equivalence at the integer base. It therefore induces an
+isomorphism in every integer stable degree. Its projection is the actual current enlargement map.
+'''
+scope = '''
+This is the auxiliary-supported current-stage lift, with the same-null data and compactness of T
+retained. It does not assert the distinct ordinary localization endpoint or identify these groups
+with an additional classical K-theory model. The projection identity itself does not need the
+compactness hypotheses.
+'''
+proof_kind = "outline"
+proof = '''
+Apply homotopyFiberLift_isStableEquivalence_iff to the three stable integral Spec telescope
+comparisons, their enlargement and restriction squares, and their whole-null square. The
+coefficient full-open localization theorem supplies stability on the coefficient side. Transfer it
+to the current lift using current_iterated_lift_stable_iff. For arbitrary schemes use their
+terminal maps to Spec(ULift ℤ) and the identity coefficient; the signed isomorphism and projection
+follow from stable equivalence and the defining fiber lift.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryCurrentFiber.currentLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

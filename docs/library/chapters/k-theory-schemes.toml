@@ -144,6 +144,17 @@ COL-0582 = "Apply the cone comparison to the actual geometric square. Its target
 COL-0583 = "The geometric permutation now gives the original seed rotation. Keeping the literal transpose and loop permutation makes the successor transition identity available for induction."
 COL-0584 = "The transition identity allows the finite comparison maps to descend to telescopes. Genuine Model inputs make these maps stable, while the same construction retains the input and whole-null squares."
 COL-0585 = "Apply the three Model telescope comparisons to the actual supported and ambient parameter diagrams. Their whole-null compatibility transfers stability between the two specified fiber lifts."
+COL-0588 = "Finite supported Model excision gives cone comparisons compatible with the Laurent transitions. These pass to the telescope without identifying the null time with its cylinder height."
+COL-0589 = "Passing from coarse restriction to the full-open target requires the actual grading map. Its degree-zero quotient comparison gives an exact tail with an injective restriction map."
+COL-0590 = "The natural graded Laurent contraction eliminates the graded telescope term. Combining the resulting restriction equivalence with coarse cone descent identifies the supported telescope with the same-null full-open fiber."
+COL-0591 = "To compare the coefficient localization with the scheme parameter construction, evaluate the fiber, ambient and open rows along integral Spec and retain their enlargement, restriction and whole-null squares."
+COL-0592 = "The three Spec comparisons now transfer stability of the coefficient fiber lift to the iterated lift. The current\u2013iterated same-null comparison gives the current-stage localization map at the integer base."
+COL-0593 = "The auxiliary localization above retains an additional open. For the ordinary support category, start instead with its own finite excision and prescribed null. These give the ordinary coarse telescope cone comparison without compactness assumptions."
+COL-0594 = "The coarse-open target still differs from the full-open target. The actual restriction and grading maps measure this difference: their degree-zero comparison is exact, rather than an assumed bijection of restriction."
+COL-0595 = "The exact grading comparison extends along the original Laurent seeds. The graded contraction kills its telescope, so the cone of the actual coarse-to-full-open telescope restriction vanishes in every signed degree."
+COL-0596 = "Compose the ordinary coarse cone comparison with this stable restriction. The composition retains the postcomposed whole null, so its cone descent, fiber lift and signed connecting maps describe one localization diagram."
+COL-0597 = "To transfer this localization to scheme parameters, compare the actual supported, ambient and open rows along integral Spec. The restriction squares alone are insufficient: the three comparisons must also preserve every value of the specified full-open null."
+COL-0598 = "The whole-null square now lets the three actual Spec comparisons transfer coefficient fiber stability to the iterated parameter lift. The established twisted and current comparisons retain the same null and complete the ordinary current-stage localization theorem."
 
 [[sections]]
 id = "tensor-unit-prisms"

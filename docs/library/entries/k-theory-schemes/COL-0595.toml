@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0595"
+title = "Stable equivalence of ordinary full-open Bass restriction"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1595
+statement = '''
+Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
+with compact $P,Q$ and quasi-separated $Q$. For $a\in\operatorname{Under}R$, let
+$r_\infty:C_\infty\to F_\infty$ be the original restriction from the coarse-open coefficient Bass
+telescope to the full-open coefficient Bass telescope. For every $d\in\mathbb{Z}$ the stable
+homotopy group of $\operatorname{Cone}(r_\infty)$ in degree $d$ is trivial. The actual map
+$r_\infty$ is a stable equivalence.
+'''
+scope = '''
+The proof uses the ordinary graded Model, its actual Laurent seed and its complete telescope. Its
+vanishing is proved from the natural graded Laurent contraction, not assumed. All hypotheses of
+the original ordinary theorem remain unchanged, and no auxiliary support parameter is introduced.
+'''
+proof = '''
+The actual grading exactness and finite cone comparisons give a stable map from the restriction
+cone to the graded telescope. The original Laurent contraction makes every graded telescope stable
+class vanish. Injectivity along the cone comparison therefore kills each signed cone group. The
+actual cone-fiber comparison for the same restriction map then gives stable equivalence.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientOpenBassTelescopeRestriction_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

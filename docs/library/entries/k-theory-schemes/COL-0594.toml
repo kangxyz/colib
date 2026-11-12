@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0594"
+title = "The ordinary degree-zero grading exact sequence"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1594
+statement = '''
+Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$.
+Assume $P$ and $Q$ are compact and $Q$ is quasi-separated. At every coefficient
+$a\in\operatorname{Under}R$, let $r_0$ be the actual coarse-to-full-open restriction on $K_0$, and
+let $q_0$ be the map to the original graded open Model. Then $r_0$ is injective,
+$\operatorname{im}(r_0)=\ker(q_0)$, and $q_0$ is surjective.
+'''
+scope = '''
+The grading is the original quotient by the image of perfect-complex open restriction, transported
+through actual section evaluation and its injective K-zero value map. Surjectivity of q_0 requires
+only compact P; image equals kernel requires compact P and Q. Quasi-separated Q is needed for the
+separate injectivity of r_0. This does not assert degree-zero surjectivity of restriction.
+'''
+proof = '''
+Compare actual section K-zero classes with the algebraic Grothendieck quotient by perfect open
+restriction. The original evaluation square identifies restriction, and its grading formula
+identifies the quotient. Transport image-kernel exactness and quotient surjectivity using the
+injective value map, then combine these with the original ordinary cofinality injectivity theorem.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientOpenModel_KZero_exact"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

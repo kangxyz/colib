@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0586"
+title = "Stable forward comparison of strict row telescopes"
+kind = "comparison"
+section = "bass-construction"
+order = 1586
+statement = '''
+Let C and D be categories, K:C→D a functor, Q₁ and Q₂ square-valued functors, and
+α:K⋙Q₂≅Q₁⋙K.mapArrow.mapArrow. Let F:D→LoopPrespectrum and G:C→LoopPrespectrum, with a forward row
+transformation ρ:K⋙F→G and seeds η₂:F→strictDiagram(Q₂,F), η₁:G→strictDiagram(Q₁,G) satisfying the
+specified seed square. For X∈C, assume every finite comparison at X is a stable equivalence and
+all levels of both finite towers at X are T1 spaces. The induced forward telescope map at X is a
+stable equivalence. An input square between two such rows that commutes as a natural
+transformation and respects both seeds induces a commuting square of telescope maps at every
+cylinder height and homotopy time.
+'''
+scope = '''
+The construction uses a forward row transformation, with no inverse required. The T1 and
+finite-stage stability hypotheses belong to the stability theorem; the complete naturality
+identity instead requires the stated row and seed squares.
+'''
+proof_kind = "outline"
+proof = '''
+Apply the finite index-and-row comparison to each strict iterate. Its transition square supplies
+the compatibility required by Telescope.map_isStableEquivalence. For naturality, use
+natural-transformation extensionality and telescope cylinder extensionality, then apply
+finiteMap_naturality without changing the cylinder height or its interval coordinate.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.StrictDiagramIndexRowMap.telescopeMap_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"
