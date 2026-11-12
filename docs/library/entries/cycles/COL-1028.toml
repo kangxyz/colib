@@ -1,0 +1,27 @@
+[entry]
+id = "COL-1028"
+title = "Homotopy invariance of transfer sheafification"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "transfers-nisnevich"
+order = 70
+primary = "AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafify_isA1Invariant"
+statement = '''
+Let $k$ be a field and $P$ an additive presheaf with transfers over $k$.
+If pullback by $X\times_k\mathbb A^1\to X$ is invertible on $P$ for every
+smooth separated finite-type $k$-scheme $X$, then the same projection induces
+an isomorphism on the Nisnevich sheafification $a_{\mathrm{tr}}P$ of COL-0372.
+'''
+scope = '''
+The coefficient groups are in universe $u+1$ for $k$ in universe $u$.
+The sheafification and its unit are the original transfer-preserving ones.
+See [@MVW2006, Lecture 22, Theorem 22.3].
+'''
+proof = '''
+Work with the actual local representatives of the canonical sheafification.
+The signed lift on a common Nisnevich neighborhood of the marked representatives
+gives injectivity of restriction along the zero section on each whole cylinder.
+The zero section is a retraction of projection pullback, so the latter is an
+isomorphism. Integral affine objects detect the comparison.
+'''

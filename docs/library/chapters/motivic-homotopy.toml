@@ -2,7 +2,7 @@
 id = "motivic-homotopy"
 title = "Motivic Homotopy"
 order = 56
-introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site."
+introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site. Strict affine-line invariance for ordinary cohomology with transfers is proved in COL-1029."
 
 [[sections]]
 id = "pointed-simplicial-presheaves"
