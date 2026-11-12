@@ -1066,6 +1066,7 @@ public import Colib.AlgebraicGeometry.Limits.FiniteSubfieldRationalMarking
 public import Colib.AlgebraicGeometry.Limits.IntegralMarkedChart
 public import Colib.AlgebraicGeometry.Limits.ScalarExtensionCoordinateFibers
 public import Colib.AlgebraicGeometry.Limits.SeparableMarkedChart
+public import Colib.AlgebraicGeometry.Limits.SeparableRationalMarkedChart
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFree
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFreeFlat
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFreeJoint
@@ -1735,6 +1736,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.AffineSpaceInduction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ClosedPoints
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EnoughPoints
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartLocalizedRestrictionPreimage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangePreimage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangeRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Neighborhood
