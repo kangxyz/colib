@@ -1484,6 +1484,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
@@ -1498,6 +1499,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.BoundaryFiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationProjectivity
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartRetainedCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartSmoothSite
