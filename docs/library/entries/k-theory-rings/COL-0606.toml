@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0606"
-title = "The original K-zero times plus decomposition of Q-loops"
+title = "The K-zero times plus decomposition of the Q-loop space"
 kind = "comparison"
 section = "quillen-k-theory-of-rings"
-order = 307
+order = 40
 primary = "ModuleCat.FiniteProjective.originalPlusProductToQLoopsHomotopyEquiv"
 statement = '''
 Let $R$ be an arbitrary ring, let $Q(R)$ be the original Quillen category of finite

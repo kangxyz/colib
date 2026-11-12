@@ -18,8 +18,8 @@ class SerreLocalizationTests(unittest.TestCase):
         expected = {
             "COL-0247": "homotopy-colimits",
             "COL-0248": "classifying-spaces",
-            "COL-0249": "quillen-k-theory",
-            "COL-0250": "quillen-k-theory",
+            "COL-0249": "resolution-devissage-and-serre-localization",
+            "COL-0250": "resolution-devissage-and-serre-localization",
         }
         for item, section in expected.items():
             self.assertEqual(entries[item]["section"], section)

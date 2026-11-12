@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0597"
-title = "Integral Spec comparison preserves the whole full-open null"
+title = "Integral affine comparison of the full-open null-homotopy"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1597
+section = "thomason-trobaugh-localization"
+order = 190
 statement = '''
 Let $f:P\to Q$ be an open immersion over $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$,
 and $a\in\operatorname{Under}(\operatorname{ULift}\mathbb{Z})$. Let $h_{\mathrm{par}}$ be the

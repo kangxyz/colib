@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0552"
-title = "Whole normalization prisms and the prescribed null boundary"
+title = "Comparison of normalized operations with a prescribed nullhomotopy"
 kind = "comparison"
-section = "bass-construction"
-order = 90
+section = "bass-delooping-normalization-and-telescopes"
+order = 20
 statement = '''
 For a based loop family γ, a self-homotopy α and a specified whole nullhomotopy N of γ, the
 original moving-prefix prism joins the inverse-prefix normalization to the null-conjugate formed

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0582"
-title = "Geometric seed comparison and the two-cone permutation"
+title = "Geometric seed comparison and cone interchange"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1582
+section = "thomason-trobaugh-localization"
+order = 20
 statement = '''
 For any scheme-opposite prespectrum diagram F and scheme X, the actual geometric chi comparison
 equals cone strength followed by the parameter-looping map of its genuine two-cone permutation.

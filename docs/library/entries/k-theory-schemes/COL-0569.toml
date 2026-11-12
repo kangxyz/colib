@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0569"
-title = "Auxiliary-supported selected-zero null and its comparison"
+title = "Preservation of the auxiliary-support null-homotopy"
 kind = "theorem"
-section = "supported-localization"
-order = 1569
+section = "thomason-trobaugh-localization"
+order = 60
 statement = '''
 For an open immersion f and an auxiliary open T in its target, the current-to-normalized
 comparison preserves the selected null of support enlargement followed by restriction, for every

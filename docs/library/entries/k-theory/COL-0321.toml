@@ -1,10 +1,10 @@
 [entry]
 id = "COL-0321"
-title = "Actual finite, stable and Waldhausen self-track operations"
+title = "Degree-raising operations from prespectrum self-homotopies"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 430
-statement = """
+section = "delooping-and-stable-localization"
+order = 100
+statement = '''
 A complete coherent based self-track of native loop-prespectrum maps determines
 an actual degree-raising finite homotopy operation. It is additive in input
 degree at least two and has the original inverse successor sign, also in input
@@ -16,7 +16,7 @@ stable degrees when the source is an Omega-spectrum. The actual iterated-S
 Waldhausen comparison transports it to every canonical nonnegative K-group,
 including K-zero, retaining the inverse level-one formula, original path
 normalization, exact-functor naturality and complete-level transport.
-"""
+'''
 scope = """
 The finite operation on Pi-one is constructed without assuming its additivity.
 Integer stable operations use actual sequential colimits and need no Omega

@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0300"
-title = "Native perfect open-support fiber and long exact sequence"
+title = "The supported fiber and its long exact sequence"
 kind = "theorem"
-section = "perfect-open-localization"
+section = "support-and-connective-localization"
 order = 30
 statement = 'For every open immersion \(j\colon Y\to X\), the original canonical map from the acyclic perfect-complex delooping to the homotopy fiber of change of weak equivalences is a weak homotopy equivalence. Its actual canonical K-maps give all recurring positions of the supported-to-perfect-to-relative-coarse long exact sequence and the degree-zero surjection onto the relative coarse K-group. The supported inclusion and homotopy-fiber connecting map are unchanged.'
 scope = 'Arbitrary schemes in one universe and any open immersion; every nonnegative K-degree, including zero. The categories are the actual native Stacks perfect chain complexes with ambient monomorphisms as cofibrations. The coarse weak class is detected by genuine quasi-isomorphism after literal restriction. The extension axiom and actual `Cone(id K) ⊞ L` joint cylinder, including relative ambient monicity and the second endpoint section, are proved. No fibration, finite-resolution or boundary-identification premise is assumed. The target is `PerfectOpenK j`, not fine perfect-complex K-theory of Y. No quasi-compactness, quasi-separatedness, Noetherianity or regularity is required; no surjectivity of fine open restriction on \(K_{0}\) or nonconnective localization is asserted.'

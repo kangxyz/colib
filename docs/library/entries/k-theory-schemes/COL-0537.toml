@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0537"
-title = "Parameter Laurent units and their two naturalities"
+title = "Laurent parameter units and naturality"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 40
+section = "affine-and-global-section-models"
+order = 90
 statement = "For a scheme parameter X and a fixed scheme Q, pull the original Laurent coordinate through the projection from the product with Q. The resulting global unit induces an automorphism of the identity functor on the ambient global bounded-flat sections of that product. Reindexing along every parameter map preserves this automorphism. Reindexing along every map of the fixed factor also preserves it, including the maps arising from open immersions."
 scope = "All schemes in the fixed universe. The Laurent coordinate, product projections and scalar action are the original ones; there is no affine or quasi-compactness restriction. This is the raw ambient section-unit automorphism and its two preservation laws. It is not a returned or qualified tensor generator, a supported Laurent track, a Bass seed, a stable equivalence or TT localization."
 proof_kind = "outline"

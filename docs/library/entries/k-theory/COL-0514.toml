@@ -1,17 +1,17 @@
 [entry]
 id = "COL-0514"
-title = "Whole strict-square actions and four-generator cone recognition"
+title = "Cone actions determined by four generators"
 kind = "comparison"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 30
-statement = """
+statement = '''
 Four based homotopies of the corners of two strict square maps, satisfying the four
 edge equations at every time, induce homotopies of the original reduced-span,
 mapping-cone and parameter-looped maps. Each time slice is the original strict-square
 map evaluated on the same corner tracks. The complete cone homotopy is uniquely
 determined by its Laurent inclusion, positive-chart, negative-chart and overlap-cylinder
 formulas, and the descended cone homotopy satisfies those four formulas.
-"""
+'''
 scope = """
 Arbitrary strict squares of loop prespectra and arbitrary levels, including zero.
 The coefficient-homotopy parameter, outer cone height, inner overlap height, output

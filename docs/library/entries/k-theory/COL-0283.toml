@@ -1,10 +1,20 @@
 [entry]
 id = "COL-0283"
-title = "The original K-groups as connective stable homotopy groups"
+title = "Connective stable homotopy groups of Waldhausen K-theory"
 kind = "comparison"
-section = "waldhausen-k-theory"
-order = 140
-statement = '''Every nonnegative stable homotopy group of the actual Waldhausen S-spectrum is the original K-group, including K-zero and its group law. All negative stable groups vanish. The comparison retains the original exact-functor `KMap`; its spectrum map is a stable equivalence exactly when every original `KMap` is bijective.'''
+section = "delooping-and-stable-localization"
+order = 50
+statement = '''
+The Waldhausen S-spectrum \(E(\mathcal C)\) is connective, with natural
+identifications
+\[
+\pi_n^{\mathrm{st}}E(\mathcal C)\cong K_n(\mathcal C)\quad(n\geq0),
+\qquad \pi_n^{\mathrm{st}}E(\mathcal C)=0\quad(n<0).
+\]
+They preserve the group law and canonical exact-functor maps. Consequently,
+the spectrum map of an exact functor is a stable equivalence if and only if
+its maps on all nonnegative K-groups are bijective.
+'''
 scope = '''The stable groups are actual `AddCommGrp` colimits of the existing loop prespectrum, with its unchanged transitions and integer degrees. Arbitrary exact functors use the existing canonical zero rebase. Source and target have the original common independent object and morphism universe pair. Negative-degree vanishing is proved from actual stage connectivity, not added as a premise. This is connective K-theory, not Bass nonconnective K-theory.'''
 review = "author_checked"
 provenance = "quillen"

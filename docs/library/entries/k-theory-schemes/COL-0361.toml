@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0361"
-title = "The coefficient-natural affine-section Bass seed"
+title = "The affine Bass seed"
 kind = "theorem"
-section = "affine-bass-constructions"
+section = "bass-k-theory-and-geometric-delooping"
 order = 30
 statement = """
 The canonical polynomial and Laurent square is a strict functor on commutative rings,

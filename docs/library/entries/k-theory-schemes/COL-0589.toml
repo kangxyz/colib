@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0589"
-title = "The exact degree-zero tail for supported restriction and grading"
+title = "The supported degree-zero exact sequence"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1589
+section = "thomason-trobaugh-localization"
+order = 220
 statement = '''
 Let f:P→Q be an open immersion over Spec R and T an open of Q. Assume P, Q and T are compact and Q
 is quasi-separated; let a∈Under R. Write r₀ and q₀ for the actual degree-zero K-maps of the

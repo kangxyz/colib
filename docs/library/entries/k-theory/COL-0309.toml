@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0309"
-title = "Actual weak-arrow factorization and diagonal K-equivalence"
+title = "Weak-arrow factorization and K-theory equivalence"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 340
+section = "additivity-approximation-and-comparison-theorems"
+order = 110
 statement = '''The literal comma category of arrows \(F(A)\) to B carries the componentwise Waldhausen structure. Its full subcategory on original weak arrows is closed under genuine cofibration pushouts; the original source, target and identity-arrow diagonal are exact. The stored weak arrow supplies the actual weak counit and projection comparison. The canonical diagonal `KMap` and source `KMap` are inverse in every nonnegative degree, and the unchanged functor `KMap` factors through this equivalence and the original target `KMap`. Both results persist for inverse-image weak classes on the same fine weak-arrow objects. Compatible component dual structures induce the actual opposite comma and weak-arrow structures. The literal opposite projections jointly detect zero objects, arbitrary pushouts and binary coproduct universal properties.'''
 scope = '''Category constructions retain independent object and hom universes for C, D and E. `KMap` conclusions retain C, D, E : Type (max u v), each with `Category.{v}`, exactly as in the original source. The comma and ordinary weak-arrow constructions assume only exactness of F. Target reflection additionally assumes reflection of weak equivalences by F and target two-out-of-three. Relative structures use the original exact F and G; relative source exactness and K-equivalence require two-out-of-three only in the final target. The opposite comma structure uses component opposite Waldhausen structures; weak-arrow opposite closure additionally requires exact `F.op` and target compatible duality, and full weak-arrow compatibility also uses source compatible duality. Arbitrary opposite pushout detection has no cofibration, fibration, duality or approximation premise. Binary coproduct detection uses actual component colimit certificates, with no cofibration premise on its inclusions. All KMaps retain canonical chosen-zero rebasing without strict zero preservation. No target-projection approximation, scheme fine localization, cylinder, joint functor or nonconnective conclusion is supplied.'''
 review = "author_checked"

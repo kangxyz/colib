@@ -1,17 +1,17 @@
 [entry]
 id = "COL-0517"
-title = "Original row interchange through finite Bass iteration"
+title = "Row interchange under finite Bass iteration"
 kind = "comparison"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 50
-statement = """
+statement = '''
 A pointed, coefficient-natural family of levelwise row interchanges descends through
 the original reduced span and mapping cone and acts pointwise on the independent
 old parameter loop. Recursively applying this construction computes a row interchange
 at every finite Bass stage. If the initial family exchanges two consecutive structure
 times, the computed interchange exchanges those times at every finite stage.
 Point preservation and ordinary diagram naturality hold at each stage as well.
-"""
+'''
 scope = """
 Arbitrary indexing categories and loop-prespectrum diagrams in the stated universes.
 The Bass-stage index and spectrum-level index are independent. The initial family

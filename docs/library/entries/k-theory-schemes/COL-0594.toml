@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0594"
-title = "The ordinary degree-zero grading exact sequence"
+title = "The degree-zero grading exact sequence"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1594
+section = "thomason-trobaugh-localization"
+order = 160
 statement = '''
 Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$.
 Assume $P$ and $Q$ are compact and $Q$ is quasi-separated. At every coefficient

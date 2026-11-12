@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0511"
-title = "Affine evaluation coefficient and relative coherence"
+title = "Coherence of affine and relative evaluation"
 kind = "comparison"
-section = "affine-evaluation"
-order = 3810
+section = "affine-and-global-section-models"
+order = 50
 statement = 'Actual affine bounded-above-flat section evaluation commutes with every ring homomorphism by a based prespectrum homotopy. For composable coefficient maps, the original geometric split route is relatively homotopic to the whiskered route through the normalized total route, with the original left-associated endpoints. The identity coefficient route contracts to the genuine reflexive homotopy of evaluation. These comparisons preserve complete level maps, the basepoint line, both route endpoints and the structure equations with independent parameters. Postcomposition with the actual perfect-complex inclusion gives the perfect-target relative comparisons. Evaluation into the perfect target is a stable equivalence, with exact natural K-group, zero-space and stable formulas.'
 scope = 'Uses the fixed-ring comparison COL-0358 and actual section transition isomorphisms with canonical chosen-zero normalization. The bounded-flat coefficient comparisons allow all ring maps. Termwise perfect pullback naturality requires flatness of the corresponding affine scheme map. Perfect inclusion is used as a stable comparison, not asserted to be a level equivalence. Relative composition compares entire parametrized tracks; it does not assert equality of the direct and iterated paths. No arbitrary strict perfect-derived functoriality, Laurent seed, Bass identification or negative localization theorem is asserted.'
 review = "author_checked"

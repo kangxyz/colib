@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0588"
-title = "The supported coarse telescope cone comparison"
+title = "Cone comparison for the supported coarse telescope"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1588
+section = "thomason-trobaugh-localization"
+order = 210
 statement = '''
 Let R be a commutative ring object, f:P→Q a morphism over Spec R whose underlying map is an open
 immersion, T an open of Q, and a an object of Under R. No compactness or quasi-separatedness

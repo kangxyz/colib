@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0509"
-title = "The Actual Supported-Section Cone and Relative-Open Endpoint"
+title = "The supported section cone and its relative-open comparison"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 3507
+section = "bass-k-theory-and-geometric-delooping"
+order = 110
 statement = '''Let \(R\) be a commutative ring and \(j:U\hookrightarrow\operatorname{Spec}R\) an open immersion. Let \(i\) be the original supported-section inclusion and \(q\) the identity section functor with weak equivalences detected after original evaluation and restriction to \(U\). The original weak zero-to-section transformation, reversed without changing its parameters, specifies a nullhomotopy \(H\) of \(qi\). Its actual cone descent \(C(i)\to F_j^{\mathrm{open}}\) is an equivalence in every integer stable degree.
 
 The literal evaluation square identifies this descent with the original geometric acyclic-cone comparison on the target face and entire cylinder. Its signed connecting map agrees with the original relative-open fiber boundary through the fiber lift specified by this same \(H\).'''

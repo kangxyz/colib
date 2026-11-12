@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0579"
-title = "Global-to-coefficient Bass telescope restriction"
+title = "Restriction from global to coefficient Bass telescopes"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1579
+section = "thomason-trobaugh-localization"
+order = 130
 statement = '''
 For a commutative ring object R, a scheme P over Spec R and a coefficient object a under R, the
 actual restriction from the global-row Bass telescope to

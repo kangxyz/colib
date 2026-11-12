@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0539"
-title = "Relative-open global section diagrams and restriction"
+title = "Relative-open global section diagrams"
 kind = "definition"
-section = "global-sections-and-parameters"
-order = 60
+section = "affine-and-global-section-models"
+order = 110
 statement = "For each open immersion j: U → X, retain the ambient global section objects, cofibrations and chosen zero, but detect weak equivalences by their original restriction to U. The resulting relative-open models form a strict contravariant diagram on open pairs. The identity on ambient sections changes the weak class, and geometric restriction gives an exact map to the ambient model on U. Their composite equals the original restriction. These maps also form the corresponding diagrams over every product scheme parameter."
 scope = "Arbitrary schemes, open immersions and commuting open-pair morphisms in the fixed universe. The relative-open model still consists of sections over X; it is not identified with the full model on U. No compactness or approximation hypothesis, localization equivalence or TT theorem is asserted."
 proof_kind = "outline"

@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0351"
-title = "Bounded-above flat perfect prespectrum comparison"
+title = "The bounded-above-flat spectrum comparison"
 kind = "comparison"
-section = "perfect-pullback"
+section = "derived-pullback-and-flat-resolutions"
 order = 60
 statement = '''The actual canonically zero-normalized prespectrum map of the literal inclusion
 of bounded-above flat perfect complexes into perfect complexes is a stable

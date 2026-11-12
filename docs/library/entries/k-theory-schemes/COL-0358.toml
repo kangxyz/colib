@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0358"
-title = "Actual fixed-ring affine section evaluation"
+title = "Affine evaluation over a fixed ring"
 kind = "comparison"
-section = "affine-evaluation"
+section = "affine-and-global-section-models"
 order = 20
 statement = "For each commutative ring \\(R\\), actual affine bounded-above-flat cocartesian section evaluation followed by the genuine `AsSmall` lift defines the unchanged native prespectrum map. Its actual exact categorical inverse is canonically normalized at the chosen zero. The original unit and counit induce two complete based prespectrum inverse homotopies, retaining every level and independent homotopy and structure-map parameters. The same forward map is a homotopy equivalence at every natural level including zero, and induces an isomorphism of stable homotopy groups in every integer degree. Its K-equivalence has the exact lifted-evaluation followed by `AsSmall`-descent formula, and agrees with the original zero-space and stable maps in every natural K-degree including zero."
 scope = '''

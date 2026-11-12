@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0587"
-title = "A natural null homotopy for a Laurent seed"
+title = "A natural nullhomotopy for a Laurent seed"
 kind = "definition"
-section = "laurent-coefficient-constructions"
-order = 1587
+section = "bass-delooping-diagrams-and-functoriality"
+order = 160
 statement = '''
 Let R be a commutative ring object and C:Under R→WideSubcategory(preservesZero) a coefficient
 diagram of Waldhausen Models. Let A be a ModelAction on C: at each Laurent coefficient it

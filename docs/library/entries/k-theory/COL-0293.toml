@@ -1,10 +1,16 @@
 [entry]
 id = "COL-0293"
-title = "Actual distinguished-row stabilization and whole-track compatibility"
+title = "Stabilization in the distinguished S-construction direction"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 150
-statement = "The original distinguished-row stabilization map is a levelwise weak homotopy equivalence and a stable equivalence in every integer degree. Its naturality retains the actual quotient-row transpose, and weak natural transformations commute with stabilization as entire coherent homotopies."
+section = "delooping-and-stable-localization"
+order = 80
+statement = '''
+Stabilization in the distinguished S-construction direction is a
+levelwise weak homotopy equivalence and a stable equivalence. Its naturality
+is expressed by the quotient-row transpose. For a weak natural transformation,
+the naturality equation preserves the entire prespectrum homotopy, with
+the same time parameter on both sides.
+'''
 scope = "The native strict chosen-zero subcategory of small Waldhausen categories is retained, with the original common small universe. The target uses the actual row-transposed structure and genuine double loop in degree zero. Structure, loop and homotopy times remain independent. The final equality includes the original postcomposition, precomposition and endpoint casts, rather than only equality of stable maps. No ordinary loop-tail replacement, point-set inverse, additional Omega hypothesis or nonconnective theory is asserted."
 review = "author_checked"
 provenance = "quillen"

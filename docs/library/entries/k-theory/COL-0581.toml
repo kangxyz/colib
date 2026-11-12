@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0581"
-title = "Strict diagram cofiber descent"
+title = "Compatibility of Bass comparison with cofiber descent"
 kind = "theorem"
-section = "bass-construction"
-order = 1581
+section = "bass-delooping-normalization-and-telescopes"
+order = 80
 statement = '''
 For a category C, Q : C → Arrow (Arrow C), prespectrum-valued diagrams F,G,K, transformations a,b,
 and a chosen null homotopy of a followed by b natural at every time, the strict-diagram cofiber

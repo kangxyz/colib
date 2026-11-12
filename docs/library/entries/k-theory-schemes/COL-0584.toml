@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0584"
-title = "Stable comparison of the original and twisted telescopes"
+title = "Comparison of iterated and twisted Bass telescopes"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1584
+section = "thomason-trobaugh-localization"
+order = 110
 statement = '''
 For a genuine Model-valued diagram M and a Laurent Track A on its prespectrum diagram, the
 original iterated-to-twisted telescope map is a stable equivalence at every scheme.

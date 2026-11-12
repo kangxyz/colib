@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0545"
-title = "Coefficient tensor prisms and simultaneous reindexing"
+title = "Tensor coefficient change and reindexing"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 40
+section = "units-tensor-products-and-localization-boundaries"
+order = 120
 statement = "For a scheme X and a global unit r, the actual first-row scalar prism is related by its displayed isomorphism to the original coefficient prism. The prescribed row hypotheses give second S-construction simplices, and the specified endpoint isomorphism retains their original endpoints. Coefficient-prism formation is natural simultaneously in its two grid directions and its independent nerve-cylinder direction."
 scope = "The source grid and row hypotheses are retained in the simplex clauses. The all-direction reindexing equation applies to the actual grid functor and maps stated in the source; it does not impose extra row hypotheses on that equation. These are categorical/nerve prisms, not a finished zero-normalized coefficient slice, parameter/global comparison, stable Bass equivalence or TT theorem."
 proof_kind = "outline"

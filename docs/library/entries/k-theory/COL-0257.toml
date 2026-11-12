@@ -1,10 +1,22 @@
 [entry]
 id = "COL-0257"
-title = "Bounded-complex acyclic and single-term decomposition"
+title = "Acyclic and single-term decomposition of bounded complexes"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 350
-statement = "The original fine K-group of bounded termwise-P complexes is the product of the original fine acyclic K-group and the term K-group. The forward map is literally the product of the actual acyclic-inclusion and degree-zero single-insertion KMaps."
+section = "additivity-approximation-and-comparison-theorems"
+order = 50
+statement = '''
+Let \(\mathcal P\) be the full subcategory specified below, and let
+\(\operatorname{Ac}^b(\mathcal P)\subseteq\operatorname{Ch}^b(\mathcal P)\)
+consist of acyclic bounded complexes. With isomorphisms as the weak maps
+on these categories, inclusion \(i\) and degree-zero insertion \(s\) give
+\[
+K_n(\operatorname{Ac}^b(\mathcal P))\times K_n(\mathcal P)
+\xrightarrow{\sim}K_n(\operatorname{Ch}^b(\mathcal P)),\qquad
+(a,b)\longmapsto i_*(a)s_*(b),\quad n\geq0.
+\]
+Term and cycle decompositions give the inverse. No uniform bound on all
+complexes is required.
+'''
 scope = "An abelian ambient category with independent object and hom universes and a zero-containing, replete, extension-closed and kernel-of-surjections-closed object property. Finite term and cycle evaluation equivalences retain actual coordinates; their adjacent incidence and alternating Euler maps give unique finite decompositions. Compact based cubes and homotopies pass to the bounded union without a categorywide uniform bound. Every nonnegative K-degree, including zero. Weak maps in this decomposition are isomorphisms, not quasi-isomorphisms."
 review = "author_checked"
 provenance = "quillen"

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0544"
-title = "The actual tensor coefficient row and its exact scalar comparison"
+title = "Coefficient tensor action and scalar comparison"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 30
+section = "units-tensor-products-and-localization-boundaries"
+order = 110
 statement = "For a scheme X, tensoring with the original coefficient row gives a quotient-row functor on bounded-above flat perfect complexes. Its original row isomorphism identifies this functor with genuine unit tensor followed by first-row insertion. The functor is exact and satisfies the corresponding relative-cofibration, grid and pushout conditions. For a global unit r on X, the row comparison intertwines the actual coefficient-row automorphism with the unit-tensor automorphism followed by the same first-row insertion."
 scope = "Native bounded-flat perfect fibers, original quotient rows and admissible cofibrations; the second-input morphism remains arbitrary subject to each explicitly stated cofibration condition. Zero-row transport and row-isomorphism helpers are implementation support, not separate mathematical items. This is not the final normalized coefficient slice or a geometric returned-action qualification."
 proof_kind = "outline"

@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0314"
-title = "Relative restriction onto the honest derived image"
+title = "Restriction to the derived image"
 kind = "theorem"
-section = "perfect-open-localization"
+section = "support-and-connective-localization"
 order = 50
 statement = """
 Given global-perfect-model derived roofs, the actual relative restriction corestriction induces

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0568"
-title = "The full-open selected null on current and normalized towers"
+title = "Preservation of the open-restriction null-homotopy"
 kind = "theorem"
-section = "supported-localization"
-order = 1568
+section = "thomason-trobaugh-localization"
+order = 50
 statement = '''
 For an open immersion of schemes, the current-to-normalized comparison preserves the actual
 full-open selected null at every parameter scheme, spectrum level, point and null time.

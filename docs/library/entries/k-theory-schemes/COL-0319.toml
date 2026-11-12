@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0319"
-title = "The actual supported spectrum in the relative-open fiber"
+title = "The supported spectrum as a relative-open fiber"
 kind = "theorem"
-section = "perfect-open-localization"
+section = "support-and-connective-localization"
 order = 80
 statement = """
 The native supported and relative-acyclic S-prespectra are isomorphic by the original exact
