@@ -1129,6 +1129,9 @@ public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroExact
 public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroStalk
 public import Colib.AlgebraicGeometry.Modules.FrameSectionUniqueness
 public import Colib.AlgebraicGeometry.Modules.GlobalScalarPullback
+public import Colib.AlgebraicGeometry.Modules.Invertible.BoundaryFrameReparametrize
+public import Colib.AlgebraicGeometry.Modules.Invertible.BoundaryFrameReparametrizeRoot
+public import Colib.AlgebraicGeometry.Modules.Invertible.BoundaryFrameReparametrizeSquare
 public import Colib.AlgebraicGeometry.Modules.Invertible.BoundaryRootPullback
 public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame
 public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryRoot
