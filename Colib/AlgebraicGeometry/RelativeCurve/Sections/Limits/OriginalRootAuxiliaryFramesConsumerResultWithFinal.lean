@@ -50,7 +50,7 @@ def OriginalRootAuxiliaryFramesConsumerResultWithFinal
       (structureSheafRing cC.pt.toRingedSpace).property M (n : ℤ) ≅
         (Scheme.Modules.pullback (cC.π.app i)).obj (differenceSheaf (D i) (E i)))
     (e₀ : (Scheme.Modules.pullback bLim).obj M ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-    (he₀ : tensorPowerCongr cB.pt.toRingedSpace.presheaf
+    (_he₀ : tensorPowerCongr cB.pt.toRingedSpace.presheaf
       (structureSheafRing cB.pt.toRingedSpace).property _ _ e₀ n =
         boundaryRootPowerIso bLim M ((Scheme.Modules.pullback (cC.π.app i)).obj (differenceSheaf
           (D i) (E i))) n α
@@ -58,13 +58,13 @@ def OriginalRootAuxiliaryFramesConsumerResultWithFinal
             (cC.π.app i) (hb i) (differenceSheaf (D i) (E i)) (differenceSheafBoundaryIso (b.app
               i) (D i) (E i) (aD i) (aE i))))
     (N₀ : cC.pt.Modules)
-    (hN₀ : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.sheaf.obj
+    (_hN₀ : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.sheaf.obj
       cC.pt.ringCatSheaf.property N₀)
     (a₀ : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor cC.pt.sheaf).obj M).obj N₀, ⊤))
     (b₀ : Γ(N₀, ⊤))
     (eN₀ : (Scheme.Modules.pullback bLim).obj N₀ ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-    (hb₀ : Hom.app eN₀.hom ⊤ (pullbackGlobalSections bLim N₀ b₀) = (1 : Γ(cB.pt, ⊤)))
-    (ha₀ : Hom.app (Scheme.Modules.pullbackTensorFrame bLim M N₀ e₀ eN₀).hom ⊤
+    (_hb₀ : Hom.app eN₀.hom ⊤ (pullbackGlobalSections bLim N₀ b₀) = (1 : Γ(cB.pt, ⊤)))
+    (_ha₀ : Hom.app (Scheme.Modules.pullbackTensorFrame bLim M N₀ e₀ eN₀).hom ⊤
       (pullbackGlobalSections bLim _ a₀) = (1 : Γ(cB.pt, ⊤)))
     (Finish : ∀ (ℓ : I) (MR NR : (C.obj ℓ).Modules)
       [AlgebraicGeometry.SheafOfModules.IsInvertible (C.obj ℓ).toRingedSpace.presheaf
@@ -72,9 +72,10 @@ def OriginalRootAuxiliaryFramesConsumerResultWithFinal
       (tensorPower (C.obj ℓ).toRingedSpace.presheaf
         (structureSheafRing (C.obj ℓ).toRingedSpace).property MR (n : ℤ) ≅
           differenceSheaf (D ℓ) (E ℓ)) →
-      ((pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
-      ((pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
-      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
+      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
+        (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
       Γ(NR, ⊤) → Prop) : Prop :=
     ∃ (k : I) (e : k ⟶ i) (Mk : (C.obj k).Modules)
       (hMk : AlgebraicGeometry.SheafOfModules.IsInvertible (C.obj k).toRingedSpace.presheaf
@@ -259,9 +260,10 @@ theorem originalRootAuxiliaryFramesConsumerResult_withFinal
       (tensorPower (C.obj ℓ).toRingedSpace.presheaf
         (structureSheafRing (C.obj ℓ).toRingedSpace).property MR (n : ℤ) ≅
           differenceSheaf (D ℓ) (E ℓ)) →
-      ((pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
-      ((pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
-      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf) →
+      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
+        (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
       Γ(NR, ⊤) → Prop)
     (H : OriginalRootAuxiliaryFramesConsumerResult
       B C b cB cC bLim hb D E hDmap hEmap aD aE i M n α e₀ he₀ N₀ hN₀ a₀ b₀ eN₀ hb₀ ha₀)
@@ -271,8 +273,9 @@ theorem originalRootAuxiliaryFramesConsumerResult_withFinal
       (αR : tensorPower (C.obj ℓ).toRingedSpace.presheaf
         (structureSheafRing (C.obj ℓ).toRingedSpace).property MR (n : ℤ) ≅
           differenceSheaf (D ℓ) (E ℓ))
-      (eR : (pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf)
-      (eNR : (pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf)
+      (eR : (Scheme.Modules.pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B.obj ℓ).ringCatSheaf)
+      (eNR : (Scheme.Modules.pullback (b.app ℓ)).obj NR ≅
+        SheafOfModules.unit (B.obj ℓ).ringCatSheaf)
       (aR : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor (C.obj ℓ).sheaf).obj MR).obj NR, ⊤))
       (bR : Γ(NR, ⊤)),
       tensorPowerCongr (B.obj ℓ).toRingedSpace.presheaf

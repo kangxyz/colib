@@ -1517,6 +1517,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorBounda
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorModelRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorSectionModelTransport
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ZeroSchemeCartesian
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianAffineChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianProjectiveLineCover
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualStageRootAuxiliaryRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseChangedMarkedComponentSections

@@ -118,9 +118,10 @@ def EtaleStageOpenRefinedConsumerResult
       (tensorPower (C.obj ℓ).toRingedSpace.presheaf
         (structureSheafRing (C.obj ℓ).toRingedSpace).property MR (n : ℤ) ≅
           differenceSheaf (D ℓ) (E ℓ)) →
-      ((pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
-      ((pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
-      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
+      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
+        (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
       Γ(NR, ⊤) → Prop := fun ℓ MR NR hMR αR eR eNR aR bR =>
     ActualStageRootAuxiliaryRefinement X s p i U ℓ
       (etaleStageOpenSection X s p i U σ hσ ℓ)
@@ -189,9 +190,10 @@ theorem etaleStageOpenRefinedConsumerResult
       (tensorPower (C.obj ℓ).toRingedSpace.presheaf
         (structureSheafRing (C.obj ℓ).toRingedSpace).property MR (n : ℤ) ≅
           differenceSheaf (D ℓ) (E ℓ)) →
-      ((pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
-      ((pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
-      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj MR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
+      ((Scheme.Modules.pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
+      Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
+        (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
       Γ(NR, ⊤) → Prop := fun ℓ MR NR hMR αR eR eNR aR bR =>
     ActualStageRootAuxiliaryRefinement X s p i U ℓ
       (etaleStageOpenSection X s p i U σ hσ ℓ)

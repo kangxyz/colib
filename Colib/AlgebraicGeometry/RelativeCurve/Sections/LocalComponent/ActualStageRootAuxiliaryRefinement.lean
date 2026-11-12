@@ -20,7 +20,7 @@ local instance actualFinalPullbackInvertible {X Y : Scheme.{u}} (f : X ⟶ Y) (M
     [hM : AlgebraicGeometry.SheafOfModules.IsInvertible Y.toRingedSpace.presheaf
       (structureSheafRing Y.toRingedSpace).property M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
-      (structureSheafRing X.toRingedSpace).property ((pullback f).obj M) :=
+      (structureSheafRing X.toRingedSpace).property ((Scheme.Modules.pullback f).obj M) :=
   Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry f.toLRSHom.toShHom M hM
 
 /-- Exact nested transport after the actual marked integral-base refinement. -/
@@ -36,7 +36,7 @@ def ActualStageRootAuxiliaryRefinement
     [IsEffectiveCartierDivisor σ.ker] [IsEffectiveCartierDivisor τ.ker]
     (hσ : σ ≫ (etaleStageOpenStructure X s p i U).app ℓ = 𝟙 _)
     (hτ : τ ≫ (etaleStageOpenStructure X s p i U).app ℓ = 𝟙 _)
-    (hmark : etaleNeighborhoodMark X s.hom
+    (_hmark : etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj ℓ.left) ≫ σ =
       etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj ℓ.left) ≫ τ)
@@ -50,8 +50,8 @@ def ActualStageRootAuxiliaryRefinement
     (α : tensorPower ((etaleStageOpenDiagram X s p i U).obj ℓ).toRingedSpace.presheaf
       (structureSheafRing ((etaleStageOpenDiagram X s p i U).obj ℓ).toRingedSpace).property
       M (n : ℤ) ≅ differenceSheaf σ.ker τ.ker)
-    (e : (pullback iZ).obj M ≅ SheafOfModules.unit Z.ringCatSheaf)
-    (eN : (pullback iZ).obj N ≅ SheafOfModules.unit Z.ringCatSheaf)
+    (e : (Scheme.Modules.pullback iZ).obj M ≅ SheafOfModules.unit Z.ringCatSheaf)
+    (eN : (Scheme.Modules.pullback iZ).obj N ≅ SheafOfModules.unit Z.ringCatSheaf)
     (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
       ((etaleStageOpenDiagram X s p i U).obj ℓ).sheaf).obj M).obj N, ⊤))
     (bN : Γ(N, ⊤)) : Prop :=
@@ -80,8 +80,10 @@ def ActualStageRootAuxiliaryRefinement
     ∃ (σ₂ τ₂ : A₁ ⟶ V.toScheme) (hσ₂ : σ₂ ≫ κ = σ₁) (hτ₂ : τ₂ ≫ κ = τ₁),
     let hs₁ := isPullback_baseChangedSection q g σ hσ
     let ht₁ := isPullback_baseChangedSection q g τ hτ
-    letI : IsClosedImmersion σ₁ := MorphismProperty.of_isPullback (P := @IsClosedImmersion) hs₁.flip inferInstance
-    letI : IsClosedImmersion τ₁ := MorphismProperty.of_isPullback (P := @IsClosedImmersion) ht₁.flip inferInstance
+    letI : IsClosedImmersion σ₁ :=
+      MorphismProperty.of_isPullback (P := @IsClosedImmersion) hs₁.flip inferInstance
+    letI : IsClosedImmersion τ₁ :=
+      MorphismProperty.of_isPullback (P := @IsClosedImmersion) ht₁.flip inferInstance
     letI : IsEffectiveCartierDivisor σ₁.ker :=
       isEffectiveCartierDivisor_ker_cartesian_of_flat F g σ σ₁ hs₁
     letI : IsEffectiveCartierDivisor τ₁.ker :=
@@ -93,7 +95,7 @@ def ActualStageRootAuxiliaryRefinement
       isEffectiveCartierDivisor_ker_cartesian_of_flat κ (𝟙 A₁) τ₁ τ₂
         (isPullback_section_openRestriction κ τ₁ τ₂ hτ₂)
     OriginalRootBaseComponentTransportResult F κ g b₁ b₂ iZ i₁ i₂
-      (pullback.condition F iZ).symm (pullback.condition κ i₁).symm
+      (pullback.condition (f := F) (g := iZ)).symm (pullback.condition (f := κ) (g := i₁)).symm
       σ τ σ₁ τ₁ σ₂ τ₂ hs₁ ht₁ hσ₂ hτ₂ aD aE M n α e N eN a bN
 
 /-- Refine the actual stage and transport only the specified original objects. -/
@@ -123,17 +125,18 @@ theorem actualStageRootAuxiliaryRefinement
     (α : tensorPower ((etaleStageOpenDiagram X s p i U).obj ℓ).toRingedSpace.presheaf
       (structureSheafRing ((etaleStageOpenDiagram X s p i U).obj ℓ).toRingedSpace).property
       M (n : ℤ) ≅ differenceSheaf σ.ker τ.ker)
-    (e : (pullback iZ).obj M ≅ SheafOfModules.unit Z.ringCatSheaf)
-    (eN : (pullback iZ).obj N ≅ SheafOfModules.unit Z.ringCatSheaf)
+    (e : (Scheme.Modules.pullback iZ).obj M ≅ SheafOfModules.unit Z.ringCatSheaf)
+    (eN : (Scheme.Modules.pullback iZ).obj N ≅ SheafOfModules.unit Z.ringCatSheaf)
     (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
       ((etaleStageOpenDiagram X s p i U).obj ℓ).sheaf).obj M).obj N, ⊤))
     (bN : Γ(N, ⊤))
     (he : tensorPowerCongr Z.toRingedSpace.presheaf
       (structureSheafRing Z.toRingedSpace).property _ _ e n =
       boundaryRootPowerIso iZ M _ n α (differenceSheafBoundaryIso iZ σ.ker τ.ker aD aE))
-    (ha : Hom.app (pullbackTensorFrame iZ M N e eN).hom ⊤
+    (ha : Scheme.Modules.Hom.app (X := Z) (pullbackTensorFrame iZ M N e eN).hom ⊤
       (pullbackGlobalSections iZ _ a) = (1 : Γ(Z, ⊤)))
-    (hb : Hom.app eN.hom ⊤ (pullbackGlobalSections iZ N bN) = (1 : Γ(Z, ⊤))) :
+    (hb : Scheme.Modules.Hom.app (X := Z) eN.hom ⊤ (pullbackGlobalSections iZ N bN) =
+      (1 : Γ(Z, ⊤))) :
     ActualStageRootAuxiliaryRefinement X s p i U ℓ σ τ hσ hτ hmark iZ aD aE M N n α e eN a bN := by
   obtain ⟨Anew, v, hAff, hInt, hNoeth, hG, hGC, hF, hFC, hCN, hCNoeth, hPB, hη⟩ :=
     etaleStageOpen_exists_integral_base_refinement X s p i U ℓ
