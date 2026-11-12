@@ -1358,6 +1358,7 @@ public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalFinit
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalIntegralSource
 public import Colib.AlgebraicGeometry.Normalization.StrictLocalBaseChange.Normal
 public import Colib.AlgebraicGeometry.Polynomial.RationalCoordinateSection
+public import Colib.AlgebraicGeometry.Polynomial.RelativeRationalSection
 public import Colib.AlgebraicGeometry.Polynomial.ValueSection
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BaseComponentRestriction
@@ -1480,6 +1481,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinat
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.CompactificationAffineBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousFiniteCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousGoodNeighborhood
@@ -1554,6 +1556,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Comp
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleComponentRefinement
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleCurveMarkedComponentSelection
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleIntegralBase
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleRetainedGeometry
@@ -3279,6 +3282,7 @@ public import Colib.RingTheory.Bertini.QuadraticResidueIncidence
 public import Colib.RingTheory.Bertini.QuadraticSelectedEtaleOpen
 public import Colib.RingTheory.Bertini.QuadraticSelectedPointOpen
 public import Colib.RingTheory.Bertini.QuadraticTwoPointJets
+public import Colib.RingTheory.Bertini.RelativePolynomialCoordinateAlgebra
 public import Colib.RingTheory.Bertini.RelativePolynomialCoordinates
 public import Colib.RingTheory.Bertini.WholeFiberOriginalFunctions
 public import Colib.RingTheory.Bertini.WholeFiberParameters
