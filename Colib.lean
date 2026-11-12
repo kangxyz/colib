@@ -1556,6 +1556,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Comp
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleComponentRefinement
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleCurveFixedClopenSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleCurveMarkedComponentSelection
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleIntegralBase
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
