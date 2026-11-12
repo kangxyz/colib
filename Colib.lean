@@ -1108,6 +1108,7 @@ public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalBoundaryCompariso
 public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalClosedComparison
 public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalClosedDevissage
 public import Colib.AlgebraicGeometry.KTheory.Comparison
+public import Colib.AlgebraicGeometry.KTheory.DedekindFiniteResidue
 public import Colib.AlgebraicGeometry.KTheory.DedekindPrincipalBoundary
 public import Colib.AlgebraicGeometry.KTheory.FiniteField
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageApproximation

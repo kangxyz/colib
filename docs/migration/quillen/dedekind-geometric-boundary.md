@@ -19,6 +19,7 @@ perfect-complex model or a restatement of Thomason–Trobaugh localization.
 | `Scheme/PrincipalClosedGTheory.lean` | `PrincipalClosedLocalization`, all exactness positions and the degree-zero surjection, with original open-restriction consumers |
 | `Scheme/Coherent/Affine/PrincipalBoundaryComparison.lean` | `CoherentPrincipalBoundaryComparison.publicSpecGRingEquiv_principalClosed_boundaryG` |
 | `GTheory/Dedekind/PrincipalDvrBoundaryComparison.lean` | ring `PrincipalBoundaryComparison.principalBoundary_nativeBoundary`; scheme `DedekindPrincipalBoundary.principalSchemeBoundary_nativeBoundary` and `_field` |
+| `GTheory/Dedekind/FiniteResidueLocalization.lean`, final coherent consumers | scheme `DedekindFiniteResidue.spec_genericGTwo_pullback_injective` and `_field_injective`, actual generic pullback with the supplied fraction field |
 | `KTheory/Field/FiniteFieldKTwo.lean`, final coherent consumers | scheme `FiniteField.specGTwo_subsingleton` and `specGTwo_eq_one` |
 
 Scheme source paths in the first column are relative to
@@ -64,6 +65,8 @@ otherwise specified. Lean declarations retain native namespaces, not filename na
 ## Consumers and review
 
 `ColibTest.DedekindPrincipalBoundary` checks the original finite-module equality.
+`ColibTest.DedekindGeometricFiniteResidue` checks the original generic G2 pullback
+with a supplied fraction field and actual residue-field finiteness.
 `ColibTest.DedekindPrincipalSchemeBoundary` checks the supplied-field geometric
 consumer with the actual pullbacks and scalar restriction, and prints its
 transitive axioms. The principal localization owner includes consumers written
