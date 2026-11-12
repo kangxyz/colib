@@ -1,5 +1,4 @@
-module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
-public import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
+module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
 public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
 public import Colib.Algebra.Category.ModuleCat.Annihilator
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linear
@@ -1504,6 +1503,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleRetainedGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryDiagram
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryFinite
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryNoetherian
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitSections
