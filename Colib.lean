@@ -1492,6 +1492,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGeometryInstances
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGoodGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.OriginalChartImageInputs
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
@@ -1731,6 +1732,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.AffineSpaceInduction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ClosedPoints
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EnoughPoints
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangeRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Neighborhood
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodBaseChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSections
