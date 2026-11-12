@@ -351,6 +351,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.Reparametrize
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.SupportProduct
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedPrimeSupports
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedStalkMaps
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedTor
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedTorusRegular
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RetainedPowerCutSupport
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.TorusChart
@@ -2089,6 +2090,7 @@ public import Colib.AlgebraicGeometry.Scheme.VectorBundle.KernelClosed
 public import Colib.AlgebraicGeometry.Scheme.VectorBundle.Pullback
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Basic
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.Basic
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.DerivedDetection
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.ExtPresheaf
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.FiniteDimension
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.Ordinary
@@ -2155,6 +2157,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.D
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Singular
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.ProjectiveComparison
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.Reduced
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.UnderlyingExactness
 public import Colib.AlgebraicGeometry.Simplex.AffineBoundaryOneComplex
 public import Colib.AlgebraicGeometry.Simplex.AffineRelativeComparison
@@ -2317,6 +2320,7 @@ public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.JacobsonOp
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.OpenObjects
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.ParameterProduct
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.ParameterProduct.Restriction
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Point.CokernelLifting
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Point.FilteredHomology
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Point.InverseImageComposition

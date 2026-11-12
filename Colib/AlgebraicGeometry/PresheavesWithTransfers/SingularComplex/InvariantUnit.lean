@@ -9,6 +9,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Si
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Unit
 public import Colib.AlgebraicTopology.DoldKan.InvertibleFace
 import Mathlib.Algebra.Homology.Functor
+import Mathlib.Algebra.Homology.Embedding.ExtendHomology
 
 /-!
 # Singularization of A¹-invariant transfer coefficients
@@ -82,5 +83,38 @@ theorem singularChainUnitApp_quasiIso (P : PresheafWithTransfers.{v} k)
     exact ⟨i, inferInstanceAs (Mono (transfer P a))⟩
   let : QuasiIso (e.hom ≫ f) := hg
   exact quasiIso_of_comp_left e.hom f
+
+/-- The cochain placement gives the same augmentation as the original chain unit. -/
+theorem singularCochainUnitApp_eq_placed (P : PresheafWithTransfers.{v} k) :
+    singularCochainUnitApp P =
+      (HomologicalComplex.extendSingleIso (ComplexShape.embeddingUpIntLE 0) P 0 0 rfl).inv ≫
+        HomologicalComplex.extendMap (singularChainUnitApp P)
+          (ComplexShape.embeddingUpIntLE 0) := by
+  apply HomologicalComplex.from_single_hom_ext
+  let e := ComplexShape.embeddingUpIntLE 0
+  have h : e.f (0 : ℕ) = (0 : ℤ) := rfl
+  let s := HomologicalComplex.extendSingleIso e P 0 0 h
+  let f := HomologicalComplex.extendMap (singularChainUnitApp P) e
+  change (singularCochainUnitApp P).f 0 = s.inv.f 0 ≫ f.f 0
+  have hs := HomologicalComplex.extendSingleIso_inv_f e P 0 0 h
+  have hf := HomologicalComplex.extendMap_f (singularChainUnitApp P) e h
+  change s.inv.f 0 = _ at hs
+  change f.f 0 = _ at hf
+  rw [singularCochainUnitApp_f_zero, hs, hf, singularChainUnitApp_f_zero]
+  simp only [Category.assoc, Iso.inv_hom_id_assoc]
+  rfl
+
+/-- The cochain unit of an invariant presheaf is the original quasi-isomorphism. -/
+theorem singularCochainUnitApp_quasiIso (P : PresheafWithTransfers.{v} k)
+    (hP : P.IsA1Invariant) : QuasiIso (singularCochainUnitApp P) := by
+  let : QuasiIso (singularChainUnitApp P) := singularChainUnitApp_quasiIso P hP
+  let e := ComplexShape.embeddingUpIntLE 0
+  let f := HomologicalComplex.extendMap (singularChainUnitApp P) e
+  let s := HomologicalComplex.extendSingleIso e P 0 0 (by rfl)
+  let : QuasiIso f := (HomologicalComplex.quasiIso_extendMap_iff (singularChainUnitApp P) e).2
+    (singularChainUnitApp_quasiIso P hP)
+  have h : singularCochainUnitApp P = s.inv ≫ f := singularCochainUnitApp_eq_placed P
+  rw [h]
+  exact quasiIso_comp s.inv f
 
 end AlgebraicGeometry.PresheafWithTransfers
