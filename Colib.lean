@@ -1,5 +1,4 @@
-module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
-public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
+module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupportpublic import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
 public import Colib.Algebra.Category.ModuleCat.Annihilator
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linear
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Localization
@@ -625,6 +624,7 @@ public import Colib.AlgebraicGeometry.Divisors.Meromorphic.FramedRetainedOpen
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.FramedTensorQuotientCorrection
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.GlobalSectionTransport
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.GlobalSectionWeilDivisor
+public import Colib.AlgebraicGeometry.Divisors.Meromorphic.OriginalRootFourStageCanonicalFrame
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.RegularGeneratorRatioBoundary
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.RegularGeneratorRatioGeneric
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.RegularTensorQuotient
