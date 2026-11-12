@@ -27,13 +27,13 @@ def chartPullbackOverIso {P Q T Y : Scheme.{u}} (e : P ≅ Q)
   hom_inv_id := by
     apply pullback.hom_ext <;>
       simp only [Category.assoc, pullback.lift_fst, pullback.lift_snd,
-        pullback.lift_fst_assoc, pullback.lift_snd_assoc,
-        Iso.hom_inv_id_assoc, Category.id_comp]
+        pullback.lift_fst_assoc,
+        Iso.hom_inv_id, Category.comp_id, Category.id_comp]
   inv_hom_id := by
     apply pullback.hom_ext <;>
       simp only [Category.assoc, pullback.lift_fst, pullback.lift_snd,
-        pullback.lift_fst_assoc, pullback.lift_snd_assoc,
-        Iso.inv_hom_id_assoc, Category.id_comp]
+        pullback.lift_fst_assoc,
+        Iso.inv_hom_id, Category.comp_id, Category.id_comp]
 
 @[simp, reassoc] theorem chartPullbackOverIso_hom_fst
     {P Q T Y : Scheme.{u}} (e : P ≅ Q)

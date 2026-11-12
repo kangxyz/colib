@@ -36,7 +36,7 @@ local instance actualRefinedResultPullbackInvertible
       (structureSheafRing Y.toRingedSpace).property M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property ((Scheme.Modules.pullback f).obj M) :=
-  Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry f.toLRSHom.toShHom M hM
+  Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry f.toLRSHom.toShHom M _hM
 
 /-- The original Result, with an actual same-witness refinement inside its final leaf. -/
 def EtaleStageOpenRefinedConsumerResult

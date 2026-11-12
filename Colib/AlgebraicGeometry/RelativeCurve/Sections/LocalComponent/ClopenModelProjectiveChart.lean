@@ -1,6 +1,13 @@
-/- Source-only candidate: inherit original finite cover and coordinate charts on fixed U. -/
+/-
+Copyright (c) 2026 Colib contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: kangxyz
+-/
 module
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ProjectiveLine
+
+/-! # Original finite covers and coordinate charts on the fixed clopen model -/
+
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u
@@ -15,6 +22,7 @@ variable {R : Type u} [CommRing R] {X U Y : Scheme.{u}}
 instance finite_projectiveLineCover_clopenModel [IsClosedImmersion k] [IsFinite π] :
     IsFinite (k ≫ π) := inferInstance
 
+include hπ in
 theorem projectiveLineCover_clopenModel_structure :
     (k ≫ π) ≫ (projectiveLine R ↘ Spec (.of R)) = k ≫ p := by
   rw [Category.assoc, hπ]

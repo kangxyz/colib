@@ -1,6 +1,14 @@
-/- Source-only candidate: exact iterated retained/boundary pullback comparison. -/
+/-
+Copyright (c) 2026 Colib contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: kangxyz
+-/
 module
-public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianFullBoundarySurjective
+public import Mathlib.AlgebraicGeometry.Pullbacks
+public import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
+
+/-! # The exact iterated full-boundary pullback comparison -/
+
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u
