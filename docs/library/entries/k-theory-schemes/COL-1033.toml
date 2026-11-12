@@ -1,0 +1,51 @@
+[entry]
+id = "COL-1033"
+title = "Negative K-groups and the finite Bass construction"
+kind = "comparison"
+section = "bass-k-theory-and-geometric-delooping"
+order = 701
+statement = '''
+Let $R$ be a commutative ring and $X\to\operatorname{Spec}R$ a quasi-compact scheme.
+For an $R$-algebra $A$, write $X_A=X\times_{\operatorname{Spec}R}\operatorname{Spec}A$,
+and let $B^n(X;A)$ denote the actual $n$-fold coefficient Bass construction on
+bounded-flat perfect sections. For every $n\geq 0$ there is an isomorphism
+\[
+K_{-n}(X_A)\xrightarrow{\sim}\pi_{-n}^{\mathrm{st}}B^n(X;A),
+\]
+natural in the coefficient algebra and compatible with arbitrary scheme-over-base
+morphisms between quasi-compact schemes. The analogous isomorphism for an open immersion
+$U\hookrightarrow X$ compares the original groups with support in $X\setminus U$
+with the bottom groups of the supported construction. These isomorphisms carry the
+original Laurent quotient maps to the actual cone maps with their prescribed degree
+shifts and commute with the original support-forgetting maps.
+'''
+scope = '''
+The ambient scheme is quasi-compact. The open source need not be quasi-compact, and
+no quasi-separatedness assumption is used for this finite comparison. The initial
+isomorphism is the actual perfect K-zero class map, followed by section evaluation.
+The induction retains the original product isomorphisms and each Laurent representative.
+Over the lifted integer base, composing with the actual section-restriction and integral
+Spec-row comparisons, then the original finite stage map, gives the specified class
+isomorphism into the normalized finite construction. Its first conjugating word is the
+identity; no such assertion is made here for higher words.
+
+This compares finite constructions in their bottom degrees. It does not identify a
+Bass telescope, assert invertibility of its transition maps, or identify the classical
+negative localization boundary. The finite comparison is adapted from
+[@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/CoefficientBassOriginalNegativeComparison.lean]
+and the supported comparison and forget modules at the pinned revision. The source
+check is not an independent mathematical review.
+'''
+proof = '''
+At degree zero use the original perfect K-zero evaluation isomorphism. The actual
+polynomial and Laurent pullback isomorphisms identify the next two-chart cokernels.
+The finite Model bottom-contraction isomorphism then proves the induction step.
+The same induction for supported rows, together with the original inclusion square,
+identifies support forgetting. Epimorphic Laurent quotient maps determine the
+comparison of representatives and the cone formula.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientAmbientNegativeKComparison"
+provenance = "quillen"
+source_checked_on = "2026-11-12"
