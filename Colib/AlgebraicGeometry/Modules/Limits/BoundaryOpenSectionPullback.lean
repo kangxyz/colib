@@ -5,8 +5,10 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.BoundaryScalarPullback
-public import StacksFrontier.AlgebraicGeometry.Descent.SectionsPullbackComparison.PullbackSection
+public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryRoot
+public import StacksFrontier.AlgebraicGeometry.Descent.EffectiveEpi.QuasicoherentSectionsEqualizer.GlobalSections
+public import StacksFrontier.AlgebraicGeometry.IdealOfClosedSubscheme.Basic
+public import StacksFrontier.AlgebraicGeometry.PullbackSections.Affine
 
 /-! # Full-boundary normalization of sections defined on an ambient open
 
