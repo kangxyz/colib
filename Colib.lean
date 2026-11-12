@@ -1502,7 +1502,9 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryF
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationProjectivity
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartOriginalFixedInputs
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartRetainedCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FiniteFlat
@@ -1725,6 +1727,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSectio
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionOriginalTargetRestriction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionPulledRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStageAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStagePulledRepresentative
@@ -1732,6 +1735,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSt
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackNaturality
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRestrictionTwoStage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers

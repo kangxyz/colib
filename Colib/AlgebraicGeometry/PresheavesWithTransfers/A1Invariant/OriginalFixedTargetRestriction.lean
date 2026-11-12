@@ -7,7 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenFixedMarking
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalFixedTargetGeometry
-public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRestrictionTwoStage
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.EtaleStageOpenFixedTargetRestriction
 
 /-! # Actual original fixed geometry consumed by the same-root restriction theorem
@@ -116,28 +116,7 @@ theorem exists_original_fixed_target_restriction
     πU hπStructure cV hcV hjπ (U'.ι ≫ vStage) eChart cE hcE he hdComplement
     σV τV hsV htV r hr₁ (bSmall ≫ (h₀ ≫ f)) (bSmall ≫ (h₀ ≫ g)) hfFinal hgFinal
     k hn x hpre' hp hnUnit
-  let wS := (etaleNeighborhoodToSmooth X s.hom).map w
-  let lS := (smallEtaleNeighborhoodToSmooth X s).map ℓ.hom
-  have hb : bSmall ≫ h₀ =
-      etaleNeighborhoodHom X s.hom ((smallEtaleNeighborhoodInclusion X s).obj a.left) :=
-    etaleNeighborhoodMap_comp_hom (X := X) s.hom ((smallEtaleNeighborhoodInclusion X s).map (a.hom ≫ e))
-  have hl : lS ≫ etaleNeighborhoodHom X s.hom
-      ((smallEtaleNeighborhoodInclusion X s).obj a.left) =
-      etaleNeighborhoodHom X s.hom ((smallEtaleNeighborhoodInclusion X s).obj ℓ.left) :=
-    etaleNeighborhoodMap_comp_hom (X := X) s.hom ((smallEtaleNeighborhoodInclusion X s).map ℓ.hom)
-  have hw : wS ≫ etaleNeighborhoodHom X s.hom
-      ((smallEtaleNeighborhoodInclusion X s).obj ℓ.left) = etaleNeighborhoodHom X s.hom Anew :=
-    etaleNeighborhoodMap_comp_hom (X := X) s.hom w
-  have htotal : wS ≫ (lS ≫ (bSmall ≫ h₀)) = etaleNeighborhoodHom X s.hom Anew :=
-    (congrArg (fun z => wS ≫ (lS ≫ z)) hb).trans
-      ((congrArg (fun z => wS ≫ z) hl).trans hw)
-  have normalize (z : X ⟶ T) :
-      wS ≫ (lS ≫ (bSmall ≫ (h₀ ≫ z))) = etaleNeighborhoodHom X s.hom Anew ≫ z := by
-    calc
-      _ = (wS ≫ (lS ≫ (bSmall ≫ h₀))) ≫ z := by simp only [Category.assoc]
-      _ = _ := congrArg (fun m => m ≫ z) htotal
-  let Q := (PresheafWithTransfers.toPresheaf K).obj P
-  exact ⟨Anew, (congrArg (fun z => Q.map z.op) (normalize f)).symm.trans
-    (hEq.trans (congrArg (fun z => Q.map z.op) (normalize g)))⟩
+  exact ⟨Anew, etaleNeighborhood_restriction_maps_eq_of_two_small_stages
+    X T s e a ℓ Anew w ((PresheafWithTransfers.toPresheaf K).obj P) f g hEq⟩
 
 end AlgebraicGeometry.Scheme.SmoothSite
