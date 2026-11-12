@@ -24,6 +24,23 @@ local instance {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property ((Scheme.Modules.pullback f).obj M) :=
   Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry f.toLRSHom.toShHom M hM
+private theorem append_actual_ideal_frame {B X : Scheme.{u}} (i : B ⟶ X)
+    {Q : X.Modules} {D E D' E' : X.IdealSheafData}
+    [IsEffectiveCartierDivisor D] [IsEffectiveCartierDivisor E]
+    [IsEffectiveCartierDivisor D'] [IsEffectiveCartierDivisor E']
+    (δ : Q ≅ differenceSheaf D E)
+    (aD : ∀ y : B, i y ∉ D.support) (aE : ∀ y : B, i y ∉ E.support)
+    (aD' : ∀ y : B, i y ∉ D'.support) (aE' : ∀ y : B, i y ∉ E'.support)
+    (τ : (Scheme.Modules.pullback i).obj Q ≅ SheafOfModules.unit B.ringCatSheaf)
+    (hδ : (Scheme.Modules.pullback i).mapIso δ ≪≫
+      differenceSheafBoundaryIso i D E aD aE = τ)
+    (hD : D = D') (hE : E = E') :
+    (Scheme.Modules.pullback i).mapIso
+        (δ ≪≫ eqToIso (congrArg₂ differenceSheaf hD hE)) ≪≫
+      differenceSheafBoundaryIso i D' E' aD' aE' = τ := by
+  rw [Functor.mapIso_trans, Iso.trans_assoc,
+    differenceSheafBoundaryIso_congr i D E D' E' hD hE aD aE aD' aE', hδ]
+
 theorem exists_original_root_auxiliaryFrames_actual_ideals_of_isLimit
     {I : Type u} [Category.{u} I] [IsCofiltered I]
     (B C : I ⥤ Scheme.{u})
@@ -246,13 +263,16 @@ theorem exists_original_root_auxiliaryFrames_actual_ideals_of_isLimit
     (b.app i) (b.app k) (b.app j) (b.app j') (b.app ℓ)
     (b.naturality e) (b.naturality f) (b.naturality g) (b.naturality h)
     (D i) (E i) (aD i) (aE i)
+  dsimp only at hfour
+  have hD4 : (((((D i).comap (C.map e)).comap (C.map f)).comap (C.map g)).comap
+      (C.map h)) = D ℓ := by simp only [hDmap]
+  have hE4 : (((((E i).comap (C.map e)).comap (C.map f)).comap (C.map g)).comap
+      (C.map h)) = E ℓ := by simp only [hEmap]
+  have hframe := append_actual_ideal_frame (b.app ℓ) _ _ _ (aD ℓ) (aE ℓ) _
+    hfour hD4 hE4
   refine ⟨k, e, Mk, hMk, eM, j, f, β, hrec, hlim, j', g, Nj, hNj, F, eAux,
     a, bN, harec, hbrec, hAux, hbN, ℓ, h, eB, he, ?_, haFinal, hbFinal⟩
-  dsimp only at hfour ⊢
   apply original_root_frame_change_target
-  rw [Functor.mapIso_trans, Iso.trans_assoc]
-  rw [differenceSheafBoundaryIso_congr]
-  rw [hfour]
-  exact hpow
+  exact hframe.symm ▸ hpow
 
 end Stacks.AlgebraicGeometry.ModuleLimits
