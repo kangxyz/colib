@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Warm a Colib merge build from an already checked same-repository branch."""
+"""Restore native Colib outputs from a checked branch or a published baseline."""
 
 import hashlib
 import json
@@ -35,6 +35,13 @@ def github(repository, endpoint, **parameters):
     return json.loads(output('gh', 'api', f'repos/{repository}/{endpoint}{query}'))
 
 
+def checked_push(run, repository_id):
+    return (run.get('event') == 'push' and run.get('path') == '.github/workflows/ci.yml'
+            and run.get('status') == 'completed' and run.get('conclusion') == 'success'
+            and (run.get('repository') or {}).get('id') == repository_id
+            and (run.get('head_repository') or {}).get('id') == repository_id)
+
+
 def source_commits(api, head, target, repository_id, parents):
     # A fast-forward may have the same single-parent head as a direct push.
     yield head
@@ -63,12 +70,8 @@ def find_seed(api, head, tree, target, repository_id, run_id, parents):
             continue
         for run in api('actions/workflows/ci.yml/runs', head_sha=commit,
                        event='push', status='success', per_page=10)['workflow_runs']:
-            if (run.get('head_sha') != commit or run.get('event') != 'push'
-                    or run.get('path') != '.github/workflows/ci.yml'
-                    or run.get('status') != 'completed' or run.get('conclusion') != 'success'
-                    or not run.get('head_branch') or run['head_branch'] == target
-                    or (run.get('repository') or {}).get('id') != repository_id
-                    or (run.get('head_repository') or {}).get('id') != repository_id):
+            if (run.get('head_sha') != commit or not checked_push(run, repository_id)
+                    or not run.get('head_branch') or run['head_branch'] == target):
                 continue
             if started is None:
                 started = api(f'actions/runs/{run_id}')['created_at']
@@ -92,6 +95,44 @@ def find_seed(api, head, tree, target, repository_id, run_id, parents):
             if 'cache-staging' in artifacts:
                 return run, artifacts
     return None
+
+
+def find_published_baseline(api, branch, repository_id, domain):
+    runs = api('actions/workflows/ci.yml/runs', branch=branch, event='push',
+               status='success', per_page=5)['workflow_runs']
+    releases = {release['tag_name']: release for release in api('releases', per_page=20)
+                if release.get('draft') is False}
+    for run in runs:
+        revision = run.get('head_sha') or ''
+        if not checked_push(run, repository_id) or run.get('head_branch') != branch:
+            continue
+        if not COMMIT.fullmatch(revision):
+            continue
+        run_id, attempt = run.get('id'), run.get('run_attempt')
+        if type(run_id) is not int or type(attempt) is not int or min(run_id, attempt) < 1:
+            continue
+        tag = 'lean-native-' + revision
+        release = releases.get(tag)
+        if not release or release.get('target_commitish') != revision:
+            continue
+        name = f'lake-native-cache-{domain}-{run_id}-{attempt}.tar'
+        for asset in release['assets']:
+            if (asset.get('name') == name and asset.get('state') == 'uploaded'
+                    and DIGEST.fullmatch(asset.get('digest') or '')
+                    and type(asset.get('size')) is int and asset['size'] > 0):
+                return revision, tag, asset
+    return None
+
+
+def download_release(repository, tag, asset, directory):
+    if shutil.disk_usage(directory).free < 3 * asset['size'] + 512 * 1024**2:
+        raise ValueError('insufficient temporary space for ' + asset['name'])
+    subprocess.run(['gh', 'release', 'download', tag, '--repo', repository,
+                    '--pattern', asset['name'], '--dir', str(directory)], check=True)
+    archive = directory / asset['name']
+    if archive.stat().st_size != asset['size'] or 'sha256:' + sha(archive) != asset['digest']:
+        raise ValueError('published Colib cache size or digest mismatch')
+    return archive
 
 
 def download(repository, item, directory, filename):
@@ -134,7 +175,51 @@ def validate_producer(staging, repository, revision, package, domain, compiler):
     expected = dict(repository=repository, revision=revision, package=package,
                     domain=domain, compiler=compiler)
     if any(producer.get(key) != value for key, value in expected.items()):
-        raise ValueError('native artifact producer does not match the verified branch build')
+        raise ValueError('native artifact producer does not match the verified build')
+
+
+def native_domain():
+    return '-'.join((os.environ['RUNNER_OS'], os.environ['RUNNER_ARCH'],
+                     sha(Path('lean-toolchain'))[:16]))
+
+
+def import_native(archive, staging, repository, revision, domain, *, force=False):
+    unpack_native(archive, staging)
+    archive.unlink()
+    package = tomllib.loads(Path('lakefile.toml').read_text())['name']
+    validate_producer(staging, repository, revision, package, domain, output('lean', '--version'))
+    subprocess.run([sys.executable, '.github/ci-cache/stage.py', 'verify', '--root', '.',
+                    '--staging', str(staging), '--native-cache', os.environ['LAKE_CACHE_DIR']],
+                   check=True)
+    command = ['lake', 'cache', 'unstage', str(staging)]
+    if force:
+        command.append('--force-overwrite')
+    subprocess.run(command, check=True)
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+        out.write('imported=true\n')
+
+
+def restore_published_baseline():
+    if Path('.lake/ci-cache/root.json').is_file():
+        print('Using the verified Colib root checkpoint.', flush=True)
+        return
+    repository = os.environ['GITHUB_REPOSITORY']
+    domain = native_domain()
+
+    def api(endpoint, **parameters):
+        return github(repository, endpoint, **parameters)
+
+    seed = find_published_baseline(api, os.environ['DEFAULT_BRANCH'],
+                                   int(os.environ['GITHUB_REPOSITORY_ID']), domain)
+    if seed is None:
+        print('No compatible published Colib baseline.', flush=True)
+        return
+    revision, tag, asset = seed
+    with tempfile.TemporaryDirectory(prefix='colib-native-', dir=os.environ['RUNNER_TEMP']) as tmp:
+        directory = Path(tmp)
+        archive = download_release(repository, tag, asset, directory)
+        import_native(archive, directory / 'stage', repository, revision, domain)
+    print(f'Imported published Colib native cache {revision} ({asset["name"]}).', flush=True)
 
 
 def restore_layer(layer, archive, native_cache):
@@ -178,18 +263,8 @@ def main():
     with tempfile.TemporaryDirectory(prefix='merge-native-', dir=temporary_root) as temporary:
         directory = Path(temporary)
         archive = download(repository, artifacts['cache-staging'], directory, 'lake-native-cache.tar')
-        staging = directory / 'stage'
-        unpack_native(archive, staging)
-        archive.unlink()
-        domain = '-'.join((os.environ['RUNNER_OS'], os.environ['RUNNER_ARCH'],
-                           sha(Path('lean-toolchain'))[:16]))
-        package = tomllib.loads(Path('lakefile.toml').read_text())['name']
-        validate_producer(staging, repository, run['head_sha'], package, domain, output('lean', '--version'))
-        subprocess.run([sys.executable, '.github/ci-cache/stage.py', 'verify', '--root', '.',
-                        '--staging', str(staging), '--native-cache', native_cache], check=True)
-        subprocess.run(['lake', 'cache', 'unstage', str(staging), '--force-overwrite'], check=True)
-    with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
-        out.write('imported=true\n')
+        import_native(archive, directory / 'stage', repository, run['head_sha'], native_domain(),
+                      force=True)
     print(f'Imported native merge seed from run {run["id"]} ({run["head_sha"]}).', flush=True)
     for layer, filename in (('dependencies', 'build-dependencies.tar.zst'), ('stacks', 'stacks.tar.zst')):
         artifact = artifacts.get('build-' + layer)
@@ -204,4 +279,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if sys.argv[1:] == ['--published-baseline']:
+        restore_published_baseline()
+    elif len(sys.argv) == 1:
+        main()
+    else:
+        raise SystemExit('usage: merge_seed.py [--published-baseline]')

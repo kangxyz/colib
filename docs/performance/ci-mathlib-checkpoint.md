@@ -121,3 +121,20 @@ The final batched run checked 8,382 Colib declarations with all 15 selected
 linters. No dependency declaration-lint targets were added. The EC2 path shares
 the policy/resource changes and retains same-host handoff; admission stayed false,
 so these runtime measurements cover hosted Ubuntu only.
+
+## Missing Colib root checkpoint on EC2
+
+[Run 43154057907](https://github.com/kangxyz/colib/actions/runs/43154057907)
+missed the root Actions cache and compiled 2,381 Colib modules before
+cancellation. The candidate changed eight production Lean files and its
+reverse production closure contained 22 modules including the aggregate.
+The preceding [main run](https://github.com/kangxyz/colib/actions/runs/43125303247)
+had saved the root checkpoint and published 4,338 native output mappings for
+`ab836388294fdb492fa5ceb80cd562eaa6e0b4e9`. The published archive was still
+available after the Actions cache disappeared.
+
+On a root checkpoint miss, the restore step selects a successful main push
+and verifies its published archive before adding its native mappings. The
+normal stage validator checks the archive contents. Lake rehashes the current
+source and dependency inputs before applying those mappings. The existing
+exact checked-branch seed still takes precedence for merge builds.

@@ -93,6 +93,13 @@ store for the imported native outputs. A successful native import adds
 `--rehash` to that Build invocation. If a matching branch run or usable artifact
 is unavailable, the usual incremental build can proceed.
 
+When the root checkpoint and a checked branch seed are absent, Build can
+reuse a published Colib stage from a successful default-branch push.
+The archive must match the runner's toolchain domain, the published digest,
+and the producer repository, revision and compiler. The native stage
+validator checks the module archives before import. Lake then rehashes
+the current inputs and restores only matching outputs.
+
 ## Publication and manual exports
 
 After all checks pass, main pushes publish the normal `lean-native-<Colib revision>`
