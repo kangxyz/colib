@@ -312,9 +312,9 @@ theorem lineMap_eq_parameterMap {D : Scheme.{u}} (f : D ⟶ X) :
     lineMap b f = Scheme.PolynomialSectionPencil.parameterMap b f := by
   apply pullback.hom_ext
   · simp [lineMap, Scheme.PolynomialSectionPencil.parameterMap,
-      Scheme.PolynomialSectionPencil.projection, projection, pullback.map]
+      Scheme.PolynomialSectionPencil.projection, pullback.map]
   · simp [lineMap, Scheme.PolynomialSectionPencil.parameterMap,
-      Scheme.PolynomialSectionPencil.projection, projection, pullback.map]
+      Scheme.PolynomialSectionPencil.projection, pullback.map]
 
 end AlgebraicGeometry.PrincipalFamilyUnitOpen
 

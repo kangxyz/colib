@@ -5,6 +5,8 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.AlgebraicGeometry.Correspondences.Principal.RetainedCurveMap
+
 public import Colib.AlgebraicGeometry.Correspondences.Principal.RetainedSourceEndpointCycles
 public import Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryEndpointCycles
 
@@ -17,12 +19,6 @@ open AlgebraicGeometry CategoryTheory CategoryTheory.Limits TopologicalSpace Sta
 universe u
 
 namespace AlgebraicGeometry.PrincipalFamilyUnitOpen
-
-/-- The original curve source-target map. -/
-def retainedCurveMap {k : Type u} [Field k] {X C V Y : Scheme.{u}}
-    (p : X ⟶ Spec (.of k)) (h : Y ⟶ Spec (.of k)) (q : C ⟶ X)
-    (j : V ⟶ C) (g : V ⟶ Y) (hg : j ≫ q ≫ p = g ≫ h) : V ⟶ pullback p h :=
-  pullback.lift (j ≫ q) g hg
 
 /-- The unchanged retained polynomial source-target map is over the original base. -/
 theorem polynomialRetained_over {k : Type u} [Field k] {X C V Y : Scheme.{u}}

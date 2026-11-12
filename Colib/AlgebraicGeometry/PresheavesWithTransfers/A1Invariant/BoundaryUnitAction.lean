@@ -5,7 +5,9 @@ Authors: Colib contributors
 -/
 module
 
-public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.RationalUnitPrincipalAction
+public import Colib.AlgebraicGeometry.Chow.DenseOpenBoundaryFactor
+public import Colib.AlgebraicGeometry.Correspondences.Principal.RetainedCurveMap
+public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilyUnitOpen
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Actions.PrincipalOrder
 public import Colib.AlgebraicGeometry.Correspondences.Moving.PrincipalOrderNoetherianPushforward
 

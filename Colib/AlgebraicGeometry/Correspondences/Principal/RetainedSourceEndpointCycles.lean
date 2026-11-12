@@ -5,6 +5,8 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.AlgebraicGeometry.Correspondences.Principal.RetainedCurveMap
+
 public import Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialSourceEndpointCycles
 public import Colib.AlgebraicGeometry.Chow.NoetherianPushforward
 
@@ -34,13 +36,6 @@ theorem noetherianCyclePushforward_apply_of_isOpenImmersion
 end Stacks.Chow
 
 namespace AlgebraicGeometry.PrincipalFamilyUnitOpen
-
-/-- An actual open subscheme of the original Noetherian curve is Noetherian. -/
-theorem retainedCurve_isNoetherian {C V : Scheme.{u}} [IsNoetherian C]
-    (j : V ⟶ C) [IsOpenImmersion j] : IsNoetherian V := by
-  let : NoetherianSpace V := j.isEmbedding.isInducing.noetherianSpace
-  let : IsLocallyNoetherian V := LocallyOfFiniteType.isLocallyNoetherian j
-  exact {}
 
 variable {k : Type u} [Field k] {X C V W B : Scheme.{u}}
     (p : X ⟶ Spec (.of k)) (q : C ⟶ X) [IsIntegral C] [IsNoetherian C]
