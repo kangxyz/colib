@@ -148,8 +148,10 @@ theorem etaleStageOpen_exists_same_root_consumer_result
       (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor cC.pt.sheaf).obj M).obj Naux, ⊤))
       (bN : Γ(Naux, ⊤))
       (eN : (Scheme.Modules.pullback bLim).obj Naux ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-      (hbN : Hom.app eN.hom ⊤ (pullbackGlobalSections bLim Naux bN) = (1 : Γ(cB.pt, ⊤)))
-      (haB : Hom.app (Scheme.Modules.pullbackTensorFrame bLim M Naux e eN).hom ⊤
+      (hbN : Scheme.Modules.Hom.app (X := cB.pt) eN.hom ⊤ (pullbackGlobalSections bLim Naux bN) =
+        (1 : Γ(cB.pt, ⊤)))
+      (haB : Scheme.Modules.Hom.app (X := cB.pt)
+        (Scheme.Modules.pullbackTensorFrame bLim M Naux e eN).hom ⊤
         (pullbackGlobalSections bLim _ a) = (1 : Γ(cB.pt, ⊤))),
       a ≠ 0 ∧ bN ≠ 0 ∧
       OriginalRootAuxiliaryFramesConsumerResult

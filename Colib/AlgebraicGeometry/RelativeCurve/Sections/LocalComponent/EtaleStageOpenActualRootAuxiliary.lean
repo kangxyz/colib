@@ -115,9 +115,10 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
           (bN : Γ(Naux, ⊤))
           (eN : (Scheme.Modules.pullback iL).obj Naux ≅ SheafOfModules.unit ZL.ringCatSheaf),
           a ≠ 0 ∧ bN ≠ 0 ∧
-          Hom.app (Scheme.Modules.pullbackTensorFrame iL M Naux e eN).hom ⊤
+          Scheme.Modules.Hom.app (X := ZL) (Scheme.Modules.pullbackTensorFrame iL M Naux e eN).hom ⊤
             (pullbackGlobalSections iL _ a) = (1 : Γ(ZL, ⊤)) ∧
-          Hom.app eN.hom ⊤ (pullbackGlobalSections iL Naux bN) = (1 : Γ(ZL, ⊤)) := by
+          Scheme.Modules.Hom.app (X := ZL) eN.hom ⊤ (pullbackGlobalSections iL Naux bN) =
+            (1 : Γ(ZL, ⊤)) := by
   let R := ↥(etaleLocalRing B X.left hX s)
   let := isNoetherian_strictHenselization B X.left hX s
   let : IsNoetherianRing R := isLocallyNoetherian_Spec.mp
