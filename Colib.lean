@@ -1,5 +1,4 @@
-module  -- shake: keep-all --deprecated_module: ignore
-public import Colib.Algebra.Category.FGModuleCat.FractionLocalization
+module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalization
 public import Colib.Algebra.Category.FGModuleCat.IsFG
 public import Colib.Algebra.Category.FGModuleCat.Localization
 public import Colib.Algebra.Category.FGModuleCat.Localization.EssSurj
@@ -1507,6 +1506,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleIntegralBase
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleRetainedGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.LimitDescent
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.PolynomialGeometry
