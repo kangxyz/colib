@@ -647,6 +647,7 @@ public import Colib.AlgebraicGeometry.Divisors.Meromorphic.TensorQuotient
 public import Colib.AlgebraicGeometry.Divisors.SameFibreDifference
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelBaseChange
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelCartesian
+public import Colib.AlgebraicGeometry.Divisors.SectionKernelCartierPullback
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelDifferenceBoundary
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelDifferencePullback
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelOpenBaseChange
@@ -1535,6 +1536,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryNoetherian
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenConsumerNormalized
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenDiagram
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenFinalTransportGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenIntegralBaseRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitEmbedding
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitIntegral
