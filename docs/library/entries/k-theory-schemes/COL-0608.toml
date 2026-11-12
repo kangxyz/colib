@@ -1,0 +1,53 @@
+[entry]
+id = "COL-0608"
+title = "Basic normalized-row localization and its intrinsic boundary"
+kind = "theorem"
+section = "global-sections-and-parameters"
+order = 1608
+statement = '''
+Let $Q$ be a quasi-compact, quasi-separated scheme and $U\subseteq Q$ a quasi-compact open.
+At the integer-base parameter, let $N(Q)$ and $N(U)$ be the actual ambient normalized-row
+presentations, and let $N(Q;U)$ be the supported presentation of sections acyclic on $U$.
+The original support-forgetting and restriction maps, with their prescribed nullhomotopy,
+induce a stable equivalence
+\[
+N(Q;U)\longrightarrow\operatorname{hofib}\bigl(N(Q)\longrightarrow N(U)\bigr).
+\]
+This particular lift defines an intrinsic boundary
+$\partial_d:\pi_{d+1}^{\mathrm{st}}N(U)\to\pi_d^{\mathrm{st}}N(Q;U)$ for every $d\in\mathbb Z$.
+
+Specialize the auxiliary construction of COL-0607 to $f:U\hookrightarrow Q$ and $T=\varnothing$.
+Let $s$ be its original supported-source isomorphism and let $c$ forget the vacuous
+acyclicity condition on the empty open in its open target. Its boundary $\partial_d^{\mathrm{aux}}$ satisfies
+\[
+\pi_d^{\mathrm{st}}(s)\circ\partial_d^{\mathrm{aux}}
+=\partial_d\circ\pi_{d+1}^{\mathrm{st}}(c).
+\]
+'''
+scope = '''
+The source consists of sections acyclic on the original displayed open $U$, hence supported
+in $Q\setminus U$, while the middle and open terms are the actual ambient normalized rows. The boundary is defined from the basic lift
+itself, not chosen by transporting an arbitrary auxiliary boundary. The maps for an empty open
+and the supported-source isomorphism preserve the entire original null, including its signed-degree
+conventions.
+
+The implementation is adapted from [@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/ParameterNormalizedBasicLocalization.lean:30-142].
+The comparison is internal to the constructed row presentations. It does not discharge the
+separate tensor-return and classical class-map identification obligations. The basic sequence
+in [@ThomasonTrobaugh1990, Theorem 7.4, (7.4.1)-(7.4.2), p. 365] gives the classical background;
+this item does not independently assert the full classical identification. The review records
+an author source check, not an independent mathematical review.
+'''
+proof = '''
+An actual complex on an empty scheme is acyclic by stalkwise detection of zero homology.
+Consequently forgetting acyclicity on the empty open is an equivalence preserving the original objects,
+arrows and Laurent tracks. These equivalences, the supported-source isomorphism and their
+whole-null square identify the auxiliary lift with the basic lift. COL-0607 then gives its
+stability. Naturality of the connecting map for these same fiber lifts proves the displayed
+boundary identity in every signed stable degree.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterNormalizedBasicLocalization.basicLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-12"
