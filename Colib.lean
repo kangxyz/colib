@@ -67,6 +67,7 @@ public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEntry
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEquivalence
 public import Colib.Algebra.Category.ModuleCat.IdempotentMatrix
 public import Colib.Algebra.Category.ModuleCat.LocalizationLinear
+public import Colib.Algebra.Category.ModuleCat.LocalizationTensor
 public import Colib.Algebra.Category.ModuleCat.MatrixAutomorphisms
 public import Colib.Algebra.Category.ModuleCat.MatrixBaseChange
 public import Colib.Algebra.Category.ModuleCat.MatrixImageFunctor
@@ -1095,7 +1096,20 @@ public import Colib.AlgebraicGeometry.KTheory.BoundedFlatSupportedTensorForgetRa
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatSupportedTensorForgetSmallRectangle
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatSupportedTensorModelComparison
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatSupportedTensorUnitorForget
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineComparison
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineLocalization
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineLocalizationSequence
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineRingIso
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineSerreLocalization
+public import Colib.AlgebraicGeometry.KTheory.CoherentAffineSupportedComparison
+public import Colib.AlgebraicGeometry.KTheory.CoherentClosedPushforward
+public import Colib.AlgebraicGeometry.KTheory.CoherentFlatPullback
+public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalBoundaryComparison
+public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalClosedComparison
+public import Colib.AlgebraicGeometry.KTheory.CoherentPrincipalClosedDevissage
 public import Colib.AlgebraicGeometry.KTheory.Comparison
+public import Colib.AlgebraicGeometry.KTheory.DedekindPrincipalBoundary
+public import Colib.AlgebraicGeometry.KTheory.FiniteField
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageApproximation
 public import Colib.AlgebraicGeometry.KTheory.OpenDerivedImageCofinality
 public import Colib.AlgebraicGeometry.KTheory.PerfectFlatPullback
@@ -1188,6 +1202,7 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedPrespectrum
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedQcqsConnectiveLocalization
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedUnionFiberComparison
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedUnionPrespectrum
+public import Colib.AlgebraicGeometry.KTheory.PrincipalClosedLocalization
 public import Colib.AlgebraicGeometry.KTheory.Pullback
 public import Colib.AlgebraicGeometry.KTheory.Regular
 public import Colib.AlgebraicGeometry.KTheory.Restriction
@@ -1779,7 +1794,11 @@ public import Colib.AlgebraicGeometry.Scheme.AffinePullbackSections
 public import Colib.AlgebraicGeometry.Scheme.CartesianRange
 public import Colib.AlgebraicGeometry.Scheme.CoefficientBaseChange
 public import Colib.AlgebraicGeometry.Scheme.CoefficientLaurentProjection
+public import Colib.AlgebraicGeometry.Scheme.Coherent.AffineEquivalence
+public import Colib.AlgebraicGeometry.Scheme.Coherent.AffinePullback
+public import Colib.AlgebraicGeometry.Scheme.Coherent.ClosedPushforward
 public import Colib.AlgebraicGeometry.Scheme.Coherent.Exact
+public import Colib.AlgebraicGeometry.Scheme.Coherent.Pullback
 public import Colib.AlgebraicGeometry.Scheme.Comparison
 public import Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian
 public import Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct
@@ -3352,6 +3371,7 @@ public import Colib.KTheory.Quillen.Localization.Serre.OverQArrows
 public import Colib.KTheory.Quillen.Localization.Serre.StructuredTransitions
 public import Colib.KTheory.Quillen.Localization.Serre.Target
 public import Colib.KTheory.Quillen.Localization.SmallModel
+public import Colib.KTheory.Quillen.Localization.SmallModelBoundaryNaturality
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.BiproductLoopFamilies
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.ExactNaturality
 public import Colib.KTheory.Quillen.LowDegreeScalarAction.IdentityAutomorphism
@@ -3885,6 +3905,7 @@ public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrSupport
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.Localization
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySmallModel
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySupport
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrincipalBoundaryComparison
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueAssembly
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueDevissage
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueField
@@ -4512,6 +4533,7 @@ public import Colib.Topology.ClassifyingSpace.UniverseHomotopyTracks
 public import Colib.Topology.ClassifyingSpace.UniverseLift
 public import Colib.Topology.ClassifyingSpace.UniverseMap
 public import Colib.Topology.ClassifyingSpace.UniverseNaturality
+public import Colib.Topology.ClassifyingSpace.UniversePromotion
 public import Colib.Topology.ClassifyingSpace.ZeroSkeleton
 public import Colib.Topology.ClassifyingSpace.ZerothHomotopy
 public import Colib.Topology.Compactness.CountableFinal

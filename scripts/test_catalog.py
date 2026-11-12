@@ -410,6 +410,15 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("No generic G1 injectivity hypothesis or conclusion",
                       self.library["entries"]["COL-0605"]["scope"])
 
+    def test_geometric_dedekind_topic_keeps_actual_maps_and_field(self):
+        for identifier in ("COL-0611", "COL-0612", "COL-0613", "COL-0614"):
+            self.assertEqual(self.library["entries"][identifier]["section"],
+                             "coherent-g-theory-localization")
+        self.assertIn("annihilated subcategory", self.library["entries"]["COL-0612"]["scope"])
+        self.assertIn("supplied fraction field K", self.library["entries"]["COL-0613"]["scope"])
+        self.assertIn("No generic G1 injectivity premise", self.library["entries"]["COL-0613"]["scope"])
+        self.assertIn("degree-two statement", self.library["entries"]["COL-0614"]["scope"])
+
     def native_fixture(self):
         native = {
             "bindings": [],
@@ -419,6 +428,8 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
+            "coherent-g-theory-localization":
+                "Colib.AlgebraicGeometry.KTheory.PrincipalClosedLocalization",
             "dedekind-residue-localization":
                 "Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly",
             "laurent-coefficient-constructions":

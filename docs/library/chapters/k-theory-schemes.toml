@@ -205,3 +205,14 @@ boundary with the literal current Bass transition.
 COL-0557 = "COL-0550 returns the whole independently realized tensor cell, and COL-0555 supplies the current-boundary comparison for the original scheme model. Keep that same returned model and proved unit intertwining. The four-generator recognition theorem COL-0514 can now be applied to its actual geometric square; the coefficient calculation fixes the forward Laurent action rather than leaving it as additional input."
 COL-0558 = "The preceding item recognizes the actual starting cone action, including its forward coefficient and return prism. Feed those concrete data into the original finite generator recipe COL-0528. Carry the index map, row strength and old-loop conversion through each left-recursive step. The whole boundary comparison of COL-0555 then applies to these tensor-rooted cells without replacing their prescribed null or backward map."
 
+
+[[sections]]
+id = "coherent-g-theory-localization"
+title = "Coherent G-theory and localization"
+order = 15
+introduction = "For a noetherian affine scheme, actual global sections identify coherent sheaves with finite modules and retain their exact functors. This section concerns coherent G-theory, not perfect-complex K-theory. Closed direct image and open restriction yield the principal closed-open sequence after devissage; the supported category is the kernel of the original geometric pullback."
+
+[sections.transitions]
+COL-0612 = "The affine comparison identifies the original localization kernel with its finite-module counterpart. Quotient direct image first lands in objects annihilated by f; finite image filtrations then give devissage for all objects supported on its zero locus. This supplies the actual closed map and boundary, including the degree-zero tail."
+COL-0613 = "At a height-one prime of a Dedekind domain, choose an irreducible element in the local DVR. The principal open identifies with the prescribed fraction field and the principal quotient with the residue field. The whole supported square and boundary universe naturality identify the geometric boundary, with its original direction and sign, with the native local-DVR map."
+COL-0614 = "For a finite field, the affine comparison also transports the already established finite-module G2 vanishing to the literal public coherent G2 group of its spectrum. This does not claim a calculation in other degrees."

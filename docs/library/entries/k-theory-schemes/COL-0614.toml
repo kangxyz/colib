@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0614"
+title = "Coherent G2 of the spectrum of a finite field"
+kind = "theorem"
+section = "coherent-g-theory-localization"
+order = 40
+statement = 'For a finite field F, the actual public coherent G2 group of Spec F is trivial.'
+scope = 'Actual affine global sections identify this unchanged public coherent group with the previously proved native finite-module G2 group. This is a degree-two statement, not a computation of all higher coherent G-groups.'
+review = "author_checked"
+provenance = "quillen"

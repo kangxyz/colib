@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0613"
+title = "The geometric principal boundary at a Dedekind local ring"
+kind = "comparison"
+section = "coherent-g-theory-localization"
+order = 30
+statement = 'For a Dedekind domain R, a height-one prime p and an irreducible element of the local DVR R_p, the geometric principal-closed boundary agrees with the original native local-DVR boundary in every nonnegative degree after the prescribed fraction and residue isomorphism pullbacks.'
+scope = 'The arbitrary-field form retains a supplied fraction field K and its algebra structure over R_p. The generic map is actual scalar restriction along the canonical inverse field transport. The proof preserves the original supported square, full boundary universe naturality and boundary sign. No generic G1 injectivity premise is needed for this comparison; such a premise remains in the separate finite-family lifting theorem.'
+review = "author_checked"
+provenance = "quillen"
