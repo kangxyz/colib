@@ -21,6 +21,8 @@ open CategoryTheory AlgebraicGeometry
 
 universe u
 
+attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
+
 namespace AlgebraicGeometry.Scheme.Modules
 
 /-- Two frames sending the same global section to one are the same isomorphism. -/
@@ -37,8 +39,9 @@ theorem frame_eq_of_same_section_one {X : Scheme.{u}} {M : X.Modules}
     rw [hinv]
     exact hs'
   apply Iso.ext
-  apply (cancel_epi e.inv).mp
-  rw [Iso.inv_hom_id]
-  exact h.symm
+  calc
+    e.hom = e.hom ≫ 𝟙 _ := (Category.comp_id e.hom).symm
+    _ = e.hom ≫ (e.inv ≫ e'.hom) := congrArg (fun θ => e.hom ≫ θ) h.symm
+    _ = e'.hom := e.hom_inv_id_assoc e'.hom
 
 end AlgebraicGeometry.Scheme.Modules

@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
+public import Mathlib.AlgebraicGeometry.Morphisms.Separated
 
 /-!
 # Original section kernels in a specified Cartesian square
