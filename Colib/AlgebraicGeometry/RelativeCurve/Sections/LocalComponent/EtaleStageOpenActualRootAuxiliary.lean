@@ -9,7 +9,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitIntegral
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryFinite
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitSameClosedFibre
-public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryFullBoundary
+public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryTarget
 
 /-! # The same-root supplier on an actual component stage and its actual limit
 
@@ -134,8 +134,8 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
   have hτlocal := etaleStageOpenLimitSection_range_retained X s p i U j τ hτ hτj B hX
   have hclosed := etaleStageOpenLimitSection_same_closed_fibre
     X s p i U B hX σ τ hσ hτ a0 hmark
-  obtain ⟨M, hM, αLocal, e, he, Naux, hNaux, a, bN, eN, ha, hbN, haB, hbB⟩ :=
-    Stacks.Kummer.exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_fullBoundary
+  obtain ⟨M, hM, αStage, e, he, Naux, hNaux, a, bN, eN, ha, hbN, haB, hbB⟩ :=
+    Stacks.Kummer.exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_target
       R m embedding
       ((etaleStageOpenCone X s p i U B hX).π.app a0)
       (etaleStageOpenLimitStructure X s p i U B hX)
@@ -161,6 +161,6 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
       (etaleStageOpenRetained_limit_cover X s p i U j B hX d hd)
       (etaleStageOpenBoundaryCone_square X s p i U d B hX a0) τStage hn0 hn
   let := hM
-  refine ⟨M, hM, _, e, he, Naux, hNaux, a, bN, eN, ha, hbN, haB, hbB⟩
+  exact ⟨M, hM, αStage, e, he, Naux, hNaux, a, bN, eN, ha, hbN, haB, hbB⟩
 
 end AlgebraicGeometry.Scheme.SmoothSite

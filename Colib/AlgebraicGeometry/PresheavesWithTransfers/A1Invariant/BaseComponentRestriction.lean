@@ -40,6 +40,12 @@ local instance componentActionPB {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules
       ((pullback f).obj M) :=
   Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj f.toLRSHom.toShHom M
 
+local instance componentActionUnit (B : Scheme.{u}) :
+    AlgebraicGeometry.SheafOfModules.IsInvertible B.presheaf (ringSheafCond B)
+      (SheafOfModules.unit B.ringCatSheaf) :=
+  Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _
+    (Stacks.SheafOfModules.isInvertible_unit _ _)
+
 /-- The original two smooth-site maps agree on restrictions after the actual
 closed base refinement and chosen normal component, using the same root and pair. -/
 theorem restriction_baseComponent_same_root
@@ -109,9 +115,17 @@ theorem restriction_baseComponent_same_root
   let : IsEffectiveCartierDivisor τ₁.ker :=
     isEffectiveCartierDivisor_ker_cartesian_of_flat F v.left τ τ₁ ht₁
   have hσq : σ₂ ≫ q₂ = 𝟙 _ := by
-    simpa only [q₂, ← Category.assoc, hσ₂] using baseChangedSection_snd q v.left σ hσ
+    calc
+      σ₂ ≫ q₂ = (σ₂ ≫ κ) ≫ q₁ := (Category.assoc _ _ _).symm
+      _ = baseChangedSection q v.left σ hσ ≫ q₁ :=
+        congrArg (fun t => t ≫ q₁) hσ₂
+      _ = 𝟙 _ := baseChangedSection_snd q v.left σ hσ
   have hτq : τ₂ ≫ q₂ = 𝟙 _ := by
-    simpa only [q₂, ← Category.assoc, hτ₂] using baseChangedSection_snd q v.left τ hτ
+    calc
+      τ₂ ≫ q₂ = (τ₂ ≫ κ) ≫ q₁ := (Category.assoc _ _ _).symm
+      _ = baseChangedSection q v.left τ hτ ≫ q₁ :=
+        congrArg (fun t => t ≫ q₁) hτ₂
+      _ = 𝟙 _ := baseChangedSection_snd q v.left τ hτ
   obtain ⟨σRet, hσRet, hfFinal⟩ := exists_baseComponentRetained_section_originalTarget
     v q j κ r hr σ hσ σY hσY σ₂ hσ₂ f hf
   obtain ⟨τRet, hτRet, hgFinal⟩ := exists_baseComponentRetained_section_originalTarget
@@ -135,9 +149,11 @@ theorem restriction_baseComponent_same_root
   let : SmoothOfRelativeDimension 1 (j₂ ≫ q₂) :=
     smoothOfRelativeDimension_normalComponentOpen q₁ j₁ 1 x
   let : IsEffectiveCartierDivisor σ₂.ker :=
-    sectionKernel_cartier_of_factor q₂ j₂ σ₂ hσq σRet hσRet
+    isEffectiveCartierDivisor_ker_cartesian_of_flat κ (𝟙 Anew.left) σ₁ σ₂
+      (isPullback_section_openRestriction κ σ₁ σ₂ hσ₂)
   let : IsEffectiveCartierDivisor τ₂.ker :=
-    sectionKernel_cartier_of_factor q₂ j₂ τ₂ hτq τRet hτRet
+    isEffectiveCartierDivisor_ker_cartesian_of_flat κ (𝟙 Anew.left) τ₁ τ₂
+      (isPullback_section_openRestriction κ τ₁ τ₂ hτ₂)
   have hcover : ∀ y : (normalComponentOpen x).toScheme,
       y ∈ Set.range j₂ ∨ y ∈ Set.range i₂ := by
     intro y
