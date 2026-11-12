@@ -33,7 +33,7 @@ theorem exists_relativeCoordinate_section_through_rational_mark
     have h := congrArg (fun z => z ≫ Spec.map
       (CommRingCat.ofHom (Polynomial.C : MvPolynomial (Fin d) E →+*
         Polynomial (MvPolynomial (Fin d) E)))) hmark
-    simpa only [relativeCoordinateAlgHom_toRingHom, Category.assoc,
+    simpa only [AlgHom.toRingHom_eq_coe, relativeCoordinateAlgHom_toRingHom, Category.assoc,
       ← Spec.map_comp, ← CommRingCat.ofHom_comp, relativeCoordinateHom_comp_C,
       hs, Category.comp_id] using h
   exact ⟨s, hs, hmark.trans (congrArg (fun z => z ≫ s) hη.symm)⟩
