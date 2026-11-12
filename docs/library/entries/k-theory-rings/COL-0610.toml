@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0610"
+title = "Local-DVR coordinate detection and finite-family lifting"
+kind = "theorem"
+section = "dedekind-residue-localization"
+order = 50
+statement = 'In degree at least two, the generic G-theory image is the intersection of the kernels of all original local-DVR coordinates. If the generic G1 map is injective, every finite family of residue-field G1 classes is realized by one generic G2 class under these coordinates.'
+scope = 'The lifting conclusion retains both the actual supported boundary equation and each local-DVR coordinate after the original generic tensor extension. Generic G1 injectivity remains an explicit premise; no unconditional arithmetic surjectivity is asserted.'
+review = "author_checked"
+provenance = "quillen"

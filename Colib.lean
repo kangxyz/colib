@@ -1,11 +1,15 @@
 module  -- shake: keep-all --deprecated_module: ignore
 
 public import Colib.Algebra.Category.FGModuleCat.FractionLocalization
+public import Colib.Algebra.Category.FGModuleCat.IdealClosedSupport
+public import Colib.Algebra.Category.FGModuleCat.IdealPowerFiltration
 public import Colib.Algebra.Category.FGModuleCat.IsFG
 public import Colib.Algebra.Category.FGModuleCat.Localization
 public import Colib.Algebra.Category.FGModuleCat.Localization.EssSurj
 public import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
+public import Colib.Algebra.Category.FGModuleCat.PrimaryDecomposition
 public import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
+public import Colib.Algebra.Category.FGModuleCat.RestrictScalars
 public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
 public import Colib.Algebra.Category.ModuleCat.Annihilator
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linear
@@ -2330,7 +2334,10 @@ public import Colib.CategoryTheory.ExactCategory.Extensions.ProductKernel
 public import Colib.CategoryTheory.ExactCategory.Extensions.Pullback
 public import Colib.CategoryTheory.ExactCategory.Filtration.Basic
 public import Colib.CategoryTheory.ExactCategory.Filtration.FlagExtension
+public import Colib.CategoryTheory.ExactCategory.Filtration.Functor
+public import Colib.CategoryTheory.ExactCategory.Filtration.Iso
 public import Colib.CategoryTheory.ExactCategory.Filtration.PullbackFlag
+public import Colib.CategoryTheory.ExactCategory.Filtration.Subcategory
 public import Colib.CategoryTheory.ExactCategory.Functor.Basic
 public import Colib.CategoryTheory.ExactCategory.Functor.Cokernel
 public import Colib.CategoryTheory.ExactCategory.Functor.Extension
@@ -2558,6 +2565,7 @@ public import Colib.CategoryTheory.ObjectProperty.LiftComposition
 public import Colib.CategoryTheory.ObjectProperty.LiftInclusion
 public import Colib.CategoryTheory.ObjectProperty.NestedEquivalence
 public import Colib.CategoryTheory.Pi.Abelian
+public import Colib.CategoryTheory.Pi.Equivalence
 public import Colib.CategoryTheory.Pi.Exact
 public import Colib.CategoryTheory.Pi.FiniteStages
 public import Colib.CategoryTheory.Pi.FiniteSupport
@@ -3336,6 +3344,7 @@ public import Colib.KTheory.Quillen.Localization.Serre.KernelPushoutUniqueness
 public import Colib.KTheory.Quillen.Localization.Serre.KernelReflection
 public import Colib.KTheory.Quillen.Localization.Serre.LocalizationComma
 public import Colib.KTheory.Quillen.Localization.Serre.LocalizationTheorem
+public import Colib.KTheory.Quillen.Localization.Serre.Naturality
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedBasepoint
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedComma
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedStructuredComma
@@ -3357,6 +3366,8 @@ public import Colib.KTheory.Quillen.Map.Functoriality
 public import Colib.KTheory.Quillen.Map.HomotopyEquivalence
 public import Colib.KTheory.Quillen.Map.NaturalIso
 public import Colib.KTheory.Quillen.Map.RebasePath
+public import Colib.KTheory.Quillen.Map.SmallModelUniverse
+public import Colib.KTheory.Quillen.Map.UniverseComparison
 public import Colib.KTheory.Quillen.Map.ZeroNormalization
 public import Colib.KTheory.Quillen.Resolution.Bounded
 public import Colib.KTheory.Quillen.Resolution.LengthOneK
@@ -3867,8 +3878,20 @@ public import Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction
 public import Colib.RingTheory.KTheory.Bass.StrictRingDiagram
 public import Colib.RingTheory.KTheory.Bass.StrictRingSeed
 public import Colib.RingTheory.KTheory.Bass.StrictUnderDiagram
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.FiniteResidue
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrComparison
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrSupport
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.Localization
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySmallModel
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySupport
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueAssembly
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueDevissage
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueField
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.FractionLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization
+public import Colib.RingTheory.KTheory.GTheory.FiniteModules.LocalizationNaturality
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedFunctor
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalSupport
@@ -4161,6 +4184,7 @@ public import Colib.RingTheory.KTheory.Plus.ProjectiveQLoopComponentProduct
 public import Colib.RingTheory.KTheory.Plus.ProjectiveTelescopeKZero
 public import Colib.RingTheory.KTheory.Plus.StableGeneralLinearPlus
 public import Colib.RingTheory.KTheory.Quillen.Field.ElementaryProjectiveKOne
+public import Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldGTwo
 public import Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo
 public import Colib.RingTheory.KTheory.Quillen.Field.FiniteModuleRingEquivalence
 public import Colib.RingTheory.KTheory.Quillen.Field.ModuleDeterminant
@@ -4813,6 +4837,7 @@ public import Colib.Topology.HomotopyCofiber.ReducedMappingConeSeparation
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeVanishing
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeWeakEquivalence
 public import Colib.Topology.HomotopyCofiber.UnreducedConeHomology
+public import Colib.Topology.HomotopyFiber.BasedHomotopyConnecting
 public import Colib.Topology.HomotopyFiber.BasedHomotopySquareMap
 public import Colib.Topology.HomotopyFiber.BasedLESNaturality
 public import Colib.Topology.HomotopyFiber.BasedSquareMap

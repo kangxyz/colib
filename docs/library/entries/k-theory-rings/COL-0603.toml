@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0603"
+title = "Residue-field assembly over a Dedekind domain"
+kind = "theorem"
+section = "dedekind-residue-localization"
+order = 10
+statement = 'For a Dedekind domain \(R\) and every \(n\geq0\), the direct sum of \(G_{n+1}(\kappa(\mathfrak p))\) over height-one primes is canonically isomorphic to the torsion-supported group \(G^{\mathrm{tors}}_{n+1}(R)\).'
+scope = 'The forward map on a coordinate is the original residue-field scalar restriction into the primary category and its inclusion into torsion support. The finite-sum formula and composition with the original supported-to-ambient map are proved. No residue-field finiteness hypothesis is used. The direct-sum equivalence is asserted only in positive degrees.'
+review = "author_checked"
+provenance = "quillen"

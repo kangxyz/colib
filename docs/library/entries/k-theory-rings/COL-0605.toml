@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0605"
+title = "Generic G₂ injectivity with finite residue fields"
+kind = "theorem"
+section = "dedekind-residue-localization"
+order = 30
+statement = 'If every height-one residue field of a Dedekind domain \(R\) is finite, the native torsion-supported \(G_2\) group is trivial and the original generic localization map on \(G_2\) is injective.'
+scope = 'Finite-field vanishing is transported through the canonical same-category small-model universe equivalence, residue-field comparison and primary dévissage. Localization exactness supplies generic injectivity. No generic G1 injectivity hypothesis or conclusion is used. These are the ring-theoretic clauses; coherent scheme pullback and local-DVR comparisons are separate.'
+review = "author_checked"
+provenance = "quillen"
