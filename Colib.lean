@@ -1365,6 +1365,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Bounda
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNativeCartier
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryUnitAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.EtaleStageOpenSameRootRestriction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedGraphAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedPairAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedSectionAction
@@ -1684,6 +1685,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodBaseChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSections
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionStep
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor
