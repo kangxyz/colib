@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1200"
+title = "Bass negative K-groups with support"
+kind = "definition"
+section = "bass-k-theory-and-geometric-delooping"
+order = 700
+statement = '''
+Let $X$ be a quasi-compact scheme. Starting with its perfect-complex group
+$K_0(X)$, define, for $n\geq 0$,
+\[
+K_{-(n+1)}(X)=\operatorname{coker}\bigl(
+ K_{-n}(X[t])\oplus K_{-n}(X[t^{-1}])\longrightarrow
+ K_{-n}(X[t,t^{-1}])\bigr).
+\]
+The two arrows are induced by the actual polynomial charts, with coordinates $t$ and
+$t^{-1}$. These groups are contravariant for arbitrary scheme morphisms. The same
+recursion, beginning with perfect complexes acyclic on an open $U\subseteq X$, defines
+$K_{-n}(X\text{ on }X\setminus U)$. Forgetting support gives a natural map to $K_{-n}(X)$
+in every degree. The Laurent quotient maps are surjective and have the universal
+cokernel descent property.
+'''
+scope = '''
+Only $X$ is required to be quasi-compact; the open $U$ need not be quasi-compact, and
+quasi-separatedness is not assumed here. Degree zero and all pullbacks are the original
+perfect-complex groups and maps, written additively. The geometric products, chart maps,
+and support-forgetting maps are retained, rather than supplied as unspecified inputs.
+
+The recursive cokernel construction is the one used in
+[@ThomasonTrobaugh1990, Lemma 6.2, pp. 355-356]; that result imposes stronger scheme
+hypotheses and also proves additional splitting and exactness assertions. Those further
+assertions and identification with a nonconnective spectrum are not claimed here.
+For the ring formulation see [@WeibelKBook, III, Definition 4.1]. Implementation provenance
+is [@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BassNegativeGroups.lean] and its
+supported variant. The source check is not an independent mathematical review.
+'''
+proof = '''
+Iterate the native two-chart cokernel functor on the original perfect K-zero functor.
+Native pullback squares identify the polynomial and Laurent products of each scheme
+and open pair. Cokernel functoriality transports the supported inclusion and proves
+naturality, surjectivity and universal descent at each step.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Bass.negativeKFunctor"
+provenance = "quillen"
+source_checked_on = "2026-11-12"

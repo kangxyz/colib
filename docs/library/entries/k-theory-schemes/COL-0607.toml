@@ -1,0 +1,45 @@
+[entry]
+id = "COL-0607"
+title = "Auxiliary normalized-row localization"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 280
+statement = '''
+Let $f:P\to Q$ be an open immersion, with $P,Q$ quasi-compact and $Q$ quasi-separated,
+and let $T\subseteq Q$ be a quasi-compact open. Write $N(Q;V)$ for the actual normalized-row
+presentation of sections on $Q$ acyclic on the open $V$, evaluated at
+$\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The original enlargement and restriction
+maps
+\[
+N(Q;f(P)\cup T)\longrightarrow N(Q;T)\longrightarrow N(P;f^{-1}T),
+\]
+with their prescribed entire nullhomotopy, induce a stable equivalence from the first term
+to the homotopy fiber of the second arrow. Its composite with fiber projection is the
+original enlargement map. Thus it induces isomorphisms on stable homotopy groups in every
+integer degree. The same lift is stable at every affine scheme parameter over this integer base.
+'''
+scope = '''
+These are the normalized independent-boundary row presentations, not merely the
+ordinary-colimit presentations of COL-0600. Acyclicity on $f(P)\cup T$ means support in the
+intersection $(Q\setminus f(P))\cap(Q\setminus T)$. All three comparisons retain the original
+maps and the entire prescribed nullhomotopy, including the independent normalization homotopy.
+
+The implementation is adapted from [@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/ParameterAuxiliaryNormalizedRowLocalization.lean:30-102].
+Full tensor-return provenance and identification with the original classical class maps remain
+separate qualification obligations. The classical supported localization sequence in
+[@ThomasonTrobaugh1990, Theorem 7.4, (7.4.1), p. 365] is background, not an identification supplied
+by this item. The recorded review is an author check against the pinned source, not an independent
+mathematical review.
+'''
+proof = '''
+The fiber, ambient and open comparisons are stable equivalences. Their enlargement and
+restriction squares commute, and the full normalization homotopy identifies the selected
+nulls at each time. Naturality of the path-space fiber lift therefore transfers stability from
+the current-stage auxiliary localization, both at the integer base and at each affine parameter.
+The defining fiber-lift projection equation recovers the unchanged enlargement map.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryNormalizedRowLocalization.normalizedPresentationLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-12"

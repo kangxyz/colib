@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1202"
+title = "Anticommutation of geometric unit operations"
+kind = "theorem"
+section = "units-tensor-products-and-localization-boundaries"
+order = 700
+statement = '''
+Let $S,T,X$ be schemes over $\operatorname{Spec}(\operatorname{ULift}\mathbb Z)$, and let
+$r\in\Gamma(S,\mathcal O_S)^\times$ and $s\in\Gamma(T,\mathcal O_T)^\times$.
+Write $K_n^{\mathrm{bf}}$ for the K-groups of bounded-flat perfect complexes.
+Pulling back along the product projection and applying the track of multiplication
+by the pulled-back unit defines an operation
+$\mu_r:K_n^{\mathrm{bf}}(X)\to K_{n+1}^{\mathrm{bf}}(X\times S)$ for $n\geq 0$.
+If $\tau:X\times S\times T\to X\times T\times S$ exchanges the two factors, then
+\[
+\tau^*(\mu_r\mu_s(a))=-\mu_s\mu_r(a)\qquad(a\in K_n^{\mathrm{bf}}(X)).
+\]
+Here the two composites use their specified product projections and their original
+unit tracks. The equation holds also for $n=0$.
+'''
+scope = '''
+The groups are those of the native bounded-flat perfect-complex Waldhausen model.
+No quasi-compactness, separation or flatness assumption is imposed on $X,S,T$.
+In the multiplicative notation used by Lean, the minus sign is group inversion.
+The geometric product swap and the two pulled-back scalar units are the actual
+maps, not an abstract sign hypothesis.
+
+This is a sign identity for the original nonnegative K-group operations. It does not
+assert invertibility of twice-positive Bass comparison or the sign on a negative
+iterated cokernel. The proof is adapted from
+[@quillen, Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/ProductUnitInterchangeSign.lean:115]
+with its whole-track factorization. The source check is not an independent
+mathematical review.
+'''
+proof = '''
+Factor both projection-unit operations into the actual composite product pullback
+and the two global scalar operations. Pullback naturality identifies the two units
+under the geometric swap. The original double-identity-action interchange gives
+inversion, and the equality of the composite product projections identifies the
+remaining pullback map.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ProductUnitInterchange.doubleProjectionUnitOperation_swap"
+provenance = "quillen"
+source_checked_on = "2026-11-12"
