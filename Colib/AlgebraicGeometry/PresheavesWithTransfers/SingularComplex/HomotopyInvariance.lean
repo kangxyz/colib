@@ -11,6 +11,7 @@ public import Mathlib.Algebra.Category.Grp.Abelian
 public import Mathlib.Algebra.Homology.Functor
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Underlying
 import Colib.AlgebraicGeometry.Simplex.HomotopyInvariance
+import Colib.AlgebraicGeometry.Simplex.PolynomialInterval
 
 /-!
 # Homotopy invariance of transfer singular homology
@@ -32,21 +33,6 @@ open scoped Simplicial
 universe u v
 
 namespace AlgebraicGeometry.PresheafWithTransfers
-
-private def polynomialLineSimplexIso (R : Type u) [CommRing R] :
-    polynomialAffineLine (.of R) ≅ (AlgebraicSimplex.cosimplicialSmoothSite R).obj ⦋1⦌ := by
-  let e := (AlgebraicSimplex.polynomialEquiv R 1).trans
-    (MvPolynomial.uniqueAlgEquiv R (Fin 1))
-  let i : (polynomialAffineLine (.of R)).left ≅
-      ((AlgebraicSimplex.cosimplicialSmoothSite R).obj ⦋1⦌).left :=
-    Scheme.Spec.mapIso e.toRingEquiv.toCommRingCatIso.op
-  refine MorphismProperty.Over.isoMk i ?_
-  change Spec.map (CommRingCat.ofHom e.toRingHom) ≫ AlgebraicSimplex.structureMap R 1 =
-    Spec.map (CommRingCat.ofHom (Polynomial.C : R →+* Polynomial R))
-  rw [AlgebraicSimplex.structureMap, ← Spec.map_comp]
-  congr 1
-  apply CommRingCat.hom_ext
-  exact RingHom.ext e.commutes
 
 variable {k : Type u} [Field k]
 
@@ -71,7 +57,7 @@ private theorem ordinarySingularHomology_polynomial_isIso
     (n : ℕ) (U : SmoothSite (Spec (.of k))) :
     IsIso ((((AlgebraicSimplex.singularChainsFunctor k).obj P).homology n).map
       (SmoothSite.productFst U (polynomialAffineLine (.of k))).op) := by
-  let e := polynomialLineSimplexIso k
+  let e := AlgebraicSimplex.polynomialLineSimplexIso k
   let i : SmoothSite.product U (polynomialAffineLine (.of k)) ≅
       SmoothSite.product U ((AlgebraicSimplex.cosimplicialSmoothSite k).obj ⦋1⦌) :=
     { hom := SmoothSite.productMap (𝟙 U) e.hom
