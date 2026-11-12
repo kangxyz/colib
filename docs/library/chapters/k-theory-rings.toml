@@ -63,3 +63,13 @@ introduction = "A coefficient diagram over a commutative ring carries its Lauren
 [sections.transitions]
 COL-0587 = "The Laurent coefficient action supplies a seed track. Weakness of its specified zero endotransformation contracts that track while preserving coefficient naturality."
 
+
+[[sections]]
+id = "dedekind-residue-localization"
+title = "Residue localization over Dedekind domains"
+order = 55
+introduction = 'Finite torsion modules decompose into their height-one primary parts. Dévissage identifies each primary contribution with its residue-field G-theory. The resulting assembly describes the coordinates of the original generic localization boundary.'
+
+[sections.transitions]
+COL-0604 = 'Use the inverse assembly to read the supported boundary one residue at a time. The coordinate kernels detect the generic image. Lifting an arbitrary finite family requires the stated injectivity of the generic G₁ map.'
+COL-0605 = 'Finiteness of the residue fields instead annihilates the supported G₂ term, using finite-field G₂ vanishing. Exactness then gives generic G₂ injectivity, without assuming or proving generic G₁ injectivity.'

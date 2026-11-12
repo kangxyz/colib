@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0604"
+title = "Residue-coordinate localization and finite-family lifting"
+kind = "theorem"
+section = "dedekind-residue-localization"
+order = 20
+statement = 'The image of the generic localization map \(G_{n+1}(R)\to G_{n+1}(\operatorname{Frac}R)\) is the intersection of the kernels of the original residue-coordinate boundaries. If the generic \(G_1\) map is injective, every finite family of residue-field \(G_1\) classes lifts along the original \(G_2\) boundary.'
+scope = 'All coordinates are obtained from the unchanged native connecting homomorphism and the inverse residue assembly. The finite-family theorem records both the raw supported boundary equation and each residue coordinate. Generic G1 injectivity is an explicit hypothesis, not an arithmetic theorem. The ring maps are not identified here with local-DVR or coherent scheme boundaries.'
+review = "author_checked"
+provenance = "quillen"
