@@ -1365,6 +1365,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Bounda
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNativeCartier
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryUnitAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.EtaleStageOpenRestrictionConsumerResult
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.EtaleStageOpenSameRootRestriction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedGraphAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedPairAction
@@ -1486,6 +1487,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndepend
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.BoundaryFiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.AuxiliaryFinitePair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.AuxiliaryFramedFinitePair

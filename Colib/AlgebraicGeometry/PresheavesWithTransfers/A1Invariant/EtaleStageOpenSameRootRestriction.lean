@@ -43,7 +43,7 @@ variable {K : Type u} [Field K]
   (X : SmoothSite (Spec (.of K))) (s : GeometricPoint X.left)
   {C₀ : Scheme.{u}} (p : C₀ ⟶ X.left)
   [IsNormal X.left] [IsLocallyNoetherian X.left]
-  [IsNormal C₀] [IrreducibleSpace C₀] [IsProper p]
+  [IsNormal C₀] [IsProper p]
   (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
   [IsClosedImmersion U.ι] (ℓ : Over i)
 
@@ -68,8 +68,9 @@ theorem exists_etaleStageOpen_same_root_restriction
     (hcY : cY ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : Ai →+* Polynomial Ai)) =
       j ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
     (hj : j ≫ π = cY ≫ projectiveLineXChart Ai)
-    (r₀ : U.toScheme ⟶ C₀) [Flat r₀]
-    (eChart : E ⟶ C₀) [IsOpenImmersion eChart] [Nonempty E]
+    {N₀ : Scheme.{u}} [IrreducibleSpace N₀]
+    (r₀ : U.toScheme ⟶ N₀) [Flat r₀]
+    (eChart : E ⟶ N₀) [IsOpenImmersion eChart] [Nonempty E]
     (cE : Limits.pullback r₀ eChart ⟶ Spec (.of (Polynomial Ai))) [Etale cE]
     (hcE : cE ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : Ai →+* Polynomial Ai)) =
       Limits.pullback.fst r₀ eChart ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
@@ -138,7 +139,8 @@ theorem exists_etaleStageOpen_same_root_restriction
       let v₁ := ((etaleNeighborhoodToSmooth X s.hom).map v).left
       IsAffine A₁ ∧ IsIntegral A₁ ∧ IsNoetherian A₁ ∧
       ∃ (hv : IsOpenImmersion v₁) (hvC : IsClosedImmersion v₁)
-        (hCN : IsNormal (Limits.pullback qstage v₁)) (hCNoeth : IsNoetherian (Limits.pullback qstage v₁)),
+        (hCN : IsNormal (Limits.pullback qstage v₁))
+        (hCNoeth : IsNoetherian (Limits.pullback qstage v₁)),
       let := hv
       let := hvC
       let := hCN

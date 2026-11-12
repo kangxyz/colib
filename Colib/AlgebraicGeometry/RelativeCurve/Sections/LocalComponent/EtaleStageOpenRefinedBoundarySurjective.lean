@@ -23,7 +23,7 @@ namespace AlgebraicGeometry.Scheme.SmoothSite
 
 variable {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
   (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
-  [IsLocallyNoetherian X.left] [IsNormal N] [IrreducibleSpace N] [IsProper p]
+  [IsLocallyNoetherian X.left] [IsNormal N] [IsProper p]
   (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
   [IsClosedImmersion U.ι]
   (a : Over i) (Anew : EtaleNeighborhood X s.hom)
@@ -65,8 +65,9 @@ theorem etaleStageOpen_refined_component_boundary_surjective
     (hcY : cY ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : Ai →+* Polynomial Ai)) =
       j ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
     (hj : j ≫ π = cY ≫ projectiveLineXChart Ai)
-    (r : U.toScheme ⟶ N) [Flat r]
-    (e : E ⟶ N) [IsOpenImmersion e] [Nonempty E]
+    {N₀ : Scheme.{u}} [IrreducibleSpace N₀]
+    (r : U.toScheme ⟶ N₀) [Flat r]
+    (e : E ⟶ N₀) [IsOpenImmersion e] [Nonempty E]
     (cE : pullback r e ⟶ Spec (.of (Polynomial Ai))) [Etale cE]
     (hcE : cE ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : Ai →+* Polynomial Ai)) =
       pullback.fst r e ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
