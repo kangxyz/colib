@@ -1800,6 +1800,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.Str
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.WholeCylinderLifting
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.FaceQuotient
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.HomotopyInvariance
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.InvariantUnit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.NormalizedCriterion
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.ParameterProduct
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.ParameterSwap
@@ -2084,6 +2085,7 @@ public import Colib.AlgebraicGeometry.Scheme.VectorBundle.Pullback
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Basic
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.Basic
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.ExtPresheaf
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.FiniteDimension
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.Ordinary
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinaryComparison
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.OrdinaryComparisonMap
@@ -2138,7 +2140,13 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsFunctor
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Complex
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Bounded
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Single
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedWindow
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Singular
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.ProjectiveComparison
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.UnderlyingExactness
 public import Colib.AlgebraicGeometry.Simplex.AffineBoundaryOneComplex
 public import Colib.AlgebraicGeometry.Simplex.AffineRelativeComparison

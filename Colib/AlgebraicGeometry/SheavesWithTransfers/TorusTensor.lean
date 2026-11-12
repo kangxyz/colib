@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ParameterTensor.Representable
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Exactness
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Representable
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsFunctor
 import Mathlib.CategoryTheory.Adjunction.Restrict
 import Mathlib.CategoryTheory.Adjunction.Unique
@@ -66,8 +67,8 @@ def torusTensorSheafificationIso :
 
 /-- The tensor of the sheafified representable is represented by the actual torus product. -/
 def torusTensorRepresentableIso (X : Cor k) :
-    (torusTensorFunctor k).obj ((nisnevichSheafify k).obj ((representableLarge k).obj X)) ≅
-      (nisnevichSheafify k).obj ((representableLarge k).obj ((Cor.parameterProduct Gₘ).obj X)) :=
+    (torusTensorFunctor k).obj ((transferRepresentable k).obj X) ≅
+      (transferRepresentable k).obj ((Cor.parameterProduct Gₘ).obj X) :=
   (torusTensorSheafificationIso k).app ((representableLarge k).obj X) ≪≫
     (nisnevichSheafify k).mapIso (parameterTensorRepresentableIso Gₘ X)
 
