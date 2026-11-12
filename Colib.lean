@@ -1475,6 +1475,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFa
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilySupport
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilyUnitOpen
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinates
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.CompactificationAffineBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
@@ -1488,6 +1489,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndepend
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.BoundaryFiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FullBoundaryRootAuxiliaryOutput
