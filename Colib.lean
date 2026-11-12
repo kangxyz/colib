@@ -1356,6 +1356,7 @@ public import Colib.AlgebraicGeometry.Normalization.StrictLocalBaseChange.Normal
 public import Colib.AlgebraicGeometry.Polynomial.ValueSection
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNative
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryUnitAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedGraphAction
@@ -1515,6 +1516,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorSectio
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ZeroSchemeCartesian
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianProjectiveLineCover
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseChangedMarkedComponentSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Basic
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Boundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BoundaryBaseChange
