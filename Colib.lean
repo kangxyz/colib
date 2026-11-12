@@ -343,6 +343,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.QuadraticCyli
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.QuadraticPairs
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.QuadraticPencil
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RelativeDivisor
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RelativeDivisor.Exterior
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RelativeDivisor.SupportIso
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.IncidenceIso
@@ -2148,6 +2149,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.D
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Bounded
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Single
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularPlacement
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularTruncation
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedTruncation
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedWindow
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Singular
