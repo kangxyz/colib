@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1040"
+title = "Finite zero schemes of Laurent power cuts"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "relative-principal-cuts"
+order = 10
+primary = "AlgebraicGeometry.NativeTorusPolynomial.exists_isFinite_power_sub_unit_of_compactSpace"
+statement = '''
+Let \(X\) be a quasi-compact scheme over a field \(k\), and let \(P\)
+be finite over \(X\times_k\mathbb G_m\). Write \(t\) for the pulled-back
+torus coordinate and \(u\) for a unit on \(P\). The zero scheme of
+\(t^n-u\) is finite over \(X\) for all sufficiently large \(n\).
+The zero scheme of \(t^n-1\) is finite over \(X\) for every \(n>0\).
+
+For sufficiently large \(m,n\), the zero scheme of
+\[
+ a(t^m-1)(t^n-u)+(1-a)(t^n-1)(t^m-u)
+\]
+is finite over \(X\), uniformly in the section \(a\) pulled back from
+\(X\).
+'''
+scope = '''
+The cuts are the literal zero schemes of the displayed sections on the
+original support. The exponent bound holds on the whole quasi-compact
+base. These are the finite-support calculations of
+[@Voevodsky2010Cancellation, Lemma 4.1 and Remark 4.2, p. 680].
+'''
+proof = '''
+Over an affine base, use integral equations for \(u\) and \(u^{-1}\)
+over the Laurent coordinate ring. A common bound on the exponents in
+the coefficients gives monic relations for \(t\) and \(t^{-1}\) in the
+quotient defining each cut. Pullback of the zero schemes to a finite
+affine cover glues the bounds and the finiteness conclusion.
+'''

@@ -130,6 +130,11 @@ COL-1030 = '''
 After graph restriction, the projection on singular homology is the ordinary
 algebraic singular projection. Apply the interval homotopy of COL-0349.
 '''
+COL-1039 = '''
+Use the same singular construction on the quotient of the torus-product
+representable and its source unit kernel. Exterior product on the original
+signed correspondences gives the comparison for torus cancellation.
+'''
 
 [[sections]]
 id = "affine-line-invariance"

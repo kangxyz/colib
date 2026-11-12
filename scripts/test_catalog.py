@@ -446,6 +446,8 @@ class LibraryTests(unittest.TestCase):
             "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
+            "relative-principal-cuts":
+                "Colib.AlgebraicGeometry.Correspondences.Cancellation.FiniteSupport.QuasiCompact",
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
             "affine-line-invariance":
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField",
@@ -642,6 +644,9 @@ class LibraryTests(unittest.TestCase):
             "COL-1032":
                 "Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.FiniteCohomologicalDimension",
             "COL-1033": "Colib.AlgebraicGeometry.MotivicCohomology.AffineLineInvariance",
+            "COL-1039": "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation",
+            "COL-1041":
+                "Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceGeometry",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -707,7 +712,7 @@ class LibraryTests(unittest.TestCase):
     def test_cycle_algebra_and_scheme_chapters_keep_distinct_owners(self):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
-                         ["finite-correspondences", "exterior-parameters"])
+                         ["finite-correspondences", "exterior-parameters", "relative-principal-cuts"])
         self.assertEqual(chapters["transfers"]["title"], "Presheaves and Sheaves with Transfers")
         self.assertEqual(chapters["transfers"]["sections"],
                          ["transfers-nisnevich", "transfer-homological-algebra",
@@ -737,10 +742,11 @@ class LibraryTests(unittest.TestCase):
             "transfer-homological-algebra": (
                 "transfers", ["COL-0390", "COL-0381", "COL-0391", "COL-0392"]
             ),
-            "transfer-singular-complexes": ("transfers", ["COL-0397", "COL-1030"]),
+            "transfer-singular-complexes": ("transfers", ["COL-0397", "COL-1030", "COL-1039"]),
             "affine-line-invariance": ("transfers", ["COL-1029"]),
             "reduced-transfer-tori": ("motivic-cohomology", ["COL-0384", "COL-0385"]),
             "exterior-parameters": ("cycles", ["COL-0386", "COL-0388", "COL-0387", "COL-0389"]),
+            "relative-principal-cuts": ("cycles", ["COL-1040", "COL-1041"]),
         }
         for section_id, (chapter, identifiers) in expected.items():
             section = self.library["sections"][section_id]

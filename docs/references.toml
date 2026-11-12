@@ -367,6 +367,14 @@ year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 1–57"
 url = "https://numdam.org/item/10.1007/s10240-003-0009-z.pdf"
 
+[sources.Voevodsky2010Cancellation]
+kind = "article"
+title = "Cancellation theorem"
+authors = ["Vladimir Voevodsky"]
+year = 2010
+version = "Documenta Mathematica, Extra Volume Suslin, pages 671–685"
+url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf"
+
 [sources.Voevodsky2008NisnevichCD]
 kind = "article"
 title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"

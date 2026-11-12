@@ -104,3 +104,26 @@ Select the matching component by the support image. The regular equations on
 its incidence scheme give Tor coefficient one. Both composites then push
 forward the same cycle with the same residue-field degrees.
 '''
+
+[[sections]]
+id = "relative-principal-cuts"
+title = "Relative principal cuts"
+order = 30
+introduction = '''
+A principal equation on an integral support defines a zero scheme with its
+original multiplicities. Finiteness over the source gives the support for a
+finite correspondence. Pulling the cut across a closed polynomial face
+requires comparing the weighted cycles on the two zero schemes.
+'''
+
+[sections.transitions]
+COL-1040 = '''
+The Laurent coordinate on a torus support is a unit. A power of this
+coordinate can dominate the positive and negative Laurent exponents in
+integral equations for another unit on the same support.
+'''
+COL-1041 = '''
+A cut whose components have generic image can be restricted along a
+Cartesian closed face of the source. The local comparison uses the Euler
+lengths of the two principal equations in the original support stalk.
+'''

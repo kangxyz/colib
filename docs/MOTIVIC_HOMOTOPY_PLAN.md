@@ -112,6 +112,237 @@ For the effective-motive comparison, use the explicit cancellation maps
 on finite correspondences and their Suslin complexes.
 [Voevodsky, Reduced power operations, §2, Theorem 2.4 and Lemma 2.5, and §4, Lemma 4.2](https://numdam.org/item/10.1007/s10240-003-0009-z.pdf)
 
+## Tate cancellation on finite correspondences
+
+The first theorem is the integral Suslin quasi-isomorphism of Voevodsky's
+Corollary 4.9 for the existing smooth site and signed finite correspondences.
+Use the relative Cartier intersection of §3 and the power cuts of §4.
+For the effective-motive consequence start over a perfect field and target
+\(DM^{\mathrm{eff}}_-(k)\) as in Corollary 4.10. The higher Chow comparison
+belongs to the separate projective-line proof above.
+[Voevodsky, Cancellation theorem, §§3–4](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf)
+
+### The actual comparison and its signed representatives
+
+Use Cor.parameterProduct for the multiplicative group. In the chosen
+right-factor coordinates, let \(e_X\) be the graph of projection followed
+by the unit section on \(X\times\mathbb G_m\). Use the actual target
+quotient of the representing transfer presheaf by the unit section.
+Apply the existing contractionKernel to this quotient in the source
+variable. The comparison into this presheaf is induced by exterior product
+on the actual signed correspondences.
+
+For each \(X,Y\), identify the sections of the comparison target with
+the image of the two complementary idempotents on
+\(\operatorname{Cor}(X\times\mathbb G_m,Y\times\mathbb G_m)\). Check that
+the inclusion takes the comparison to
+\(\operatorname{id}_{\mathbb G_m}\boxtimes W-e\boxtimes W\), in the
+chosen product order. The comparison must be natural in the representing
+target so it restricts to the image of the commuting unit-axis projectors
+of a reduced transfer torus. The chain map uses singularComplexMap and
+its literal face maps. [Voevodsky, Theorem 4.6 and Corollary 4.9](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=12)
+
+### The power cuts and the parameter family
+
+On a prime support \(P\) of a signed correspondence from
+\(X\times\mathbb G_m\) to \(Y\times\mathbb G_m\), pull the two native
+torus coordinates back to \(P\). Form the actual zero schemes of
+\(t_1^{n+1}-1\) and \(t_1^{n+1}-t_2\). Prove finite support over \(X\)
+for all sufficiently large \(n\), and show that the generic images of
+the zero schemes give the required finite relative cycles. The signed
+pushforward to \(X\times Y\) must compute \(\rho_n\) with the numerator
+cycle positive. Extend this construction by the integer weights of the
+actual finite support. Use a common exponent for every finite family of
+cycles and pullbacks needed in an equality.
+
+On affine charts, start with
+LaurentPolynomial.exists_moduleFinite_quotient_span_T_sub_unit.
+Integrality of \(t_2\) and \(t_2^{-1}\) gives monic relations for both
+directions of the Laurent coordinate on the cut. For Remark 4.2 set
+\(p=m+1,\ q=n+1,\ t=t_1,\ u=t_2\). Clearing the two denominators in
+\(s g_m+(1-s)g_n\) gives \(A(t)-B(t)u\), with
+\[
+A=t^{p+q}-(1-s)t^p-s t^q,\qquad B=s t^p+(1-s)t^q-1 .
+\]
+The degree gap \(\min(p,q)\) absorbs the bounded Laurent coefficients
+in the homogeneous monic equation. The reciprocal identities
+\(t^{-p-q}A(t)=-B(t^{-1})\) and \(t^{-p-q}B(t)=-A(t^{-1})\)
+give the other integrality bound using \(u^{-1}\). Check this over the
+whole parameter ring and glue the finite cut schemes over the original
+base. The endpoint computation must preserve the signed difference
+when a factor common to numerator and denominator is cancelled.
+[Voevodsky, Lemma 4.1 and Remark 4.2](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=10)
+
+### Cycle coefficients and compatibility with correspondences
+
+Use the zero-scheme cycles of CartierCycle and PrincipalSection and
+the actual native finite pushforward. The initial signed-cut constructor
+takes a finite-support witness for each cut and proves target graph
+compatibility. Verify the generic-image witnesses from the geometry of
+prime supports. Retain the two torus coordinates on the closed cut
+support during the source-fibre calculation and project to \(X\times Y\)
+after the cycle identity.
+
+The first test of Proposition 3.1 is a non-flat closed simplex face on
+one principal cut. For a flat integral relative curve on a DVR test
+scheme, write \(B\) for the stalk at a closed-fibre cut point,
+\(\pi\) for the base uniformizer, \(A=B/\pi\), and \(f\) for the
+cut equation. When \(f\) is regular on the reduced fibre components
+and its cut has finite length there, use \(M=B/(f)\) and
+\(M_{\mathrm{tf}}=M/M[\pi^\infty]\). The fibre coefficient comparison
+has the local form
+\[
+\ell(M_{\mathrm{tf}}/\pi)
+=\ell(A/(f_s))-\ell(A[f_s])
+=\sum_{\mathfrak p\in\operatorname{Min}A}
+ \ell(A_{\mathfrak p})\ell((A/\mathfrak p)/(f_s)).
+\]
+For the first equality use flatness of the torsion-free quotient,
+additivity of length, and the relation \(fx=\pi y\) identifying
+the relevant torsion kernels. For the second use the weighted principal
+Euler associativity of COL-0173. Match the resulting coefficients with
+the actual cycle of the Cartier cut and the native fibre cycle.
+
+Use StacksFrontier's DVR weighting and specialization of coherent
+modules to pass from this stalk comparison to the relative cycle
+specialization. Audit the integral-closure generators and the
+comparison with the chosen incidence Tor composition on signed Cor.
+The endpoint is the literal multiplicity identity under relative
+pullback in the admissible case, its projection formula, and hence
+Lemma 4.4 for precomposition by finite correspondences. Use the
+target-graph case of Lemma 4.5 for external parameters. The available
+relative Gysin identity in StacksFrontier is expressed modulo rational
+equivalence. The Suslin face computation uses the cycle coefficients.
+[Voevodsky, Proposition 3.1, Lemma 3.2 and Lemmas 4.4–4.5](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=5)
+
+### Large-exponent compatibility via a new torus parameter
+
+For the large exponents used in Corollary 4.9, establish Lemma 4.4
+by retaining both original coordinates and inserting a third torus
+parameter. With \(N=n+1\) and original units \(t,v\), the two parameters
+are \(\lambda=t^N\) and \(\lambda=t^N/v\). For each parameter, push the
+support along its closed graph into
+\((X\times\mathbb G_{m,\lambda})\times
+(\mathbb G_{m,t}\times Y\times\mathbb G_{m,v})\).
+Over \(X\times\mathbb G_{m,\lambda}\), the finite zero schemes of
+\(t^N-\lambda\) and \(t^N-\lambda v\) identify with these graph supports.
+Use the affine Laurent bounds and quasi-compact gluing. Verify that
+the new finite support dominates the same component over \(X\).
+Taking the fibre at \(\lambda=1\) recovers each original zero scheme
+with its scheme structure.
+
+For a prime precomposition with support \(Q\subset X'\times X\) and
+an original support \(P\), identify the two incidence schemes with
+\(Q\times_X P\). At a point of this incidence, let \(C\) be an affine
+coordinate ring of \(Q\times_k P\). In the two support-product charts
+the first diagonal equation is \(u-\ell\) on \(C[u,u^{-1}]\), where
+\(\ell=t\) in the original chart and \(\ell=\lambda(t,v)\) in the
+new chart. Both regular equations identify the localized quotient
+with the same stalk of \(Q\times_k P\) by evaluation. The remaining
+equations come from one local diagonal list for \(X\), pulled back
+by the same maps from \(Q\) and \(P\). Use the regular leading block
+of the existing incidence Koszul comparison. Check the equality of
+each Tor length on the common quotient stalk and retain the same
+outer pushforward and residue degrees. Extend the resulting cycle
+equality by the original integer coefficients.
+
+Precompose the retained cycle with the graph of \(\lambda=1\).
+Use the Cartesian endpoint formula with the open immersion of the
+torus in the affine line and commute the unit graph with the
+original exterior correspondence. Project to \(Y\) and take the
+difference of the two cuts. The acceptance condition is the
+equality on native finite correspondences for a common large
+exponent, including every simplex face in the given finite family.
+[Voevodsky, Lemmas 4.1 and 4.4](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=10)
+
+### Graph normalization and interchange of two torus factors
+
+On the diagonal torus support the two cuts have the actual ranks
+\(n+1\) and \(n\), using \(t_1^{n+1}-t_1=t_1(t_1^n-1)\).
+The cut at the constant unit has equal numerator and denominator cycles.
+Use nativeExterior_single to prove the identity on each generator of an
+arbitrary exterior correspondence. Identify the literal zero schemes
+with the base changes of the monic Laurent quotients and use their
+finite-flat pushforward ranks, including inseparable multiplicities.
+This gives the left inverse on \((1-e)\boxtimes W\).
+
+Independently, for units \(a,b\) on the universal torus use the monic
+quadratic family between \((z-ab)(z-1)\) and \((z-a)(z-b)\).
+Its constant coefficient is \(ab\). Use the existing graph-restriction
+and polynomial-cycle product formulas to compute the two endpoint
+cycles. Push the family to the diagonal torus to establish diagonal
+additivity, and to the paired torus with one coordinate fixed to
+establish bilinearity. Polarize to obtain the signed interchange
+relation after the two unit projections. Convert the relation on
+the universal torus to the actual \(\mathbb A^1\)-homotopy between
+interchange and inversion on the reduced factors.
+[Voevodsky, Lemmas 4.3, 4.7 and 4.8](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=10)
+
+### Suslin homology and the effective-motive comparison
+
+Use Mathlib's homotopy equivalence between the normalized Moore
+complex and the alternating face map complex of the actual evaluated
+simplicial transfer group. Its normalization kills the positive
+faces, and its cycles also kill the zeroth face. Identify those
+cycles with transfer maps from the representable of
+\(X\times\Delta^r\) quotiented by all actual faces. A normalized
+boundary is the zeroth face of a chain with all other faces zero.
+The map to the next simplex with barycentric coordinates
+\((s,(1-s)t_0,\ldots,(1-s)t_r)\) gives the corresponding relative
+\(\mathbb A^1\)-homotopy to zero. In the other direction, sum the
+actual prism restrictions of a relative homotopy. The face terms
+along the boundary vanish and the remaining differential is the
+difference of the endpoints.
+
+Use the face-compatible \(\rho_n\) on the finite family of chains,
+faces and homotopies, and use the interchange homotopy to prove
+the two inverse identities on homology as in Theorem 4.6 and
+Corollary 4.9. The quasi-isomorphism must be the one induced by
+torusCancellationChainMap on the current native complexes.
+
+For the effective-motive statement compare derived evaluation on
+\(U\times\mathbb G_m\) with the Suslin complex of the same reindexed
+transfer coefficient. Use the \(\mathbb A^1\)-invariant cohomology
+sheaves, the positive-degree direct-image vanishing for the torus
+projection, and the Nisnevich comparison of the contraction. The
+existing strict-invariance and positive contraction-vanishing modules
+supply inputs to compare with the actual \(Rp_*\). Then define or
+identify the effective transfer-derived model, its Tate twist, and
+the representable-generator reduction of Corollary 4.10. Take the
+chain result at the commuting torus unit projectors of each motivic
+weight, check the existing signed shifts and coefficient cones, and
+compare the resulting map with the chosen bonding maps. The derived
+Tate loop adjunction on motivic spaces is the space-side comparison.
+[Voevodsky, Corollaries 4.9–4.10](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=14)
+· [Cohomological theory of presheaves with transfers, Proposition 4.34](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s3.pdf)
+
+Bachmann's Proposition 2.16 gives a separate categorical packaging
+of the retraction and interchange steps. Bachmann–Elmanto §4F gives
+additional detail for uniform parameter support. Use their relevant
+lemmas to check the finite-correspondence argument above.
+[Bachmann, Proposition 2.16](https://arxiv.org/pdf/2006.14934)
+· [Bachmann–Elmanto, §4F](https://msp.org/obs/2025/6-1/obs-v6-n1-p01-p.pdf)
+
+### Implementation milestones
+
+The geometry, graph calculations, cycle-coefficient comparison, and
+transfer-complex interfaces have disjoint owners. Finish the current
+comparison map, graph-rank computation, affine finiteness, and signed
+cut with their exact hypotheses first. Check the non-flat coefficient
+identity as the next proof milestone while the parameter family and
+interchange homotopy proceed in parallel. Assemble the signed
+correspondence identities before recording Corollary 4.9 as proved.
+Treat the derived comparison and Corollary 4.10 as subsequent milestones.
+
+Keep the cut calculations under Correspondences, the affine finiteness
+under Polynomial, and the comparison and Suslin theorem under
+PresheavesWithTransfers. The first chain comparison belongs in the
+transfer singular-complexes section. Register the actual mathematical
+items and their precise source locators at a checked milestone.
+Run changed leaves with the pinned Lean, Mathlib and Stacks artifacts
+through one remote queue. Record source hashes and reuse compatible
+compiled dependencies for the native final checks.
+
 ## Reduced powers and the norm-residue proof
 
 Construct the total power on the unstable representatives, keeping the diagonal and the

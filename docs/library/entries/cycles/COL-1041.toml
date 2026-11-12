@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1041"
+title = "Principal cut cycles along a closed polynomial face"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "relative-principal-cuts"
+order = 20
+primary = "AlgebraicGeometry.Cor.graph_comp_closedFiberCycle_endpoint_eq_of_finite"
+statement = '''
+Let \(P\) be a closed noetherian support in \(Y\times_k Z\) over a
+field, with smooth source and target. Let \(X\to Y\) be the Cartesian
+face at a scalar of a flat polynomial parameter on \(Y\). Assume
+the face and cut equations act regularly on the original stalks of
+\(P\), and the original cut is finite with generic image over \(Y\).
+
+Suppose \(\alpha\) is the finite correspondence given by pushing
+forward the fundamental cycle of the cut. Suppose \(\beta\) is
+the finite correspondence obtained by cutting the fundamental
+cycle of the face fibre of \(P\) with the original generic
+multiplicities. Then the graph of \(X\to Y\) followed by
+\(\alpha\) equals \(\beta\) in \(\operatorname{Cor}(X,Z)\).
+'''
+scope = '''
+The two correspondences carry the fundamental-cycle weights of the
+actual schemes and retain the original closed support throughout the
+face calculation. This is a closed polynomial face case of the
+compatibility of relative Cartier cuts with pullback in
+[@Voevodsky2010Cancellation, Proposition 3.1, pp. 676–677].
+'''
+proof = '''
+The Cartesian source projection gives finite length for the double
+cut at the relevant stalks. The generic image of the original cut
+and regularity give proper intersection in both orders. The two
+principal Euler lengths agree by exchanging the two scalars. The
+closed endpoint formula identifies these coefficients with graph
+precomposition before the finite pushforward.
+'''
