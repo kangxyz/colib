@@ -1,4 +1,15 @@
-module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupportpublic import Colib.Algebra.Category.FGModuleCat.ScalarFiltrationpublic import Colib.Algebra.Category.ModuleCat.Annihilatorpublic import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linearpublic import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Localization
+module  -- shake: keep-all --deprecated_module: ignore
+
+public import Colib.Algebra.Category.FGModuleCat.FractionLocalization
+public import Colib.Algebra.Category.FGModuleCat.IsFG
+public import Colib.Algebra.Category.FGModuleCat.Localization
+public import Colib.Algebra.Category.FGModuleCat.Localization.EssSurj
+public import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
+public import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
+public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
+public import Colib.Algebra.Category.ModuleCat.Annihilator
+public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linear
+public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Localization
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Quotient
 public import Colib.Algebra.Category.ModuleCat.CoproductHomology
 public import Colib.Algebra.Category.ModuleCat.FilteredColimits
