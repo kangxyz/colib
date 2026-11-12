@@ -1,14 +1,15 @@
 [entry]
 id = "COL-0577"
-title = "Finite Bass preservation for exact model equivalences"
+title = "Finite Bass iteration preserves exact equivalences"
 kind = "theorem"
-section = "bass-construction"
-order = 1577
+section = "bass-delooping-diagrams-and-functoriality"
+order = 150
 statement = '''
-For a square functor Q on a category C and zero-preserving model diagrams F and G, let η : F ⟶ G
-be a natural transformation. Suppose each η_X is exactly the forward functor of an equivalence e_X
-and each inverse functor is exact. For every finite stage i and object X, the actual map obtained
-by applying strictDiagramIterate Q i to η and the prespectrum functor is a stable equivalence.
+Let \(\eta\colon F\to G\) be a map of zero-preserving Waldhausen Model
+diagrams. If every component \(\eta_X\) is the forward functor of an
+equivalence whose inverse is exact, then its induced map on every finite
+strict Bass iterate is a stable equivalence at each coefficient object \(X\).
+The forward functors are the given components, rather than replacement equivalences.
 '''
 scope = '''
 Exact categorical equivalences whose forward functors are exactly the given zero-preserving model

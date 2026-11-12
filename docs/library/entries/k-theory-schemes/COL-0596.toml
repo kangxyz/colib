@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0596"
-title = "Ordinary full-open localization with the specified null"
+title = "Full-open localization with the specified null-homotopy"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1596
+section = "thomason-trobaugh-localization"
+order = 180
 statement = '''
 Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
 with compact $P,Q$ and quasi-separated $Q$. At $a\in\operatorname{Under}R$, write

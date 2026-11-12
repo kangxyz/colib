@@ -1,16 +1,16 @@
 [entry]
 id = "COL-0528"
-title = "Generator-defined finite tensor traces"
+title = "Finite tensor recipes defined by cone generators"
 kind = "theorem"
-section = "bass-construction"
-order = 85
-statement = """
+section = "bass-delooping-diagrams-and-functoriality"
+order = 110
+statement = '''
 The actual whole row-cell successor satisfies an independent four-generator cone
 extension relation. Iterating this relation on each transformed starting diagram
 defines finite tensor traces without invoking the iterated comparison target.
 The constructed family of original finite Bass cells realizes such a trace at
 every finite stage.
-"""
+'''
 scope = """
 Arbitrary coefficient categories and loop-prespectrum diagrams with the original
 row interchange, basepoint, naturality and structure equations. The geometric

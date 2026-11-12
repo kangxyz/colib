@@ -1,18 +1,21 @@
 [entry]
 id = "COL-0586"
-title = "Stable forward comparison of strict row telescopes"
+title = "Stable comparison of Bass telescopes"
 kind = "comparison"
-section = "bass-construction"
-order = 1586
+section = "bass-delooping-normalization-and-telescopes"
+order = 90
 statement = '''
-Let C and D be categories, K:C→D a functor, Q₁ and Q₂ square-valued functors, and
-α:K⋙Q₂≅Q₁⋙K.mapArrow.mapArrow. Let F:D→LoopPrespectrum and G:C→LoopPrespectrum, with a forward row
-transformation ρ:K⋙F→G and seeds η₂:F→strictDiagram(Q₂,F), η₁:G→strictDiagram(Q₁,G) satisfying the
-specified seed square. For X∈C, assume every finite comparison at X is a stable equivalence and
-all levels of both finite towers at X are T1 spaces. The induced forward telescope map at X is a
-stable equivalence. An input square between two such rows that commutes as a natural
-transformation and respects both seeds induces a commuting square of telescope maps at every
-cylinder height and homotopy time.
+Consider two Bass towers over index categories related by
+\(K\colon\mathcal C\to\mathcal D\), a square-functor comparison and a
+forward row transformation \(K^*F\to G\) satisfying the seed square.
+If all finite-stage comparisons at \(X\) are stable equivalences and both
+towers have \(T_1\) levels, the induced map
+\[
+\operatorname{Tel}_{Q_2}(F,\eta_2)(KX)
+\longrightarrow\operatorname{Tel}_{Q_1}(G,\eta_1)(X)
+\]
+is a stable equivalence. Compatible row and seed squares give naturality
+of this map at every cylinder height. No inverse row transformation is assumed.
 '''
 scope = '''
 The construction uses a forward row transformation, with no inverse required. The T1 and

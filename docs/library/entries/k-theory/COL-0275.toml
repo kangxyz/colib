@@ -1,10 +1,16 @@
 [entry]
 id = "COL-0275"
-title = "The actual Waldhausen composition triangle"
+title = "Composition of weak-transformation homotopies"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 30
-statement = "Two composable pointwise weak natural transformations between three exact functors determine a genuine simplicial triangle whose faces are their original cylinders and the cylinder of their composite."
+section = "waldhausen-fibration-and-boundary-maps"
+order = 50
+statement = '''
+For pointwise weak natural transformations \(\alpha\colon F\Rightarrow G\)
+and \(\beta\colon G\Rightarrow H\), the S-construction has a simplicial
+triangle whose edges are the transformation cylinders for \(\alpha\),
+\(\beta\) and \(\beta\alpha\). If the three functors preserve the chosen
+zero by the specified equalities, this triangle is constant at the zero vertex.
+'''
 scope = '''The original unnormalized `IsZero` S-construction and both transformation components are retained. No invertibility or chosen-zero preservation is required for the triangle. Three explicit chosen-zero equalities make the entire zero-vertex triangle constant. The construction proves both grid reindexing laws and does not assert iterated-S, prespectrum or spectrum compatibility.'''
 review = "author_checked"
 provenance = "quillen"

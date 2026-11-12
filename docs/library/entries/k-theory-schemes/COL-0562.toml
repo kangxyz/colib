@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0562"
-title = "Supported coefficient cylinders and parameter rows"
+title = "Supported coefficient cylinders"
 kind = "proposition"
-section = "tensor-unit-prisms"
-order = 1562
+section = "units-tensor-products-and-localization-boundaries"
+order = 180
 statement = '''
 The supported coefficient cylinder transported through AsSmall agrees with the specified
 normalized coefficient cylinder.

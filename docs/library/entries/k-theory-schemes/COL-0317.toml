@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0317"
-title = "Actual scalar sum normalization and canonical fiber cubes"
+title = "Normalization of scalar sums"
 kind = "comparison"
-section = "scalar-operations-and-boundaries"
-order = 30
+section = "units-tensor-products-and-localization-boundaries"
+order = 50
 statement = "The scalar cofibration sequence on each original subdivision cube determines the actual fine projection, categorical normalization square, quotient-first canonical sum cylinder, compact coproduct targets, and complete normalized endpoint homotopy. The actual public acyclic cone and its once-reversed canonical null then define a based cube in the original homotopy fiber. Both coordinates identify that whole cube with the canonical acyclic-to-fiber map, at every spatial point and every stored null-path time."
 scope = '''Any open immersion \(j\colon U\to X\), global scalar r and specified unit q on U with `j.appTop r = q`; all subdivision cubes of dimension n + 1 for n : Nat. The actual Stacks perfect complexes, signed scalar cone, original first and distinct right restrictions, both independent square times, whole spatial boundary and two inverse-prefix cancellations are retained. The fine projection uses exactly the original coarse endpoint normalizations and is fine exact before changing weak equivalences. The normalization homotopy and canonical null are constructed from these data, without a supplied Theta, null comparison, fiber filler or canonical-map hypothesis. Generic simplicial identity and separated-pair maps are separated from realization; fiber evaluation and path transport retain arbitrary independent topological universes. This item does not identify the scalar operation's return class with the topological connecting homomorphism, prove subdivision coverage or input descent, give the global all-positive-degree boundary formula, or assert any all-integer Bass, Nil-vanishing or homotopy-invariance statement.'''
 review = "author_checked"

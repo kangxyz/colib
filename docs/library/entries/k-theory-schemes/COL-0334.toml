@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0334"
-title = "Supported fine comparison and the actual degree-zero image"
+title = "Supported restriction and its degree-zero image"
 kind = "theorem"
-section = "supported-localization"
-order = 40
+section = "support-and-connective-localization"
+order = 130
 statement = '''For an open immersion \(j\colon U\to X\) and an auxiliary open T, form the actual
 complexes derived-isomorphic to restrictions of global perfect complexes
 acyclic on T. Genuine supported roofs give its exact structure and actual

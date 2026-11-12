@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0555"
-title = "Whole scheme boundaries and the current Bass transition"
+title = "The geometric Bass transition and boundary"
 kind = "comparison"
-section = "returned-tensor-cells"
-order = 30
+section = "bass-k-theory-and-geometric-delooping"
+order = 150
 statement = '''
 Let M be a diagram on opposite schemes of chosen-zero-preserving small Waldhausen models,
 equipped on the actual Laurent coefficient diagram with unit automorphisms preserved by every

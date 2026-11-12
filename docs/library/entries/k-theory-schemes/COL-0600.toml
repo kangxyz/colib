@@ -2,8 +2,8 @@
 id = "COL-0600"
 title = "Tensor ordinary-presentation auxiliary localization"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1600
+section = "thomason-trobaugh-localization"
+order = 270
 statement = '''
 Let $f:P\to Q$ be an open immersion, with $P,Q$ quasi-compact and $Q$ quasi-separated,
 and let $T$ be a quasi-compact open of $Q$. Evaluate the tensor-normalized ordinary-colimit

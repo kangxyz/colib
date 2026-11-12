@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0302"
-title = "Compact coproduct cubes and whole null coherence"
+title = "Coproducts of based cubes and relative nullhomotopies"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 100
+section = "additivity-approximation-and-comparison-theorems"
+order = 90
 statement = "The original product-realization comparison uniquely lifts compact families of positive-dimensional based cubes, retaining every supplied face and the whole spatial boundary. Canonically rebased coproducts admit their actual based unit paths and quotient-first spatial separation. The original unit and supplied-null squares give endpoint-relative coherence, natural under enlargement of weak equivalences. With the original whole Theta comparison supplied, inverse-prefix normalization retains both cancellations, the entire null path and every spatial boundary point."
 scope = '''C : Type u with `Category.{v}` C, independent u and v, Waldhausen structure W and `HasBinaryCoproducts` C where coproducts are used. Cubes have `Fin (n + 1)` coordinates for every n, including n = 0. Compact parameter spaces T : Type retain their original universe. Naturality uses `NestedWeakEquivalences` W with the same cofibrations and chosen zero. The normalized endpoint explicitly assumes the original paths `A0`, `T0`, `T1`, `N`, `Z` and the original whole `Jtheta` homotopy; it does not construct geometric Theta data. No global product-realization inverse, continuous multiplication on the raw delooping, scalar forward boundary or nonconnective conclusion is asserted.'''
 review = "author_checked"

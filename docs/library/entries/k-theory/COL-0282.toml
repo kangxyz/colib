@@ -1,10 +1,19 @@
 [entry]
 id = "COL-0282"
-title = "The actual Waldhausen S-construction is an Omega-spectrum"
+title = "The Waldhausen K-theory Omega-spectrum"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 130
-statement = "Every original iterated S-construction loop structure map is a weak homotopy equivalence, including path components and all finite based homotopy sets. The unchanged prespectrum therefore defines an Omega-spectrum, functorially for exact chosen-zero-preserving maps."
+section = "delooping-and-stable-localization"
+order = 40
+statement = '''
+Let \(E(\mathcal C)\) be the prespectrum obtained by iterating the
+Waldhausen S-construction. Every loop structure map
+\[
+E(\mathcal C)_r\longrightarrow\Omega E(\mathcal C)_{r+1}
+\]
+is a weak homotopy equivalence, on components and all finite based homotopy sets.
+Thus \(E(\mathcal C)\) is an Omega-spectrum, functorially for exact maps with
+the prescribed zero normalization.
+'''
 scope = '''The actual quotient rows, full path-space comparison and original cylinder are retained. No saturation, cylinder, extension or Omega hypothesis is added. Original object and morphism universes remain independent; source and target exact functors retain their common universe pair. Arbitrary exact functors use the existing canonical zero rebase and retain the original `KMap`. For small categories, the literal first relative-total cylinder and full fiber-coordinate comparison give the original `degreeRaisingMap` as a group equivalence in every nonnegative K-degree, including K-zero. This is a connective Omega-spectrum result, not a nonconnective or spectrum-localization theorem.'''
 review = "author_checked"
 provenance = "quillen"

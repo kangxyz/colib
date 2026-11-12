@@ -17,7 +17,7 @@ class DevissageTests(unittest.TestCase):
         entries = catalog.load_library()["entries"]
         self.assertEqual(entries["COL-0244"]["section"], "exact-categories")
         self.assertEqual(entries["COL-0245"]["section"], "restricted-spans")
-        self.assertEqual(entries["COL-0246"]["section"], "quillen-k-theory")
+        self.assertEqual(entries["COL-0246"]["section"], "resolution-devissage-and-serre-localization")
         self.assertIn("no extension-closure assumption", entries["COL-0246"]["scope"])
         for name in ("ColibTest.Devissage", "ColibTest.ResolutionDevissage"):
             self.assertIn(name, lint_style.source_modules(ROOT, "ColibTest"))

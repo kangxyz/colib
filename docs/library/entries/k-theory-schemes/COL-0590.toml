@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0590"
-title = "Auxiliary-supported full-open localization on Bass telescopes"
+title = "Auxiliary-support localization on Bass telescopes"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1590
+section = "thomason-trobaugh-localization"
+order = 230
 statement = '''
 Let f:P→Q be an open immersion over Spec R, let T⊆Q be open, and assume compact P, Q and T and
 quasi-separated Q. For a∈Under R, use the actual supported fiber telescope, ambient telescope,

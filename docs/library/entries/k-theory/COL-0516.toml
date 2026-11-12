@@ -1,10 +1,10 @@
 [entry]
 id = "COL-0516"
-title = "Natural cone actions with original null and seed formulas"
+title = "Naturality of cone actions and their nullhomotopies"
 kind = "comparison"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 40
-statement = """
+statement = '''
 The original strict Bass diagram functor preserves the literal pointwise zero
 transformation and carries coefficient-natural whole homotopies, including null
 tracks, to coefficient-natural whole homotopies of its actual maps. A specified
@@ -12,7 +12,7 @@ index interchange satisfying the coefficient-factorization equation then gives a
 natural self-track on the original unlooped cone diagram. Its time slices use the
 original transformation followed by the inverse index interchange, and its action
 on the source-null cylinder retains the original null time.
-"""
+'''
 scope = """
 Arbitrary indexing categories and loop-prespectrum diagrams in the stated independent
 universes, and arbitrary levels, including zero. The input corner tracks commute

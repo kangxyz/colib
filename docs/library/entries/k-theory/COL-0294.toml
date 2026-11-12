@@ -1,10 +1,16 @@
 [entry]
 id = "COL-0294"
-title = '''`AsSmall` transport of the original Waldhausen boundary'''
+title = "Small-model invariance of the localization boundary"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 250
-statement = '''The actual `AsSmall` delooping and canonical-fiber homeomorphisms preserve the original connecting homomorphism. Fine and coarse exact evaluation commutes with that boundary across the specified unequal morphism universes, through the original acyclic inclusion square and K-maps.'''
+section = "waldhausen-fibration-and-boundary-maps"
+order = 100
+statement = '''
+The delooping and homotopy-fiber homeomorphisms associated with the
+small-model construction preserve the localization connecting homomorphism.
+Under the exact evaluation functors, the acyclic, fine and coarse K-maps
+therefore commute with the boundary even when the original morphism
+universes differ.
+'''
 scope = "The canonical acyclic-to-fiber comparisons on both sides remain explicitly assumed weak equivalences. Evaluation has source and target object universe u+1, source morphism universe u+1 and target morphism universe u. The specified acyclic functor, its exactness and literal inclusion square are retained. The equivalences, based points, entire reversed fiber paths and canonical zero rebasing are unchanged. No strict chosen-zero premise, replacement boundary, extra sign or arbitrary four-universe theorem is added."
 review = "author_checked"
 provenance = "quillen"

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0504"
-title = "Relative-Open Section Seeds and Change of Weak Equivalences"
+title = "Relative-open seeds and change of weak equivalences"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 3506
+section = "bass-k-theory-and-geometric-delooping"
+order = 100
 statement = '''Let \(R\) be a commutative ring and \(j:U\hookrightarrow\operatorname{Spec}R\) an open immersion. On each specified affine base change of \(j\), retain the original bounded-above flat perfect section category, cofibrations and chosen zero, and detect weak equivalences by the original evaluation followed by restriction to the open. Actual coefficient reindexing gives a strict diagram \(F_j^{\mathrm{open}}\) and the identity section functors give a strict transformation \(c:F^{\mathrm{fine}}\to F_j^{\mathrm{open}}\).
 
 The original Laurent-unit loop and source-null cylinder construct a coefficient-natural Bass seed \(\eta_j^{\mathrm{open}}:F_j^{\mathrm{open}}\to B(F_j^{\mathrm{open}})\). The actual four-corner change-of-weak-equivalence map preserves the entire unit and null tracks at the same parameter, and the two constructed seeds satisfy the strict equality \(B(c)\circ\eta^{\mathrm{fine}}=\eta_j^{\mathrm{open}}\circ c\).'''

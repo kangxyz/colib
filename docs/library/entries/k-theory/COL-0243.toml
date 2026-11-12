@@ -1,9 +1,18 @@
 [entry]
 id = "COL-0243"
-title = "Canonical Quillen-Waldhausen comparison equivalence"
+title = "The Quillen–Waldhausen comparison"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 310
-statement = '''For every exact structure E and every nonnegative degree n, the prescribed reversed-edgewise S-to-Q comparison gives `comparisonKEquiv : (ofExactCategory E).K n ≃* E.K n`, whose underlying homomorphism is the original `comparisonK`. The actual realized comparison map is the forward map of a homotopy equivalence. For any exact functor F, this equivalence commutes with the original `Waldhausen.KMap F.waldhausenExact` and `F.KMap`.'''
+section = "additivity-approximation-and-comparison-theorems"
+order = 30
+statement = '''
+An exact category \(\mathcal E\), regarded as a Waldhausen category with
+admissible monomorphisms and isomorphisms, has natural isomorphisms
+\[
+K_n^{S}(\mathcal E)\xrightarrow{\sim}K_n^{Q}(\mathcal E),\qquad n\geq0.
+\]
+The forward map is the reversed-edgewise S-to-Q comparison, whose realization
+is a homotopy equivalence. For every exact functor \(F\), the comparison
+commutes with the canonically based S- and Q-construction K-theory maps.
+'''
 scope = '''Uses the existing `QuotientRows.Obj`, `WeakRows`, `sSetWeakRowDiagonalIso`, native QConstruction spans and shifted homotopy groups. The i-th comparison vertex is quotient \([n-i,n+1+i]\) in nerve row \(n+1+i\); the second-half endpoint of \([n]^{\mathrm{op}}\star[n]\) is retained. Full faithfulness and actual Q-chain reconstruction prove `rowChainEquivalence`. The prescribed simplicial map factors exactly through the native chain-core nerve and its direct diagonal contraction; no separate row or classification-grid model is introduced. Object and hom universes remain independent; naturality retains the original based K-map APIs' shared source/target universes. Admissible pushout preservation is derived from additive exactness. Zero normalization and genuinely based homotopies remove the intermediate strict-zero hypothesis. No comparison-equivalence or extra exactness premise is imposed. The mathematical Q/S comparison is [@Waldhausen1985, Section 1.9, pages 375-376]; the preceding Lean implementation is cited separately. Author source comparison checked 2026-11-07; compilation and independent mathematical review are separate evidence.'''
 review = "author_checked"

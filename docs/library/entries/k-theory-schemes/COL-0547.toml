@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0547"
-title = "Global evaluation and the parameter tensor-model unit comparison"
+title = "Global evaluation and the tensor unit"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 60
+section = "units-tensor-products-and-localization-boundaries"
+order = 140
 statement = "Global identity evaluation lifts to an exact chosen-zero-preserving small Waldhausen model map and preserves the original unit action. Its tensor-evaluation isomorphism compares genuine tensor pullback with internal global reindexing followed by evaluation and intertwines their scalar actions. At each fixed product scheme parameter, these comparisons give an isomorphism from the underlying internal coefficient model functor to the normalized evaluated tensor model functor. This actual isomorphism intertwines the corresponding model-unit transformations."
 scope = "Arbitrary schemes and the displayed fixed factor and parameter. The final comparison is an objectwise natural isomorphism between the two specified underlying functors; no naturality in the external scheme parameter is claimed by this batch. It preserves genuine unit tensor, evaluation and selected zeros. This is not a returned/qualified generator, an iterated Bass comparison, a stable equivalence theorem or TT localization."
 proof_kind = "outline"

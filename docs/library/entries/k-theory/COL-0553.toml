@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0553"
-title = "Actual suspension evaluation and the finite Bass backward triangle"
+title = "The suspension–loop triangle and the Bass backward map"
 kind = "comparison"
-section = "bass-construction"
-order = 91
+section = "bass-delooping-normalization-and-telescopes"
+order = 30
 statement = '''
 For a loop prespectrum E, the original `forward` suspension-cylinder unit η and evaluation
 counit ε satisfy η at parameterLooping(E), followed by parameterLoopingMap(ε at E), equals the

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0535"
-title = "Restriction to joint scheme and coefficient sections"
+title = "Joint scheme and coefficient restriction"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 30
+section = "affine-and-global-section-models"
+order = 80
 statement = "Fix a commutative ring R and an object i of the original joint scheme-and-coefficient index. Restriction of global bounded-flat sections along the actual coefficient base-change family gives an equivalence to the coefficient section category at i. Original identity evaluation after restriction equals global identity evaluation. Restriction preserves the original chosen-zero section by equality and commutes with the actual coefficient-index maps as equality of functors."
 scope = "The coefficient family and its two index directions are the original ones. The target uses the same pulled-back geometric fiber and zero family. The present interface is an equivalence of section categories with evaluation, zero and reindexing laws; it does not yet bundle the joint Waldhausen model map or prove a prespectrum, Bass-iterate or geometric tensor comparison."
 proof_kind = "outline"

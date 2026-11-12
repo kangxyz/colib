@@ -1,16 +1,16 @@
 [entry]
 id = "COL-0530"
-title = "Ordered first-row transformation cylinders"
+title = "First-row insertion and weak-transformation homotopies"
 kind = "theorem"
-section = "bass-construction"
-order = 87
-statement = """
+section = "bass-delooping-diagrams-and-functoriality"
+order = 130
+statement = '''
 The finite S-construction applied to a weak transformation after first-row
 insertion assembles into an ordered double cylinder. Its realization equals the
 original spectrum structure map applied to the complete transformation track.
 The resulting spectrum homotopy retains both intervals in positive degrees and
 the additional input-loop coordinate in degree zero.
-"""
+'''
 scope = """
 Native small Waldhausen categories and zero-preserving exact functors, with an
 objectwise weak natural transformation. The first-row interval is outermost and

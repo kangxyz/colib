@@ -1,7 +1,7 @@
 [chapter]
 id = "milnor-k-theory"
 title = "Milnor K-Theory"
-order = 11
+order = 10
 introduction = '''The graded Steinberg quotient gives ordered Milnor symbols and their field maps. Tame residues over \(k(X)\) give bounded lifts of finite residue data and describe finite separable norms through the residue at infinity. In residue characteristic zero, local norm–residue formulas assemble into the Dedekind pushforward square, linking the rational calculation to curve reciprocity and weighted affine endpoint identities. In degree two, the symbols give a map to the stable Steinberg kernel and vanish over finite fields.'''
 
 [[sections]]

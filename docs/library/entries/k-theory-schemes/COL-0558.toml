@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0558"
-title = "Tensor-generated finite Bass recursion and current boundaries"
+title = "Tensor-generated Bass recursion and its boundary"
 kind = "theorem"
-section = "returned-tensor-cells"
-order = 50
+section = "bass-k-theory-and-geometric-delooping"
+order = 170
 statement = '''
 For a fixed scheme parameter \(Q\), the actual returned tensor family generates every finite Bass
 cell by the original left-recursive recipe, with all endpoint, naturality, index and row data

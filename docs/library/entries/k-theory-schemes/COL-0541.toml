@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0541"
-title = "Relative-open Laurent tracks and the restriction square"
+title = "Laurent units and relative restriction"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 80
+section = "affine-and-global-section-models"
+order = 130
 statement = "For an open immersion f: P → Q, the unchanged projected Laurent unit also realizes a whole track on the relative-open parameter prespectrum diagram of COL-0539. The change-of-weak map preserves the ambient-to-relative track at every time. The actual open restriction preserves the relative-to-open-ambient track at every time."
 scope = "Arbitrary scheme parameters in the fixed universe. The relative-open unit is the same ambient automorphism, with only the detected weak class changed. The target track on the open uses the original fixed-factor pullback of the Laurent coordinate. No identification of the relative model with the full open model, returned-action qualification, Bass seed, stable equivalence or TT localization is asserted."
 proof_kind = "outline"

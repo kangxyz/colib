@@ -1,16 +1,16 @@
 [entry]
 id = "COL-0525"
-title = "Original row-cell descent through cone and Bass successors"
+title = "Extension of row homotopies to the next Bass stage"
 kind = "comparison"
-section = "bass-construction"
-order = 82
-statement = """
+section = "bass-delooping-diagrams-and-functoriality"
+order = 90
+statement = '''
 A coefficient-natural whole cell into the genuine row refinement descends through
 its four-corner cone, the inverse geometric index map and the forward row strength.
 A proved comparison with an original natural track is preserved by this descent
 and by parameter looping. Transporting only the endpoint witnesses constructs the
 next whole cell; its time-slice comparison proves its coefficient naturality.
-"""
+'''
 scope = """
 Arbitrary indexing categories, loop-prespectrum diagrams and a specified coefficient
 transformation. The row interchange fixes basepoints, is coefficient-natural and

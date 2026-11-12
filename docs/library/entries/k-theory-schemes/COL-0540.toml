@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0540"
-title = "Supported parameter Laurent tracks and support forgetting"
+title = "Laurent units and support forgetting"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 70
+section = "affine-and-global-section-models"
+order = 120
 statement = "For an open immersion f: P → Q and an arbitrary scheme parameter, the projected Laurent unit of COL-0537 realizes a whole natural track on the ambient global-section prespectrum diagram. Restrict that same unit to sections supported outside the product open to obtain the supported track. The support-forgetting map preserves the complete track, not just its endpoints."
 scope = "All scheme parameters and their morphisms in the fixed universe. The Laurent index and coefficient projection are the original geometric maps; the supported unit is lifted through the actual full-subcategory inclusion. The tracks use the existing iterated-S realization. This establishes neither a returned or qualified generator nor the source-null data for a Bass seed, an iterated Bass comparison or localization."
 proof_kind = "outline"

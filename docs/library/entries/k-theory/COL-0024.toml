@@ -3,7 +3,7 @@ id = "COL-0024"
 title = 'Functoriality of the Grothendieck group'
 kind = "theorem"
 section = "grothendieck-groups"
-order = 80
+order = 60
 statement = '''
 Let \(F\colon(\mathcal C,\mathcal E)\to(\mathcal D,\mathcal E')\) be an exact
 functor between preadditive categories with finite biproducts and their indicated

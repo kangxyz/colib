@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0585"
-title = "Original and twisted parameter fiber lifts"
+title = "Comparison of iterated and twisted parameter fiber lifts"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1585
+section = "thomason-trobaugh-localization"
+order = 120
 statement = '''
 For an open immersion f : P → Q and every scheme X, the actual full-open iterated fiber lift is a
 stable equivalence if and only if the twisted lift is.

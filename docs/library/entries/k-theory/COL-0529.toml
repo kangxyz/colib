@@ -1,16 +1,16 @@
 [entry]
 id = "COL-0529"
-title = "Actual Waldhausen unit tracks and finite row inputs"
+title = "Waldhausen unit homotopies and row interchange"
 kind = "theorem"
-section = "bass-construction"
-order = 86
-statement = """
+section = "bass-delooping-diagrams-and-functoriality"
+order = 120
+statement = '''
 Identity-unit automorphisms on a diagram of zero-preserving exact Waldhausen
 functors realize whole coefficient-natural tracks. The actual last-row transpose
 acts on the original homotopy pushout and on every finite Bass stage and its next
 cone, preserving basepoints, coefficient arrows and the two-structure interchange
 equation. The homotopy-pushout transpose is involutive.
-"""
+'''
 scope = """
 Native small Waldhausen categories with zero-preserving exact maps, arbitrary
 indexing categories and the original identity units with pointwise preservation.

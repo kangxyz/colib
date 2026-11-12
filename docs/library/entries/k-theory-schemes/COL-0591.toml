@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0591"
-title = "Three integral Spec telescope comparisons and their whole-null square"
+title = "Integral affine telescope comparisons with support"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1591
+section = "thomason-trobaugh-localization"
+order = 240
 statement = '''
 Let f:P→Q be an open immersion over Spec(CommRingCat.of(ULift ℤ)), let T⊆Q be open, and let
 a∈Under(CommRingCat.of(ULift ℤ)). The fiber and open comparisons use f and T; the ambient

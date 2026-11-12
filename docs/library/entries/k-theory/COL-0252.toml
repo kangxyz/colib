@@ -1,10 +1,21 @@
 [entry]
 id = "COL-0252"
-title = "Canonical acyclic comparison to the change-of-weak fiber"
+title = "The acyclic-subcategory map to the homotopy fiber"
 kind = "definition"
-section = "waldhausen-k-theory"
-order = 170
-statement = "The original realized acyclic inclusion lifts to the path-space homotopy fiber of change of weak equivalences. Its path is the full reversed zero-to-inclusion nullhomotopy, and its projection is the actual inclusion."
+section = "waldhausen-fibration-and-boundary-maps"
+order = 10
+statement = '''
+For nested weak-equivalence classes \(v\subseteq w\), the inclusion
+\(i\colon\mathcal C^w\hookrightarrow\mathcal C\) of coarse-acyclic objects
+lifts to
+\[
+|vS_\bullet\mathcal C^w|\longrightarrow
+\operatorname{hofib}\bigl(|vS_\bullet\mathcal C|\to|wS_\bullet\mathcal C|\bigr).
+\]
+The projection is the realized inclusion. The path coordinate is the
+reversed zero-to-inclusion nullhomotopy, fixed at the chosen zero. This
+constructs the comparison, without yet asserting that it is a weak equivalence.
+'''
 scope = "Nested Waldhausen weak-equivalence classes in arbitrary object and morphism universes. The chosen zero point is preserved. The induced original K-map factors through this based fiber map, and the change-of-weak composite is null. This construction does not assume that the comparison is a weak equivalence."
 review = "author_checked"
 provenance = "quillen"

@@ -1,10 +1,10 @@
 [entry]
 id = "COL-0285"
-title = "Native scheme K-theory, coherent G-theory and their canonical comparison"
+title = "Vector-bundle K-theory and coherent G-theory"
 kind = "definition"
-section = "scheme-k-and-g"
+section = "vector-bundles-coherent-sheaves-and-comparison"
 order = 10
-statement = "The native category of finite locally free module sheaves and the native abelian category of coherent module sheaves define connective scheme K-theory and coherent G-theory. Their actual exact inclusion induces the original canonical K-to-G map. Actual open restriction induces K- and G-homomorphisms with strict identity and composition laws, and the canonical comparison commutes with those homomorphisms."
+statement = "For a scheme $X$, let $\\mathrm{Vect}(X)$ be the exact category of finite locally free module sheaves and let $\\mathrm{Coh}(X)$ be the formalized coherent category. Their Quillen groups define $K_n^{\\mathrm{vb}}(X)$ and $G_n(X)$ for $n\\ge0$. If $X$ is locally Noetherian, the exact inclusion induces $K_n^{\\mathrm{vb}}(X)\\to G_n(X)$. Open restriction induces maps on both groups, compatible with identity and composition; whenever the comparison is defined, the restriction square commutes."
 scope = '''X : `Scheme.{u}`, n : Nat, with Mathlib `SmallModel.{u+1}`. K uses native `Scheme.Vect` and inherited ambient short exact sequences on every scheme. The coherent exact category and G-groups are defined on every scheme. The canonical K-to-G inclusion and its naturality retain locally Noetherian hypotheses. Restriction uses actual open immersions and the literal `Scheme.Modules.restrictFunctor`; both K- and G-restriction and their functoriality require no Noetherian hypothesis. Every group-level statement includes degree zero. This is vector-bundle Quillen K-theory and coherent G-theory, not an identification with perfect-complex Waldhausen K-theory, a general scheme-localization theorem, or nonconnective K-theory.'''
 review = "author_checked"
 provenance = "quillen"

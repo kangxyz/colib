@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0304"
-title = "The original forward scalar boundary is the supported signed cone"
+title = "The scalar boundary and its signed cone"
 kind = "theorem"
-section = "scalar-operations-and-boundaries"
-order = 40
+section = "units-tensor-products-and-localization-boundaries"
+order = 20
 statement = 'For every open immersion \(j\colon U\to X\), native perfect complex K, global section r on X, and specified unit q on U with `j.appTop r = q`, the original relative connecting homomorphism `perfectOpenConnectingHom j 0` sends the independently defined forward scalar \(K_{1}\) class to the actual supported \(K_{0}\) object class of the signed mapping cone of r acting on K.'
 scope = "Arbitrary schemes and open immersions, with no quasi-compactness, quasi-separatedness, Noetherianity, regularity, or nonzerodivisor assumption. Native Stacks perfect complexes retain ambient monomorphism cofibrations and genuine quasi-isomorphisms. The scalar class is defined from its forward weak arrow, independently of all boundary and fiber maps. The actual scalar cofiber prism, fine return path, iterated-fiber deformation, and identity-cofiber component transport prove its inverse orientation. The existing double-loop transpose inverse then cancels that inverse, yielding the positive cone class. No supplied fibration or boundary compatibility, fine-open boundary, Laurent coordinate, terminal Bass sign, or all-degree scalar formula is asserted."
 review = "author_checked"

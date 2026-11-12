@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0560"
-title = "Supported tensor units and parameter tracks"
+title = "Tensor units with support"
 kind = "proposition"
-section = "tensor-unit-prisms"
-order = 1560
+section = "units-tensor-products-and-localization-boundaries"
+order = 160
 statement = '''
 For an open immersion of schemes, the tensor-unit automorphism on supported bounded-above flat
 perfect complexes commutes with the specified reindexing isomorphism.

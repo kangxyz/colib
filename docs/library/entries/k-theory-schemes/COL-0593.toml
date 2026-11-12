@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0593"
-title = "The ordinary supported telescope cone comparison"
+title = "Cone comparison for the supported telescope"
 kind = "comparison"
-section = "global-sections-and-parameters"
-order = 1593
+section = "thomason-trobaugh-localization"
+order = 150
 statement = '''
 Let $R$ be a commutative ring object, $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
 and $a\in\operatorname{Under}R$. Let $S_\infty$, $A_\infty$ and $C_\infty$ denote the original

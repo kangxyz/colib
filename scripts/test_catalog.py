@@ -37,14 +37,16 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(chapters["k-theory-rings"]["title"], "Algebraic K-Theory of Rings")
         self.assertEqual(chapters["k-theory-schemes"]["title"], "Algebraic K-Theory of Schemes")
         self.assertIn("milnor-k-theory", chapters)
+        order = [chapter["id"] for chapter in self.library["chapters"]]
+        self.assertEqual(order[order.index("milnor-k-theory") + 1], "k-theory")
         self.assertNotIn("k-theory-rings-schemes", chapters)
         expected = {
-            "COL-0001": ("k-theory", "grothendieck-groups"),
-            "COL-0338": ("k-theory", "bass-construction"),
+            "COL-0001": ("k-theory", 'grothendieck-groups'),
+            "COL-0338": ("k-theory", 'bass-delooping-diagrams-and-functoriality'),
             "COL-0004": ("k-theory-rings", "k-zero-of-fields"),
-            "COL-0262": ("k-theory-rings", "matsumoto-theorem"),
-            "COL-0280": ("k-theory-rings", "finite-field-k-two"),
-            "COL-0285": ("k-theory-schemes", "scheme-k-and-g"),
+            "COL-0262": ("k-theory-rings", 'matsumoto-theorem'),
+            "COL-0280": ("k-theory-rings", 'matsumoto-theorem'),
+            "COL-0285": ("k-theory-schemes", 'vector-bundles-coherent-sheaves-and-comparison'),
             "COL-0255": ("milnor-k-theory", "milnor-degree-two"),
         }
         for identifier, (chapter, section) in expected.items():
@@ -55,7 +57,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("For every field", matsumoto["statement"])
         self.assertIn("Over a finite field", matsumoto["proof"])
         self.assertEqual(self.library["sections"]["matsumoto-theorem"]["entries"],
-                         ["COL-0262"])
+                         ["COL-0262", "COL-0280"])
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertEqual(set(built["entries"]), set(self.library["entries"]))
 
@@ -353,10 +355,10 @@ class LibraryTests(unittest.TestCase):
             "COL-0215": "homotopy-colimits",
             "COL-0216": "geometric-realization",
             "COL-0217": "homotopy-groups",
-            "COL-0218": "waldhausen-k-theory",
-            "COL-0219": "waldhausen-k-theory",
+            "COL-0218": 'additivity-approximation-and-comparison-theorems',
+            "COL-0219": 'additivity-approximation-and-comparison-theorems',
             "COL-0220": "geometric-realization",
-            "COL-0212": "waldhausen-k-theory",
+            "COL-0212": 'waldhausen-k-theory',
         }
         for identifier, section in expected.items():
             self.assertEqual(self.library["entries"][identifier]["section"], section)
@@ -409,7 +411,13 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
-            "laurent-coefficient-constructions":
+            "resolution-devissage-and-serre-localization": "Colib.KTheory.Quillen.Basic",
+            "additivity-approximation-and-comparison-theorems": "Colib.KTheory.Waldhausen.Basic",
+            "waldhausen-fibration-and-boundary-maps": "Colib.KTheory.Waldhausen.Basic",
+            "delooping-and-stable-localization": "Colib.KTheory.Waldhausen.Basic",
+            "bass-delooping-normalization-and-telescopes": "Colib.KTheory.Bass.StrictDiagram",
+
+            "bass-delooping-diagrams-and-functoriality":
                 "Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction",
             "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
             "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
@@ -427,7 +435,7 @@ class LibraryTests(unittest.TestCase):
             "sylow-field-reduction": "Colib.FieldTheory.PGroupNormalSubfieldEmbedding",
             "waldhausen-categories": "Colib.CategoryTheory.Waldhausen.Basic",
             "waldhausen-k-theory": "Colib.KTheory.Waldhausen.Basic",
-            "bass-construction": "Colib.KTheory.Bass.StrictDiagram",
+            "bass-delooping-diagrams-and-functoriality": "Colib.KTheory.Bass.StrictDiagram",
             "homology-colimits": "Colib.Algebra.Category.ModuleCat.FilteredColimits",
             "affine-open-pairs": "Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor",
             "scheme-products-and-index-squares":
@@ -464,18 +472,19 @@ class LibraryTests(unittest.TestCase):
             "k-zero-of-fields": "Colib.RingTheory.KTheory.GrothendieckGroup.Field",
             "quillen-k-theory-of-rings": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "g-theory-of-rings": "Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization",
-            "scheme-k-and-g": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"perfect-open-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"scalar-operations-and-boundaries": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"supported-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"perfect-pullback": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"global-sections-and-parameters": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
-"tensor-unit-prisms": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorModelUnit",
-"returned-tensor-cells": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
-"affine-evaluation": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
-"affine-bass-constructions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+            "vector-bundles-coherent-sheaves-and-comparison": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"support-and-connective-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"units-tensor-products-and-localization-boundaries": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"support-and-connective-localization": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"thomason-trobaugh-localization": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterCurrentFullFiber",
+"derived-pullback-and-flat-resolutions": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"affine-and-global-section-models": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
+"units-tensor-products-and-localization-boundaries": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorModelUnit",
+"bass-k-theory-and-geometric-delooping": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
+"affine-and-global-section-models": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
+"bass-k-theory-and-geometric-delooping": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
             "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
-            "finite-field-k-two": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
+            "matsumoto-theorem": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "milnor-symbols-field-change": "Colib.RingTheory.KTheory.MilnorK.Symbols.Basic",
             "milnor-residues-and-specialization": "Colib.RingTheory.KTheory.MilnorK.Residue.Specialization",
             "milnor-norms-and-rational-residues": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPrimeAnnihilation",
@@ -634,7 +643,7 @@ class LibraryTests(unittest.TestCase):
     def test_exact_equivalence_keeps_canonical_maps(self):
         item = self.library["entries"]["COL-0179"]
         self.assertEqual(item["section"], "waldhausen-k-theory")
-        self.assertIn("canonical `KMap`", item["statement"])
+        self.assertIn("canonical K-theory maps", item["statement"])
         self.assertIn("strict chosen-zero preservation is not required", item["scope"])
         self.assertIn("No equality with archived named `PerfectK`", item["scope"])
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
@@ -678,7 +687,7 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(self.library["entries"][identifier]["path"],
                              f"docs/library/entries/commutative-algebra/{identifier}.toml")
         self.assertEqual(self.library["entries"]["COL-0362"]["section"],
-                         "affine-bass-constructions")
+                         "bass-k-theory-and-geometric-delooping")
 
     def test_native_transfer_torus_exterior_items_keep_owners_and_scope(self):
         expected = {
@@ -1125,6 +1134,23 @@ class LibraryTests(unittest.TestCase):
                     catalog.check_prose(text, self.library, "fixture")
         catalog.check_prose(r"`[@Unknown]` and \(\text{COL-9999}\)", self.library, "fixture")
 
+    def test_quillen_locators_preserve_repository_roots(self):
+        source = self.library["sources"]["quillen"]
+        base = source["url"].replace("/tree/", "/blob/")
+        cases = (
+            ("KTheory/Plus/StableGeneralLinearPlus.lean:31-57", "/Quillen/KTheory/Plus/StableGeneralLinearPlus.lean#L31-L57"),
+            ("Quillen/KTheory/Plus/StableGeneralLinearPlus.lean:31-57", "/Quillen/KTheory/Plus/StableGeneralLinearPlus.lean#L31-L57"),
+            ("examples/downstream/StableGeneralLinearPlus.lean", "/examples/downstream/StableGeneralLinearPlus.lean"),
+        )
+        for locator, expected in cases:
+            with self.subTest(locator=locator):
+                result = catalog.reference_locations("quillen", source, locator)
+                self.assertEqual(result[0]["url"], base + expected)
+        self.assertEqual(catalog.reference_locations("quillen", source, "Section 7")[0]["url"], source["url"])
+        for locator in ("Quillen//Test.lean:1", "Quillen/../Test.lean:1", "KTheory/Test.lean:9-7", "examples/Test.lean:0"):
+            with self.subTest(locator=locator), self.assertRaises(ValueError):
+                catalog.reference_locations("quillen", source, locator)
+
     def test_software_locators_link_each_span_at_the_recorded_commit(self):
         source = self.library["sources"]["aglib_principal_euler_pin"]
         locator = "Algebra/Homology/DerivedCategory/ExtRightDerived.lean:220-258,336-433"
@@ -1274,7 +1300,7 @@ class LibraryTests(unittest.TestCase):
     def test_based_invariance_and_kmap_composition_ids_keep_their_owners(self):
         for identifier, section in (
             ("COL-0071", "homotopy-groups"),
-            ("COL-0072", "quillen-k-theory"),
+            ("COL-0072", 'quillen-k-theory'),
         ):
             self.assertEqual(self.library["entries"][identifier]["section"], section)
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
@@ -1294,7 +1320,7 @@ class LibraryTests(unittest.TestCase):
         for index in range(76, 81):
             self.assertEqual(
                 self.library["entries"][f"COL-{index:04d}"]["section"],
-                "exact-categories" if index < 78 else "grothendieck-groups",
+                "exact-categories" if index < 78 else "grothendieck-groups" if index == 78 else "quillen-k-theory",
             )
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         for index in range(76, 81):
@@ -1304,7 +1330,7 @@ class LibraryTests(unittest.TestCase):
         for index in range(81, 87):
             section = (
                 "geometric-realization" if index < 84 else
-                "classifying-spaces" if index < 86 else "grothendieck-groups"
+                "classifying-spaces" if index < 86 else "quillen-k-theory"
             )
             self.assertEqual(self.library["entries"][f"COL-{index:04d}"]["section"], section)
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
@@ -1434,7 +1460,7 @@ class LibraryTests(unittest.TestCase):
         for index in (28, 29):
             self.assertEqual(
                 self.library["entries"][f"COL-{index:04d}"]["section"],
-                "grothendieck-groups",
+                "resolution-devissage-and-serre-localization",
             )
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         for index in range(27, 30):
@@ -1580,8 +1606,8 @@ class LibraryTests(unittest.TestCase):
     def test_hand_maintained_module_routes_are_rejected(self):
         path = self.root / "docs/library/chapters/k-theory.toml"
         path.write_text(path.read_text().replace(
-            'id = "bass-construction"\n',
-            'id = "bass-construction"\nmodules = ["Colib.KTheory"]\n',
+            'id = "bass-delooping-diagrams-and-functoriality"\n',
+            'id = "bass-delooping-diagrams-and-functoriality"\nmodules = ["Colib.KTheory"]\n',
             1,
         ))
         with self.assertRaisesRegex(ValueError, "Module ownership is exported"):
@@ -1650,7 +1676,7 @@ class LibraryTests(unittest.TestCase):
 
 
     def test_reconstructed_quillen_topics_keep_chapter_owners(self):
-        expected = {'COL-0517': ['k-theory', 'bass-construction'], 'COL-0513': ['k-theory-rings', 'quillen-k-theory-of-rings'], 'COL-0507': ['k-theory-schemes', 'supported-localization'], 'COL-0511': ['k-theory-schemes', 'affine-evaluation'], 'COL-0510': ['k-theory-schemes', 'affine-bass-constructions'], 'COL-0518': ['topology', 'homotopy-groups']}
+        expected = {'COL-0517': ['k-theory', 'bass-delooping-diagrams-and-functoriality'], 'COL-0513': ['k-theory-rings', 'quillen-k-theory-of-rings'], 'COL-0507': ['k-theory-schemes', 'support-and-connective-localization'], 'COL-0511': ['k-theory-schemes', 'affine-and-global-section-models'], 'COL-0510': ['k-theory-schemes', 'bass-k-theory-and-geometric-delooping'], 'COL-0518': ['topology', 'homotopy-groups']}
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], section)
@@ -1659,7 +1685,7 @@ class LibraryTests(unittest.TestCase):
 
 
     def test_tt_successor_topics_keep_chapter_owners(self):
-        expected = {'COL-0519': ('bass-construction', 'docs/library/entries/k-theory/COL-0519.toml'), 'COL-0520': ('homotopy-groups', 'docs/library/entries/topology/COL-0520.toml'), 'COL-0521': ('bass-construction', 'docs/library/entries/k-theory/COL-0521.toml'), 'COL-0522': ('homotopy-groups', 'docs/library/entries/topology/COL-0522.toml'), 'COL-0523': ('bass-construction', 'docs/library/entries/k-theory/COL-0523.toml'), 'COL-0524': ('homotopy-groups', 'docs/library/entries/topology/COL-0524.toml'), 'COL-0525': ('bass-construction', 'docs/library/entries/k-theory/COL-0525.toml'), 'COL-0526': ('homotopy-groups', 'docs/library/entries/topology/COL-0526.toml'), 'COL-0527': ('bass-construction', 'docs/library/entries/k-theory/COL-0527.toml'), 'COL-0528': ('bass-construction', 'docs/library/entries/k-theory/COL-0528.toml'), 'COL-0529': ('bass-construction', 'docs/library/entries/k-theory/COL-0529.toml'), 'COL-0530': ('bass-construction', 'docs/library/entries/k-theory/COL-0530.toml'), 'COL-0531': ('bass-construction', 'docs/library/entries/k-theory/COL-0531.toml'), 'COL-0532': ('scheme-products-and-index-squares', 'docs/library/entries/algebraic-geometry/COL-0532.toml')}
+        expected = {'COL-0519': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0519.toml'), 'COL-0520': ('homotopy-groups', 'docs/library/entries/topology/COL-0520.toml'), 'COL-0521': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0521.toml'), 'COL-0522': ('homotopy-groups', 'docs/library/entries/topology/COL-0522.toml'), 'COL-0523': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0523.toml'), 'COL-0524': ('homotopy-groups', 'docs/library/entries/topology/COL-0524.toml'), 'COL-0525': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0525.toml'), 'COL-0526': ('homotopy-groups', 'docs/library/entries/topology/COL-0526.toml'), 'COL-0527': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0527.toml'), 'COL-0528': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0528.toml'), 'COL-0529': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0529.toml'), 'COL-0530': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0530.toml'), 'COL-0531': ('bass-delooping-diagrams-and-functoriality', 'docs/library/entries/k-theory/COL-0531.toml'), 'COL-0532': ('scheme-products-and-index-squares', 'docs/library/entries/algebraic-geometry/COL-0532.toml')}
         for identifier, (section, path) in expected.items():
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], section)
@@ -1667,7 +1693,7 @@ class LibraryTests(unittest.TestCase):
 
 
     def test_global_scheme_geometry_items_keep_scope_and_owners(self):
-        expected = {'COL-0533': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0534': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0535': ('k-theory-schemes', 'global-sections-and-parameters'), 'COL-0536': ('algebraic-geometry', 'scheme-products-and-index-squares'), 'COL-0537': ('k-theory-schemes', 'global-sections-and-parameters')}
+        expected = {'COL-0533': ('k-theory-schemes', 'affine-and-global-section-models'), 'COL-0534': ('k-theory-schemes', 'affine-and-global-section-models'), 'COL-0535': ('k-theory-schemes', 'affine-and-global-section-models'), 'COL-0536': ('algebraic-geometry', 'scheme-products-and-index-squares'), 'COL-0537': ('k-theory-schemes', 'affine-and-global-section-models')}
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]
             self.assertEqual(item["section"], section)
@@ -1679,33 +1705,33 @@ class LibraryTests(unittest.TestCase):
     def test_joint_models_and_laurent_tracks_keep_scheme_owner(self):
         for identifier in ['COL-0538', 'COL-0539', 'COL-0540', 'COL-0541']:
             item = self.library["entries"][identifier]
-            self.assertEqual(item["section"], "global-sections-and-parameters")
+            self.assertEqual(item["section"], "affine-and-global-section-models")
             self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
 
 
     def test_tensor_unit_prisms_keep_scheme_owner(self):
         for identifier in ['COL-0542', 'COL-0543', 'COL-0544', 'COL-0545', 'COL-0546', 'COL-0547']:
             item = self.library["entries"][identifier]
-            self.assertEqual(item["section"], "tensor-unit-prisms")
+            self.assertEqual(item["section"], "units-tensor-products-and-localization-boundaries")
             self.assertEqual(item["path"], f"docs/library/entries/k-theory-schemes/{identifier}.toml")
 
 
 
     def test_returned_geometric_items_keep_owners_and_primaries(self):
         expected = {'COL-0548': {'chapter': 'k-theory-schemes',
-                      'section': 'global-sections-and-parameters',
+                      'section': 'affine-and-global-section-models',
                       'primary': 'AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.evaluationModel_isStableEquivalence',
                       'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalEvaluationEquivalence'},
          'COL-0549': {'chapter': 'k-theory',
-                      'section': 'bass-construction',
+                      'section': 'bass-delooping-normalization-and-telescopes',
                       'primary': 'Topology.LoopPrespectrum.RowRefinement.normalizedOperation',
                       'module': 'Colib.Topology.Prespectrum.RowNormalizedOperation'},
          'COL-0550': {'chapter': 'k-theory-schemes',
-                      'section': 'returned-tensor-cells',
+                      'section': 'bass-k-theory-and-geometric-delooping',
                       'primary': 'AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.returnedPasting',
                       'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell'},
          'COL-0551': {'chapter': 'k-theory-schemes',
-                      'section': 'returned-tensor-cells',
+                      'section': 'bass-k-theory-and-geometric-delooping',
                       'primary': 'AlgebraicGeometry.Scheme.Modules.ParameterTensorEvaluationRow.strictifiedNormalizedForward_eq',
                       'module': 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedStrictification'}}
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
@@ -1721,25 +1747,25 @@ class LibraryTests(unittest.TestCase):
     def test_current_boundary_items_keep_owners_and_primaries(self):
         expected = (
             (
-                "COL-0552", "k-theory", "bass-construction",
+                "COL-0552", "k-theory", 'bass-delooping-normalization-and-telescopes',
                 "KTheory.Bass.DiagramRowSeed.normalizedBoundaryHomotopy",
                 "Colib.KTheory.Bass.DiagramRowNormalizedBoundaryHomotopy",
                 "Quillen/KTheory/Bass/DiagramRowNormalizedBoundary.lean:74",
             ),
             (
-                "COL-0553", "k-theory", "bass-construction",
+                "COL-0553", "k-theory", 'bass-delooping-normalization-and-telescopes',
                 "KTheory.Bass.ModelRowZigzagSequentialization.backward_eq",
                 "Colib.KTheory.Bass.ModelRowZigzagBackward",
                 "Quillen/KTheory/Bass/ModelRowZigzagSequentialization.lean:45",
             ),
             (
-                "COL-0554", "k-theory", "bass-construction",
+                "COL-0554", "k-theory", 'bass-delooping-normalization-and-telescopes',
                 "KTheory.Bass.WholeSeedCospan.seed",
                 "Colib.KTheory.Bass.WholeSeedWord",
                 "Quillen/KTheory/Bass/WholeSeedCospan.lean:76",
             ),
             (
-                "COL-0555", "k-theory-schemes", "returned-tensor-cells",
+                "COL-0555", "k-theory-schemes", 'bass-k-theory-and-geometric-delooping',
                 "KTheory.Bass.SchemeModelRowSeed.normalizedBoundaryCurrentHomotopy",
                 "Colib.AlgebraicGeometry.KTheory.Bass.SchemeModelRowCurrentBoundary",
                 "Quillen/KTheory/Bass/SchemeModelRowNormalizedBoundary.lean:57",
@@ -1761,7 +1787,7 @@ class LibraryTests(unittest.TestCase):
 
 
     def test_returned_recognition_items_keep_owners_and_primaries(self):
-        expected = [('COL-0556', 'tensor-unit-prisms', 'AlgebraicGeometry.Scheme.Modules.tensorUnitCoefficientKOneClass_inclusion', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitCoefficientKOne'), ('COL-0557', 'returned-tensor-cells', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensorSquare_unique', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGenerators'), ('COL-0558', 'returned-tensor-cells', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensor_generated_trace', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGeneratedTrace')]
+        expected = [('COL-0556', 'units-tensor-products-and-localization-boundaries', 'AlgebraicGeometry.Scheme.Modules.tensorUnitCoefficientKOneClass_inclusion', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitCoefficientKOne'), ('COL-0557', 'bass-k-theory-and-geometric-delooping', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensorSquare_unique', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGenerators'), ('COL-0558', 'bass-k-theory-and-geometric-delooping', 'AlgebraicGeometry.Scheme.Modules.ReturnedTensorConeRecognition.tensor_generated_trace', 'Colib.AlgebraicGeometry.KTheory.BoundedFlatReturnedTensorGeneratedTrace')]
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         for identifier, section, primary, module in expected:
             item = self.library["entries"][identifier]
@@ -1782,28 +1808,28 @@ class LibraryTests(unittest.TestCase):
             ),
             (
                 'COL-0560',
-                'tensor-unit-prisms',
+                'units-tensor-products-and-localization-boundaries',
                 'AlgebraicGeometry.Scheme.Modules.GlobalTensorNormalizedSupport.supportedUnit_naturality',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalTensorNormalizedSupport',
                 'k-theory-schemes',
             ),
             (
                 'COL-0561',
-                'tensor-unit-prisms',
+                'units-tensor-products-and-localization-boundaries',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatPerfectSupportedTensorUnitFirstRow_exact',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientExact',
                 'k-theory-schemes',
             ),
             (
                 'COL-0562',
-                'tensor-unit-prisms',
+                'units-tensor-products-and-localization-boundaries',
                 'AlgebraicGeometry.Scheme.Modules.tensorSupportedPairSmallCoefficientCylinder_eq',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectTensorUnitSupportedCoefficientSmallCylinder',
                 'k-theory-schemes',
             ),
             (
                 'COL-0563',
-                'tensor-unit-prisms',
+                'units-tensor-products-and-localization-boundaries',
                 'AlgebraicGeometry.Scheme.Modules.ParameterTensorSupportedRow.modelEvaluationForgetRectangle',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorSupportedForgetRectangle',
                 'k-theory-schemes',
@@ -1829,42 +1855,42 @@ class LibraryTests(unittest.TestCase):
             ),
             (
                 'COL-0565',
-                'bass-construction',
+                'bass-delooping-normalization-and-telescopes',
                 'KTheory.Bass.NormalizedStageMap.model_stageMap_stable',
                 'Colib.KTheory.Bass.NormalizedStageMapStable',
                 'k-theory',
             ),
             (
                 'COL-0566',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.SchemeNaturalSeed.model_telescopeMap_stable',
                 'Colib.AlgebraicGeometry.KTheory.Bass.SchemeCurrentStageTelescopeStable',
                 'k-theory-schemes',
             ),
             (
                 'COL-0567',
-                'bass-construction',
+                'bass-delooping-normalization-and-telescopes',
                 'KTheory.Bass.NormalizedStageMap.stageMap_null',
                 'Colib.KTheory.Bass.NormalizedDiagramNull',
                 'k-theory',
             ),
             (
                 'COL-0568',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_null_square',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentNull',
                 'k-theory-schemes',
             ),
             (
                 'COL-0569',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.GlobalSupportedSection.ParameterAuxiliarySupport.current_null_square',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentNull',
                 'k-theory-schemes',
             ),
             (
                 'COL-0570',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.current_normalized_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullCurrentFiberComparison',
                 'k-theory-schemes',
@@ -1890,28 +1916,28 @@ class LibraryTests(unittest.TestCase):
             ),
             (
                 'COL-0572',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.GeometricConeInterchange.permutationFunctorIso',
                 'Colib.AlgebraicGeometry.KTheory.Bass.GeometricConeSchemeNaturality',
                 'k-theory-schemes',
             ),
             (
                 'COL-0573',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.SchemeNaturalSeed.model_conjugacyTelescopeMap_stable',
                 'Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedTelescope',
                 'k-theory-schemes',
             ),
             (
                 'COL-0574',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.SchemeNaturalSeed.conjugacyTelescopeMap_null',
                 'Colib.AlgebraicGeometry.KTheory.Bass.SchemeTwistedNull',
                 'k-theory-schemes',
             ),
             (
                 'COL-0575',
-                'supported-localization',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.normalized_twisted_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullTwistedFiberComparison',
                 'k-theory-schemes',
@@ -1930,14 +1956,14 @@ class LibraryTests(unittest.TestCase):
         expected = [
             (
                 'COL-0576',
-                'bass-construction',
+                'bass-delooping-normalization-and-telescopes',
                 'KTheory.Bass.StrictDiagramIndexRow.telescopeIso',
                 'Colib.KTheory.Bass.StrictDiagramIndexRowTelescope',
                 'k-theory',
             ),
             (
                 'COL-0577',
-                'bass-construction',
+                'bass-delooping-diagrams-and-functoriality',
                 'KTheory.Bass.modelDiagramIterate_map_isStableEquivalence_of_exactEquivalence',
                 'Colib.KTheory.Bass.ModelDiagramStableEquivalence',
                 'k-theory',
@@ -1951,14 +1977,14 @@ class LibraryTests(unittest.TestCase):
             ),
             (
                 'COL-0579',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.GlobalSectionChangeIndex.telescopeRestriction_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalSectionTelescope',
                 'k-theory-schemes',
             ),
             (
                 'COL-0580',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.fineTelescopeComparison_stable',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalParameterFineTelescope',
                 'k-theory-schemes',
@@ -1977,35 +2003,35 @@ class LibraryTests(unittest.TestCase):
         expected = [
             (
                 'COL-0581',
-                'bass-construction',
+                'bass-delooping-normalization-and-telescopes',
                 'KTheory.Bass.strictDiagramCofiberComparison_desc',
                 'Colib.KTheory.Bass.StrictDiagramCofiberDescent',
                 'k-theory',
             ),
             (
                 'COL-0582',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.GeometricChiPermutation.comparison',
                 'Colib.AlgebraicGeometry.KTheory.Bass.GeometricChiPermutation',
                 'k-theory-schemes',
             ),
             (
                 'COL-0583',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.SchemeIteratedSeedTransition.seed_cone_rotation',
                 'Colib.AlgebraicGeometry.KTheory.Bass.SchemeSeedRotation',
                 'k-theory-schemes',
             ),
             (
                 'COL-0584',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'KTheory.Bass.SchemeIteratedSeedTelescope.model_iteratedTwistedTelescopeMap_stable',
                 'Colib.AlgebraicGeometry.KTheory.Bass.SchemeIteratedSeedTelescope',
                 'k-theory-schemes',
             ),
             (
                 'COL-0585',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.iterated_twisted_lift_stable_iff',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterIteratedTwistedFiber',
                 'k-theory-schemes',
@@ -2024,49 +2050,49 @@ class LibraryTests(unittest.TestCase):
         expected = [
             (
                 'COL-0586',
-                'bass-construction',
+                'bass-delooping-normalization-and-telescopes',
                 'KTheory.Bass.StrictDiagramIndexRowMap.telescopeMap_stable',
                 'Colib.KTheory.Bass.StrictDiagramIndexRowMapTelescopeNaturality',
                 'k-theory',
             ),
             (
                 'COL-0587',
-                'laurent-coefficient-constructions',
+                'bass-delooping-diagrams-and-functoriality',
                 'KTheory.Bass.LaurentSeed.ModelAction.seedDiagramNull',
                 'Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction',
-                'k-theory-rings',
+                'k-theory',
             ),
             (
                 'COL-0588',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeOpenConeMap_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFiberBassTelescope',
                 'k-theory-schemes',
             ),
             (
                 'COL-0589',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedOpenModel_KZero_exact',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedOpenKZeroExact',
                 'k-theory-schemes',
             ),
             (
                 'COL-0590',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeFullOpenFiberMap_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedFullOpenBassLocalization',
                 'k-theory-schemes',
             ),
             (
                 'COL-0591',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.GlobalAuxiliaryParameterCoefficient.fiberTelescopeComparison_stable',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalAuxiliaryParameterTelescopeComparison',
                 'k-theory-schemes',
             ),
             (
                 'COL-0592',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryCurrentFiber.currentLift_integer_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryCurrentLocalization',
                 'k-theory-schemes',
@@ -2085,42 +2111,42 @@ class LibraryTests(unittest.TestCase):
         expected = [
             (
                 'COL-0593',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedBassTelescopeOpenConeMap_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedBassTelescope',
                 'k-theory-schemes',
             ),
             (
                 'COL-0594',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientOpenModel_KZero_exact',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientOrdinaryOpenKZeroExact',
                 'k-theory-schemes',
             ),
             (
                 'COL-0595',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientOpenBassTelescopeRestriction_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientOrdinaryOpenRestrictionStable',
                 'k-theory-schemes',
             ),
             (
                 'COL-0596',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedBassTelescopeFullOpenFiberMap_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientFullOpenBassLocalization',
                 'k-theory-schemes',
             ),
             (
                 'COL-0597',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.telescope_fullNull_fine_square',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatGlobalParameterTelescopeNull',
                 'k-theory-schemes',
             ),
             (
                 'COL-0598',
-                'global-sections-and-parameters',
+                'thomason-trobaugh-localization',
                 'AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.currentLift_integer_isStableEquivalence',
                 'Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterCurrentFullFiber',
                 'k-theory-schemes',
