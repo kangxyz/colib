@@ -69,7 +69,8 @@ theorem motivicComplex_homology_isStrictA1Invariant (q : ℕ) (i : ℤ) :
 
 /-- Ordinary Nisnevich cohomology of each cohomology sheaf of the actual ordinary
 motivic complex is invariant under the affine-line projection over a perfect field. -/
-@[colib_tag "COL-1031"]
+@[colib_tag "COL-1031", colib_ref "MVW2006" "Lecture 13, Theorem 13.8"
+  "specialization" "Strict Nisnevich invariance for the cohomology sheaves of the motivic complex"]
 theorem motivicSheafComplex_homology_cohomologyPresheaf_isA1Invariant
     (q : ℕ) (i : ℤ) (n : ℕ) :
     A1.IsInvariant (.of k)
