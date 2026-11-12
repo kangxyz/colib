@@ -120,9 +120,7 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
           Scheme.Modules.Hom.app (X := ZL) eN.hom ⊤ (pullbackGlobalSections iL Naux bN) =
             (1 : Γ(ZL, ⊤)) := by
   let R := ↥(etaleLocalRing B X.left hX s)
-  let := isNoetherian_strictHenselization B X.left hX s
-  let : IsNoetherianRing R := isLocallyNoetherian_Spec.mp
-    (inferInstance : IsLocallyNoetherian (strictHenselization B X.left hX s))
+  let : IsNoetherianRing R := isNoetherianRing_etaleLocalRing B X.left hX s
   let := etaleStageOpenCone_isIntegral X s p i U B hX x hpre
   let : IsSeparated ((etaleStageOpenStructure X s p i U).app a0) :=
     MorphismProperty.of_isPullback (P := @IsSeparated)
