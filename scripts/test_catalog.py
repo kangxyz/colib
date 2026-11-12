@@ -402,6 +402,16 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("No homotopy-invariance or transfer assumption",
                       self.library["entries"]["COL-0349"]["scope"])
 
+    def test_dedekind_residue_endpoints_keep_original_scope(self):
+        for identifier in ("COL-0603", "COL-0604", "COL-0605"):
+            self.assertEqual(self.library["entries"][identifier]["section"],
+                             "dedekind-residue-localization")
+        self.assertIn("only in positive degrees", self.library["entries"]["COL-0603"]["scope"])
+        self.assertIn("Generic G1 injectivity is an explicit hypothesis",
+                      self.library["entries"]["COL-0604"]["scope"])
+        self.assertIn("No generic G1 injectivity hypothesis or conclusion",
+                      self.library["entries"]["COL-0605"]["scope"])
+
     def native_fixture(self):
         native = {
             "bindings": [],
@@ -411,6 +421,7 @@ class LibraryTests(unittest.TestCase):
             "modules": [],
         }
         module_names = {
+            "dedekind-residue-localization": "Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly",
             "resolution-devissage-and-serre-localization": "Colib.KTheory.Quillen.Basic",
             "additivity-approximation-and-comparison-theorems": "Colib.KTheory.Waldhausen.Basic",
             "waldhausen-fibration-and-boundary-maps": "Colib.KTheory.Waldhausen.Basic",
@@ -498,6 +509,11 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-0603": "Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly",
+            "COL-0604": "Colib.RingTheory.KTheory.GTheory.Dedekind.Localization",
+            "COL-0605": "Colib.RingTheory.KTheory.GTheory.Dedekind.FiniteResidue",
+            "COL-0609": "Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality",
+            "COL-0610": "Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality",
             "COL-0593":
                 "Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedBassTelescope",
             "COL-0594":

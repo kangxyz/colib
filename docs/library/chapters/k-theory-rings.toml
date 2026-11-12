@@ -62,3 +62,15 @@ introduction = "Let $R$ be a commutative Noetherian ring and $S\\subseteq R$ a m
 [sections.transitions]
 COL-0273 = "Finite generation turns elementwise S-torsion into annihilation by one element of S. The supported exact category is therefore the kernel of finite-module localization. The Serre-localization theorem from the general K-theory chapter applies to this actual functor."
 COL-0274 = "If $r^nM=0$, the filtration by $r^iM$ has successive quotients annihilated by $r$, hence finite $R/(r)$-modules. Dévissage identifies the supported group through restriction of scalars. Transporting the localization boundary through that equivalence yields the closed/open sequence with the same sign."
+
+[[sections]]
+id = "dedekind-residue-localization"
+title = "Residue localization over Dedekind domains"
+order = 55
+introduction = 'Finite torsion modules decompose into their height-one primary parts. Dévissage identifies each primary contribution with its residue-field G-theory. The resulting assembly describes the coordinates of the original generic localization boundary.'
+
+[sections.transitions]
+COL-0604 = 'Use the inverse assembly to read the supported boundary one residue at a time. The coordinate kernels detect the generic image. Lifting an arbitrary finite family requires the stated injectivity of the generic G₁ map.'
+COL-0605 = 'Finiteness of the residue fields instead annihilates the supported G₂ term, using finite-field G₂ vanishing. Exactness then gives generic G₂ injectivity, without assuming or proving generic G₁ injectivity.'
+COL-0609 = 'Localize now at a height-one prime. The ordinary module-localization square and its original scalar-extension map identify the local-DVR boundary with the global residue coordinate.'
+COL-0610 = 'The coordinate equality transports the kernel-intersection statement and the conditional finite-family lifting theorem to the actual local-DVR boundaries. The generic G₁ injectivity premise is unchanged.'
