@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1079"
+title = "A geometric moving relation between the two original graphs"
+kind = "theorem"
+section = "cartier-correspondences"
+order = 30
+primary = "AlgebraicGeometry.exists_geometric_framed_graph_moving_relation"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let a noetherian integral proper relative curve X over an affine
+noetherian reduced source V admit a projective closed embedding over a
+noetherian local ring R. Let an integral noetherian quasi-affine retained
+open U be smooth of relative dimension one over V, and let a finite affine
+boundary Spec B over R cover its complement. For two original sections
+factoring through U and avoiding that full boundary, fix a compatible
+positive-power root and its original boundary frame. Produce sufficiently
+high twists, compatible nonzero sections and their whole finite locally
+free zero schemes in U. Their native correspondences give the signed
+moving relation between the two original graph correspondences, with
+the same correction function and its full-boundary unit equal to one.
+'''
+proof = '''
+Apply COL-1048 internally to select the twist frame and the compatible
+pair. Cartier regularity proves both sections nonzero, including when
+the boundary is empty. The original section kernels are Cartier by
+smoothness only on U and are finite locally free by their section
+isomorphisms. Apply COL-1072 and identify both original section graphs.
+'''
+scope = '''
+The source-target map on U lies over a common base whose target is
+separated and locally of finite type. No preselected pair, finite-flat
+support certificate or signed relation is assumed. The given boundary
+can be nonreduced or empty. The compatible root and frame remain inputs;
+COL-1055 is the separate cohomological producer. Identification of the
+principal term with polynomial-family endpoints remains separate.
+'''

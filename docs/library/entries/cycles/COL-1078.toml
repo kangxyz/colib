@@ -1,0 +1,31 @@
+[entry]
+id = "COL-1078"
+title = "The actual polynomial charts supply the signed endpoint weights"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 150
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.exists_chartFraction_signedEndpointSupport"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+For the original polynomial family t f+(1-t), at codimension-one points of the actual zero and
+one endpoint charts, choose the same affine fraction representing the
+original rational function. Its literal chart polynomial identity gives
+signed local support-cut sum zero at the zero endpoint and the original
+curve order of f at the one endpoint.
+'''
+proof = '''
+Use COL-1056 for the original fraction, polynomial identity and endpoint
+germs. The actual endpoint-kernel equation and flat structural polynomial
+projection supply maximal-ideal membership, regularity and finite double
+cut lengths. Apply COL-1077 to those same numerator and denominator
+germs and the original full support stalks.
+'''
+scope = '''
+The original curve, unit chart and affine chart are integral. The affine
+chart and its polynomial cylinder are noetherian, the ambient polynomial
+cylinder is integral, and the original ambient unit open is nonempty.
+At codimension-one points of the affine chart, no separate fraction
+identity, endpoint regularity or support-flatness certificate is assumed. This is the local signed
+endpoint calculation, not the whole native correspondence identity.
+'''

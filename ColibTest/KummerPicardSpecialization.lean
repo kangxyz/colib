@@ -30,6 +30,12 @@ attribute [local instance 2000] hasExt_sheaf_smallEtale_succ
 variable (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
   {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
 
+-- Nonzero and invertibility hypotheses remain explicit even when used only in the proof.
+example {n : ℕ} (hn0 : n ≠ 0) (hX : IsUnit ((n : ℕ) : Γ(X, ⊤))) :
+    Function.Bijective
+      (rootsOfUnityPullbackMap.{u, 0, u + 1} (closedFibreInclusion R f) n 2) :=
+  bijective_rootsOfUnityPullbackMap_closedFibre R f hn0 hX
+
 -- Arbitrary proper schemes, not only smooth curves; composite exponents are permitted.
 example (hX : IsUnit ((6 : ℕ) : Γ(X, ⊤))) (L : Stacks.Picard.ofScheme X) :
     (∃ M, 6 • M = L) ↔

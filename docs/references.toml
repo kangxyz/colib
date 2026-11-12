@@ -372,3 +372,11 @@ authors = ["J. Peter May"]
 year = 1967
 version = "Author-hosted scan with original pagination"
 url = "https://www.math.uchicago.edu/~may/BOOKS/Simp.pdf"
+
+[sources.motivic_source_3df0a472]
+kind = "software"
+title = "Motivic Cohomology etale implementation source"
+authors = ["kangxyz and Motivic Cohomology contributors"]
+version = "Git commit 3df0a472157b88195fd8a1fc318f4766634825c2; unchanged baseline sources inspected in the 2026-10-21T08:16:59Z checkpoint"
+url = "https://github.com/kangxyz/motivic/tree/3df0a472157b88195fd8a1fc318f4766634825c2"
+locator_roots = ["Motivic"]

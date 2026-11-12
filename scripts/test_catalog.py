@@ -435,6 +435,8 @@ class LibraryTests(unittest.TestCase):
             "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
             "proper-etale-specialization":
                 "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
+            "affine-curve-parameters":
+                "Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndependentSmoothMap",
             "normal-curve-compactifications":
                 "Colib.AlgebraicGeometry.Normalization.Compactification.FiniteBoundary",
             "projective-section-lifting":
@@ -630,6 +632,20 @@ class LibraryTests(unittest.TestCase):
             "COL-1068": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryParameterCuts",
             "COL-1069": "Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinates",
             "COL-1070": "Colib.AlgebraicGeometry.Correspondences.Principal.GraphEndpointTorCuts",
+            "COL-1072": "Colib.AlgebraicGeometry.Correspondences.Divisors.FramedMovingRelation",
+            "COL-1073": "Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndependentSmoothMap",
+            "COL-1076": "Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousGoodNeighborhood",
+            "COL-1077": "Colib.AlgebraicGeometry.Correspondences.Principal.SignedLocalPrincipalCuts",
+            "COL-1078": "Colib.AlgebraicGeometry.Correspondences.Principal.ChartSignedSupportCuts",
+            "COL-1079": "Colib.AlgebraicGeometry.Correspondences.Divisors.GeometricFramedMovingRelation",
+            "COL-1082": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization",
+            "COL-1084": "Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialEndpointFiberMap",
+            "COL-1086": "Colib.AlgebraicGeometry.Correspondences.Principal.GraphEndpointFundamentalCycle",
+            "COL-1085": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.EnoughPoints",
+            "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
+            "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
+            "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
+            "COL-1075": "Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousPrincipalQuadraticParameters",
             "COL-1074": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryGraphEndpointPushforward",
             "COL-1071": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryGraphEndpointCoefficient",
         }
@@ -697,7 +713,8 @@ class LibraryTests(unittest.TestCase):
                           "principal-polynomial-families"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "scheme-products-and-index-squares",
-                          "perfect-complexes", "nisnevich-sites", "normal-curve-compactifications", "smooth-etale-sites",
+                          "perfect-complexes", "nisnevich-sites", "affine-curve-parameters",
+                          "normal-curve-compactifications", "smooth-etale-sites",
                           "projective-section-lifting", "proper-etale-specialization",
                           "meromorphic-section-divisors",
                           "algebraic-simplices"])

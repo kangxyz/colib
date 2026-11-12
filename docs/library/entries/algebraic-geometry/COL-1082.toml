@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1082"
+title = "Original affine neighborhoods and strict henselization"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 35
+primary = "AlgebraicGeometry.Scheme.SmoothSite.etaleNeighborhoodStrictHenselizationConeIsLimit"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be quasi-separated, \(X\) an object of its original smooth site, and
+\(s:\operatorname{Spec}\Omega\to X\) a geometric point with \(\Omega\)
+algebraically closed. Let \(B\) be a native bounded big etale site containing
+\(X\). The category of actual marked affine neighborhoods from COL-1057 has
+a fully faithful initial functor into the native bounded geometric-point
+neighborhoods. Its underlying scheme diagram, including transition maps,
+is unchanged. Restricting the native cone exhibits
+\(\operatorname{Spec}\mathcal O^{\mathrm{sh}}_{X,s}\) as the limit of these
+original neighborhoods. Every projection commutes with the canonical map
+to \(X\) and carries the canonical geometric point to the original marking.
+A universe-small cofiltered model has the same affine stages, the same limit,
+and the same structure-map and marking equations.
+'''
+proof = '''
+An affine etale neighborhood has size bounded by that of the base and
+therefore belongs to the bounded site. The inclusion keeps its actual
+structure morphism and marked lift. Fullness follows from the original
+neighborhood morphism constructor, and faithfulness from the faithful affine
+spectrum functor. Every bounded neighborhood has a marked affine refinement,
+so the fully faithful inclusion is initial. Whisker the native strict
+henselization limit along this proved initial functor. The native cone-base
+identity gives the structure-map equation. On global sections, evaluation of
+the germ defined by a cone leg equals evaluation at the original marked lift;
+affineness gives the geometric-point equation. Finally apply the native small
+cofiltered initial model and whisker again.
+'''
+scope = '''
+The native geometric-point type uses an algebraically closed field, stronger
+than the separable closedness used for the point values in COL-1057. All schemes
+and the small index use the same universe. No cofinality or limit witness is
+assumed. The comparison uses the native strict henselization, its canonical
+structure map and its canonical geometric point at the pinned Stacks revision.
+It does not prove rigidity, a conservative family of smooth-site points,
+finite-presentation descent of a particular curve or framed root, or evaluation
+of a presheaf with transfers on an arbitrary henselian scheme.
+'''

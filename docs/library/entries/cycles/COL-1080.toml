@@ -1,0 +1,31 @@
+[entry]
+id = "COL-1080"
+title = "Original principal-cycle supports and signed endpoint cuts"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 160
+primary = "Stacks.Chow.principalCycle_supportCuts_eq_endpointDifference"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+For an actual rational unit on an integral locally noetherian scheme,
+reindex the original nonzero principal-cycle supports specializing to x
+by the nonzero local-prime terms of its original numerator and denominator.
+For an endpoint germ in the maximal ideal, regular on both principal
+quotients with finite double cuts, the sum of original signed principal-cycle coefficients
+times their full endpoint-cut lengths equals the original numerator
+endpoint length minus the denominator endpoint length.
+'''
+proof = '''
+Use the actual map from Spec of the stalk to obtain inverse support and
+local-prime maps. Remove exactly the canceled zero signed terms and retain
+the original integral-support stalks. Apply the local signed support sum
+of COL-1077 through this explicit bijection.
+'''
+scope = '''
+All signed cancellation is accounted for without discarding coincident
+images. Endpoint regularity and finite double-cut length remain explicit
+hypotheses, supplied locally by COL-1078. This does not yet assemble the
+actual source-fiber/incidence placement and residue-degree composition
+needed to identify the whole correspondence pairing of COL-1074.
+'''

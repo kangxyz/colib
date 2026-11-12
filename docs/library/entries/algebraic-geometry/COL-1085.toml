@@ -1,0 +1,55 @@
+[entry]
+id = "COL-1085"
+title = "Conservative geometric neighborhoods on the original smooth etale site"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 38
+primary = "AlgebraicGeometry.Scheme.SmoothSite.isIso_iff_geometricEtaleNeighborhoodValue"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be a quasi-separated scheme in universe \(u\). For every object
+\(X\) of its original smooth separated finite-type site and every point
+\(x\in X\), choose the native geometric point
+\(s_x:\operatorname{Spec}\overline{\kappa(x)}\to X\). The actual affine
+etale neighborhood points of COL-1057 associated to all pairs \((X,x)\)
+form a conservative family for the original smooth etale topology. The
+family is small in universe \(u+1\), so that topology has enough points
+in this universe.
+
+For a morphism \(f:F\to G\) of ordinary \(\mathrm{Ab}_{u+1}\)-valued
+sheaves on this original site, \(f\) is an isomorphism if and only if
+its actual induced map \(F_s\to G_s\) on affine etale neighborhood
+values is an isomorphism for every smooth object \(X\) and every native
+geometric point \(s\) of \(X\). It suffices to check the chosen points
+\(s_x\). An equivalent criterion checks all separably closed
+field-valued markings in universe \(u\).
+'''
+proof = '''
+Apply the native conservative-family criterion to a sieve \(R\) on
+an original smooth object \(X\). At each \(x\in X\), represent the
+geometric neighborhood germ by an actual neighborhood map. Surjectivity
+of the sieve on that point fiber yields a refinement whose original
+map to \(X\) belongs to \(R\). This map is etale, and its marked
+point lies over \(x\). The maps obtained for all points of \(X\)
+therefore form an actual jointly surjective etale covering family
+contained in \(R\). This proves conservativity, without assuming it.
+The family is indexed by all pairs \((X,x)\), a type in universe
+\(u+1\). Native joint reflection of isomorphisms for abelian-group
+coefficients then gives the stated criteria. The tested map is the
+point functor applied to \(f\)'s underlying presheaf morphism; its
+stage component is exactly the original section map of \(f\).
+'''
+scope = '''
+The category and topology remain the original smooth etale site throughout.
+The selected points use algebraic closures via native
+`GeometricPoint.ofPoint`, so their marked affine diagrams are exactly
+those of the strict henselization comparison in COL-1082. No comparison
+between separable and algebraic closures is assumed. Schemes and marking
+fields lie in universe \(u\); the small conservative family, point fibers
+and coefficients lie in \(u+1\). Quasi-separatedness is used to ensure
+that the affine neighborhoods remain objects of the original smooth site.
+All scheme points of every smooth object are used, not only closed points.
+This result does not identify neighborhood values with field evaluations,
+compute the full-small/smooth adjunction counit, or prove Suslin rigidity.
+'''

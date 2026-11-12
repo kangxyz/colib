@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1075"
+title = "Simultaneous original quadratic parameters"
+kind = "theorem"
+section = "affine-curve-parameters"
+order = 20
+primary = "QuadraticIncidence.exists_simultaneous_principal_quadratic_parameters"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let k be an infinite field, R a smooth integral k-algebra of transcendence
+degree d+1, P a closed point of Spec R, I a nonzero ideal, and g a finite
+family generating R over k. Given a nonzero polynomial q in the coefficients
+of d quadratic forms in g, choose coefficients c in k with q(c) nonzero
+and one extra quadratic row a. The same c avoids all original minimal-component
+infinity charts of I, while (a,c) avoids every original infinity chart of R
+and defines an étale map on a principal neighborhood of P. The projection f
+defined by the unchanged d rows c is smooth of relative dimension one on
+one affine principal open D(r) containing the entire fiber through P.
+Moreover r is congruent to one modulo the ideal of that original fiber.
+'''
+proof = '''
+Quadratic two-point jets make the actual normalized incidence constraints
+surjective. Their component transcendence-degree bounds produce a nonzero
+coefficient polynomial excluding every off-diagonal bad point. A determinant
+open handles diagonal points and all field extensions. Combine these
+conditions with the nonzero same-family infinity and selected-point étale
+polynomials; specialize only the auxiliary row and then choose c over the
+infinite field. Common residue fields and COL-1073 turn the differential
+condition into smoothness at every prime of the original fiber. A principal
+neighborhood congruent to one along the fiber glues these local conditions.
+'''
+scope = '''
+The same original monomial coefficient tuple is retained throughout.
+No finite map, independent normalization tuple, preselected good coefficients,
+or whole-fiber smooth neighborhood is assumed. The closed-infinity condition
+is stated on the actual minimal-prime components and is not an assertion
+that a nonreduced scheme may be replaced by its reduction. The separate
+infinity-avoidance-to-finiteness theorem is needed before applying COL-1069.
+No perfectness or rationality hypothesis is imposed on the marked point.
+The base dimension d may be zero. This is not the full Suslin rigidity theorem.
+'''

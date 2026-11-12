@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1076"
+title = "The same generated parameters give a good curve neighborhood"
+kind = "theorem"
+section = "affine-curve-parameters"
+order = 30
+primary = "QuadraticIncidence.InfinityChart.exists_simultaneous_good_quadratic_neighborhood"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let k be infinite, B an integral smooth k-algebra of transcendence
+degree d+1, P a closed point, I a nonzero ideal, and g a finite generating
+family. Given a nonzero polynomial q in the original quadratic coefficients,
+produce the same rows a,c with q(c) nonzero, a finite map from Spec B to
+affine (d+1)-space and a finite map from the full Spec(B/I) to affine
+d-space. The unchanged d-row projection is smooth of relative dimension
+one on a principal open containing the whole fiber through P. Its normal
+proper compactification is finite over the native projective line and
+retains the original coordinate maps and actual infinity pullback. A
+principal base shrink makes its chosen retained boundary finite and keeps
+the prescribed scheme in the smooth open.
+'''
+proof = '''
+Apply COL-1075 to the original coefficient family. Explicit original
+projective charts and schematic-image ideals turn infinity avoidance into
+proper affine, hence finite, maps. Noetherian nilpotent-kernel descent
+recovers finiteness of the full B/I from its minimal components. Apply
+COL-1069 to these produced finite coordinates and whole-fiber smooth open,
+preserving the actual base and affine-chart maps.
+'''
+scope = '''
+Finite coordinates and whole-fiber smoothness are conclusions, not
+inputs. The marked point need not be rational or separable. The full
+original infinity pullback is distinct from the chosen vanishing-ideal
+retained boundary. The primary theorem records pointwise containment of
+the prescribed scheme after the base shrink, sufficient for an open
+factorization; it does not package that factorization morphism. Its
+companion finite-coordinate theorem explicitly records finiteness of
+Spec(B/I), including nilpotents. No surjectivity of the finite map to
+the projective line is claimed.
+'''

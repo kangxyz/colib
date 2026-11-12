@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1081"
+title = "Generic points of the original full endpoint fiber"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 170
+primary = "AlgebraicGeometry.Scheme.FiniteDominantFace.original_face_generic_image_generic"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let A be an integrally closed domain and let an integral scheme C have an
+original finite dominant map to Spec A[t]. Every generic point of the full
+scheme-theoretic evaluation fiber at a in A lies over the generic point
+of Spec A. If this full fiber maps over Spec A into any scheme finite over
+Spec A, its generic points map to generic points of that target.
+'''
+proof = '''
+Derive the affine ring map canonically from the original finite map.
+The actual evaluation pullback has support equal to the extended ideal
+(t-a). Going down over the normal polynomial base places each minimal
+prime over that ideal above the original base zero prime. The native
+quasi-finite generic-fiber criterion then proves target genericity.
+'''
+scope = '''
+The full fiber keeps its scheme structure and possible nilpotents.
+Neither source nor target is assumed normal or flat. No independently
+chosen coordinate map, kernel certificate or generic-image witness is
+assumed. This supplies actual endpoint-component placement for the later
+incidence/source-fiber bijection, not the whole correspondence identity.
+'''

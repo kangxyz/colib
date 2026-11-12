@@ -119,6 +119,8 @@ variable (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
   {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
   {n : ℕ} (hn0 : n ≠ 0) (hX : IsUnit ((n : ℕ) : Γ(X, ⊤)))
 
+include hn0 hX
+
 /-- Proper closed-fibre restriction remains bijective after the canonical roots-of-unity
 coefficient comparison. -/
 theorem bijective_rootsOfUnityPullbackMap_closedFibre :
@@ -132,7 +134,7 @@ theorem bijective_rootsOfUnityPullbackMap_closedFibre :
     Stacks.ExtAdjunction.postcomp_mk₀_bijective_of_isIso _ 2
   apply hb.comp
     (bijective_etaleCohomologyRestrictionMap_closedFibre_of_strictlyHenselian R f
-      (Nat.pos_of_ne_zero hn0) 2 (rootsOfUnitySheaf.{u, 0} X n) ?_)
+      (n := n) (Nat.pos_of_ne_zero hn0) 2 (rootsOfUnitySheaf.{u, 0} X n) ?_)
   simpa only [natCast_zsmul] using nsmul_id_rootsOfUnitySheaf_univ.{u, 0} X n
 
 /-- For a proper scheme over a strictly henselian local ring, a Picard class is divisible
@@ -150,7 +152,8 @@ theorem picard_nsmul_exists_iff_closedFibre (L : Picard.ofScheme X) :
       ∃ M, n • M = Picard.schemePullbackClassHom (closedFibreInclusion R f) L := by
   constructor
   · rintro ⟨M, rfl⟩
-    exact ⟨Picard.schemePullbackClassHom (closedFibreInclusion R f) M, by simp⟩
+    exact ⟨Picard.schemePullbackClassHom (closedFibreInclusion R f) M,
+      (map_nsmul (Picard.schemePullbackClassHom (closedFibreInclusion R f)) n M).symm⟩
   · intro h
     apply (picardKummerClass_eq_zero_iff.{u + 1, 0, u} X hn0 hX L).1
     apply (bijective_rootsOfUnityPullbackMap_closedFibre R f hn0 hX).injective

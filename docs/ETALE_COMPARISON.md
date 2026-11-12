@@ -215,7 +215,7 @@ cohomological shifts and signs.
 - COL-1069 combines actual finite polynomial coordinates with native P1
   normalization and that shrink. It preserves the original coordinate maps
   and infinity pullback; finite coordinates and whole-fibre smoothness
-  remain inputs to be supplied by parameter selection.
+  are supplied by COL-1073, COL-1075 and COL-1076.
 - COL-1068 identifies the original image cut with the literal endpoint
   parameter and proves nonvanishing. COL-1070 identifies the actual native
   incidence Tor coefficient with its full quotient length and produces
@@ -224,6 +224,45 @@ cohomological shifts and signs.
 - COL-1074 expands the whole endpoint-graph pairing through both actual
   finite maps, retaining all original support and image collisions.
   The local-prime/order comparison with whole endpoint cycles remains.
+
+- COL-1072 restricts the literal framed Cartier identity to the retained
+  open and its actual native finite correspondences. COL-1079 supplies the
+  compatible geometric pair and all whole finite-flat zero schemes
+  internally, producing the relation between the two original graphs.
+  Its compatible root/frame and the polynomial endpoint comparison remain.
+- COL-1073 proves the local differential criterion for the unchanged
+  coordinates. COL-1075 produces one simultaneous quadratic tuple over an
+  infinite field. COL-1076 proves the actual finite coordinate maps for
+  this same tuple and the full prescribed closed scheme, then constructs
+  the native normal proper curve and its finite retained boundary shrink.
+  No finite coordinates or whole-fiber smoothness are assumed in this chain.
+- COL-1077 computes the signed local support cuts. COL-1078 supplies their
+  hypotheses from the original polynomial chart and proves the zero/one
+  values. COL-1080 reindexes the original principal-cycle supports by the
+  actual nonzero local-prime terms. COL-1081 uses normal-base going down
+  to place generic points of the full endpoint fiber in the actual finite
+  target, without support flatness. COL-1083 proves the actual endpoint
+  generic-point/source-fiber bijection with both original residue degrees.
+  Its specialization to the polynomial graph incidence and full local
+  lengths, and the final assembly into COL-1074, are still unfinished.
+
+- COL-1082 identifies the original marked affine neighborhoods with the
+  native strict henselization through an actual fully faithful initial
+  functor. The original structure-map and geometric-mark equations survive
+  restriction and a universe-small cofiltered reindexing. Here the native
+  geometric-point field is algebraically closed. Continuity of the transfer
+  presheaf and descent of the particular framed curve data remain separate.
+
+- COL-1084 supplies the original polynomial coordinates, normal base ring
+  and canonical endpoint fiber square internally for the source-fiber
+  reindexing. COL-1086 identifies each actual endpoint Tor cycle with
+  the whole incidence fundamental cycle and its native graph-fiber finite
+  pushforward. The full signed principal-support sum remains to be assembled.
+- COL-1085 proves conservativity of the native geometric-point neighborhood
+  family on the original smooth etale site, using all points, not only closed
+  points. Its actual neighborhood-value maps detect ordinary abelian sheaf
+  isomorphisms in universe u+1. It does not identify these values with field
+  evaluations or compute the small/smooth counit.
 
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
@@ -266,8 +305,9 @@ root route at source level; its high-level compilation is still pending.
    representative, and COL-1051 supplies the actual cycle/correspondence
    transport. COL-1059 completes the original full-boundary frame coherence,
    and COL-1066 produces the exact signed identity with its same normalized
-   correction unit. Actual restriction from the compactification to the
-   retained open and its finite-correspondence interpretation remain.
+   correction unit. COL-1072 restricts this identity to the original retained open and
+   its native correspondences. COL-1079 selects the geometric pair
+   internally and gives the actual relation between the original graphs.
 3. Complete the geometric principal-family correspondence and its actual
    Tor endpoint identities. COL-1039 supplies full-boundary normalization
    and finiteness of the native supports. COL-1041 supplies component
@@ -283,16 +323,21 @@ root route at source level; its high-level compilation is still pending.
    the actual incidence Tor formula and coheight one, and COL-1071 connects
    the original finite-image coefficients. COL-1074 retains every original
    support, both finite residue degrees and all outer image collisions in
-   the whole pairing. Identify the remaining original local-prime/order
-   weights with these full cuts and whole endpoint cycles. COL-1036 supplies the final
+   the whole pairing. COL-1077 and COL-1078 compute the original signed local weights,
+   and COL-1080 reindexes the actual principal-cycle supports. Complete
+   the incidence/source-fiber and residue-degree assembly to identify
+   the whole endpoint cycles. COL-1036 supplies the final
    ordinary HI/torsion action consumer once the actual family and moving
    relation are constructed. A full framed Picard group or general Picard
    pairing is not needed if this concrete identity proves section comparison.
 4. COL-1057 supplies the actual filtered affine etale neighborhood value,
    common-stage equations and the canonical sheafification-unit isomorphism.
    COL-1069 supplies the native geometric consumer of finite polynomial
-   coordinates and a whole-fibre smooth open. Complete the simultaneous
-   parameter producer, identify the henselian presentation, descend finite
+   coordinates and a whole-fibre smooth open. COL-1073, COL-1075 and
+   COL-1076 now produce these from the same original tuple over an infinite
+   field, with the full prescribed closed scheme. COL-1082 identifies
+   the actual affine-neighborhood limit with native strict henselization
+   and preserves the original base and marking. Descend finite
    presentation data to a common stage, prove the henselization induction
    and pass to a conservative family of etale stalks. Handle the
    arbitrary-field inseparable comparison separately;

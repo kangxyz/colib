@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1084"
+title = "The original polynomial endpoint maps and source fibers"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 190
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.polynomialEndpoint_finsum_source_fibres"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let X be integral, affine and smooth over a field k. Let an integral
+scheme C map finitely to D, and let D map finitely to the original
+polynomial cylinder over X, with dominant composite. For each c in k,
+construct the actual map between their full endpoint fibers. Reindex
+its generic-point sum by target endpoint generic points and the original
+C-points above them, retaining any integer source weight, both actual
+residue degrees and every image test under an arbitrary outer map.
+'''
+proof = '''
+The original affine-scheme isomorphism and native polynomial pushout
+identify the unchanged cylinder and both projection maps. The actual
+endpoint is the literal evaluation pullback. Smoothness produces the
+integral closedness of the original global-section ring, so COL-1083
+applies without a separate normality or coordinate witness. The canonical
+endpoint map and its Cartesian square are constructed by base change.
+'''
+scope = '''
+The source, target and full endpoint schemes are not replaced by
+reductions. No endpoint genericity, coordinate or Cartesian certificate
+is supplied by the caller. Finiteness and dominance of the given support
+maps remain hypotheses. Arbitrary weights need not have finite support;
+the conclusion is a native finsum identity, not yet a cycle identity or
+the signed principal-family endpoint formula.
+'''

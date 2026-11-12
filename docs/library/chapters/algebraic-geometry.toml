@@ -96,6 +96,19 @@ retain representatives, refinement equations and the sheafification unit.
 '''
 
 [sections.transitions]
+COL-1082 = '''
+For a native algebraically closed geometric point, these same affine
+neighborhoods form an initial subdiagram of the bounded native diagram.
+Their actual limit is the strict henselization, retaining the canonical
+map to the base and the original marked lift at every stage.
+'''
+COL-1085 = '''
+Choose the native algebraic closure at every point of every smooth object.
+The original neighborhood germs produce an actual etale cover inside any
+sieve detected by these points, proving conservativity. Thus ordinary
+abelian sheaf isomorphisms are detected on the actual neighborhood values,
+with the same native markings used in COL-1082.
+'''
 COL-1060 = '''
 The full small etale site contains objects outside the finite-type smooth
 category. Use its genuine separated finite-type basis and affine cover
@@ -106,6 +119,33 @@ Insert this basis equivalence into the actual extension/restriction
 adjunction. Its canonical unit and counit remain the original Kan and
 sheafification maps; proving the counit invertible for HI torsion transfers
 is the remaining rigidity assertion, not a consequence of the adjunction alone.
+'''
+
+[[sections]]
+id = "affine-curve-parameters"
+title = "Affine curve parameters and good neighborhoods"
+order = 33
+introduction = '''
+Prescribed residue differentials determine smooth relative curves without
+changing their coordinate functions. Over an infinite field, simultaneous
+quadratic parameters retain this independence on the entire marked fiber
+while avoiding the original infinity charts. Actual projective-coordinate
+comparisons then turn the same tuple into finite coordinates and a retained
+normal proper curve with finite boundary after a base shrink.
+'''
+
+[sections.transitions]
+COL-1075 = '''
+The local differential criterion must hold for every point over the marked
+base point with one unchanged tuple. The actual incidence polynomials and
+infinity conditions produce this tuple, and a principal neighborhood equal
+to one along the full fiber joins the local smoothness conclusions.
+'''
+COL-1076 = '''
+Keep these same quadratic coefficients. The original projective charts
+prove that infinity avoidance gives finite coordinates, including the full
+prescribed closed scheme. Those produced coordinates feed the native
+projective-line compactification and retained-boundary shrink of COL-1069.
 '''
 
 [[sections]]

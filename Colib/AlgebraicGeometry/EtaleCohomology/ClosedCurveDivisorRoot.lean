@@ -84,6 +84,8 @@ theorem lengthOver_sectionKernel {k : Type u} [Field k]
     (q : X ⟶ Spec (.of k)) (s : Spec (.of k) ⟶ X) (hs : s ≫ q = 𝟙 _) :
     lengthOver q s.ker = 1 := by
   have := isIso_sectionKernel_structureMap q s hs
+  have : IsIso (s.ker.subschemeι ≫ q).appTop :=
+    inferInstanceAs (IsIso (Scheme.Γ.map (s.ker.subschemeι ≫ q).op))
   exact finrank_globalSections_divisorSubscheme_eq_one k q s.ker
 
 end Stacks.Divisors

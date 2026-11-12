@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1077"
+title = "Signed local principal weights on the original support cuts"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 140
+primary = "Stacks.Chow.signed_ord_integralSupportCuts_eq_endpointDifference"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+On an integral locally noetherian scheme, write an actual rational unit
+at x as a fraction of nonzero local numerator and denominator. For an
+endpoint germ in the maximal ideal, regular on both principal quotients
+and with both double cuts of finite length, the sum over their actual
+minimal-prime supports of signed original orders times full endpoint-cut
+lengths equals the numerator endpoint length minus the denominator
+endpoint length.
+'''
+proof = '''
+The actual map from Spec of the stalk identifies each local prime with
+its original integral support and transports the stalk kernel. Native
+principal-ideal coheight and prime-filtration Euler formulas compute the
+signed weights. Terms supported on the other principal quotient vanish
+in extended-natural length before conversion to natural numbers.
+'''
+scope = '''
+The original support schemes, quotient lengths and signs are retained.
+Regularity and finiteness of the double cuts remain explicit hypotheses
+here. No reduced-support flatness is assumed. COL-1078 supplies these
+hypotheses for the actual polynomial endpoint charts. Global incidence
+and residue-degree reindexing are separate steps.
+'''

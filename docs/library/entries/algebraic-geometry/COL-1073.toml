@@ -1,0 +1,29 @@
+[entry]
+id = "COL-1073"
+title = "Prescribed independent differentials give a smooth relative curve"
+kind = "theorem"
+section = "affine-curve-parameters"
+order = 10
+primary = "AlgebraicGeometry.exists_smooth_one_of_residue_independent"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let k be a field and R an integral smooth k-algebra of transcendence
+degree d+1. Fix a prime p and d original functions f whose differentials
+are independent over the residue field at p. There is an element r not
+in p such that the map defined by these same functions on Spec R[1/r]
+is smooth of relative dimension one.
+'''
+proof = '''
+Extend the prescribed independent residue differentials by one original
+function t. The resulting (t,f) map is etale on a principal neighborhood.
+Factor the unchanged f map through the native polynomial projection,
+which is smooth of relative dimension one.
+'''
+scope = '''
+The original functions and algebra maps are retained, with no change
+to a separately chosen normalization tuple. No finite-map assertion or
+whole-fiber neighborhood is claimed here. The prime need not be rational
+or have separable residue field. COL-1075 supplies simultaneous conditions
+at all points of the marked fiber.
+'''

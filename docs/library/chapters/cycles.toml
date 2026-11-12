@@ -205,6 +205,19 @@ native finite correspondences. Cycle transport retains every residue degree
 and adds coefficients of coincident images; the ambient map need not be finite.
 '''
 
+[sections.transitions]
+COL-1072 = '''
+The literal signed Cartier identity of COL-1066 restricts through the
+original open immersion with every quotient length unchanged. Its native
+correspondence image retains the same normalized correction function.
+'''
+COL-1079 = '''
+The geometric section producer now supplies the pair and every whole
+finite-flat zero scheme internally. The two original section kernels give
+the original graph correspondences, leaving only the compatible root/frame
+and the separate polynomial endpoint comparison to be supplied.
+'''
+
 [[sections]]
 id = "principal-polynomial-families"
 title = "Principal polynomial families"
@@ -298,4 +311,47 @@ Expand the actual outer finite incidence pushforward and then sum every
 original principal component. This retains all source and image collisions
 in the whole endpoint-graph pairing. The remaining comparison is with the
 original local-prime/order weights and whole endpoint cycles.
+'''
+
+COL-1077 = '''
+At each original local prime, native Euler lengths recover the signed
+principal order and the full endpoint cut. Keep both numerator and
+denominator so the sign and every canceled term remain explicit.
+'''
+COL-1078 = '''
+The original polynomial chart supplies the required regularity and finite
+cut lengths. Its zero endpoint has signed weight zero, and its one endpoint
+has the order of the original rational function on the curve.
+'''
+COL-1080 = '''
+The actual stalk-spectrum map identifies the surviving local-prime terms
+with the original principal-cycle supports. This removes the local indexing
+mismatch while leaving the incidence and source-fiber reindexing explicit.
+'''
+
+COL-1081 = '''
+Going down over the normal base puts every generic point of the actual
+full endpoint fiber over the original base generic point. This yields
+its placement in the finite incidence target without assuming component
+flatness or replacing the fiber by its reduction.
+'''
+
+COL-1083 = '''
+Use this generic-point placement in the actual endpoint pullback square.
+The original source fibers now give an explicit bijection, and the native
+residue-degree tower preserves both factors and every outer image test.
+The original local lengths still have to be inserted into this sum.
+'''
+
+COL-1084 = '''
+The original polynomial cylinder now supplies the coordinates, normal
+base ring and actual endpoint pullback squares needed in COL-1083.
+Its canonical fiber map retains the original support map and both
+residue-degree factors without extra comparison certificates.
+'''
+COL-1086 = '''
+At the literal endpoint, the actual Tor Euler coefficient equals the full
+incidence stalk length. The native incidence cycle therefore is the whole
+fundamental cycle, and its original graph-fiber isomorphism lets native
+finite pushforward carry all multiplicities and collisions at once.
 '''

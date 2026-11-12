@@ -37,7 +37,7 @@ isomorphism and its full finite-boundary compatibility are part of the conclusio
 @[colib_tag "COL-1037"]
 theorem exists_schemeTensorPower_iso_compatible_frame_of_closedFibre
     (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
-    {X : Scheme.{u}} (f : X ⟶ Scheme.Spec (.of R)) [IsProper f]
+    {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
     (B : Type u) [CommRing B] [Algebra R B] [Module.Finite R B]
     (i : Spec (CommRingCat.of B) ⟶ X)
     {n : ℕ} (hn0 : n ≠ 0) (hn : IsUnit (n : R))

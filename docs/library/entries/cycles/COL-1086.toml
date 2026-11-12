@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1086"
+title = "The endpoint Tor cycle is the full incidence fundamental cycle"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 200
+primary = "Stacks.Chow.graphEndpoint_incidenceTorCycle_eq_fundamentalCycle"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let X be integral and smooth separated over a field k, and let Z be
+smooth over k. For an original finite-correspondence support in the
+polynomial cylinder over X times Z which dominates the polynomial
+parameter, the actual graph incidence at an endpoint c has native Tor
+cycle equal to its whole fundamental cycle, provided the incidence is
+noetherian. If Z is also separated and X is noetherian, the original
+incidence correspondence is the finite pushforward of the fundamental
+cycle of the original full graph fiber.
+'''
+proof = '''
+Use the actual principal-cut Tor producer at bound zero and native
+Tor-zero stalk transport to identify the endpoint Euler coefficient with
+the full incidence stalk self-length. Equality holds at every generic
+point and both cycles vanish elsewhere. Apply native finite pushforward
+and the actual graph-fiber isomorphism, preserving its original target map.
+'''
+scope = '''
+All nilpotent multiplicities, residue degrees and coincident images
+are retained. No flatness of an integral support or Chow rational-equivalence
+quotient is used. The genuine finite-correspondence point and parameter
+dominance remain required. This identifies each original endpoint incidence
+cycle; the signed principal-support sum and its zero/one values still
+require the original local-length and rational-function calculations.
+'''

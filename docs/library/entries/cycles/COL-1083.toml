@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1083"
+title = "Original endpoint source fibers and both residue degrees"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 180
+primary = "AlgebraicGeometry.Scheme.FiniteDominantFace.finsum_endpoint_source_fibres"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let C be integral and finite dominant over Spec A[t], with A an integrally
+closed domain, and let E be its full original evaluation fiber. Suppose
+an original finite map C to D pulls a closed immersion F to D back to E,
+where F is finite over Spec A and the original maps commute. Generic points
+of E are in bijection with pairs consisting of a generic point of F and
+an original C-point above it. For any integer weight on C and any map F
+to Y, reindex the full endpoint sum by these pairs. Each term keeps the
+original C-to-D residue degree, the F-to-Y residue degree and its actual
+target-image condition.
+'''
+proof = '''
+COL-1081 supplies forward genericity over the normal base. The actual
+pullback supplies inverse points, and finite base change plus the native
+quasi-finite criterion supplies reverse genericity. Closed endpoint
+immersions have residue degree one, so the native residue-degree tower
+identifies the two original degree factors. Reindex the native finsum
+through the resulting explicit bijection.
+'''
+scope = '''
+All original schemes, pullback squares, maps and source-fiber collisions
+are retained. No flatness or normality of C or of its supports is assumed.
+The primary permits an arbitrary integer source weight and retains both
+actual degree factors; it does not assert finite support of arbitrary
+weights. Matching that weight with the original local cut
+lengths and specializing the original polynomial graph incidence remain.
+This is not yet the whole endpoint correspondence identity.
+'''

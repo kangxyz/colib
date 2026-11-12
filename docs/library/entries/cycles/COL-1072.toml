@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1072"
+title = "The original framed quotient as a retained moving relation"
+kind = "theorem"
+section = "cartier-correspondences"
+order = 20
+primary = "AlgebraicGeometry.exists_retainedFiniteCorrespondence_tensorQuotientPower"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let X and its dominant retained open U be integral and noetherian.
+For two effective Cartier divisors D,E, a positive-power root of
+O(D) tensor O(-E), its compatible frame on the full boundary B, and
+nonzero sections a,b with coordinate one there, assume all four whole
+zero schemes lie in U and are finite locally free over the source V.
+Along the original map U to V times Y, the two divisor correspondences
+differ by (k+1) times the two section-zero correspondences and the
+pushforward of principal(f), where f is the original framed correction
+c/alpha((a/b)^(k+1)). The same f is represented by an ordinary unit with
+actual pullback one on all of B.
+'''
+proof = '''
+Restrict the native Weil divisor through the original open immersion.
+The actual stalk isomorphisms preserve full Cartier quotient lengths.
+Apply COL-1066 and transport its literal signed identity through the
+native whole finite-flat correspondence construction of COL-1051.
+For an original section kernel, identify the retained correspondence
+with its original graph through the same factorization.
+'''
+scope = '''
+The target over the common base is separated and locally of finite type.
+The boundary may be nonreduced; no target-map extension across it is
+required. The graph specialization needs the source noetherian and
+reduced. The root, compatible frames, sections and whole finite-flat
+support data remain inputs here. The signed identity is proved rather
+than assumed; its principal term is not yet a polynomial-family endpoint.
+'''
