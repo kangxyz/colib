@@ -513,7 +513,7 @@ jobs:
             echo '::error::build-targets must name at least one production root.'
             exit 1
           fi
-          targets+=(StacksFrontier.AlgebraicGeometry.Perfect.ProperFlatPushforwardPerfect)
+          targets+=(StacksFrontier.AlgebraicGeometry.ProjectiveSpaceModuli.Basic StacksFrontier.AlgebraicGeometry.SectionProduct.PullbackUnitComparisonSection StacksFrontier.AlgebraicGeometry.Divisors.InvertibleMorphismDivisor StacksFrontier.AlgebraicGeometry.Divisors.ZeroSchemeFactorization StacksFrontier.AlgebraicGeometry.Divisors.ZeroSchemeRegular StacksFrontier.AlgebraicGeometry.FormalGeometry.CompletionFullyFaithful.PullbackSheafHomIso)
           rm -f "$RUNNER_TEMP/outputs.jsonl"
           remaining=$((BUILD_DEADLINE - $(date +%s)))
           if test "$remaining" -le 0; then
@@ -577,47 +577,145 @@ jobs:
               exit 1
             fi
           done
-      - name: Pack the P1 dependency for local recovery
+      - name: Pack native P1 geometry dependencies for local recovery
+        id: pack-p1-geometry
         if: ${{ steps.build.outcome == 'success' && steps.quiesce.outcome == 'success' }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
-        run: |
-          python3 - <<'PY'
-          import hashlib, json, os, pathlib, tarfile
-          root = pathlib.Path(".")
-          package = root / ".lake/packages/Stacks"
-          stems = [pathlib.Path(name.replace(".", "/")) for name in ["StacksFrontier.AlgebraicGeometry.Perfect.LimitPerfectObjectsDescent","StacksFrontier.AlgebraicGeometry.Perfect.ProperFlatPushforwardPerfect","StacksFrontier.AlgebraicGeometry.Perfect.RelativeDescentAffineDictionary","StacksFrontier.AlgebraicGeometry.Perfect.RelativeDescentAffineDictionaryNatural","StacksFrontier.AlgebraicGeometry.Perfect.RelativeDescentPerfectColimit"]]
-          files = sorted(
-              p for stem in stems for base in ("lib/lean", "ir")
-              for p in (package / ".lake/build" / base / stem.parent).glob(stem.name + ".*")
-              if p.is_file() and not p.is_symlink()
-          )
-          assert any(str(p).endswith(".olean") for p in files)
-          assert any(str(p).endswith(".trace") for p in files)
-          assert sum(p.stat().st_size for p in files) < 256 * 1024**2
-          out = pathlib.Path(os.environ["RUNNER_TEMP"]) / "p1-dependency"
-          out.mkdir(exist_ok=True)
-          manifest = {
-              "producer": os.environ["GITHUB_SHA"],
-              "run_id": os.environ["GITHUB_RUN_ID"],
-              "lean_toolchain": (root / "lean-toolchain").read_text().strip(),
-              "packages": json.loads((root / "lake-manifest.json").read_text())["packages"],
-              "source_sha256": {str(stem): hashlib.sha256((package / stem.with_suffix(".lean")).read_bytes()).hexdigest() for stem in stems},
-              "files": [{"path": str(p.relative_to(package)), "size": p.stat().st_size,
-                         "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]
-          }
-          (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-          with tarfile.open(out / "p1-dependency.tar", "w") as archive:
-              for p in files:
-                  archive.add(p, arcname=str(p.relative_to(package)), recursive=False)
-          print(json.dumps({"files": len(files), "bytes": (out / "p1-dependency.tar").stat().st_size}))
-          PY
-      - name: Upload the P1 dependency for local recovery
-        if: ${{ steps.build.outcome == 'success' && steps.quiesce.outcome == 'success' }}
+        run: python3 .github/ci-cache/p1-geometry-pack.py
+      - name: Upload the P1 geometry recovery index
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: p1-properflat-closure
-          path: ${{ runner.temp }}/p1-dependency
+          name: p1-geometry-index
+          path: ${{ runner.temp }}/p1-geometry-dependencies/index
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 00
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 0 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-00
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-00
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 01
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 1 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-01
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-01
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 02
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 2 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-02
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-02
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 03
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 3 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-03
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-03
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 04
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 4 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-04
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-04
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 05
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 5 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-05
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-05
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 06
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 6 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-06
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-06
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 07
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 7 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-07
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-07
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 08
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 8 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-08
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-08
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 09
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 9 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-09
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-09
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 10
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 10 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-10
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-10
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 11
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 11 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-11
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-11
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 12
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 12 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-12
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-12
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 13
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 13 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-13
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-13
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 14
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 14 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-14
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-14
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload P1 geometry recovery part 15
+        if: ${{ steps.pack-p1-geometry.outcome == 'success' && fromJSON(steps.pack-p1-geometry.outputs.parts) > 15 }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-geometry-15
+          path: ${{ runner.temp }}/p1-geometry-dependencies/part-15
           compression-level: 0
           if-no-files-found: error
       - name: Save compilation independently of Test and lint
