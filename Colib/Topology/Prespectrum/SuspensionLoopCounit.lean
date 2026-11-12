@@ -27,6 +27,20 @@ namespace Topology.LoopPrespectrum
 def suspensionCone (E : LoopPrespectrum.{u}) : LoopPrespectrum.{u} :=
   mappingCone (zeroHom E pointPrespectrum)
 
+/-- An actual map induces the original strict map of reduced suspension cones. -/
+@[colib_ref "quillen" "Quillen/Topology/Prespectrum/SuspensionLoopCounit.lean:35"
+  "adaptation" "Original strict map of the same reduced suspension cones."]
+def suspensionConeMap {E F : LoopPrespectrum.{u}} (f : E ⟶ F) :
+    suspensionCone E ⟶ suspensionCone F :=
+  mappingConeMap (A := Arrow.mk (zeroHom E pointPrespectrum))
+    (B := Arrow.mk (zeroHom F pointPrespectrum))
+    (Arrow.homMk f (𝟙 pointPrespectrum) (by
+    apply Hom.ext
+    funext n
+    apply ContinuousMap.ext
+    intro x
+    rfl))
+
 /-- Evaluation of a based parameter loop is a coherent zero homotopy, including structure time. -/
 @[colib_ref "quillen" "Quillen/Topology/Prespectrum/SuspensionLoopCounit.lean:47"
   "adaptation" "Original actual suspension evaluation and backward triangle"]

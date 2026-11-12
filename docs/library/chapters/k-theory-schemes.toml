@@ -155,6 +155,8 @@ COL-0595 = "The exact grading comparison extends along the original Laurent seed
 COL-0596 = "Compose the ordinary coarse cone comparison with this stable restriction. The composition retains the postcomposed whole null, so its cone descent, fiber lift and signed connecting maps describe one localization diagram."
 COL-0597 = "To transfer this localization to scheme parameters, compare the actual supported, ambient and open rows along integral Spec. The restriction squares alone are insufficient: the three comparisons must also preserve every value of the specified full-open null."
 COL-0598 = "The whole-null square now lets the three actual Spec comparisons transfer coefficient fiber stability to the iterated parameter lift. The established twisted and current comparisons retain the same null and complete the ordinary current-stage localization theorem."
+COL-0599 = "Pass from the current-stage construction to its actual ordinary colimit using the tensor-normalized track. The comparisons preserve the original full-open null at the same time, so the supported lift stays a stable equivalence."
+COL-0600 = "Apply the same ordinary-colimit construction to the three auxiliary support categories. Preserve union enlargement, inverse-image restriction and their entire null to transfer the auxiliary fiber theorem, including its negative stable degrees."
 
 [[sections]]
 id = "tensor-unit-prisms"
