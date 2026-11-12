@@ -1247,6 +1247,7 @@ public import Colib.AlgebraicGeometry.Morphisms.Etale.RationalMarking
 public import Colib.AlgebraicGeometry.Morphisms.Finite.CommonImage
 public import Colib.AlgebraicGeometry.Morphisms.Finite.MinimalComponentQuotient
 public import Colib.AlgebraicGeometry.Morphisms.Finite.ProperQuasiAffine
+public import Colib.AlgebraicGeometry.Morphisms.Finite.SpecAwayBaseChange
 public import Colib.AlgebraicGeometry.Morphisms.FiniteEtale.FiniteEtaleNeighborhoodIso
 public import Colib.AlgebraicGeometry.Morphisms.FiniteType.FiniteSubfieldPoint
 public import Colib.AlgebraicGeometry.Morphisms.Flat.AffineLineComponents
@@ -1504,6 +1505,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactif
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationProjectivity
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartMarkedBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartOriginalFixedInputs
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartRetainedCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartSmoothSite
