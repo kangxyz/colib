@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryUnitAction
 public import Colib.AlgebraicGeometry.Correspondences.Divisors.GeometricFramedMovingRelation
+public import Colib.AlgebraicGeometry.Sites.Smooth.Noetherian
 
 /-!
 # Original framed moving graphs act equally on ordinary HI torsion coefficients
@@ -98,8 +99,7 @@ theorem transfer_geometric_framed_graph_eq
   intro hcompat
   let : IsAffine ((𝟭 Scheme).obj A.left) := ‹IsAffine A.left›
   let : IsIntegral ((𝟭 Scheme).obj A.left) := ‹IsIntegral A.left›
-  let : IsNoetherian A.left := PrincipalBoundary.base_isNoetherian
-    (show A.left ⟶ Spec (.of K) from A.hom)
+  let : IsNoetherian A.left := inferInstance
   obtain ⟨c, hc⟩ := exists_geometric_framed_graph_moving_relation R B n g q i j hcover
     A.hom T.hom r hr σ τ hσ hτ σU τU hσU hτU hD hE L k α e hcompat
   obtain ⟨eH, a, b, ha0, hb0, hAfin, hBfin, haU, hbU, haB, hbB, Z, hrel, hZ, hbound⟩ :=

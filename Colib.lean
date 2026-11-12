@@ -1,5 +1,4 @@
 module  -- shake: keep-all --deprecated_module: ignore
-
 public import Colib.Algebra.Category.FGModuleCat.FractionLocalization
 public import Colib.Algebra.Category.FGModuleCat.IsFG
 public import Colib.Algebra.Category.FGModuleCat.Localization
@@ -649,6 +648,7 @@ public import Colib.AlgebraicGeometry.Divisors.SectionKernelCartesian
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelDifferenceBoundary
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelDifferencePullback
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelOpenBaseChange
+public import Colib.AlgebraicGeometry.Divisors.SectionKernelOpenRestriction
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelSmoothOpen
 public import Colib.AlgebraicGeometry.Divisors.WeilOpenRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveDivisorRoot
@@ -1507,6 +1507,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleIntegralBase
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleRetainedGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.LimitDescent
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.PolynomialGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ProjectiveLine
