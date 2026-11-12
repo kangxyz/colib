@@ -18,6 +18,7 @@ component; neither the small stage nor Cnew is asserted to be integral.
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u
+set_option backward.isDefEq.respectTransparency false
 namespace AlgebraicGeometry.Scheme.SmoothSite
 
 variable {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
@@ -60,10 +61,10 @@ theorem etaleStageOpen_exists_integral_base_refinement
   let g := ((etaleNeighborhoodToSmooth X s.hom).map v).left
   let q := (etaleStageOpenStructure X s p i U).app a
   let F := pullback.fst q g
-  let := hOpen
-  let := hClosed
-  have hFOpen : IsOpenImmersion F := inferInstance
-  have hFClosed : IsClosedImmersion F := inferInstance
+  let : IsOpenImmersion g := hOpen
+  let : IsClosedImmersion g := hClosed
+  have hFOpen : IsOpenImmersion F := inferInstanceAs (IsOpenImmersion (pullback.fst q g))
+  have hFClosed : IsClosedImmersion F := inferInstanceAs (IsClosedImmersion (pullback.fst q g))
   have hNormal : IsNormal (pullback q g) := isNormal_of_etale F
   have hNoeth : IsNoetherian (pullback q g) := by
     have := LocallyOfFiniteType.isLocallyNoetherian F
