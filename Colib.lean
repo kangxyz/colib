@@ -1490,6 +1490,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGeometryInstances
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGoodGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
