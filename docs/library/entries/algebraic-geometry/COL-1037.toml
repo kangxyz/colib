@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1037"
+title = "Global tensor roots with compatible finite-boundary frames"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 70
+primary = "Stacks.Kummer.exists_schemeTensorPower_iso_compatible_frame_of_closedFibre"
+review = "author_checked"
+statement = '''
+Let \(X\to\operatorname{Spec}R\) be proper, with \(R\) strictly henselian
+local and \(n>0\) invertible. Let \(L\) be an invertible module on \(X\),
+let \(i:\operatorname{Spec}B\to X\) be a morphism with \(B\) module-finite
+over \(R\), and specify \(\tau:i^*L\simeq\mathcal O_B\). An actual
+\(n\)-th tensor root of the closed-fibre pullback of \(L\) gives an
+invertible \(M\), an actual isomorphism \(\alpha:M^{\otimes n}\simeq L\),
+and a frame \(e:i^*M\simeq\mathcal O_B\). The tensor power of \(e\),
+followed by the structure-sheaf tensor-power isomorphism, is exactly
+\(\tau\circ i^*\alpha\circ\mathrm{comparison}^{-1}\).
+'''
+proof = '''
+COL-1031 produces an actual global root. The native integer-tensor-power
+pullback comparison identifies \(i^*(M^{\otimes n})\) with
+\((i^*M)^{\otimes n}\). Compose its inverse with the actual pullback of
+\(\alpha\) and then with the specified \(\tau\). Apply COL-1032 to this
+particular tensor-power trivialization, obtaining the stated exact frame
+equation. The lower endpoint applies the same construction to any already
+specified global root, without a properness or closed-fibre hypothesis.
+'''
+scope = '''
+Compatibility holds on the entire original finite boundary, including
+nilpotents and the zero finite algebra. Neither an initial frame nor an
+extension of the particular chosen fibre root is assumed. The lower theorem
+allows independent universes for \(R\) and \(B\); the proper closed-fibre
+application uses one scheme universe. The higher interface explicitly records
+invertibility of \(n\) in \(R\) and in \(\Gamma(X,\mathcal O_X)\).
+The prescribed boundary trivialization is an input of this result. Native
+pullback comparisons come from TensorPowerPullback in [@axiom_stacks_5ed82d14].
+'''

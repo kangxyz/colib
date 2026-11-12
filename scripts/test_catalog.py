@@ -435,6 +435,16 @@ class LibraryTests(unittest.TestCase):
             "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
             "proper-etale-specialization":
                 "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
+            "normal-curve-compactifications":
+                "Colib.AlgebraicGeometry.Normalization.Compactification.FiniteBoundary",
+            "projective-section-lifting":
+                "Colib.AlgebraicGeometry.ProjectiveSpace.Sections.SerreLifting",
+            "meromorphic-section-divisors":
+                "Colib.AlgebraicGeometry.Divisors.Meromorphic.TensorPowerRatio",
+            "principal-polynomial-families":
+                "Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilySupport",
+            "cartier-correspondences":
+                "Colib.AlgebraicGeometry.Correspondences.Divisors.FiniteFlat",
             "algebraic-simplices": "Colib.RingTheory.AlgebraicSimplex.Basic",
             "projective-dimension": "Colib.RingTheory.Koszul.Ext",
             "koszul-coefficients": "Colib.RingTheory.Koszul.Coefficients",
@@ -585,6 +595,35 @@ class LibraryTests(unittest.TestCase):
             "COL-1035": "Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveDivisorRoot",
             "COL-1036":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints",
+            "COL-1037": "Colib.AlgebraicGeometry.EtaleCohomology.KummerFiniteBoundaryRoot",
+            "COL-1038": "Colib.AlgebraicGeometry.Divisors.SectionKernelDifferencePullback",
+            "COL-1039":
+                "Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilySupport",
+            "COL-1040": "Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot",
+            "COL-1041": "Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialFamily",
+            "COL-1042": "Colib.AlgebraicGeometry.ProjectiveSpace.Sections.SerreLifting",
+            "COL-1043": "Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.EndpointOrder",
+            "COL-1044": "Colib.AlgebraicGeometry.ProjectiveSpace.Sections.ClosedEmbedding",
+            "COL-1045": "Colib.AlgebraicGeometry.Correspondences.Principal.EndpointTorCuts",
+            "COL-1046": "Colib.AlgebraicGeometry.RelativeCurve.Sections.PrescribedBoundary",
+            "COL-1047": "Colib.AlgebraicGeometry.Divisors.Meromorphic.TensorPowerRatio",
+            "COL-1048": "Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryFrames",
+            "COL-1049": "Colib.AlgebraicGeometry.Correspondences.Principal.GraphIncidenceStalkTor",
+            "COL-1050": "Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalDifference",
+            "COL-1051": "Colib.AlgebraicGeometry.Correspondences.Divisors.FiniteFlat",
+            "COL-1052": "Colib.AlgebraicGeometry.Divisors.Meromorphic.RegularTensorQuotient",
+            "COL-1053": "Colib.AlgebraicGeometry.Correspondences.Principal.OrderWeights",
+            "COL-1054": "Colib.AlgebraicGeometry.Divisors.SameFibreDifference",
+            "COL-1055": "Colib.AlgebraicGeometry.EtaleCohomology.SameFibreSectionDivisorRoot",
+            "COL-1056": "Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialFunctionField",
+            "COL-1057": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation",
+            "COL-1058": "Colib.AlgebraicGeometry.Divisors.Meromorphic.TensorPowerRegularSection",
+            "COL-1060": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Topology",
+            "COL-1061": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Adjunction",
+            "COL-1062": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteCutPushforward",
+            "COL-1063": "Colib.AlgebraicGeometry.Divisors.Meromorphic.CommonNonvanishingRatioGeneric",
+            "COL-1064": "Colib.AlgebraicGeometry.Normalization.Compactification.FiniteBoundary",
+            "COL-1065": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryImageCuts",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -645,11 +684,15 @@ class LibraryTests(unittest.TestCase):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
                          ["finite-correspondences", "transfers-nisnevich",
-                          "transfer-homological-algebra", "exterior-parameters"])
+                          "transfer-homological-algebra", "exterior-parameters",
+                          "cartier-correspondences",
+                          "principal-polynomial-families"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "scheme-products-and-index-squares",
-                          "perfect-complexes", "nisnevich-sites", "smooth-etale-sites",
-                          "proper-etale-specialization", "algebraic-simplices"])
+                          "perfect-complexes", "nisnevich-sites", "normal-curve-compactifications", "smooth-etale-sites",
+                          "projective-section-lifting", "proper-etale-specialization",
+                          "meromorphic-section-divisors",
+                          "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")

@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1064"
+title = "A normal compactification retaining its finite chart and whole boundary"
+kind = "theorem"
+section = "normal-curve-compactifications"
+order = 10
+primary = "AlgebraicGeometry.Scheme.exists_normal_proper_compactification_of_finite_chart"
+review = "author_checked"
+statement = '''
+Let a normal integral scheme \(X\) be finite over an open chart \(Y\) of a
+locally noetherian Nagata scheme \(Z\). Assume the chart immersion is
+quasi-compact, \(Z\) is proper over \(S\), and a closed subscheme
+\(E\) with support \(Z\setminus Y\) is finite over \(S\).
+Construct a normal integral locally noetherian scheme \(N\), finite over
+\(Z\) and proper over \(S\), containing the original \(X\) as an open
+chart over \(Z\). Its full boundary is the actual pullback
+\(D=N\times_Z E\), with the two projections and their Cartesian square.
+The closed map \(D\to N\) has support \(N\setminus X\), and
+\(D\to S\) is finite. All original source and base maps are retained.
+'''
+proof = '''
+Apply native relative normalization and Nagata finiteness. Over the original
+finite chart, normality identifies its normalization with the same source.
+The integral-source construction proves normality from integral closure on
+affine opens. Pull back the original closed boundary along the finite map;
+the Cartesian square transports finiteness and identifies its full support.
+Properness follows by composing the finite map with the original proper map.
+'''
+scope = '''
+No finite or reduced replacement of the boundary is chosen. Its entire
+scheme-theoretic pullback, including nilpotents, is exported. The finite
+chart and proper Nagata target are inputs. This does not construct parameters,
+prove a projective-line presentation, or prove that replacing the retained
+chart by a smaller smooth open still has finite boundary.
+'''

@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1056"
+title = "The original polynomial chart and its actual endpoint Tor values"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 70
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.exists_chartFraction_endpointTor"
+review = "author_checked"
+statement = '''
+Let \(C,W\) be integral schemes over a field \(k\), with an open immersion
+\(v:W\to C\), integral polynomial parameter space of \(C\), and a nonzero
+section \(f\in\Gamma(W,\mathcal O_W)\). Suppose its actual polynomial
+unit open is nonempty. For an integral affine noetherian open chart
+\(u:U\to C\) with noetherian polynomial parameter space, construct
+\(a,b\in\Gamma(U,\mathcal O_U)\) whose fraction is the original curve
+rational function pulled back along \(u\). Under the actual polynomial
+chart map, the original ambient rational function is precisely the literal
+fraction \((ta+(1-t)b)/b\). At every coheight-one \(x\in U\), these same
+sections have the required nonzero endpoint germs, and their signed full
+weighted endpoint stalk Tor sums are zero at \(t=0\) and the original
+pulled-back function's order at \(x\) at \(t=1\).
+'''
+proof = '''
+Native affine fraction-ring structure supplies actual global numerator and
+denominator, nonzero in every stalk. The original open immersion and its
+section isomorphism preserve the curve rational function. The native
+function-field maps of the polynomial projection and chart preserve the
+original parameter, so the ambient function is exactly \(tF+(1-t)\),
+and hence the stated literal fraction. Actual endpoint evaluations give
+the numerator germs \(b_x\) and \(a_x\), with denominator germ \(b_x\).
+Apply COL-1045 to those original germs and retain the sign of each full
+quotient. No polynomial fraction comparison is supplied as a premise.
+'''
+scope = '''
+All schemes and the field share one universe. Both noetherian hypotheses
+and coheight one remain explicit. Open polynomial-chart integrality and
+projection dominance are produced from the actual maps. Equality to one
+on a nonempty full boundary supplies the original nonzero section and
+nonempty unit open, without reducing that boundary. This is an equality
+of the actual chart weighted stalk-Tor values, not yet a finite-image
+pushforward identity or a global correspondence endpoint equality. Both
+finite-pushforward residue-degree factors and all image collisions remain
+separate coefficient-transport obligations.
+'''

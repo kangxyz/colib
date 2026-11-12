@@ -56,7 +56,7 @@ The cylinder correspondence need not be the graph of a scheme morphism. -/
 @[colib_tag "COL-1036"]
 theorem transfer_homotopy_endpoints (P : PresheafWithTransfers.{v} k)
     (hP : IsA1Invariant P) (X : SmoothSite (Spec (.of k))) (Y : Cor k)
-    (α : Cor.mk (affineLineCylinder.obj X) ⟶ Y) (a b : k) :
+    (α : (Cor.graphFunctor k).obj (affineLineCylinder.obj X) ⟶ Y) (a b : k) :
     transfer P ((Cor.graphFunctor k).map (nativeAffineSection (.of k) X a) ≫ α) =
       transfer P ((Cor.graphFunctor k).map (nativeAffineSection (.of k) X b) ≫ α) := by
   rw [transfer_comp, transfer_comp]
@@ -68,7 +68,7 @@ theorem transfer_homotopy_endpoints (P : PresheafWithTransfers.{v} k)
 /-- The signed difference of the actual endpoints has zero transfer action. -/
 theorem transfer_homotopy_endpoint_sub_eq_zero (P : PresheafWithTransfers.{v} k)
     (hP : IsA1Invariant P) (X : SmoothSite (Spec (.of k))) (Y : Cor k)
-    (α : Cor.mk (affineLineCylinder.obj X) ⟶ Y) (a b : k) :
+    (α : (Cor.graphFunctor k).obj (affineLineCylinder.obj X) ⟶ Y) (a b : k) :
     transfer P (((Cor.graphFunctor k).map (nativeAffineSection (.of k) X a) ≫ α) -
       ((Cor.graphFunctor k).map (nativeAffineSection (.of k) X b) ≫ α)) = 0 := by
   rw [transfer_sub, transfer_homotopy_endpoints P hP X Y α a b, sub_self]
@@ -80,9 +80,10 @@ explicit hypothesis; this theorem does not produce it from a tensor root. -/
 theorem restriction_eq_of_graph_sub_eq_zsmul_add_endpoint_sub
     (P : PresheafWithTransfers.{v} k) (hP : IsA1Invariant P)
     {X Y : SmoothSite (Spec (.of k))} (s t : X ⟶ Y)
-    (c d : Cor.mk X ⟶ Cor.mk Y)
-    (α : Cor.mk (affineLineCylinder.obj X) ⟶ Cor.mk Y) (a b : k) (n : ℤ)
-    (hn : ∀ x : sections P (Cor.mk X), n • x = 0)
+    (c d : (Cor.graphFunctor k).obj X ⟶ (Cor.graphFunctor k).obj Y)
+    (α : (Cor.graphFunctor k).obj (affineLineCylinder.obj X) ⟶ (Cor.graphFunctor k).obj Y)
+    (a b : k) (n : ℤ)
+    (hn : ∀ x : sections P ((Cor.graphFunctor k).obj X), n • x = 0)
     (h : (Cor.graphFunctor k).map s - (Cor.graphFunctor k).map t =
       n • (c - d) +
         (((Cor.graphFunctor k).map (nativeAffineSection (.of k) X a) ≫ α) -
@@ -92,7 +93,7 @@ theorem restriction_eq_of_graph_sub_eq_zsmul_add_endpoint_sub
     transfer P ((Cor.graphFunctor k).map t)
   apply sub_eq_zero.mp
   rw [← transfer_sub, h, transfer_add, transfer_zsmul,
-    transfer_homotopy_endpoint_sub_eq_zero P hP X (Cor.mk Y) α a b, add_zero]
+    transfer_homotopy_endpoint_sub_eq_zero P hP X ((Cor.graphFunctor k).obj Y) α a b, add_zero]
   ext x
   change n • transfer P (c - d) x = 0
   exact hn _

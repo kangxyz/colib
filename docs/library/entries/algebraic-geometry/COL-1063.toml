@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1063"
+title = "A produced common-open unit with the original boundary value"
+kind = "theorem"
+section = "meromorphic-section-divisors"
+order = 50
+primary = "AlgebraicGeometry.exists_denseOpen_unit_eq_meromorphicSectionRatio_boundary_one"
+review = "author_checked"
+statement = '''
+Let \(X\) be integral, \(P\) an invertible module, and \(i:B\to X\)
+any boundary morphism. Let \(s,t\) be regular meromorphic sections of
+\(P\), with original ordinary representatives \(c,p\) on specified
+opens containing the generic point and the whole boundary. Suppose both
+representatives have coordinate one in the same specified frame of
+\(i^*P\). Construct a dense common open \(W\) containing the whole
+boundary and an actual unit \(u\in\Gamma(W,\mathcal O_X)^\times\)
+whose native rationalization is precisely the original meromorphic ratio
+\(s/t\), and whose pullback through the original \(i\) is one on all
+of \(B\). Its ordinary defining equation is \(c=u\,p\).
+'''
+proof = '''
+Intersect the actual local nonvanishing opens of the original representatives.
+Their coordinate-one equations imply that the full boundary lies in this
+intersection. Native stalk-to-section results make both restricted sections
+generators and produce the actual unit ratio \(c/p\). Pull back its
+ordinary defining equation and evaluate in the original frame to get one.
+Regularity makes the two generic values nonzero, so the generic point
+belongs to this same open and the open is dense. Native rationalization
+of the original unit agrees with the original meromorphic ratio.
+'''
+scope = '''
+The ordinary common-open construction and full-boundary equation work on
+arbitrary schemes, including all nilpotents. Integrality and regular
+meromorphic representatives are used only for density and the generic
+ratio comparison. The original representative opens and coordinate-one
+hypotheses are inputs; the common generator open, density and unit are
+produced, not supplied as certificates. No generic field is pulled back
+to the boundary. The chosen root power and canonical Cartier difference
+are separate subsequent specializations. The native generator-ratio and
+nonvanishing suppliers are reused from [@axiom_stacks_5ed82d14].
+'''

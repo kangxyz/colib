@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1062"
+title = "Finite pushforward of full principal cuts with original degrees"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 80
+primary = "Stacks.Chow.finsum_principalCutLength_mul_residueDegree"
+review = "author_checked"
+statement = '''
+Let \(g:X\to Y\) be finite and dominant between integral locally
+noetherian schemes, and let \(s\) be a nonzero global section of
+\(\mathcal O_Y\). Fix a coheight-one point \(y\), and assume every
+point over \(y\) has coheight one in \(X\). The sum, over all these
+points, of the full local principal-cut lengths for \(g^*s\), weighted
+by their original residue degrees under \(g\), equals the full cut
+length for \(s\) at \(y\), multiplied by the original residue degree
+of \(g\) at the generic point of \(X\). Every coincident image is
+included in the sum.
+'''
+proof = '''
+Use the native finite-fibre coefficient formula before passage to rational
+equivalence. Its norm of the pulled-back rational function is the
+corresponding power of the original function. The native generic-degree
+comparison identifies that power with the actual generic residue degree.
+The original function-field map reads the pulled-back global section.
+Finally, at the stated coheight-one points, native orders are the full
+principal quotient lengths, giving the displayed coefficient identity.
+'''
+scope = '''
+The finite map is not assumed flat. Neither the source cuts nor the
+target cut are reduced, and both degree factors are the actual scheme
+residue degrees. The hypotheses on all fibre points remain explicit;
+producing them for the principal-component image and identifying the
+endpoint graph-incidence cuts are separate subsequent steps. This is not
+yet a global finite-correspondence endpoint equality. The native norm
+and ComponentDegree suppliers are reused from [@axiom_stacks_5ed82d14].
+All schemes have one universe.
+'''

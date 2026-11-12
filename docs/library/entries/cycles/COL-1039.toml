@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1039"
+title = "Finite supports of the actual principal polynomial family"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 10
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.principalFamily_support_isFinite"
+review = "author_checked"
+statement = '''
+Let \(S\) be affine over \(\operatorname{Spec}R\), let \(q:C\to S\)
+be proper, and let \(V\subseteq C\) be a quasi-affine open. Let
+\(B\to W\hookrightarrow C\) be a nonempty boundary neighborhood whose
+image contains \(C\setminus V\), and let \(f\in\Gamma(W,\mathcal O_W)\)
+restrict to \(1\) on the whole scheme \(B\). Assume the actual parameter
+product \(C\times_R\mathbb A^1_R\) is integral and Noetherian. For each
+nonzero coefficient of the native principal cycle of the rational function
+represented by \(t f+(1-t)\), its actual integral support is finite over
+\(S\times_R\mathbb A^1_R\).
+'''
+proof = '''
+The actual polynomial restricts to \(1\) on \(B\times_R\mathbb A^1_R\).
+Its canonical unit open, transported into the unchanged ambient product,
+therefore contains the entire complement of \(V\times_R\mathbb A^1_R\).
+A nonzero principal-cycle coefficient lies outside this unit open, and its
+whole closure remains outside because the complement is closed. The native
+integral support thus factors through the retained quasi-affine open. Its
+map to the affine parameter base is proper and quasi-affine, hence finite.
+The endpoint section computations are literally \(1\) and \(f\).
+'''
+scope = '''
+The cycle is Stacks.Chow.principalCycle and its support is the native
+integralComponentAt subscheme. No archived Finsupp replacement or assumed
+finiteness certificate is used. The boundary may be nonreduced; its
+normalization is an equality of sections on the full scheme. Integrality
+and Noetherianness of the actual parameter product remain explicit.
+This intermediate needs no smoothness or relative-dimension assumption.
+Dominance over source components, a finite-correspondence construction,
+flatness, Tor endpoint multiplicities and the final principal homotopy
+identity remain separate obligations. The implementation adapts the
+2026-10-21 Motivic source checkpoint with the pinned native objects.
+'''

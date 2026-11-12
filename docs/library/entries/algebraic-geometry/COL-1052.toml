@@ -1,0 +1,50 @@
+[entry]
+id = "COL-1052"
+title = "The actual regular tensor quotient on its original open"
+kind = "theorem"
+section = "meromorphic-section-divisors"
+order = 30
+primary = "AlgebraicGeometry.Scheme.Modules.tensorSection_regularTensorQuotientOnNonvanishingOpen"
+review = "author_checked"
+statement = '''
+Let \(X\) be any scheme, \(L\) a module sheaf, \(N\) invertible, and
+\(b\) a global section of \(N\). For every global section \(a\) of
+\(L\otimes N\), construct a section \(a/b\) of \(L\) on the original
+nonvanishing open of \(b\). Its literal tensor product with the restriction
+of \(b\) is the restriction of \(a\) on that whole open. If \(X\) is
+integral, both modules are invertible, and \(b\ne0\), then on any specified
+generic-point neighbourhood where \(b\) trivializes \(N\), the germ of
+this ordinary quotient is exactly the generic value of COL-1047's
+meromorphic quotient.
+For any full boundary morphism \(i:B\to X\), let \(e\) and \(e_N\)
+be specified frames of the two pulled-back modules. If the original
+numerator and denominator have coordinate one in the compatible tensor
+frame and in \(e_N\), respectively, then the whole boundary lies in the
+original denominator open and the actual quotient pulls back to a section
+whose coordinate in the original \(e\) is one.
+'''
+proof = '''
+The native restriction/tensor comparison and the original denominator's
+trivialization [@stacks, Tag 01CY] give an actual module isomorphism from
+the restricted tensor product to \(L\). Apply this isomorphism to the
+original numerator. Its inverse computes the original pure tensor, giving
+the recovery equation. At the generic point, the same denominator is a
+basis, so the tensor recovery equation identifies this germ with the
+previously constructed meromorphic quotient. The denominator frame equal
+to one puts the full boundary in its nonvanishing locus. Pull back the
+ordinary recovery equation and apply the original tensor frame; its
+denominator factor is one, so the quotient has coordinate one.
+'''
+scope = '''
+The ordinary construction does not require reducedness, integrality or
+noetherianity and retains all nilpotents. The numerator module need not
+be invertible in that part. The denominator's isomorphism on its actual
+nonvanishing open is produced by the native theorem, not assumed. Integrality,
+both invertibilities, a nonzero denominator and a specified generic-point
+neighbourhood belong only to the meromorphic comparison. All objects share
+one universe. The full-boundary statement requires no reducedness, flatness,
+integrality or noetherianity of either scheme. It uses the actual ordinary
+section on the denominator open, never a pullback of the generic field.
+The separate positive-power and canonical-difference frame coherences are
+not assumed or proved by this quotient calculation.
+'''

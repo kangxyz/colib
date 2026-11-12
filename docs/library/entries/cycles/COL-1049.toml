@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1049"
+title = "Actual graph incidence and endpoint stalk Tor"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 50
+primary = "Stacks.Chow.graphIncidenceTor_length_eq_endpointStalkTor"
+review = "author_checked"
+statement = '''
+Let \(X,Y,Z\) be schemes over a field \(k\), with \(X\) integral,
+\(Y\to\operatorname{Spec}k\) separated, and the structural map of \(X\)
+flat. Let \(\varphi:X\to Y\) be a closed immersion over \(k\), and use
+the native graph point of its specified generic point. For an original
+integral support in \(Y\times_k Z\) and every point of the native graph
+incidence, each Tor degree in the original four-factor intersection ambient
+has exactly the same full module length as Tor of the literal outer endpoint
+ambient stalk against the original support stalk, taken over the adjacent
+ambient \(Y\times_k Z\). The scalar actions use the original projection,
+closed-inclusion and stalk maps, including their actual point transports.
+'''
+proof = '''
+The full pulled graph is isomorphic to the original outer ambient
+\(X\times_k Z\), and its isomorphism preserves the actual map into
+\(Y\times_k Z\). The full inverse-image support stalk is the extension
+of scalars of the original support stalk. Native flat change of rings
+removes the triple-ambient projection from Tor in every degree. The closed
+graph map gives a preimmersed composite, whose residue-field surjectivity
+forces the projection's residue field map to be surjective. Restriction of
+scalars therefore preserves the entire module length. Compose this with
+the existing native four-factor incidence comparison.
+'''
+scope = '''
+Flatness concerns only the structural map and the induced ambient projection,
+never an integral correspondence support. The full pulled graph and support
+schemes are retained. Lengths take values in extended natural numbers, so
+no finite-length premise or truncation occurs. The lower stalk and flat
+projection comparisons work over a general base, while the four-factor
+incidence endpoint stated here is over a field. All schemes and the field
+share one universe. This item precedes any coefficient sum: original
+principal orders versus local multiplicity weights, both finite-pushforward
+residue-degree factors and all image collisions still require their own
+comparison. It does not assert the final polynomial correspondence endpoint
+identity or identify different finite-image ambients without proof.
+'''

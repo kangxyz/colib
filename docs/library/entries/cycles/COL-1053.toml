@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1053"
+title = "Original rational orders from actual local principal weights"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 60
+primary = "AlgebraicGeometry.Scheme.exists_localPrincipalWeights"
+review = "author_checked"
+statement = '''
+Let \(X\) be integral and locally noetherian, let \(x\in X\), and let
+\(F\) be a nonzero element of its original function field. There exist
+nonzero \(a,b\in\mathcal O_{X,x}\) with \(a/b=F\) such that, for every
+prime of that stalk whose image in \(X\) has coheight one, the original
+order of \(F\) at that image is the difference of the full localized
+lengths of \(\mathcal O_{X,x}/(a)\) and \(\mathcal O_{X,x}/(b)\).
+One actual local fraction works simultaneously for all these primes.
+'''
+proof = '''
+The native fraction-ring structure produces the fraction of the same
+function-field element. The native stalk-prime localization identifies
+localization at the chosen prime with the stalk at its actual generalization.
+Localization of the full principal quotient and native length invariance
+retain its whole length. Compatibility of the original stalk-specialization
+maps with the function field preserves both numerator and denominator.
+Apply the native order-as-difference-of-colengths theorem at the coheight-one
+generalization.
+'''
+scope = '''
+The local fraction and its nonzero numerator and denominator are produced,
+not supplied as a comparison certificate. Neither quotient is replaced by
+its reduction. The lower localization-length comparison allows arbitrary
+schemes and infinite lengths; the order theorem retains integrality, local
+noetherianity and coheight one. The scheme and rings share one universe.
+The native order ingredient is ord_div_algebraMap_eq_length_sub in
+FlatPullbackPrincipalDivisor of [@axiom_stacks_5ed82d14]. Matching this local
+fraction with the literal polynomial numerator and denominator, proving
+the corresponding endpoint-germ conditions, and transporting finite-image
+residue degrees with all collisions are separate remaining steps.
+'''

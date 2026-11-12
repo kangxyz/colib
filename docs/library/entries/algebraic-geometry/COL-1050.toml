@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1050"
+title = "The canonical section of an actual Cartier difference"
+kind = "comparison"
+section = "meromorphic-section-divisors"
+order = 20
+primary = "Stacks.Divisors.weilDivisorOfMeromorphicSection_canonicalDifference"
+review = "author_checked"
+statement = '''
+Let \(X\) be an integral noetherian scheme and let \(D,E\) be original
+effective Cartier ideals. On the literal module
+\(\mathcal O(D)\otimes\mathcal I_E\), construct its canonical regular
+meromorphic section \(c_{D-E}\). Its actual native Weil divisor is
+\([D]-[E]\), with the positive-minus-negative convention. With only local
+noetherianity, the coefficient at every prime divisor is still the difference
+of the original full stalk quotient lengths. For two actual sections of a
+separated smooth relative curve, the same construction applies to their
+section kernels, with Cartierness derived from the section equations.
+'''
+proof = '''
+Map the original ordinary canonical Cartier section to the native generic
+stalk realization. Its order is the full quotient length of its actual
+zero scheme, which native canonical-section geometry identifies with the
+original Cartier ideal. The native pairing gives
+\((\mathcal O(D)\otimes\mathcal I_E)\otimes\mathcal O(E)\simeq\mathcal O(D)\).
+Transport the canonical section of \(\mathcal O(D)\) through this pairing
+and divide by the original canonical section of \(\mathcal O(E)\), using
+COL-1047. Tensor recovery, regularity and the signed coefficient formula
+then follow for the same module and sections. Native Cartier geometry
+supplies the section-kernel specialization.
+'''
+scope = '''
+Integrality is required by the generic-stalk meromorphic construction.
+The coefficient comparison needs only local noetherianity; global
+noetherianity is required by the existing native effectiveCartierWeilDivisor
+endpoint. All schemes and modules share one universe. No Picard representative
+is substituted, and no divisor-identity premise is supplied. Canonical
+Cartier sections and their zero schemes use [@stacks, Tag 01WX] and [@stacks, Tag 01X0];
+the original multiplicities use [@stacks, Tag 02AR]. The exact ordinary
+representative near the full boundary and its coordinate in the previously
+constructed boundary frame are separate comparisons, not consequences
+asserted from the Weil-divisor equality alone.
+'''

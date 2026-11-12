@@ -43,4 +43,25 @@ theorem exists_schemeTensorPower_iso_of_picard_nsmul (X : Scheme.{u}) (n : ℕ)
     _ = n • c := congrArg (fun z => n • z) hMc
     _ = _ := hc
 
+/-- An actual tensor root of a pullback gives the corresponding equality of Picard classes.
+The pullback is the native scheme-module pullback, with no cohomological hypotheses. -/
+theorem nsmul_picardClass_eq_pullback_of_schemeTensorPower_iso
+    {X Y : Scheme.{u}} (f : X ⟶ Y) (n : ℕ)
+    (L : Y.Modules) (hL : Stacks.SheafOfModules.IsInvertible Y.presheaf Y.ringCatIsSheaf L)
+    (M : X.Modules) (hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M)
+    (e : Stacks.SheafOfModules.schemeTensorPower X M hM (n : ℤ) ≅
+      (Scheme.Modules.pullback f).obj L) :
+    n • X.picardClass M hM = Picard.schemePullbackClassHom f (Y.picardClass L hL) := by
+  have hpull := Stacks.RingedSpace.modulePullback_isInvertible_of f.toLRSHom.toShHom L hL
+  have he := (Stacks.SheafOfModules.picardClass_eq_iff X.presheaf X.ringCatIsSheaf _ _
+    (Stacks.SheafOfModules.isInvertible_schemeTensorPower X M hM (n : ℤ)) hpull).2 ⟨e⟩
+  calc
+    n • X.picardClass M hM = (n : ℤ) • X.picardClass M hM :=
+      (natCast_zsmul _ _).symm
+    _ = Stacks.SheafOfModules.picardClass X.presheaf X.ringCatIsSheaf
+        (Stacks.SheafOfModules.schemeTensorPower X M hM (n : ℤ))
+        (Stacks.SheafOfModules.isInvertible_schemeTensorPower X M hM (n : ℤ)) :=
+      (Stacks.SheafOfModules.picardClass_schemeTensorPower X M hM (n : ℤ)).symm
+    _ = _ := he.trans (Picard.pullbackClass_classOf f.toLRSHom.toShHom L hL).symm
+
 end Stacks.Kummer

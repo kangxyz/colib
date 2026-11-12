@@ -28,7 +28,7 @@ namespace Stacks.Groupoids
 every natural number invertible in that field. -/
 theorem exists_nsmul_eq_of_isUnit_of_isSepClosed
     {k : Type u} [Field k] [IsSepClosed k]
-    (A : Over (Spec (.of k))) [GrpObj A] [IsAbelianVariety k A]
+    (A : Over (Spec (.of k))) [GrpObj A] [AlgebraicGeometry.IsAbelianVariety k A]
     (n : ℕ) (hn : IsUnit (n : k))
     (a : Additive (𝟙_ (Over (Spec (.of k))) ⟶ A)) :
     ∃ b : Additive (𝟙_ (Over (Spec (.of k))) ⟶ A), n • b = a := by

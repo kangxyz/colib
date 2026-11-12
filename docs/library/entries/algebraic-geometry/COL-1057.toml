@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1057"
+title = "Actual affine etale neighborhood values and the sheafification unit"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 30
+primary = "AlgebraicGeometry.Scheme.SmoothSite.etaleNeighborhoodSheafificationIso"
+review = "author_checked"
+statement = '''
+Let \(S\) be a quasi-separated scheme in universe \(u\), let
+\(X\) belong to its original smooth site, and let
+\(\xi:\operatorname{Spec}\Omega\to X\) be a field-valued point.
+The actual affine etale neighborhoods marked by \(\xi\) form a
+cofiltered, initially small category, with their literal diagram
+\(D_\xi\) of smooth schemes over \(S\). When \(\Omega\) is separably
+closed this diagram defines a point of the smooth etale topology.
+For an ordinary presheaf \(F\) valued in \(\mathrm{Ab}_{u+1}\), its
+native point fiber is the actual colimit of \(F\circ D_\xi^{\mathrm{op}}\),
+with the canonical inclusion maps. Equality of two representatives is
+witnessed at an actual common affine refinement. The native map from
+\(F\) to its etale sheafification induces an isomorphism of these values,
+and its stage component is precisely the original sheafification unit.
+'''
+proof = '''
+Use the Elements category of the original field-valued affine etale
+neighborhood functor. Finite limits and affine refinement give
+cofilteredness and smallness. After pulling back a genuine etale cover,
+native separably closed lifting supplies a marked affine refinement.
+Apply the native point constructor. Its presheaf-fiber cocone is a
+colimit on this very diagram. Native filtered colimits of abelian groups
+provide representatives and common-stage equations; the actual point
+functor inverts the canonical sheafification unit. The resulting
+isomorphism is the image of that unit, not a separately chosen map.
+'''
+scope = '''
+The neighborhood geometry works over any field; cover lifting, the
+point and its value use separable closedness. The coefficient universe
+is explicitly one larger than the scheme universe. Naturality, eventual
+vanishing, two representatives at one stage and transport of a common
+annihilator are included. The original presheaf-with-transfers tests
+restrict along its actual graph functor. This does not identify the value
+with evaluation on a field or on an arbitrary henselian scheme, prove a
+conservative family, extend all correspondences to pro-objects, or assert
+rigidity. The native suppliers are Point/OfIsCofiltered, EtalePoint and
+filtered abelian-group colimits in [@mathlib_stable_localization_pin].
+'''

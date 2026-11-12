@@ -6,7 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot
-public import StacksFrontier.AlgebraicGeometry.Divisors.DivisorPicardClass
+public import Colib.AlgebraicGeometry.Divisors.DifferenceSheafPicard
 public import StacksFrontier.AlgebraicGeometry.Picard.DivisorSheafDegree
 public import StacksFrontier.AlgebraicGeometry.Picard.DiagonalFibreDivisor
 public import StacksFrontier.AlgebraicGeometry.FiniteLocallyFreeRank.AffineTarget
@@ -29,34 +29,6 @@ universe u
 namespace Stacks.Divisors
 
 variable {X : Scheme.{u}} (D E : X.IdealSheafData)
-
-/-- The actual module `𝒪(D) ⊗ 𝒪(-E)`, with this order and sign convention. -/
-def differenceSheaf : X.Modules :=
-  ((Stacks.SheafOfModules.Tensor.sheafTensor X.ringCatSheaf).obj
-    (invertibleSheaf' D)).obj (negativeTwist' E)
-
-/-- The difference module of two effective Cartier divisors is invertible. -/
-theorem isInvertible_differenceSheaf [IsEffectiveCartierDivisor D]
-    [IsEffectiveCartierDivisor E] :
-    Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf (differenceSheaf D E) := by
-  have hD : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf
-      (invertibleSheaf' D) := isInvertible_invertibleSheaf_picard D
-  have hE : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf
-      (negativeTwist' E) := isInvertible_negativeTwist_picard E
-  exact @Stacks.SheafOfModules.isInvertible_tensorSheaf _ _ _ X.presheaf
-    X.ringCatIsSheaf _ _ _ _ hD hE
-
-/-- The class of the chosen module is the positive divisor class minus the negative one. -/
-theorem picardClass_differenceSheaf [IsEffectiveCartierDivisor D]
-    [IsEffectiveCartierDivisor E] :
-    X.picardClass (differenceSheaf D E) (isInvertible_differenceSheaf D E) =
-      picardClass D - picardClass E := by
-  have h := (X.picardClass_tensorSheaf (invertibleSheaf' D) (negativeTwist' E)
-    (isInvertible_invertibleSheaf_picard D) (isInvertible_negativeTwist_picard E)
-    (isInvertible_differenceSheaf D E)).symm
-  have hsum : X.picardClass (differenceSheaf D E) (isInvertible_differenceSheaf D E) =
-      picardClass D + negativeTwistPicardClass E := h
-  rw [hsum, negativeTwistPicardClass_eq_neg, sub_eq_add_neg]
 
 /-- Full scheme length of a divisor over a field, including its nilpotents. -/
 def lengthOver {k : Type u} [Field k] (q : X ⟶ Spec (.of k))

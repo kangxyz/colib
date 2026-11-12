@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1060"
+title = "The actual finite-type basis of the full small etale site"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 40
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.sheafEquivSmallEtale"
+review = "author_checked"
+statement = '''
+Let \(B\) be an affine scheme in universe \(u\) and let \(X\) be an
+object of its original smooth site. The separated finite-type etale
+neighborhoods of \(X\), with topology induced from its full small etale
+site, form a genuine dense subsite. Their categories of sheaves valued in
+\(\mathrm{Ab}_{u+1}\) are equivalent. The inverse equivalence is literal
+restriction along the actual inclusion, on both coefficient presheaves
+and their natural transformations.
+'''
+proof = '''
+Factor the native affine etale neighborhood functor through the actual
+separated finite-type subcategory. Over the affine base, each affine
+neighborhood has an affine, hence quasi-compact and separated, map to
+\(X\). The factorization preserves the original schemes and maps. Native
+affine cover density therefore gives cover density of this subcategory;
+apply the native induced-topology sheaf equivalence.
+'''
+scope = '''
+The smooth object \(X\) need not be affine. The full small site includes
+its non-quasi-compact objects; none is incorrectly inserted into the
+finite-type smooth category. This is an ordinary abelian-sheaf equivalence,
+not a transfer or derived comparison. Its suppliers are the actual
+AffineEtale and dense-subsite interfaces of [@mathlib_stable_localization_pin].
+'''

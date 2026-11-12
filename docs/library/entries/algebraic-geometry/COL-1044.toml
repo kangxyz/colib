@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1044"
+title = "Prescribed sections on a full projective boundary"
+kind = "theorem"
+section = "projective-section-lifting"
+order = 20
+primary = "AlgebraicGeometry.Scheme.Modules.exists_surjective_pullbackGlobalSections_pullbackTwist"
+review = "author_checked"
+statement = '''
+Let \(R\) be a noetherian commutative ring, let
+\(f:X\to\operatorname{Proj}(\mathrm{polyGrading}\ R\ n)\) be a closed
+immersion, and let \(i:Z\to X\) be any closed immersion. For every coherent
+module \(M\) on \(X\), there is an integer \(B\) such that restriction of
+global sections of \(M\otimes f^*\mathcal O(d)\) to the whole scheme
+\(Z\) is surjective for every \(d\ge B\). Two coherent modules admit
+one common bound and simultaneous lifts of any two prescribed boundary
+sections. Given boundary frames for these twisted modules, the lifts have
+frame coordinates literally equal to one.
+'''
+proof = '''
+The native closed-boundary adjunction unit is an epimorphism, and its source
+and target are coherent. Affine pushforward preserves this epimorphism.
+Apply COL-1042 to its finite coherent direct image in projective space.
+The native closed-immersion projection formula transports the twisted
+evaluation map to the original tensorized quotient map. Its naturality
+with respect to the adjunction unit identifies that map with the actual
+pullbackGlobalSections restriction. Taking the maximum of two Serre bounds
+produces the simultaneous lifts; applying inverse boundary frames to one
+supplies the prescribed values.
+'''
+scope = '''
+The ring and schemes share one universe. Neither the ring nor the boundary
+is assumed reduced, and no pointwise replacement of the prescribed boundary
+values occurs. The integer bound is independent of the later chosen sections
+or frames. The projective presentation is an actual closed immersion, not
+an arbitrary finite morphism. Regularity, relative flatness and finite-flat
+divisor pairs are not conclusions of this item. Serre vanishing
+[@stacks, Tag 01YS] is an input ingredient, not an attribution of the entire
+projection-formula comparison to that tag.
+'''

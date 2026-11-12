@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1047"
+title = "Tensor quotients and the signed principal correction"
+kind = "comparison"
+section = "meromorphic-section-divisors"
+order = 10
+primary = "AlgebraicGeometry.weilDivisor_eq_smul_sub_add_principal_tensorQuotientPower"
+review = "author_checked"
+statement = '''
+Let \(X\) be integral and locally noetherian, and let \(L,N,P\) be
+invertible modules. Given regular meromorphic sections \(a\) of
+\(L\otimes N\) and \(b\) of \(N\), construct an actual regular
+meromorphic section \(m=a/b\) of \(L\), satisfying \(m\otimes b=a\)
+and \(\operatorname{div}(m)=\operatorname{div}(a)-\operatorname{div}(b)\).
+For a positive exponent \(n=k+1\), an actual native tensor-power
+isomorphism \(\alpha:L^{\otimes n}\simeq P\), and a regular meromorphic
+section \(c\) of \(P\), define the actual rational unit
+\(f=c/\alpha(m^n)\). Then the literal native Weil-divisor identity is
+\(\operatorname{div}(c)=n(\operatorname{div}(a)-\operatorname{div}(b))+\operatorname{principal}(f)\).
+'''
+proof = '''
+The generic value of the regular denominator is a basis of its generic
+stalk. Inverting tensor multiplication by that basis constructs the
+quotient, and the native generic-stalk realization turns it into an actual
+meromorphic section. Injectivity of generic values proves its tensor
+equation, while regularity of the numerator proves regularity of the quotient.
+Native tensor-section additivity [@stacks, Tag 02SL] gives the divisor
+difference. Native first-power and successor comparisons construct the
+positive tensor powers and multiply their divisors by the original exponent.
+The native section ratio [@stacks, Tag 02SH] applied with numerator \(c\)
+and denominator \(\alpha(m^n)\) gives the plus-principal correction.
+'''
+scope = '''
+The quotient construction itself needs integrality, but local noetherianity
+is required for the Weil-divisor identities. The modules and scheme share
+one universe. All tensor powers and maps are the native scheme-module
+ones, and the equalities are of actual Weil divisors, not Picard classes.
+The exponent is positive; this item makes no zero- or negative-power claim.
+The section \(c\) is a specified regular meromorphic section. Its later
+identification with the canonical section of an effective Cartier-divisor
+difference is not assumed or proved here. Nor is a regular representative
+near the full boundary or its nilpotent-preserving normalization constructed
+by this item.
+'''

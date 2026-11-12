@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1054"
+title = "The actual unit difference of sections with equal specialization"
+kind = "comparison"
+section = "proper-etale-specialization"
+order = 85
+primary = "Stacks.Divisors.sectionKernelDifferencePullbackUnitIso_of_range_subset"
+review = "author_checked"
+statement = '''
+Let \(q:X\to S\) be separated and \(j:U\to X\) an open immersion with
+\(U\to S\) smooth of relative dimension one. Let actual sections
+\(s,t:S\to X\) have images in \(U\), and let \(g:T\to S\) satisfy
+\(s\circ g=t\circ g\) as actual scheme morphisms.
+Their full image kernels are effective Cartier divisors on \(X\).
+For \(p:X\times_ST\to X\), construct the actual isomorphism
+\[p^*(\mathcal O(\ker s)\otimes\mathcal O(-\ker t))\simeq\mathcal O_{X\times_ST}.\]
+For any boundary map avoiding the two original section images, also
+construct the specific full-boundary frame of this same difference.
+'''
+proof = '''
+Factor each section through the smooth open. Native relative Cartier theory
+[@stacks, Tag 0B9D] and the open-to-global criterion prove the Cartier
+condition on the ambient scheme, including after arbitrary base change.
+Compare the literal pulled-back image ideals. The equality of specialized
+morphisms makes these two ideals equal; the native dual-evaluation pairing
+[@stacks, Tag 01CT] then identifies their difference with the unit module.
+The boundary frame is the specified Cartier pullback and empty-divisor
+evaluation comparison, on the whole boundary scheme.
+'''
+scope = '''
+Smoothness is confined to the open containing the two section images.
+There is no ambient smoothness, properness, field, noetherianity or
+reducedness hypothesis. The specialization premise is equality of actual
+morphisms, not just equality of underlying points. Base change is arbitrary.
+The comparison preserves the original section kernels and the order of
+the positive and negative factors. It supplies the explicit unit-fibre
+input for COL-1055 and does not itself assert a global tensor root.
+'''

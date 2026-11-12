@@ -63,6 +63,145 @@ cohomological shifts and signs.
   graph restrictions and an explicit signed endpoint difference. It does not
   supply the required geometric principal family or moving-divisor identity.
 
+- COL-1037 combines an actual global tensor root, the native tensor-power
+  pullback comparison and finite-boundary frame adjustment. Its higher
+  endpoint obtains the root by proper Kummer specialization and retains
+  the exact equation with the specified boundary trivialization.
+- COL-1038 identifies the actual section-kernel divisor difference under
+  arbitrary base change of a separated smooth relative curve. Section-image
+  geometry supplies both Cartier conditions; the inverse-image ideals are
+  identified literally, without a flatness or reducedness assumption.
+- COL-1039 constructs the literal principal polynomial family, its actual
+  unit open and full-boundary normalization. Properness and quasi-affineness
+  prove that every nonzero native principal-cycle support is finite over
+  the unchanged affine parameter base. It does not assume that finiteness.
+- COL-1040 combines the actual closed-curve root, relative divisor pullback,
+  proper Kummer specialization and the specified boundary trivialization
+  away from the section images. It produces a global root with a compatible
+  frame without an external Picard, degree, Cartier, fibre-root or frame
+  certificate. The closed fibre's native IsCurve hypothesis remains explicit.
+
+- COL-1041 proves actual component dominance of the finite principal supports
+  and constructs the signed native finite correspondence from the polynomial
+  cylinder. Each summand is the actual finite pushforward with its original
+  order and residue degree; equal image points accumulate their coefficients.
+  Neither finiteness nor dominance is passed in as a cycle certificate.
+
+- COL-1042 produces a uniform large-twist bound for actual global-section
+  surjectivity of any coherent epimorphism on native projective space.
+  Coherent-kernel Serre vanishing supplies the bound, rather than appearing
+  as a caller-supplied cohomology certificate. A lower boundary lemma proves
+  that a section framed to one on the whole boundary has a finite whole
+  zero scheme under the proper/quasi-affine-complement hypotheses.
+- COL-1043 identifies full local cuts by the actual endpoint stalk kernels:
+  numerator-minus-denominator lengths cancel at zero and equal the original
+  native order at one. The polynomial cylinder and its actual evaluation
+  sections are also identified with the existing native affine-cylinder
+  maps.
+
+- COL-1044 transports the Serre bound through actual affine pushforward and
+  the closed-immersion projection formula. It produces simultaneous global
+  sections with any prescribed values on the full closed boundary, and
+  literal boundary-frame coordinates equal to one. The projective
+  presentation is a closed embedding; COL-1046 supplies regularity and
+  relative flatness of the zero schemes under the smooth-open hypotheses.
+- COL-1045 constructs a regular generator of the actual polynomial endpoint
+  stalk kernel and identifies weighted native endpoint-stalk Tor with the
+  full cut length. Multiplicities are localized lengths of the original
+  principal quotient, not of its reduction. Its signed values cancel at
+  zero and recover the original order at one. The remaining graph-incidence
+  and finite-pushforward coefficient comparisons are not assumed.
+- COL-1046 proves that locally principal quasi-finite subschemes of smooth
+  relative curves are relative Cartier divisors over arbitrary bases.
+  Applying this to the actual boundary-normalized sections produces whole
+  finite locally free zero schemes and actual divisor pairs. Smoothness is
+  needed only on the retained open. The simultaneous pair remains
+  conditional on its two full-boundary twist frames.
+- COL-1048 constructs those frames compatibly with the fixed original frame
+  over a module-finite boundary of a local ring. Only the auxiliary twist
+  frame is chosen. The numerator is a section of the tensor product and
+  the denominator is a section of the actual auxiliary twist, transported
+  through the native unitor, with the corresponding exact boundary values.
+- COL-1047 constructs the actual tensor quotient of regular meromorphic
+  numerator and denominator sections on an integral scheme. Its positive
+  native tensor powers give the literal Weil-divisor identity with correcting
+  ratio c/alpha((a/b)^n), including the plus-principal sign. Local
+  noetherianity is explicit. COL-1050 supplies the canonical Cartier
+  difference section; its full-boundary frame comparison is separate.
+- COL-1049 compares the original four-factor graph incidence Tor with
+  actual endpoint-ambient and original support stalk Tor in every degree.
+  The full graph pullback, point transports and scalar actions are retained;
+  flatness belongs only to the ambient projection. Original multiplicity
+  weights and both finite-pushforward residue-degree sums remain separate.
+- COL-1050 constructs the canonical regular meromorphic section of the
+  literal differenceSheaf, with full original quotient-length coefficients.
+  Under global noetherianity its native Weil divisor is exactly D minus E.
+  The original section-kernel specialization derives its Cartier hypotheses.
+- COL-1051 identifies native Cartier Weil cycles with the whole zero-scheme
+  fundamental cycles and finite-flat correspondences. It preserves actual
+  source-target maps, all residue degrees and image collisions, identifies
+  section kernels with their original graphs, and transports a lower Weil
+  identity additively. Actual compactification-to-open restriction remains.
+- COL-1052 constructs the ordinary quotient on the original denominator's
+  nonvanishing open over arbitrary schemes, with literal tensor recovery.
+  Under the explicit integral hypotheses its germ is the same meromorphic
+  quotient. The prescribed denominator frame places the entire boundary
+  in this open, and tensor recovery gives coordinate one in the original
+  frame of the quotient module, including all nilpotents.
+- COL-1053 produces a genuine stalk fraction for the same nonzero rational
+  function and identifies its original orders with signed localized
+  principal-quotient weights. COL-1056 matches the literal polynomial
+  chart and proves the required endpoint germs.
+
+- COL-1054 derives the actual section-kernel Cartier property from a smooth
+  open and identifies the difference of equal specialized section morphisms
+  with the unit module. The ambient compactification need not be smooth.
+- COL-1055 uses this explicit unit-fibre root, proper Kummer reflection and
+  finite-boundary frame correction. Its high-level source is not yet
+  natively elaborated; no Jacobian or smooth-proper compactification is
+  required by this route.
+
+- COL-1056 constructs a genuine affine fraction of the original curve
+  function, proves the actual polynomial function-field identity, and
+  computes both signed endpoint stalk Tor values from the same sections.
+  Finite-image residue factors and collisions still need transport.
+
+- COL-1057 constructs actual geometric affine etale neighborhood values
+  as the native point fiber and proves the original colimit, refinement
+  and sheafification-unit equations. Its PST tests retain the literal
+  graph-transfer maps; field-value rigidity is not asserted.
+
+- COL-1058 forms ordinary powers on the original open and proves coordinate
+  one in the exact native Kummer power frame for every natural exponent.
+  The original integer-power pullback comparison and root compatibility
+  now compute the original target-frame coordinate on the full boundary.
+  The same ordinary powers represent the positive meromorphic powers
+  under the separate integral hypotheses.
+
+- COL-1060 supplies a genuine separated finite-type basis equivalence for
+  the full small etale site, including its non-quasi-compact objects.
+- COL-1061 constructs the full-small/smooth adjunction and preserves its
+  actual canonical unit and counit. Counit invertibility for HI torsion
+  transfers is still the rigidity target.
+- COL-1062 gives the actual finite full-cut coefficient projection formula
+  with both original residue-degree factors and all fibre collisions,
+  without support flatness. Actual principal-image specialization remains.
+
+- COL-1063 produces the actual dense common open and unit ratio from the
+  original ordinary representatives. That same unit rationalizes to the
+  original meromorphic ratio and pulls back to one on the full boundary.
+  The root-power/canonical-difference specialization remains separate.
+
+- COL-1064 constructs the actual normal proper compactification from a
+  finite chart over a proper Nagata target. It retains the original source,
+  the full scheme-theoretic boundary pullback and both maps of its Cartesian
+  square. Shrinking the retained chart to a smaller smooth open requires
+  a separate finite-boundary neighborhood argument.
+- COL-1065 specializes finite cuts to the original principal-component
+  map and native component-correspondence coefficient. Fibre coheight
+  is proved, and both degree factors plus all fibre collisions are retained.
+  The image section still needs identification with the literal endpoint cut.
+
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
 different checks; a source candidate or an item entry is not a completed
@@ -70,30 +209,71 @@ whole-program validation report.
 
 ## Remaining mathematical chain
 
-1. Identify the pullback of the global section-divisor difference with the
-   closed-fibre section-kernel difference on the same native modules and
-   maps. COL-1035 supplies its closed-curve tensor root, and COL-1031 then
-   supplies a global root. The relative divisor/base-change identification
-   is still required; the closed-curve degree computation is already present.
-2. Construct the prescribed trivialization on the actual finite boundary and
-   identify the pullback of the root's tensor power with the tensor power of
-   its actual pullback. COL-1032 then supplies the exact compatible frame,
-   including on the original nonreduced boundary.
-3. Convert that framed root into finite-flat effective divisor data and a
-   principal correspondence identity. Preserve scheme-length multiplicities,
-   signs and the original graph maps. Evaluate the identity using additivity,
-   annihilation by `n` and actual homotopy-invariant principal nullity.
-   COL-1036 supplies the final HI/torsion endpoint consumer once that actual
-   family and relation are constructed. A full framed Picard group or general
-   Picard pairing is not a prerequisite if this concrete identity supplies
-   the needed section comparison.
-4. Define values on geometric henselian bases by the actual filtered
-   neighborhood colimit. Descend the finite presentation data to a common
-   stage, prove the henselization induction and pass to conservative étale
-   stalks. Handle the arbitrary-field inseparable comparison separately;
+The required henselian section comparison is the same-specialization case:
+the two sections have the same closed-fibre morphism. Their divisor difference
+restricts to the actual unit module by COL-1054, and general proper
+Kummer divisibility reflection suffices. The arbitrary-section closed-curve
+root route in COL-1034 and COL-1040 is stronger than this need and assumes
+smoothness of the whole compactification. It must not be applied directly
+to the normal proper compactification with only a smooth open supplied by
+the original geometric construction. COL-1054 derives the global
+section-kernel Cartier property locally on that smooth open and proves
+the exact closed-fibre unit comparison. COL-1055 assembles the minimal
+root route at source level; its high-level compilation is still pending.
+
+1. Complete native verification of the high cohomological and curve
+   compositions. COL-1038 supplies the actual relative divisor/base-change
+   identification, and COL-1040 composes the closed-curve and proper Kummer
+   root constructions under their stated stronger hypotheses. For the
+   required same-fibre comparison, validate the direct closed-fibre unit
+   route in COL-1055. The low pullback comparisons have focused compile
+   evidence; the larger high-level compositions remain separately tracked.
+2. Convert the constructed framed root into finite-flat effective divisor
+   data and a principal correspondence identity, preserving full scheme
+   lengths, signs and the original graph maps. The boundary trivialization
+   is already constructed by literal inverse-image unit ideals and native
+   evaluation; it is not a remaining caller-supplied certificate. COL-1044
+   supplies the actual prescribed section pair for a projective closed
+   embedding, and COL-1046 produces Cartier regularity and finite local
+   freeness of the whole zero schemes. COL-1048 constructs the twist frames
+   compatibly with the fixed original root frame. The actual regular
+   quotient and its signed Weil-divisor formula are supplied by COL-1047
+   on integral locally noetherian schemes. COL-1050 identifies c with the
+   canonical section difference, COL-1052 supplies the ordinary quotient
+   representative, and COL-1051 supplies the actual cycle/correspondence
+   transport. Exact full-boundary frame coherence and actual restriction
+   from the compactification to the retained open remain to be completed.
+3. Complete the geometric principal-family correspondence and its actual
+   Tor endpoint identities. COL-1039 supplies full-boundary normalization
+   and finiteness of the native supports. COL-1041 supplies component
+   dominance, residue-degree pushforward and the signed correspondence.
+   COL-1043 supplies the actual local cut-length endpoint values; the native
+   affine-cylinder and evaluation-map identification is also implemented.
+   COL-1045 supplies the weighted actual endpoint-stalk Tor/local-length
+   comparison. COL-1049 supplies the actual graph-incidence stalk comparison
+   in the unchanged adjacent ambient. COL-1053 supplies original orders
+   as localized principal weights. COL-1056 supplies the genuine affine
+   fraction, the original polynomial chart identity and both endpoint
+   germs. Transport across the finite-image ambients and both residue-degree
+   sums with all image collisions still need to be matched. COL-1062
+   supplies the native finite full-cut formula; COL-1065 applies it to
+   the original principal-component image, preserving both degree factors.
+   Its section still needs to be the literal endpoint cut, and support sums
+   must still be assembled. COL-1036 supplies the final
+   ordinary HI/torsion action consumer once the actual family and moving
+   relation are constructed. A full framed Picard group or general Picard
+   pairing is not needed if this concrete identity proves section comparison.
+4. COL-1057 supplies the actual filtered affine etale neighborhood value,
+   common-stage equations and the canonical sheafification-unit isomorphism.
+   Identify the geometric henselian presentation, descend the finite
+   presentation data to a common stage, prove the henselization induction
+   and pass to a conservative family of etale stalks. Handle the
+   arbitrary-field inseparable comparison separately;
    do not silently retain a perfect-field assumption in the final target.
-5. Use COL-1033 to extend ordinary change of topology to the required
-   transfer and derived constructions, preserve its canonical unit and the
+5. COL-1060 and COL-1061 supply the actual full-small/smooth ordinary
+   adjunction, separately from COL-1033 on the same smooth category.
+   Prove its counit invertible for the HI torsion transfer sheaf, then
+   extend to the required transfer and derived constructions, preserving the
    finite-coefficient cone, and connect the existing signed motivic complex
    to the native small-site coefficients. The integral and finite weight-one
    field equivalences already in Colib are not themselves this comparison.

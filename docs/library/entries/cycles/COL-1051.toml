@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1051"
+title = "Whole Cartier cycles and native finite correspondences"
+kind = "comparison"
+section = "cartier-correspondences"
+order = 10
+primary = "Stacks.Chow.pushforwardCycle_effectiveCartierWeilDivisor"
+review = "author_checked"
+statement = '''
+Let \(C\) be integral and noetherian, let \(X,Y\) be schemes over \(S\)
+with \(Y\to S\) separated and locally of finite type, and retain an actual
+map \(r:C\to X\times_S Y\). For an effective Cartier ideal \(I\) whose
+whole zero scheme is finite and flat over \(X\), the image of its native
+Weil divisor under \(r\) equals the existing finite correspondence obtained
+from that whole zero scheme and the original source-target map. At every
+target point its coefficient is the sum of the original generic stalk lengths
+times the actual residue degrees, including all coincident images.
+'''
+proof = '''
+Identify the two existing native prime-divisor presentations by the same
+ideal and generic point, and reindex their signed coefficients additively.
+The native Chow cycle of an effective Cartier divisor is the closed-immersion
+pushforward of its whole zero-scheme fundamental cycle: the stalk quotient
+length is exactly the self-length of the original zero-scheme stalk.
+Noetherian finite-support summation makes the native cycle map additive and
+compositional along the original ambient map, with the residue-degree tower.
+Only its restriction to the zero scheme must be finite. The resulting
+correspondence is the native finite-flat fundamental correspondence.
+'''
+scope = '''
+There is no finiteness or properness premise on \(r\). The zero scheme is
+not reduced, and flatness of a reduced integral component is never inferred.
+All schemes share one universe. A section kernel gives the original graph
+through its actual image-scheme isomorphism when the source is noetherian
+and reduced and the structural map is separated. An additional scoped
+theorem transports a supplied lower four-Cartier Weil identity additively
+into finiteCorrespondences; it is not a producer of that Weil identity.
+Its principal term is the native map of the principal cycle of the same
+rational unit. Applying this from a compactification to an open still needs
+actual restriction transport; no extension of the target map is assumed.
+Comparison with the separate polynomial-family endpoints also remains open.
+'''

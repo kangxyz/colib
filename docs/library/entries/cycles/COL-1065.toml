@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1065"
+title = "The original principal-component coefficient through its finite image"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 90
+primary = "Stacks.Chow.PrincipalBoundary.componentCorrespondence_cutCoefficient"
+review = "author_checked"
+statement = '''
+Retain the actual principal boundary family of COL-1041 and assume its
+source-target product is locally noetherian. For each original principal
+support point, retain its integral support \(D\), original map \(r\)
+to that product and signed principal-cycle coefficient. Construct the
+canonical finite factor \(e:D\to E\) through its native integral image.
+For any nonzero global section on \(E\) and coheight-one point \(y\),
+the signed coefficient times the sum of all full source-cut lengths over
+\(y\), weighted by the original pointwise residue degrees of \(r\),
+equals the original native component-correspondence coefficient times
+the full image-cut length at \(y\).
+'''
+proof = '''
+Locally quasi-finite maps have discrete fibres, so strict specialization
+chains cannot collapse. For an integral dominant such map, dominance also
+excludes a generic source point above coheight one. This proves the needed
+fibre coheight condition. Native integral-component maps and the actual
+generic-component inclusion isomorphism factor the unchanged integral
+source through its image, preserving generic and pointwise residue
+degrees. Apply COL-1062 to the actual image factor, then multiply by the
+unchanged signed principal-cycle coefficient. The resulting generic factor
+is precisely the native component-correspondence coefficient.
+'''
+scope = '''
+The original family has integral noetherian compactification, proper map
+to an affine source, quasi-affine retained smooth relative-curve open,
+a unit section on a nonempty open containing the boundary, and its
+original map to a separated locally finite-type target over the base.
+The source-target ambient need not be integral, and the original
+component map need not dominate that ambient. No flatness or fibre-coheight
+certificate is assumed. The native integral supports are retained with
+all original coefficients; the principal cuts themselves retain their
+full nonreduced quotient lengths and all fibre collisions. A nonzero
+image section and coheight-one image point remain inputs. Identifying
+that section with the literal endpoint incidence cut and summing across
+all original supports are subsequent obligations, not conclusions here.
+'''

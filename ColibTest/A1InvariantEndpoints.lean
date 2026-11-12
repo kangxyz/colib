@@ -25,17 +25,17 @@ example (R : CommRingCat.{u}) {A : Type w} [Category.{v} A]
 
 variable {k : Type u} [Field k] (P : PresheafWithTransfers.{v} k)
   (hP : IsA1Invariant P) (X Y : SmoothSite (Spec (.of k)))
-  (α : Cor.mk (affineLineCylinder.obj X) ⟶ Cor.mk Y)
+  (α : (Cor.graphFunctor k).obj (affineLineCylinder.obj X) ⟶ (Cor.graphFunctor k).obj Y)
 
 -- The sign is endpoint one minus endpoint zero, on the original graph maps.
 example :
     transfer P (((Cor.graphFunctor k).map (nativeAffineSection (.of k) X 1) ≫ α) -
       ((Cor.graphFunctor k).map (nativeAffineSection (.of k) X 0) ≫ α)) = 0 :=
-  transfer_homotopy_endpoint_sub_eq_zero P hP X (Cor.mk Y) α 1 0
+  transfer_homotopy_endpoint_sub_eq_zero P hP X ((Cor.graphFunctor k).obj Y) α 1 0
 
 -- Composite exponent, with annihilation on the output group and no perfect-field assumption.
-example (s t : X ⟶ Y) (c d : Cor.mk X ⟶ Cor.mk Y)
-    (hn : ∀ x : sections P (Cor.mk X), (6 : ℤ) • x = 0)
+example (s t : X ⟶ Y) (c d : (Cor.graphFunctor k).obj X ⟶ (Cor.graphFunctor k).obj Y)
+    (hn : ∀ x : sections P ((Cor.graphFunctor k).obj X), (6 : ℤ) • x = 0)
     (h : (Cor.graphFunctor k).map s - (Cor.graphFunctor k).map t =
       (6 : ℤ) • (c - d) +
         (((Cor.graphFunctor k).map (nativeAffineSection (.of k) X 1) ≫ α) -

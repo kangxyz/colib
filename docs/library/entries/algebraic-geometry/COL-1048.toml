@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1048"
+title = "Divisor pairs compatible with a fixed boundary frame"
+kind = "theorem"
+section = "projective-section-lifting"
+order = 40
+primary = "AlgebraicGeometry.Scheme.Modules.exists_compatible_boundary_framed_divisor_pair"
+review = "author_checked"
+statement = '''
+In the proper compactification and smooth quasi-affine open setting of
+COL-1046, let the projective presentation be over a noetherian local ring
+\(R\), and let the full closed boundary be \(\operatorname{Spec}B\),
+where \(B\) is module-finite over \(R\). Fix an invertible module \(M\)
+and its original boundary frame \(e\). For every sufficiently large twist,
+write \(H=f^*\mathcal O(d)\). There exist an auxiliary boundary frame
+\(h\) of \(H\), an actual section \(a\) of \(M\otimes H\), and an
+actual section \(b\) of \(H\), such that \(a\) has boundary coordinate
+one in the frame induced by \(e\otimes h\), and \(b\) has coordinate
+one in \(h\). Both whole zero schemes lie in the retained open and are
+relative effective Cartier divisors, finite locally free over the original
+affine target of the proper morphism.
+'''
+proof = '''
+Native semilocality of a module-finite algebra over a local ring and triviality
+of its Picard group produce the auxiliary frame \(h\). The frame of
+\(M\otimes H\) is the canonical pullback/tensor comparison followed by
+the tensor of the fixed frame \(e\) with \(h\), and then the unit
+multiplication. Apply COL-1046 to \(M\) and the unit module. The actual
+left unitor transports the second lifted section from \(\mathcal O\otimes H\)
+to \(H\); naturality of global-section pullback retains its prescribed
+value. The full-boundary geometric criterion proves the same finite locally
+free Cartier conclusion for its whole zero scheme.
+'''
+scope = '''
+The original frame \(e\) is retained, not replaced by an unrelated chosen
+frame. Only the auxiliary frame is chosen. No henselianity, reducedness,
+perfectness, fibre integrality or tensor-power trivialization of \(H\)
+is required. The affine target of the proper morphism may differ from
+\(\operatorname{Spec}R\). The ring and schemes share one universe.
+Semilocal Picard triviality is the native ingredient in PicardUFD/Affine
+of [@axiom_stacks_5ed82d14]. A regular quotient near the full boundary,
+the canonical Cartier-section divisor comparison, and the final principal
+correspondence identity remain separate constructions.
+'''

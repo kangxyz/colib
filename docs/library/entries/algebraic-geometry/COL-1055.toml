@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1055"
+title = "Framed roots for sections with the same closed-fibre morphism"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 90
+primary = "Stacks.Kummer.exists_sameFibreSectionKernel_root_compatible_frame"
+review = "author_checked"
+statement = '''
+Let \(R\) be strictly henselian local, \(q:X\to\operatorname{Spec}R\)
+proper, and \(U\subseteq X\) an open smooth of relative dimension one
+over \(R\). Let two actual sections \(s,t\) have images in \(U\) and
+equal closed-fibre morphisms. For a positive integer \(n\) invertible
+in \(R\), their signed kernel-difference module has an actual root
+\[\alpha:M^{\otimes n}\simeq\mathcal O(\ker s)\otimes\mathcal O(-\ker t).\]
+For a boundary \(i:\operatorname{Spec}B\to X\) with \(B\) module-finite
+over \(R\) and image avoiding both sections, construct a frame of \(i^*M\)
+whose tensor power equals the pullback of \(\alpha\) followed by the
+specified full-boundary frame of COL-1054.
+'''
+proof = '''
+COL-1054 identifies the actual closed-fibre pullback with the unit module.
+The unit module's native tensor-power isomorphism therefore supplies an
+explicit closed-fibre root. Proper Kummer specialization in COL-1031,
+using native proper base change [@stacks, Tag 095T], reflects divisibility
+and constructs an actual global root. Apply COL-1037 to that root and
+the original boundary trivialization. Its finite-algebra unit-root
+correction gives the exact equality of boundary isomorphisms.
+'''
+scope = '''
+Unlike COL-1040, no smoothness of the whole compactification, native
+IsCurve condition, Jacobian, degree-zero divisibility, normality or
+noetherianity is needed. The caller supplies no Cartier witness, root,
+Picard-divisibility certificate or initial boundary frame. The boundary
+may be nonreduced, nonflat or the zero finite algebra. All rings and
+schemes share one universe. This constructs a root, not an extension of
+a chosen fibre root; it does not yet construct moving divisors or prove
+rigidity. Native elaboration of this high-level composition remains
+pending in the current implementation report.
+'''

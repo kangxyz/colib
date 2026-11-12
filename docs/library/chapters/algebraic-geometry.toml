@@ -90,6 +90,71 @@ same category. Restriction of its sheaves to the Nisnevich topology changes
 neither their sections nor their morphisms.
 Native sheafification on this same smooth category gives the ordinary
 change-of-topology left adjoint with its canonical unit and counit.
+Affine etale neighborhoods marked by a separably closed field point give
+actual point fibers on this smooth category. Their original colimit maps
+retain representatives, refinement equations and the sheafification unit.
+'''
+
+[sections.transitions]
+COL-1060 = '''
+The full small etale site contains objects outside the finite-type smooth
+category. Use its genuine separated finite-type basis and affine cover
+density to compare sheaves while retaining literal restriction.
+'''
+COL-1061 = '''
+Insert this basis equivalence into the actual extension/restriction
+adjunction. Its canonical unit and counit remain the original Kan and
+sheafification maps; proving the counit invertible for HI torsion transfers
+is the remaining rigidity assertion, not a consequence of the adjunction alone.
+'''
+
+[[sections]]
+id = "normal-curve-compactifications"
+title = "Normal compactifications and retained charts"
+order = 34
+introduction = '''
+Relative normalization extends an original finite chart over a proper Nagata
+target without replacing its source. The full boundary is the Cartesian
+pullback of the original finite boundary, preserving its scheme structure
+and its map to the unchanged base.
+'''
+
+[[sections]]
+id = "projective-section-lifting"
+title = "Projective section lifting"
+order = 36
+introduction = '''
+Coherent kernels and native Serre vanishing give eventual surjectivity of
+actual global-section maps after twisting. Prescribed quotient sections
+therefore lift with a uniform integer bound. Boundary restriction along a
+finite projective presentation uses this result together with its specific
+pushforward and projection-formula comparisons. For a projective closed
+embedding these comparisons identify the original full-boundary restriction
+map, so prescribed sections lift simultaneously with one common bound.
+Boundary-normalized sections on a proper compactification then give finite
+locally free Cartier zero schemes inside its smooth relative-curve open.
+'''
+
+[sections.transitions]
+COL-1044 = '''
+Apply the coherent-quotient lifting theorem to the actual closed-boundary
+adjunction unit. Affine pushforward and the closed-immersion projection
+formula identify its twisted global-section map with restriction on the
+original scheme. The full boundary values, including nilpotents, are retained.
+'''
+COL-1046 = '''
+The lifted sections have coordinate one in their full-boundary frames, so
+their whole zero schemes lie in the retained open. Properness and
+quasi-affineness make them finite. Smooth relative dimension one and local
+principality then produce Cartier regularity and relative flatness rather
+than requiring those properties as inputs.
+'''
+COL-1048 = '''
+Over a module-finite boundary of a local base, semilocal Picard triviality
+provides a frame for the auxiliary twist. Tensor it with the fixed original
+frame to prescribe the numerator, and use the same auxiliary frame for the
+denominator. This produces compatible divisor pairs without a new frame
+choice for the original line bundle.
 '''
 
 [[sections]]
@@ -102,9 +167,57 @@ is a geometric fibre. Native proper base change and dimension shifting
 identify the canonical restriction on ordinary small-site étale cohomology
 with finite-exponent coefficients. The native Kummer boundary embeds the
 Picard group modulo n into roots-of-unity cohomology and reflects divisibility
-from the closed fibre. Finite-algebra unit roots then adjust an existing frame
-on the full finite affine boundary, preserving nilpotents and its actual
-tensor-power equation.
+from the closed fibre. Actual section-kernel pullback identifies the divisor
+difference under arbitrary base change. Finite-algebra unit roots then supply
+a compatible frame on the full finite affine boundary, preserving nilpotents
+and the original tensor-power equation. For sections with the same
+closed-fibre morphism, the actual difference is already the unit module
+on that fibre. The direct proper Kummer route then needs smoothness only
+on the open containing their images.
+'''
+
+[[sections]]
+id = "meromorphic-section-divisors"
+title = "Meromorphic sections and divisor identities"
+order = 38
+introduction = '''
+On an integral scheme, generic-stalk tensor division constructs actual
+meromorphic quotient sections. Under local noetherianity, native tensor
+powers and the ratio of two regular sections retain the original
+Weil-divisor coefficients and the orientation of the principal correction.
+These identities are used before comparing with finite correspondences.
+'''
+
+[sections.transitions]
+COL-1050 = '''
+For an actual Cartier difference, construct the correcting numerator rather
+than supplying its divisor as a premise. The original canonical Cartier
+sections and their tensor pairing give a regular meromorphic section with
+exactly the full positive-minus-negative local quotient lengths.
+'''
+COL-1052 = '''
+Return from the generic stalk to the original denominator's nonvanishing
+open. Its actual trivialization produces an ordinary tensor quotient with
+a literal recovery equation, including nilpotents. Under the stated integral
+hypotheses, its generic germ is the previous meromorphic quotient.
+A denominator framed as one contains the full boundary in this open;
+tensor recovery computes coordinate one in the original frame of the quotient module.
+'''
+
+COL-1058 = '''
+Keep the ordinary quotient on its original open when forming powers.
+The native successor comparisons and the exact Kummer power frame carry
+coordinate one to coordinate one, including on a nonreduced boundary.
+The original integer-power pullback square and root-frame compatibility
+then preserve this coordinate in the target. Integrality is needed only
+for the separate comparison with positive meromorphic powers.
+'''
+
+COL-1063 = '''
+The two ordinary representatives now determine their own common generator
+open and actual unit ratio. Pullback of the defining equation preserves
+value one on the full boundary. Generic regularity makes this same open
+dense and identifies its unit with the original meromorphic ratio.
 '''
 
 [[sections]]

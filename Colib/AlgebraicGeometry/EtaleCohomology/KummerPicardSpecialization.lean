@@ -170,12 +170,8 @@ theorem exists_schemeTensorPower_iso_of_closedFibre
   apply exists_schemeTensorPower_iso_of_picard_nsmul X n L hL
   apply (picard_nsmul_exists_iff_closedFibre R f hn0 hX (X.picardClass L hL)).2
   refine ⟨(closedFibre R f).picardClass M₀ hM₀, ?_⟩
-  change n • Stacks.SheafOfModules.picardClass _ _ M₀ hM₀ =
-    Picard.pullbackClass (closedFibreInclusion R f).toLRSHom.toShHom
-      (Stacks.SheafOfModules.picardClass _ _ L hL)
-  rw [Picard.pullbackClass_classOf, ← natCast_zsmul,
-    ← Stacks.SheafOfModules.picardClass_schemeTensorPower]
-  exact (Stacks.SheafOfModules.picardClass_eq_iff _ _ _ _ _ _).2 ⟨e₀⟩
+  exact nsmul_picardClass_eq_pullback_of_schemeTensorPower_iso
+    (closedFibreInclusion R f) n L hL M₀ hM₀ e₀
 
 end Proper
 

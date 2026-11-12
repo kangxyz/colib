@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1061"
+title = "The canonical full-small and smooth etale adjunction"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 50
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.fullSmallEtaleAdjunction"
+review = "author_checked"
+statement = '''
+For an affine scheme \(B\) in universe \(u\) and \(X\) in its smooth
+site, construct the actual adjunction from ordinary
+\(\mathrm{Ab}_{u+1}\)-valued sheaves on \(X\)'s full small etale site
+to sheaves on the smooth etale site of \(B\). It is the composition of
+COL-1060's basis equivalence with the native extension/restriction
+adjunction. Restriction to the finite-type basis is literal
+precomposition with its original functor to the smooth site, and preserves
+finite limits and colimits. The canonical unit and counit are identified
+with their actual Kan-extension and sheafification composites.
+'''
+proof = '''
+Prove continuity and cocontinuity using genuine covering sieves and
+the actual smooth cover objects with their composite maps to \(X\). The native continuous-site pullback is
+left adjoint to literal restriction. Cocontinuity also makes that
+restriction a left adjoint, so it preserves finite colimits as well as
+limits. Identify the chosen left adjoint with left Kan extension followed
+by sheafification through the canonical left-adjoint uniqueness
+isomorphism; its equations preserve both unit and counit. Compose with
+the full-small-site basis equivalence, retaining the resulting two
+canonical composition formulas.
+'''
+scope = '''
+At \(B=\operatorname{Spec}k\) and its base smooth object this gives the
+ordinary small-base-site/smooth-site adjunction for every field \(k\).
+No general invertibility of its counit is asserted; the HI torsion
+presheaf-with-transfers case remains the rigidity target. There is no
+transfer-preservation or derived-comparison assertion, and no claim here
+that the extension functor is exact. The coefficient universe remains
+explicit. Native site adjunctions are reused from
+[@mathlib_stable_localization_pin].
+'''

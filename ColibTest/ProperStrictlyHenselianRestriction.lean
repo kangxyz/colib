@@ -12,6 +12,10 @@ attribute [local instance 2000] hasExt_sheaf_smallEtale_succ
 variable (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
   {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
 
+-- The native quotient point uses the canonical residue-field structure.
+example : GrothendieckTopology.Point (Spec (.of R)).smallEtaleTopology :=
+  pointSmallEtale (Ω := IsLocalRing.ResidueField R) (residueFieldPoint R)
+
 -- Exact public type: no acyclicity, invertibility, smoothness, or dimension assumption.
 example {n : ℕ} (hn : 0 < n) (q : ℕ)
     (F : Sheaf X.smallEtaleTopology AddCommGrpCat.{u + 1})

@@ -1,0 +1,53 @@
+[entry]
+id = "COL-1058"
+title = "Ordinary tensor powers in the original Kummer frame"
+kind = "theorem"
+section = "meromorphic-section-divisors"
+order = 40
+primary = "AlgebraicGeometry.Scheme.Modules.tensorPowerFrame_natTensorPowerRegularSection_eq_one"
+review = "author_checked"
+statement = '''
+Let \(X\) be any scheme, \(L\) an invertible module, \(U\subseteq X\)
+an open, and \(s\in\Gamma(U,L)\) an ordinary section. Construct its
+natural powers on the same open using the native integer tensor-power
+objects and successor isomorphisms, with zeroth section one. If a specified
+frame \(e:L\simeq\mathcal O_X\) reads \(s\) as one on \(U\), then for
+every \(n\in\mathbb N\) the exact Kummer power frame reads this actual
+power section as one. The power frame is the native tensorPowerMap of
+\(e\), followed by the native structure-sheaf power trivialization.
+These actual ordinary powers commute with the original integer-power
+pullback comparison. Given an actual root isomorphism and the original
+compatible boundary frames, an ordinary section defined on an open
+containing the whole boundary and reading as one in the original root
+frame has power image of coordinate one in the original target frame on
+the whole boundary. On an integral scheme, an ordinary
+representative of a regular meromorphic section also represents its
+positive meromorphic powers, including after the same root isomorphism.
+'''
+proof = '''
+Use the native successor comparison to form each next tensor power.
+The native bridge identifies the successor used by ordinary sections with
+the one used by the Kummer frame. Induction cancels these successor
+isomorphisms. Tensor-section naturality transports the original frame
+coordinate, and native unitors reduce it to the previous power coordinate.
+At exponent one the section is precisely the original section transported
+by the inverse native first-power isomorphism. The native pullback
+successor square proves the ordinary pullback formula by induction.
+Compose with the given root-frame compatibility, retaining the original
+frames. At the generic point, tensor-germ and map-germ naturality identify
+the same positive meromorphic powers.
+'''
+scope = '''
+This is an ordinary-section construction on arbitrary schemes and opens,
+including all nilpotents. It assumes neither integrality, reducedness,
+noetherianity nor a nonvanishing or regularity certificate for the section.
+All natural exponents, including zero, are allowed for the ordinary
+construction and its boundary comparison. The generic comparison requires
+an integral scheme, a regular meromorphic section, a specified ordinary
+representative near its generic point and positive exponent; its target
+module is quasi-coherent. Boundary normalization uses ordinary sections
+and the original root compatibility, never a pullback of the generic
+field. Constructing the final common-open unit ratio is a further step.
+The tensor-power and Kummer frame definitions are those of
+[@axiom_stacks_5ed82d14], not a replacement tensor-power foundation.
+'''

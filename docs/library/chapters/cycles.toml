@@ -192,3 +192,86 @@ actual coefficient chart: the resulting Tor calculation gives coefficient one.
 Both graph compositions then push forward the same exterior prime, with the
 same residue-field degrees.
 '''
+
+[[sections]]
+id = "cartier-correspondences"
+title = "Cartier divisor correspondences"
+order = 55
+introduction = '''
+The original Cartier stalk quotients determine the fundamental cycles of
+whole closed zero schemes, including their nilpotent multiplicities. Under
+finite flatness over the source, their unchanged source-target maps give
+native finite correspondences. Cycle transport retains every residue degree
+and adds coefficients of coincident images; the ambient map need not be finite.
+'''
+
+[[sections]]
+id = "principal-polynomial-families"
+title = "Principal polynomial families"
+order = 60
+introduction = '''
+The literal polynomial \(t f+(1-t)\) preserves normalization on the full
+boundary. Its actual unit open excludes nonzero principal-cycle supports
+from that boundary. Properness and quasi-affineness then prove finiteness
+of those supports. Smooth relative dimension one supplies source-component
+dominance, giving an actual signed finite correspondence with its residue
+degrees. Endpoint Tor comparisons remain necessary for a correspondence
+homotopy.
+'''
+
+[sections.transitions]
+COL-1041 = '''
+Carry forward the actual finite supports of COL-1039. Smooth relative
+dimension one forces their images to be source components. The original
+source-target maps therefore give finite-correspondence points, and their
+native finite pushforwards retain every order and residue-degree factor.
+'''
+COL-1043 = '''
+The polynomial correspondence has literal numerator and denominator
+functions. Cut them by the actual endpoint stalk map. The signed difference
+of their full quotient lengths recovers zero and the original order at the
+two endpoints; comparison with graph-incidence Tor coefficients remains separate.
+'''
+COL-1045 = '''
+The endpoint section is Cartier, so its actual stalk kernel has a regular
+generator. The nonzero specialized equation then makes the weighted native
+endpoint stalk Tor sum equal to the full cut length of COL-1043. Identifying
+these local modules and weights with the original graph incidence and its
+finite pushforwards is the remaining coefficient comparison.
+'''
+COL-1049 = '''
+Return to the original graph composite rather than substituting its reduced
+fibre. The full graph pullback is the actual outer ambient, and flat change
+of rings removes the redundant projection from its Tor modules. Unchanged
+residue fields preserve their entire lengths in every degree. Original
+orders and finite-image residue-degree sums still have to be transported.
+'''
+COL-1053 = '''
+Keep the original rational function rather than choosing a new principal
+cycle. Its actual stalk fraction gives the numerator and denominator whose
+localized full quotient lengths recover every codimension-one order visible
+from that stalk. The polynomial chart and endpoint specializations still
+need to be identified with this fraction.
+'''
+
+COL-1056 = '''
+Choose a genuine affine fraction of the original curve function. The actual
+polynomial chart transports that same function to its literal numerator
+and denominator, so their nonzero endpoint germs are proved rather than
+supplied. The signed local Tor values now recover zero and the original
+order; finite-image residue-degree transport remains separate.
+'''
+
+COL-1062 = '''
+Transport full principal cuts through a finite image without assuming
+flatness of its support. The native norm formula retains both the generic
+residue degree and every fibre-point degree, summing all coincident images.
+Identifying these maps with the actual principal family remains necessary.
+'''
+
+COL-1065 = '''
+Use the actual principal-component map and its native integral image.
+Quasi-finite fibres supply coheight one; the original pointwise and generic
+degrees therefore give the coefficient formula without a fibre-codimension
+certificate. The signed principal coefficient is unchanged throughout.
+'''
