@@ -85,7 +85,11 @@ theorem endpoint_residueDegree (x : E) : r.residueDegree x = j.residueDegree (e 
 include hsq hr hcart in
 /-- Original source lengths or signed weights pass through both actual finite
 maps, retaining every target image collision in the endpoint sum. -/
-@[colib_tag "COL-1083"]
+@[colib_tag "COL-1083", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/ProperPushforwardPrincipal/ResidueTrdeg.lean:87\
+    -101"
+  "ingredient" "Original residue-degree composition and degree-one immersion transport in the \
+    fibre and pushforward comparison."]
 theorem finsum_endpoint_source_fibres {Y : Scheme.{u}} (g : F ⟶ Y)
     (L : C → ℤ) (y : Y) :
     (∑ᶠ x : genericPoints E,

@@ -1,0 +1,90 @@
+[entry]
+id = "COL-1108"
+title = "Canonical counit and original structural pullback"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 56
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.fullSmallEtale_counit_sheafification_eq_structuralNeighborhoodPullback"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be affine, let \(p:Y\to S\) be an affine smooth separated
+finite-type object, and let \(\xi:\operatorname{Spec}\Omega\to Y\) have
+separably closed field \(\Omega\). Write \(E\dashv R\) for COL-1061's
+actual full-small/smooth etale adjunction at the base, with counit
+\(\epsilon\). Let \(\Phi_Y\) denote the original marked smooth
+neighborhood value and let \(\Phi_S\) denote the value at the original
+composite base marking \(\xi p\).
+
+For a full-small sheaf \(G\), let
+\(\beta_Y(G):\Phi_Y(EG)\simeq G_{\xi p}\) be COL-1104's actual native
+base-stalk comparison. For a smooth-etale sheaf \(F\), let
+\(\delta(F):\Phi_S(F)\simeq (RF)_{\xi p}\) be COL-1099's actual
+restriction-stalk comparison. Then
+\[
+ \delta(F)\,\beta_Y(RF)^{-1}\,\Phi_Y(\epsilon_F)=p_F^*,
+\]
+where \(p_F^*\) is exactly COL-1093's original structural neighborhood
+pullback.
+
+For an original ordinary presheaf \(P\) on \(\mathrm{Sm}(S)\), set
+\(F=a_{\mathrm{et}}P\) and write
+\(q_Z(P):\Phi_Z(P)\simeq\Phi_Z(a_{\mathrm{et}}P)\) for COL-1057's
+actual sheafification-unit comparison. The same equation on the original
+presheaf is
+\[
+ q_S(P)\,\delta(F)\,\beta_Y(RF)^{-1}\,
+ \Phi_Y(\epsilon_F)\,q_Y(P)^{-1}=p_P^*.
+\]
+In particular, the actual counit fiber is invertible if and only if this
+specified original restriction \(p_P^*\) is invertible.
+
+The actual source comparison and normalized canonical counit are
+contravariantly natural for every original marked morphism between
+affine smooth objects. The base-stalk arrow transports the proved equality
+of composite base markings, and the target arrow is the original
+neighborhood pullback. Original coefficient morphisms and actual
+sheafification units are retained. The actual relative Frobenius is a
+specialization of this marked-morphism equation.
+'''
+proof = '''
+Compute the native comapped-point comparison on marked germs by the
+native inverse-mate unit equation and the actual skyscraper adjunction.
+Apply this formula to both native comap comparisons in COL-1104. The
+point comparison evaluates the original scheme-map germ at its marking;
+the actual dense-basis unit and counit cancel by their adjunction
+identities. This identifies the inverse source comparison on each
+original representative.
+
+The original basis unit followed by the full-small counit is the inverse
+dense-basis unit. Thus the normalized counit on a representative is the
+original presheaf restriction along its actual scheme map. The original
+affine pullback formula proves the sheaf equation, and naturality of the
+actual sheafification unit proves the original-presheaf equation.
+All other factors are the specified isomorphisms, giving the invertibility
+equivalence.
+
+For marked-morphism naturality, use original affine base germs and their
+proved cofinality in the native small-site point. Compare an actual
+pullback to the base with its subsequent actual pullback along the marked
+smooth morphism. Their original markings agree, giving precisely the
+base-stalk equality transport. Coefficient naturality then supplies the
+canonical-counit square.
+'''
+scope = '''
+Schemes and marking fields lie in universe \(u\), coefficients in
+\(u+1\). The native point lies on the original base \(S\), at
+\(\xi p\). The scheme-map representative formulas do not require
+\(Y\) affine; the structural-pullback and marked-morphism equations
+use COL-1093's affine-object interface. Compositions are written in
+categorical execution order.
+
+An arbitrary-field original additive PST enters through its existing
+graph restriction and ordinary sheafification; no replacement
+\(PST_K\), correspondence field-basechange functor, or perfection
+equivalence is assumed. The comparison requires no homotopy invariance,
+torsion, rationality, or perfectness assumption. It does not prove the
+original structural restriction invertible or establish Suslin rigidity.
+The compiled native references supply only the comap comparison and mate
+unit ingredients, not the complete counit-map assembly proved here.
+'''

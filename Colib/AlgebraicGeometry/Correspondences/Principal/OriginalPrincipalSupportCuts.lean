@@ -76,7 +76,11 @@ theorem principalCycle_supportCuts_eq_localPrimeSum
 
 /-- The original principal-cycle coefficient sum, with its genuine supports,
 equals the full endpoint numerator-minus-denominator quotient length. -/
-@[colib_tag "COL-1080"]
+@[colib_tag "COL-1080", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem principalCycle_supportCuts_eq_endpointDifference
     (n d : X.presheaf.stalk x) (hn : n ≠ 0) (hd : d ≠ 0) (s : Γ(X, ⊤))
     (hsm : X.presheaf.germ ⊤ x (by trivial) s ∈ IsLocalRing.maximalIdeal (X.presheaf.stalk x))

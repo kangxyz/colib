@@ -170,7 +170,10 @@ def etaleNeighborhoodPullbackCocone (f : X ⟶ Y) (h : ξ ≫ f.left = η)
           (by simp) (by simp)).symm }
 
 /-- Contravariant pullback on the original marked affine neighborhood values. -/
-@[colib_tag "COL-1093"]
+@[colib_tag "COL-1093", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/CategoryTheory/Sites/Point/OfIsCofiltered.lean:176-187"
+  "ingredient" "Actual cofiltered neighborhood presheaf-fibre colimit; the marked pullback and \
+    etale-change maps are constructed here."]
 def etaleNeighborhoodValuePullback (f : X ⟶ Y) (h : ξ ≫ f.left = η)
     (F : (SmoothSite S)ᵒᵖ ⥤ AddCommGrpCat.{u + 1}) :
     etaleNeighborhoodValue Y η F ⟶ etaleNeighborhoodValue X ξ F :=

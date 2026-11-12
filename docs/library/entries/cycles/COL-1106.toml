@@ -1,0 +1,59 @@
+[entry]
+id = "COL-1106"
+title = "Separable closed points after actual iterated Frobenius"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 19
+primary = "AlgebraicGeometry.PresheafWithTransfers.exists_separable_closedPoint_iteratedFrobenius_iso"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) have positive prime characteristic \(p\), let \(P\) be an
+\(n\)-torsion presheaf with transfers with \(n\) invertible in \(k\), and
+let \(x\) be a closed point of an original smooth separated finite-type
+\(k\)-scheme \(X\). There is an integer \(m\geq0\) such that the actual
+image \(y=F_{X/k}^{(m)}(x)\) in the native iterated twist \(X^{(p^m)}\)
+is closed and its original residue extension \(\kappa(y)/k\) is separable.
+The original graph restriction
+\((F_{X/k}^{(m)})^*:P(X^{(p^m)})\to P(X)\) is an isomorphism.
+
+For every \(m\), these actual maps are the components of a natural
+isomorphism of the original underlying presheaf. The inverse is built from
+the genuine componentwise transfer inverses of COL-1103. In characteristic
+zero, every original closed residue extension is already finite separable.
+'''
+proof = '''
+The native separable closure \(K\) of the finite extension \(L=\kappa(x)\)
+is finite separable over \(k\), and \(L/K\) has a finite purely inseparable
+exponent. At that exponent the native power map \(L\to K\) constructs an
+actual point \(\operatorname{Spec}K\to X^{(p^m)}\). Its structural map and
+its composite with \(\operatorname{Spec}L\to\operatorname{Spec}K\) are
+proved equal to the original maps. The latter identifies its actual image
+with \(F_{X/k}^{(m)}(x)\). The point map is finite, so the image is closed;
+its original residue field embeds as a \(k\)-algebra into \(K\), hence is
+separable over \(k\).
+
+The native iterated relative Frobenius equals the composite of successive
+relative Frobenius maps with the canonical native twist identifications.
+It is therefore finite, flat and a universal homeomorphism on all original
+smooth objects. COL-1103 gives the actual transfer inverse. The original
+native naturality square gives the presheaf natural isomorphism. In
+characteristic zero, native finite-extension separability handles the
+already finite closed residue extension directly.
+'''
+scope = '''
+The geometric closed-point theorem applies to every separated scheme locally
+of finite type over the field. The transfer consumer uses arbitrary original
+smooth objects, including disconnected objects, without integrality,
+perfectness, homotopy invariance, a sheaf condition, constant relative
+dimension or supplied geometric certificates. The target, point image,
+residue scalar action, native n-fold morphism and original graph restriction
+are retained; the separable-closure construction includes its actual marked
+Spec factorization.
+
+This is finite pointwise Frobenius reduction with genuine transfer invariance.
+It does not assert canonical counit or marked etale-stalk transport, a purely
+inseparable field-base-change equivalence, perfection continuity or final
+arbitrary-field Suslin rigidity. Ordinary etale topological invariance alone
+is not used as a substitute for a transfer statement.
+'''

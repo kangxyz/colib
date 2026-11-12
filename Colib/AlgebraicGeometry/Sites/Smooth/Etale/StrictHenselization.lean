@@ -125,7 +125,7 @@ def etaleNeighborhoodStrictHenselizationConeIsLimit :
 @[colib_tag "COL-1082", colib_ref "axiom_stacks_5ed82d14"
   "AlgebraicGeometry/EtaleCohomology/HenselianRings/StrictHenselizationConeBase.lean:198-202"
   "ingredient" "The native cone leg agrees with the canonical strict henselization structure map",
-  reassoc (attr := simp)]
+  simp, reassoc]
 theorem etaleNeighborhoodStrictHenselizationCone_π_comp_hom
     (A : EtaleNeighborhood X s.hom) :
     (etaleNeighborhoodStrictHenselizationCone X B hX s).π.app A ≫
@@ -137,7 +137,7 @@ theorem etaleNeighborhoodStrictHenselizationCone_π_comp_hom
 @[colib_tag "COL-1082", colib_ref "axiom_stacks_5ed82d14"
   "AlgebraicGeometry/EtaleCohomology/StrictHenselizationConeLift.lean:44-67"
   "adaptation" "The cone-leg germ computation for arbitrary original affine neighborhoods",
-  reassoc (attr := simp)]
+  simp, reassoc]
 theorem geometricPointToStrictHenselization_comp_etaleNeighborhoodCone_π
     (A : EtaleNeighborhood X s.hom) :
     geometricPointToStrictHenselization B X.left hX s ≫
@@ -198,7 +198,7 @@ instance (a : SmallEtaleNeighborhood X s) :
       ((smallEtaleNeighborhoodInclusion X s).obj a)).left)
 
 /-- The small cone retains the original structure map to the selected smooth object. -/
-@[reassoc (attr := simp)]
+@[simp, reassoc]
 theorem smallEtaleNeighborhoodStrictHenselizationCone_π_comp_hom
     (a : SmallEtaleNeighborhood X s) :
     (smallEtaleNeighborhoodStrictHenselizationCone X B hX s).π.app a ≫
@@ -207,7 +207,7 @@ theorem smallEtaleNeighborhoodStrictHenselizationCone_π_comp_hom
   etaleNeighborhoodStrictHenselizationCone_π_comp_hom X B hX s _
 
 /-- The small cone retains the original geometric marking at each stage. -/
-@[reassoc (attr := simp)]
+@[simp, reassoc]
 theorem geometricPointToStrictHenselization_comp_smallEtaleNeighborhoodCone_π
     (a : SmallEtaleNeighborhood X s) :
     geometricPointToStrictHenselization B X.left hX s ≫

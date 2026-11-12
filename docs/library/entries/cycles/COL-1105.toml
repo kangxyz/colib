@@ -1,0 +1,57 @@
+[entry]
+id = "COL-1105"
+title = "Actual framed finite-pair homotopy-invariant torsion actions"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 15
+primary = "AlgebraicGeometry.PresheafWithTransfers.transfer_framed_pair_eq"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(P\) be an ordinary homotopy-invariant presheaf with transfers over a
+field, let \(A\) be an affine integral smooth separated finite-type scheme,
+and let \(T\) be an original smooth target. Let \(C\to A\) be an integral
+Noetherian proper compactification with an integral Noetherian quasi-affine
+retained open \(U\), smooth of relative dimension one over \(A\), and its
+original map to \(A\times T\). Let a nonempty full boundary cover the
+complement of \(U\). Assume the original polynomial cylinder is integral
+and Noetherian.
+
+Let \(D,E\) be effective Cartier divisors retained in \(U\), finite locally
+free over \(A\), and disjoint from the boundary. Suppose their actual
+difference module has a positive tensor root with a compatible full-boundary
+frame. Give an auxiliary invertible module and frame, together with nonzero
+numerator and denominator sections normalized to one on the full boundary,
+whose entire zero schemes are retained and finite locally free over \(A\).
+If the positive exponent annihilates \(P(A)\), the original finite divisor
+correspondences associated to \(D\) and \(E\) induce equal maps into \(P(A)\).
+For original section kernels, this specializes to equality of the original
+graph restrictions, with their Cartier and finite locally free conditions
+constructed internally.
+'''
+proof = '''
+COL-1072 constructs the original signed moving relation, its principal
+correction, and the actual rational unit represented by a section equal to
+one on the full boundary. The dense-open comparison identifies that unit
+with the unchanged curve function in COL-1100. Its original polynomial
+correspondence has zero and principal endpoints, so COL-1036 makes the
+actual correction act by zero on ordinary homotopy-invariant coefficients.
+The positive torsion multiple in the original signed relation then vanishes
+in the output group. Native section-kernel correspondence identities give
+the graph specialization without changing the maps or signs.
+'''
+scope = '''
+The primary result and its original-section specialization have no local-ring
+hypothesis. They consume the actual root, compatible frames and finite pair
+on a genuine smooth finite-type stage. No endpoint homotopy or final signed
+correspondence relation is assumed. The full boundary, entire zero schemes,
+original rational unit, native cycles, and graph actions are retained.
+
+A supporting COL-1079 consumer chooses the pair internally under its extra
+local Noetherian base-ring and projective-embedding hypotheses. This does
+not put a strict henselization in the smooth finite-type category, nor allow
+that local-ring construction to be applied directly at an arbitrary affine
+etale stage. Construction at the strict-local limit and descent of the
+root, frames, pair, equations and geometric properties to an actual stage
+remain separate. No final rigidity or counit isomorphism is asserted.
+'''

@@ -21,7 +21,10 @@ namespace QuadraticIncidence.InfinityChart
 
 /-- Actual generated parameters produce the normal finite projective-line compactification
 and shrink its full retained boundary while preserving the marked fiber and prescribed scheme. -/
-@[colib_tag "COL-1076"]
+@[colib_tag "COL-1076", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/NagataNormalization/Basic.lean:208-222"
+  "ingredient" "Nagata finiteness of relative normalization in the compactification \
+    ingredient; retained geometry is assembled here."]
 theorem exists_simultaneous_good_quadratic_neighborhood (k B : Type u) [Field k] [Infinite k]
     [CommRing B] [IsDomain B] [Algebra k B] [Algebra.Smooth k B]
     (P : PrimeSpectrum B) [P.asIdeal.IsMaximal] (I : Ideal B) (hI : I ≠ ⊥)

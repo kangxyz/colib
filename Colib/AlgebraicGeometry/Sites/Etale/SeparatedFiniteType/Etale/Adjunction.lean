@@ -171,7 +171,10 @@ def fullSmallEtaleExtend :
   (sheafEquivSmallEtale X).inverse ⋙ etaleExtend X
 
 /-- The full-small/smooth adjunction, with the actual equivalence inserted in its direction. -/
-@[colib_tag "COL-1061"]
+@[colib_tag "COL-1061", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/CategoryTheory/Sites/Pullback.lean:54-62"
+  "ingredient" "Native continuous-site adjunction, composed with the actual full-small-site \
+    basis equivalence."]
 def fullSmallEtaleAdjunction : fullSmallEtaleExtend X ⊣ fullSmallEtaleRestrict X :=
   (sheafEquivSmallEtale X).symm.toAdjunction.comp (etaleExtendRestrictAdjunction X)
 

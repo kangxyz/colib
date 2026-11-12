@@ -63,7 +63,7 @@ example
           structureSheafTensorPowerIso (Spec (CommRingCat.of B)) n =
         (Scheme.Modules.pullbackIntegerTensorPowerIso i M hM (n : ℤ)).symm ≪≫
           (Scheme.Modules.pullback i).mapIso α ≪≫
-            sectionKernelDifferenceBoundaryIso_of_range_subset q j s t hs ht hsj htj i his hit :=
+            sectionKernelDifferenceBoundaryIsoOfRangeSubset q j s t hs ht hsj htj i his hit :=
   Stacks.Kummer.exists_sameFibreSectionKernel_root_compatible_frame
     R q j s t hs ht hsj htj hst B i his hit hn0 hn
 

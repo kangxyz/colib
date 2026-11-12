@@ -55,7 +55,11 @@ local instance : IsIntegral (parameterSpace (u ≫ p)) := by
 /-- The original ambient principal function and its original global supports have
 zero signed cut at zero and the original curve order at one. The chart merely
 computes the full quotient lengths; its local fractions are not hypotheses. -/
-@[colib_tag "COL-1096"]
+@[colib_tag "COL-1096", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem ambientPrincipalSupportCuts_zero_one [IsLocallyNoetherian C]
     (f : Γ(W, ⊤)) (hf : f ≠ 0) [Nonempty (ambientUnitOpen p v f)]
     (x : U) (hx : Order.coheight x = 1) :

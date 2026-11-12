@@ -41,7 +41,9 @@ theorem finite_retained_complement_fiber
 
 /-- Any actual closed boundary supported outside the retained open is finite
 after one base shrink. In particular its original nilpotents are not discarded. -/
-@[colib_tag "COL-1067"]
+@[colib_tag "COL-1067", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean:406-421"
+  "ingredient" "Proper finite-fibre shrinking applied to the whole original retained boundary."]
 theorem exists_finite_closed_retained_boundary [IsProper q]
     (hboundary : (U : Set C)ᶜ ⊆ Set.range b) (s : S)
     (hwhole : ∀ x : C, q x = s → x ∈ U → x ∈ V)

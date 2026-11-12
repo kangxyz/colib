@@ -37,7 +37,10 @@ variable {C X Y S V : Scheme.{u}} [IsIntegral C] [IsNoetherian C]
 /-- The original signed principal coefficient times all finite-fibre cuts equals
 the actual native component-correspondence coefficient times the full image cut.
 No support flatness, chosen fibre point, or rational-equivalence quotient occurs. -/
-@[colib_tag "COL-1065"]
+@[colib_tag "COL-1065", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/PrincipalDivisorPushforward.lean:106-114"
+  "ingredient" "Finite pushforward of original orders with full residue degrees; the cut- \
+    length specialization is proved here."]
 theorem componentCorrespondence_cutCoefficient
     [IsLocallyNoetherian (pullback p t)] (z : support U f) :
     let D := (integralComponentAt z.val).subscheme

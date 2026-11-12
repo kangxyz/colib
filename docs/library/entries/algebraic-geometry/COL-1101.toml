@@ -39,9 +39,10 @@ stage module is input, for use after actual root descent in COL-1087.
 The concrete map `boundaryRootPowerIso` retains a specified ambient power
 isomorphism and original boundary trivialization. Power equations use
 `pullbackTensorPowerIso` and `tensorPowerCongr`, for nonnegative exponents.
-Identifying these equations with the strict-local Kummer frame convention
-using `pullbackIntegerTensorPowerIso` and `tensorPowerMap`, and assembling
-the specific root witness with its frame, remain separate steps. No
+COL-1109 identifies these equations with the strict-local Kummer frame
+convention using `pullbackIntegerTensorPowerIso` and `tensorPowerMap`.
+Assembling the specific root witness with its frame at one stage remains
+a separate step. No
 geometric section pair, finite-flat zero scheme or final rigidity result
 is asserted. Supporting results cover arbitrary compatible diagrams and
 finite heterogeneous families of power and linear equations.

@@ -216,7 +216,11 @@ theorem curveRationalFunction_ne_zero (f : Γ(W, ⊤)) (hf : f ≠ 0) :
 /-- Construct an actual affine-chart fraction of the original curve function,
 prove the original polynomial family's literal fraction identity, and obtain
 both full endpoint Tor cuts. No fraction comparison certificate is an input. -/
-@[colib_tag "COL-1056"]
+@[colib_tag "COL-1056", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem exists_chartFraction_endpointTor [IsAffine U] [IsNoetherian U]
     [IsNoetherian (parameterSpace (u ≫ p))]
     (f : Γ(W, ⊤)) (hf : f ≠ 0) [Nonempty (ambientUnitOpen p v f)] :

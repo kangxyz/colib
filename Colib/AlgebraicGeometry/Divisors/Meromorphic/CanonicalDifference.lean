@@ -86,7 +86,10 @@ theorem isRegularMeromorphicSection_canonicalDifferenceNumerator :
       (isRegularMeromorphicSection_canonicalMeromorphicSection D)
 
 /-- The canonical regular meromorphic section of the actual Cartier difference module. -/
-@[colib_tag "COL-1050"]
+@[colib_tag "COL-1050", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Divisors/Meromorphic/SectionTransport.lean:89-110"
+  "ingredient" "Transport and regularity of the canonical numerator; the Cartier-difference \
+    quotient is constructed here."]
 def canonicalDifferenceMeromorphicSection : MeromorphicSection X.sheaf (differenceSheaf D E) :=
   quotientTensorMeromorphicSection X (differenceSheaf D E) (divisorSheaf E)
     (canonicalDifferenceNumerator D E) (canonicalMeromorphicSection E)

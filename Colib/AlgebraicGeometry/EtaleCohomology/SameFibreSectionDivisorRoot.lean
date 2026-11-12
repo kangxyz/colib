@@ -65,7 +65,7 @@ theorem exists_schemeTensorPower_iso_sameFibreSectionKernel_differenceSheaf
     Stacks.SheafOfModules.isInvertible_unit _ _
   let e : (Scheme.Modules.pullback (closedFibreInclusion R q)).obj
       (differenceSheaf s.ker t.ker) ≅ M₀ :=
-    sectionKernelDifferencePullbackUnitIso_of_range_subset q (residueFieldPoint R)
+    sectionKernelDifferencePullbackUnitIsoOfRangeSubset q (residueFieldPoint R)
       j s t hs ht hsj htj hst
   let e₀ : Stacks.SheafOfModules.schemeTensorPower (closedFibre R q) M₀ hM₀ (n : ℤ) ≅
       (Scheme.Modules.pullback (closedFibreInclusion R q)).obj
@@ -104,12 +104,12 @@ theorem exists_sameFibreSectionKernel_root_compatible_frame
           structureSheafTensorPowerIso (Spec (CommRingCat.of B)) n =
         (Scheme.Modules.pullbackIntegerTensorPowerIso i M hM (n : ℤ)).symm ≪≫
           (Scheme.Modules.pullback i).mapIso α ≪≫
-            sectionKernelDifferenceBoundaryIso_of_range_subset q j s t hs ht hsj htj i his hit := by
+            sectionKernelDifferenceBoundaryIsoOfRangeSubset q j s t hs ht hsj htj i his hit := by
   obtain ⟨M, hM, ⟨α⟩⟩ :=
     exists_schemeTensorPower_iso_sameFibreSectionKernel_differenceSheaf
       R q j s t hs ht hsj htj hst hn0 hn
   exact ⟨M, hM, α, exists_root_compatible_frame_of_module_finite R B i M
     (differenceSheaf s.ker t.ker) hM hn α
-      (sectionKernelDifferenceBoundaryIso_of_range_subset q j s t hs ht hsj htj i his hit)⟩
+      (sectionKernelDifferenceBoundaryIsoOfRangeSubset q j s t hs ht hsj htj i his hit)⟩
 
 end Stacks.Kummer

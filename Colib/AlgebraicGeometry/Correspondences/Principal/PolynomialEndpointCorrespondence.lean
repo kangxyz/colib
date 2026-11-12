@@ -222,7 +222,11 @@ omit [Nonempty (ambientUnitOpen (q ≫ p) v f)] in
 /-- The original polynomial correspondence has literal zero endpoint and original
 principal-divisor endpoint. This is native finite-correspondence/AlgebraicCycle
 equality with the unchanged retained outer map, not rational equivalence. -/
-@[colib_tag "COL-1100"]
+@[colib_tag "COL-1100", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem polynomialCorrespondence_endpointGraph_zero_one :
     let hX : (genericPoints X).Finite := by
       rw [genericPoints_eq_singleton]

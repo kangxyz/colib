@@ -87,7 +87,11 @@ local instance : IsIntegral (parameterSpace (u ≫ p)) := by
 /-- On the original affine chart, the original polynomial function's genuine
 principal supports have zero signed endpoint cut at zero and original curve order
 at one. All local fractions are produced internally from the original section. -/
-@[colib_tag "COL-1092"]
+@[colib_tag "COL-1092", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem chartPrincipalSupportCuts_zero_one
     (f : Γ(W, ⊤)) (hf : f ≠ 0) [Nonempty (ambientUnitOpen p v f)]
     (x : U) (hx : Order.coheight x = 1) :

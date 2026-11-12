@@ -67,7 +67,11 @@ namespace AlgebraicGeometry.PrincipalFamilyUnitOpen
 /-- The original smooth affine base, finite support maps, and literal polynomial
 endpoint supply the full source-fibre reindex and both residue degrees internally.
 Every collision at the unchanged outer target remains in the coefficient sum. -/
-@[colib_tag "COL-1084"]
+@[colib_tag "COL-1084", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/ProperPushforwardPrincipal/ResidueTrdeg.lean:87\
+    -101"
+  "ingredient" "Original residue-degree composition and degree-one immersion transport in the \
+    fibre and pushforward comparison."]
 theorem polynomialEndpoint_finsum_source_fibres
     {k : Type u} [Field k] {X C D Y : Scheme.{u}}
     (p : X ⟶ Spec (.of k)) [IsAffine X] [IsIntegral X] [Smooth p]

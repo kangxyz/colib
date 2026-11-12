@@ -49,7 +49,10 @@ namespace Scheme.Modules
 
 /-- A prescribed original boundary frame produces nonzero actual numerator and denominator,
 with whole Cartier, finite locally free zero schemes supported in the retained smooth open. -/
-@[colib_tag "COL-1079"]
+@[colib_tag "COL-1079", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/PicardUFD/Affine.lean:102-125"
+  "ingredient" "Affine invertible-sheaf triviality in the auxiliary full-boundary frame \
+    supplier; the nonzero pair is assembled here."]
 theorem exists_nonzero_compatible_boundary_framed_divisor_pair
     (R B : Type u) [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
     [CommRing B] [Algebra R B] [Module.Finite R B] (n : ℕ)

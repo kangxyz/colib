@@ -53,7 +53,7 @@ def differenceSheafSelfIso {X : Scheme.{u}} (D : X.IdealSheafData)
 The ambient morphism need not be smooth. -/
 @[colib_tag "COL-1054", stacks 0C4U
   "Pullback of the literal section-kernel difference when smoothness is confined to an open"]
-def sectionKernelDifferencePullbackIso_of_range_subset
+def sectionKernelDifferencePullbackIsoOfRangeSubset
     {X U S T : Scheme.{u}} (q : X ⟶ S) [IsSeparated q] (g : T ⟶ S)
     (j : U ⟶ X) [IsOpenImmersion j] [SmoothOfRelativeDimension 1 (j ≫ q)]
     (s t : S ⟶ X) (hs : s ≫ q = 𝟙 S) (ht : t ≫ q = 𝟙 S)
@@ -73,7 +73,7 @@ def sectionKernelDifferencePullbackIso_of_range_subset
 /-- Two sections with the same specialized morphism have a canonically trivial
 specialized difference, using their actual pulled-back kernels and evaluation. -/
 @[colib_tag "COL-1054"]
-def sectionKernelDifferencePullbackUnitIso_of_range_subset
+def sectionKernelDifferencePullbackUnitIsoOfRangeSubset
     {X U S T : Scheme.{u}} (q : X ⟶ S) [IsSeparated q] (g : T ⟶ S)
     (j : U ⟶ X) [IsOpenImmersion j] [SmoothOfRelativeDimension 1 (j ≫ q)]
     (s t : S ⟶ X) (hs : s ≫ q = 𝟙 S) (ht : t ≫ q = 𝟙 S)
@@ -90,13 +90,13 @@ def sectionKernelDifferencePullbackUnitIso_of_range_subset
         differenceSheaf (Scheme.baseChangedSection q g s hs).ker
           (Scheme.baseChangedSection q g s hs).ker :=
     eqToIso (congrArg (differenceSheaf (Scheme.baseChangedSection q g s hs).ker) hker)
-  exact sectionKernelDifferencePullbackIso_of_range_subset q g j s t hs ht hsj htj ≪≫
+  exact sectionKernelDifferencePullbackIsoOfRangeSubset q g j s t hs ht hsj htj ≪≫
     e ≪≫ differenceSheafSelfIso (Scheme.baseChangedSection q g s hs).ker
 
 /-- The specified boundary frame depends on the actual section kernels on the full
 ambient scheme and the full boundary, with no smoothness assumption on either. -/
 @[colib_tag "COL-1054"]
-def sectionKernelDifferenceBoundaryIso_of_range_subset
+def sectionKernelDifferenceBoundaryIsoOfRangeSubset
     {X U S B : Scheme.{u}} (q : X ⟶ S) [IsSeparated q]
     (j : U ⟶ X) [IsOpenImmersion j] [SmoothOfRelativeDimension 1 (j ≫ q)]
     (s t : S ⟶ X) (hs : s ≫ q = 𝟙 S) (ht : t ≫ q = 𝟙 S)

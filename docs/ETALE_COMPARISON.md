@@ -333,8 +333,9 @@ whole-program validation report.
 
 - COL-1101 descends the original full-boundary frame and finite power and
   section equations to one common stage. Literal base-change diagrams are
-  constructed internally. The specific Kummer root witness and the
-  integer/natural power comparison still need to be assembled with it.
+  constructed internally. COL-1109 identifies the integer/natural power
+  convention; common-stage assembly with the specific Kummer root witness
+  remains.
 - COL-1103 extends the actual radicial transfer inverse to all original
   smooth objects, including empty and disconnected schemes, by the genuine
   finite clopen correspondence matrix. The original relative Frobenius
@@ -342,99 +343,96 @@ whole-program validation report.
 - COL-1104 computes the actual smooth-extension source stalk as the native
   small-base stalk at the original composite marking, without requiring
   the smooth object to be affine. Its coefficient naturality is proved;
-  counit-map identification and marked-object naturality remain separate.
+  COL-1108 supplies the counit-map identification and marked affine-object
+  naturality. Invertibility of the original restriction remains.
 - The supporting rational-marking theorem lifts an actual marked etale
   point over a rational point of a separably closed field, preserving both
   original scheme-map equations.
+
+- COL-1105 kills the actual principal correction on ordinary HI coefficients
+  and consumes the original framed moving relation to identify finite-pair
+  transfer actions. Its original section-graph specialization has no local
+  base-ring hypothesis. The actual finite root, frame and pair still need
+  construction and descent to a genuine smooth finite-type stage.
+- COL-1106 constructs the actual native iterated Frobenius image of each
+  closed point with separable residue field, preserving the original marked
+  factorization and actual PST pullback isomorphism. In characteristic zero,
+  the original closed residue extension is already finite separable.
+
+- COL-1108 identifies the actual canonical counit with the original
+  presheaf structural pullback under the specified source comparison and
+  actual sheafification units. Its marked affine-morphism naturality
+  retains the original base marking, including Frobenius specialization.
+  This reduces the genuine counit question to invertibility of that same
+  original restriction, not an independently chosen isomorphism.
+- COL-1109 identifies the native integer and nonnegative tensor-power
+  comparisons and their power maps as actual isomorphisms. The original
+  Kummer root-frame equation is precisely the equation required for frame
+  descent. The original strictly henselian finite-boundary supplier
+  constructs such a frame, without a reduction or integrality assumption.
+
+- COL-1110 descends finite local freeness of finitely many whole zero
+  schemes to one common stage, retaining their original sections and maps.
+  The modules and sections are already defined at a stage; choosing and
+  descending the strict-local pair remains separate.
+- Supporting finite-subfield models realize a separable algebraic extension
+  as the actual filtered algebra colimit and actual scheme inverse limit,
+  with finite separable stages still in the original smooth category.
+  The same selected quadratic tuple retains two distinct opens: the etale
+  chart near the mark and the whole-fiber smooth open used for compactification.
+  The original finite projective-line cover is surjective; its full retained
+  boundary meets every base fiber and remains nonempty after marked base
+  shrinking. Polynomial ambient integrality and Noetherianity are proved.
+  Simultaneous finite-stage curve-data descent is not asserted.
 
 ## Remaining mathematical chain
 
 The required henselian section comparison is the same-specialization case:
 the two sections have the same closed-fibre morphism. Their divisor difference
-restricts to the actual unit module by COL-1054, and general proper
-Kummer divisibility reflection suffices. The arbitrary-section closed-curve
-root route in COL-1034 and COL-1040 is stronger than this need and assumes
-smoothness of the whole compactification. It must not be applied directly
-to the normal proper compactification with only a smooth open supplied by
-the original geometric construction. COL-1054 derives the global
-section-kernel Cartier property locally on that smooth open and proves
-the exact closed-fibre unit comparison. COL-1055 assembles the minimal
-root route and has compiled in native CI. The stronger COL-1040 composition
-retains a separate closed-fibre instance elaboration repair.
+restricts to the actual unit module by COL-1054, and general proper Kummer
+divisibility reflection suffices. COL-1055 supplies the resulting root without
+requiring the whole compactification to be smooth. The stronger smooth proper
+closed-curve route in COL-1034 and COL-1040 is also compiled, but its stronger
+hypotheses must not be silently applied to a merely normal compactification.
 
-1. Complete native verification of the high cohomological and curve
-   compositions. COL-1038 supplies the actual relative divisor/base-change
-   identification, and COL-1040 composes the closed-curve and proper Kummer
-   root constructions under their stated stronger hypotheses. For the
-   required same-fibre comparison, validate the direct closed-fibre unit
-   route in COL-1055. The low pullback comparisons have focused compile
-   evidence; the larger high-level compositions remain separately tracked.
-2. Convert the constructed framed root into finite-flat effective divisor
-   data and a principal correspondence identity, preserving full scheme
-   lengths, signs and the original graph maps. The boundary trivialization
-   is already constructed by literal inverse-image unit ideals and native
-   evaluation; it is not a remaining caller-supplied certificate. COL-1044
-   supplies the actual prescribed section pair for a projective closed
-   embedding, and COL-1046 produces Cartier regularity and finite local
-   freeness of the whole zero schemes. COL-1048 constructs the twist frames
-   compatibly with the fixed original root frame. The actual regular
-   quotient and its signed Weil-divisor formula are supplied by COL-1047
-   on integral locally noetherian schemes. COL-1050 identifies c with the
-   canonical section difference, COL-1052 supplies the ordinary quotient
-   representative, and COL-1051 supplies the actual cycle/correspondence
-   transport. COL-1059 completes the original full-boundary frame coherence,
-   and COL-1066 produces the exact signed identity with its same normalized
-   correction unit. COL-1072 restricts this identity to the original retained open and
-   its native correspondences. COL-1079 selects the geometric pair
-   internally and gives the actual relation between the original graphs.
-3. Complete the geometric principal-family correspondence and its actual
-   Tor endpoint identities. COL-1039 supplies full-boundary normalization
-   and finiteness of the native supports. COL-1041 supplies component
-   dominance, residue-degree pushforward and the signed correspondence.
-   COL-1043 supplies the actual local cut-length endpoint values; the native
-   affine-cylinder and evaluation-map identification is also implemented.
-   COL-1045 supplies the weighted actual endpoint-stalk Tor/local-length
-   comparison. COL-1049 supplies the actual graph-incidence stalk comparison
-   in the unchanged adjacent ambient. COL-1053 supplies original orders
-   as localized principal weights. COL-1056 supplies the genuine affine
-   fraction, the original polynomial chart identity and both endpoint
-   germs. COL-1068 identifies the literal endpoint cuts, COL-1070 proves
-   the actual incidence Tor formula and coheight one, and COL-1071 connects
-   the original finite-image coefficients. COL-1074 retains every original
-   support, both finite residue degrees and all outer image collisions in
-   the whole pairing. COL-1077 and COL-1078 compute the original signed local weights,
-   and COL-1080 reindexes the actual principal-cycle supports. COL-1089
-   identifies the whole pairing with the original source endpoint cycles;
-   COL-1090 supplies original chart coheight, and COL-1092 and COL-1096
-   give the actual chart and ambient support-cut zero/one values. COL-1100 now assembles
-   these into the final original endpoint correspondence equality. COL-1036 supplies the final
-   ordinary HI/torsion action consumer once the actual family and moving
-   relation are constructed. A full framed Picard group or general Picard
-   pairing is not needed if this concrete identity proves section comparison.
-4. COL-1057 supplies the actual filtered affine etale neighborhood value,
-   common-stage equations and the canonical sheafification-unit isomorphism.
-   COL-1069 supplies the native geometric consumer of finite polynomial
-   coordinates and a whole-fibre smooth open. COL-1073, COL-1075 and
-   COL-1076 now produce these from the same original tuple over an infinite
-   field, with the full prescribed closed scheme. COL-1082 identifies
-   the actual affine-neighborhood limit with native strict henselization
-   and preserves the original base and marking. Descend finite
-   presentation data to a common stage, prove the henselization induction
-   and pass to the conservative closed geometric point family supplied by
-   COL-1095. COL-1088 and COL-1091 give both actual radicial transfer
-   degree identities. Complete the arbitrary-field inseparable comparison
-   separately;
-   do not silently retain a perfect-field assumption in the final target.
-5. COL-1060 and COL-1061 supply the actual full-small/smooth ordinary
-   adjunction, separately from COL-1033 on the same smooth category.
-   Prove its canonical counit invertible for the original HI n-torsion
-   transfer presheaf after actual etale sheafification, for every field k
-   and every positive n invertible in k. This is the fixed-exponent
-   MVW 7.20-type target of the attached rigidity plan. A derived or motivic
-   comparison, including the finite-coefficient cone and signed motivic
-   complex, is a downstream application rather than an extra completion
-   condition for this rigidity theorem. The existing weight-one field
-   equivalences are not themselves this small/smooth counit assertion.
+1. Assemble the specific root, compatible full-boundary frame and actual
+   finite pair over the strict-local limit, then descend all of their finite
+   data and equations to one genuine smooth finite-type etale stage.
+   COL-1087, COL-1101 and COL-1109 give the root, frame and convention
+   ingredients; COL-1110 preserves whole-zero finite local freeness once
+   sections are defined at a stage. The strict henselization itself is not
+   an object of the smooth finite-type site. Its base-changed compactification
+   is not automatically integral: any required normal clopen integral
+   component containing both sections must be constructed and transported.
+   At the finite stage use COL-1105's general-base action theorem with the
+   actual descended pair. COL-1079's pair producer assumes a local ring and
+   cannot simply be applied to an arbitrary affine etale stage.
+2. Prove the original neighborhood restriction is an isomorphism by the
+   actual dimension induction. Retain the original presheaf on Sm(k) and
+   finite-separable field stages, without postulating a new presheaf over
+   each extension. Choose finite parameters over the separable closure,
+   descend the same tuple and its geometric properties to one finite
+   separable extension, and reconstruct the original compactification there.
+   The etale chart near the marking and the whole-fiber smooth open are
+   distinct and must not be conflated. Native limit and marked etale-change
+   comparisons are available in COL-1057, COL-1082 and COL-1102; the geometric
+   induction itself remains to be completed.
+3. Complete the arbitrary-field inseparable transport on the actual marked
+   neighborhood categories and their colimits. COL-1106 supplies a genuine
+   iterated Frobenius image with separable closed residue field, and
+   COL-1103 supplies the original transfer inverse on all smooth objects.
+   An objectwise presheaf isomorphism alone is not a stalk comparison.
+   Use the genuine etale base-change equivalence and preserve the marking
+   and original maps. COL-1108 identifies the actual counit with that same
+   structural neighborhood restriction and proves its marked naturality.
+   Finally use COL-1095's conservative closed geometric points to prove
+   the actual full-small/smooth canonical counit invertible.
+
+The endpoint is the fixed-exponent MVW 7.20-type theorem for every field k
+and every positive n invertible in k. A derived or motivic comparison,
+including the finite-coefficient cone and signed motivic complex, is a
+downstream application, not an extra acceptance condition. The existing
+weight-one field equivalences are not this canonical counit assertion.
 
 The old plan's independent formal-functions/proper-base-change development is
 not part of this route: the required unconditional theorem is already in the

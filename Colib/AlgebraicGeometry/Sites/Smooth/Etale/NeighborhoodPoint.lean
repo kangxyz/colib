@@ -74,7 +74,10 @@ theorem etaleNeighborhoodCoverLift
   rw [← Category.assoc, hb]
 
 /-- The native étale point associated to a separably closed field-valued marking. -/
-@[colib_tag "COL-1057"]
+@[colib_tag "COL-1057", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/CategoryTheory/Sites/Point/OfIsCofiltered.lean:135-145"
+  "ingredient" "Native point constructor; the original smooth-etale neighborhood lifting \
+    condition is proved here."]
 def etaleNeighborhoodPoint : (etaleTopology S).Point.{max u w} :=
   let := etaleNeighborhoodInitiallySmall.{u,w} X ξ
   GrothendieckTopology.Point.ofIsCofiltered.{max u w}

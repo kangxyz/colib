@@ -40,7 +40,10 @@ theorem polynomialProjection_smooth_one (k : Type u) [CommRing k] :
 
 /-- The original polynomial map on the genuine principal neighborhood is smooth
 of relative dimension one. Adding a coordinate is used only to prove this property. -/
-@[colib_tag "COL-1073"]
+@[colib_tag "COL-1073", colib_ref "motivic_source_3df0a472"
+  "Motivic/Aglib/RingTheory/Kaehler/ResidueIndependentSmoothMap.lean:56-70"
+  "ingredient" "Original independent functions completed to an etale coordinate tuple; the \
+    relative-curve map uses this ingredient."]
 theorem exists_smooth_one_of_residue_independent
     (k R : Type u) [Field k] [CommRing R] [IsDomain R] [Algebra k R] [Algebra.Smooth k R]
     (p : Ideal R) [p.IsPrime] (d : ℕ) (f : Fin d → R)

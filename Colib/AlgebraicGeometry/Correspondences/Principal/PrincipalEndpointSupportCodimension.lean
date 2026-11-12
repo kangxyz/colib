@@ -46,7 +46,6 @@ never to infer that the original integral support is flat. -/
 theorem sourceEndpoint_generic_original_coheight
     [IsAffine X] [IsIntegral X] [Smooth p]
     (j : V ⟶ C) [IsOpenImmersion j] [SmoothOfRelativeDimension 1 (j ≫ q)]
-    [IsSeparated (j ≫ q)]
     (i : D ⟶ parameterSpace (q ≫ p)) [IsClosedImmersion i] [IsIntegral D]
     [IsFinite (i ≫ lineMap p q)] [IsDominant (i ≫ lineMap p q)]
     (r : D ⟶ parameterSpace (j ≫ (q ≫ p))) (hr : r ≫ lineMap (q ≫ p) j = i)

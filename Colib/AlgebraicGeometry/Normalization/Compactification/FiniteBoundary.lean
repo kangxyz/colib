@@ -29,7 +29,10 @@ namespace AlgebraicGeometry.Scheme
 /-- Normalize a proper Nagata target in a normal integral source finite over its open chart.
 The pullback of the target's finite boundary is the full finite boundary of the constructed
 proper normal compactification. All source and base maps are retained. -/
-@[colib_tag "COL-1064"]
+@[colib_tag "COL-1064", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/NagataNormalization/Basic.lean:208-222"
+  "ingredient" "Nagata finiteness of relative normalization in the compactification \
+    ingredient; retained geometry is assembled here."]
 theorem exists_normal_proper_compactification_of_finite_chart
     {X Y Z S E : Scheme.{u}} [IsIntegral X] [IsNormal X] [IsLocallyNoetherian Z]
     (f : X ⟶ Y) [IsFinite f] (j : Y ⟶ Z) [IsOpenImmersion j] [QuasiCompact j]

@@ -4,7 +4,7 @@ title = "The actual unit difference of sections with equal specialization"
 kind = "comparison"
 section = "proper-etale-specialization"
 order = 85
-primary = "Stacks.Divisors.sectionKernelDifferencePullbackUnitIso_of_range_subset"
+primary = "Stacks.Divisors.sectionKernelDifferencePullbackUnitIsoOfRangeSubset"
 review = "author_checked"
 statement = '''
 Let \(q:X\to S\) be separated and \(j:U\to X\) an open immersion with

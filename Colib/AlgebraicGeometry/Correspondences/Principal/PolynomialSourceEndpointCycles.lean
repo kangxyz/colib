@@ -30,7 +30,7 @@ variable {k : Type u} [Field k] {X C V W B : Scheme.{u}}
     (f : Γ(W, ⊤)) (hf : b.appTop f = 1)
     [IsIntegral (parameterSpace (q ≫ p))] [IsNoetherian (parameterSpace (q ≫ p))]
 
-omit [IsIntegral C] [IsIntegral W] in
+omit [IsIntegral C] [IsIntegral W] [IsNoetherian C] in
 include j hcover in
 /-- The original full boundary geometry places every original principal-support
 endpoint generic in original curve codimension one. No support flatness or

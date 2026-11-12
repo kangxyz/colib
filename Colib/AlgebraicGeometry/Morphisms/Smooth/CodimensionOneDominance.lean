@@ -91,9 +91,9 @@ theorem image_mem_genericPoints_of_coheight_one_closed_fiber
   rwa [he] at hgeneric
 
 /-- Finite residue extension gives closedness in the actual fibre, through its
-original residue-field point. The fibre projection is only separated, not finite. -/
+original residue-field point. The fibre projection is not assumed finite. -/
 theorem isClosed_asFiber_of_finite_residueFieldMap
-    {X S : Scheme.{u}} (q : X ⟶ S) [IsSeparated q] (x : X)
+    {X S : Scheme.{u}} (q : X ⟶ S) (x : X)
     (hf : (q.residueFieldMap x).hom.Finite) :
     IsClosed ({q.asFiber x} : Set (q.fiber (q x))) := by
   let := (q.residueFieldMap x).hom.toAlgebra
@@ -103,7 +103,7 @@ theorem isClosed_asFiber_of_finite_residueFieldMap
 /-- The finite residue-field condition is enough for the actual component
 image, without assuming flatness of the closed support. -/
 theorem image_mem_genericPoints_of_coheight_one_finite_residue
-    {X S : Scheme.{u}} (q : X ⟶ S) [SmoothOfRelativeDimension 1 q] [IsSeparated q]
+    {X S : Scheme.{u}} (q : X ⟶ S) [SmoothOfRelativeDimension 1 q]
     (x : X) (hx : coheight x = 1) (hf : (q.residueFieldMap x).hom.Finite) :
     q x ∈ genericPoints S :=
   image_mem_genericPoints_of_coheight_one_closed_fiber q x hx
@@ -136,7 +136,7 @@ curve lies over an actual component generic point. Finiteness, not flatness,
 of the support is the geometric input. -/
 theorem image_mem_genericPoints_of_coheight_one_finite_closed_support
     {D X S : Scheme.{u}} (i : D ⟶ X) [IsClosedImmersion i]
-    (q : X ⟶ S) [SmoothOfRelativeDimension 1 q] [IsSeparated q]
+    (q : X ⟶ S) [SmoothOfRelativeDimension 1 q]
     [IsFinite (i ≫ q)] (x : D) (hx : coheight (i x) = 1) :
     q (i x) ∈ genericPoints S :=
   image_mem_genericPoints_of_coheight_one_finite_residue q (i x) hx

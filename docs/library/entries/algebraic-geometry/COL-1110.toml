@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1110"
+title = "Simultaneous descent of finite locally free zero schemes"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 120
+primary = "AlgebraicGeometry.exists_zeroSchemes_isFiniteLocallyFree_of_isLimit_finite"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(D:I\to\mathrm{Sch}\) be an essentially small cofiltered diagram
+with affine transitions and a specified limit. Fix a Noetherian stage
+\(S_i\), a locally finite type morphism \(q:X_i\to S_i\) with
+\(X_i\) Noetherian, and finitely many invertible modules \(L_a\) with
+actual global sections \(s_a\). If the whole zero schemes of their
+literal pullbacks to the limit are finite locally free over the limit
+base, there is one transition \(S_j\to S_i\) for which every whole
+zero scheme of the pulled-back sections is finite locally free over
+\(S_j\).
+'''
+proof = '''
+The native zero-scheme base-change isomorphism commutes with the original
+structure map. Transport finite local freeness through this isomorphism
+and apply native descent of finite locally free morphisms. Stability
+under base change and cofilteredness give one common transition for the
+finite family. Transport back through the same zero-scheme comparison.
+'''
+scope = '''
+The full original zero schemes, including nilpotents, sections and base
+maps are retained. The sections and invertible modules are already
+defined at the input stage; no later-stage finite-flat certificate is
+assumed. Choosing and descending the actual strict-local section pair,
+matching its root and boundary frames, and proving final rigidity are
+separate obligations. The descent ingredient is [@stacks, Tag 06AC],
+with stability under base change from [@stacks, Tag 02KD].
+'''

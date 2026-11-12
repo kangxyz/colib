@@ -85,7 +85,10 @@ theorem imagePoint_endpointEquation_ne_zero (z : support U f) (c : k) :
 /-- The actual literal endpoint cut on the original finite image satisfies the
 signed coefficient formula. Nonvanishing is produced from original support dominance,
 not supplied as an endpoint assumption. -/
-@[colib_tag "COL-1068"]
+@[colib_tag "COL-1068", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/PrincipalDivisorPushforward.lean:106-114"
+  "ingredient" "Finite pushforward of original orders with full residue degrees; the cut- \
+    length specialization is proved here."]
 theorem componentCorrespondence_endpointCutCoefficient
     [IsLocallyNoetherian (pullback p t)] (z : support U f) (c : k) :
     let D := (integralComponentAt z.val).subscheme

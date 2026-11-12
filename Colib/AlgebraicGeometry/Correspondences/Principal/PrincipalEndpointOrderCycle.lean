@@ -26,7 +26,11 @@ variable {k : Type u} [Field k] {X C W : Scheme.{u}}
 /-- Every original codimension-one curve point is computed on an internally
 chosen actual affine chart. Both signed whole source endpoint coefficients are
 therefore determined by the unchanged original curve order. -/
-@[colib_tag "COL-1097"]
+@[colib_tag "COL-1097", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem signedSourceEndpointCycle_zero_one_of_coheight
     (f : Γ(W, ⊤)) (hf : f ≠ 0) [Nonempty (ambientUnitOpen (q ≫ p) v f)]
     (x : C) (hx : Order.coheight x = 1) :

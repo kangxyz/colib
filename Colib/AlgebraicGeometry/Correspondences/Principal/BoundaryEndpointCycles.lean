@@ -166,7 +166,11 @@ theorem correspondence_graphPairing_eq_sum_endpointCycles (c : k) (s : genericPo
 /-- The whole original endpoint graph paired with the original signed principal
 correspondence equals the sum of native whole source-support endpoint cycles.
 This is literal cycle equality before any rational-equivalence quotient. -/
-@[colib_tag "COL-1089"]
+@[colib_tag "COL-1089", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/ProperPushforwardPrincipal/ResidueTrdeg.lean:87\
+    -101"
+  "ingredient" "Original residue-degree composition and degree-one immersion transport in the \
+    fibre and pushforward comparison."]
 theorem correspondence_endpointGraph_eq_sourceEndpointCycles (c : k) :
     let hX : (genericPoints X).Finite := by
       rw [genericPoints_eq_singleton]

@@ -1010,6 +1010,7 @@ public import Colib.AlgebraicGeometry.KTheory.SupportedOpenFineForget
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenFineLocalization
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenKZeroImage
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenQcqsComparison
+public import Colib.AlgebraicGeometry.Limits.FiniteSubfieldBaseChange
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFree
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFreeFlat
 public import Colib.AlgebraicGeometry.Modules.BoundedFiniteLocallyFreeJoint
@@ -1079,8 +1080,10 @@ public import Colib.AlgebraicGeometry.Modules.ExtensionByZeroStalk
 public import Colib.AlgebraicGeometry.Modules.GlobalScalarPullback
 public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame
 public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryRoot
+public import Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryRootComparison
 public import Colib.AlgebraicGeometry.Modules.Invertible.LimitRoot
 public import Colib.AlgebraicGeometry.Modules.Invertible.PicardRoot
+public import Colib.AlgebraicGeometry.Modules.Invertible.PullbackPowerComparison
 public import Colib.AlgebraicGeometry.Modules.Invertible.ZeroLocus.BoundaryFrame
 public import Colib.AlgebraicGeometry.Modules.Limits.BaseChangeBoundaryFrames
 public import Colib.AlgebraicGeometry.Modules.Limits.BaseChangeBoundaryPowerFrames
@@ -1175,6 +1178,9 @@ public import Colib.AlgebraicGeometry.Morphisms.Finite.CommonImage
 public import Colib.AlgebraicGeometry.Morphisms.Finite.MinimalComponentQuotient
 public import Colib.AlgebraicGeometry.Morphisms.Finite.ProperQuasiAffine
 public import Colib.AlgebraicGeometry.Morphisms.FiniteEtale.FiniteEtaleNeighborhoodIso
+public import Colib.AlgebraicGeometry.Morphisms.FiniteType.FiniteSubfieldPoint
+public import Colib.AlgebraicGeometry.Morphisms.Frobenius.IteratedNaturality
+public import Colib.AlgebraicGeometry.Morphisms.Frobenius.SeparablePoint
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.AffineBaseChange
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Basic
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Compactness
@@ -1273,10 +1279,17 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Stalks
 public import Colib.AlgebraicGeometry.Normalization.Compactification.FiniteBoundary
 public import Colib.AlgebraicGeometry.Normalization.Compactification.FiniteCoordinates
 public import Colib.AlgebraicGeometry.Normalization.Compactification.IntegralChart
+public import Colib.AlgebraicGeometry.Normalization.Compactification.NonemptyBoundary
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalFiniteChart
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalIntegralSource
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryUnitAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedGraphAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedPairAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedSectionAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.PrincipalAction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.RationalUnitPrincipalAction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Basic
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Cokernels
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Contraction
@@ -1286,6 +1299,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.DisjointUnions
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.FiniteFlatTransfer
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.GraphRestriction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.GraphSingleton
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.IteratedFrobenius
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.NisnevichComparison
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Parameter
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RadicialComponents
@@ -1340,15 +1354,18 @@ public import Colib.AlgebraicGeometry.ProjectiveSpace.Sections.SerreLifting
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.AffineImage
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.BoundaryNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.CompactNeighborhood
+public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.NonemptyBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrescribedNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrincipalNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.SectionNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.EndpointCuts
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.EndpointOrder
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.EndpointProjection
+public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.Integral
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilySupport
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilyUnitOpen
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinates
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousFiniteCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousGoodNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousPrincipalQuadraticParameters
@@ -1359,8 +1376,10 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndepend
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.BoundaryFiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FiniteFlat
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteZeroSchemes
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.NonzeroCompatiblePair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.PrescribedBoundary
+public import Colib.AlgebraicGeometry.ResidueField.FieldPoint
 public import Colib.AlgebraicGeometry.Scheme.CoefficientBaseChange
 public import Colib.AlgebraicGeometry.Scheme.CoefficientLaurentProjection
 public import Colib.AlgebraicGeometry.Scheme.Coherent.Exact
@@ -1421,6 +1440,7 @@ public import Colib.AlgebraicGeometry.Simplex.SignedShift
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Basic
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Adjunction
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.BasePointComparison
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitBasePoint
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitNeighborhoods
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.NeighborhoodGerms
@@ -1453,6 +1473,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodBaseChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackNaturality
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers
@@ -1461,6 +1482,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.FrobeniusFunctor
 public import Colib.AlgebraicGeometry.Sites.Smooth.GroupSchemes
 public import Colib.AlgebraicGeometry.Sites.Smooth.Hypercohomology.FieldEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.IntegralClopenComponents
+public import Colib.AlgebraicGeometry.Sites.Smooth.IteratedFrobenius
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.DistinguishedSquare
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.EnoughPoints
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Evaluation
@@ -1883,6 +1905,7 @@ public import Colib.CategoryTheory.Sites.Hypercohomology.Evaluation
 public import Colib.CategoryTheory.Sites.Hypercohomology.SheafComparison
 public import Colib.CategoryTheory.Sites.Hypercohomology.Shift
 public import Colib.CategoryTheory.Sites.ParameterProduct
+public import Colib.CategoryTheory.Sites.Point.ComapGerms
 public import Colib.CategoryTheory.Sites.Point.NeighborhoodRefinement
 public import Colib.CategoryTheory.Sites.Point.QuasiIso
 public import Colib.CategoryTheory.Sites.RelativeCohomology.Basic
@@ -2381,6 +2404,8 @@ public import Colib.FieldTheory.RatFunc.CoefficientMap
 public import Colib.FieldTheory.RatFunc.FrobeniusParameter
 public import Colib.FieldTheory.RatFunc.LaurentMap
 public import Colib.FieldTheory.RatFunc.PurelyInseparable
+public import Colib.FieldTheory.Separable.FiniteSubfieldFactorization
+public import Colib.FieldTheory.Separable.FiniteSubfields
 public import Colib.FieldTheory.SylowFixedField
 public import Colib.GroupTheory.IsPerfect
 public import Colib.GroupTheory.MonoidHom.CentralKernel

@@ -160,7 +160,11 @@ theorem correspondence_graphPairing_coefficient (c : k) (s : genericPoints X)
 
 /-- The original whole endpoint graph and principal correspondence have the
 complete source-cut coefficient, retaining both finite residue factors and collisions. -/
-@[colib_tag "COL-1074"]
+@[colib_tag "COL-1074", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/ProperPushforwardPrincipal/ResidueTrdeg.lean:87\
+    -101"
+  "ingredient" "Original residue-degree composition and degree-one immersion transport in the \
+    fibre and pushforward comparison."]
 theorem correspondence_endpointGraph_coefficient (c : k) (s : genericPoints X)
     (y : pullback (C := Scheme) p h) :
     let hX : (genericPoints X).Finite := by

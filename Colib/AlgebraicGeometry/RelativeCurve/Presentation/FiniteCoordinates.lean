@@ -34,7 +34,10 @@ namespace AlgebraicGeometry.Scheme.RelativeCurve
 /-- A finite polynomial coordinate map and an affine smooth open containing the whole marked
 fibre give a normal proper finite projective-line cover and a principal neighborhood where the
 full enlarged boundary is finite and the full prescribed finite scheme stays in that open. -/
-@[colib_tag "COL-1069"]
+@[colib_tag "COL-1069", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/NagataNormalization/Basic.lean:208-222"
+  "ingredient" "Nagata finiteness of relative normalization in the compactification \
+    ingredient; retained geometry is assembled here."]
 theorem exists_good_neighborhood_of_finite_polynomial_coordinates
     (k R B : Type u) [Field k] [CommRing R] [Algebra k R] [Algebra.FiniteType k R]
     [CommRing B] [IsDomain B] [Algebra k B] [Algebra.Smooth k B]

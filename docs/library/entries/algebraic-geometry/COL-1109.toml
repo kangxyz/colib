@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1109"
+title = "Native tensor-power and root-frame comparisons"
+kind = "comparison"
+section = "proper-etale-specialization"
+order = 118
+primary = "AlgebraicGeometry.Scheme.Modules.root_frame_equation_iff"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+For a scheme morphism \(b:B\to C\), an invertible module \(M\), and
+\(n\geq0\), the integral Kummer pullback comparison equals the native
+nonnegative pullback comparison as an isomorphism of the actual modules.
+The Kummer tensor-power map of an isomorphism equals the native
+nonnegative tensor-power congruence. Consequently, for a specified root
+\(\alpha:M^{\otimes n}\simeq L\), boundary trivialization
+\(\tau:b^*L\simeq\mathcal O_B\), and frame \(e:b^*M\simeq\mathcal O_B\),
+the original Kummer frame equation is equivalent to
+\(e^{\otimes n}=\operatorname{boundaryRootPowerIso}(b,M,L,n,\alpha,\tau)\).
+If the boundary is the spectrum of a finite algebra over a strictly
+henselian local ring and \(n\) is a unit in that ring, such a frame exists.
+'''
+proof = '''
+Both unit-pullback isomorphisms have the same native unit morphism.
+Compare the two recursive successor constraints, and apply the native
+integral tensor-power successor square to identify all nonnegative
+pullback comparisons. The tensor-product map is the same map as the two
+successive curried tensor functors, by the native sheafification tensor
+comparison. Induction therefore identifies the maps of powers. Cancel
+the original structure-sheaf power trivialization to obtain the frame
+equivalence. Apply the existing finite-boundary Kummer frame supplier
+and keep the same frame, root and target trivialization.
+'''
+scope = '''
+The comparisons are equalities of original isomorphisms on the entire
+boundary, including its nilpotents. They do not pass to Picard classes,
+residue fields, a reduction, or a replacement root or trivialization.
+There is no integrality assumption, and no boundary frame is assumed
+in the existence theorem. This closes the convention comparison needed
+between COL-1037 and COL-1101. Unit-power coherence under a further
+pullback, tracking the specific COL-1087 root witness through its
+boundary square, and final common-stage root/frame assembly remain
+separate steps. No strict henselization is asserted to be smooth over
+the ground field. No geometric pair, finite-flat zero scheme, or final
+rigidity theorem is asserted.
+'''

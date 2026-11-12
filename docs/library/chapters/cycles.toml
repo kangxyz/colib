@@ -106,6 +106,13 @@ signed correspondence into a homomorphism in the reverse direction. Its
 functoriality and additivity give the transfer composition and integer-linearity
 identities without changing the underlying cycles.
 '''
+COL-1105 = '''
+The original full-boundary-normalized unit now produces the required
+polynomial homotopy through COL-1100. Applying this to the actual moving
+relation kills its principal correction. Given the original finite pair,
+positive torsion therefore identifies its divisor and section-graph actions
+on general smooth finite-type stages, without a local-ring hypothesis.
+'''
 COL-1094 = '''
 For prime-to-characteristic torsion, the full radicial residue degree is
 coprime to the exponent. Its native Bezout coefficient times the actual
@@ -124,6 +131,13 @@ components. Original graph and projection correspondences give the complete
 matrix identities, including the empty scheme. Full-degree component
 transfer inverses therefore glue, and original Frobenius naturality gives
 a natural isomorphism on the unchanged underlying presheaf.
+'''
+COL-1106 = '''
+A finite purely inseparable exponent moves each original closed point,
+through the literal native iterated Frobenius, to a closed point with
+separable residue field. Its actual marked factorization and the original
+iterated transfer isomorphism are retained. Characteristic-zero closed
+residue fields are already finite separable.
 '''
 COL-0369 = '''
 Restriction along the graph functor of COL-0367 recovers an ordinary presheaf

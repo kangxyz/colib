@@ -98,7 +98,11 @@ theorem ord_div_eq_localizedPrincipalWeights [IsIntegral X] [IsLocallyNoetherian
 /-- Every nonzero original rational function has a genuine local fraction whose
 weights compute all codimension-one orders visible in this stalk. The fraction
 presentation is produced from the native fraction-ring structure, not assumed. -/
-@[colib_tag "COL-1053"]
+@[colib_tag "COL-1053", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem exists_localPrincipalWeights [IsIntegral X] [IsLocallyNoetherian X]
     (F : X.functionField) (hF : F ≠ 0) :
     ∃ n d : X.presheaf.stalk x, n ≠ 0 ∧ d ≠ 0 ∧

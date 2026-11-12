@@ -8,7 +8,7 @@ primary = "AlgebraicGeometry.Scheme.coheight_eq_of_image_mem_genericPoints_finit
 review = "author_checked"
 source_checked_on = "2026-11-12"
 statement = '''
-Let q : V → S be separated and smooth of relative dimension n, with S
+Let q : V → S be smooth of relative dimension n, with S
 reduced, and let i : D → V be a closed immersion whose composite with q
 is finite. If q(i(x)) is a generic point of S, then i(x) has coheight n
 in the original scheme V. For n = 1, this genericity condition is

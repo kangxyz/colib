@@ -43,7 +43,11 @@ local instance : IsIntegral (parameterSpace (u ≫ p)) := by
 /-- The original section and original chart produce literal polynomial fractions
 whose full signed integral-support cuts cancel at zero and equal the original
 curve order at one. No local regularity or fraction-identity certificate is an input. -/
-@[colib_tag "COL-1078"]
+@[colib_tag "COL-1078", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/FlatPullbackPrincipalDiviso\
+    r.lean:585-627"
+  "ingredient" "Original local fraction and order as full quotient-length difference; the \
+    support and endpoint assembly is proved here."]
 theorem exists_chartFraction_signedEndpointSupport
     (f : Γ(W, ⊤)) (hf : f ≠ 0) [Nonempty (ambientUnitOpen p v f)] :
     ∃ a b : Γ(U, ⊤),

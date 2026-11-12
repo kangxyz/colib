@@ -67,11 +67,11 @@ native colimit comparison. Arbitrary field bases and native residue-field
 geometric markings are included without rationality, perfectness, or
 algebraic-closedness of the base field.
 
-This computes the genuine source stalk needed after COL-1099. It does
-not yet identify the canonical counit under this new source isomorphism
-with COL-1093's structural neighborhood pullback, prove naturality for
-changes of the marked smooth object or Frobenius, or prove that the
-restriction map is invertible. No homotopy invariance, transfer, torsion,
+This computes the genuine source stalk needed after COL-1099. COL-1108
+identifies the canonical counit under this source isomorphism with
+COL-1093's structural neighborhood pullback and proves marked affine-object
+naturality, including the original Frobenius. Invertibility of the original
+restriction remains a separate rigidity obligation. No homotopy invariance, transfer, torsion,
 or rigidity conclusion is asserted. Naturality proved here is in the
 small-basis target and in coefficient sheaf morphisms.
 '''

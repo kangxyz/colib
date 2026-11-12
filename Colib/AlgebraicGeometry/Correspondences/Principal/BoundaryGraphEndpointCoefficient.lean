@@ -41,7 +41,10 @@ variable {k : Type u} [Field k] {C X Y V : Scheme.{u}}
 
 /-- The actual native local incidence coefficient has the original signed finite
 source-cut formula, retaining all source fibre points and their residue degrees. -/
-@[colib_tag "COL-1071"]
+@[colib_tag "COL-1071", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/RingTheory/Tor/FlatExtendScalarsFirst.lean:66-84"
+  "ingredient" "Flat change of rings for actual support Tor; the endpoint geometry and cycle \
+    assembly are proved here."]
 theorem componentCorrespondence_graphEndpointTorCoefficient (z : support U F)
     (c : k) (s : genericPoints X) :
     let w := imagePoint (projection p ≫ p) h q j U hU F hF g hg z

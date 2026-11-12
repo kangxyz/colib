@@ -102,7 +102,10 @@ variable [IsIntegral X] [IsSeparated p] [Smooth p] [Smooth h]
 
 /-- At the literal original endpoint, the actual native Tor cycle is exactly the
 whole unreduced incidence fundamental cycle, with no flatness of its support. -/
-@[colib_tag "COL-1086"]
+@[colib_tag "COL-1086", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/RingTheory/Tor/FlatExtendScalarsFirst.lean:66-84"
+  "ingredient" "Flat change of rings for actual support Tor; the endpoint geometry and cycle \
+    assembly are proved here."]
 theorem graphEndpoint_incidenceTorCycle_eq_fundamentalCycle
     [IsNoetherian (correspondenceIncidence p (projection p ≫ p) h
       (correspondenceGraphMap p (projection p ≫ p) (endpoint p c) (by simp) s.val) w)]

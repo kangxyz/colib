@@ -174,7 +174,10 @@ theorem original_face_generic_over_zero
 /-- The original endpoint map into a finite target endpoint sends every
 component generic point to a component generic point. All coordinate and
 minimal-prime data have been constructed from the original support map. -/
-@[colib_tag "COL-1081"]
+@[colib_tag "COL-1081", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/AlgebraicGeometry/Morphisms/QuasiFinite.lean:164-167"
+  "ingredient" "Discrete actual point fibres for the generic-point reflection ingredient; \
+    original endpoint genericity is proved here."]
 theorem original_face_generic_image_generic
     {E F : Scheme.{u}} (e : E ⟶ C) (b : E ⟶ Spec (.of A)) (a : A)
     (hsq : IsPullback e b f

@@ -61,13 +61,11 @@ def affineSpaceCoordinateZeroSection (d : ℕ) :
       (fun j ↦ AffineSpace.coord (Spec (.of k)) (⟨j⟩ : ULift.{u} (Fin d))) i.down))
     (AffineSpace.homOfVector_over _ _)
 
-@[simp]
 theorem affineSpaceCoordinateProjection_left (d : ℕ) :
     (affineSpaceCoordinateProjection k d).left =
       AffineSpace.reindex (fun i : ULift.{u} (Fin d) ↦
         (⟨i.down.succ⟩ : ULift.{u} (Fin (d + 1)))) (Spec (.of k)) := rfl
 
-@[simp]
 theorem affineSpaceCoordinateZeroSection_left (d : ℕ) :
     (affineSpaceCoordinateZeroSection k d).left =
       AffineSpace.homOfVector (AffineSpace (ULift.{u} (Fin d)) (Spec (.of k)) ↘ Spec (.of k))

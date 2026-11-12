@@ -163,7 +163,10 @@ theorem graphEndpoint_stalkTor_eq_parameterCut [IsIntegral E]
 /-- The original native graph-incidence Tor coefficient is the full parameter
 cut on the original integral right support. No support flatness, endpoint-cycle
 equality, or comparison of coefficients is an input. -/
-@[colib_tag "COL-1070"]
+@[colib_tag "COL-1070", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/RingTheory/Tor/FlatExtendScalarsFirst.lean:66-84"
+  "ingredient" "Flat change of rings for actual support Tor; the endpoint geometry and cycle \
+    assembly are proved here."]
 theorem graphIncidenceTorCoefficient_eq_parameterCut
     [IsIntegral X] [IsSeparated p] [Smooth p] [Smooth h]
     (c : k) (s : genericPoints X)

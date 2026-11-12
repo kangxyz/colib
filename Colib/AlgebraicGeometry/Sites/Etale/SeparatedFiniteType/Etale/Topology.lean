@@ -136,7 +136,10 @@ theorem toSmallEtale_isDenseSubsite :
   infer_instance
 
 /-- Ordinary abelian sheaves on this basis and on the full small étale site are equivalent. -/
-@[colib_tag "COL-1060"]
+@[colib_tag "COL-1060", colib_ref "mathlib_stable_localization_pin"
+  "Mathlib/CategoryTheory/Sites/DenseSubsite/InducedTopology.lean:154-162"
+  "ingredient" "Cover-dense sheaf comparison; density of the actual finite-type etale basis is \
+    proved here."]
 def sheafEquivSmallEtale :
     Sheaf (etaleTopology X.left) AddCommGrpCat.{u + 1} ≌
       Sheaf X.left.smallEtaleTopology AddCommGrpCat.{u + 1} := by

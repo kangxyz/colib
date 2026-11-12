@@ -89,7 +89,7 @@ theorem coheight_eq_of_image_mem_genericPoints_closed_fiber
 source codimension, not merely the codimension of an image support. -/
 theorem coheight_eq_of_image_mem_genericPoints_finite_residue
     {X S : Scheme.{u}} (q : X ⟶ S) [IsReduced S] (n : ℕ)
-    [SmoothOfRelativeDimension n q] [IsSeparated q]
+    [SmoothOfRelativeDimension n q]
     (x : X) (hx : q x ∈ genericPoints S) (hf : (q.residueFieldMap x).hom.Finite) :
     coheight x = n :=
   coheight_eq_of_image_mem_genericPoints_closed_fiber q n x hx
@@ -101,7 +101,7 @@ The resulting codimension is that of its point in the original smooth source. -/
 theorem coheight_eq_of_image_mem_genericPoints_finite_closed_support
     {D X S : Scheme.{u}} (i : D ⟶ X) [IsClosedImmersion i]
     (q : X ⟶ S) [IsReduced S] (n : ℕ)
-    [SmoothOfRelativeDimension n q] [IsSeparated q] [IsFinite (i ≫ q)]
+    [SmoothOfRelativeDimension n q] [IsFinite (i ≫ q)]
     (x : D) (hx : q (i x) ∈ genericPoints S) : coheight (i x) = n :=
   coheight_eq_of_image_mem_genericPoints_finite_residue q n (i x) hx
     (residueFieldMap_finite_of_finite_closed_support i q x)
@@ -111,7 +111,7 @@ original-source codimension one is equivalent to genericity of the base image. -
 @[colib_tag "COL-1090"]
 theorem coheight_eq_one_iff_image_mem_genericPoints_of_finite_closed_support
     {D X S : Scheme.{u}} (i : D ⟶ X) [IsClosedImmersion i]
-    (q : X ⟶ S) [IsReduced S] [SmoothOfRelativeDimension 1 q] [IsSeparated q]
+    (q : X ⟶ S) [IsReduced S] [SmoothOfRelativeDimension 1 q]
     [IsFinite (i ≫ q)] (x : D) :
     coheight (i x) = 1 ↔ q (i x) ∈ genericPoints S :=
   ⟨image_mem_genericPoints_of_coheight_one_finite_closed_support i q x,

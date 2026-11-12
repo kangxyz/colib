@@ -41,7 +41,7 @@ example {X U S T : Scheme.{u}} (q : X ⟶ S) [IsSeparated q] (g : T ⟶ S)
     (hst : g ≫ s = g ≫ t) :
     (Scheme.Modules.pullback (pullback.fst q g)).obj (differenceSheaf s.ker t.ker) ≅
       SheafOfModules.unit (pullback q g).ringCatSheaf :=
-  sectionKernelDifferencePullbackUnitIso_of_range_subset q g j s t hs ht hsj htj hst
+  sectionKernelDifferencePullbackUnitIsoOfRangeSubset q g j s t hs ht hsj htj hst
 
 local instance (S : Scheme.{u}) :
     ∀ U, IsMulCommutative ((ringSheaf S).obj.obj U) :=
@@ -70,11 +70,11 @@ example {X U S T : Scheme.{u}} (q : X ⟶ S) [IsSeparated q] (g : T ⟶ S)
   have hM : Stacks.SheafOfModules.IsInvertible (pullback q g).presheaf
       (pullback q g).ringCatIsSheaf M := Stacks.SheafOfModules.isInvertible_unit _ _
   exact ⟨M, hM, ⟨structureSheafTensorPowerIso (pullback q g) 6 ≪≫
-    (sectionKernelDifferencePullbackUnitIso_of_range_subset q g j s t hs ht hsj htj hst).symm⟩⟩
+    (sectionKernelDifferencePullbackUnitIsoOfRangeSubset q g j s t hs ht hsj htj hst).symm⟩⟩
 
 #print axioms Stacks.Divisors.isEffectiveCartierDivisor_sectionKernel_of_range_subset
 #print axioms Stacks.Divisors.isEffectiveCartierDivisor_baseChangedSection_of_range_subset
 #print axioms Stacks.Divisors.differenceSheafSelfIso
-#print axioms Stacks.Divisors.sectionKernelDifferencePullbackIso_of_range_subset
-#print axioms Stacks.Divisors.sectionKernelDifferencePullbackUnitIso_of_range_subset
-#print axioms Stacks.Divisors.sectionKernelDifferenceBoundaryIso_of_range_subset
+#print axioms Stacks.Divisors.sectionKernelDifferencePullbackIsoOfRangeSubset
+#print axioms Stacks.Divisors.sectionKernelDifferencePullbackUnitIsoOfRangeSubset
+#print axioms Stacks.Divisors.sectionKernelDifferenceBoundaryIsoOfRangeSubset

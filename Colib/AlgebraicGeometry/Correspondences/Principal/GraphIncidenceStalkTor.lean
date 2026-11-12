@@ -196,7 +196,10 @@ local notation "δ" => correspondenceGraphMap f g φ hφ s.val
 has exactly the full length of the literal endpoint-ambient stalk against the
 original support stalk in every degree. This comparison precedes, and does not
 replace, either finite-pushforward residue-degree factor or any image collision. -/
-@[colib_tag "COL-1049"]
+@[colib_tag "COL-1049", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/RingTheory/Tor/FlatExtendScalarsFirst.lean:66-84"
+  "ingredient" "Flat change of rings for actual support Tor; the endpoint geometry and cycle \
+    assembly are proved here."]
 theorem graphIncidenceTor_length_eq_endpointStalkTor [Flat f] [IsClosedImmersion φ]
     (t : correspondenceIncidence f g h δ w) (n : ℕ) :
     Module.length ((correspondenceIntersectionAmbient f g h).presheaf.stalk

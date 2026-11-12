@@ -82,7 +82,10 @@ theorem ord_globalSection_eq_length (s : Γ(X, ⊤)) (hs : s ≠ 0)
 /-- The actual full principal cuts satisfy the finite projection formula.
 Every source point over `y` contributes its original residue degree; coincident
 images are summed, rather than chosen or discarded. -/
-@[colib_tag "COL-1062"]
+@[colib_tag "COL-1062", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/Chow/PrincipalDivisorPushforward.lean:106-114"
+  "ingredient" "Finite pushforward of original orders with full residue degrees; the cut- \
+    length specialization is proved here."]
 theorem finsum_principalCutLength_mul_residueDegree (g : X ⟶ Y)
     [IsFinite g] [IsDominant g] (s : Γ(Y, ⊤)) (hs : s ≠ 0)
     (y : Y) (hy : Order.coheight y = 1)
