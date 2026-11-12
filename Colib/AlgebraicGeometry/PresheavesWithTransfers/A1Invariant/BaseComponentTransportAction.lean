@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootBaseComponentTransportResult
-public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNative
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNativeCartier
 
 /-! # Consume the same two-step root transport before specializing its geometry
 
@@ -19,7 +19,6 @@ open AlgebraicGeometry.Scheme AlgebraicGeometry.Scheme.SmoothSite
 open AlgebraicGeometry.Scheme.Modules Stacks.Divisors
 open Stacks.SheafOfModules.Invertible Stacks.AlgebraicGeometry.ModuleLimits
 universe u v
-set_option backward.isDefEq.respectTransparency false
 attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
 namespace AlgebraicGeometry.PresheafWithTransfers
 
@@ -98,6 +97,14 @@ theorem restriction_of_baseComponentTransportResult
   let N₁ : X₁.Modules := (pullback F).obj N
   let M₂ : X₂.Modules := (pullback κ).obj M₁
   let N₂ : X₂.Modules := (pullback κ).obj N₁
+  let hM₁ : Stacks.SheafOfModules.IsInvertible X₁.presheaf X₁.ringCatIsSheaf M₁ :=
+    Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj F.toLRSHom.toShHom M
+  let hN₁ : Stacks.SheafOfModules.IsInvertible X₁.presheaf X₁.ringCatIsSheaf N₁ :=
+    Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj F.toLRSHom.toShHom N
+  let hM₂ : Stacks.SheafOfModules.IsInvertible X₂.presheaf X₂.ringCatIsSheaf M₂ :=
+    Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj κ.toLRSHom.toShHom M₁
+  let hN₂ : Stacks.SheafOfModules.IsInvertible X₂.presheaf X₂.ringCatIsSheaf N₂ :=
+    Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj κ.toLRSHom.toShHom N₁
   let α₁ := ((pullbackTensorPowerIso F M (k + 1)).symm ≪≫ (pullback F).mapIso α) ≪≫
     sectionKernelDifferenceOfCartesianSectionsIso F gBase s₀ t₀ s₁ t₁ hs₁ ht₁
   let α₂ := ((pullbackTensorPowerIso κ M₁ (k + 1)).symm ≪≫ (pullback κ).mapIso α₁) ≪≫
@@ -111,8 +118,10 @@ theorem restriction_of_baseComponentTransportResult
   let a₂ := Hom.app (X := X₂) (pullbackTensorIso κ M₁ N₁).hom ⊤
     (pullbackGlobalSections κ _ a₁)
   let b₂N := pullbackGlobalSections κ N₁ (pullbackGlobalSections F N bN)
-  exact restriction_boundary_framed_section_pair_eq_native P hP A T q i₂ j hcover r hr
-    s₂ t₂ hsq htq sU tU hsU htU aD₂ aE₂ M₂ N₂ k hn α₂ e₂ eN₂ a₂ b₂N
-    H.2.1 H.2.2 fFinal gFinal hf hg H.1
+  have hAction := restriction_boundary_framed_section_pair_eq_native_cartier
+    (hL := hM₂) (hN := hN₂) P hP A T q i₂ j hcover r hr
+    s₂ t₂ hsq htq sU tU hsU htU aD₂ aE₂ M₂ N₂ k hn
+  obtain ⟨hRoot, haFinal, hbFinal⟩ := H
+  exact hAction α₂ e₂ eN₂ a₂ b₂N haFinal hbFinal fFinal gFinal hf hg hRoot
 
 end AlgebraicGeometry.PresheafWithTransfers
