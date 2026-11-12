@@ -1644,8 +1644,11 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Smal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.StrictLocal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.NonzeroCompatiblePair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.PrescribedBoundary
+public import Colib.AlgebraicGeometry.ResidueField.EtaleSeparable
 public import Colib.AlgebraicGeometry.ResidueField.FieldPoint
+public import Colib.AlgebraicGeometry.ResidueField.SeparableClosedPoint
 public import Colib.AlgebraicGeometry.ResidueField.SeparableMarking
+public import Colib.AlgebraicGeometry.ResidueField.SeparableScalarTower
 public import Colib.AlgebraicGeometry.Scheme.CoefficientBaseChange
 public import Colib.AlgebraicGeometry.Scheme.CoefficientLaurentProjection
 public import Colib.AlgebraicGeometry.Scheme.Coherent.Exact
@@ -1762,6 +1765,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFun
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackNaturality
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRestrictionTwoStage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.SeparableClosedStructuralMono
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.SeparableCoefficientStructuralMono
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ZeroCoordinateStructuralIso
