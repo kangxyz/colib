@@ -5,6 +5,7 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentActionGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedTargetMap
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentFullBoundary
@@ -106,63 +107,30 @@ theorem restriction_baseComponent_same_root
   let τ₁ := baseChangedSection q v.left τ hτ
   have hs₁ := isPullback_baseChangedSection q v.left σ hσ
   have ht₁ := isPullback_baseChangedSection q v.left τ hτ
-  let : IsClosedImmersion σ₁ :=
-    MorphismProperty.of_isPullback (P := @IsClosedImmersion) hs₁.flip inferInstance
-  let : IsClosedImmersion τ₁ :=
-    MorphismProperty.of_isPullback (P := @IsClosedImmersion) ht₁.flip inferInstance
-  let : IsEffectiveCartierDivisor σ₁.ker :=
-    isEffectiveCartierDivisor_ker_cartesian_of_flat F v.left σ σ₁ hs₁
-  let : IsEffectiveCartierDivisor τ₁.ker :=
-    isEffectiveCartierDivisor_ker_cartesian_of_flat F v.left τ τ₁ ht₁
-  have hσq : σ₂ ≫ q₂ = 𝟙 _ := by
-    calc
-      σ₂ ≫ q₂ = (σ₂ ≫ κ) ≫ q₁ := (Category.assoc _ _ _).symm
-      _ = baseChangedSection q v.left σ hσ ≫ q₁ :=
-        congrArg (fun t => t ≫ q₁) hσ₂
-      _ = 𝟙 _ := baseChangedSection_snd q v.left σ hσ
-  have hτq : τ₂ ≫ q₂ = 𝟙 _ := by
-    calc
-      τ₂ ≫ q₂ = (τ₂ ≫ κ) ≫ q₁ := (Category.assoc _ _ _).symm
-      _ = baseChangedSection q v.left τ hτ ≫ q₁ :=
-        congrArg (fun t => t ≫ q₁) hτ₂
-      _ = 𝟙 _ := baseChangedSection_snd q v.left τ hτ
+  obtain ⟨hσClosed, hσCartier, hσ₂Cartier, hσq⟩ :=
+    baseComponent_action_section_geometry q v.left σ hσ x σ₂ hσ₂
+  obtain ⟨hτClosed, hτCartier, hτ₂Cartier, hτq⟩ :=
+    baseComponent_action_section_geometry q v.left τ hτ x τ₂ hτ₂
+  let := hσClosed
+  let := hτClosed
+  let := hσCartier
+  let := hτCartier
+  let := hσ₂Cartier
+  let := hτ₂Cartier
   obtain ⟨σRet, hσRet, hfFinal⟩ := exists_baseComponentRetained_section_originalTarget
     v q j κ r hr σ hσ σY hσY σ₂ hσ₂ f hf
   obtain ⟨τRet, hτRet, hgFinal⟩ := exists_baseComponentRetained_section_originalTarget
     v q j κ r hr τ hτ τY hτY τ₂ hτ₂ g hg
-  let z : Anew.left := Classical.choice (inferInstance : Nonempty Anew.left)
-  obtain ⟨hAff, hInt, hNoeth, hDom⟩ :=
-    baseComponent_retained_geometry_of_section F j x σRet z
+  obtain ⟨hAff, hInt, hNoeth, hDom, hComp, hBoundary, hSmooth, hcover⟩ :=
+    baseComponent_retained_action_geometry q v.left j d hd x σRet
+      (Classical.choice (inferInstance : Nonempty Anew.left))
   let := hAff
   let := hInt
   let := hNoeth
   let := hDom
-  let : IsNoetherian (normalComponentOpen x).toScheme :=
-    PrincipalFamilyUnitOpen.retainedCurve_isNoetherian κ
-  let : Nonempty (Limits.pullback κ i₁ : Scheme.{u}) := by
-    obtain ⟨b, _⟩ := (i₂ ≫ κ ≫ q₁).surjective z
-    exact ⟨b⟩
-  let : SmoothOfRelativeDimension 1 (j₁ ≫ q₁) :=
-    MorphismProperty.of_isPullback (P := @SmoothOfRelativeDimension 1)
-      ((IsPullback.of_hasPullback F j).flip.paste_vert
-        (IsPullback.of_hasPullback q v.left)) inferInstance
-  let : SmoothOfRelativeDimension 1 (j₂ ≫ q₂) :=
-    smoothOfRelativeDimension_normalComponentOpen q₁ j₁ 1 x
-  let : IsEffectiveCartierDivisor σ₂.ker :=
-    isEffectiveCartierDivisor_ker_cartesian_of_flat κ (𝟙 Anew.left) σ₁ σ₂
-      (isPullback_section_openRestriction κ σ₁ σ₂ hσ₂)
-  let : IsEffectiveCartierDivisor τ₂.ker :=
-    isEffectiveCartierDivisor_ker_cartesian_of_flat κ (𝟙 Anew.left) τ₁ τ₂
-      (isPullback_section_openRestriction κ τ₁ τ₂ hτ₂)
-  have hcover : ∀ y : (normalComponentOpen x).toScheme,
-      y ∈ Set.range j₂ ∨ y ∈ Set.range i₂ := by
-    intro y
-    by_cases hy : y ∈ Set.range j₂
-    · exact Or.inl hy
-    · exact Or.inr (by
-        rw [show Set.range i₂ = (Set.range j₂)ᶜ from
-          range_baseComponent_fullBoundary F j d hd x]
-        exact hy)
+  let := hComp
+  let := hBoundary
+  let := hSmooth
   let aD₁ := avoids_sectionKernel_cartesianSections b₁ d i₁ F v.left w₁ σ σ₁ hs₁ aD
   let aE₁ := avoids_sectionKernel_cartesianSections b₁ d i₁ F v.left w₁ τ τ₁ ht₁ aE
   let aD₂ := avoids_sectionKernel_openRestriction b₂ i₁ i₂ κ w₂ σ₁ σ₂ hσ₂ aD₁
