@@ -1704,6 +1704,7 @@ public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Coun
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.NeighborhoodGerms
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Topology
+public import Colib.AlgebraicGeometry.Sites.Etale.StrictHenselizationBaseUnits
 public import Colib.AlgebraicGeometry.Sites.Etale.StrictHenselizationRegular
 public import Colib.AlgebraicGeometry.Sites.Nisnevich.Basic
 public import Colib.AlgebraicGeometry.Sites.Nisnevich.FieldLifting
