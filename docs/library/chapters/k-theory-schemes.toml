@@ -161,11 +161,14 @@ COL-0561 = "With those supported units fixed, the coefficient rows retain their 
 COL-0562 = "The normalized coefficient rows then give whole coefficient cylinders, whose two time coordinates survive realization and native AsSmall transport."
 COL-0563 = "Finally, the raw evaluation-forget square passes through the specified zero-object rebases and native Model maps to the parameter forget rectangle."
 
+
+COL-1034 = "Pull back the two factor units along the actual product projections. Their whole-track factorization reduces the geometric product-swap calculation to the interchange of two scalar operations. This proves anticommutation already on K-zero input, before any claim concerning a negative iterated cokernel."
+
 [[sections]]
 id = "bass-k-theory-and-geometric-delooping"
 title = "Bass K-theory and geometric delooping"
 order = 60
-introduction = "Polynomial and Laurent parameters define the geometric Bass seed. Iterating its cone-loop construction and taking a homotopy colimit gives the specified Bass K-theory spectrum. Affine evaluation and the supported versions identify the corresponding seed maps. The tensor-generated recursion then constructs the geometric transition and boundary maps used in localization. Cone exactness is proved for these constructions; additional ordinary-colimit or negative-group presentations are separate claims."
+introduction = "Polynomial and Laurent parameters define the geometric Bass seed. Iterating its cone-loop construction and taking a homotopy colimit gives the specified Bass K-theory spectrum. Affine evaluation and the supported versions identify the corresponding seed maps. The tensor-generated recursion then constructs the geometric transition and boundary maps used in localization. Cone exactness is proved for these constructions. The original negative-group recursion is compared below with the bottom groups of the finite constructions; comparison of these class maps with the infinite telescope and its localization boundary remains separate."
 
 
 [[sections.topics]]
@@ -188,6 +191,11 @@ id = "tensor-generated-geometric-transitions"
 title = "Tensor-generated geometric transitions"
 start = "COL-0550"
 
+[[sections.topics]]
+id = "bass-negative-groups"
+title = "Bass negative groups"
+start = "COL-1032"
+
 [sections.transitions]
 COL-0359 = "Fully faithful identity evaluation lifts a global-unit\nautomorphism to the actual affine cocartesian sections.\nFor a commutative ring \\(R\\), the Laurent coordinate\n\\(T\\) gives this action over \\(R[T,T^{-1}]\\).\nEvaluation along a Laurent ring map identifies the two\ndirections with multiplication by the images of \\(T\\)\nand \\(T^{-1}\\), and coefficient reindexing preserves\nthe whole isomorphism strictly.\n"
 COL-0360 = "Reindex the forward unit of COL-0359 along the constant\ninclusion \\(c_R\\colon R\\to R[T,T^{-1}]\\).\nThe zero-preserving exact section map and its unit\nisomorphism give a based self-homotopy of the induced\nprespectrum map. The strict coefficient square carries\nthe entire track, with homotopy time independent of the\nstructure coordinate and, in degree zero, the input-loop\ncoordinate.\n"
@@ -208,6 +216,9 @@ COL-0557 = "COL-0550 returns the whole independently realized tensor cell, and C
 COL-0558 = "The preceding item recognizes the actual starting cone action, including its forward coefficient and return prism. Feed those concrete data into the original finite generator recipe COL-0528. Carry the index map, row strength and old-loop conversion through each left-recursive step. The whole boundary comparison of COL-0555 then applies to these tensor-rooted cells without replacing their prescribed null or backward map."
 
 
+COL-1032 = "Begin with the actual perfect K-zero groups and iterate the cokernel of the two polynomial chart maps. The same construction with complexes acyclic on an open retains support forgetting in every negative degree."
+COL-1033 = "The initial perfect K-zero evaluation and the actual product isomorphisms compare this recursion with the bottom groups of the finite Bass constructions. Each Laurent quotient and the support-forgetting square are retained; passing to the infinite telescope is a separate comparison."
+
 [[sections]]
 id = "coherent-g-theory-localization"
 title = "Coherent G-theory and localization"
@@ -218,6 +229,7 @@ introduction = "For a noetherian affine scheme, actual global sections identify 
 COL-0612 = "The affine comparison identifies the original localization kernel with its finite-module counterpart. Quotient direct image first lands in objects annihilated by f; finite image filtrations then give devissage for all objects supported on its zero locus. This supplies the actual closed map and boundary, including the degree-zero tail."
 COL-0613 = "At a height-one prime of a Dedekind domain, choose an irreducible element in the local DVR. The principal open identifies with the prescribed fraction field and the principal quotient with the residue field. The whole supported square and boundary universe naturality identify the geometric boundary, with its original direction and sign, with the native local-DVR map."
 COL-0614 = "For a finite field, the affine comparison also transports the already established finite-module G2 vanishing to the literal public coherent G2 group of its spectrum. For a Dedekind domain with finite actual height-one residue fields, the native supported G2 vanishing also gives injectivity of the original public generic pullback, retaining any supplied fraction field. No generic G1 injectivity is assumed or concluded. This does not claim a calculation in other degrees."
+
 [[sections]]
 id = "thomason-trobaugh-localization"
 title = "Thomason–Trobaugh localization"
@@ -279,3 +291,6 @@ COL-0598 = "The three actual Spec comparisons transfer ordinary coefficient fibe
 
 COL-0599 = "The current-stage theorem transfers to its ordinary-colimit presentation through three stable comparisons preserving the same null-homotopy. This is a comparison of the constructed presentations, not a further identification with an external classical model."
 COL-0600 = "For auxiliary support, retain the three supported presentations and their null-homotopy at the same parameter time. The corresponding comparison transfers the fiber theorem and its projection formula."
+
+COL-0607 = "The ordinary-colimit presentation of COL-0600 is followed by the normalized independent-boundary rows. Their current-stage comparisons preserve the complete normalization homotopy and the actual enlargement and restriction maps. The specified fiber lift is stable at the integer base and at every affine parameter."
+COL-0608 = "Set the auxiliary open in COL-0607 to the empty open. The empty-open forget maps identify the middle and open terms with their ambient rows; the source remains acyclic on the displayed open, hence supported in its complement. The whole-null square transfers stability to the basic lift and identifies its intrinsic signed boundary with the auxiliary boundary."
