@@ -67,6 +67,11 @@ theorem etaleStageOpenSection_boundary_avoids
     ∀ z : (etaleStageOpenBoundaryDiagram X s p i U d).obj a,
       (etaleStageOpenBoundaryMap X s p i U d).app a z ∉
         (etaleStageOpenSection X s p i U σ hσ a).ker.support := by
+  have hsupport : ∀ z : Z, d z ∉ σ.ker.support := by
+    intro z
+    change d z ∉ (σ.ker.support : Set U.toScheme)
+    rw [Scheme.Hom.support_ker, σ.isClosedEmbedding.isClosed_range.closure_eq]
+    exact hdisj z
   intro z
   rw [etaleStageOpenSection_ker_fixed X s p i U σ hσ a,
     Scheme.IdealSheafData.support_comap]
@@ -74,8 +79,8 @@ theorem etaleStageOpenSection_boundary_avoids
     (etaleStageOpenBoundaryMap_isPullback X s p i U d a).w
   change (pullback.snd ((etaleCurveDiagram X s p).map a.hom) U.ι)
     ((etaleStageOpenBoundaryMap X s p i U d).app a z) ∉ σ.ker.support
-  rw [hw, Scheme.Hom.support_ker,
-    σ.isClosedEmbedding.isClosed_range.closure_eq]
-  exact hdisj _
+  have ha : (pullback.snd ((etaleCurveDiagram X s p).map a.hom) (d ≫ U.ι) ≫ d) z ∉
+      σ.ker.support := hsupport _
+  exact (congrArg (fun y => y ∉ σ.ker.support) hw).mpr ha
 
 end AlgebraicGeometry.Scheme.SmoothSite
