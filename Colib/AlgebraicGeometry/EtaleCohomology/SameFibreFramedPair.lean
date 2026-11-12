@@ -88,7 +88,8 @@ theorem exists_sameFibreSectionKernel_root_framed_pair
         IsRelativeEffectiveCartierDivisor q (AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))) ∧
         Stacks.Morphisms.IsFiniteLocallyFree
           ((AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))).subschemeι ≫ q) ∧
-        Set.range (AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))).subschemeι ⊆ Set.range j := by
+        Set.range (AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))).subschemeι ⊆
+          Set.range j := by
   obtain ⟨M, hM, α, e, he⟩ := exists_sameFibreSectionKernel_root_compatible_frame
     R q j s t hs ht hsj htj hst B i his hit hn0 hn
   let := hM
