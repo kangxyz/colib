@@ -657,6 +657,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRoot
+public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootNat
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreFramedPair
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibrePrescribedFrame
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreSectionDivisorRoot
@@ -1499,6 +1500,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Basi
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Boundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BoundaryBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundary
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleComponentRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleIntegralBase
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleLimit
