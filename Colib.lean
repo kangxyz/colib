@@ -1364,6 +1364,7 @@ public import Colib.AlgebraicGeometry.Polynomial.RationalCoordinateSection
 public import Colib.AlgebraicGeometry.Polynomial.RationalTailFieldPoint
 public import Colib.AlgebraicGeometry.Polynomial.RelativeRationalSection
 public import Colib.AlgebraicGeometry.Polynomial.ValueSection
+public import Colib.AlgebraicGeometry.Polynomial.ZeroCoordinateEtale
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BaseComponentRestriction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BaseComponentTransportAction
@@ -1492,6 +1493,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageOriginalTarget
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageOriginalTargetEtale
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageProducerInputs
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGeometryInstances
@@ -1762,6 +1764,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRestriction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.SeparableClosedStructuralMono
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ZeroCoordinateStructuralIso
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers
 public import Colib.AlgebraicGeometry.Sites.Smooth.Frobenius
 public import Colib.AlgebraicGeometry.Sites.Smooth.FrobeniusFunctor
