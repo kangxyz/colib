@@ -1610,6 +1610,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Mark
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalCompactifiedFixedFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalCompactifiedFixedRetainedTarget
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalFixedCoverAndCharts
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalFixedTargetGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.PolynomialGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ProjectiveLine
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Projectivity

@@ -181,7 +181,11 @@ theorem exists_etaleStageOpen_same_root_restriction
   have hdStage := etaleStageOpenRetained_stage_complement X s p i U j d hd ℓ
   refine ⟨Anew, v, hAff, hInt, hNoeth, hG, hGC, hCN, hCNoeth,
     σ₂, τ₂, hσ₂, hτ₂, ?_⟩
-  exact PresheafWithTransfers.restriction_baseComponent_same_root (_hProper := _hStageProper) P hP
+  exact PresheafWithTransfers.restriction_baseComponent_same_root
+    (_hProper := _hStageProper) (_hAffBase := hAff) (_hIntegralBase := hInt)
+    (_hBaseOpen := hG) (_hBaseClosed := hGC)
+    (_hCurveNormal := hCN) (_hCurveNoetherian := hCNoeth)
+    (_hRetainedAffine := hYA) (_hBoundarySurjective := hsurj) P hP
     ((etaleNeighborhoodToSmooth X s.hom).map v) qstage
     ((etaleStageOpenBoundaryMap X s p i U j).app ℓ)
     ((etaleStageOpenBoundaryMap X s p i U d).app ℓ) hdStage

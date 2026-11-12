@@ -54,11 +54,13 @@ closed base refinement and chosen normal component, using the same root and pair
 theorem restriction_baseComponent_same_root
     {K : Type u} [Field K] (P : PresheafWithTransfers.{v} K) (hP : IsA1Invariant P)
     {A Anew T : SmoothSite (Spec (.of K))}
-    [IsAffine Anew.left] [IsIntegral Anew.left]
-    (v : Anew ⟶ A) [IsOpenImmersion v.left] [IsClosedImmersion v.left]
+    [_hAffBase : IsAffine Anew.left] [_hIntegralBase : IsIntegral Anew.left]
+    (v : Anew ⟶ A) [_hBaseOpen : IsOpenImmersion v.left]
+    [_hBaseClosed : IsClosedImmersion v.left]
     {X Y B : Scheme.{u}} (q : X ⟶ A.left) [_hProper : IsProper q]
-    [IsNormal (Limits.pullback q v.left)] [IsNoetherian (Limits.pullback q v.left)]
-    (j : Y ⟶ X) [IsAffine Y] [IsOpenImmersion j]
+    [_hCurveNormal : IsNormal (Limits.pullback q v.left)]
+    [_hCurveNoetherian : IsNoetherian (Limits.pullback q v.left)]
+    (j : Y ⟶ X) [_hRetainedAffine : IsAffine Y] [IsOpenImmersion j]
     [SmoothOfRelativeDimension 1 (j ≫ q)]
     (d : B ⟶ X) (hd : Set.range d = (Set.range j)ᶜ)
     (σ τ : A.left ⟶ X) [IsClosedImmersion σ] [IsClosedImmersion τ]
@@ -69,7 +71,7 @@ theorem restriction_baseComponent_same_root
     (σ₂ τ₂ : Anew.left ⟶ (normalComponentOpen x).toScheme)
     (hσ₂ : σ₂ ≫ (normalComponentOpen x).ι = baseChangedSection q v.left σ hσ)
     (hτ₂ : τ₂ ≫ (normalComponentOpen x).ι = baseChangedSection q v.left τ hτ)
-    [Surjective (Limits.pullback.fst (normalComponentOpen x).ι
+    [_hBoundarySurjective : Surjective (Limits.pullback.fst (normalComponentOpen x).ι
       (Limits.pullback.fst (Limits.pullback.fst q v.left) d) ≫
       (normalComponentOpen x).ι ≫ Limits.pullback.snd q v.left)]
     (r : Y ⟶ Limits.pullback A.hom T.hom)
