@@ -1518,6 +1518,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorModelR
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorSectionModelTransport
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ZeroSchemeCartesian
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianAffineChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianFullBoundarySurjective
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualCartesianProjectiveLineCover
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ActualStageRootAuxiliaryRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseChangedMarkedComponentSections
@@ -1528,6 +1529,8 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Basi
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Boundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BoundaryBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ClopenModelFactor
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ClopenModelProjectiveChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ComponentIteratedPullbackIso
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleComponentRefinement
@@ -1553,6 +1556,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenRetained
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenRetainedSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSameRootConsumerResult
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSameRootRefinedResult
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionDivisors
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionKernels
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSections

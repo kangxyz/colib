@@ -32,7 +32,7 @@ namespace AlgebraicGeometry.Scheme.SmoothSite
 
 local instance actualRefinedResultPullbackInvertible
     {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
-    [hM : AlgebraicGeometry.SheafOfModules.IsInvertible Y.toRingedSpace.presheaf
+    [_hM : AlgebraicGeometry.SheafOfModules.IsInvertible Y.toRingedSpace.presheaf
       (structureSheafRing Y.toRingedSpace).property M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property ((Scheme.Modules.pullback f).obj M) :=
@@ -88,7 +88,7 @@ def EtaleStageOpenRefinedConsumerResult
     @AlgebraicGeometry.SheafOfModules.isFinitePresentation_of_isInvertible
       (C.obj a₀) _ (isInvertible_differenceSheaf (D a₀) (E a₀)).toAlgebraicGeometry
   ∀ (M : cC.pt.Modules)
-    [hM : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.toRingedSpace.presheaf
+    [_hM : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.toRingedSpace.presheaf
       (structureSheafRing cC.pt.toRingedSpace).property M] (n : ℕ)
     (α : tensorPower cC.pt.toRingedSpace.presheaf
       (structureSheafRing cC.pt.toRingedSpace).property M (n : ℤ) ≅
@@ -107,8 +107,10 @@ def EtaleStageOpenRefinedConsumerResult
     (a₀root : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor cC.pt.sheaf).obj M).obj N₀, ⊤))
     (b₀ : Γ(N₀, ⊤))
     (eN₀ : (Scheme.Modules.pullback bLim).obj N₀ ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-    (hb₀ : Hom.app eN₀.hom ⊤ (pullbackGlobalSections bLim N₀ b₀) = (1 : Γ(cB.pt, ⊤)))
-    (ha₀ : Hom.app (Scheme.Modules.pullbackTensorFrame bLim M N₀ e₀ eN₀).hom ⊤
+    (hb₀ : Scheme.Modules.Hom.app (X := cB.pt) eN₀.hom ⊤
+      (pullbackGlobalSections bLim N₀ b₀) = (1 : Γ(cB.pt, ⊤)))
+    (ha₀ : Scheme.Modules.Hom.app (X := cB.pt)
+      (Scheme.Modules.pullbackTensorFrame bLim M N₀ e₀ eN₀).hom ⊤
       (pullbackGlobalSections bLim _ a₀root) = (1 : Γ(cB.pt, ⊤))),
   OriginalRootAuxiliaryFramesConsumerResult
     B' C b cB cC bLim hb D E hDmap hEmap aD aE a₀ M n α e₀ he₀ N₀ hN₀ a₀root b₀ eN₀ hb₀ ha₀ →
@@ -122,7 +124,7 @@ def EtaleStageOpenRefinedConsumerResult
       ((Scheme.Modules.pullback (b.app ℓ)).obj NR ≅ SheafOfModules.unit (B'.obj ℓ).ringCatSheaf) →
       Γ(((Stacks.SheafOfModules.Tensor.sheafTensor
         (C.obj ℓ).sheaf).obj MR).obj NR, ⊤) →
-      Γ(NR, ⊤) → Prop := fun ℓ MR NR hMR αR eR eNR aR bR =>
+      Γ(NR, ⊤) → Prop := fun ℓ MR NR _hMR αR eR eNR aR bR =>
     ActualStageRootAuxiliaryRefinement X s p i U ℓ
       (etaleStageOpenSection X s p i U σ hσ ℓ)
       (etaleStageOpenSection X s p i U τ hτ ℓ)
