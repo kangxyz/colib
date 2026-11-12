@@ -7,7 +7,7 @@ module
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenActualRootAuxiliary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionDivisors
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryNoetherian
-public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFramesConsumerResult
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFramesConsumerExistence
 public import Colib.AlgebraicGeometry.Divisors.DifferenceSheafPicard
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitEmbedding
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitIntegral
@@ -128,35 +128,8 @@ theorem etaleStageOpen_exists_same_root_consumer_result
     fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U σ hσ j hσj a
   letI _hE : ∀ a, IsEffectiveCartierDivisor (E a) :=
     fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U τ hτ j hτj a
-  let τStage := differenceSheafBoundaryIso (b.app a0) (D a0) (E a0) (aD a0) (aE a0)
-  let τLim := pullbackBoundaryTrivialization (cB.π.app a0) (b.app a0) bLim
-    (cC.π.app a0) (hb a0) (differenceSheaf (D a0) (E a0)) τStage
-  ∃ (M : cC.pt.Modules)
-    (hM : Stacks.SheafOfModules.IsInvertible cC.pt.presheaf cC.pt.ringCatIsSheaf M),
-    let _ := hM
-    let _ : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.toRingedSpace.presheaf
-      (structureSheafRing cC.pt.toRingedSpace).property M := hM.toAlgebraicGeometry
-    ∃ (α : tensorPower cC.pt.toRingedSpace.presheaf
-        (structureSheafRing cC.pt.toRingedSpace).property M (n : ℤ) ≅
-        (Scheme.Modules.pullback (cC.π.app a0)).obj (differenceSheaf (D a0) (E a0)))
-      (e : (Scheme.Modules.pullback bLim).obj M ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-      (he : tensorPowerCongr cB.pt.presheaf (ringSheafCond cB.pt) _ _ e n =
-        boundaryRootPowerIso bLim M _ n α τLim)
-      (Naux : cC.pt.Modules)
-      (hNaux : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.sheaf.obj
-        cC.pt.ringCatSheaf.property Naux)
-      (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor cC.pt.sheaf).obj M).obj Naux, ⊤))
-      (bN : Γ(Naux, ⊤))
-      (eN : (Scheme.Modules.pullback bLim).obj Naux ≅ SheafOfModules.unit cB.pt.ringCatSheaf)
-      (hbN : Scheme.Modules.Hom.app (X := cB.pt) eN.hom ⊤ (pullbackGlobalSections bLim Naux bN) =
-        (1 : Γ(cB.pt, ⊤)))
-      (haB : Scheme.Modules.Hom.app (X := cB.pt)
-        (Scheme.Modules.pullbackTensorFrame bLim M Naux e eN).hom ⊤
-        (pullbackGlobalSections bLim _ a) = (1 : Γ(cB.pt, ⊤))),
-      a ≠ 0 ∧ bN ≠ 0 ∧
-      OriginalRootAuxiliaryFramesConsumerResult
-        B' C b cB cC bLim hb D E hDmap hEmap aD aE a0
-        M n α e he Naux hNaux a bN eN hbN haB := by
+  OriginalRootAuxiliaryFramesConsumerExistence
+    B' C b cB cC bLim hb D E hDmap hEmap aD aE a0 n := by
   let I := Over i
   let C := etaleStageOpenDiagram X s p i U
   let B' := etaleStageOpenBoundaryDiagram X s p i U d
@@ -198,22 +171,14 @@ theorem etaleStageOpen_exists_same_root_consumer_result
   let _hE : ∀ a, IsEffectiveCartierDivisor (E a) :=
     fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U τ hτ j hτj a
   let τStage := differenceSheafBoundaryIso (b.app a0) (D a0) (E a0) (aD a0) (aE a0)
-  let τLim := pullbackBoundaryTrivialization (cB.π.app a0) (b.app a0) bLim
-    (cC.π.app a0) (hb a0) (differenceSheaf (D a0) (E a0)) τStage
   let _hFP : (differenceSheaf (D a0) (E a0)).IsFinitePresentation :=
     @AlgebraicGeometry.SheafOfModules.isFinitePresentation_of_isInvertible
       (C.obj a0) _ (isInvertible_differenceSheaf (D a0) (E a0)).toAlgebraicGeometry
-  obtain ⟨M, hM, α, e, he, Naux, hNaux, a, bN, eN, ha, hbnonzero, haB, hbN⟩ :=
-    etaleStageOpen_exists_actual_root_auxiliary X s p i U B hX x hpre hp
+  have hRootOutput := etaleStageOpen_exists_actual_root_auxiliary X s p i U B hX x hpre hp
       j d hd σ τ hσ hτ hσj hτj a0 hmark τStage hn0 hn
-  let := hM
-  let : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.toRingedSpace.presheaf
-      (structureSheafRing cC.pt.toRingedSpace).property M := hM.toAlgebraicGeometry
-  refine ⟨M, hM, α, e, he, Naux, hNaux, a, bN, eN, hbN, haB, ha, hbnonzero, ?_⟩
-  exact originalRootAuxiliaryFramesConsumerResult_of_isLimit
+  exact originalRootAuxiliaryFramesConsumerExistence_of_output
     B' C b cB (etaleStageOpenBoundaryConeIsLimit X s p i U d B hX)
     cC (etaleStageOpenConeIsLimit X s p i U B hX)
-    bLim hb D E hDmap hEmap aD aE a0
-    M n α e he Naux hNaux a bN eN hbN haB
+    bLim hb D E hDmap hEmap aD aE a0 n hRootOutput
 
 end AlgebraicGeometry.Scheme.SmoothSite

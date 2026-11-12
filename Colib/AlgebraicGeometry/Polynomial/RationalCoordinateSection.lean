@@ -38,3 +38,41 @@ theorem polynomialChart_geometricMark_section
   simp only [Category.assoc]
   rw [polynomialChart_rationalMark_section f ε]
 end AlgebraicGeometry.Scheme
+
+namespace AlgebraicGeometry.Scheme
+open CategoryTheory
+/-- A genuine rational scheme point is represented by a coefficient-linear ring map. -/
+theorem exists_algHom_of_rational_schemePoint
+    {E B : Type u} [CommRing E] [CommRing B] [Algebra E B]
+    (x : Spec (.of E) ⟶ Spec (.of B))
+    (hx : x ≫ Spec.map (CommRingCat.ofHom (algebraMap E B)) = 𝟙 _) :
+    ∃ ε : B →ₐ[E] E, Spec.map (CommRingCat.ofHom ε.toRingHom) = x := by
+  obtain ⟨ε, rfl⟩ := Spec.map_surjective x
+  have hε : CommRingCat.ofHom (algebraMap E B) ≫ ε = 𝟙 (CommRingCat.of E) := by
+    apply Spec.map_injective
+    simpa only [Spec.map_comp, Spec.map_id] using hx
+  let e : B →ₐ[E] E :=
+    { ε.hom with
+      commutes' := fun a => by
+        have h := ConcreteCategory.congr_hom hε a
+        simpa using h }
+  exact ⟨e, rfl⟩
+
+/-- The exact section data required by EtaleChart is constructed from the original
+rational stage mark, without changing the original coordinate morphism. -/
+theorem exists_polynomial_section_through_rational_schemePoint
+    {E R B : Type u} [CommRing E] [CommRing R] [CommRing B]
+    [Algebra E R] [Algebra E B]
+    (f : Polynomial R →ₐ[E] B) (x : Spec (.of E) ⟶ Spec (.of B))
+    (hx : x ≫ Spec.map (CommRingCat.ofHom (algebraMap E B)) = 𝟙 _) :
+    ∃ (s : Spec (.of R) ⟶ Spec (.of (Polynomial R)))
+      (η : Spec (.of E) ⟶ Spec (.of R)),
+      s ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : R →+* Polynomial R)) = 𝟙 _ ∧
+      x ≫ Spec.map (CommRingCat.ofHom f.toRingHom) = η ≫ s := by
+  obtain ⟨ε, hε⟩ := exists_algHom_of_rational_schemePoint x hx
+  refine ⟨polynomialValueSection R (algebraMap E R ((ε.comp f) Polynomial.X)),
+    Spec.map (CommRingCat.ofHom ((ε.comp f).toRingHom.comp Polynomial.C)),
+    polynomialValueSection_projection _ _, ?_⟩
+  rw [← hε]
+  exact polynomialChart_rationalMark_section f ε
+end AlgebraicGeometry.Scheme
