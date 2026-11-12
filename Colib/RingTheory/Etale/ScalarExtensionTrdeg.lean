@@ -86,6 +86,7 @@ theorem trdeg_localized_tensor_of_etale_polynomial_map
   let j : L ⊗[E] B →ₐ[L] Localization.Away e :=
     IsScalarTower.toAlgHom L (L ⊗[E] B) (Localization.Away e)
   apply trdeg_eq_of_etale_polynomial_map (j.comp qL)
-  exact RingHom.Etale.comp (RingHom.etale_algebraMap.mpr (Algebra.Etale.of_isLocalizationAway e)) hL
+  exact RingHom.Etale.stableUnderComposition _ _ hL
+    (RingHom.etale_algebraMap.mpr (Algebra.Etale.of_isLocalizationAway e))
 
 end Algebra

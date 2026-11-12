@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.Divisors.SectionKernelBaseChange
+public import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 
 /-!
 # Original section kernels in a specified Cartesian square
