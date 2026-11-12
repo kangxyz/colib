@@ -14,7 +14,6 @@ public import StacksFrontier.AlgebraicGeometry.DivisorFlatPullback.Basic
 
 The only smoothness and disjointness inputs belong to the fixed original stage.
 Actual etale transitions transport the full section kernels and full boundary.
-This candidate has not yet been compiled.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits Stacks.Divisors
