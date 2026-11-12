@@ -1505,6 +1505,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Retai
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLocalizedConsumerGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLocalizedInputs
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLowerIso
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLowerTail
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageOriginalMark
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
