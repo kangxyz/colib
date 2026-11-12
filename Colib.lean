@@ -1,5 +1,4 @@
-module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurj
-public import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
+module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinear
 public import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupport
 public import Colib.Algebra.Category.FGModuleCat.ScalarFiltration
 public import Colib.Algebra.Category.ModuleCat.Annihilator
@@ -654,6 +653,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRoot
+public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryFrames
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootNat
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreFramedPair
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibrePrescribedFrame
@@ -1523,6 +1523,7 @@ public import Colib.AlgebraicGeometry.Scheme.CoefficientBaseChange
 public import Colib.AlgebraicGeometry.Scheme.CoefficientLaurentProjection
 public import Colib.AlgebraicGeometry.Scheme.Coherent.Exact
 public import Colib.AlgebraicGeometry.Scheme.Comparison
+public import Colib.AlgebraicGeometry.Scheme.FiniteAffinePresentation
 public import Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian
 public import Colib.AlgebraicGeometry.Scheme.ForgetBaseProduct
 public import Colib.AlgebraicGeometry.Scheme.GenericFiberLength
