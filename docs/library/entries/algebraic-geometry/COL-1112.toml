@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1112"
+title = "Common-stage descent of an original root and boundary frame"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 119
+primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_root_boundary_frame_of_isLimit_finite"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(B_i\to C_i\) be compatible qcqs scheme diagrams on a small cofiltered
+category, with affine transition maps and specified limit cones. Let
+\(L_i\) be a finitely presented module with a specified full-boundary
+trivialization. An invertible limit module \(M\), a specified isomorphism
+\(\alpha:M^{\otimes n}\simeq L_{i,\infty}\), and an original compatible
+frame on the whole limit boundary descend together. More precisely,
+there is an actual root model, recovering \(M\) and \(\alpha\), such that
+after every prescribed refinement and for every finite family of
+finitely presented sources and linear equations holding on the limit,
+one further stage has a single frame satisfying the original power
+relation and all these equations. The frame's canonical recovery is the
+specified original limit frame. The exponent may be any \(n\geq0\).
+'''
+proof = '''
+Select the actual invertible root by COL-1087 and normalize its canonical
+power-isomorphism recovery. Establish the unit-power and boundary-square
+coherences on the original modules. The composition of the boundary
+trivializations follows from the native canonical pullback associativity,
+naturality, and unit comparison. Transport the original frame along the
+same root isomorphism and through every prescribed intermediate
+refinement. Convert its actual power equation to the finite equation
+accepted by COL-1101, and descend that frame with the entire finite
+linear family at one common stage.
+'''
+scope = '''
+No stage root, stage frame, or additional continuity hypothesis is an
+input. The result preserves the original pullback comparisons, target
+trivialization, frame, and possibly nonreduced boundary. It does not
+replace the root by its Picard class. The quantifiers permit auxiliary
+modules and sections to be selected at an arbitrary later stage before
+the finite equations are imposed. Compatible diagrams and their limit
+cones remain specified inputs. No arbitrary scheme descent, geometric
+pair, integrality after strict henselian base change, smooth-site status
+of a strict henselization, or final rigidity theorem is asserted.
+'''

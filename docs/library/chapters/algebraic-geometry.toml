@@ -160,6 +160,13 @@ structural restriction. The actual sheafification units retain the original
 presheaf itself. Marked affine-morphism naturality keeps the same base point
 and maps, isolating exactly the restriction whose invertibility remains.
 '''
+COL-1111 = '''
+Lift the original markings through actual Frobenius base-change equivalences.
+The original transfer inverse and initial neighborhood functor identify the
+actual neighborhood pullback as an isomorphism. The same counit naturality
+square therefore transports invertibility to a closed point with separable
+residue, without changing the presheaf or assuming the stalk comparison.
+'''
 
 [[sections]]
 id = "affine-curve-parameters"
@@ -284,15 +291,22 @@ COL-1101 = '''
 Keep the original full boundary and ambient stage module. An actual limit
 frame and its prescribed finite power and section equations descend to
 one later stage, using the same canonical comparisons. Literal base-change
-diagrams need no additional limit certificate. The particular Kummer root
-and its frame still require their own assembly.
+diagrams need no additional limit certificate. COL-1112 combines this
+construction with the particular root and original frame.
 '''
 COL-1109 = '''
 Compare the two native tensor-power conventions as actual isomorphisms,
 including their maps and unit normalization. The original Kummer frame
 equation is therefore the precise nonnegative-power equation used in
 COL-1101, and the existing strictly henselian finite-boundary supplier
-constructs such a frame. Specific common-stage root/frame assembly remains.
+constructs such a frame. COL-1112 performs their common-stage assembly.
+'''
+COL-1112 = '''
+Select the actual root once, retaining its original power isomorphism and
+whole-boundary frame. After every prescribed refinement, all finitely many
+original section equations and the actual power relation descend with that
+same frame to one further stage. Auxiliary modules may therefore be selected
+before the frame equations are imposed, without choosing a different root.
 '''
 COL-1110 = '''
 Once the actual modules and sections are defined at a stage, retain their
@@ -300,6 +314,12 @@ whole zero schemes through native base change. Finite local freeness at
 the limit descends simultaneously for a finite family to one later stage.
 This preserves the original numerator and denominator rather than replacing
 their zero schemes by reduced supports.
+'''
+COL-1113 = '''
+Choose the actual finite family of sections internally from the limit,
+recovering their values by the original canonical maps. Then apply COL-1110
+to their literal pullbacks at a common stage. Full ideal-sheaf recovery,
+not only equality of supports, retains the original numerator and denominator.
 '''
 
 [[sections]]

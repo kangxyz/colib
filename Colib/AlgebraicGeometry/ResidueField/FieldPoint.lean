@@ -7,7 +7,7 @@ module
 
 public import Colib.Util.References
 public import StacksFrontier.AlgebraicGeometry.FieldToResidue
-public import Mathlib.AlgebraicGeometry.Morphisms.Finite
+public import StacksFrontier.AlgebraicGeometry.ResidueFieldAffineChart.Basic
 public import Mathlib.FieldTheory.Separable
 
 /-!
@@ -19,8 +19,9 @@ All scalar actions below are induced by the original structure map using native
 hypotheses and dependencies. A point valued in a finite separable extension has closed
 image and separable residue field, retaining its actual image point and structure map.
 
-The structural residue-point formulas adapt the lower helpers in
-`Colib/AlgebraicGeometry/MotivicCohomology/Diagonal/ResiduePointEvaluation.lean:39-66`
+The global-sections formula for the residue point is reused directly from pinned Stacks
+`ResidueFieldAffineChart/Basic.lean:44-50`. Its compatibility with the structural scalar map
+adapts `Colib/AlgebraicGeometry/MotivicCohomology/Diagonal/ResiduePointEvaluation.lean:56-65`
 at Colib revision `443a52f87210e38c18984c0effd1dd5d8e8dd1d8`, without importing that application.
 -/
 
@@ -37,27 +38,15 @@ theorem fieldToResidue_eq_evaluation {k : Type u} [Field k] {X : Scheme.{u}}
     (f : X ⟶ Spec (.of k)) (x : X) :
     fieldToResidue f x = (Scheme.ΓSpecIso (.of k)).inv ≫ f.appTop ≫ X.Γevaluation x := rfl
 
-/-- Pullback to the original residue point is the native global evaluation map. -/
-theorem Scheme.fromSpecResidueField_appTop (X : Scheme.{u}) (x : X) :
-    (X.fromSpecResidueField x).appTop ≫ (Scheme.ΓSpecIso (X.residueField x)).hom =
-      X.Γevaluation x := by
-  rw [Scheme.fromSpecResidueField, Scheme.Hom.comp_appTop, Category.assoc,
-    Scheme.ΓSpecIso_naturality, Scheme.fromSpecStalk_appTop]
-  simp only [homOfLE_refl, op_id, Category.assoc]
-  rw [show (Spec (X.presheaf.stalk x)).presheaf.map (𝟙 (Opposite.op ⊤)) = 𝟙 _ from
-    (Spec (X.presheaf.stalk x)).presheaf.map_id _]
-  simp only [Category.id_comp, Iso.inv_hom_id_assoc]
-  exact X.germ_residue (U := ⊤) x trivial
-
 /-- The actual residue point lies over the spectrum of the original structural scalar map. -/
 theorem Scheme.fromSpecResidueField_comp_eq_spec_fieldToResidue
     {k : Type u} [Field k] {X : Scheme.{u}} (f : X ⟶ Spec (.of k)) (x : X) :
     X.fromSpecResidueField x ≫ f = Spec.map (fieldToResidue f x) := by
   apply ext_of_isAffine
   apply (cancel_mono (Scheme.ΓSpecIso (X.residueField x)).hom).mp
-  rw [Scheme.Hom.comp_appTop, Category.assoc, Scheme.fromSpecResidueField_appTop,
+  rw [Scheme.Hom.comp_appTop, Scheme.fromSpecResidueField_appTop,
     Scheme.ΓSpecIso_naturality, fieldToResidue_eq_evaluation]
-  simp only [Iso.hom_inv_id_assoc]
+  simp only [Category.assoc, Iso.inv_hom_id, Category.comp_id, Iso.hom_inv_id_assoc]
 
 /-- A closed point's actual residue field is finite over the original base field. -/
 @[colib_ref "axiom_stacks_5ed82d14"

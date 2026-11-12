@@ -334,8 +334,8 @@ whole-program validation report.
 - COL-1101 descends the original full-boundary frame and finite power and
   section equations to one common stage. Literal base-change diagrams are
   constructed internally. COL-1109 identifies the integer/natural power
-  convention; common-stage assembly with the specific Kummer root witness
-  remains.
+  convention; COL-1112 assembles the specific original root witness and
+  full frame through every prescribed intermediate refinement.
 - COL-1103 extends the actual radicial transfer inverse to all original
   smooth objects, including empty and disconnected schemes, by the genuine
   finite clopen correspondence matrix. The original relative Frobenius
@@ -373,8 +373,37 @@ whole-program validation report.
 
 - COL-1110 descends finite local freeness of finitely many whole zero
   schemes to one common stage, retaining their original sections and maps.
-  The modules and sections are already defined at a stage; choosing and
-  descending the strict-local pair remains separate.
+  The modules and sections are already defined at a stage; COL-1113
+  constructs the finite family of sections from their original limit values.
+- COL-1111 proves the actual marked Frobenius neighborhood functor initial
+  using the genuine small-site base-change equivalence. The original PST
+  transfer inverse therefore makes the actual neighborhood pullback invertible.
+  Its counit naturality transports invertibility to an actual closed image
+  point with separable residue. This closes that positive-characteristic
+  transport step, not the separable-residue rigidity step.
+- COL-1112 internally selects the original root model, then permits every
+  prescribed refinement and every finite family of original equations before
+  choosing one common later frame. The original power equation, specified
+  full-boundary frame and canonical recovery are all retained. No stage root
+  or frame is supplied as a certificate.
+- COL-1113 selects actual finite families of sections from the limit and
+  makes all their literal whole zero schemes finite locally free at one
+  common stage, retaining their original full ideal sheaves. Supporting
+  constructions select the original auxiliary module, numerator, denominator
+  and auxiliary frame along one refinement chain, with denominator boundary
+  value one. The numerator's equation with the same final root frame still
+  requires the actual tensor comparisons and finite-equation assembly.
+- Supporting strict-local geometry constructs the actual normal integral
+  clopen component containing both original section specializations. It
+  retains their maps, an affine dense smooth relative curve open, the entire
+  finite surjective boundary, and the integral Noetherian polynomial cylinder.
+  The separate original etale chart supplies boundary surjectivity through
+  the actual finite projective-line map. Projectivity is preserved when
+  given on the original compactification. A separate minimal application of
+  native Stacks projectivity supplies a candidate for that input; it is
+  source-reviewed but not locally compiled because its native dependencies
+  are absent locally. It must pass the normal repository CI. Descending
+  this same geometry to a genuine etale stage remains separate.
 - Supporting finite-subfield models realize a separable algebraic extension
   as the actual filtered algebra colimit and actual scheme inverse limit,
   with finite separable stages still in the original smooth category.
@@ -395,18 +424,20 @@ requiring the whole compactification to be smooth. The stronger smooth proper
 closed-curve route in COL-1034 and COL-1040 is also compiled, but its stronger
 hypotheses must not be silently applied to a merely normal compactification.
 
-1. Assemble the specific root, compatible full-boundary frame and actual
-   finite pair over the strict-local limit, then descend all of their finite
-   data and equations to one genuine smooth finite-type etale stage.
-   COL-1087, COL-1101 and COL-1109 give the root, frame and convention
-   ingredients; COL-1110 preserves whole-zero finite local freeness once
-   sections are defined at a stage. The strict henselization itself is not
-   an object of the smooth finite-type site. Its base-changed compactification
-   is not automatically integral: any required normal clopen integral
-   component containing both sections must be constructed and transported.
-   At the finite stage use COL-1105's general-base action theorem with the
-   actual descended pair. COL-1079's pair producer assumes a local ring and
-   cannot simply be applied to an arbitrary affine etale stage.
+1. Combine the original root/frame and actual finite-pair data with the
+   strict-local geometric construction, then descend them to one genuine
+   smooth finite-type etale stage. COL-1112 now supplies the same-root
+   full-frame descent through every specified refinement; COL-1113 and its
+   supporting applications retain original sections, auxiliary frame and
+   whole finite locally free zero schemes. The original numerator boundary
+   equation must still be connected to that same frame at the final stage.
+   The strict henselization itself is not in the smooth finite-type site.
+   The required normal clopen integral component and full surjective boundary
+   are constructed, but their geometric stage model and a projective
+   presentation for the actual pair producer remain to be supplied. At that
+   stage use COL-1105's general-base action theorem with the actual pair.
+   COL-1079 assumes a local base ring and cannot simply be applied to an
+   arbitrary affine etale stage.
 2. Prove the original neighborhood restriction is an isomorphism by the
    actual dimension induction. Retain the original presheaf on Sm(k) and
    finite-separable field stages, without postulating a new presheaf over
@@ -415,18 +446,20 @@ hypotheses must not be silently applied to a merely normal compactification.
    separable extension, and reconstruct the original compactification there.
    The etale chart near the marking and the whole-fiber smooth open are
    distinct and must not be conflated. Native limit and marked etale-change
-   comparisons are available in COL-1057, COL-1082 and COL-1102; the geometric
-   induction itself remains to be completed.
-3. Complete the arbitrary-field inseparable transport on the actual marked
-   neighborhood categories and their colimits. COL-1106 supplies a genuine
-   iterated Frobenius image with separable closed residue field, and
-   COL-1103 supplies the original transfer inverse on all smooth objects.
-   An objectwise presheaf isomorphism alone is not a stalk comparison.
-   Use the genuine etale base-change equivalence and preserve the marking
-   and original maps. COL-1108 identifies the actual counit with that same
-   structural neighborhood restriction and proves its marked naturality.
-   Finally use COL-1095's conservative closed geometric points to prove
-   the actual full-small/smooth canonical counit invertible.
+   comparisons are available in COL-1057, COL-1082 and COL-1102. Supporting
+   actual finite-subfield models, strict-local regularity, and descent of
+   relative dimension are available. The original coefficients and distinct
+   opens now descend together to one finite separable stage, retaining
+   full-map finiteness, etaleness on the chosen chart, and tail-map smoothness
+   on the separate whole-fiber open. The marked fiber, relative dimension,
+   compactification and geometric induction still need to be assembled.
+3. Use the completed original Frobenius marked-neighborhood and canonical
+   counit transport of COL-1111 to reduce positive-characteristic closed
+   points to separable residue. In characteristic zero their finite residue
+   fields are already separable. After the first two steps prove counit
+   invertibility there, apply COL-1095's conservative closed geometric points
+   to the actual full-small/smooth canonical counit. No objectwise transfer
+   isomorphism is being substituted for this actual stalk comparison.
 
 The endpoint is the fixed-exponent MVW 7.20-type theorem for every field k
 and every positive n invertible in k. A derived or motivic comparison,

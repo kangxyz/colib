@@ -1,0 +1,48 @@
+[entry]
+id = "COL-1113"
+title = "Actual finite families of sections and whole zero schemes descend together"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 122
+primary = "AlgebraicGeometry.exists_sections_and_finiteLocallyFree_zeroSchemes_of_isLimit"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(C_i\to D_i\) be a Cartesian natural transformation of essentially
+small cofiltered diagrams of Noetherian schemes with affine transitions
+and specified limits. Assume the stage structure morphisms are locally
+of finite type and their squares with the limit structure morphism are
+Cartesian. Fix finitely many invertible finitely presented modules at
+one stage and actual sections of their pullbacks to the limit. Suppose
+the entire zero schemes of these original sections are finite locally
+free over the limit base.
+
+There is one later stage carrying all the sections, with their values
+recovering the original sections under the canonical pullback maps.
+At one further common stage, every literal pullback section has its
+whole zero scheme finite locally free over that stage base. Pulling
+its full ideal sheaf back to the limit gives the original full zero
+ideal, for each member of the same finite family.
+'''
+proof = '''
+Use native finite morphism and equation descent on the actual unit-module
+maps defining sections. The canonical comparison identifies the recovered
+sections and their full zero ideals. Cartesian zero-scheme comparison
+transports the limit finite-local-freeness hypotheses to the literal
+base-change diagrams in COL-1110. Apply its common-stage result and
+transport back through the original Cartesian squares. Functoriality of
+ideal-sheaf pullback preserves the original zero ideals through the final
+refinement.
+'''
+scope = '''
+The modules are already modeled at the first stage, but the later
+sections and finite locally free zero schemes are constructed internally.
+No later-stage section or finite-flat certificate is assumed. All
+multiplicities, nilpotents, original section values and structure maps
+are retained. Supporting applications descend an actual auxiliary
+invertible module and its original numerator and denominator, then a
+compatible auxiliary boundary frame on the same refinement chain.
+The matching of the numerator equation with the same root frame, the
+geometric stage data, and final rigidity remain separate obligations.
+The native finite locally free descent ingredient is [@stacks, Tag 06AC].
+'''

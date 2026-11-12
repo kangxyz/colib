@@ -1,0 +1,57 @@
+[entry]
+id = "COL-1111"
+title = "Actual Frobenius transport of the canonical counit"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 58
+primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_counit_iff_nFoldRelativeFrobenius"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let k be an arbitrary field of positive characteristic p, P an original presheaf
+with transfers on Sm(k), and n a natural number invertible in k killing P on every
+original smooth object. Let X be affine smooth, ξ:Spec Ω→X a marking by a
+separably closed field Ω, and q:X→X^(p^m) the actual native m-fold relative
+Frobenius, including m=0. The original marked neighborhood pullback q*_P of
+COL-1093 is an isomorphism.
+
+Write E⊣R for the actual full-small/smooth étale adjunction at Spec k, ε its
+canonical counit, and F=a_et P. The actual counit fiber at the image marking ξq
+is invertible if and only if the actual counit fiber at ξ is invertible. The
+comparison is through COL-1108's original native-base source isomorphisms and
+actual marked-morphism naturality square.
+
+For every original closed marking, some finite actual Frobenius twist has a
+closed image point with separable residue over k and this same equivalence of
+canonical counit invertibility. The result uses no homotopy invariance, PST over
+a changed field, smooth-site twist equivalence, or presumed stalk isomorphism.
+'''
+proof = '''
+Use native universal-homeomorphism descent for full faithfulness of actual
+small étale base change. Its essential surjectivity follows by factoring the
+actual absolute-Frobenius-power map through q and the actual first projection,
+and applying the native absolute-Frobenius small-site isomorphism. Lift each
+original marking into the actual fiber product. The resulting marked equivalence
+compares to the original chosen affine pullback functor through isoSpec and
+pullback symmetry, proving its initiality.
+
+Every original pullback projection is finite flat UH, so COL-1103 gives its
+original PST restriction inverse. The resulting diagram isomorphism and cofinal
+colimit isomorphism are identified on representatives with COL-1093's actual
+pullback. COL-1108 sheafification-unit and native-base counit naturality then
+transport genuine counit invertibility. COL-1106 supplies the finite exponent
+with separable closed image residue.
+'''
+conditions = [
+  "Original presheaf with transfers on Sm(k), with values in the existing coefficient universe",
+  "A common natural number n invertible in k kills P on every original smooth object",
+  "Affine smooth X and a common separably closed field marking Ω",
+  "Prime positive characteristic p for the finite Frobenius transport; exponent zero included",
+]
+scope = '''
+Completed positive-characteristic arbitrary-field transport step for the genuine
+canonical counit. It does not establish counit invertibility at the resulting
+separable-residue point, the remaining homotopy-invariant torsion rigidity step,
+or the final global counit theorem. Characteristic-zero closed residue
+separability is already supplied by the prior geometry.
+'''
