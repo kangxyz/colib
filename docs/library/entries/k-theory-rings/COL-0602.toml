@@ -1,0 +1,38 @@
+[entry]
+id = "COL-0602"
+title = "Projective completion and the Quillen Q-loop space"
+kind = "comparison"
+section = "quillen-k-theory-of-rings"
+order = 30
+primary = "ModuleCat.FiniteProjective.completionToOriginalQLoopsHomotopyEquiv"
+statement = '''
+Let $R$ be an arbitrary ring. At every displayed completion vertex $U$, the original standard
+map from the realization of the projective group-completion category to the compact-open based
+loops of the original Quillen Q-category is a homotopy equivalence. Its forward map is the
+unchanged standard comparison. Restricting to the actual zero components gives a homotopy
+equivalence from the specified plus-certified stable-completion component to the zero component
+of the original Q-loop space. Its forward map and every point of its prescribed basepoint track
+are unchanged. For common-universe ring maps, the original zero-component forward comparisons
+commute with ring change up to the specified ordinary homotopy.
+'''
+scope = '''
+The actual completion model and original compact-open Q-loop space are used. No domination,
+homotopy inverse or component equivalence is supplied as an extra hypothesis. The inverse
+homotopies are ordinary homotopies; a strictly pointed inverse or natural choice of inverse is
+not asserted. This comparison does not assert the further discrete K-zero times plus product
+decomposition, multiplicative coherence, or uniqueness of arbitrary supplied plus models.
+'''
+proof = '''
+Construct realization domination of original categorical loop spaces through the native
+poset-resolution equivalence and metric order-complex loop space. The local connector gives
+an open convex cover; the metric refinement and partition of unity construct the ordered nerve
+classifier, return map and domination homotopy. Realized endpoint lifting upgrades the original
+weak equivalence to a genuine homotopy equivalence, keeping its exact forward map. Restrict the
+maps and inverse homotopies to their actual path components. The existing original all-points
+ring-change homotopy restricts to those components and retains the original comparison track.
+This follows the original proof [@quillen, KTheory/Plus/ProjectiveCompletionLoopHomotopyEquiv.lean]
+and [@quillen, KTheory/Plus/ProjectiveCompletionZeroLoopNaturality.lean].
+'''
+review = "author_checked"
+provenance = "quillen"
+source_checked_on = "2026-11-12"

@@ -2,13 +2,13 @@
 id = "k-theory-rings"
 title = "Algebraic K-Theory of Rings"
 order = 12
-introduction = "Let $R$ be a ring. Quillen K-theory applies the Q-construction to the exact category $\\mathcal P(R)$ of finite projective modules. Its degree-zero group records virtual projective modules, whereas the stable general linear group describes a different entry point through the plus construction. For a Noetherian ring, the abelian category of finite modules gives G-theory; it must not be confused with projective K-theory without an appropriate comparison theorem.\n\nWe first study projective completion and its zero component, then compute $K_0$ over a field. Matsumoto's theorem identifies $K_2^M(F)$ with Quillen $K_2(F)$; the symbol presentation itself remains in the Milnor K-theory chapter. Finally, localization and dévissage give the connective G-theory sequence for a principal closed/open pair. The results here do not assert a general decomposition of the entire K-theory space or a Bass fundamental theorem."
+introduction = "Let $R$ be a ring. Quillen K-theory applies the Q-construction to the exact category $\\mathcal P(R)$ of finite projective modules. Its degree-zero group records virtual projective modules, whereas the stable general linear group describes a different entry point through the plus construction. For a Noetherian ring, the abelian category of finite modules gives G-theory; it must not be confused with projective K-theory without an appropriate comparison theorem.\n\nWe first study projective completion and its zero component, then compute $K_0$ over a field. Matsumoto's theorem identifies $K_2^M(F)$ with Quillen $K_2(F)$; the symbol presentation itself remains in the Milnor K-theory chapter. Finally, localization and dévissage give the connective G-theory sequence for a principal closed/open pair. The product decomposition uses the specified plus-certified completion component and ordinary homotopies; no replacement by an arbitrary plus model or Bass fundamental theorem is asserted."
 
 [[sections]]
 id = "quillen-k-theory-of-rings"
 title = "Projective modules and the plus construction"
 order = 10
-introduction = "Direct sum makes the isomorphism groupoid of $\\mathcal P(R)$ symmetric monoidal. Its group-completion category has objects represented by pairs $(A,B)$, with virtual class $[B]-[A]$. The first result identifies its components with $K_0(\\mathcal P(R))$.\n\nWrite $C_0(R)$ for the specified zero component of this completion and $E(R)\\subseteq GL_\\infty(R)$ for the stable elementary subgroup. The second result proves that the specified map $BGL_\\infty(R)\\to C_0(R)$ satisfies the homological plus-construction conditions: it kills precisely $E(R)$ on fundamental groups and preserves homology with all target local systems in the stated universe. It does not yet identify the full completion with $K_0(R)\\times BGL_\\infty(R)^+$."
+introduction = "Direct sum makes the isomorphism groupoid of $\\mathcal P(R)$ symmetric monoidal. Its group-completion category has objects represented by pairs $(A,B)$, with virtual class $[B]-[A]$. The first result identifies its components with $K_0(\\mathcal P(R))$.\n\nWrite $C_0(R)$ for the specified zero component of this completion and $E(R)\\subseteq GL_\\infty(R)$ for the stable elementary subgroup. The second result proves that the specified map $BGL_\\infty(R)\\to C_0(R)$ satisfies the homological plus-construction conditions: it kills precisely $E(R)$ on fundamental groups and preserves homology with all target local systems in the stated universe. The Q-loop comparison then gives $K_0(R)_{\\mathrm{disc}}\\times C_0(R)\\simeq\\Omega BQ(R)$ with ordinary inverse homotopies (COL-0606). Here $C_0(R)$ is the specified plus-certified model; natural choices of inverse and multiplicative coherence are not asserted."
 
 [[sections.topics]]
 id = "components"
@@ -20,7 +20,14 @@ id = "plus-construction"
 title = "The zero component and stable general linear group"
 start = "COL-0513"
 
+[[sections.topics]]
+id = "q-loop-comparison"
+title = "The Q-loop comparison and product decomposition"
+start = "COL-0602"
+
 [sections.transitions]
+COL-0602 = "The plus certificate concerns the zero component. The projective-completion comparison now gives a genuine homotopy equivalence with the Q-loop space, and restricts to the specified zero components without changing the forward map or its basepoint track."
+COL-0606 = "The continuous $K_0$ classifier separates the open loop components. Choosing representatives normalized at zero identifies them with translations of the zero component, giving $K_0(R)_{\\mathrm{disc}}\\times C_0(R)\\simeq\\Omega BQ(R)$. Naturality is asserted for the forward maps up to ordinary homotopy, not for a choice of inverse."
 COL-0378 = "Since every short exact sequence of projective modules splits, the direct-sum relations agree with the exact-category Grothendieck relations. The denominator is the first coordinate, explaining the sign $[B]-[A]$; compare [@WeibelKBook, IV, Lemma 4.3.1]."
 COL-0513 = "The component calculation does not determine higher homotopy. To study the zero component, use the stable general linear map. Its surjection on fundamental groups has elementary kernel; the local-coefficient chain comparison then supplies the homological plus certificate."
 

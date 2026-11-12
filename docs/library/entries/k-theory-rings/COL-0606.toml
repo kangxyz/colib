@@ -1,0 +1,44 @@
+[entry]
+id = "COL-0606"
+title = "The K-zero times plus decomposition of the Q-loop space"
+kind = "comparison"
+section = "quillen-k-theory-of-rings"
+order = 40
+primary = "ModuleCat.FiniteProjective.originalPlusProductToQLoopsHomotopyEquiv"
+statement = '''
+Let $R$ be an arbitrary ring, let $Q(R)$ be the original Quillen category of finite
+projective right $R$-modules, and let $P(R)$ be the zero component of the original
+stable projective completion. Give the original homotopical group $K_0(R)$ the discrete
+topology. There is a homotopy equivalence
+$K_0(R)_{\mathrm{disc}}\times P(R)\simeq\Omega BQ(R)$ with actual inverse homotopies.
+The map on the neutral slice is exactly the original standard zero-component comparison,
+including its prescribed basepoint track. Away from that slice it concatenates the comparison
+loop on the right with the chosen representative of the specified $K_0$ class.
+The first coordinate of the inverse is the original continuous $K_0$ classifier. On a
+completion stage $(n,P)$ it is $[P]-[R^n]$, with the original object classes and signs.
+For unital maps of rings in a common universe, the product-to-loop maps commute with the
+original $K_0$ and zero-completion base-change maps up to ordinary homotopy.
+'''
+scope = '''
+The plus factor is the particular `StableCompletion.ZeroComponent`, whose original map from
+stable $\mathrm{GL}$ is already certified as a plus construction. Neither an alternative plus
+model nor a second $K_0$ model is introduced. No invariant-basis-number hypothesis is used.
+The result supplies ordinary inverse homotopies and ordinary forward-map naturality, not a
+natural choice of inverse, a strictly pointed inverse, a multiplicative splitting or higher
+coherence. The same actual canonical objects and maps as in COL-0602 are retained.
+'''
+proof = '''
+Identify completion components with the existing Grothendieck classes and then with the
+original homotopical $K_0$. The original Q-edge cocycle potential computes the standard
+comparison's loop label, including its positive numerator-minus-denominator sign.
+Open components of the actual Q-loop space make this classifier continuous into discrete
+$K_0$. Choose representatives normalized to the constant loop at the neutral class and
+assemble right translations into a normalized loop-component product equivalence.
+Compose it with COL-0602 on the second factor. For ring change, combine the original
+representative naturality homotopy with the actual zero-component comparison homotopy.
+This is the proof of [@quillen, KTheory/Plus/ProjectiveOriginalPlusProduct.lean:48-129]
+and [@quillen, KTheory/Plus/ProjectiveOriginalPlusProductNaturality.lean:71-80].
+'''
+review = "author_checked"
+provenance = "quillen"
+source_checked_on = "2026-11-12"
