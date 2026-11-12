@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1043"
+title = "Polynomial homotopy between large torus cuts"
+kind = "theorem"
+section = "relative-principal-cuts"
+order = 30
+primary = "AlgebraicGeometry.Cor.exists_torusPowerCut_pencil"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(c\) be a finite correspondence from \(X\times\mathbb G_m\)
+to \(Y\times\mathbb G_m\) over a field. For all sufficiently large
+\(m,n\), there is a finite correspondence
+\(H\colon X\times\mathbb A^1\rightsquigarrow Y\) whose restrictions
+by the graphs of the sections at zero and one are \(\rho_n(c)\)
+and \(\rho_m(c)\), respectively.
+'''
+scope = '''
+The cut uses \((t^{r+1}-1)/(t^{r+1}-u)\), with \(t,u\) the
+source and target torus coordinates. The native correspondence
+retains all original integer coefficients. Our endpoint order comes
+from the family \(s g_m+(1-s)g_n\).
+[@Voevodsky2010Cancellation, Remark 4.2, p. 680]
+'''
+proof = '''
+Clear the two denominators on each original prime support. Laurent
+integrality gives finite numerator and denominator cuts for a common
+bound on the two exponents. Restrict both cycles to the scalar
+fibres using the principal-cut comparison of COL-1041. A common
+factor contributes equally to both cuts and cancels. Sum the prime
+families with the original signed multiplicities.
+'''

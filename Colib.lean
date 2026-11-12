@@ -329,6 +329,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParam
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.PolynomialParameter
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.Retained
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.SignedEndpoint
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.Weighted
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Prime
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Retained
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitEndpoint
@@ -341,6 +342,8 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.QuadraticPair
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.QuadraticPencil
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RelativeDivisor
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RelativeDivisor.SupportIso
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.IncidenceIso
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.SupportData
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.SupportProduct
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedPrimeSupports
@@ -1803,9 +1806,11 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Pa
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Sheafification
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.SignedShift
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.SimplexInvariance
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.TermExactness
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Total
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Underlying
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Unit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineParameterSwap
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineTorusPoints
@@ -2140,6 +2145,7 @@ public import Colib.AlgebraicGeometry.Simplex.AffineRelativeComparison
 public import Colib.AlgebraicGeometry.Simplex.AffineUnitProjection
 public import Colib.AlgebraicGeometry.Simplex.AlgebraicSimplexScheme
 public import Colib.AlgebraicGeometry.Simplex.BaseChange
+public import Colib.AlgebraicGeometry.Simplex.Contraction
 public import Colib.AlgebraicGeometry.Simplex.EndpointHomotopy
 public import Colib.AlgebraicGeometry.Simplex.HomotopyInvariance
 public import Colib.AlgebraicGeometry.Simplex.IntervalMultiplication
@@ -2488,6 +2494,7 @@ public import Colib.AlgebraicGeometry.WeilRestriction.Affine.NativePair
 public import Colib.AlgebraicGeometry.WeilRestriction.Affine.Witness
 public import Colib.AlgebraicTopology.DoldKan.CochainRepresentative
 public import Colib.AlgebraicTopology.DoldKan.CochainRepresentative.Homotopy
+public import Colib.AlgebraicTopology.DoldKan.InvertibleFace
 public import Colib.AlgebraicTopology.DoldKan.NormalizedCycles
 public import Colib.AlgebraicTopology.DoldKan.NormalizedMooreMap
 public import Colib.AlgebraicTopology.DoldKan.NormalizedRepresentatives
