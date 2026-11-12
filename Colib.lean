@@ -1512,6 +1512,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.NisnevichRepresentative
 public import Colib.AlgebraicGeometry.MotivicHomotopy.ReducedMotivicBockstein
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension
+public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Functor
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Stalks
 public import Colib.AlgebraicGeometry.Normalization.Compactification.Boundary.ThickenedBoundary
 public import Colib.AlgebraicGeometry.Normalization.Compactification.Etale
@@ -2540,6 +2541,7 @@ public import Colib.CategoryTheory.Groupoid.TransportedImage
 public import Colib.CategoryTheory.Limits.BiproductPushout
 public import Colib.CategoryTheory.Limits.FinitePosetColimits
 public import Colib.CategoryTheory.Limits.PointedSmash
+public import Colib.CategoryTheory.Limits.PointedSmashFunctor
 public import Colib.CategoryTheory.Limits.PointwisePushoutInterchange
 public import Colib.CategoryTheory.Limits.Pullback.FactorExchange
 public import Colib.CategoryTheory.Limits.ReflectiveColimits
