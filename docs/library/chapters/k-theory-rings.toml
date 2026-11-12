@@ -73,3 +73,5 @@ introduction = 'Finite torsion modules decompose into their height-one primary p
 [sections.transitions]
 COL-0604 = 'Use the inverse assembly to read the supported boundary one residue at a time. The coordinate kernels detect the generic image. Lifting an arbitrary finite family requires the stated injectivity of the generic G₁ map.'
 COL-0605 = 'Finiteness of the residue fields instead annihilates the supported G₂ term, using finite-field G₂ vanishing. Exactness then gives generic G₂ injectivity, without assuming or proving generic G₁ injectivity.'
+COL-0609 = 'Localize now at a height-one prime. The ordinary module-localization square and its original scalar-extension map identify the local-DVR boundary with the global residue coordinate.'
+COL-0610 = 'The coordinate equality transports the kernel-intersection statement and the conditional finite-family lifting theorem to the actual local-DVR boundaries. The generic G₁ injectivity premise is unchanged.'

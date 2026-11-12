@@ -502,6 +502,8 @@ class LibraryTests(unittest.TestCase):
             "COL-0603": "Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly",
             "COL-0604": "Colib.RingTheory.KTheory.GTheory.Dedekind.Localization",
             "COL-0605": "Colib.RingTheory.KTheory.GTheory.Dedekind.FiniteResidue",
+            "COL-0609": "Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality",
+            "COL-0610": "Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality",
             "COL-0593":
                 "Colib.AlgebraicGeometry.KTheory.BoundedFlatCoefficientSupportedBassTelescope",
             "COL-0594":

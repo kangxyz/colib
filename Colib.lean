@@ -2537,6 +2537,7 @@ public import Colib.KTheory.Quillen.Localization.Serre.KernelPushoutUniqueness
 public import Colib.KTheory.Quillen.Localization.Serre.KernelReflection
 public import Colib.KTheory.Quillen.Localization.Serre.LocalizationComma
 public import Colib.KTheory.Quillen.Localization.Serre.LocalizationTheorem
+public import Colib.KTheory.Quillen.Localization.Serre.Naturality
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedBasepoint
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedComma
 public import Colib.KTheory.Quillen.Localization.Serre.NormalizedStructuredComma
@@ -2970,6 +2971,9 @@ public import Colib.RingTheory.KTheory.Bass.StrictRingDiagram
 public import Colib.RingTheory.KTheory.Bass.StrictRingSeed
 public import Colib.RingTheory.KTheory.Bass.StrictUnderDiagram
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.FiniteResidue
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrBoundaryNaturality
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrComparison
+public import Colib.RingTheory.KTheory.GTheory.Dedekind.LocalDvrSupport
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.Localization
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySmallModel
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.PrimarySupport
@@ -2979,6 +2983,7 @@ public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueField
 public import Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.FractionLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization
+public import Colib.RingTheory.KTheory.GTheory.FiniteModules.LocalizationNaturality
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedFunctor
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalClosedLocalization
 public import Colib.RingTheory.KTheory.GTheory.FiniteModules.PrincipalSupport
@@ -3854,6 +3859,7 @@ public import Colib.Topology.HomotopyCofiber.ReducedMappingConeSeparation
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeVanishing
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeWeakEquivalence
 public import Colib.Topology.HomotopyCofiber.UnreducedConeHomology
+public import Colib.Topology.HomotopyFiber.BasedHomotopyConnecting
 public import Colib.Topology.HomotopyFiber.BasedHomotopySquareMap
 public import Colib.Topology.HomotopyFiber.BasedLESNaturality
 public import Colib.Topology.HomotopyFiber.BasedSquareMap
