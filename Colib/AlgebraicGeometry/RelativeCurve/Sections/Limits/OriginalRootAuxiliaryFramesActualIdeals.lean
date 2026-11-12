@@ -130,10 +130,10 @@ theorem exists_original_root_auxiliaryFrames_actual_ideals_of_isLimit
       let ER := Scheme.Modules.refinedSectionModelIso (cC.π.app j') (C.map g)
         (cC.π.app j) (cC.w g) Mj eMj
       let Mj' := (Scheme.Modules.pullback (C.map g)).obj Mj
-      let Qj' := (Scheme.Modules.pullback (C.map g)).obj Qj
+      let _Qj' := (Scheme.Modules.pullback (C.map g)).obj Qj
       let β' := (Scheme.Modules.pullbackTensorPowerIso (C.map g) Mj n).symm ≪≫
         (Scheme.Modules.pullback (C.map g)).mapIso β
-      let τj' := pullbackBoundaryTrivialization (B.map g) (b.app j) (b.app j') (C.map g)
+      let _τj' := pullbackBoundaryTrivialization (B.map g) (b.app j) (b.app j') (C.map g)
         (b.naturality g) Qj τj
       let eLim' := (Scheme.Modules.pullback bLim).mapIso
         (canIso (cC.π.app j') (C.map g) (cC.π.app j) (cC.w g) Mj) ≪≫ eLim
