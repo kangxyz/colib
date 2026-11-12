@@ -13,6 +13,8 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRoot
 public import Colib.AlgebraicGeometry.Divisors.SectionKernelCartierPullback
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BoundaryFramedSectionActionNative
 
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BaseComponentTransportAction
+
 /-! # Restriction along the original maps after the same base and component refinement
 
 The two retained sections and target map are constructed on literal pullbacks.
@@ -131,37 +133,16 @@ theorem restriction_baseComponent_same_root
   let := hComp
   let := hBoundary
   let := hSmooth
-  let aD₁ := avoids_sectionKernel_cartesianSections b₁ d i₁ F v.left w₁ σ σ₁ hs₁ aD
-  let aE₁ := avoids_sectionKernel_cartesianSections b₁ d i₁ F v.left w₁ τ τ₁ ht₁ aE
-  let aD₂ := avoids_sectionKernel_openRestriction b₂ i₁ i₂ κ w₂ σ₁ σ₂ hσ₂ aD₁
-  let aE₂ := avoids_sectionKernel_openRestriction b₂ i₁ i₂ κ w₂ τ₁ τ₂ hτ₂ aE₁
-  let M₁ := (pullback F).obj M
-  let N₁ := (pullback F).obj N
-  let M₂ := (pullback κ).obj M₁
-  let N₂ := (pullback κ).obj N₁
-  let α₁ := ((pullbackTensorPowerIso F M (k + 1)).symm ≪≫ (pullback F).mapIso α) ≪≫
-    sectionKernelDifferenceOfCartesianSectionsIso F v.left σ τ σ₁ τ₁ hs₁ ht₁
-  let α₂ := ((pullbackTensorPowerIso κ M₁ (k + 1)).symm ≪≫ (pullback κ).mapIso α₁) ≪≫
-    sectionKernelDifferenceOpenRestrictionIso κ σ₁ τ₁ σ₂ τ₂ hσ₂ hτ₂
-  let e₁ := pullbackBoundaryTrivialization b₁ d i₁ F w₁ M e
-  let eN₁ := pullbackBoundaryTrivialization b₁ d i₁ F w₁ N eN
-  let e₂ := pullbackBoundaryTrivialization b₂ i₁ i₂ κ w₂ M₁ e₁
-  let eN₂ := pullbackBoundaryTrivialization b₂ i₁ i₂ κ w₂ N₁ eN₁
-  let a₁ := Hom.app (pullbackTensorIso F M N).hom ⊤ (pullbackGlobalSections F _ a)
-  let a₂ := Hom.app (pullbackTensorIso κ M₁ N₁).hom ⊤ (pullbackGlobalSections κ _ a₁)
-  let b₂N := pullbackGlobalSections κ N₁ (pullbackGlobalSections F N bN)
   have hTransport := originalRootBaseComponentTransportResult
     F κ v.left b₁ b₂ d i₁ i₂ w₁ w₂ σ τ σ₁ τ₁ σ₂ τ₂
     hs₁ ht₁ hσ₂ hτ₂ aD aE M (k + 1) α e he N eN a bN ha hb
-  have hRoot := hTransport.1
-  have hPair := hTransport.2
   let rFinal := baseComponentRetainedTargetMap v q j κ r hr
   have hrFinal : rFinal ≫ Limits.pullback.fst Anew.hom T.hom = j₂ ≫ q₂ :=
     baseComponentRetainedTargetMap_fst v q j κ r hr
-  have hAction := restriction_boundary_framed_section_pair_eq_native P hP Anew T
-    q₂ i₂ j₂ hcover rFinal hrFinal σ₂ τ₂ hσq hτq σRet τRet hσRet hτRet
-    aD₂ aE₂ M₂ N₂ k hn α₂ e₂ eN₂ a₂ b₂N hPair.1 hPair.2
+  exact restriction_of_baseComponentTransportResult P hP Anew T
+    F κ v.left b₁ b₂ d i₁ i₂ w₁ w₂ σ τ σ₁ τ₁ σ₂ τ₂ hs₁ ht₁ hσ₂ hτ₂
+    aD aE M N k hn α e eN a bN hTransport
+    q₂ j₂ hcover rFinal hrFinal hσq hτq σRet τRet hσRet hτRet
     (v ≫ f) (v ≫ g) hfFinal hgFinal
-  exact hAction hRoot
 
 end AlgebraicGeometry.PresheafWithTransfers
