@@ -123,7 +123,7 @@ local instance projectionDominant : IsDominant (projection q) := by
   infer_instance
 
 /-- Pullback along the original whole chart realizes the prescribed interpolation. -/
-theorem ambientRationalFunction_pullback (f : Γ(W, ⊤))
+theorem ambientRationalFunction_pullback_dominant (f : Γ(W, ⊤))
     [Nonempty (unitOpen (v ≫ p) f)] [Nonempty (ambientUnitOpen p v f)] :
     dominantFunctionFieldMap (parameterMap p v) (ambientRationalFunction p v f) =
       sectionRationalFunction (familySection (v ≫ p) f) := by
@@ -139,7 +139,7 @@ theorem ambientRationalFunction_eq_polynomial (f : Γ(W, ⊤))
       sectionRationalFunction (parameter p) * dominantFunctionFieldMap (projection p)
         (openSectionGerm v f) + (1 - sectionRationalFunction (parameter p)) := by
   apply (dominantFunctionFieldMap (parameterMap p v)).injective
-  rw [ambientRationalFunction_pullback]
+  rw [ambientRationalFunction_pullback_dominant]
   simp only [map_add, map_mul, map_sub, map_one,
     Scheme.Hom.dominantFunctionFieldMap_globalSection, parameterMap_parameter]
   have hcomp : (dominantFunctionFieldMap (parameterMap p v)).comp
@@ -156,7 +156,7 @@ theorem ambientRationalFunction_eq_polynomial (f : Γ(W, ⊤))
   simp only [familySection, sectionRationalFunction, map_add, map_mul, map_sub, map_one]
 
 /-- The same interpolation on the original affine chart is its literal fraction. -/
-theorem ambientRationalFunction_chart_fraction (f : Γ(W, ⊤))
+theorem ambientRationalFunction_chart_fraction_dominant (f : Γ(W, ⊤))
     [Nonempty (unitOpen (v ≫ p) f)] [Nonempty (ambientUnitOpen p v f)]
     (U : C.Opens) [IsIntegral U.toScheme]
     (a b : Γ(U.toScheme, ⊤)) (hb : b ≠ 0)

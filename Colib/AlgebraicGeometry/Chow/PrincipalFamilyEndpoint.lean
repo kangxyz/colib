@@ -75,7 +75,7 @@ theorem originalOrderCycle_endpoint_chart_apply (a : k)
   have hchart (z : parameterSpace q) : c z = originalOrderCycle p v f (j z) := by
     dsimp only [c]
     rw [sectionZeroCycle_sub_eq_principalCycle p' N D hN0 hD0, ←
-      ambientRationalFunction_chart_fraction p v f U b d hd hfrac]
+      ambientRationalFunction_chart_fraction_dominant p v f U b d hd hfrac]
     simp only [originalOrderCycle, principalCycle_apply]
     exact ord_dominantFunctionFieldMap_of_isOpenImmersion j
       (ambientRationalFunction p v f) z

@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Basic
 
 /-!
@@ -40,36 +40,6 @@ namespace AlgebraicGeometry.PresheafWithTransfers
 open _root_.AlgebraicGeometry.Scheme
 
 variable {k : Type u} [Field k]
-
-/-- Native coefficient HI identifies the transfer actions of both actual endpoints. -/
-theorem transfer_homotopy_endpoints
-    (P : PresheafWithTransfers.{v} k) (hP : P.IsA1Invariant)
-    (X : SmoothSite (Spec (.of k))) (Y : Cor k)
-    (δ : Cor.mk (SmoothSite.Contraction.affineLineCylinder.obj X) ⟶ Y) (a b : k) :
-    transfer P ((Cor.graphFunctor k).map
-      (SmoothSite.Contraction.nativeAffineSection (.of k) X a) ≫ δ) =
-    transfer P ((Cor.graphFunctor k).map
-      (SmoothSite.Contraction.nativeAffineSection (.of k) X b) ≫ δ) := by
-  let F := (toPresheaf k).obj P
-  have hsections : A1.sectionPullback (.of k) F X a =
-      A1.sectionPullback (.of k) F X b := by
-    calc
-      _ = A1.sectionPullback (.of k) F X a ≫ 𝟙 _ := (Category.comp_id _).symm
-      _ = A1.sectionPullback (.of k) F X a ≫
-          (A1.projectionPullback (.of k) F X ≫ A1.sectionPullback (.of k) F X b) := by
-        rw [A1.projectionPullback_sectionPullback]
-      _ = (A1.sectionPullback (.of k) F X a ≫ A1.projectionPullback (.of k) F X) ≫
-          A1.sectionPullback (.of k) F X b := (Category.assoc _ _ _).symm
-      _ = _ := by
-        rw [A1.sectionPullback_projectionPullback (.of k) F hP X a, Category.id_comp]
-  calc
-    _ = transfer P δ ≫ A1.sectionPullback (.of k) F X a :=
-      transfer_comp P ((Cor.graphFunctor k).map
-        (SmoothSite.Contraction.nativeAffineSection (.of k) X a)) δ
-    _ = transfer P δ ≫ A1.sectionPullback (.of k) F X b :=
-      congrArg (fun f => transfer P δ ≫ f) hsections
-    _ = _ := (transfer_comp P ((Cor.graphFunctor k).map
-      (SmoothSite.Contraction.nativeAffineSection (.of k) X b)) δ).symm
 
 /-- The signed transfer pair is a right inverse to the literal `A` minus `Y`
 restriction map, using the endpoints of the displayed cylinder correspondence. -/
