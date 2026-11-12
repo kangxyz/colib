@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1067"
+title = "A retained smooth open with finite boundary after a base shrink"
+kind = "theorem"
+section = "normal-curve-compactifications"
+order = 20
+primary = "AlgebraicGeometry.Scheme.RelativeCurve.exists_finite_closed_retained_boundary"
+review = "author_checked"
+statement = '''
+Let q:C→S be proper, let U be an original open with finite boundary
+over S, and choose W⊆U containing the whole marked fibre of U→S.
+For any specified closed subscheme D supported on C minus W, produce
+an open neighborhood T of the marked base point such that the original
+D over T is finite. Separate refinements retain a prescribed finite
+scheme or two actual sections, with the latter's factorization equations.
+Over an affine base the shrink can be principal; an affine retained open
+stays affine after this restriction.
+'''
+proof = '''
+Whole-fibre containment bounds the enlarged boundary fibre by the old
+finite infinity fibre. Apply the native proper finite-fibre neighborhood
+theorem [@stacks, Tag 02UP]. Intersect with the open complement of the
+proper image of the part of the prescribed finite scheme outside W.
+Refine to a principal neighborhood when the base is affine.
+'''
+scope = '''
+The version with a specified closed boundary preserves its original
+scheme structure, including nilpotents. A separate constructor chooses
+the closed complement using its vanishing ideal; it does not claim to
+preserve an independently given thickening of the old infinity.
+Whole marked-fibre containment and old finite infinity are inputs.
+The enlarged boundary's finiteness is produced, not assumed.
+'''

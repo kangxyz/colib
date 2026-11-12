@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1074"
+title = "All original endpoint-incidence pushforward coefficients"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 130
+primary = "Stacks.Chow.PrincipalBoundary.correspondence_endpointGraph_coefficient"
+review = "author_checked"
+statement = '''
+For the original principal boundary family over an integral affine smooth
+source and a separated smooth target, compute the coefficient of the
+native incidence pairing of the whole endpoint graph correspondence with
+the whole principal correspondence. It is the sum over every original
+principal support, every actual incidence generic point over the target
+point, and every source-fibre point over that incidence point. Each term
+retains the original signed order, full literal source-cut length, original
+source residue degree and actual outer incidence-map residue degree.
+'''
+proof = '''
+Apply COL-1071 to the unchanged component coefficient. Expand the native
+finite pushforward through the actual incidence map, then use additivity
+to sum every original principal component. Integrality identifies the whole
+endpoint graph with its original generic-component graph. All coincident
+images are summed rather than identified or discarded.
+'''
+scope = '''
+The original compactification is integral and Noetherian with proper map,
+quasi-affine smooth relative-curve open and boundary unit. Both finite
+residue-degree factors and collisions within or between original supports
+are retained. This is equality of literal native pairing coefficients,
+not a Chow-class equality. Identifying the local-prime/order weights with
+the whole endpoint cycles and the final correspondence equality remain.
+'''

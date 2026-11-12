@@ -275,3 +275,27 @@ Quasi-finite fibres supply coheight one; the original pointwise and generic
 degrees therefore give the coefficient formula without a fibre-codimension
 certificate. The signed principal coefficient is unchanged throughout.
 '''
+
+COL-1068 = '''
+Use the literal parameter equation of the original endpoint rather than a
+supplied nonzero section. The actual graph Cartesian square identifies its
+full kernel, and original support dominance proves its image is nonzero.
+'''
+COL-1070 = '''
+The same full parameter ideal computes the actual native incidence Tor
+coefficient. Surjective transported stalk maps preserve degree-zero full
+lengths; regularity and the original finite Tor bound evaluate the Euler
+sum without flatness of the integral support.
+'''
+COL-1071 = '''
+The original endpoint Cartier geometry also produces coheight one at every
+incidence generic point. The unchanged signed principal coefficient and
+both original residue-degree factors now give the actual image-incidence
+coefficient formula, without a separate coheight or nonvanishing premise.
+'''
+COL-1074 = '''
+Expand the actual outer finite incidence pushforward and then sum every
+original principal component. This retains all source and image collisions
+in the whole endpoint-graph pairing. The remaining comparison is with the
+original local-prime/order weights and whole endpoint cycles.
+'''

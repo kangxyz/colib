@@ -38,7 +38,8 @@ namespace Stacks.Kummer
 henselian local base. The closed fibre is explicitly required to be a curve in the native
 sense; the geometric assumption is not inferred from relative dimension alone. -/
 @[colib_tag "COL-1040", stacks 03RP
-  "Closed-curve degree-zero tensor roots, transported by actual divisor pullback and proper Kummer specialization",
+  "Closed-curve degree-zero tensor roots, transported by actual divisor pullback \
+  and proper Kummer specialization",
   stacks 095T "Proper base change used by Kummer specialization to lift divisibility"]
 theorem exists_schemeTensorPower_iso_relativeSectionKernel_differenceSheaf
     (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
@@ -89,7 +90,8 @@ local instance (S : Scheme.{u}) :
 compatible with the canonical trivialization away from their images. Neither a fibre root,
 a boundary trivialization, nor an initial frame is supplied as input. -/
 @[colib_tag "COL-1040", stacks 095T
-  "Proper Kummer specialization of actual section-divisor roots with compatible finite-boundary frame"]
+  "Proper Kummer specialization of actual section-divisor roots \
+  with compatible finite-boundary frame"]
 theorem exists_relativeSectionKernel_root_compatible_frame
     (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
     {X : Scheme.{u}} (q : X ⟶ Spec (.of R)) [IsProper q]

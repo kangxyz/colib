@@ -28,7 +28,7 @@ example {X Y : Scheme.{u}} (π : X ⟶ Y) {n : ℕ} (hn0 : n ≠ 0)
 attribute [local instance 2000] hasExt_sheaf_smallEtale_succ
 
 variable (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
-  {X : Scheme.{u}} (f : X ⟶ Scheme.Spec (.of R)) [IsProper f]
+  {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
 
 -- Arbitrary proper schemes, not only smooth curves; composite exponents are permitted.
 example (hX : IsUnit ((6 : ℕ) : Γ(X, ⊤))) (L : Stacks.Picard.ofScheme X) :

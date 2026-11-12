@@ -55,9 +55,10 @@ theorem picardKummerClass_eq_zero_iff (L : Picard.ofScheme X) :
   change (∃ y, n • y = e.symm L) ↔ _
   constructor
   · rintro ⟨y, hy⟩
-    exact ⟨e y, by simpa using congrArg e hy⟩
+    exact ⟨e y, (map_nsmul e n y).symm.trans
+      ((congrArg e hy).trans (e.apply_symm_apply L))⟩
   · rintro ⟨M, hM⟩
-    exact ⟨e.symm M, by simpa using congrArg e.symm hM⟩
+    exact ⟨e.symm M, (map_nsmul e.symm n M).symm.trans (congrArg e.symm hM)⟩
 
 /-- The kernel of the Picard Kummer boundary is `n Pic(X)`. -/
 theorem ker_picardKummerClass :
@@ -115,7 +116,7 @@ attribute [local instance] HasDerivedCategory.standard
 attribute [local instance 2000] hasExt_sheaf_smallEtale_succ
 
 variable (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
-  {X : Scheme.{u}} (f : X ⟶ Scheme.Spec (.of R)) [IsProper f]
+  {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]
   {n : ℕ} (hn0 : n ≠ 0) (hX : IsUnit ((n : ℕ) : Γ(X, ⊤)))
 
 /-- Proper closed-fibre restriction remains bijective after the canonical roots-of-unity
@@ -138,10 +139,12 @@ theorem bijective_rootsOfUnityPullbackMap_closedFibre :
 by an invertible positive integer if and only if its restriction to the closed fibre is.
 No vanishing of second cohomology of the multiplicative sheaf is required. -/
 @[colib_tag "COL-1031", stacks 03PL
-  "Kummer exactness and proper base change reflect divisibility of Picard classes from the closed fibre",
+  "Kummer exactness and proper base change reflect divisibility of Picard classes \
+  from the closed fibre",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/EtaleCohomology/KummerTheory/InverseImage.lean:866-894"
-    "ingredient" "Naturality of the Kummer boundary with the canonical inverse-image coefficient comparison"]
+    "ingredient" "Naturality of the Kummer boundary with the canonical \
+    inverse-image coefficient comparison"]
 theorem picard_nsmul_exists_iff_closedFibre (L : Picard.ofScheme X) :
     (∃ M, n • M = L) ↔
       ∃ M, n • M = Picard.schemePullbackClassHom (closedFibreInclusion R f) L := by

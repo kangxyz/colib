@@ -116,7 +116,24 @@ introduction = '''
 Relative normalization extends an original finite chart over a proper Nagata
 target without replacing its source. The full boundary is the Cartesian
 pullback of the original finite boundary, preserving its scheme structure
-and its map to the unchanged base.
+and its map to the unchanged base. When a smaller retained open contains
+the whole marked affine fibre, the proper finite-fibre theorem produces
+a base shrink on which its closed boundary is finite.
+'''
+
+[sections.transitions]
+COL-1067 = '''
+The boundary of the original finite chart need not equal the complement of
+a smaller smooth open. Whole-fibre containment makes the new missing fibre
+finite, so the native proper finite-fibre theorem supplies the required base
+neighborhood. A specified thickened boundary is retained; a separately
+constructed closed complement uses its chosen vanishing ideal.
+'''
+COL-1069 = '''
+Apply the normal finite-chart construction to the native projective line
+and its actual infinity section. The original finite polynomial coordinates
+and whole-fibre smooth open then feed the same principal-neighborhood
+construction, preserving both affine coordinate and base maps.
 '''
 
 [[sections]]
@@ -213,11 +230,26 @@ then preserve this coordinate in the target. Integrality is needed only
 for the separate comparison with positive meromorphic powers.
 '''
 
+COL-1059 = '''
+The canonical numerator now has an ordinary representative on the original
+denominator complement. Its full-boundary pullback has coordinate exactly
+one in the original Cartier difference frame, so no replacement frame or
+merely divisor-equivalent section enters the later ratio.
+'''
+
 COL-1063 = '''
 The two ordinary representatives now determine their own common generator
 open and actual unit ratio. Pullback of the defining equation preserves
 value one on the full boundary. Generic regularity makes this same open
 dense and identifies its unit with the original meromorphic ratio.
+'''
+
+COL-1066 = '''
+Use the canonical numerator and the actual framed power of the original
+quotient a/b. The same correction function gives the positive principal
+term in the signed Cartier identity and an ordinary unit equal to one on
+the entire boundary. Restriction to the retained open and its finite
+correspondence interpretation remain separate.
 '''
 
 [[sections]]

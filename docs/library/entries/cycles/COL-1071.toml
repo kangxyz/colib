@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1071"
+title = "The original principal component and its actual endpoint Tor coefficient"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 120
+primary = "Stacks.Chow.PrincipalBoundary.componentCorrespondence_graphEndpointTorCoefficient"
+review = "author_checked"
+statement = '''
+In the original principal boundary family over the polynomial cylinder,
+retain an original principal support and every generic point of its
+actual endpoint graph incidence. Its signed principal coefficient times
+the sum of all full source-cut lengths over the incidence point, weighted
+by the original point residue degrees, equals its native component-
+correspondence coefficient times the actual native incidence Tor
+coefficient. The component coefficient retains its original generic
+residue degree.
+'''
+proof = '''
+The original geometry proves parameter dominance for the actual image.
+COL-1070 produces the coheight-one image point and identifies the native
+Tor coefficient with the literal full parameter cut. Apply COL-1068 to
+that same equation and unchanged finite image map.
+'''
+scope = '''
+The compactification is integral and Noetherian, with the original proper
+map, quasi-affine retained smooth relative-curve open and boundary unit.
+The source and target maps satisfy the native integral/smooth/separated
+hypotheses used by COL-1070. No support-flatness, parameter-nonvanishing,
+coheight or endpoint-coefficient certificate is added. This statement
+retains every source-fibre collision but does not yet assemble the outer
+finite pushforward or all original-component collisions.
+'''

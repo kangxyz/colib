@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1068"
+title = "The literal endpoint parameter in the original principal image"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 100
+primary = "Stacks.Chow.PrincipalBoundary.componentCorrespondence_endpointCutCoefficient"
+review = "author_checked"
+statement = '''
+For the original principal boundary family, identify the whole polynomial
+endpoint fibre with the literal X−C(c) cut and retain its Cartesian square.
+The actual graph-endpoint immersion has this same stalk kernel; pulling
+that kernel onto an original image support gives the composed parameter
+equation. For a coheight-one point of that image, the original signed
+principal coefficient times all full source-cut lengths, weighted by
+original point residue degrees, equals the native component-correspondence
+coefficient times the full image-cut length of this literal equation.
+'''
+proof = '''
+Reuse the native whole polynomial fibre kernel. The actual graph-fibre
+Cartesian square transports it to the original image inclusion. Dominance
+of the original principal support proves nonvanishing of the parameter
+equation on its image. Apply COL-1065 to this same equation.
+'''
+scope = '''
+Only the structural parameter map is required flat; it is flat for the
+original polynomial projection over a field. No support flatness or
+nonzero image-section certificate is assumed. The coheight-one image
+point remains an input here. All full quotient lengths, original signs,
+both residue-degree factors and source fibre collisions are retained.
+This result does not yet identify the native graph Tor coefficient or
+sum the outer incidence pushforward.
+'''

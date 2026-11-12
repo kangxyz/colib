@@ -123,7 +123,8 @@ theorem exists_schemeTensorPower_iso_differenceSheaf_of_rank_eq
     ((lengthOver_eq_rank q D d).trans (lengthOver_eq_rank q E d).symm) hn
 
 /-- Two actual sections give a tensor root of their kernel-divisor difference.
-The native Cartier theorem supplies the Cartier instances; image factorization supplies degree one. -/
+The native Cartier theorem supplies the Cartier instances;
+image factorization supplies degree one. -/
 theorem exists_schemeTensorPower_iso_sectionKernel_differenceSheaf
     {k : Type u} [Field k] [IsSepClosed k] {X : Scheme.{u}}
     (q : X ⟶ Spec (.of k)) [IsCurve k q] [Smooth q] [IsProper q]

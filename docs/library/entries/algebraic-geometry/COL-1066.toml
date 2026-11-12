@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1066"
+title = "The original framed quotient and its signed Cartier identity"
+kind = "theorem"
+section = "meromorphic-section-divisors"
+order = 60
+primary = "AlgebraicGeometry.exists_signedCartierDifference_tensorQuotientPower_boundary_one"
+review = "author_checked"
+statement = '''
+Let X be integral and Noetherian, with effective Cartier divisors D,E
+avoided by i:B→X. Fix invertible modules L,N, a positive power root
+alpha:L^(k+1)≅O(D) tensor O(-E), and its compatible original full-boundary
+frame e. Let nonzero global sections a of L tensor N and b of N have
+coordinate one in the compatible frames. Their actual whole zero schemes
+are effective Cartier divisors. For the same original canonical c and
+f=c/alpha((a/b)^(k+1)), prove the literal native Weil-divisor identity
+D−E=(k+1)(zero(a)−zero(b))+principal(f). Construct a dense open W and
+ordinary unit on W representing this very f, with actual pullback one
+on all of B.
+'''
+proof = '''
+Nonzero global sections of invertible modules on an integral scheme give
+their actual Cartier zero schemes and full quotient-length Weil divisors.
+COL-1059 supplies the canonical numerator in its original boundary frame;
+COL-1052 and COL-1058 supply the ordinary quotient and its framed power.
+COL-1063 produces the same ratio unit. Apply the native ratio-divisor
+formula with c as numerator, preserving the positive principal sign.
+'''
+scope = '''
+B can be nonreduced. The ordinary unit synthesis needs integral X; the
+native whole Weil-divisor endpoint also needs global Noetherianity.
+The original root, compatible frames and nonzero sections remain inputs.
+The signed identity is a conclusion, not a premise. This is not yet its
+restriction to a finite-correspondence moving relation.
+'''

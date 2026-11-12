@@ -78,7 +78,8 @@ module has an ordinary tensor root for every natural exponent invertible in the 
   "Degree-zero Picard divisibility on a smooth proper curve, transported to an actual tensor root",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/PicardScheme/CurvePicard/JacobianPointGroup.lean:375-381"
-    "ingredient" "Native additive identification of Jacobian points with degree-zero Picard classes",
+    "ingredient"
+    "Native additive identification of Jacobian points with degree-zero Picard classes",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/PicardScheme/Jacobian/PicardFunctorRepresentable.lean:211-234"
     "ingredient" "Unconditional Picard representability over a separably closed field",

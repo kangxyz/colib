@@ -624,6 +624,14 @@ class LibraryTests(unittest.TestCase):
             "COL-1063": "Colib.AlgebraicGeometry.Divisors.Meromorphic.CommonNonvanishingRatioGeneric",
             "COL-1064": "Colib.AlgebraicGeometry.Normalization.Compactification.FiniteBoundary",
             "COL-1065": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryImageCuts",
+            "COL-1059": "Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalDifferenceBoundary",
+            "COL-1066": "Colib.AlgebraicGeometry.Divisors.Meromorphic.FramedTensorQuotientCorrection",
+            "COL-1067": "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.BoundaryNeighborhood",
+            "COL-1068": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryParameterCuts",
+            "COL-1069": "Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinates",
+            "COL-1070": "Colib.AlgebraicGeometry.Correspondences.Principal.GraphEndpointTorCuts",
+            "COL-1074": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryGraphEndpointPushforward",
+            "COL-1071": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryGraphEndpointCoefficient",
         }
         native["modules"] = [
             {"name": name, "imports": []}

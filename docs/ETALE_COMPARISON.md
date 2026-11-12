@@ -185,22 +185,45 @@ cohomological shifts and signs.
   transfers is still the rigidity target.
 - COL-1062 gives the actual finite full-cut coefficient projection formula
   with both original residue-degree factors and all fibre collisions,
-  without support flatness. Actual principal-image specialization remains.
+  without support flatness. COL-1065 supplies its actual principal-image specialization.
 
 - COL-1063 produces the actual dense common open and unit ratio from the
   original ordinary representatives. That same unit rationalizes to the
   original meromorphic ratio and pulls back to one on the full boundary.
-  The root-power/canonical-difference specialization remains separate.
+  COL-1059 and COL-1066 provide the original canonical and root-power specialization.
 
 - COL-1064 constructs the actual normal proper compactification from a
   finite chart over a proper Nagata target. It retains the original source,
   the full scheme-theoretic boundary pullback and both maps of its Cartesian
-  square. Shrinking the retained chart to a smaller smooth open requires
-  a separate finite-boundary neighborhood argument.
+  square. COL-1067 supplies the finite-boundary neighborhood argument
+  after shrinking the retained chart to a smaller whole-fibre smooth open.
 - COL-1065 specializes finite cuts to the original principal-component
   map and native component-correspondence coefficient. Fibre coheight
   is proved, and both degree factors plus all fibre collisions are retained.
-  The image section still needs identification with the literal endpoint cut.
+  COL-1068 identifies its section with the literal endpoint cut.
+
+- COL-1059 proves that the original canonical difference section has
+  coordinate one in the original frame on the full boundary. Its ordinary
+  construction needs neither integral nor reduced schemes.
+- COL-1066 produces the exact correction function c/alpha((a/b)^(k+1)),
+  its literal signed Cartier/Weil identity and the same dense-open unit
+  equal to one on the entire boundary. The total scheme is integral;
+  the full Weil identity also assumes global Noetherianity.
+- COL-1067 produces a marked base shrink making the retained-open boundary
+  finite. A specified closed boundary keeps its nilpotents; the separate
+  constructed complement uses its vanishing ideal.
+- COL-1069 combines actual finite polynomial coordinates with native P1
+  normalization and that shrink. It preserves the original coordinate maps
+  and infinity pullback; finite coordinates and whole-fibre smoothness
+  remain inputs to be supplied by parameter selection.
+- COL-1068 identifies the original image cut with the literal endpoint
+  parameter and proves nonvanishing. COL-1070 identifies the actual native
+  incidence Tor coefficient with its full quotient length and produces
+  coheight one. COL-1071 connects the same cut with the unchanged signed
+  principal component and both residue-degree factors.
+- COL-1074 expands the whole endpoint-graph pairing through both actual
+  finite maps, retaining all original support and image collisions.
+  The local-prime/order comparison with whole endpoint cycles remains.
 
 These statements are separate from the final rigidity theorem. Source
 correspondence, native compilation and independent mathematical review are
@@ -241,8 +264,10 @@ root route at source level; its high-level compilation is still pending.
    on integral locally noetherian schemes. COL-1050 identifies c with the
    canonical section difference, COL-1052 supplies the ordinary quotient
    representative, and COL-1051 supplies the actual cycle/correspondence
-   transport. Exact full-boundary frame coherence and actual restriction
-   from the compactification to the retained open remain to be completed.
+   transport. COL-1059 completes the original full-boundary frame coherence,
+   and COL-1066 produces the exact signed identity with its same normalized
+   correction unit. Actual restriction from the compactification to the
+   retained open and its finite-correspondence interpretation remain.
 3. Complete the geometric principal-family correspondence and its actual
    Tor endpoint identities. COL-1039 supplies full-boundary normalization
    and finiteness of the native supports. COL-1041 supplies component
@@ -254,18 +279,20 @@ root route at source level; its high-level compilation is still pending.
    in the unchanged adjacent ambient. COL-1053 supplies original orders
    as localized principal weights. COL-1056 supplies the genuine affine
    fraction, the original polynomial chart identity and both endpoint
-   germs. Transport across the finite-image ambients and both residue-degree
-   sums with all image collisions still need to be matched. COL-1062
-   supplies the native finite full-cut formula; COL-1065 applies it to
-   the original principal-component image, preserving both degree factors.
-   Its section still needs to be the literal endpoint cut, and support sums
-   must still be assembled. COL-1036 supplies the final
+   germs. COL-1068 identifies the literal endpoint cuts, COL-1070 proves
+   the actual incidence Tor formula and coheight one, and COL-1071 connects
+   the original finite-image coefficients. COL-1074 retains every original
+   support, both finite residue degrees and all outer image collisions in
+   the whole pairing. Identify the remaining original local-prime/order
+   weights with these full cuts and whole endpoint cycles. COL-1036 supplies the final
    ordinary HI/torsion action consumer once the actual family and moving
    relation are constructed. A full framed Picard group or general Picard
    pairing is not needed if this concrete identity proves section comparison.
 4. COL-1057 supplies the actual filtered affine etale neighborhood value,
    common-stage equations and the canonical sheafification-unit isomorphism.
-   Identify the geometric henselian presentation, descend the finite
+   COL-1069 supplies the native geometric consumer of finite polynomial
+   coordinates and a whole-fibre smooth open. Complete the simultaneous
+   parameter producer, identify the henselian presentation, descend finite
    presentation data to a common stage, prove the henselization induction
    and pass to a conservative family of etale stalks. Handle the
    arbitrary-field inseparable comparison separately;

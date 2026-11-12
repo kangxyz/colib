@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1070"
+title = "The native endpoint incidence Tor coefficient as a full parameter cut"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 110
+primary = "Stacks.Chow.graphIncidenceTorCoefficient_eq_parameterCut"
+review = "author_checked"
+statement = '''
+For an integral source X with separated smooth map to Spec k, a smooth
+target and an integral right support dominating the polynomial parameter,
+the actual native graph-endpoint incidence Tor coefficient at each
+incidence generic point is the full local quotient length cut by X−C(c)
+on that unchanged right support. Those actual incidence generic points
+map to coheight-one points of the right support.
+'''
+proof = '''
+The two actual closed immersions give surjective transported stalk maps.
+Their original graph kernel is the principal parameter ideal. Ambient
+flatness makes its generator regular; support dominance makes its image
+nonzero. Native principal-cut Tor vanishing and the full degree-zero
+length comparison evaluate the Euler sum. Use the native finite Tor bound
+to identify the original incidence coefficient. The actual Cartesian fibre
+cut and Cartier codimension prove the coheight assertion.
+'''
+scope = '''
+No flatness of the integral support, coheight certificate or endpoint
+coefficient equality is assumed. The degree-zero comparison is first
+proved in full extended-natural module length before converting toNat.
+This is a literal local coefficient identity, not a Chow-class equality
+or the final global correspondence identity.
+'''

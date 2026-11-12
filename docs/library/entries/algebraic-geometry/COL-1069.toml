@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1069"
+title = "A good neighborhood from actual finite polynomial coordinates"
+kind = "theorem"
+section = "normal-curve-compactifications"
+order = 30
+primary = "AlgebraicGeometry.Scheme.RelativeCurve.exists_good_neighborhood_of_finite_polynomial_coordinates"
+review = "author_checked"
+statement = '''
+Let k be a field, R a finite-type k-algebra and B an integral smooth
+k-algebra, with an actual finite map f:R[T]→B. Suppose an affine open
+W in Spec B is smooth of relative dimension one over Spec R and contains
+the whole marked fibre. Construct a normal integral compactification, finite over the native
+projective line and proper over Spec R, retaining Spec B and the original
+maps f and f composed with constants. Export the actual infinity pullback
+square. Produce a principal base neighborhood on which the chosen enlarged
+closed complement of the retained W is finite, W remains affine and
+smooth, and an original prescribed finite scheme stays in W.
+'''
+proof = '''
+Native Nagata stability and the normality of smooth integral algebras
+supply the hypotheses of COL-1064. Apply it to the native projective-line
+chart and its actual infinity section. Transport the original W and its
+whole-fibre condition along the retained open immersion, then apply the
+principal-neighborhood result of COL-1067.
+'''
+scope = '''
+The original infinity pullback retains its full scheme structure. The
+separate enlarged boundary is the chosen vanishing-ideal closed complement,
+not an asserted preservation of an arbitrary infinity thickening.
+The finite coordinate map and whole-fibre smooth open are still inputs;
+this theorem is their compiled geometric consumer, not a parameter
+existence theorem. The native glued projective line is used, without
+claiming it is definitionally the archive's raw-Proj model.
+'''

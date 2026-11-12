@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1059"
+title = "The canonical Cartier difference in its original full-boundary frame"
+kind = "theorem"
+section = "meromorphic-section-divisors"
+order = 45
+primary = "Stacks.Divisors.frame_canonicalDifferenceBoundaryRegularSection_eq_one"
+review = "author_checked"
+statement = '''
+Let D and E be effective Cartier divisors on an arbitrary scheme X, and
+let i:B→X avoid their full supports. The canonical difference section c
+has an ordinary representative on the full complement of E.support.
+Its actual pullback to all of B has coordinate exactly one in the
+original native frame of O(D) tensor O(-E). If X is integral, this same
+ordinary representative has generic value equal to the original
+canonical meromorphic section c of COL-1050.
+'''
+proof = '''
+Use the original canonical Cartier sections, tensor pairing and denominator
+trivialization. Compare their actual pullbacks with the empty-divisor
+trivializations, then transport the resulting section equation through
+the original boundary frame and the full-open restriction map.
+'''
+scope = '''
+The ordinary representative and full-boundary equation require no
+integrality, reducedness or Noetherian hypothesis. Integrality is required
+only for the comparison with the original meromorphic section. Neither
+the boundary frame nor the section is replaced by another representative
+with the same divisor or class.
+'''

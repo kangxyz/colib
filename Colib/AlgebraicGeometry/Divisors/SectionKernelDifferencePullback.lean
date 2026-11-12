@@ -56,7 +56,8 @@ theorem isEffectiveCartierDivisor_sectionKernel (s : S ⟶ X) (hs : s ≫ q = �
       ⟨inferInstance, inferInstance, inferInstance⟩
   exact (AlgebraicGeometry.isRelativeEffectiveCartierDivisor_of_isFiniteLocallyFree q s.ker).1
 
-/-- Arbitrary base change preserves the Cartier section-kernel divisor of a smooth relative curve. -/
+/-- Arbitrary base change preserves the Cartier section-kernel divisor
+of a smooth relative curve. -/
 theorem isPullbackDefined_sectionKernel (s : S ⟶ X) (hs : s ≫ q = 𝟙 S) :
     IsPullbackDefined (pullback.fst q g) s.ker := by
   have : SmoothOfRelativeDimension 1 (pullback.snd q g) :=
@@ -69,7 +70,8 @@ theorem isPullbackDefined_sectionKernel (s : S ⟶ X) (hs : s ≫ q = 𝟙 S) :
 
 /-- The actual module comparison for the signed difference of two section kernels.
 The positive section remains first and the negative section remains second. -/
-@[colib_tag "COL-1038", stacks 0C4U "Cartier sheaf pullback for actual base-changed section kernels"]
+@[colib_tag "COL-1038", stacks 0C4U
+  "Cartier sheaf pullback for actual base-changed section kernels"]
 def sectionKernelDifferencePullbackIso
     (s t : S ⟶ X) (hs : s ≫ q = 𝟙 S) (ht : t ≫ q = 𝟙 S) :
     (Scheme.Modules.pullback (pullback.fst q g)).obj (differenceSheaf s.ker t.ker) ≅
