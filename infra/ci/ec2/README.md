@@ -1,182 +1,82 @@
 # Colib EC2 CI
 
-This directory owns the repository-scoped, on-demand EC2 runner for `kangxyz/colib`.
-It uses the same [upstream runner module, version 8.0.0](https://github.com/github-aws-runners/terraform-aws-github-runner/tree/v8.0.0)
-and Ubuntu bootstrap pattern as Aglib. Colib has its own VPC, runner labels,
-launch template, queues, Lambda functions, webhook secret and Terraform state.
-Aglib's deployment is not changed. The existing GitHub App key is referenced from
-SSM; its private key is not duplicated into this repository or Terraform state.
+Colib uses on-demand EC2 runners for owner pushes and manual runs on repository
+branches. Both `COLIB_SELF_HOSTED_ENABLED` and `COLIB_PARALLEL_RUNNER_ENABLED`
+must be `true` to route new CI runs to EC2. Pull requests and the manual
+`hosted` profile use GitHub-hosted runners. See [Lean CI](../../../.github/LEAN_CI.md)
+for the job flow and cache handling.
 
-## Disabled deployment
+## Runner lifecycle
 
-The initial deployment on 2026-11-06 added 86 managed resources without updating
-or deleting existing resources. Its encrypted, versioned state backend is
-`colib-ec2-terraform-975049960217`, key `runner/terraform.tfstate`, in `us-east-1`.
-The deployment is deliberately dormant:
+The controller polls GitHub every minute for queued Build jobs in
+`.github/workflows/ci.yml`. It checks the event, repository, actors and job
+label before claiming an EC2 lease. Each attempt receives a runner with the
+`colib-ci-run-<run>-<attempt>` label. Build and Test share its checkout and
+native store and verify the identity at handoff. A completed run releases the
+instance and its runner registration. If the assigned instance disappears,
+cancel the attempt and rerun all jobs so Build and Test share a new host.
 
-| Control | Disabled value |
-|---|---|
-| Repository variable | `COLIB_SELF_HOSTED_ENABLED=false` |
-| Terraform input | `enabled=false`, also the default |
-| Scale-up Lambda reserved concurrency | `0` |
-| Runner maximum | `0` |
-| GitHub repository webhook | Inactive |
-| Scheduled runner binary synchronization | Disabled |
-| EC2 instances and registered Colib runners | None |
+The production limit is three concurrent attempts across branches. Additional
+runs wait in the GitHub queue. Each `m7i.4xlarge` instance has 16 vCPUs, 64 GiB of
+RAM and a 200 GiB encrypted gp3 disk deleted on termination. The runner subnet
+has no NAT gateway and the security group has no inbound rules. IMDSv2 is
+required. The 360-minute instance watchdog also runs if the controller becomes
+unavailable. Build and Test renew the watchdog and have job limits of 240 and
+90 minutes respectively.
 
-`COLIB_EC2_SHARED_HOST=true` prepares the current Aglib-style same-checkout
-Build-to-Test handoff; it cannot admit an EC2 job while the separate self-hosted
-gate is false. [Lean CI](../../../.github/LEAN_CI.md) owns the full optimized
-hosted and self-hosted execution flow.
+The runner distribution and instance role come from the pinned
+[GitHub runner module v8.0.0](https://github.com/github-aws-runners/terraform-aws-github-runner/tree/v8.0.0).
+The scheduled controller has its own IAM role and uses a separate launch
+template, security group and DynamoDB lease table.
 
-The repository variable gates both the caller and reusable workflow. The
-guarded EC2 profile is the default for owner pushes and manual runs on Colib
-branches when enabled. Pull request runs use GitHub-hosted runners.
+## Deployment
 
-The deployment creates control infrastructure and a launch template, with no
-EC2 instance resource or warm pool. Scheduled housekeeping and idle reclamation
-remain available. Dormant control resources and stored objects can have small
-AWS costs. An actual EC2 bootstrap/build trial has not been run while disabled.
+Use Terraform 1.13.5 and the committed provider lock. Authenticate with AWS in
+`us-east-1`. The encrypted, versioned state bucket is
+`colib-ec2-terraform-975049960217` and the state key is `runner/terraform.tfstate`.
+Enable S3 lockfiles with `use_lockfile = true` in the backend configuration.
+An AWS CLI login profile can supply Terraform credentials through a local
+`credential_process` running `aws configure export-credentials --format process`.
+Keep local credentials, variables, plans and Lambda archives outside Git. The
+AWS provider verifies that the authenticated account matches `aws_account_id`.
 
-## Runner configuration
+The GitHub App installation must include `kangxyz/colib` and grant repository
+Administration write and Actions read. Reference the existing base64-encoded
+App key in SSM with `github_app_key_ssm_name`. The upstream module also references
+the existing webhook secret at `/colib-ec2/app/webhook-secret`.
 
-The enabled configuration permits one `m7i.4xlarge` runner (16 vCPU, 64 GiB) in
-`us-east-1`, with a 200 GiB encrypted gp3 root disk deleted on termination.
-There is no NAT gateway or inbound security-group rule. IMDSv2 is required.
-The autoscaler admits only `kangxyz/colib` and requires the exact cumulative labels
-`self-hosted,linux,x64,colib-ec2`.
-
-The persistent service has a 900-second idle confirmation and a 360-minute machine
-watchdog. Build renews the watchdog using Aglib's timer restart pattern. Build and
-Test limits are respectively 240 and 90 minutes on EC2. The root-owned
-`/etc/colib-ci-runner-mode` marker identifies a Colib host. Colib and Stacks retain
-their [independent cache boundaries](../../../docs/CACHING.md) on either runner
-profile; this adapter does not introduce a shared cache containing both packages.
-
-## Deployment inputs and state
-
-Use Terraform 1.13.5 and the committed provider lock. Authenticate through AWS CLI
-to the intended account, then configure the Terraform AWS provider for that CLI
-profile. An AWS CLI login profile can be exposed to the provider through a local
-`credential_process` that runs `aws configure export-credentials --format process`.
-Keep that local AWS configuration outside Git.
-
-Create these prerequisites before planning:
-
-- A private, encrypted, versioned S3 state bucket, with public access blocked and
-  S3 lockfiles enabled through `use_lockfile = true` in the backend configuration.
-- An existing GitHub App key in a SecureString parameter named by
-  `github_app_key_ssm_name`, stored as base64-encoded PEM as required by upstream.
-- A separate random webhook secret in SecureString
-  `/<prefix>/app/webhook-secret` (`/colib-ec2/app/webhook-secret` by default).
-- A local variables file based on `terraform.tfvars.example`, with `enabled=false`.
-  The AWS provider rejects an authenticated account different from `aws_account_id`.
-
-Fetch the pinned Lambda archives and deploy the reviewed disabled plan:
+Use `enabled=true`, `guarded_ci=true` and `parallel_runner_limit=3` in the
+production variables file. Build the Lambda archives and inspect the plan
+before applying it.
 
 ```bash
 bash fetch-lambdas.sh
 terraform init -backend-config=/path/to/private/state.backend.hcl
-terraform fmt -check
 terraform validate
-terraform plan -var-file=/path/to/private/deployment.tfvars.json -out=disabled.tfplan
-terraform show disabled.tfplan
-terraform apply disabled.tfplan
+terraform plan -var-file=/path/to/private/deployment.tfvars.json -out=colib.tfplan
+terraform show colib.tfplan
+terraform apply colib.tfplan
 ```
 
-The initial plan has 86 managed creates, no updates/deletes and no EC2 instance.
-The state backend, webhook secret and inactive GitHub hook are provisioned outside
-that plan. Credentials, state, plans, variables and Lambda binaries are excluded
-from Git. The binary archive digests are maintained in `lambdas.sha256`.
+Verify the runner distribution in S3 and the schedule
+`colib-ec2-parallel-reconcile` after deployment. An owner dispatch with the
+`ec2` profile exercises Build and Test on the same instance and checks that the
+controller releases it afterward. To pause new EC2 runs, set
+`COLIB_SELF_HOSTED_ENABLED=false` and allow existing attempts to finish.
 
-## Future activation
+## Retired webhooks
 
-Activate only when requested. Keep the repository variable false while preparing:
+The two repository `workflow_job` hooks and the corresponding AWS API Gateway
+default endpoints are disabled. The scheduled controller reads GitHub's Actions
+API directly.
 
-1. Add `kangxyz/colib` to the existing GitHub App's selected repositories. The App
-   needs repository Administration write, Actions read, Checks read and Metadata
-   read, matching Aglib. The current CLI user token cannot change that App's
-   repository selection (HTTP 403); this selection remains pending while dormant.
-2. Apply a reviewed plan with `enabled=true`. It raises the runner maximum and
-   reserved scale-up concurrency to one and enables binary synchronization.
-3. Verify the runner distribution is available in the module's private S3 bucket.
-   Configure the repository `workflow_job` hook with `terraform output -raw webhook_url`,
-   the matching SSM webhook secret, JSON content type and SSL verification, then
-   activate the hook. Keep the shared App-wide webhook settings unchanged.
-4. Set `COLIB_SELF_HOSTED_ENABLED=true`. The manual EC2 probe with
-   `verify-handoff=true` checks both jobs see the same runner/workspace. Dispatch
-   the main-branch CI `ec2` profile and
-   check the host marker, native checks, separate caches and idle termination.
-   Only this trial establishes that the Colib runner actually works.
+The pinned runner module still declares the old gateways. A full Terraform
+apply can re-enable their default endpoints. After applying a plan that touches
+either API, check both endpoints. The Terraform outputs `webhook_url` and
+`standard_webhook_url` identify the APIs when those resources exist. Use the
+deployment's AWS account and region to restore the disabled setting.
 
-To suspend admission again, set the repository variable false, deactivate the
-Colib hook, and apply `enabled=false`. Existing machines are reclaimed by idle
-scale-down or the watchdog; changing these controls does not interrupt an active
-machine immediately. Verify the Colib EC2 fleet and registered runners are empty.
-
-## On-demand dependency warmup
-
-Use `enabled=true` and `guarded_ci=true` to serve Colib CI and the
-owner-dispatched **Dependency warmup** workflow on Colib branches. The
-runner registers only the `colib-dependency-warmup` label and checks the
-workflow path, event, ref and actors before executing job steps. It stays
-available through the Build-to-Test handoff and scales down after the idle
-grace period. A standalone `warmup_only=true` fleet can use one-job runners.
-
-Set up this mode once.
-
-1. Run `bash fetch-lambdas.sh` to verify the pinned upstream bundles and
-   package the warmup webhook filter. Verify the GitHub App installation
-   and runner distribution as above.
-2. Keep `COLIB_SELF_HOSTED_ENABLED=false` during deployment and apply a
-   reviewed plan with `-var enabled=true -var guarded_ci=true`.
-3. Activate the Colib `workflow_job` hook and set
-   `COLIB_DEPENDENCY_WARMUP_ENABLED=true` and `COLIB_SELF_HOSTED_ENABLED=true`
-   after the workflow is available on `main`. A branch must contain the
-   current workflow to select the guarded runner.
-
-Keep the webhook and scale-up function available between jobs. This mode
-has a single-runner cap and an empty idle pool. To suspend it, set
-`COLIB_SELF_HOSTED_ENABLED=false`, remove `COLIB_DEPENDENCY_WARMUP_ENABLED`,
-deactivate the hook and apply `enabled=false`.
-
-## Standard EC2 runner for split CI
-
-The split workflow uses the guarded high-memory runner to build dependencies
-and a separate `m7i.xlarge` runner for Colib and its checks. Each fleet has a
-single-runner cap. The standard runner uses the same Ubuntu, subnet, watchdog
-and idle scale-down as the high-memory runner, with the separate
-`colib-standard-ec2` label.
-
-Apply the existing guarded CI configuration with `-var standard_enabled=true`
-to provision the second fleet. Synchronize the runner distribution for its
-bucket, then add a second repository `workflow_job` hook for
-`terraform output -raw standard_webhook_url`, using the existing Colib hook
-secret. Set `COLIB_STANDARD_RUNNER_ENABLED=true` after that hook is active.
-
-## Parallel Colib CI
-
-The optional parallel controller polls queued Build jobs from the Colib CI
-workflow. It accepts owner pushes and manual runs for branches in the Colib
-repository. Each attempt claims a lease before EC2 starts and registers one
-runner with the private `colib-ci-run-<run>-<attempt>` label. Build and Test
-use that label and check the runner and checkout identity at handoff.
-The older shared runner stays available for earlier workflow copies,
-dependency warmup, and split CI.
-
-Build the pinned Lambda packages, including `parallel-controller.zip`, with
-`bash fetch-lambdas.sh`. Review a Terraform plan with
-`enabled=true`, `guarded_ci=true`, and `parallel_runner_limit=3` before
-activating the controller. Publish the updated workflow and set
-`COLIB_PARALLEL_RUNNER_ENABLED=true` to route ordinary CI to the private runners.
-Existing branches need the updated workflow before they can use parallel CI.
-
-The controller reconciles once a minute. It leaves additional runs in the
-GitHub queue when both leases are occupied. EC2's client token makes launch
-retries idempotent. Terminal runs release their instance and registration.
-The runner watchdog also bounds the lifetime if the controller is unavailable.
-Rerun all jobs when retrying a same-host build and test.
-The GitHub App needs repository Administration write and Actions read. A run
-whose assigned instance disappears may need manual cancellation and a full
-rerun. Disable routing and allow active attempts to finish before removing
-the controller.
+```bash
+aws apigatewayv2 update-api --api-id API_ID --disable-execute-api-endpoint
+aws apigatewayv2 get-api --api-id API_ID --query DisableExecuteApiEndpoint
+```
