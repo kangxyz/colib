@@ -174,6 +174,13 @@ theorem etaleStageOpen_exists_same_root_consumer_result
   let _hFP : (differenceSheaf (D a0) (E a0)).IsFinitePresentation :=
     @AlgebraicGeometry.SheafOfModules.isFinitePresentation_of_isInvertible
       (C.obj a0) _ (isInvertible_differenceSheaf (D a0) (E a0)).toAlgebraicGeometry
+  let _hBoundaryQS : ∀ a, QuasiSeparatedSpace (B'.obj a) := fun a => by
+    let : IsNoetherian (B'.obj a) :=
+      etaleStageOpenBoundaryDiagram_isNoetherian X s p i U d a
+    infer_instance
+  let _hCurveQS : ∀ a, QuasiSeparatedSpace (C.obj a) := fun a => by
+    let : IsNoetherian (C.obj a) := etaleStageOpenDiagram_isNoetherian X s p i U a
+    infer_instance
   have hRootOutput := etaleStageOpen_exists_actual_root_auxiliary X s p i U B hX x hpre hp
       j d hd σ τ hσ hτ hσj hτj a0 hmark τStage hn0 hn
   exact originalRootAuxiliaryFramesConsumerExistence_of_output

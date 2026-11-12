@@ -156,6 +156,8 @@ theorem exists_etaleStageOpen_same_root_restriction
             (((etaleNeighborhoodToSmooth X s.hom).map v) ≫ f).op =
           ((PresheafWithTransfers.toPresheaf K).obj P).map
             (((etaleNeighborhoodToSmooth X s.hom).map v) ≫ g).op := by
+  let _hStageProper : IsProper qstage :=
+    etaleStageOpenStructure_isProper X s p i U ℓ
   obtain ⟨Anew, v, hAff, hInt, hNoeth, hG, hGC, hF, hFC, hCN, hCNoeth, hPB, hη⟩ :=
     etaleStageOpen_exists_integral_base_refinement X s p i U ℓ
   let := hAff
