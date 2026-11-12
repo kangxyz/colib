@@ -153,6 +153,7 @@ public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.Subcatego
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.SubcategoryFunctor
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.SubcategoryZero
 public import Colib.Algebra.Homology.CochainComplex.SplitFactorization.ZeroEndpoint
+public import Colib.Algebra.Homology.CochainComplex.TotalColumnComparison
 public import Colib.Algebra.Homology.DerivedCategory.AdjunctionEdgeMap
 public import Colib.Algebra.Homology.DerivedCategory.AdjunctionEdgeMapNaturality
 public import Colib.Algebra.Homology.DerivedCategory.AdjunctionExtEdgeInjective
@@ -337,6 +338,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParam
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitEndpoint
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitFiber
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitSection
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.WeightedGraph
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFace
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceCycle
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceGeometry
@@ -1814,6 +1816,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Fa
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.HomotopyInvariance
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.InvariantUnit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.NormalizedCriterion
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.ParameterNaturality
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.ParameterProduct
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.ParameterSwap
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf
@@ -1836,6 +1839,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Naturality
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Normalization
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.PolynomialFaceProduct
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.PowerCutExterior
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.PowerCutExteriorSupport
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.RelativeInterchange
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.RetainSourceEndpoint
@@ -2157,6 +2161,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.Evaluation
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.EvaluationFunctor
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.EvaluationHom
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.UnitSplit
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsFunctor
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Complex
@@ -2171,6 +2176,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.D
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedWindow
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.ParameterNaturality
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Singular
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.SingularParameterNaturality
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.ProjectiveComparison
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.Reduced

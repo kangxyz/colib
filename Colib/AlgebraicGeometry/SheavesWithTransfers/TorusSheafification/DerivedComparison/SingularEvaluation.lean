@@ -82,6 +82,9 @@ theorem singularSheafDerivedTorusSectionsMap_bijective_on_transferRepresentable
 
 /-- The actual singular torus comparison is invertible in the original
 unbounded derived category. -/
+@[colib_tag "COL-1044", colib_ref "Voevodsky2010Cancellation"
+  "Corollary 4.10, proof of equation (4.3), p. 684" "adaptation"
+  "The unreduced derived comparison before taking the unit summand"]
 theorem isIso_singularSheafDerivedTorusSectionsMap
     (P : PresheafWithTransfers.{u + 1} k) :
     IsIso (singularSheafDerivedTorusSectionsMap k P) :=

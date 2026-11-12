@@ -66,6 +66,13 @@ signed singular construction and Nisnevich sheafification give the
 representatives of smooth schemes in this category.
 '''
 
+[sections.transitions]
+COL-1044 = '''
+Evaluate the singular representatives of COL-1042 after exterior product
+with the torus. The comparison uses the right-derived functor of the actual
+torus sections. Each smooth representable gives a finite truncation bound.
+'''
+
 [[sections]]
 id = "reduced-cohomology-operations"
 title = "Operations on reduced cohomology"

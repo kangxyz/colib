@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1044"
+title = "Derived torus sections of singular transfer complexes"
+kind = "theorem"
+section = "effective-motives"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers.isIso_singularSheafDerivedTorusSectionsMap"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be a perfect field, and let \(P\) be an integral presheaf
+with transfers on smooth \(k\)-schemes. Write \(T\) for reindexing
+along exterior product with \(\mathbb G_m\), and \(C(P)\) for the
+signed singular cochain complex in nonpositive degrees. In the
+derived category of Nisnevich sheaves with transfers the comparison
+\[
+ a_{\mathrm{Nis}}C(TP) \longrightarrow
+ \mathbf R T(a_{\mathrm{Nis}}C(P))
+\]
+is an isomorphism.
+'''
+scope = '''
+The morphism uses the permutation of the simplex and torus factors,
+the canonical map from sheafified torus sections to torus sections of the
+sheafification, and the unit of the total right-derived functor.
+This is the comparison of the full torus sections used in
+[@Voevodsky2010Cancellation, Corollary 4.10, proof of equation (4.3), p. 684].
+'''
+proof = '''
+The singular cohomology presheaves are \(\mathbb A^1\)-invariant.
+On these coefficients, torus sections commute with Nisnevich
+sheafification and the positive higher direct images vanish.
+The induced comparison is invertible on each finite cohomological
+window. For a smooth test scheme \(X\), the Nisnevich cohomological
+dimensions of \(X\) and \(X\times\mathbb G_m\) give a common cutoff
+for the shifted Hom groups. The shifted transfer representables detect
+isomorphisms and recover the comparison on the original complexes.
+'''
