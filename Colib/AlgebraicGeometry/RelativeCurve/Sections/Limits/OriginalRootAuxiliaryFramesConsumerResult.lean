@@ -56,7 +56,7 @@ def OriginalRootAuxiliaryFramesConsumerResult
             (cC.π.app i) (hb i) (differenceSheaf (D i) (E i)) (differenceSheafBoundaryIso (b.app
               i) (D i) (E i) (aD i) (aE i))))
     (N₀ : cC.pt.Modules)
-    (hN₀ : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.sheaf.obj
+    (_hN₀ : AlgebraicGeometry.SheafOfModules.IsInvertible cC.pt.sheaf.obj
       cC.pt.ringCatSheaf.property N₀)
     (a₀ : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor cC.pt.sheaf).obj M).obj N₀, ⊤))
     (b₀ : Γ(N₀, ⊤))
