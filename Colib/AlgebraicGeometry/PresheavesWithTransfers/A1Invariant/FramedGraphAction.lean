@@ -74,8 +74,6 @@ theorem transfer_geometric_framed_graph_eq
     (σU τU : A.left ⟶ U) (hσU : σU ≫ j = σ) (hτU : τU ≫ j = τ)
     (hD : ∀ y : Spec (CommRingCat.of B), i y ∉ σ.ker.support)
     (hE : ∀ y : Spec (CommRingCat.of B), i y ∉ τ.ker.support)
-    [IsIntegral (parameterSpace (q ≫ A.hom))]
-    [IsNoetherian (parameterSpace (q ≫ A.hom))]
     (L : X.Modules) [hL : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf L]
     (k : ℕ) (hn : ∀ x : sections P ((Cor.graphFunctor K).obj A), (k + 1) • x = 0)
     (α : schemeTensorPower X L hL (k + 1) ≅ differenceSheaf σ.ker τ.ker)

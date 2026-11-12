@@ -60,8 +60,6 @@ theorem transfer_framed_section_pair_eq
     (σU τU : A.left ⟶ U) (hσU : σU ≫ j = σ) (hτU : τU ≫ j = τ)
     (hD : ∀ y : B, i y ∉ σ.ker.support)
     (hE : ∀ y : B, i y ∉ τ.ker.support)
-    [IsIntegral (parameterSpace (q ≫ A.hom))]
-    [IsNoetherian (parameterSpace (q ≫ A.hom))]
     (L : X.Modules) [hL : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf L]
     (N : X.Modules) [hN : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf N]
     (k : ℕ) (hn : ∀ x : sections P ((Cor.graphFunctor K).obj A), (k + 1) • x = 0)

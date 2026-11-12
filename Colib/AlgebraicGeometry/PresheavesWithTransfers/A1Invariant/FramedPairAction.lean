@@ -72,8 +72,6 @@ theorem transfer_framed_pair_eq
     (j : U ⟶ X) [IsOpenImmersion j] [IsDominant j]
     [U.IsQuasiAffine]
     (q : X ⟶ A.left) [IsProper q] [SmoothOfRelativeDimension 1 (j ≫ q)]
-    [IsIntegral (parameterSpace (q ≫ A.hom))]
-    [IsNoetherian (parameterSpace (q ≫ A.hom))]
     (hcover : (Set.range j)ᶜ ⊆ Set.range i)
     (r : U ⟶ Limits.pullback A.hom T.hom)
     (hr : r ≫ Limits.pullback.fst A.hom T.hom = j ≫ q)
