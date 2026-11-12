@@ -38,8 +38,11 @@ theorem exists_mark_localizationAway {R Ω : Type u} [CommRing R] [Field Ω]
 variable {A Y Z V : Scheme.{u}} (q : A ⟶ Z) (p : Z ⟶ Y)
   (s : Y ⟶ Z) (hs : s ≫ p = 𝟙 Y) (k : V ⟶ Y)
 
+/-- The coordinate scheme after the actual change of the tail base. -/
 abbrev coordinate := pullback k p
+/-- The original chart after the same change of the tail base. -/
 abbrev chart := pullback k (q ≫ p)
+/-- The actual coordinate projection to the new tail base. -/
 abbrev projection : coordinate p k ⟶ V := pullback.fst k p
 
 instance coordinate_isAffine [IsAffine Y] [IsAffine Z] [IsAffine V] :

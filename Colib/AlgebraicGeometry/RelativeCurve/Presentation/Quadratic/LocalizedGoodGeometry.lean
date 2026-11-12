@@ -21,15 +21,23 @@ namespace AlgebraicGeometry.Scheme.QuadraticLocalized
 variable {R : Type u} [CommRing R] (t : R)
   {N U D : Scheme.{u}} (p : N ⟶ Spec (.of R))
 
+/-- The canonical localization morphism for the chosen good tail open. -/
 abbrev scalar : Spec (.of (Localization.Away t)) ⟶ Spec (.of R) :=
   Spec.map (CommRingCat.ofHom (algebraMap R (Localization.Away t)))
+/-- The original compactification after the actual localization base change. -/
 abbrev model := quadraticCompactificationBaseChange p (algebraMap R (Localization.Away t))
+/-- The second projection to the unchanged original compactification. -/
 abbrev toOriginal : model t p ⟶ N := pullback.snd (scalar t) p
+/-- The structure map of the localized compactification to the good tail. -/
 abbrev projection : model t p ⟶ Spec (.of (Localization.Away t)) := pullback.fst (scalar t) p
+/-- The literal pullback of the selected original chart into the localized model. -/
 abbrev chart (j : U ⟶ N) := pullback (toOriginal t p) j
+/-- The first projection of the actual localized chart pullback. -/
 abbrev chartInclusion (j : U ⟶ N) : chart t p j ⟶ model t p := pullback.fst _ _
 
+/-- The entire original boundary pulled back to the same good tail. -/
 abbrev boundary (d : D ⟶ N) := pullback (scalar t) (d ≫ p)
+/-- The canonical map from the whole localized boundary to its model. -/
 abbrev boundaryInclusion (d : D ⟶ N) : boundary t p d ⟶ model t p :=
   SmoothSite.etaleBoundaryBaseChangeMap (scalar t) p d
 
@@ -67,6 +75,7 @@ theorem boundary_complement (j : U ⟶ N) (d : D ⟶ N)
 variable (π : N ⟶ projectiveLine R)
   (hπ : π ≫ (projectiveLine R ↘ Spec (.of R)) = p)
 
+/-- The original finite projective-line cover after the same base change. -/
 abbrev cover : model t p ⟶ projectiveLine (Localization.Away t) :=
   quadraticCompactificationBaseChangeCover p (algebraMap R (Localization.Away t)) π hπ
 

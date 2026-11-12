@@ -66,12 +66,14 @@ instance coordinateSite_isAffine : IsAffine (coordinateSite p k).left :=
 instance chartSite_isAffine : IsAffine (chartSite q p k).left :=
   inferInstanceAs (IsAffine (pullback k (q.left ≫ p.left)))
 
+/-- The coordinate projection over the unchanged ambient base. -/
 abbrev projection : coordinateSite p k ⟶ tailSite k :=
   @EtaleChart.projection S (tailSite k) (tailSite_isAffine k)
     (pullback k p.left) (inferInstanceAs (IsAffine (pullback k p.left)))
     (Scheme.EtaleChart.MarkedBaseChange.projection p.left k)
     (native_projection_smooth p k)
 
+/-- The actual localized chart map between the native smooth-site objects. -/
 abbrev chart : chartSite q p k ⟶ coordinateSite p k :=
   @EtaleChart.chart S (tailSite k) (tailSite_isAffine k)
     (pullback k (q.left ≫ p.left)) (pullback k p.left)
@@ -82,6 +84,7 @@ abbrev chart : chartSite q p k ⟶ coordinateSite p k :=
     (Scheme.EtaleChart.MarkedBaseChange.chartMap q.left p.left k)
     (native_chart_etale q p k)
 
+/-- The base-changed original section as a native smooth-site morphism. -/
 abbrev sectionMap : tailSite k ⟶ coordinateSite p k :=
   @EtaleChart.sectionMap S (tailSite k) (tailSite_isAffine k)
     (pullback k p.left) (inferInstanceAs (IsAffine (pullback k p.left)))
@@ -125,6 +128,7 @@ theorem chartProjection_over_base :
 def chartToOriginal : chartSite q p k ⟶ A :=
   homMk (pullback.snd k (q.left ≫ p.left)) (chartProjection_over_base q p k)
 
+/-- The original target restricted through the actual localized chart projection. -/
 abbrev target {T : SmoothSite S} (t : A ⟶ T) : chartSite q p k ⟶ T :=
   chartToOriginal q p k ≫ t
 

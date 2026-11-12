@@ -85,7 +85,7 @@ theorem exists_etaleStageOpen_fixed_target_restriction
       Limits.pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj i).hom T.hom)
     (k : ℕ)
     (hn : ∀ (A : SmoothSite (Spec (.of K)))
-      (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj A)), (k + 1) • z = 0) 
+      (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj A)), (k + 1) • z = 0)
     [IsLocallyNoetherian (etaleCurveCone X B hX s p).pt]
     [IsNormal (etaleCurveCone X B hX s p).pt]
     (x : (etaleCurveCone X B hX s p).pt)

@@ -22,9 +22,12 @@ variable {B R : Type u} [CommRing B] [CommRing R]
   (F : Polynomial R →+* B) (re r : B) {N : Scheme.{u}}
   (iN : Spec (.of B) ⟶ N) [IsOpenImmersion iN]
 
+/-- The original independent principal-open immersion. -/
 abbrev independentInclusion :=
   Spec.map (CommRingCat.ofHom (algebraMap B (Localization.Away re)))
+/-- The original whole-fiber retained principal open. -/
 abbrev retainedOpen : (Spec (.of B)).Opens := PrimeSpectrum.basicOpen r
+/-- The actual image of the retained principal open in the compactification. -/
 abbrev imageRetained := (iN ''ᵁ retainedOpen r).toScheme
 
 /-- The actual old chart maps to the image retained source through the native iso. -/

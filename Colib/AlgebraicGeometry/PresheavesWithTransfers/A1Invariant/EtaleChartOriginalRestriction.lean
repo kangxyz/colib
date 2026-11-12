@@ -90,7 +90,7 @@ theorem exists_original_chart_restriction
   let c : C ⟶ X.left := pullback.fst b fN
   let vC : C ⟶ N := pullback.snd b fN
   let V : Scheme := Scheme.EtaleChart.curve q.left p.left s.left f
-  let jC : V ⟶ C := inclusion q p s f j fN hj
+  let jC : V ⟶ C := OriginalFixed.inclusion q p s f j fN hj
   let dC := Scheme.EtaleChart.compactifiedFullBoundaryMap q.left p.left s.left fN d
   let : IsNormal X.left := isNormal_overField K X
   let : IsLocallyNoetherian X.left := isLocallyNoetherian_overField K X

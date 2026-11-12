@@ -6,7 +6,6 @@ Authors: kangxyz
 module
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGoodGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartMarkedBaseChange
-public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartMarkedBaseChange
 
 /-! # Structural properties of the same localized model and nested retained open
 
