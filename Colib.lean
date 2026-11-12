@@ -3247,6 +3247,7 @@ public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionLoopLabels
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionLoopNaturality
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZero
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionPiZeroNaturality
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionVertexPaths
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionZeroLoopNaturality
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionZeroLoops
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionZerothHomotopy

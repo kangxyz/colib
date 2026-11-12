@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.Topology.MetricOrderComplex.Equiconnection
+public import Colib.Topology.MetricOrderComplex.LocalEquiconnection
 public import Colib.Topology.LocalEquiconnection.LoopConvexCover
 
 /-!
@@ -22,7 +22,8 @@ No realization domination or CW-type conclusion is asserted.
 open Topology
 
 /-! Implementation source: `Quillen/Topology/MetricOrderComplex/LoopEquiconnection.lean` at
-`c561118b7795eb9780be9ed391c3251d6a4d0afd`. Original maps and proofs are retained. -/
+`c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+The existing base-space connector is reused; the original loop maps and proofs are retained. -/
 
 @[expose] public section
 noncomputable section
@@ -33,22 +34,6 @@ universe u
 namespace Topology.MetricOrderComplex
 
 variable {P : Type u} [PartialOrder P]
-
-/-- The generic connector contract instantiated by the proved common-support geometry. -/
-def localEquiconnection : LocalEquiconnection (MetricOrderComplex P) where
-  domain := {z | 0 < commonMass z.1 z.2}
-  isOpen_domain := isOpen_commonMass_pos
-  diagonal_mem x := by simp
-  connector := connector
-  connector_zero := connector_zero
-  connector_one := connector_one
-  connector_diagonal := connector_diagonal
-
-/-- Each original vertex star is convex for the instantiated actual connector. -/
-theorem vertexStar_isConvex (v : P) :
-    (localEquiconnection (P := P)).IsConvex (vertexStar v) where
-  pair_mem {_x _y} hx hy := commonMass_pos_of_mem_vertexStar hx hy
-  connector_mem {_x _y} hx hy t := connector_mem_vertexStar hx hy t
 
 /-- The actual compact-open based loop space has a diagonal-fixed local connector. -/
 def loopEquiconnection (p : P) : LocalEquiconnection (Path (vertex p) (vertex p)) :=

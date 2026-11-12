@@ -9,7 +9,7 @@ public import Colib.RingTheory.KTheory.Plus.ProjectiveExtensionCocycle
 public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionZerothHomotopy
 public import Colib.KTheory.GrothendieckComparison.LoopComponents
 public import Colib.KTheory.GrothendieckComparison.PathPotential
-public import Colib.Topology.ClassifyingSpace.ProjectiveCompletionLoops
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionVertexPaths
 public import Colib.Topology.ClassifyingSpace.FiberPotential
 
 /-!
@@ -35,27 +35,6 @@ open CategoryTheory CategoryTheory.Limits
 open scoped Topology
 namespace ModuleCat.FiniteProjective
 variable (R : Type u) [Ring R]
-
-/-- The original vertex path, with only the exact realization-map endpoint equality inserted. -/
-def completionQVertexPath (U : GroupCompletionCategory R) :
-    Path (classifyingSpaceMapUniversal (localizedExtensionProjection R)
-      (classifyingSpacePoint ((completionIdentityEntry R).obj U)))
-      (classifyingSpacePoint (exactStructure R).qZero) :=
-  (classifyingSpacePath ((completionIdentityProjectionIsoZero R).inv.app U)).symm.cast
-    (classifyingSpaceMapUniversal_point (localizedExtensionProjection R) _) rfl
-
-/-- The original fiber vertex has exactly the identity-extension source and original Q-edge path. -/
-theorem completionQFiberPoint_vertex (U : GroupCompletionCategory R) :
-    completionQFiberPoint R U = HomotopyFiber.pointWithPath
-      (classifyingSpaceMapUniversal (localizedExtensionProjection R))
-      (classifyingSpacePoint ((completionIdentityEntry R).obj U))
-      (classifyingSpacePoint (exactStructure R).qZero) (completionQVertexPath R U) := by
-  apply Subtype.ext
-  apply Prod.ext
-  · exact completionToOriginalQHomotopyFiber_vertex_source R U
-  · apply ContinuousMap.ext
-    intro t
-    exact completionToOriginalQHomotopyFiber_vertex_path R U t
 
 /-- The zero-apex arrow to an identity quotient is its unchanged zero-isomorphism inverse. -/
 theorem fromZero_completionIdentityProjection (U : GroupCompletionCategory R) :

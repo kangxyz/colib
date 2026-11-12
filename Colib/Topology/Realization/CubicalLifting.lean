@@ -6,7 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.Topology.Cube.SimplexPair
-public import Colib.Topology.CubicalSubdivision.BoundaryLifting
+public import Colib.Topology.HELP.RealizedSimplexBoundary
 public import Colib.CategoryTheory.TheoremA.EnrichedBoundaryHEP
 public import Colib.Topology.Realization.MonomorphismLifting
 
@@ -22,7 +22,9 @@ monomorphism, without a compact HELP or CW-type hypothesis.
 open SSet Topology CategoryTheory
 
 /-! Implementation source: `Quillen/Topology/Realization/CubicalLifting.lean` at
-`c561118b7795eb9780be9ed391c3251d6a4d0afd`. Original maps and proofs are retained. -/
+`c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+The existing realized-boundary lifting theorem is reused; the simplex-pair and
+realized-monomorphism arguments are retained. -/
 
 @[expose] public section
 noncomputable section
@@ -59,44 +61,6 @@ theorem BoundaryLifting.simplex
     change p (c (e.symm x)) = b (e (e.symm x)) at h
     change p (c (e.symm x)) = b x
     simpa only [Homeomorph.apply_symm_apply] using h
-
-/-- Literal cube-boundary lifting gives strict lifting against the original
-realization of every standard-simplex boundary inclusion. -/
-theorem BoundaryLifting.hasLiftingProperty_realizationBoundary
-    {E B : Type u} [TopologicalSpace E] [TopologicalSpace B]
-    {p : C(E, B)} (hp : BoundaryLifting p) (n : ℕ) :
-    HasLiftingProperty (SSet.toTop.map (∂Δ[n].ι : _ ⟶ (Δ[n] : SSet.{u})))
-      (TopCat.ofHom p) where
-  sq_hasLift {a b} sq := by
-    let d := realizationBoundaryHomeomorph.{u} n
-    let e := SimplexCategory.toTopHomeo.{u} ⦋n⦌
-    let a' : C(Convexity.StdSimplex.boundary n, E) := a.hom.comp d.symm.toHomotopyEquiv.toFun
-    let b' : C(StdSimplex ℝ (Fin (n + 1)), B) :=
-      b.hom.comp e.symm.toHomotopyEquiv.toFun
-    have hinc (x : |(∂Δ[n] : SSet.{u})|) :
-        (d x).val = e (SSet.toTop.map ∂Δ[n].ι x) := rfl
-    have hab (x : Convexity.StdSimplex.boundary n) : p (a' x) = b' x.val := by
-      have h := ConcreteCategory.congr_hom sq.w (d.symm x)
-      change p (a (d.symm x)) = b (SSet.toTop.map ∂Δ[n].ι (d.symm x)) at h
-      have hx : SSet.toTop.map ∂Δ[n].ι (d.symm x) = e.symm x.val := by
-        apply e.injective
-        rw [← hinc, Homeomorph.apply_symm_apply, Homeomorph.apply_symm_apply]
-      change p (a (d.symm x)) = b (e.symm x.val)
-      simpa only [hx] using h
-    obtain ⟨c, hc, he⟩ := hp.simplex n a' b' hab
-    refine ⟨TopCat.ofHom (c.comp e.toHomotopyEquiv.toFun), ?_, ?_⟩
-    · apply ConcreteCategory.hom_ext
-      intro x
-      change c (e (SSet.toTop.map ∂Δ[n].ι x)) = a x
-      rw [← hinc, hc]
-      change a (d.symm (d x)) = a x
-      rw [Homeomorph.symm_apply_apply]
-    · apply ConcreteCategory.hom_ext
-      intro x
-      have h := ContinuousMap.congr_fun he (e x)
-      change p (c (e x)) = b (e.symm (e x)) at h
-      change p (c (e x)) = b x
-      simpa only [Homeomorph.symm_apply_apply] using h
 
 /-- A map with literal finite cube-boundary lifting lifts over every original
 realized simplicial monomorphism. -/

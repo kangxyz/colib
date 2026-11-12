@@ -7,15 +7,15 @@ module
 
 public import Colib.RingTheory.KTheory.Quillen.ProjectiveCompletionAutomorphismCones
 public import Colib.Topology.ClassifyingSpace.ProjectiveCompletionFiberFormula
-public import Colib.Topology.ClassifyingSpace.ProjectiveCompletionLoops
+public import Colib.RingTheory.KTheory.Plus.ProjectiveCompletionVertexPaths
 public import Colib.CategoryTheory.GroupCompletion.StableGeneralLinearMap
 
 /-!
 Implementation provenance: `Quillen/KTheory/Plus/ProjectiveCompletionLocalizedContraction.lean` at
 `c561118b7795eb9780be9ed391c3251d6a4d0afd`. The actual maps, tracks,
 hypotheses, and signs are retained under native mathematical ownership.
-The two completion-vertex declarations additionally retain lines 34–53 of
-`Quillen/KTheory/Plus/ProjectiveCompletionLoopKZero.lean` at the same revision.
+The shared completion-vertex declarations are imported from
+`Colib.RingTheory.KTheory.Plus.ProjectiveCompletionVertexPaths`.
 
 # The actual fixed-denominator contraction of finite completion stages
 
@@ -45,28 +45,6 @@ attribute [local instance] categoryDirectSumMonoidal directSumMonoidal directSum
   identityExtensionPairLinear extensionPairProjectionLinear
   extensionProjectionLinear
 variable (R : Type u) [Ring R]
-
-/-- The original vertex path, with only the exact realization-map endpoint equality inserted. -/
-def completionQVertexPath (U : GroupCompletionCategory R) :
-    Path (classifyingSpaceMapUniversal (localizedExtensionProjection R)
-      (classifyingSpacePoint ((completionIdentityEntry R).obj U)))
-      (classifyingSpacePoint (exactStructure R).qZero) :=
-  (classifyingSpacePath ((completionIdentityProjectionIsoZero R).inv.app U)).symm.cast
-    (classifyingSpaceMapUniversal_point (localizedExtensionProjection R) _) rfl
-
-/-- The original fiber vertex has exactly the identity-extension source and original Q-edge path. -/
-theorem completionQFiberPoint_vertex (U : GroupCompletionCategory R) :
-    completionQFiberPoint R U = HomotopyFiber.pointWithPath
-      (classifyingSpaceMapUniversal (localizedExtensionProjection R))
-      (classifyingSpacePoint ((completionIdentityEntry R).obj U))
-      (classifyingSpacePoint (exactStructure R).qZero) (completionQVertexPath R U) := by
-  apply Subtype.ext
-  apply Prod.ext
-  · exact completionToOriginalQHomotopyFiber_vertex_source R U
-  · apply ContinuousMap.ext
-    intro t
-    exact completionToOriginalQHomotopyFiber_vertex_path R U t
-
 
 /-- Include the original extension category with the specified denominator unchanged. -/
 def fixedDenominatorExtension (P : IsoCategory R) :
