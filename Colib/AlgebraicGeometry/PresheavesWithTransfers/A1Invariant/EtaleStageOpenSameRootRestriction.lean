@@ -77,8 +77,10 @@ theorem exists_etaleStageOpen_same_root_restriction
       Limits.pullback.fst r₀ eChart ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
     (heChart : Limits.pullback.fst r₀ eChart ≫ π = cE ≫ projectiveLineXChart Ai)
     (d : Z ⟶ U.toScheme) (hd : Set.range d = (Set.range j)ᶜ)
-    (σ τ : (Astage).left ⟶ Cstage) [IsClosedImmersion σ] [IsClosedImmersion τ]
-    [IsEffectiveCartierDivisor σ.ker] [IsEffectiveCartierDivisor τ.ker]
+    (σ τ : (Astage).left ⟶ Cstage)
+    [_hSigmaClosed : IsClosedImmersion σ] [_hTauClosed : IsClosedImmersion τ]
+    [_hSigmaCartier : IsEffectiveCartierDivisor σ.ker]
+    [_hTauCartier : IsEffectiveCartierDivisor τ.ker]
     (hσ : σ ≫ qstage = 𝟙 _) (hτ : τ ≫ qstage = 𝟙 _)
     (hmark : etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj ℓ.left) ≫ σ =
@@ -101,7 +103,7 @@ theorem exists_etaleStageOpen_same_root_restriction
       (etaleStageOpenBoundaryMap X s p i U d).app ℓ z ∉ τ.ker.support)
     (M N : (Cstage).Modules)
     [hM : Stacks.SheafOfModules.IsInvertible (Cstage).presheaf (Cstage).ringCatIsSheaf M]
-    [Stacks.SheafOfModules.IsInvertible (Cstage).presheaf (Cstage).ringCatIsSheaf N]
+    [_hN : Stacks.SheafOfModules.IsInvertible (Cstage).presheaf (Cstage).ringCatIsSheaf N]
     (k : ℕ)
     (hn : ∀ (A : SmoothSite (Spec (.of K)))
       (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj A)), (k + 1) • z = 0)
@@ -185,7 +187,12 @@ theorem exists_etaleStageOpen_same_root_restriction
     (_hProper := _hStageProper) (_hAffBase := hAff) (_hIntegralBase := hInt)
     (_hBaseOpen := hG) (_hBaseClosed := hGC)
     (_hCurveNormal := hCN) (_hCurveNoetherian := hCNoeth)
-    (_hRetainedAffine := hYA) (_hBoundarySurjective := hsurj) P hP
+    (_hRetainedAffine := hYA) (_hBoundarySurjective := hsurj)
+    (_hRetainedOpen := etaleStageOpenRetained_stage_isOpenImmersion X s p i U j ℓ)
+    (_hRetainedSmooth := etaleStageOpenRetained_stage_smooth X s p i U j ℓ)
+    (_hSigmaClosed := _hSigmaClosed) (_hTauClosed := _hTauClosed)
+    (_hSigmaCartier := _hSigmaCartier) (_hTauCartier := _hTauCartier)
+    (hM := hM) (_hN := _hN) P hP
     ((etaleNeighborhoodToSmooth X s.hom).map v) qstage
     ((etaleStageOpenBoundaryMap X s p i U j).app ℓ)
     ((etaleStageOpenBoundaryMap X s p i U d).app ℓ) hdStage

@@ -60,11 +60,12 @@ theorem restriction_baseComponent_same_root
     {X Y B : Scheme.{u}} (q : X ⟶ A.left) [_hProper : IsProper q]
     [_hCurveNormal : IsNormal (Limits.pullback q v.left)]
     [_hCurveNoetherian : IsNoetherian (Limits.pullback q v.left)]
-    (j : Y ⟶ X) [_hRetainedAffine : IsAffine Y] [IsOpenImmersion j]
-    [SmoothOfRelativeDimension 1 (j ≫ q)]
+    (j : Y ⟶ X) [_hRetainedAffine : IsAffine Y] [_hRetainedOpen : IsOpenImmersion j]
+    [_hRetainedSmooth : SmoothOfRelativeDimension 1 (j ≫ q)]
     (d : B ⟶ X) (hd : Set.range d = (Set.range j)ᶜ)
-    (σ τ : A.left ⟶ X) [IsClosedImmersion σ] [IsClosedImmersion τ]
-    [IsEffectiveCartierDivisor σ.ker] [IsEffectiveCartierDivisor τ.ker]
+    (σ τ : A.left ⟶ X) [_hSigmaClosed : IsClosedImmersion σ] [_hTauClosed : IsClosedImmersion τ]
+    [_hSigmaCartier : IsEffectiveCartierDivisor σ.ker]
+    [_hTauCartier : IsEffectiveCartierDivisor τ.ker]
     (hσ : σ ≫ q = 𝟙 _) (hτ : τ ≫ q = 𝟙 _)
     (σY τY : A.left ⟶ Y) (hσY : σY ≫ j = σ) (hτY : τY ≫ j = τ)
     (x : (Limits.pullback q v.left : Scheme.{u}))
@@ -82,7 +83,7 @@ theorem restriction_baseComponent_same_root
     (aD : ∀ z : B, d z ∉ σ.ker.support) (aE : ∀ z : B, d z ∉ τ.ker.support)
     (M N : X.Modules)
     [hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M]
-    [Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf N]
+    [_hN : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf N]
     (k : ℕ) (hn : ∀ z : sections P ((Cor.graphFunctor K).obj Anew), (k + 1) • z = 0)
     (α : Stacks.SheafOfModules.schemeTensorPower X M hM ((k + 1 : ℕ) : ℤ) ≅
       differenceSheaf σ.ker τ.ker)
