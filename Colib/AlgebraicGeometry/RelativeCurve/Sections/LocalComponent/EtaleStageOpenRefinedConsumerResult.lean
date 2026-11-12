@@ -45,7 +45,6 @@ def EtaleStageOpenRefinedConsumerResult
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
     [IsLocallyNoetherian X.left] [IsProper p] [IsClosedImmersion U.ι]
-    [IsClosedImmersion d]
     (B : BigEtaleSite.{u}) (hX : B.Contains X.left)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i ⟶ U.toScheme)
     (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 _)

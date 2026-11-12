@@ -22,7 +22,7 @@ namespace AlgebraicGeometry.Scheme.SmoothSite
 /-- A stage refinement composes with the actual neighborhood map, as a morphism
 in the original smooth site, not just as a map of underlying schemes. -/
 theorem etaleNeighborhoodMap_comp_hom
-    {S : Scheme.{u}} [QuasiSeparatedSpace S] {X : SmoothSite S} [IsAffine X.left]
+    {S : Scheme.{u}} [QuasiSeparatedSpace S] {X : SmoothSite S}
     {Ω : Type u} [Field Ω] (ξ : Spec (.of Ω) ⟶ X.left)
     {N N₀ : EtaleNeighborhood X ξ} (v : N ⟶ N₀) :
     (etaleNeighborhoodToSmooth X ξ).map v ≫ etaleNeighborhoodHom X ξ N₀ =

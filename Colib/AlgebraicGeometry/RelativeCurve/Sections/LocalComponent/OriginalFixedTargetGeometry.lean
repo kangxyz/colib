@@ -34,7 +34,7 @@ theorem exists_original_fixed_target_geometry
     {T : SmoothSite S} (t : Y ⟶ T.left)
     (ht : t ≫ T.hom = j ≫ p ≫ X.hom)
     (f g : X ⟶ T) (hf : f.left = σY ≫ t) (hg : g.left = τY ≫ t)
-    {Nchart YN E : Scheme.{u}} [IrreducibleSpace Nchart]
+    {Nchart YN E : Scheme.{u}}
     {A : Type u} [CommRing A] (v : C ⟶ Nchart) [Flat v]
     (q : Nchart ⟶ Spec (.of A)) (bOriginal : X.left ⟶ Spec (.of A))
     (hCartesian : IsPullback v p q bOriginal)
@@ -44,7 +44,7 @@ theorem exists_original_fixed_target_geometry
     (aY : YN ⟶ Spec (.of (Polynomial A)))
     (haY : aY ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : A →+* Polynomial A)) = jN ≫ q)
     (hjN : jN ≫ π = aY ≫ projectiveLineXChart A)
-    (eChart : E ⟶ Nchart) [IsOpenImmersion eChart] [Nonempty E]
+    (eChart : E ⟶ Nchart)
     (aE : E ⟶ Spec (.of (Polynomial A))) [Etale aE]
     (haE : aE ≫ Spec.map (CommRingCat.ofHom (Polynomial.C : A →+* Polynomial A)) = eChart ≫ q)
     (heChart : eChart ≫ π = aE ≫ projectiveLineXChart A)

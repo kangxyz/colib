@@ -28,7 +28,7 @@ def ActualStageRootAuxiliaryRefinement
     {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
     (s : GeometricPoint X.left) {C₀ : Scheme.{u}} (p : C₀ ⟶ X.left)
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
-    [IsNormal X.left] [IsLocallyNoetherian X.left] [IsNormal C₀]
+    [IsLocallyNoetherian X.left]
     [IsProper p] [IsClosedImmersion U.ι] (ℓ : Over i)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj ℓ.left ⟶
       (etaleStageOpenDiagram X s p i U).obj ℓ)

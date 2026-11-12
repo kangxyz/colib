@@ -6,6 +6,7 @@ Authors: Colib contributors
 module
 
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedGraphAction
+import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.RationalUnitPrincipalAction
 
 /-! # Actual principal polynomial homotopies act trivially on ordinary HI transfers -/
 

@@ -45,7 +45,7 @@ theorem etaleBaseChangeMark_fst (U : Y.Etale) (a : (etaleMarkingFiber Y ξ).obj 
     (etaleBaseChangeMark f ζ ξ h U a).left ≫ pullback.fst U.hom f = a.left := by
   apply pullback.lift_fst
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem smallEtaleBaseChange_map_fst {U V : Y.Etale} (g : U ⟶ V) :
     ((smallEtaleBaseChange f).map g).left ≫ pullback.fst V.hom f =
       pullback.fst U.hom f ≫ g.left := by
@@ -53,7 +53,7 @@ theorem smallEtaleBaseChange_map_fst {U V : Y.Etale} (g : U ⟶ V) :
     (by simp) (by simp) ≫ _ = _
   simp
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem smallEtaleBaseChange_map_snd {U V : Y.Etale} (g : U ⟶ V) :
     ((smallEtaleBaseChange f).map g).left ≫ pullback.snd V.hom f =
       pullback.snd U.hom f := by
@@ -71,8 +71,10 @@ def markedEtaleBaseChange :
     apply pullback.hom_ext
     · have e := congrArg (fun a ↦ a.left) g.map_val
       change _ ≫ g.hom.left = _ at e
-      simpa using e
-    · simp [etaleBaseChangeMark])
+      simpa only [Category.assoc, smallEtaleBaseChange_map_fst,
+        etaleBaseChangeMark_fst_assoc, etaleBaseChangeMark_fst] using e
+    · simp only [Category.assoc, smallEtaleBaseChange_map_snd]
+      exact (Over.w _).trans (Over.w _).symm)
   map_id U := Functor.Elements.hom_ext ((smallEtaleBaseChange f).map_id U.obj)
   map_comp a b := Functor.Elements.hom_ext ((smallEtaleBaseChange f).map_comp a.hom b.hom)
 

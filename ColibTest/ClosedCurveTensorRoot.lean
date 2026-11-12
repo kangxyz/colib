@@ -26,6 +26,7 @@ example :
   exists_schemeTensorPower_iso_of_picardDegree_eq_zero q (n := 1) (by simp) L hL hdeg
 
 open scoped CategoryTheory.MonObj
+open CategoryTheory.MonoidalCategory
 
 -- The lower point wrapper also exposes no etaleness certificate.
 example (A : Over (Spec (.of k))) [GrpObj A] [IsAbelianVariety k A]

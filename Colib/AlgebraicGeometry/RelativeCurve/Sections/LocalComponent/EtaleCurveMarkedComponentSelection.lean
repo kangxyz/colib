@@ -50,7 +50,7 @@ marked values. The output discharges exactly hpre/hmem of FixedClopenSectionPair
 theorem exists_etaleCurve_marked_component_section_stage
     {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
     (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
-    [IsNormal X.left] [IsLocallyNoetherian X.left] [IsNormal N] [IsProper p]
+    [IsLocallyNoetherian X.left] [IsNormal N] [IsProper p]
     (B : BigEtaleSite.{u}) (hX : B.Contains X.left)
     (i₀ : SmallEtaleNeighborhood X s)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i₀ ⟶

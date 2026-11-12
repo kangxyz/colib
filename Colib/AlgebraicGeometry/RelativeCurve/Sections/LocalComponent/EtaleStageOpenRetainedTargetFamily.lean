@@ -133,14 +133,16 @@ variable (hr : r ≫ pullback.fst ((smallEtaleNeighborhoodToSmooth X s).obj i).h
 
 @[simp, reassoc] theorem etaleStageOpenRetainedTarget_fst (a : Over i) :
     etaleStageOpenRetainedTarget X s p i U j T r hr a ≫
-      pullback.fst ((smallEtaleNeighborhoodToSmooth X s).obj a.left).hom T.hom =
+      pullback.fst ((etaleNeighborhoodToSmooth X s.hom).obj
+        ((smallEtaleNeighborhoodInclusion X s).obj a.left)).hom T.hom =
       (etaleStageOpenBoundaryMap X s p i U j).app a ≫
         (etaleStageOpenStructure X s p i U).app a :=
   pullback.lift_fst _ _ _
 
 @[simp, reassoc] theorem etaleStageOpenRetainedTarget_snd (a : Over i) :
     etaleStageOpenRetainedTarget X s p i U j T r hr a ≫
-      pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj a.left).hom T.hom =
+      pullback.snd ((etaleNeighborhoodToSmooth X s.hom).obj
+        ((smallEtaleNeighborhoodInclusion X s).obj a.left)).hom T.hom =
       pullback.snd ((etaleCurveDiagram X s p).map a.hom) (j ≫ U.ι) ≫
         r ≫ pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj i).hom T.hom :=
   pullback.lift_snd _ _ _
@@ -164,7 +166,12 @@ theorem etaleStageOpenRetainedSection_target
         σV ≫ r ≫ pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj i).hom T.hom :=
       congrArg (fun z => ((smallEtaleNeighborhoodToSmooth X s).map a.hom).left ≫ z) hf₀
     _ = _ := by
-      rw [etaleStageOpenRetainedTarget_snd]
+      have ht : etaleStageOpenRetainedTarget X s p i U j T r hr a ≫
+          pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj a.left).hom T.hom =
+          pullback.snd ((etaleCurveDiagram X s p).map a.hom) (j ≫ U.ι) ≫
+            r ≫ pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj i).hom T.hom :=
+        etaleStageOpenRetainedTarget_snd X s p i U j T r hr a
+      rw [ht]
       have h := etaleStageOpenRetainedSection_snd X s p i U j σ hσ σV hσV a
       exact (congrArg (fun z => z ≫ r ≫
         pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj i).hom T.hom) h).symm

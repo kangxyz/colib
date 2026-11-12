@@ -44,27 +44,24 @@ def EtaleStageOpenRestrictionConsumerResult
     (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
-    [IsLocallyNoetherian X.left] [IsProper p] [IsClosedImmersion U.ι]
-    [IsClosedImmersion d]
     (B : BigEtaleSite.{u}) (hX : B.Contains X.left)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme (Spec (.of K))).obj i ⟶ U.toScheme)
     (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 _)
     (hτ : τ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 _)
     [IsClosedImmersion σ] [IsClosedImmersion τ]
     [IsSeparated (U.ι ≫ (etaleCurveStructure X s p).app i)]
-    {V : Scheme.{u}} [IsAffine V] (j : V ⟶ U.toScheme) [IsOpenImmersion j]
+    {V : Scheme.{u}} (j : V ⟶ U.toScheme) [IsOpenImmersion j]
     [SmoothOfRelativeDimension 1 (j ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))]
     (hσj : Set.range σ ⊆ Set.range j) (hτj : Set.range τ ⊆ Set.range j)
     (hdσ : ∀ z : Z, d z ∉ Set.range σ) (hdτ : ∀ z : Z, d z ∉ Set.range τ)
     (a₀ : Over i)
-    [IsNormal X.left] [IsNormal N]
     (_hmark : etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj a₀.left) ≫
           etaleStageOpenSection X s p i U σ hσ a₀ =
       etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj a₀.left) ≫
           etaleStageOpenSection X s p i U τ hτ a₀)
-    (π : U.toScheme ⟶ projectiveLine (etaleStageOpenFixedRing X s i)) [IsFinite π]
+    (π : U.toScheme ⟶ projectiveLine (etaleStageOpenFixedRing X s i))
     (_hπ : π ≫ (projectiveLine (etaleStageOpenFixedRing X s i) ↘
         Spec (.of ↥(etaleStageOpenFixedRing X s i))) =
       U.ι ≫ (etaleCurveStructure X s p).app i)
@@ -74,11 +71,10 @@ def EtaleStageOpenRestrictionConsumerResult
           Polynomial (etaleStageOpenFixedRing X s i))) =
       j ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
     (_hjπ : j ≫ π = cV ≫ projectiveLineXChart (etaleStageOpenFixedRing X s i))
-    {Nchart : Scheme.{u}} [IrreducibleSpace Nchart]
-    (r₀ : U.toScheme ⟶ Nchart) [Flat r₀]
-    {W : Scheme.{u}} (eChart : W ⟶ Nchart) [IsOpenImmersion eChart] [Nonempty W]
+    {Nchart : Scheme.{u}}
+    (r₀ : U.toScheme ⟶ Nchart)
+    {W : Scheme.{u}} (eChart : W ⟶ Nchart)
     (cW : Limits.pullback r₀ eChart ⟶ Spec (.of (Polynomial (etaleStageOpenFixedRing X s i))))
-    [Etale cW]
     (_hcW : cW ≫ Spec.map (CommRingCat.ofHom
         (Polynomial.C : (etaleStageOpenFixedRing X s i) →+*
           Polynomial (etaleStageOpenFixedRing X s i))) =

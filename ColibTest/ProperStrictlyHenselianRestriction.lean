@@ -2,6 +2,8 @@ module
 
 import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 
+noncomputable section
+
 open CategoryTheory AlgebraicGeometry AlgebraicGeometry.Scheme
 open Stacks.EtaleCohomology
 

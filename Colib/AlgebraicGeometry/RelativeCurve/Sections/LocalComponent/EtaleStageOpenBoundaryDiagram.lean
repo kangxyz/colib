@@ -66,6 +66,7 @@ def etaleStageOpenBoundaryCone : Cone (etaleStageOpenBoundaryDiagram X s p i U d
   (Over.forget Z).mapCone
     ((Over.pullback (d ≫ U.ι)).mapCone ((etaleCurveCone X B hX s p).overPost i))
 
+/-- The entire fixed boundary cone is limiting by actual pullback preservation. -/
 def etaleStageOpenBoundaryConeIsLimit : IsLimit (etaleStageOpenBoundaryCone X s p i U d B hX) :=
   isLimitOfPreserves (Over.forget Z)
     (isLimitOfPreserves (Over.pullback (d ≫ U.ι))

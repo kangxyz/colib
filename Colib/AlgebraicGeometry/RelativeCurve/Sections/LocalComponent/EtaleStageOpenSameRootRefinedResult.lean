@@ -61,11 +61,10 @@ def EtaleStageOpenSameRootRefinedResult
     (x : (etaleCurveCone X B hX s p).pt)
     (_hpre : (etaleCurveCone X B hX s p).π.app i ⁻¹ᵁ U = normalComponentOpen x)
     (_hp : IsProjectiveMorphism p)
-    {V Z : Scheme.{u}} [IsAffine V]
+    {V Z : Scheme.{u}}
     (j : V ⟶ U.toScheme) [IsOpenImmersion j]
     [SmoothOfRelativeDimension 1 (j ≫ U.ι ≫ (etaleCurveStructure X s p).app i)]
-    (d : Z ⟶ U.toScheme) [IsClosedImmersion d]
-    [IsFinite (d ≫ U.ι ≫ (etaleCurveStructure X s p).app i)]
+    (d : Z ⟶ U.toScheme)
     (hd : Set.range d = (Set.range j)ᶜ)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i ⟶ U.toScheme)
     (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 _)

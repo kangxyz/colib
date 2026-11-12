@@ -21,6 +21,7 @@ def relativeCoordinateAlgHom (k B : Type u) [CommRing k] [CommRing B] [Algebra k
 @[simp] theorem relativeCoordinateAlgHom_toRingHom
     (k B : Type u) [CommRing k] [CommRing B] [Algebra k B]
     (d : ℕ) (f : Fin (d + 1) → B) :
-    (relativeCoordinateAlgHom k B d f).toRingHom = relativeCoordinateHom k B d f := rfl
+    (relativeCoordinateAlgHom k B d f : Polynomial (MvPolynomial (Fin d) k) →+* B) =
+      relativeCoordinateHom k B d f := rfl
 
 end QuadraticIncidence
