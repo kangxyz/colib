@@ -415,6 +415,8 @@ class LibraryTests(unittest.TestCase):
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
+            "affine-line-invariance":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField",
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
@@ -688,6 +690,7 @@ class LibraryTests(unittest.TestCase):
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
             "transfer-singular-complexes": ["COL-0397"],
+            "affine-line-invariance": ["COL-1029"],
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
             "weight-one-norm": ["COL-0401"],
