@@ -1594,6 +1594,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionDivisors
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionKernels
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.FixedClopenFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.FixedClopenRetainedTarget
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.FixedClopenSectionPair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.LimitDescent
@@ -1709,6 +1710,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSectio
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStageAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionStep
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor
