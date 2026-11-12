@@ -1357,6 +1357,7 @@ public import Colib.AlgebraicGeometry.Normalization.Compactification.NonemptyBou
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalFiniteChart
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalIntegralSource
 public import Colib.AlgebraicGeometry.Normalization.StrictLocalBaseChange.Normal
+public import Colib.AlgebraicGeometry.Polynomial.RationalCoordinateSection
 public import Colib.AlgebraicGeometry.Polynomial.ValueSection
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.BaseComponentRestriction
