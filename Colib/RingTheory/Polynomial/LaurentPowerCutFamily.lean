@@ -5,8 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Mathlib.Algebra.Polynomial.Laurent
-public import Mathlib.RingTheory.Finiteness.Basic
+public import Colib.RingTheory.Polynomial.LaurentFinite
 public import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Algebra.Polynomial.Eval.Degree
 import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
@@ -209,43 +208,6 @@ private theorem powerCutFamily_aeval_reciprocal (v : Dˣ) (m n : ℕ) (s : R) :
         simp only [powerCutFamilyA, map_sub, map_add, map_mul, aeval_C, aeval_X_pow]
         dsimp only [c]
         ring
-
-private theorem moduleFinite_of_integral_T_and_T_neg [Algebra (LaurentPolynomial R) D]
-    [IsScalarTower R (LaurentPolynomial R) D] [Module.Finite (LaurentPolynomial R) D]
-    (hpos : IsIntegral R (algebraMap (LaurentPolynomial R) D (T 1)))
-    (hneg : IsIntegral R (algebraMap (LaurentPolynomial R) D (T (-1)))) : Module.Finite R D := by
-  let f := IsScalarTower.toAlgHom R (LaurentPolynomial R) D
-  let S := Algebra.adjoin R {f (T 1), f (T (-1))}
-  have h₁ : f (T 1) ∈ S := Algebra.subset_adjoin (Set.mem_insert _ _)
-  have h₂ : f (T (-1)) ∈ S :=
-    Algebra.subset_adjoin (Set.mem_insert_of_mem _ (Set.mem_singleton _))
-  have hT (j : ℤ) : f (T j) ∈ S := by
-    obtain ⟨i, rfl | rfl⟩ := Int.eq_nat_or_neg j
-    · rw [show (T (i : ℤ) : LaurentPolynomial R) = T 1 ^ i by simp, map_pow]
-      exact S.pow_mem h₁ i
-    · rw [show (T (-(i : ℤ)) : LaurentPolynomial R) = T (-1) ^ i by simp, map_pow]
-      exact S.pow_mem h₂ i
-  have hmem (p : LaurentPolynomial R) : f p ∈ S := by
-    induction p using LaurentPolynomial.induction_on' with
-    | add p q hp hq =>
-      rw [map_add]
-      exact S.add_mem hp hq
-    | C_mul_T j a =>
-      rw [map_mul, LaurentPolynomial.C_eq_algebraMap, AlgHom.commutes]
-      exact S.mul_mem (S.algebraMap_mem a) (hT j)
-  let g := f.codRestrict S hmem
-  let : Algebra (LaurentPolynomial R) S := g.toRingHom.toAlgebra
-  let : IsScalarTower (LaurentPolynomial R) S D :=
-    IsScalarTower.of_algebraMap_eq fun _ => rfl
-  let : Module.Finite S D := Module.Finite.of_restrictScalars_finite (LaurentPolynomial R) S D
-  let : Module.Finite R S := Algebra.finite_adjoin_of_finite_of_isIntegral
-    ((Set.finite_singleton _).insert _) (by
-      intro z hz
-      rcases Set.mem_insert_iff.mp hz with rfl | hz
-      · exact hpos
-      · rw [Set.mem_singleton_iff.mp hz]
-        exact hneg)
-  exact Module.Finite.trans S D
 
 /-- The numerator obtained by clearing the two denominators of the interpolated
 Laurent power ratio. The two indices are the actual exponents. -/

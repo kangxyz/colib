@@ -300,21 +300,72 @@ the two inverse identities on homology as in Theorem 4.6 and
 Corollary 4.9. The quasi-isomorphism must be the one induced by
 torusCancellationChainMap on the current native complexes.
 
-For the effective-motive statement compare derived evaluation on
-\(U\times\mathbb G_m\) with the Suslin complex of the same reindexed
-transfer coefficient. Use the \(\mathbb A^1\)-invariant cohomology
-sheaves, the positive-degree direct-image vanishing for the torus
-projection, and the Nisnevich comparison of the contraction. The
-existing strict-invariance and positive contraction-vanishing modules
-supply inputs to compare with the actual \(Rp_*\). Then define or
-identify the effective transfer-derived model, its Tate twist, and
-the representable-generator reduction of Corollary 4.10. Take the
-chain result at the commuting torus unit projectors of each motivic
-weight, check the existing signed shifts and coefficient cones, and
-compare the resulting map with the chosen bonding maps. The derived
-Tate loop adjunction on motivic spaces is the space-side comparison.
-[Voevodsky, Corollaries 4.9–4.10](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=14)
-· [Cohomological theory of presheaves with transfers, Proposition 4.34](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s3.pdf)
+### Derived contraction and effective motives
+
+Use Mathlib's bounded-above DerivedCategory.Minus of Nisnevich
+sheaves with transfers, and take the full subcategory cut out by
+\(\mathbb A^1\)-invariance of all cohomology sheaves. Put the
+existing singular chain complex into cochain degrees \(-r\) and apply
+the existing exact transfer sheafification. This is the representative
+motive of a smooth scheme when applied to its actual transfer
+representable. Prove the localization property of this construction
+on bounded-above complexes by the augmentation and the native
+geometric interval homotopy. Use finite sums in each degree of the
+bounded-above total complex.
+
+The torus projection on the underlying Nisnevich site gives the
+right-derived reindexing functor. Start at the original section functors
+and split off the base summand by projection and unit. For positive
+degrees use strict \(\mathbb A^1\)-invariance of the cohomology presheaf
+with transfers and the existing torus affine-localization zero theorem.
+Its generic-open zeros give zero after sheafification on the actual
+small Nisnevich site. Use transferExtEquiv and its graph and coefficient
+naturality to identify this with the higher derived reindexing of an
+injective resolution. For the corresponding small-site direct image,
+identify the base-change diagram of the torus projection and apply the
+existing derived point-fibre colimit comparison.
+
+For degree zero compare sheafification and torus reindexing on an
+\(\mathbb A^1\)-invariant presheaf with transfers. The kernel and cokernel
+of the sheafification unit have locally zero sections. Lift the local
+zero condition on the integral Laurent chart to a generic open
+restriction and use the existing base-shrink theorem to descend
+the vanishing to the original base. Exact reindexing and sheafification
+then identify the actual sheafification of the torus sections with
+the torus sections of the sheafification. Apply this comparison to
+the homology of the raw singular complex. The existing parameter
+permutation identifies the torus and simplex factors degreewise.
+Use derived truncations or the corresponding Leray spectral sequence
+to pass from the two cohomology statements to the bounded-above
+complexes of equation (4.3).
+[Voevodsky, Cancellation theorem, Corollary 4.10 and equation (4.3)](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf#page=14)
+· [Voevodsky, Cohomological theory of presheaves with transfers, Proposition 4.34](https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s3.pdf#page=41)
+
+For the left adjoint, extend the actual additive torus product
+functor \(F\) from transfer representables. On a presheaf \(P\) and
+source \(X\), use the sum of
+\(\operatorname{Cor}(X,FY)\otimes_{\mathbb Z}P(Y)\) over \(Y\) and impose
+the relations for the actual maps of the correspondence category.
+The adjunction with reindexing has unit represented by
+\(\operatorname{id}_{FY}\otimes p\), and counit given by transfer on
+the first factor. Check these formulas on the original representable
+generators. Sums of the large transfer representables give projective
+presentations before sheafification. Derive the extension using these
+presentations and verify descent through the actual Nisnevich and
+effective localizations. Check descent on the generating Nisnevich
+relations and the literal product of the affine-line projections.
+The complementary unit projector gives tensoring with the reduced
+transfer torus. Identify the resulting adjunction with
+the one computed by derived contraction and identify its unit on
+representables with the map of Corollary 4.9. Prove the
+representable-generator reduction using bounded-above resolutions,
+with the required coproduct and truncation compatibilities. This
+gives full faithfulness for the reduced transfer torus. Use the
+weight-one comparison to identify the shift of this functor with
+the actual Tate twist. Compare the resulting map on each motivic
+weight and finite coefficient cone with the existing signed Tate
+bonding maps. The derived Tate loop adjunction on motivic spaces
+supplies the corresponding space-side comparison.
 
 Bachmann's Proposition 2.16 gives a separate categorical packaging
 of the retraction and interchange steps. Bachmann–Elmanto §4F gives
