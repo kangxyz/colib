@@ -5,6 +5,9 @@ Authors: kangxyz
 -/
 module
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryDiagram
+
+/-! # Noetherian full boundaries of the actual component stages -/
+
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u

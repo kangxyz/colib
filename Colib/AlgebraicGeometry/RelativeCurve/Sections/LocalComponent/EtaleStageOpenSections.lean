@@ -15,55 +15,69 @@ actual Cartesian squares. Compatibility is proved, not supplied as a certificate
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u
+set_option backward.isDefEq.respectTransparency false
 namespace AlgebraicGeometry.Scheme.SmoothSite
 variable {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
   (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
   (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
-local notation "A" => smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S
-local notation "C" => etaleCurveDiagram X s p
-local notation "K" => etaleStageOpenDiagram X s p i U
 
 /-- The actual component-stage structure maps to the unchanged neighborhood bases. -/
-def etaleStageOpenStructure : K ⟶ Over.forget i ⋙ A where
-  app a := pullback.fst (C.map a.hom) U.ι ≫ (etaleCurveStructure X s p).app a.left
+def etaleStageOpenStructure : etaleStageOpenDiagram X s p i U ⟶
+    Over.forget i ⋙ smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S where
+  app a := pullback.fst ((etaleCurveDiagram X s p).map a.hom) U.ι ≫ (etaleCurveStructure X s
+    p).app a.left
   naturality a b v := by
-    change pullback.lift _ _ _ ≫ (pullback.fst _ _ ≫ _) = _
+    change pullback.lift _ _ _ ≫
+      (pullback.fst ((etaleCurveDiagram X s p).map b.hom) U.ι ≫ (etaleCurveStructure X s p).app
+        b.left) =
+      (pullback.fst ((etaleCurveDiagram X s p).map a.hom) U.ι ≫ (etaleCurveStructure X s p).app
+        a.left) ≫
+        (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).map v.left
     simp only [pullback.lift_fst_assoc, Category.assoc]
-    rw [(etaleCurveStructure X s p).naturality v.left]
+    exact congrArg (fun f => pullback.fst ((etaleCurveDiagram X s p).map a.hom) U.ι ≫ f)
+      ((etaleCurveStructure X s p).naturality v.left)
 
 /-- The exact transition preserves the projection to the fixed selected open. -/
 @[simp, reassoc] theorem etaleStageOpenDiagram_map_snd {a b : Over i} (v : a ⟶ b) :
-    K.map v ≫ pullback.snd (C.map b.hom) U.ι = pullback.snd (C.map a.hom) U.ι :=
+    (etaleStageOpenDiagram X s p i U).map v ≫ pullback.snd ((etaleCurveDiagram X s p).map b.hom)
+      U.ι = pullback.snd ((etaleCurveDiagram X s p).map a.hom) U.ι :=
   pullback.lift_snd _ _ _
 
 /-- Each restarted stage is Cartesian over the selected finite-stage component curve. -/
 theorem etaleStageOpenStructure_isPullback (a : Over i) :
-    IsPullback (pullback.snd (C.map a.hom) U.ι)
+    IsPullback (pullback.snd ((etaleCurveDiagram X s p).map a.hom) U.ι)
       ((etaleStageOpenStructure X s p i U).app a)
-      (U.ι ≫ (etaleCurveStructure X s p).app i) (A.map a.hom) :=
-  (IsPullback.of_hasPullback (C.map a.hom) U.ι).flip.paste_vert
+      (U.ι ≫ (etaleCurveStructure X s p).app i) ((smallEtaleNeighborhoodToSmooth X s ⋙
+        forgetScheme S).map a.hom) :=
+  (IsPullback.of_hasPullback ((etaleCurveDiagram X s p).map a.hom) U.ι).flip.paste_vert
     (etaleCurveDiagram_isPullback X s p a.hom)
 
 /-- The actual component transition is Cartesian over its actual base transition. -/
 theorem etaleStageOpenDiagram_isPullback {a b : Over i} (v : a ⟶ b) :
-    IsPullback (K.map v) ((etaleStageOpenStructure X s p i U).app a)
-      ((etaleStageOpenStructure X s p i U).app b) (A.map v.left) := by
+    IsPullback ((etaleStageOpenDiagram X s p i U).map v) ((etaleStageOpenStructure X s p i U).app a)
+      ((etaleStageOpenStructure X s p i U).app b) ((smallEtaleNeighborhoodToSmooth X s ⋙
+        forgetScheme S).map v.left) := by
   refine IsPullback.of_right ?_ ((etaleStageOpenStructure X s p i U).naturality v)
     (etaleStageOpenStructure_isPullback X s p i U b)
   rw [etaleStageOpenDiagram_map_snd, ← Functor.map_comp, Over.w]
   exact etaleStageOpenStructure_isPullback X s p i U a
 
-variable (σ : A.obj i ⟶ U.toScheme)
-  (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 (A.obj i))
+variable (σ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i ⟶ U.toScheme)
+  (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 ((smallEtaleNeighborhoodToSmooth X s ⋙
+    forgetScheme S).obj i))
 
 /-- The specified original section lifted to an actual restarted stage. -/
-def etaleStageOpenSection (a : Over i) : A.obj a.left ⟶ K.obj a :=
-  (etaleStageOpenStructure_isPullback X s p i U a).lift (A.map a.hom ≫ σ) (𝟙 _)
+def etaleStageOpenSection (a : Over i) : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme
+  S).obj a.left ⟶ (etaleStageOpenDiagram X s p i U).obj a :=
+  (etaleStageOpenStructure_isPullback X s p i U a).lift ((smallEtaleNeighborhoodToSmooth X s ⋙
+    forgetScheme S).map a.hom ≫ σ) (𝟙 _)
     (by simp only [Category.assoc, hσ, Category.comp_id, Category.id_comp])
 
 @[simp, reassoc] theorem etaleStageOpenSection_snd (a : Over i) :
-    etaleStageOpenSection X s p i U σ hσ a ≫ pullback.snd (C.map a.hom) U.ι =
-      A.map a.hom ≫ σ := IsPullback.lift_fst _ _ _ _
+    etaleStageOpenSection X s p i U σ hσ a ≫ pullback.snd ((etaleCurveDiagram X s p).map a.hom)
+      U.ι =
+      (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).map a.hom ≫ σ := IsPullback.lift_fst
+        _ _ _ _
 
 @[simp, reassoc] theorem etaleStageOpenSection_structure (a : Over i) :
     etaleStageOpenSection X s p i U σ hσ a ≫
@@ -72,24 +86,28 @@ def etaleStageOpenSection (a : Over i) : A.obj a.left ⟶ K.obj a :=
 /-- The original section lifts commute with every actual transition, with no
 compatibility supplied as an input. -/
 theorem etaleStageOpenSection_naturality {a b : Over i} (v : a ⟶ b) :
-    etaleStageOpenSection X s p i U σ hσ a ≫ K.map v =
-      A.map v.left ≫ etaleStageOpenSection X s p i U σ hσ b := by
+    etaleStageOpenSection X s p i U σ hσ a ≫ (etaleStageOpenDiagram X s p i U).map v =
+      (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).map v.left ≫ etaleStageOpenSection X
+        s p i U σ hσ b := by
   apply (etaleStageOpenStructure_isPullback X s p i U b).hom_ext
   · simp only [Category.assoc, etaleStageOpenDiagram_map_snd,
       etaleStageOpenSection_snd]
     rw [← Category.assoc, ← Functor.map_comp, Over.w]
   · rw [Category.assoc, (etaleStageOpenStructure X s p i U).naturality v]
-    simp only [← Category.assoc, etaleStageOpenSection_structure,
-      Category.id_comp, Category.assoc, Category.comp_id]
+    simp only [Category.assoc, etaleStageOpenSection_structure_assoc,
+      etaleStageOpenSection_structure, Category.comp_id]
+    rfl
 
 /-- The actual lifted sections form Cartesian section squares, ready for the
 full-kernel base-change comparison. -/
 theorem etaleStageOpenSection_isPullback {a b : Over i} (v : a ⟶ b) :
-    IsPullback (etaleStageOpenSection X s p i U σ hσ a) (A.map v.left)
-      (K.map v) (etaleStageOpenSection X s p i U σ hσ b) :=
-  Scheme.isPullback_section_of_isPullback (K.map v)
+    IsPullback (etaleStageOpenSection X s p i U σ hσ a) ((smallEtaleNeighborhoodToSmooth X s ⋙
+      forgetScheme S).map v.left)
+      ((etaleStageOpenDiagram X s p i U).map v) (etaleStageOpenSection X s p i U σ hσ b) :=
+  Scheme.isPullback_section_of_isPullback ((etaleStageOpenDiagram X s p i U).map v)
     ((etaleStageOpenStructure X s p i U).app a)
-    ((etaleStageOpenStructure X s p i U).app b) (A.map v.left)
+    ((etaleStageOpenStructure X s p i U).app b) ((smallEtaleNeighborhoodToSmooth X s ⋙
+      forgetScheme S).map v.left)
     (etaleStageOpenDiagram_isPullback X s p i U v)
     (etaleStageOpenSection X s p i U σ hσ a) (etaleStageOpenSection X s p i U σ hσ b)
     (etaleStageOpenSection_structure X s p i U σ hσ a)
