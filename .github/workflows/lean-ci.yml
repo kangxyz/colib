@@ -577,6 +577,49 @@ jobs:
               exit 1
             fi
           done
+      - name: Pack the P1 dependency for local recovery
+        if: ${{ steps.build.outcome == 'success' && steps.quiesce.outcome == 'success' }}
+        shell: bash
+        working-directory: ${{ inputs.package-directory }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          root = pathlib.Path(".")
+          package = root / ".lake/packages/Stacks"
+          stem = pathlib.Path("StacksFrontier/AlgebraicGeometry/Perfect/AffinePullbackComparisonCocycle")
+          files = sorted(
+              p for base in ("lib/lean", "ir")
+              for p in (package / ".lake/build" / base / stem.parent).glob(stem.name + ".*")
+              if p.is_file() and not p.is_symlink()
+          )
+          assert any(str(p).endswith(".olean") for p in files)
+          assert any(str(p).endswith(".trace") for p in files)
+          assert sum(p.stat().st_size for p in files) < 256 * 1024**2
+          out = pathlib.Path(os.environ["RUNNER_TEMP"]) / "p1-dependency"
+          out.mkdir(exist_ok=True)
+          manifest = {
+              "producer": os.environ["GITHUB_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "lean_toolchain": (root / "lean-toolchain").read_text().strip(),
+              "packages": json.loads((root / "lake-manifest.json").read_text())["packages"],
+              "source_sha256": hashlib.sha256((package / stem.with_suffix(".lean")).read_bytes()).hexdigest(),
+              "files": [{"path": str(p.relative_to(package)), "size": p.stat().st_size,
+                         "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]
+          }
+          (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+          with tarfile.open(out / "p1-dependency.tar", "w") as archive:
+              for p in files:
+                  archive.add(p, arcname=str(p.relative_to(package)), recursive=False)
+          print(json.dumps({"files": len(files), "bytes": (out / "p1-dependency.tar").stat().st_size}))
+          PY
+      - name: Upload the P1 dependency for local recovery
+        if: ${{ steps.build.outcome == 'success' && steps.quiesce.outcome == 'success' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: p1-affine-cocycle
+          path: ${{ runner.temp }}/p1-dependency
+          compression-level: 0
+          if-no-files-found: error
       - name: Save compilation independently of Test and lint
         if: ${{ inputs.first-ci-cache == '' && steps.cache-mode.outputs.layered != 'true' && always() && steps.quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true' }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
