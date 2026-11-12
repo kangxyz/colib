@@ -1,5 +1,4 @@
-module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupportpublic import Colib.Algebra.Category.FGModuleCat.ScalarFiltrationpublic import Colib.Algebra.Category.ModuleCat.Annihilatorpublic import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linear
-public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Localization
+module  -- shake: keep-all --deprecated_module: ignorepublic import Colib.Algebra.Category.FGModuleCat.FractionLocalizationpublic import Colib.Algebra.Category.FGModuleCat.IsFGpublic import Colib.Algebra.Category.FGModuleCat.Localizationpublic import Colib.Algebra.Category.FGModuleCat.Localization.EssSurjpublic import Colib.Algebra.Category.FGModuleCat.LocalizationLinearpublic import Colib.Algebra.Category.FGModuleCat.PrincipalClosedSupportpublic import Colib.Algebra.Category.FGModuleCat.ScalarFiltrationpublic import Colib.Algebra.Category.ModuleCat.Annihilatorpublic import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Linearpublic import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Localization
 public import Colib.Algebra.Category.ModuleCat.ChangeOfRings.Quotient
 public import Colib.Algebra.Category.ModuleCat.CoproductHomology
 public import Colib.Algebra.Category.ModuleCat.FilteredColimits
@@ -1487,6 +1486,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ModelRefinem
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ModeledZeroSchemeRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFramesActualIdeals
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootFinalNumerator
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.SectionModelRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorBoundarySectionModel
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorModelRefinement
@@ -1495,6 +1495,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ZeroSchemeCa
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Basic
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Boundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BoundaryBaseChange
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ClopenModelFactor
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleBoundaryDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleComponentRefinement
