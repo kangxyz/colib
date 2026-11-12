@@ -23,7 +23,6 @@ open AlgebraicGeometry.Scheme AlgebraicGeometry.Scheme.Modules
 open Stacks.Divisors Stacks.SheafOfModules.Invertible
 open Stacks.AlgebraicGeometry.ModuleLimits
 universe u v
-set_option backward.isDefEq.respectTransparency false
 attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
 namespace AlgebraicGeometry.Scheme.SmoothSite
 
@@ -118,11 +117,19 @@ theorem exists_etaleStageOpen_same_root_restriction
       boundaryRootPowerIso ((etaleStageOpenBoundaryMap X s p i U d).app ℓ) M _ (k + 1) α
         (differenceSheafBoundaryIso ((etaleStageOpenBoundaryMap X s p i U d).app ℓ)
           σ.ker τ.ker aD aE))
-    (ha : Hom.app (pullbackTensorFrame ((etaleStageOpenBoundaryMap X s p i U d).app ℓ)
+    (ha : Scheme.Modules.Hom.app (X := (etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ)
+      (M := (Scheme.Modules.pullback ((etaleStageOpenBoundaryMap X s p i U d).app ℓ)).obj
+        (((Stacks.SheafOfModules.Tensor.sheafTensor (Cstage).sheaf).obj M).obj N))
+      (N := SheafOfModules.unit
+        ((etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ).ringCatSheaf)
+      (pullbackTensorFrame ((etaleStageOpenBoundaryMap X s p i U d).app ℓ)
       M N e eN).hom ⊤
       (pullbackGlobalSections ((etaleStageOpenBoundaryMap X s p i U d).app ℓ) _ a) =
         (1 : Γ((etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ, ⊤)))
-    (hb : Hom.app eN.hom ⊤
+    (hb : Scheme.Modules.Hom.app (X := (etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ)
+      (M := (Scheme.Modules.pullback ((etaleStageOpenBoundaryMap X s p i U d).app ℓ)).obj N)
+      (N := SheafOfModules.unit
+        ((etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ).ringCatSheaf) eN.hom ⊤
       (pullbackGlobalSections ((etaleStageOpenBoundaryMap X s p i U d).app ℓ) N bN) =
         (1 : Γ((etaleStageOpenBoundaryDiagram X s p i U d).obj ℓ, ⊤))) :
     ∃ (Anew : EtaleNeighborhood X s.hom)
