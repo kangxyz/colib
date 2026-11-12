@@ -9,7 +9,8 @@ public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryRoot
 public import Colib.AlgebraicGeometry.Divisors.FrameTransport
 public import StacksFrontier.AlgebraicGeometry.Descent.EffectiveEpi.QuasicoherentSectionsEqualizer.GlobalSections
 public import StacksFrontier.AlgebraicGeometry.IdealOfClosedSubscheme.Basic
-public import StacksFrontier.AlgebraicGeometry.PullbackSections.Affine
+public import StacksFrontier.AlgebraicGeometry.Descent.SectionsPullbackComparison.PullbackSection
+public import StacksFrontier.AlgebraicGeometry.Divisors.RegularSectionCorrespondence
 
 /-! # Full-boundary normalization of sections defined on an ambient open
 
