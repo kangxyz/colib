@@ -15,7 +15,7 @@ Library item `COL-0255` records the actual algebraic first map used by that comp
 
 This item specifies the algebraic map, not the stronger Quillen equivalence.
 The subsequent [complete comparison source](field-k2-comparison.md) supplies
-that endpoint in characteristic zero and records earlier local checks separately
+that endpoint over every field and records earlier local checks separately
 from the successful whole-library CI for published Lean 4.35 commit
 `0fd43f0253d6ff441fbc3e82420a0573ad694310`.
 The historical baseline and validation below describe this algebraic slice only.
@@ -86,7 +86,7 @@ construction, including fields of characteristic two and three.
 
 - [Kernel generation](field-k2-kernel-generation.md) supplies surjectivity over
   every field. [Native Matsumoto injectivity](matsumoto-native-injectivity.md)
-  supplies the characteristic-zero Milnor–Steinberg kernel equivalence.
+  supplies the Milnor–Steinberg kernel equivalence over every field.
 - The [stable-fiber proof](field-k2-stable-fiber.md) constructs perfectness and
   injectivity and surjectivity of `steinbergKernelToRightProjectiveKTwo`, with
   the original connecting map, basepoint path and exact-category target.
@@ -95,12 +95,12 @@ construction, including fields of characteristic two and three.
   projective inclusion, opposite restriction and upper SmallModel comparison.
 - `Colib.RingTheory.KTheory.Quillen.Field.PositiveSymbolMarking` proves the ordered positive
   scalar-unit-product formula over every field. The final comparison source
-  combines these results into characteristic-zero equivalences with literal
+  combines these results into equivalences over every field with literal
   forward maps, natural inverses and the negative of the positive inverse.
 
 These are mathematical source conclusions; their
 [verification boundary](field-k2-comparison.md#verification-boundary) remains
-separate. No positive-characteristic Milnor–Quillen equivalence is inferred.
+separate.
 
 ## Historical slice validation
 

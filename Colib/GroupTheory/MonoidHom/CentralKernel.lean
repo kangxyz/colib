@@ -10,107 +10,47 @@ public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.GroupTheory.Subgroup.Center
 
 /-!
-# CentralKernel
+# Commutators across a central kernel
 
 Adapted from `Quillen/Aglib/Algebra/Group/Hom/CentralKernel.lean` at
-`c561118b7795eb9780be9ed391c3251d6a4d0afd`, retaining the actual maps and hypotheses.
-
-The declarations retain their original field, rank, central-kernel and explicit
-transport hypotheses. Their current consumer is the finite Matsumoto normalizer,
-Bruhat action, or conditional original-root detector construction.
+`c561118b7795eb9780be9ed391c3251d6a4d0afd`. Commutators depend only on the
+projected pair. A conjugation can also compare a commutator with a specified
+lift by varying both lifts by multiplication.
 
 -/
 
 @[expose] public section
 
-/-! ## CentralDoubling -/
-
-section
-
-open scoped commutatorElement
-
-universe u v
-
-namespace MonoidHom.CentralKernel.Doubling
-
-variable {G : Type u} {H : Type v} [Group G] [Group H]
-
-/-- A central element cannot be squared by inner conjugation unless it is one. -/
-theorem eq_one_of_central_of_conj_square {z d : G}
-    (hz : z ∈ Subgroup.center G) (hd : d * z * d⁻¹ = z ^ 2) : z = 1 := by
-  have hfix : d * z * d⁻¹ = z := by
-    rw [Subgroup.mem_center_iff.mp hz d, mul_inv_cancel_right]
-  have he : z * 1 = z * z := by simpa only [mul_one, pow_two] using hfix.symm.trans hd
-  exact (mul_left_cancel he).symm
-
-/-- Equal projections and simultaneous squaring force equal lifts across a central kernel. -/
-theorem eq_of_central_ker_of_conj_square (p : G →* H)
-    (hc : p.ker ≤ Subgroup.center G) {a b d : G} (hab : p a = p b)
-    (ha : d * a * d⁻¹ = a ^ 2) (hb : d * b * d⁻¹ = b ^ 2) : a = b := by
-  let z := a * b⁻¹
-  have hz : z ∈ Subgroup.center G := hc (by simp [z, MonoidHom.mem_ker, hab])
-  have haz : a = z * b := by simp [z, mul_assoc]
-  have habc : Commute a b := by
-    rw [haz]
-    have hzb : Commute z b := (Subgroup.mem_center_iff.mp hz b).symm
-    exact hzb.mul_left (Commute.refl b)
-  have hd : d * z * d⁻¹ = z ^ 2 := by
-    calc
-      d * z * d⁻¹ = (d * a * d⁻¹) * (d * b * d⁻¹)⁻¹ := by simp [z, mul_assoc]
-      _ = a ^ 2 * (b ^ 2)⁻¹ := by rw [ha, hb]
-      _ = z ^ 2 := by simp only [z, habc.inv_right.mul_pow, inv_pow]
-  have hone := eq_one_of_central_of_conj_square hz hd
-  exact mul_inv_eq_one.mp hone
-
-/-- A central commutator vanishes if one factor is doubled and the other fixed. -/
-theorem commute_of_central_ker_of_conj_square (p : G →* H)
-    (hc : p.ker ≤ Subgroup.center G) {a b d : G} (hab : Commute (p a) (p b))
-    (ha : d * a * d⁻¹ = a ^ 2) (hb : d * b * d⁻¹ = b) : Commute a b := by
-  have hz : ⁅a, b⁆ ∈ Subgroup.center G := hc (by
-    simp only [MonoidHom.mem_ker, map_commutatorElement]
-    exact hab.commutator_eq)
-  have hcomm : Commute a ⁅a, b⁆ := Subgroup.mem_center_iff.mp hz a
-  apply commutatorElement_eq_one_iff_commute.mp
-  apply eq_one_of_central_of_conj_square hz
-  rw [conjugate_commutatorElement, ha, hb]
-  exact (hcomm.commutatorElement_pow_left 2).symm
-
-/-- The output root need only commute with the first factor of the chain. -/
-theorem chain_of_central_ker_of_conj_square (p : G →* H)
-    (hc : p.ker ≤ Subgroup.center G) {a b c d : G}
-    (hproj : p ⁅a, b⁆ = p c) (hac : Commute a c)
-    (ha : d * a * d⁻¹ = a ^ 2) (hb : d * b * d⁻¹ = b)
-    (hc' : d * c * d⁻¹ = c ^ 2) : ⁅a, b⁆ = c := by
-  have hz : ⁅a, b⁆ * c⁻¹ ∈ Subgroup.center G := hc (by
-    simp [MonoidHom.mem_ker, hproj])
-  have he : ⁅a, b⁆ = (⁅a, b⁆ * c⁻¹) * c := by simp
-  have hcomm : Commute a ⁅a, b⁆ := by
-    rw [he]
-    have haz : Commute a (⁅a, b⁆ * c⁻¹) := Subgroup.mem_center_iff.mp hz a
-    exact haz.mul_right hac
-  apply eq_of_central_ker_of_conj_square p hc hproj _ hc'
-  rw [conjugate_commutatorElement, ha, hb]
-  exact (hcomm.commutatorElement_pow_left 2).symm
-
-end MonoidHom.CentralKernel.Doubling
-
-end
-
-/-! ## CentralCommutator -/
-
-section
-
-/-!
-# Commutators are independent of lifts across a central kernel
-
-The projection need not be surjective. Equality of the two projected pairs is
-enough to identify their commutators, because each change of lift is central.
--/
 namespace MonoidHom.CentralKernel
 
 open scoped commutatorElement
 
 variable {E G H : Type*} [Group E] [Group G] [Group H]
+
+/-- If a conjugation fixes `b` and multiplies `x` and a lift of `⁅x,b⁆`
+by `a` and `c` respectively, the central difference cancels and `⁅a,b⁆ = c`. -/
+theorem commutator_eq_of_conjugation_mul (p : E →* G) (hcentral : p.ker ≤ Subgroup.center E)
+    {a b c x y d : E} (hproj : p ⁅x, b⁆ = p y) (hay : Commute a y)
+    (hx : d * x * d⁻¹ = a * x) (hb : d * b * d⁻¹ = b)
+    (hy : d * y * d⁻¹ = y * c) : ⁅a, b⁆ = c := by
+  let z := ⁅x, b⁆ * y⁻¹
+  have hz : z ∈ Subgroup.center E := hcentral (by
+    simp only [z, MonoidHom.mem_ker, map_mul, map_inv, hproj, mul_inv_cancel])
+  have hzy : z * y = ⁅x, b⁆ := by simp [z, mul_assoc]
+  have hcomm : Commute a ⁅x, b⁆ := by
+    rw [← hzy]
+    exact (show Commute a z from Subgroup.mem_center_iff.mp hz a).mul_right hay
+  have hfix : d * z * d⁻¹ = z := by
+    rw [Subgroup.mem_center_iff.mp hz d, mul_inv_cancel_right]
+  apply mul_left_cancel (a := ⁅x, b⁆)
+  calc
+    _ = ⁅a * x, b⁆ := by
+      rw [commutatorElement_mul_left_eq_conj_mul, hcomm.eq, mul_inv_cancel_right]
+    _ = d * ⁅x, b⁆ * d⁻¹ := by rw [conjugate_commutatorElement, hx, hb]
+    _ = (d * z * d⁻¹) * (d * y * d⁻¹) := by
+      rw [← hzy]
+      simp only [mul_assoc, inv_mul_cancel_left]
+    _ = _ := by rw [hfix, hy, ← mul_assoc, hzy]
 
 /-- Commutators depend only on the two projected elements when the kernel is central. -/
 theorem commutator_eq_of_projection_eq (p : E →* G) (hcentral : p.ker ≤ Subgroup.center E)
@@ -143,5 +83,3 @@ theorem commutator_eq_torus_commutator (p : E →* G)
   exact (map_commutatorElement τ a b).symm
 
 end MonoidHom.CentralKernel
-
-end

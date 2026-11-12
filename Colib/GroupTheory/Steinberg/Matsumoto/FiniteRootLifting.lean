@@ -11,14 +11,11 @@ public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
 
 /-!
-# FiniteRootLifting
+# Finite-rank root lifting
 
 Adapted from `Quillen/Algebra/Group/StableSteinberg/Matsumoto/FiniteRootLifting.lean` at
-`c561118b7795eb9780be9ed391c3251d6a4d0afd`, retaining the actual maps and hypotheses.
-
-The declarations retain their original field, rank, central-kernel and explicit
-transport hypotheses. Their current consumer is the finite Matsumoto normalizer,
-Bruhat action, or conditional original-root detector construction.
+`c561118b7795eb9780be9ed391c3251d6a4d0afd`. Balanced diagonals realize the root
+relations in a central extension by scaling with a unit different from one.
 -/
 
 @[expose] public section
@@ -127,7 +124,7 @@ theorem exists_disjoint_weights {n : ℕ} (hn : 5 ≤ n) (q : Fˣ)
     · simp [balancedWeights_apply F q {i} h k hhk.symm,
         balancedWeights_apply F q {i} h l hhl.symm, Ne.symm hik, hli]
 
-/-- One balanced diagonal doubles both the first and output roots of a chain. -/
+/-- One balanced diagonal scales both the first and output roots of a chain by `q`. -/
 theorem exists_chain_weights {n : ℕ} (hn : 5 ≤ n) (q : Fˣ)
     (i j k : Fin n) (hij : i ≠ j) (hik : i ≠ k) :
     ∃ w : Fin n → Fˣ, (∏ t, w t = 1) ∧
@@ -141,16 +138,6 @@ theorem exists_chain_weights {n : ℕ} (hn : 5 ≤ n) (q : Fˣ)
   · simp [balancedWeights_apply F q {i} h i hhi.symm,
       balancedWeights_apply F q {i} h k hhk.symm, hik.symm]
 
-section Two
-variable [CharZero F]
-
-/-- The only field-specific unit used by the doubling proof. -/
-def twoUnit : Fˣ := Units.mk0 (2 : F) two_ne_zero
-
-@[simp] lemma twoUnit_val : ((twoUnit F : Fˣ) : F) = 2 := rfl
-
-end Two
-
 variable {F} {G : Type v} [Group G] {n : ℕ}
 
 /-- Additive root sections, evaluated with the literal field coefficient. -/
@@ -162,11 +149,6 @@ lemma root_add (R : (i j : Fin n) → i ≠ j → Multiplicative F →* G)
     root R i j hij (a + b) = root R i j hij a * root R i j hij b :=
   map_mul (R i j hij) (Multiplicative.ofAdd a) (Multiplicative.ofAdd b)
 
-lemma root_double (R : (i j : Fin n) → i ≠ j → Multiplicative F →* G)
-    (i j : Fin n) (hij : i ≠ j) (a : F) :
-    root R i j hij ((2 : F) * a) = root R i j hij a ^ 2 := by
-  rw [two_mul, root_add, pow_two]
-
 /-- Covariance is about lifts of literal product-one diagonal matrices.
 This input states neither a Steinberg relation nor an ordered defect formula. -/
 def DiagonalCovariance (p : G →* Matrix.GeneralLinearGroup (Fin n) F)
@@ -177,7 +159,14 @@ def DiagonalCovariance (p : G →* Matrix.GeneralLinearGroup (Fin n) F)
         d * root R i j hij a * d⁻¹ =
           root R i j hij (((w i * (w j)⁻¹ : Fˣ) : F) * a)
 
-variable [CharZero F]
+private theorem exists_scale_eq_add (q : Fˣ) (hq : (q : F) ≠ 1) (a : F) :
+    ∃ t : F, (q : F) * t = a + t := by
+  let t := a / ((q : F) - 1)
+  refine ⟨t, ?_⟩
+  calc
+    (q : F) * t = t * ((q : F) - 1) + t := by
+      rw [mul_sub, mul_one, sub_add_cancel, mul_comm]
+    _ = a + t := congrArg (· + t) (div_mul_cancel₀ a (sub_ne_zero.mpr hq))
 
 /-- All original disjoint-root cases, including shared row and shared column. -/
 theorem root_commute
@@ -185,7 +174,7 @@ theorem root_commute
     (R : (i j : Fin n) → i ≠ j → Multiplicative F →* G)
     (hR : ∀ (i j : Fin n) (hij : i ≠ j) (a : F),
       p (root R i j hij a) = _root_.Matrix.GeneralLinearGroup.elementary i j hij a)
-    (hD : DiagonalCovariance p R) (hn : 5 ≤ n)
+    (hD : DiagonalCovariance p R) (hn : 5 ≤ n) (q : Fˣ) (hq : (q : F) ≠ 1)
     (i j k l : Fin n) (hij : i ≠ j) (hkl : k ≠ l)
     (hjk : j ≠ k) (hli : l ≠ i) (a b : F) :
     Commute (root R i j hij a) (root R k l hkl b) := by
@@ -193,13 +182,17 @@ theorem root_commute
   · obtain ⟨rfl, rfl⟩ := he
     change root R i j hij a * root R i j hij b = root R i j hij b * root R i j hij a
     rw [← root_add, ← root_add, add_comm]
-  · obtain ⟨w, hw, hwij, hwkl⟩ := exists_disjoint_weights F hn (twoUnit F)
+  · obtain ⟨t, ht⟩ := exists_scale_eq_add q hq a
+    obtain ⟨w, hw, hwij, hwkl⟩ := exists_disjoint_weights F hn q
       i j k l hij hkl hjk hli he
     obtain ⟨d, _, hd⟩ := hD w hw
-    apply _root_.MonoidHom.CentralKernel.Doubling.commute_of_central_ker_of_conj_square p hc
-    · rw [hR, hR]
-      exact _root_.Matrix.GeneralLinearGroup.elementary_commute i j k l hij hkl hjk hli a b
-    · simpa only [hwij, twoUnit_val, root_double] using hd i j hij a
+    apply commutatorElement_eq_one_iff_commute.mp
+    refine _root_.MonoidHom.CentralKernel.commutator_eq_of_conjugation_mul p hc
+      (x := root R i j hij t) (y := 1) (d := d) ?_ (Commute.one_right _) ?_ ?_ (by simp)
+    · rw [map_commutatorElement, hR, hR, map_one]
+      have h := _root_.Matrix.GeneralLinearGroup.elementary_commute i j k l hij hkl hjk hli t b
+      exact h.commutator_eq
+    · simpa only [hwij, ht, root_add] using hd i j hij t
     · simpa only [hwkl, Units.val_one, one_mul] using hd k l hkl b
 
 /-- The original ordered chain relation, with coefficient exactly `a * b`. -/
@@ -208,18 +201,23 @@ theorem root_commutator
     (R : (i j : Fin n) → i ≠ j → Multiplicative F →* G)
     (hR : ∀ (i j : Fin n) (hij : i ≠ j) (a : F),
       p (root R i j hij a) = _root_.Matrix.GeneralLinearGroup.elementary i j hij a)
-    (hD : DiagonalCovariance p R) (hn : 5 ≤ n)
+    (hD : DiagonalCovariance p R) (hn : 5 ≤ n) (q : Fˣ) (hq : (q : F) ≠ 1)
     (i j k : Fin n) (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k) (a b : F) :
     ⁅root R i j hij a, root R j k hjk b⁆ = root R i k hik (a * b) := by
-  obtain ⟨w, hw, hwij, hwjk, hwik⟩ := exists_chain_weights F hn (twoUnit F) i j k hij hik
+  obtain ⟨t, ht⟩ := exists_scale_eq_add q hq a
+  obtain ⟨w, hw, hwij, hwjk, hwik⟩ := exists_chain_weights F hn q i j k hij hik
   obtain ⟨d, _, hd⟩ := hD w hw
-  apply _root_.MonoidHom.CentralKernel.Doubling.chain_of_central_ker_of_conj_square p hc
+  refine _root_.MonoidHom.CentralKernel.commutator_eq_of_conjugation_mul p hc
+    (x := root R i j hij t) (y := root R i k hik (t * b)) (d := d) ?_ ?_ ?_ ?_ ?_
   · rw [map_commutatorElement, hR, hR, hR]
-    exact _root_.Matrix.GeneralLinearGroup.elementary_commutator i j k hij hjk hik a b
-  · exact root_commute p hc R hR hD hn i j i k hij hik hij.symm hik.symm a (a * b)
-  · simpa only [hwij, twoUnit_val, root_double] using hd i j hij a
+    exact _root_.Matrix.GeneralLinearGroup.elementary_commutator i j k hij hjk hik t b
+  · exact root_commute p hc R hR hD hn q hq i j i k hij hik hij.symm hik.symm a (t * b)
+  · simpa only [hwij, ht, root_add] using hd i j hij t
   · simpa only [hwjk, Units.val_one, one_mul] using hd j k hjk b
-  · simpa only [hwik, twoUnit_val, root_double] using hd i k hik (a * b)
+  · calc
+      _ = root R i k hik (((q : F) * t) * b) := by
+        simpa only [hwik, mul_assoc] using hd i k hik (t * b)
+      _ = _ := by rw [ht, add_comm a t, add_mul, root_add]
 
 /-- Conditional finite-rank realization of all three original root laws. -/
 theorem original_root_relations
@@ -227,7 +225,7 @@ theorem original_root_relations
     (R : (i j : Fin n) → i ≠ j → Multiplicative F →* G)
     (hR : ∀ (i j : Fin n) (hij : i ≠ j) (a : F),
       p (root R i j hij a) = _root_.Matrix.GeneralLinearGroup.elementary i j hij a)
-    (hD : DiagonalCovariance p R) (hn : 5 ≤ n) :
+    (hD : DiagonalCovariance p R) (hn : 5 ≤ n) (q : Fˣ) (hq : (q : F) ≠ 1) :
     (∀ (i j : Fin n) (hij : i ≠ j) (a b : F),
       root R i j hij a * root R i j hij b = root R i j hij (a + b)) ∧
     (∀ (i j k l : Fin n) (hij : i ≠ j) (hkl : k ≠ l)
@@ -239,8 +237,8 @@ theorem original_root_relations
   · intro i j hij a b
     exact (root_add R i j hij a b).symm
   · intro i j k l hij hkl hjk hli a b
-    exact (root_commute p hc R hR hD hn i j k l hij hkl hjk hli a b).commutator_eq
-  · exact root_commutator p hc R hR hD hn
+    exact (root_commute p hc R hR hD hn q hq i j k l hij hkl hjk hli a b).commutator_eq
+  · exact root_commutator p hc R hR hD hn q hq
 
 end StableSteinberg.FiniteRootLifting
 

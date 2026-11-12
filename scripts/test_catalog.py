@@ -52,8 +52,8 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(entry["section"], section)
             self.assertEqual(self.library["sections"][section]["chapter"], chapter)
         matsumoto = self.library["entries"]["COL-0262"]
-        self.assertIn("characteristic-zero", matsumoto["statement"])
-        self.assertIn("no positive-characteristic", matsumoto["scope"])
+        self.assertIn("For every field", matsumoto["statement"])
+        self.assertIn("Over a finite field", matsumoto["proof"])
         self.assertEqual(self.library["sections"]["matsumoto-theorem"]["entries"],
                          ["COL-0262"])
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")

@@ -14,8 +14,7 @@ from historical local endpoint checks and the completed Lean 4.35 whole-library
 CI for published commit `0fd43f0253d6ff441fbc3e82420a0573ad694310`.
 
 The constructions in this page apply to arbitrary rings where stated and to
-all fields for Steinberg-to-fiber maps. The characteristic-zero hypothesis
-remains on Matsumoto injectivity and the final Milnor–Quillen equivalences.
+all fields for Steinberg-to-fiber maps and the final Milnor–Quillen equivalences.
 
 ## Actual constructions
 
@@ -98,7 +97,7 @@ structure. These are proof replacements preserving the specified mathematical ma
   is the actual finite-projective inclusion followed by opposite-ring restriction.
 - The ordered symbol is the upper model's positive `unitProduct F a b`, with
   scalar `a` acting on the positive determinant-inverse K₁ class of `b`.
-- In characteristic zero, the upper negative normalization is literally minus
+- The upper negative normalization is minus
   the positive inverse and takes this product to `-milnorKTupleSymbol ![a, b]`.
 
 ## Completed homological and comparison chain
@@ -121,7 +120,7 @@ structure. These are proof replacements preserving the specified mathematical ma
    scalar extension and literal upper finite-module tensor extension. The
    general-field positive marking then identifies the actual ordered product.
    `Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence` combines these inputs with native
-   Matsumoto injectivity in characteristic zero, including inverse field-change
+   Matsumoto injectivity over every field, including inverse field-change
    squares and the negative normalization.
 
 No fiber-perfectness, generation, detector-law or comparison-isomorphism

@@ -27,13 +27,20 @@ COL-0513 = "The same all-ring completion model also carries the original stable 
 id = "matsumoto-theorem"
 title = "Matsumoto's theorem"
 order = 30
-introduction = "For a field, the classical Matsumoto presentation identifies degree-two K-theory with symbols subject to the Steinberg relation [@Matsumoto1969, Section 5, Theorem 5.10 and Corollary 5.11] and [@WeibelKBook, III, Theorem 6.1]. COL-0262 proves the implemented characteristic-zero comparison with the specified Quillen models; it does not claim bijectivity over every field. Its forward map is the ordered-symbol map of COL-0255, and the comparison retains the positive scalar-product normalization. The graded Milnor construction, symbol relations and residues remain in the independent Milnor chapter (COL-0005, COL-0007 and COL-0122)."
+introduction = '''
+The stable Steinberg kernel has the Milnor symbol presentation over an
+infinite field [@Matsumoto1969, Section 5, Theorem 5.10 and Corollary 5.11].
+Over finite fields the Milnor group vanishes by COL-0279. In COL-0262 the
+ordered-symbol map of COL-0255 gives the Quillen \(K_2\) comparison for
+every field, with the positive scalar-product normalization.
+[@WeibelKBook, III, Theorem 6.1]
+'''
 
 [[sections]]
 id = "finite-field-k-two"
 title = "\\(K_2\\) of finite fields"
 order = 40
-introduction = "COL-0279 computes the vanishing of Milnor \\(K_2\\) over finite fields. Surjectivity of the existing comparison gives COL-0280 for the specified Quillen groups. This argument does not invoke the characteristic-zero bijectivity of COL-0262."
+introduction = "COL-0279 computes the vanishing of Milnor \\(K_2\\) over finite fields. Surjectivity of the existing comparison gives COL-0280 for the specified Quillen groups."
 
 [sections.transitions]
 COL-0280 = "Over finite fields the original Milnor comparison is\nsurjective. The integral vanishing of the source in\nCOL-0279 therefore gives vanishing of both native\nQuillen groups in degree two.\n"

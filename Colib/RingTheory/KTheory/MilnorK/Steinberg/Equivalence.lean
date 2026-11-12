@@ -9,18 +9,18 @@ public import Colib.GroupTheory.Steinberg.Matsumoto.Injectivity
 public import Colib.RingTheory.KTheory.MilnorK.Steinberg.Surjectivity
 
 /-!
-# Matsumoto's theorem for the stable Steinberg kernel in characteristic zero
+# Matsumoto's theorem for the stable Steinberg kernel
 
 The forward map is literally `StableSteinberg.milnorToKernel`. Surjectivity uses
-all-rank kernel generation; injectivity uses the actual finite Bruhat actions
-and their faithful native Milnor coefficient translations. The ordered pair
-symbol retains its positive torus-defect normalization. No choice of an
-alternative Milnor group or comparison adapter is involved.
+all-rank kernel generation. Injectivity uses the finite Bruhat actions and
+their faithful Milnor coefficient translations over infinite fields, and
+Milnor K₂ vanishing over finite fields. The ordered pair symbol retains its
+positive torus-defect normalization.
 
 The mathematical source is Matsumoto (1969), Section 5, Theorem 5.10 and
-Corollary 5.11, pp. 30–31: specialize the non-symplectic presentation over an
-infinite field to stable type A. The implementation retains `[CharZero F]`.
-Weibel, III, Theorem 6.1 states the classical K₂ form.
+Corollary 5.11, pp. 30–31, specialized from the non-symplectic presentation
+over infinite fields to stable type A. Weibel, III, Theorem 6.1 states the
+classical K₂ form over any field.
 
 The implementation ingredients adapt the pinned Quillen source at
 `c561118b7795eb9780be9ed391c3251d6a4d0afd`. This identifies the elementary
@@ -33,21 +33,20 @@ universe u v
 
 namespace StableSteinberg
 
-variable (F : Type u) [Field F] [CharZero F]
+variable (F : Type u) [Field F]
 
-/-- The canonical native Milnor map is bijective in characteristic zero. -/
-theorem milnorToKernel_bijective_charZero : Function.Bijective (milnorToKernel F) :=
-  ⟨milnorToKernel_injective_charZero F, KernelGeneration.milnorToKernel_surjective F⟩
+/-- The canonical native Milnor map is bijective over every field. -/
+theorem milnorToKernel_bijective : Function.Bijective (milnorToKernel F) :=
+  ⟨milnorToKernel_injective F, KernelGeneration.milnorToKernel_surjective F⟩
 
 /-- Matsumoto's equivalence with the literal native Milnor-to-kernel forward map. -/
 @[colib_ref "Matsumoto1969" "Section 5, Theorem 5.10 and Corollary 5.11, pp. 30-31"
-    "adaptation" "The non-symplectic symbol presentation specialized to stable type A over \
-      characteristic-zero fields; no Quillen homotopy identification is part of this result",
+    "adaptation" "The non-symplectic symbol presentation specialized to the stable type A \
+      Steinberg kernel over infinite fields",
   colib_ref "WeibelKBook" "III, Theorem 6.1" "adaptation"
-    "The classical field $K_2$ presentation, implemented with the native Milnor group and \
-      stable Steinberg kernel in characteristic zero"]
+    "The field $K_2$ presentation with the native Milnor group and stable Steinberg kernel"]
 def milnorKernelEquiv : MilnorKTheory F 2 ≃+ Additive ((toElementary F).ker) :=
-  AddEquiv.ofBijective (milnorToKernel F) (milnorToKernel_bijective_charZero F)
+  AddEquiv.ofBijective (milnorToKernel F) (milnorToKernel_bijective F)
 
 lemma milnorKernelEquiv_toAddMonoidHom :
     (milnorKernelEquiv F).toAddMonoidHom = milnorToKernel F := rfl
@@ -68,7 +67,7 @@ lemma milnorKernelEquiv_symm_torusDefectKernel (a b : Fˣ) :
   apply (milnorKernelEquiv F).injective
   rw [AddEquiv.apply_symm_apply, milnorKernelEquiv_pair]
 
-variable {F} {L : Type v} [Field L] [CharZero L]
+variable {F} {L : Type v} [Field L]
 
 /-- The equivalences commute with the existing coefficient maps across universes. -/
 lemma milnorKernelEquiv_naturality (f : F →+* L) :

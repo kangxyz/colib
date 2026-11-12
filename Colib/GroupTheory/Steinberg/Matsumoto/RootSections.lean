@@ -444,10 +444,10 @@ universe u v
 namespace StableSteinberg.RootSectionProducer
 open StableSteinberg
 open scoped commutatorElement
-variable (F : Type u) [Field F] [CharZero F]
+variable (F : Type u) [Field F] [Infinite F]
 variable {E : Type v} [Group E] {n : ℕ}
 
-/-- The accepted finite-root theorem now applies with no root-family input. -/
+/-- The canonical sections satisfy the root relations over an infinite field. -/
 theorem rootSections_original_relations
     (p : E →* Matrix.GeneralLinearGroup (Fin (n + 1)) F)
     (hc : p.ker ≤ Subgroup.center E) (honto : DetOneOnto F p)
@@ -466,10 +466,15 @@ theorem rootSections_original_relations
       ⁅FiniteRootLifting.root R i j hij s, FiniteRootLifting.root R k l hkl t⁆ = 1) ∧
     (∀ (i j k : Fin (n + 1)) (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k) (s t : F),
       ⁅FiniteRootLifting.root R i j hij s, FiniteRootLifting.root R j k hjk t⁆ =
-        FiniteRootLifting.root R i k hik (s * t)) :=
-  FiniteRootLifting.original_root_relations p hc (rootSections F p honto a b U)
+        FiniteRootLifting.root R i k hik (s * t)) := by
+  classical
+  obtain ⟨c, hc01⟩ := ({(0 : F), 1} : Finset F).exists_notMem
+  simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hc01
+  exact FiniteRootLifting.original_root_relations p hc
+    (rootSections F p honto a b U)
     (rootSections_projection F p honto a b hab U hU)
     (rootSections_diagonal_covariance F p hc honto a b hab τ U hτ hbase) hn
+    (Units.mk0 c hc01.1) hc01.2
 
 end StableSteinberg.RootSectionProducer
 

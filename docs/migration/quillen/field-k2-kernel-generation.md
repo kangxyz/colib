@@ -17,9 +17,8 @@ extension: its group lifts uniquely through every surjective central extension
 of the actual stable elementary group. The extension group can occupy an
 independent universe. This is a constructed lift, not an assumed lifting law.
 
-Neither result alone proves Matsumoto injectivity or the Milnor–Quillen K₂
-comparison. Their completed continuations are linked below; the final
-Milnor–Quillen endpoint retains its characteristic-zero hypothesis.
+The continuations below prove Matsumoto injectivity and the comparison with
+Quillen K₂ over every field.
 
 ## Source correspondence
 
@@ -56,17 +55,17 @@ namespaces. Every field is allowed, including fields of order two and three.
 ## Completed comparison continuations
 
 1. The [Matsumoto continuation](matsumoto-native-injectivity.md) constructs the
-   faithful native Milnor-valued detector and proves
-   `milnorToKernel_injective_charZero`. Together with all-field generation,
-   it gives the canonical kernel equivalence in characteristic zero.
+   faithful native Milnor-valued detector over infinite fields. Together with
+   finite-field vanishing it gives `milnorToKernel_injective`. All-field
+   generation then gives the canonical kernel equivalence.
 2. The [stable-fiber continuation](field-k2-stable-fiber.md) proves the genuine
    homological inputs, fiber perfectness and bijectivity of the original
    kernel-to-Q.K₂ map. The completion-to-Q-loop map still reverses the inner
    loop exactly once and retains its specified basepoint path.
 3. The [final comparison source](field-k2-comparison.md) includes the original
    upper finite-module comparison, forward and inverse field-change squares,
-   general-field positive ordered marking and characteristic-zero negative
-   normalization. The negative normalization is minus the positive inverse.
+   positive ordered marking and negative normalization over every field.
+   The negative normalization is minus the positive inverse.
    Earlier candidate endpoints passed focused native checks within their
    recorded source scope. The separate Lean 4.35 whole-library checks passed for
    published commit `0fd43f0253d6ff441fbc3e82420a0573ad694310` in

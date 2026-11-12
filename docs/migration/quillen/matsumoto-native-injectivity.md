@@ -9,10 +9,10 @@ stable Steinberg presentation and its existing map to the elementary group.
 The source closure consists of 38 Quillen modules. Its previously migrated
 stable matrix, Steinberg and symbol foundations are not recreated.
 
-The characteristic-zero hypothesis is retained in the actual root-relations
-construction and final injectivity theorem. Surjectivity comes from the
-separate all-rank kernel-generation proof over arbitrary fields. No
-positive-characteristic equivalence is inferred.
+Over an infinite field, diagonal covariance with a unit different from one
+gives the two commutator relations needed for injectivity. Over finite fields
+injectivity follows from the vanishing of native Milnor K₂. Surjectivity comes
+from the all-rank kernel-generation proof over arbitrary fields.
 
 ## Native objects and complete construction
 
@@ -35,7 +35,11 @@ the matrix and group foundations. The construction proceeds through:
 5. The genuine Bruhat left group, faithful coefficient translations, matrix
    projection, and central kernel. None of these is a supplied detector input.
 6. Additive root sections, diagonal covariance, and the original Steinberg
-   root relations in characteristic zero, in matrix dimension at least five.
+   root relations in matrix dimension at least five. A balanced diagonal
+   scales by `q ≠ 1`. For a root parameter `a`, write `qt = a + t` with
+   `t = a / (q - 1)`. The lifted commutator and the specified output root
+   have the same matrix image, so their difference is fixed by conjugation.
+   The comparison at `t` and `qt` gives the original root relation at `a`.
 7. The eventual-product representation of the original finite-rank-labelled
    Steinberg presentation. Its original 01/02 commutator has the positive
    native coefficient mark. The fixed eventual cutoff is five; no
@@ -44,14 +48,13 @@ the matrix and group foundations. The construction proceeds through:
 The matrix foundations live under `Colib/LinearAlgebra/Matrix/Bruhat`, generic
 central-lift calculations under `Colib/GroupTheory/MonoidHom`, and the actual
 Matsumoto construction under `Colib/GroupTheory/Steinberg/Matsumoto`.
-All original declarations in these dependency modules are retained with native
-objects, exact ranks, ordered coefficients and signs. Legacy imports and
-legacy namespace adapters are absent.
+The construction retains the native objects, exact ranks, ordered coefficients
+and signs.
 
 ## Canonical endpoint
 
-`StableSteinberg.milnorToKernel_injective_charZero` proves injectivity of the
-existing canonical map, not of a newly chosen map or an abstract detector.
+`StableSteinberg.milnorToKernel_injective` proves injectivity of the canonical
+map over every field.
 `StableSteinberg.milnorKernelEquiv` combines it with actual surjectivity:
 
 - Its additive homomorphism is definitionally `milnorToKernel F`.
@@ -70,9 +73,8 @@ perfectness and bijectivity of the original kernel-to-Quillen map, with the
 original right-projective and upper finite-module comparisons. The
 [final comparison source](field-k2-comparison.md) combines these results using
 the same forward composite, proves both field-change directions and retains
-the negative of the positive inverse. Its ordered positive scalar-unit-product
-marking holds over every field; its equivalences retain characteristic zero.
-Earlier candidate endpoints passed focused native checks within their recorded
+the negative of the positive inverse over every field.
+Earlier characteristic-zero endpoints passed focused native checks within their recorded
 source scope. The separate original whole-library checks passed for published
 Lean 4.35 commit `0fd43f0253d6ff441fbc3e82420a0573ad694310` in
 [CI run 42373233801](https://github.com/kangxyz/colib/actions/runs/42373233801).
