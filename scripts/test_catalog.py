@@ -417,6 +417,8 @@ class LibraryTests(unittest.TestCase):
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
+            "affine-line-invariance":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField",
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
@@ -598,6 +600,8 @@ class LibraryTests(unittest.TestCase):
             "COL-1024": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete",
             "COL-1026": "Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorEquivalence",
             "COL-1027": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniversesFinite",
+            "COL-1028":
+                "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -639,7 +643,7 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": ([374, *range(363, 368)], ["COL-0374", "COL-0366"]),
-            "transfers-nisnevich": (range(368, 374), ["COL-0368", "COL-0370", "COL-0372"]),
+            "transfers-nisnevich": ([*range(368, 374), 1028], ["COL-0368", "COL-0370", "COL-0372"]),
         }
         for section_id, (numbers, starts) in expected.items():
             section = self.library["sections"][section_id]
@@ -716,6 +720,7 @@ class LibraryTests(unittest.TestCase):
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
             "transfer-singular-complexes": ["COL-0397"],
+            "affine-line-invariance": ["COL-1029"],
             "canonical-motivic-complexes": ["COL-0398"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400"],
             "weight-one-norm": ["COL-0401"],
@@ -889,7 +894,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
         self.assertEqual(cor.count('class="section-transition"'), 6)
-        self.assertEqual(transfers.count('class="section-transition"'), 6)
+        self.assertEqual(transfers.count('class="section-transition"'), 7)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', transfers)

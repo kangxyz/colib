@@ -117,6 +117,11 @@ and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
 extends it to an isomorphism, with the direction and unit identity fixed by
 that extension.
 '''
+COL-1028 = '''
+On a homotopy-invariant presheaf, the marked representative comparison
+tests the same sheafification on the entire affine cylinder. The
+zero-section restriction identifies its sections with those on the base.
+'''
 
 [[sections]]
 id = "transfer-homological-algebra"
