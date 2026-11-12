@@ -34,8 +34,6 @@ variable {k : Type u} [Field k]
     (j : V ⟶ C) [IsOpenImmersion j] [V.IsQuasiAffine] [IsIntegral V]
     [SmoothOfRelativeDimension 1 (j ≫ q)]
     (i : B ⟶ C) [Nonempty B] (hcover : (Set.range j)ᶜ ⊆ Set.range i)
-    [IsIntegral (parameterSpace (q ≫ X.hom))]
-    [IsNoetherian (parameterSpace (q ≫ X.hom))]
     (g : V ⟶ Y.left) (hg : j ≫ q ≫ X.hom = g ≫ Y.hom)
 
 include hP i hcover in
@@ -59,7 +57,7 @@ theorem transfer_boundaryNormalized_rationalUnit_eq_zero
   let : IsIntegral W.val.toScheme := inferInstance
   obtain ⟨b, hb, hb1⟩ := denseOpen_boundary_factor W i hBW u.val hu1
   have hc : (Set.range j)ᶜ ⊆ Set.range (b ≫ W.val.ι) := by simpa only [hb] using hcover
-  letI := retainedCurve_isNoetherian j
+  let := retainedCurve_isNoetherian j
   let hW := Cor.PrincipalOrder.canonical_boundary_cover j W.val b hc
   let m := retainedCurveMap X.hom Y.hom q j g hg
   have hm₁ : m ≫ CategoryTheory.Limits.pullback.fst X.hom Y.hom = j ≫ q :=
