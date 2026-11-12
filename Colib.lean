@@ -615,6 +615,7 @@ public import Colib.AlgebraicGeometry.Divisors.DifferenceSheafPicard
 public import Colib.AlgebraicGeometry.Divisors.FrameTransport
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalBoundaryEvaluation
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalBoundaryFramePullback
+public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalBoundaryFramePullbackTwoStep
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalDifference
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalDifferenceBoundary
 public import Colib.AlgebraicGeometry.Divisors.Meromorphic.CanonicalDifferenceBoundaryCore
@@ -1139,6 +1140,7 @@ public import Colib.AlgebraicGeometry.Modules.Invertible.UnitPowerPullback
 public import Colib.AlgebraicGeometry.Modules.Invertible.ZeroLocus.BoundaryFrame
 public import Colib.AlgebraicGeometry.Modules.Limits.BaseChangeBoundaryFrames
 public import Colib.AlgebraicGeometry.Modules.Limits.BaseChangeBoundaryPowerFrames
+public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryFrameNaturality
 public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryFrames
 public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryOpenSectionPullback
 public import Colib.AlgebraicGeometry.Modules.Limits.BoundaryPowerFrames

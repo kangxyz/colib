@@ -64,9 +64,9 @@ def etaleBoundaryDiagramMap : etaleCurveDiagram X s (i ≫ p) ⟶ etaleCurveDiag
       etaleBoundaryBaseChangeMap _ p i ≫ pullback.lift _ _ _
     apply pullback.hom_ext
     · simp only [etaleBoundaryBaseChangeMap, Category.assoc, pullback.lift_fst,
-        pullback.lift_snd]
-    · simp only [etaleBoundaryBaseChangeMap, Category.assoc, pullback.lift_fst,
-        pullback.lift_snd]
+        pullback.lift_fst_assoc]
+    · simp only [etaleBoundaryBaseChangeMap, Category.assoc, pullback.lift_snd,
+        pullback.lift_snd_assoc]
 
 /-- Every actual stage boundary map is the base change of the original map. -/
 theorem etaleBoundaryDiagramMap_isPullback (a : SmallEtaleNeighborhood X s) :
@@ -92,15 +92,13 @@ theorem etaleBoundaryCone_square (a : SmallEtaleNeighborhood X s) :
     (etaleCurveCone X B hX s (i ≫ p)).π.app a ≫
       (etaleBoundaryDiagramMap X s p i).app a =
     etaleBoundaryLimitMap X s p i B hX ≫ (etaleCurveCone X B hX s p).π.app a := by
+  change pullback.lift _ _ _ ≫ etaleBoundaryBaseChangeMap _ p i =
+    etaleBoundaryBaseChangeMap _ p i ≫ pullback.lift _ _ _
   apply pullback.hom_ext
-  · change _ ≫ pullback.fst ((smallEtaleNeighborhoodOver X s).obj a).hom p = _
-    simp only [Category.assoc, etaleBoundaryDiagramMap, etaleBoundaryLimitMap,
-      etaleBoundaryBaseChangeMap_fst, etaleBoundaryBaseChangeMap_fst_assoc,
-      etaleCurveCone_π_fst]
-  · change _ ≫ pullback.snd ((smallEtaleNeighborhoodOver X s).obj a).hom p = _
-    simp only [Category.assoc, etaleBoundaryDiagramMap, etaleBoundaryLimitMap,
-      etaleBoundaryBaseChangeMap_snd, etaleBoundaryBaseChangeMap_snd_assoc,
-      etaleCurveCone_π_snd, etaleCurveCone_π_snd_assoc]
+  · simp only [etaleBoundaryBaseChangeMap, Category.assoc, pullback.lift_fst,
+      pullback.lift_fst_assoc]
+  · simp only [etaleBoundaryBaseChangeMap, Category.assoc, pullback.lift_snd,
+      pullback.lift_snd_assoc]
 
 /-- The original cone-vertex boundary map is the actual strict-local base change. -/
 theorem etaleBoundaryLimitMap_isPullback :

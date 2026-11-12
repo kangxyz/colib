@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.FramedPairAction
 public import Colib.AlgebraicGeometry.Correspondences.Divisors.GeometricFramedMovingRelation
+public import Colib.AlgebraicGeometry.Sites.Smooth.Noetherian
 
 /-!
 # Original section graph actions from a descended framed pair
@@ -94,8 +95,7 @@ theorem transfer_framed_section_pair_eq
   intro hcompat
   let : IsAffine ((𝟭 Scheme).obj A.left) := ‹IsAffine A.left›
   let : IsIntegral ((𝟭 Scheme).obj A.left) := ‹IsIntegral A.left›
-  let : IsNoetherian A.left := PrincipalBoundary.base_isNoetherian
-    (show A.left ⟶ Spec (.of K) from A.hom)
+  let : IsNoetherian A.left := inferInstance
   let : IsNoetherian ((𝟭 Scheme).obj A.left) := ‹IsNoetherian A.left›
   have := sectionKernel_cartier_of_factor q j σ hσ σU hσU
   have := sectionKernel_cartier_of_factor q j τ hτ τU hτU
