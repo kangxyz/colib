@@ -40,12 +40,12 @@ local instance (I : Type) : HasColimitsOfShape (Discrete I) (PresheafWithTransfe
   exact hasColimitsOfShape_of_closedUnderColimits (Discrete I)
     (additiveFunctor (Cor k)ᵒᵖ AddCommGrpCat.{v})
 
-local instance (K : HomologicalComplex₂ (PresheafWithTransfers.{v} k) c c) :
+instance (K : HomologicalComplex₂ (PresheafWithTransfers.{v} k) c c) :
     K.HasTotal c := fun i =>
   HasColimitsOfShape.has_colimit
     (Discrete.functor (K.toGradedObject.mapObjFun (ComplexShape.π c c c) i))
 
-local instance : (singularCochainFunctor 0 : PresheafWithTransfers.{v} k ⥤
+instance : (singularCochainFunctor 0 : PresheafWithTransfers.{v} k ⥤
     CochainComplex (PresheafWithTransfers.{v} k) ℤ).Additive := by
   unfold singularCochainFunctor
   infer_instance
