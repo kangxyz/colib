@@ -1719,6 +1719,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSectio
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionPulledRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStageAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionStep
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
