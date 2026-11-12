@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1087"
+title = "Descent of actual tensor-power roots"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 96
+primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_tensorPower_root_of_isLimit"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(D:I\to\mathrm{Sch}\) be a small cofiltered diagram of quasi-compact,
+quasi-separated schemes with affine transition morphisms, and let \(X\) be
+its specified limit. Fix a stage \(i\), a finitely presented module
+\(L_i\), an invertible module \(M\) on \(X\), an exponent \(n\geq 0\),
+and an actual isomorphism \(M^{\otimes n}\simeq\pi_i^*L_i\).
+There is a stage above \(i\) carrying an actual invertible root of the
+pullback of \(L_i\). The refined statement retains a model of the original
+\(M\), both transition morphisms, and the exact equation identifying the
+descended power isomorphism with the specified original one under the
+native pullback and tensor-power comparisons.
+'''
+proof = '''
+Restrict the diagram to the over category of the specified stage. Its
+forgetful functor is initial, so the same cone remains limiting. Descend
+the actual invertible module using the unconditional native supplier
+[@stacks, Tag 0B8W(2)]. Compare its tensor power with the original limit
+root and descend this particular isomorphism using canonical morphism
+descent and eventual reflection of invertibility. Compose with the native
+pullback/tensor-power comparison to obtain a root at the later stage.
+The canonical isomorphism equation yields the displayed original-map
+compatibility without assuming a tensor-power composition coherence law.
+'''
+scope = '''
+The index category and schemes share one universe. The specified target
+module needs only finite presentation. The nonnegative exponent includes
+every positive-power root. Supporting results descend finite families of
+actual morphisms and sections with all canonical equations, and descend
+a specified isomorphism with any finite family of prescribed morphism or
+section equations at one common transition. No reducedness hypothesis or
+stage root is assumed. This is a theorem on a specified compatible qcqs
+scheme diagram, not construction of that diagram for a compactified curve.
+A compatible full-boundary frame, its power equation, geometric zero schemes,
+and the final rigidity theorem remain separate steps.
+'''

@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1095"
+title = "Conservative closed geometric neighborhoods on the smooth etale site"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 39
+primary = "AlgebraicGeometry.Scheme.SmoothSite.isIso_iff_closedResidueGeometricNeighborhoodValue"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be a quasi-separated Jacobson scheme in universe \(u\), in particular
+\(S=\operatorname{Spec}k\) for any field \(k\). For every original smooth
+separated finite-type object \(X/S\) and every closed point \(x\in X\), choose
+\(s_x:\operatorname{Spec}\overline{\kappa(x)}\to X\) using the native
+residue-field geometric point. The corresponding actual affine etale neighborhood
+points form a conservative subfamily of COL-1085, small in universe \(u+1\).
+
+A morphism \(f:F\to G\) of ordinary \(\mathrm{Ab}_{u+1}\)-valued sheaves on the
+original smooth etale site is an isomorphism if and only if its original
+neighborhood-value map at every \(s_x\), with \(x\) closed, is an isomorphism.
+Equivalently, it suffices to test all native geometric markings with closed image.
+'''
+proof = '''
+Consider a sieve \(R\) whose action on each selected point fiber is surjective.
+Refining a represented neighborhood germ gives an actual etale arrow in \(R\)
+through each closed point \(z\) of \(X\). Local finite type over a Jacobson base
+makes \(X\) Jacobson. For any \(x\in X\), closed-point density in
+\(\overline{\{x\}}\) gives a closed specialization \(z\) of \(x\). The selected
+etale arrow through \(z\) has open image, which therefore also contains \(x\).
+The same arrows are thus jointly surjective and generate an original smooth etale
+covering sieve contained in \(R\). The native conservative-family criterion
+proves conservativity, and native joint reflection of isomorphisms gives the
+abelian-group sheaf criterion.
+'''
+scope = '''
+All closed points are used, not just rational points. The field-base case has no
+algebraic-closedness hypothesis. Native algebraic closures of residue fields and
+original marked affine neighborhood maps are retained, so COL-1082 applies
+directly to each selected marking. Schemes and marking fields lie in universe
+\(u\); the family, point fibers and coefficients lie in \(u+1\). The
+closed-point restriction is proved conservative by an original covering-sieve
+argument, not by a formal appeal to the larger all-point family. This does not
+identify a strict stalk with an affine-origin evaluation, compute an adjunction
+counit, or prove Suslin rigidity.
+'''

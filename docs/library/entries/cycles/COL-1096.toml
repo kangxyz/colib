@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1096"
+title = "Original ambient principal support cuts at zero and one"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 230
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.ambientPrincipalSupportCuts_zero_one"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Under COL-1092's original curve, nonzero section and affine-chart hypotheses,
+assume also that the original curve and its integral polynomial ambient are
+locally Noetherian. At an original chart point of coheight one, sum the
+original ambient principal-cycle coefficients times their full support-cut
+lengths through the original scalar endpoint. The signed sum is zero at zero
+and the original curve order at one. The rational function, ambient supports,
+endpoint equation and curve point are unchanged.
+'''
+proof = '''
+For an actual open immersion, the native principal-cycle restriction theorem
+identifies the nonzero coefficients. Openness gives a bijection on the original
+supports specializing to the selected point. The induced open immersion on each
+integral support identifies actual stalk rings and full parameter quotients,
+so their lengths agree. Reindexing by this exact bijection preserves the signed
+sum. The actual polynomial-chart map commutes with the scalar endpoint and
+pulls back its literal equation. Apply COL-1092, then native order invariance
+under the original open curve chart.
+'''
+scope = '''
+No arbitrary finite-support or Fubini assertion is used: exact support
+bijections reindex the `finsum`. The actual global ambient function and original
+curve order remain in the conclusion. Coheight one remains explicit here and
+is supplied by COL-1090 for the relevant original support endpoints. Identifying
+these sums with the whole source endpoint fundamental-cycle coefficients remains
+a separate step.
+'''

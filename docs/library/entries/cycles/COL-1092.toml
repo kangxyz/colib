@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1092"
+title = "Original chart principal supports at zero and one"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 220
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.chartPrincipalSupportCuts_zero_one"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(W\hookrightarrow C\) and \(U\hookrightarrow C\) be open immersions of
+integral schemes over a field, with \(U\) affine Noetherian, both required
+polynomial ambients integral, and the polynomial ambient over \(U\) Noetherian.
+For a nonzero section \(f\in\Gamma(W,\mathcal O_W)\) whose original ambient
+unit open is nonempty, and \(x\in U\) of coheight one, sum the original chart
+principal-cycle coefficients times the full support-cut lengths through the
+literal scalar endpoint at \(x\). The signed sum is zero at scalar zero and
+is \(\operatorname{ord}_x(f)\) at scalar one, using the actual restriction of
+the original curve rational function.
+'''
+proof = '''
+COL-1056 constructs an actual fraction of the original function on the affine
+chart and identifies its polynomial numerator and denominator. COL-1080
+reindexes the local-prime sum by the original chart principal supports.
+COL-1078 evaluates the same signed full-cut expression at zero and one.
+The resulting original principal-support sum needs no caller-supplied fraction.
+'''
+scope = '''
+The coheight-one condition is explicit in this local statement. COL-1090
+supplies it for the actual retained polynomial support endpoints. Every cut
+uses the full quotient length, not the reduced support. This is not yet the
+whole ambient support sum or the final endpoint correspondence equality.
+'''

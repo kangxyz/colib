@@ -1,0 +1,55 @@
+[entry]
+id = "COL-1091"
+title = "Both radicial graph-transfer degree identities"
+kind = "theorem"
+section = "finite-correspondences"
+order = 66
+primary = "AlgebraicGeometry.Cor.graph_comp_finiteFlatTranspose_of_universallyInjective"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be a field and \(q:X\to Y\) a finite flat universally injective morphism
+between integral objects of the original smooth separated finite-type site.
+Let \(d=[\kappa(\eta_X):\kappa(\eta_Y)]\) be its full generic residue degree.
+The native graph and the transposed graph constructed in COL-1088 satisfy both
+actual correspondence identities
+\[\Gamma_q\circ{}^t\Gamma_q=d\,\mathrm{id}_Y,
+\qquad {}^t\Gamma_q\circ\Gamma_q=d\,\mathrm{id}_X.\]
+For every existing presheaf with transfers, its graph pullback and the transfer
+along this actual transpose have both composites equal to multiplication by
+\(d\) on the original section groups.
+
+More generally, for every finite universally injective morphism between original
+smooth-site objects, its graph is a monomorphism in the native correspondence
+category. This latter conclusion needs neither flatness nor integrality.
+'''
+proof = '''
+Every point of the scheme-theoretic fiber of a finite morphism is closed, so its
+original residue-field extension is finite and has positive finrank. When the
+point map is injective, the native finite-pushforward coefficient at an image
+point is the original coefficient times this nonzero full residue degree.
+Cancellation in the integers proves injectivity on the existing cycle group.
+
+Universal injectivity applies to the product map \(\mathrm{id}_T\times q\)
+for every original smooth source \(T\). Native graph postcomposition equals
+that product map's finite pushforward, so the graph is mono in the actual
+correspondence category. Write \(g=\Gamma_q\) and \(t={}^t\Gamma_q\).
+COL-1088 gives \(g\circ t=d\,\mathrm{id}_Y\). Associativity and integer
+bilinearity show \(g\circ(t\circ g)=g\circ(d\,\mathrm{id}_X)\), and
+monicity of \(g\) yields the other identity. The existing additive contravariant
+transfer functor carries it to the opposite section-group equation.
+'''
+scope = '''
+The cycles, graph functor, categorical identities, and incidence Tor composition
+are the original native constructions. Full inseparable residue degrees are
+retained. The proof determines the entire actual Tor composite, including its
+nilpotent multiplicities, by injective pushforward; it does not replace the
+self-fiber product by its reduction or assert that its two projections agree as
+scheme morphisms. This is not a separate local-ring-length computation for the
+self-fiber product. The graph-monomorphism result allows empty and disconnected
+objects; both scalar degree formulas retain integrality of the original source
+and target. No relative-Frobenius producer, prime-inverted field-change
+equivalence, perfection continuity, or final Suslin rigidity is claimed.
+The MVW citation records the graph, transpose, composition, and degree prototype,
+not a verbatim radicial double-composition statement in that text.
+'''

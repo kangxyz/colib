@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1097"
+title = "Original whole source endpoint cycles and signed support cuts"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 240
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.signedSourceEndpointCycle_apply"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(C\to X\to\operatorname{Spec}k\) be scheme maps over a field, with
+\(C\) Noetherian and its polynomial ambient integral and Noetherian. For a
+rational function on that ambient and any scalar endpoint, form the finite
+signed sum of the whole source-support endpoint fundamental cycles, pushed
+to the original curve \(C\). At every original curve point its coefficient
+is the sum of the unchanged ambient principal-cycle coefficients times the
+full original support-cut lengths through that scalar endpoint.
+
+If \(C\) and the original open section source are integral, the original
+section is nonzero, and its actual ambient unit open is nonempty, then these
+whole signed source cycles have coefficient zero at endpoint zero and the
+original curve order at endpoint one at every point of coheight one.
+'''
+proof = '''
+The literal scalar endpoint has an isomorphic projection to the original
+curve. Base change of each original closed integral support therefore gives
+an actual closed immersion of its whole endpoint into that curve. Its stalk
+and full quotient comparison identify every fundamental-cycle coefficient
+with the original parameter-cut length, including the off-image zero case.
+Finite summation over the actual principal-cycle support then gives the
+whole signed coefficient formula. At a coheight-one curve point, choose an
+actual affine chart internally and apply COL-1096 with its unchanged ambient
+function and original curve order.
+'''
+scope = '''
+Every-point coefficient equality concerns the full native AlgebraicCycle on
+the original curve. Coefficients use the native extended-natural length
+followed by `toNat`: an infinite length at a nongeneric endpoint point becomes
+zero via `ENat.toNat_top`. This does not claim every support cut has finite length. No residue-degree, image collision, multiplicity or sign
+is omitted. Finiteness is supplied by the original principal-cycle support.
+No genericity or coheight condition is needed for the coefficient comparison;
+the zero/one order conclusion explicitly assumes original curve coheight one.
+Proving that all contributing endpoint supports have that codimension, and
+transporting through the original outer map to obtain the full endpoint
+correspondence equality, remain separate steps.
+'''

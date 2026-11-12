@@ -55,7 +55,7 @@ theorem exists_schemeTensorPower_iso_relativeSectionKernel_differenceSheaf
     (smoothOfRelativeDimension_isStableUnderBaseChange 1).of_isPullback
       (isPullback_closedFibre R q) inferInstance
   have : Smooth (closedFibreProjection R q) :=
-    SmoothOfRelativeDimension.smooth (n := 1)
+    SmoothOfRelativeDimension.smooth 1 (closedFibreProjection R q)
   have : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
   let s₀ : Spec (.of (IsLocalRing.ResidueField R)) ⟶ closedFibre R q :=
     Scheme.baseChangedSection q (residueFieldPoint R) s hs

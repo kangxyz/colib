@@ -1,0 +1,54 @@
+[entry]
+id = "COL-1093"
+title = "Split pullback at affine-space origins"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 45
+primary = "AlgebraicGeometry.Scheme.SmoothSite.affineSpaceOriginProjectionPullback_zeroSection"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be a field and \(F\) an abelian-group presheaf on the original smooth
+site over \(k\), with values in universe \(u+1\). Mark the rational origin of
+\(\mathbb A_k^d\) by \(\operatorname{Spec}\overline{k}\), using the native
+algebraic closure. Write \(V_d(F)\) for the original marked affine étale
+neighborhood value of COL-1057. Dropping the first coordinate and inserting
+zero in that coordinate induce maps
+\(p_d^*:V_d(F)\to V_{d+1}(F)\) and
+\(s_d^*:V_{d+1}(F)\to V_d(F)\), with
+\(s_d^*p_d^*=\mathrm{id}_{V_d(F)}\).
+
+More generally, a morphism \(f:X\to Y\) between affine smooth-site objects
+with compatible separably closed markings induces contravariant pullback on
+their original neighborhood values. For an original marked affine neighborhood
+\(U\to Y\), form the actual fiber product \(P=X\times_Y U\), represented by
+\(\operatorname{Spec}\Gamma(P,\mathcal O_P)\) through its canonical affine
+isomorphism. If \(q:P\to U\) is the original projection, pullback takes
+\([U,a]\) to \([P,F(q)(a)]\). The same formula holds for every map of
+original neighborhoods compatible with the base and markings. Identity and
+composition hold as equalities of the resulting group homomorphisms.
+'''
+proof = '''
+Affineness makes the actual fiber product an affine neighborhood. Its marking
+is the pullback lift of the given source marking and the original neighborhood
+marking. Every compatible neighborhood map factors through this pullback,
+and the COL-1057 cocone equation identifies the corresponding representative
+maps. These maps therefore form a cocone, whose descent gives the value
+pullback. The factorization formula proves identity and contravariant
+composition on all original representatives. Native affine-space coordinate
+formulas prove that the zero-section followed by the projection is the identity
+and that both preserve the algebraic-closure marking of the rational origin.
+Contravariant composition then gives the displayed split composite.
+'''
+scope = '''
+The objects, diagrams, marking maps and value cocones are the originals from
+COL-1057. The algebraically closed marking is a native geometric point and is
+accepted unchanged by the strict henselization limit of COL-1082. All schemes
+and marking fields lie in universe \(u\), and presheaf values lie in \(u+1\).
+The general construction requires a quasi-separated base and affine source
+and target smooth-site objects. No homotopy invariance, torsion condition,
+transfer extension to arbitrary henselian schemes, continuity hypothesis or
+rigidity input is assumed. The reverse composite is not proved: identifying
+it with the identity still requires the representative-specific relative
+curve and same-fiber rigidity argument in the henselian dimension induction.
+'''

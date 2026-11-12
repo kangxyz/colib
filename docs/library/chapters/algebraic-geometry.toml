@@ -109,16 +109,36 @@ sieve detected by these points, proving conservativity. Thus ordinary
 abelian sheaf isomorphisms are detected on the actual neighborhood values,
 with the same native markings used in COL-1082.
 '''
+COL-1095 = '''
+Over a Jacobson base, closed points suffice. A closed specialization lies
+in an actual etale image, and openness carries that image back to every
+generalization. These same arrows form the original covering sieve, proving
+conservativity of the closed residue-geometric subfamily.
+'''
+
 COL-1060 = '''
 The full small etale site contains objects outside the finite-type smooth
 category. Use its genuine separated finite-type basis and affine cover
 density to compare sheaves while retaining literal restriction.
+'''
+COL-1093 = '''
+Use actual Cartesian affine neighborhoods to pull back their original values.
+At the algebraically marked rational origins of affine spaces, the coordinate
+projection and zero-section give a split pair. Their formulas on each original
+representative isolate the reverse composite needed for dimension induction.
 '''
 COL-1061 = '''
 Insert this basis equivalence into the actual extension/restriction
 adjunction. Its canonical unit and counit remain the original Kan and
 sheafification maps; proving the counit invertible for HI torsion transfers
 is the remaining rigidity assertion, not a consequence of the adjunction alone.
+'''
+
+COL-1099 = '''
+Normalize this actual counit on the original marked neighborhood values.
+Its Kan generators map by the original presheaf restriction, and these
+values identify with native small-site stalks on the same smooth object.
+Identifying the source with the base geometric-point value is a further step.
 '''
 
 [[sections]]
@@ -231,6 +251,13 @@ and the original tensor-power equation. For sections with the same
 closed-fibre morphism, the actual difference is already the unit module
 on that fibre. The direct proper Kummer route then needs smoothness only
 on the open containing their images.
+'''
+
+COL-1087 = '''
+An actual tensor root on a specified qcqs inverse limit descends to a finite
+stage. Native unconditional invertible descent supplies its module; finite
+morphism and equation descent preserve the original power isomorphism and
+its canonical comparison square. Boundary frames remain separate data.
 '''
 
 [[sections]]

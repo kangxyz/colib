@@ -16,6 +16,20 @@ open Stacks.SheafOfModules.Invertible
 
 universe u
 
+/-- The actual closed-fibre projection retains all three required geometric instances. -/
+example (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
+    {X : Scheme.{u}} (q : X ⟶ Spec (.of R)) [IsProper q]
+    [SmoothOfRelativeDimension 1 q] :
+    Smooth (closedFibreProjection R q) ∧ IsProper (closedFibreProjection R q) ∧
+      SmoothOfRelativeDimension 1 (closedFibreProjection R q) := by
+  have : SmoothOfRelativeDimension 1 (closedFibreProjection R q) :=
+    (smoothOfRelativeDimension_isStableUnderBaseChange 1).of_isPullback
+      (isPullback_closedFibre R q) inferInstance
+  have : Smooth (closedFibreProjection R q) :=
+    SmoothOfRelativeDimension.smooth 1 (closedFibreProjection R q)
+  have : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
+  exact ⟨inferInstance, inferInstance, inferInstance⟩
+
 /-- Composite exponent, with no supplied Picard class or closed-fibre tensor root. -/
 example (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
     {X : Scheme.{u}} (q : X ⟶ Spec (.of R)) [IsProper q]

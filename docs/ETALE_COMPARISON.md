@@ -269,6 +269,57 @@ correspondence, native compilation and independent mathematical review are
 different checks; a source candidate or an item entry is not a completed
 whole-program validation report.
 
+- COL-1088 constructs the whole finite-flat transpose in the existing
+  correspondence category and proves its actual graph-transfer degree
+  identity. COL-1091 proves injectivity of finite pushforward under universal
+  injectivity, then cancels the original graph to obtain the opposite
+  identity. Full inseparable residue degrees are retained, without replacing
+  the self-fiber product by its reduction.
+- COL-1094 proves that the full radicial residue degree is a power of the
+  original field's exponential characteristic and constructs the actual
+  inverse of the original graph pullback on prime-to-characteristic torsion
+  sections. The inverse is a native Bezout coefficient times the actual
+  transpose transfer. This does not yet supply field-change equivalence.
+- COL-1089 identifies the whole original endpoint graph pairing with the
+  signed sum of full original source endpoint fundamental cycles. COL-1090
+  derives the original curve and chart coheight from generic-fiber smooth
+  dimension and the actual finite dominant endpoint support. COL-1092
+  evaluates the original chart support-cut sums at zero and one; COL-1096
+  transports them to the original ambient supports and original curve order.
+  Their assembly into the final global endpoint correspondence identity
+  remains separate.
+- COL-1095 proves conservativity of the closed residue-geometric point
+  subfamily over every quasi-separated Jacobson base, in particular any
+  field. Actual closed specialization and open etale images construct the
+  original covering sieve. This does not yet compute a rigidity stalk or
+  the canonical small/smooth counit.
+
+- COL-1087 descends an actual invertible tensor root and its specified
+  power isomorphism from a qcqs inverse limit to a common finite stage.
+  The canonical comparison square and finite prescribed section equations
+  are retained. The full boundary-frame diagram is a further descent step.
+- COL-1093 constructs actual pullback of affine neighborhood values and the
+  original affine-space projection/zero-section split maps. Both formulas
+  on original representatives and the native algebraic-closure origin
+  markings are retained. The reverse composite remains the S1/S2 task.
+
+- COL-1097 identifies the full signed source endpoint cycle coefficient
+  at every original curve point with the original ambient support-cut sum.
+  An internally chosen affine chart gives zero and the original curve order
+  at coheight-one points. The remaining global equality must prove that all
+  contributing supports have that codimension and preserve the outer map.
+
+- COL-1098 constructs the original smooth relative Frobenius and its
+  native twist over any positive-characteristic field. Actual finiteness,
+  flatness, universal injectivity and integral twist supply COL-1094's
+  hypotheses, giving the original n-torsion PST restriction isomorphism.
+  This is still objectwise, not the purely inseparable field-change theorem.
+- COL-1099 identifies the actual canonical counit on marked neighborhood
+  values with the original Kan counit. On generators it is the unchanged
+  original restriction map. Native small-site stalks on that same smooth
+  object agree with these values. The stronger base-source point comparison
+  and final rigidity are separate.
+
 ## Remaining mathematical chain
 
 The required henselian section comparison is the same-specialization case:
@@ -324,9 +375,11 @@ root route at source level; its high-level compilation is still pending.
    the original finite-image coefficients. COL-1074 retains every original
    support, both finite residue degrees and all outer image collisions in
    the whole pairing. COL-1077 and COL-1078 compute the original signed local weights,
-   and COL-1080 reindexes the actual principal-cycle supports. Complete
-   the incidence/source-fiber and residue-degree assembly to identify
-   the whole endpoint cycles. COL-1036 supplies the final
+   and COL-1080 reindexes the actual principal-cycle supports. COL-1089
+   identifies the whole pairing with the original source endpoint cycles;
+   COL-1090 supplies original chart coheight, and COL-1092 and COL-1096
+   give the actual chart and ambient support-cut zero/one values. Assemble
+   these into the final original endpoint correspondence equality. COL-1036 supplies the final
    ordinary HI/torsion action consumer once the actual family and moving
    relation are constructed. A full framed Picard group or general Picard
    pairing is not needed if this concrete identity proves section comparison.
@@ -339,16 +392,21 @@ root route at source level; its high-level compilation is still pending.
    the actual affine-neighborhood limit with native strict henselization
    and preserves the original base and marking. Descend finite
    presentation data to a common stage, prove the henselization induction
-   and pass to a conservative family of etale stalks. Handle the
-   arbitrary-field inseparable comparison separately;
+   and pass to the conservative closed geometric point family supplied by
+   COL-1095. COL-1088 and COL-1091 give both actual radicial transfer
+   degree identities. Complete the arbitrary-field inseparable comparison
+   separately;
    do not silently retain a perfect-field assumption in the final target.
 5. COL-1060 and COL-1061 supply the actual full-small/smooth ordinary
    adjunction, separately from COL-1033 on the same smooth category.
-   Prove its counit invertible for the HI torsion transfer sheaf, then
-   extend to the required transfer and derived constructions, preserving the
-   finite-coefficient cone, and connect the existing signed motivic complex
-   to the native small-site coefficients. The integral and finite weight-one
-   field equivalences already in Colib are not themselves this comparison.
+   Prove its canonical counit invertible for the original HI n-torsion
+   transfer presheaf after actual etale sheafification, for every field k
+   and every positive n invertible in k. This is the fixed-exponent
+   MVW 7.20-type target of the attached rigidity plan. A derived or motivic
+   comparison, including the finite-coefficient cone and signed motivic
+   complex, is a downstream application rather than an extra completion
+   condition for this rigidity theorem. The existing weight-one field
+   equivalences are not themselves this small/smooth counit assertion.
 
 The old plan's independent formal-functions/proper-base-change development is
 not part of this route: the required unconditional theorem is already in the

@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1088"
+title = "Finite flat transposes and transfer degree"
+kind = "theorem"
+section = "finite-correspondences"
+order = 65
+primary = "AlgebraicGeometry.Cor.finiteFlatTranspose_comp_graph_of_isIntegral"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be a field, let \(X,Y\) be the original smooth separated finite-type
+\(k\)-schemes, and let \(q:X\to Y\) be finite and flat. The literal map
+\((q,\mathrm{id}_X):X\to Y\times_k X\) sends the full native fundamental cycle
+\([X]\) to a finite correspondence \({}^t\Gamma_q:Y\rightsquigarrow X\).
+Its composite with the original graph satisfies
+\[\Gamma_q\circ{}^t\Gamma_q=(\Delta_Y)_*q_*[X].\]
+If \(X\) and \(Y\) are integral, this is \(d\,\mathrm{id}_Y\), where
+\(d=[\kappa(\eta_X):\kappa(\eta_Y)]\) is the actual generic residue degree.
+For every existing presheaf with transfers \(F\), graph pullback followed by
+transfer along the constructed transpose is multiplication by \(d\) on \(F(Y)\).
+'''
+proof = '''
+The reversed graph is a closed immersion because its second projection is the
+identity and the target structure map is separated. Its first projection is
+exactly \(q\), so finiteness and flatness of the whole span prove admissibility
+of the fundamental-cycle pushforward. The native graph-postcomposition theorem
+identifies the composite with pushforward along the same support map followed
+by the target product map. Both product projections identify this actual
+composite map with \(q\) followed by the diagonal. Functoriality of finite cycle
+pushforward proves the full-cycle formula. For integral sources and targets,
+flatness carries the original generic point to the target generic point; the
+full fundamental cycle is its single prime and finite pushforward multiplies
+by the actual residue degree. The existing additive contravariant functor then
+carries this proved correspondence identity to the transfer-degree identity.
+'''
+scope = '''
+The construction and full-cycle formula allow empty and disconnected smooth
+objects. Their coefficients are the sums of actual generic stalk lengths times
+residue degrees. No reduced component is assumed flat. The scalar degree and
+presheaf identity retain explicit integrality of both objects. The degree is
+not replaced by its separable part or by one. The reversed order of composition for a radicial map is proved separately
+in COL-1091, using injective finite pushforward and native associativity. No purely inseparable field-change equivalence,
+relative-Frobenius producer, perfection continuity, or final rigidity follows
+from this item alone. The reference to Exercise 1.11 is an adaptation of its
+point-degree prototype to integral finite flat morphisms, not a verbatim claim.
+'''

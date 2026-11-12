@@ -1,0 +1,57 @@
+[entry]
+id = "COL-1098"
+title = "Original relative Frobenius on torsion transfers"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 17
+primary = "AlgebraicGeometry.PresheafWithTransfers.relativeFrobeniusIso"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be any field of positive prime characteristic \(p\), and let \(X\)
+be an integral object of its original smooth separated finite-type site. Its
+actual Frobenius twist \(X^{(p)}=X\times_{\operatorname{Spec}k,F_k} \operatorname{Spec}k\), with structure map the second projection, is another
+integral object of that same site. The native relative Frobenius
+\(F_{X/k}:X\to X^{(p)}\) is an actual morphism of the site, and is finite,
+flat and universally injective.
+
+For any original presheaf with transfers \(P\), suppose its section groups
+on \(X\) and \(X^{(p)}\) are annihilated by \(n\), with \(n\) invertible
+in \(k\). The original restriction
+\(F_{X/k}^*:P(X^{(p)})\to P(X)\) is an isomorphism, with the explicit
+full-degree Bezout-scaled transposed-graph transfer inverse of COL-1094.
+
+The geometric flatness supplier applies more generally to every smooth
+morphism \(X\to S\) in prime characteristic, without a global fixed-relative-
+dimension hypothesis.
+'''
+proof = '''
+Smoothness, separatedness and quasi-compactness of the twist follow from the
+actual native base change. Native relative Frobenius theorems supply finiteness
+and universal homeomorphism. In fixed relative dimension, native etale charts
+express the relative Frobenius locally as a pullback of the universal coordinate-
+power map, which is finite free and therefore flat. Standard-smooth neighborhoods
+supply a fixed relative dimension locally for a general smooth morphism.
+Frobenius naturality identifies the original restricted map with the local
+relative Frobenius followed by the twist of an open immersion. Flatness is local
+on the source, so these genuine maps prove global flatness.
+
+Over a field the actual twist is reduced by smoothness and irreducible by the
+native universal homeomorphism from integral \(X\), hence integral. These
+proved geometric facts discharge all map hypotheses of COL-1094. Its actual
+full-degree and two-composition argument constructs the required inverse.
+'''
+scope = '''
+No perfectness of \(k\), homotopy invariance, sheaf condition, externally supplied
+flatness, finite-flat certificate, twist-integrality certificate or global
+relative dimension is assumed. The original source, native pullback target and
+native relative Frobenius map are retained definitionally. The torsion statement
+retains integral \(X\) and annihilation on both original section groups.
+
+This is an objectwise relative Frobenius isomorphism. It is not a purely
+inseparable field-base-change equivalence, perfection continuity, a general
+statement for disconnected degrees, or the final arbitrary-field Suslin
+rigidity theorem. The flatness citation is the flatness conclusion and chart
+argument of Stacks 0FW2, extended by the proved local-dimension reduction;
+no de Rham trace conclusion is asserted.
+'''

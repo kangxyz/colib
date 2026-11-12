@@ -1,0 +1,56 @@
+[entry]
+id = "COL-1094"
+title = "Radicial pullback on prime-to-characteristic torsion"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 16
+primary = "AlgebraicGeometry.PresheafWithTransfers.radicialGraphIso"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be a field, \(P\) an original presheaf with transfers, and
+\(q:X\to Y\) a finite flat universally injective morphism between integral
+objects of the original smooth separated finite-type site. Suppose the two
+section groups \(P(X)\) and \(P(Y)\) are annihilated by \(n\), where
+\(n\) is invertible in \(k\). The original underlying-presheaf pullback
+\(q^*:P(Y)\to P(X)\) is an isomorphism. Its explicit inverse is
+\(a\,{}^t\Gamma_q^*\), with \(a=\operatorname{gcdA}(d,n)\) and
+\(d=[\kappa(\eta_X):\kappa(\eta_Y)]\) the full generic residue degree.
+There is also a version requiring only \(\gcd(d,n)=1\).
+
+For any finite universally injective scheme map \(f:A\to B\) with
+\(B\to\operatorname{Spec}k\), every actual full residue degree
+\([\kappa(a):\kappa(f(a))]\) is a power of the exponential characteristic
+of \(k\). In characteristic zero it is one. Hence every such degree is
+coprime to every natural number invertible in \(k\).
+'''
+proof = '''
+Universal injectivity gives pure inseparability for the original residue-field
+map. Finiteness makes its full finrank positive and finite. The actual structural
+map embeds \(k\) into the target residue field, transporting exponential
+characteristic. The native pure-inseparable finrank theorem proves the degree
+power formula. Prime-to-characteristic invertibility then gives coprimality.
+
+The original graph restriction and actual transposed-graph transfer have both
+composites equal to \(d\) times the identity by COL-1088 and COL-1091. Bezout's
+identity \(d a+n b=1\), together with the assumed annihilation by \(n\),
+turns their composite with the explicit scalar \(a\) into the identity on
+each original section group. These are the two inverse equations of an actual
+isomorphism in the native category of abelian groups.
+'''
+scope = '''
+No homotopy-invariance or sheaf hypothesis is used. Only annihilation on the two
+original section groups is required; a globally n-torsion presheaf is therefore
+a special case. The source and target remain the original integral smooth-site
+objects. The coefficient is the full degree of the original residue-field map,
+not its separable degree. No composition identity is assumed and no replacement
+carrier or cycle model is introduced. The supplied residue-degree theorem does
+not need smoothness, flatness or integrality.
+
+This is an objectwise prime-to-characteristic torsion result for finite flat
+radicial maps. A relative-Frobenius producer on the original smooth site,
+disconnected-component extension, purely inseparable field-base-change
+equivalence, perfection continuity and final Suslin rigidity remain separate
+obligations. The MVW reference records the underlying transfer and degree
+prototype, not a verbatim assertion of this explicit Bezout inverse.
+'''

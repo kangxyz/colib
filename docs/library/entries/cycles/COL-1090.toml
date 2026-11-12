@@ -1,0 +1,50 @@
+[entry]
+id = "COL-1090"
+title = "Original-source codimension over a generic smooth fiber"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 225
+primary = "AlgebraicGeometry.Scheme.coheight_eq_of_image_mem_genericPoints_finite_closed_support"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let q : V → S be separated and smooth of relative dimension n, with S
+reduced, and let i : D → V be a closed immersion whose composite with q
+is finite. If q(i(x)) is a generic point of S, then i(x) has coheight n
+in the original scheme V. For n = 1, this genericity condition is
+equivalent to original-source coheight one.
+
+For an integral finite dominant support closed in a retained polynomial
+family over an integral affine smooth base, every generic point of its
+literal scalar endpoint has the predicted codimension in the original
+smooth endpoint. The canonical open endpoint projection carries that
+codimension to the original curve and its original open charts. In the
+retained relative-curve case their actual chart point has coheight one.
+'''
+proof = '''
+The base stalk at a generic point of a reduced scheme is a field. Its
+maximal ideal therefore extends to zero, and the native quotient-to-fiber
+stalk equivalence identifies the original source stalk with the actual
+fiber stalk, compatibly with the fiber inclusion and its point transport.
+The finite closed support gives a finite residue extension and hence a
+closed point of the fiber. Smooth relative dimension n then gives stalk
+dimension n. In relative dimension one the converse is the existing
+codimension-one dominance theorem. COL-1084 places the literal support
+endpoint generically over the original base. Cartesian pasting proves
+that the whole product endpoint projects isomorphically to the original
+curve, and that an arbitrary retained open endpoint projects openly.
+Native open-immersion codimension invariance finishes the transport to
+the original curve and its chart.
+'''
+scope = '''
+The result concerns the point in V, not a point in a finite image support.
+No flatness, reducedness or normality of D, Noetherianity of V, ambient
+integrality, or codimension certificate is assumed. Lower variants take
+closedness in the actual fiber or a finite residue extension directly.
+The lower generic-fiber theorem has an explicit base-genericity condition;
+the exact polynomial-endpoint specialization obtains it internally from
+COL-1084. Its endpoint-to-curve open immersion is constructed, not supplied
+as a premise. The actual support, retained inclusion, curve projection
+and chart point identification remain unchanged. This supplies the
+codimension prerequisite of COL-1078, not the final signed cycle identity.
+'''

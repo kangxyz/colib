@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1089"
+title = "Original endpoint graphs and full signed source endpoint cycles"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 210
+primary = "Stacks.Chow.PrincipalBoundary.correspondence_endpointGraph_eq_sourceEndpointCycles"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(X\) be an integral affine smooth separated scheme over a field \(k\),
+let \(Y/k\) be smooth and separated, and let the original proper integral
+Noetherian relative curve over \(\mathbb A^1_X\) carry a quasi-affine retained
+open, smooth of relative dimension one, with its given map to \(Y\).
+For a function invertible on a nonempty neighborhood of the whole complement,
+the actual signed principal correspondence paired with the original scalar
+endpoint graph equals the finite sum of the full source-support endpoint
+fundamental cycles, pushed by their original maps to \(X\times_kY\) and
+multiplied by the unchanged signed principal orders.
+'''
+proof = '''
+The actual Cartesian endpoint squares identify source and image fiber points.
+Transported stalk quotients retain the entire endpoint length, including
+nilpotents. The finite norm and residue-degree tower identify the pushforward
+of each full source endpoint fundamental cycle with the generic-degree-weighted
+image endpoint cycle. COL-1086 identifies the actual incidence Tor cycle with
+that image fundamental cycle. Native finite pushforward and finite additivity
+then sum every original signed support. Integrality of \(X\) identifies its
+whole endpoint graph with its sole generic-component graph.
+'''
+scope = '''
+This is literal equality in the original native cycle group before any
+rational-equivalence quotient. Both residue-degree factors and all coincident
+outer images are retained. Finite support comes from the native fundamental
+cycle, not from an arbitrary weighting of a `finsum`. The right side still
+consists of source endpoint cycles; this item alone does not evaluate their
+zero and one values as the original curve divisor or prove rigidity.
+'''

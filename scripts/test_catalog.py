@@ -642,6 +642,19 @@ class LibraryTests(unittest.TestCase):
             "COL-1084": "Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialEndpointFiberMap",
             "COL-1086": "Colib.AlgebraicGeometry.Correspondences.Principal.GraphEndpointFundamentalCycle",
             "COL-1085": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.EnoughPoints",
+            "COL-1088": "Colib.AlgebraicGeometry.Correspondences.Graph.Transpose",
+            "COL-1089": "Colib.AlgebraicGeometry.Correspondences.Principal.BoundaryEndpointCycles",
+            "COL-1090": "Colib.AlgebraicGeometry.Morphisms.Smooth.GenericFiberCodimension",
+            "COL-1091": "Colib.AlgebraicGeometry.Correspondences.Graph.RadicialTranspose",
+            "COL-1092": "Colib.AlgebraicGeometry.Correspondences.Principal.ChartPrincipalSupportCuts",
+            "COL-1095": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.ClosedPoints",
+            "COL-1094": "Colib.AlgebraicGeometry.PresheavesWithTransfers.RadicialTorsion",
+            "COL-1093": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.AffineSpaceInduction",
+            "COL-1087": "Colib.AlgebraicGeometry.Modules.Invertible.LimitRoot",
+            "COL-1096": "Colib.AlgebraicGeometry.Correspondences.Principal.AmbientPrincipalSupportCuts",
+            "COL-1097": "Colib.AlgebraicGeometry.Correspondences.Principal.PrincipalEndpointSourceCycle",
+            "COL-1098": "Colib.AlgebraicGeometry.PresheavesWithTransfers.RelativeFrobenius",
+            "COL-1099": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitNeighborhoods",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -688,8 +701,8 @@ class LibraryTests(unittest.TestCase):
 
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
-            "finite-correspondences": ([374, *range(363, 368)], ["COL-0374", "COL-0366"]),
-            "transfers-nisnevich": ([368, 1036, *range(369, 374)],
+            "finite-correspondences": ([374, *range(363, 368), 1088, 1091], ["COL-0374", "COL-0366"]),
+            "transfers-nisnevich": ([368, 1036, 1094, 1098, *range(369, 374)],
                                      ["COL-0368", "COL-0370", "COL-0372"]),
         }
         for section_id, (numbers, starts) in expected.items():
@@ -944,8 +957,8 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("one neighborhood at each specified source point", transfers)
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
-        self.assertEqual(cor.count('class="section-transition"'), 6)
-        self.assertEqual(transfers.count('class="section-transition"'), 7)
+        self.assertEqual(cor.count('class="section-transition"'), 8)
+        self.assertEqual(transfers.count('class="section-transition"'), 9)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', transfers)

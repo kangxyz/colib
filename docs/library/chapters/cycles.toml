@@ -58,6 +58,18 @@ already used by COL-0366. The Tor composition calculation for two such graphs
 gives the graph of their composite.
 '''
 
+COL-1088 = '''
+Reverse the original graph of a finite flat morphism using the whole fundamental
+cycle. Its full finite pushforward gives the actual transfer degree. Retain
+this entire degree, including its inseparable factor.
+'''
+COL-1091 = '''
+For a universally injective map, finite pushforward is injective because every
+residue-degree weight is nonzero. The graph is therefore mono. Cancel it in
+the already proved graph-transpose identity to obtain the opposite actual
+Tor-composition identity without replacing the self-fiber product by its reduction.
+'''
+
 [[sections]]
 id = "transfers-nisnevich"
 title = "Transfers and Nisnevich sheafification"
@@ -93,6 +105,18 @@ An additive functor on the opposite of the category in COL-0366 turns each
 signed correspondence into a homomorphism in the reverse direction. Its
 functoriality and additivity give the transfer composition and integer-linearity
 identities without changing the underlying cycles.
+'''
+COL-1094 = '''
+For prime-to-characteristic torsion, the full radicial residue degree is
+coprime to the exponent. Its native Bezout coefficient times the actual
+transpose transfer is an explicit inverse to the original graph pullback.
+No homotopy invariance is needed for this objectwise calculation.
+'''
+COL-1098 = '''
+The original smooth relative Frobenius supplies the finite, flat and
+universally injective map needed above, even over imperfect fields.
+Its native twist stays integral, so the actual prime-to-characteristic
+transfer inverse applies without a caller-supplied geometry certificate.
 '''
 COL-0369 = '''
 Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
@@ -354,4 +378,33 @@ At the literal endpoint, the actual Tor Euler coefficient equals the full
 incidence stalk length. The native incidence cycle therefore is the whole
 fundamental cycle, and its original graph-fiber isomorphism lets native
 finite pushforward carry all multiplicities and collisions at once.
+'''
+
+COL-1089 = '''
+Insert the original full source-fiber lengths and both residue degrees into
+COL-1086. Native finite pushforward now identifies the whole endpoint graph
+pairing with the signed sum of original source endpoint fundamental cycles.
+'''
+COL-1092 = '''
+On the actual affine curve chart, the original principal supports give zero
+at the zero endpoint and the original curve order at one. The fraction and
+polynomial identity are constructed, while coheight one is still explicit.
+'''
+COL-1090 = '''
+The actual finite dominant endpoint support lies over a generic base point.
+The generic-fiber stalk comparison and smooth relative dimension produce
+coheight one in the original retained curve and its actual chart.
+'''
+COL-1096 = '''
+Transport the entire signed support-cut sum through the actual open chart.
+Original ambient supports, full quotient lengths and the literal endpoint
+equation remain unchanged, giving the global ambient zero and one values.
+'''
+
+COL-1097 = '''
+The actual whole source-support endpoint is closed in the original curve.
+Its full fundamental-cycle coefficient is the original support-cut length,
+including off-image points. Finite signed summation identifies every original
+curve coefficient; an internally chosen affine chart evaluates coheight-one
+points at zero and one.
 '''

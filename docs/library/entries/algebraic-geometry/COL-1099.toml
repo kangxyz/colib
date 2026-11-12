@@ -1,0 +1,68 @@
+[entry]
+id = "COL-1099"
+title = "Canonical small-smooth counit on neighborhood stalks"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 51
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.fullSmallEtale_counit_representative"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be affine, let \(X,Y\) be original smooth separated finite-type
+objects over \(S\), and let \(\xi:\operatorname{Spec}\Omega\to Y\) have
+separably closed field \(\Omega\). For an ordinary
+\(\mathrm{Ab}_{u+1}\)-valued smooth etale sheaf \(F\), write \(i_X\)
+for the actual separated finite-type small-basis inclusion. The fiber of
+COL-1061's canonical full-small extension of the restriction of \(F\)
+identifies with the neighborhood value of
+\(L_XF=\operatorname{Lan}_{i_X^{\mathrm{op}}}(i_X^{\mathrm{op}}F)\).
+Under this isomorphism, the canonical counit is precisely the map on
+neighborhood values induced by the original Kan counit \(L_XF\to F\).
+
+For an actual marked affine neighborhood \(A\) of \(\xi\), a basis
+object \(U\), and a smooth-site morphism \(f:A\to i_XU\), the composite
+of the Kan unit on \(F(i_XU)\), restriction along \(f\), the neighborhood
+germ, the inverse source comparison, and the canonical full-small counit
+is exactly \(F(f)\) followed by the original germ map for \(F\).
+
+The original neighborhood value of \(F\) at \(\xi\) also identifies with
+the native full-small stalk of the actual restriction of \(F\) to \(Y\).
+Its representative formula uses the original affine marking and precisely
+the unit of COL-1060's dense-basis equivalence, and the comparison is
+natural in coefficient maps. Consequently the stalk of the canonical
+counit restricted to \(Y\) is invertible exactly when the above Kan
+counit map on original neighborhood values is invertible. Over a Jacobson
+base, COL-1095 tests the canonical counit at just the native closed
+residue-geometric markings.
+'''
+proof = '''
+Use COL-1061's counit-preserving identification of native extension with
+left Kan extension followed by sheafification. COL-1057 identifies the
+actual sheafification unit on each original neighborhood value as an
+isomorphism. Remove that isomorphism and the dense-basis equivalence
+counit, retaining their exact compositions. Naturality and the Kan
+unit-counit identity give the representative formula.
+
+The category of actual marked affine neighborhoods is fully faithful and
+initial in the category of elements of the native small-site point:
+every marked etale object admits an original affine refinement preserving
+its scheme map and marking. Its colimit, together with the actual
+basis-equivalence unit on coefficients, gives the small-stalk comparison.
+The formulas on representatives prove coefficient naturality, and
+transport of isomorphisms plus closed-point conservativity gives the
+stated tests.
+'''
+scope = '''
+The native small geometric point is on the original object \(Y\), not on
+the base \(S\). This does not identify the source with a stalk over
+\(S\), show that the original neighborhood restriction map is invertible,
+or prove Suslin rigidity. In particular the missing base-source
+identification and the homotopy-invariant torsion transfer argument are
+not replaced by an assumed counit isomorphism. The actual full-small
+adjunction, basis equivalence, sheafification unit, and scheme maps are
+retained. Schemes and marking fields lie in universe \(u\), and
+coefficients and smooth-neighborhood point fibers in \(u+1\); the native
+small point itself lies in \(u\) and its fiber is evaluated in
+\(\mathrm{Ab}_{u+1}\). The arbitrary-field case permits all closed
+residue points, without rationality or algebraic-closedness of the base.
+'''
