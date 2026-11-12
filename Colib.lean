@@ -1586,6 +1586,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Poly
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ProjectiveLine
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Projectivity
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.RetainedGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.SmallEtaleIntegralRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.StrictLocal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.NonzeroCompatiblePair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.PrescribedBoundary
