@@ -56,6 +56,24 @@ theorem boundaryFrameReparametrize_root {A B X : Scheme.{u}}
     tensorPowerCongr A.presheaf (ringSheafCond A) _ _
       (boundaryFrameReparametrize u g h w M e) n =
     boundaryRootPowerIso h M L n α (boundaryFrameReparametrize u g h w L τ) := by
+  -- Register both native endpoint spellings before elaborating power congruences.
+  let hAUnit : AlgebraicGeometry.SheafOfModules.IsInvertible
+      A.toRingedSpace.presheaf (structureSheafRing A.toRingedSpace).property
+      A.unitModule := reparamRootUnitInvertible A
+  let hBUnit : AlgebraicGeometry.SheafOfModules.IsInvertible
+      B.toRingedSpace.presheaf (structureSheafRing B.toRingedSpace).property
+      B.unitModule := reparamRootUnitInvertible B
+  let hPullUnit : AlgebraicGeometry.SheafOfModules.IsInvertible
+      A.toRingedSpace.presheaf (structureSheafRing A.toRingedSpace).property
+      ((pullback u).obj B.unitModule) :=
+    Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry
+      u.toLRSHom.toShHom B.unitModule hBUnit
+  let hAUnitStacks : Stacks.SheafOfModules.IsInvertible
+      A.presheaf (ringSheafCond A) A.unitModule :=
+    Stacks.SheafOfModules.IsInvertible.ofAlgebraicGeometry _ _ _ hAUnit
+  let hPullUnitStacks : Stacks.SheafOfModules.IsInvertible
+      A.presheaf (ringSheafCond A) ((pullback u).obj B.unitModule) :=
+    Stacks.SheafOfModules.IsInvertible.ofAlgebraicGeometry _ _ _ hPullUnit
   let cM := canIso u g h w M
   let cL := canIso u g h w L
   let cP := canIso u g h w (tensorPower X.toRingedSpace.presheaf
