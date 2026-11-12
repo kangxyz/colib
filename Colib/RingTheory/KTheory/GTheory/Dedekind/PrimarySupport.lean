@@ -90,7 +90,6 @@ def primaryKEquiv (n : ℕ) : FGModuleCat.Localization.SupportedG (nonZeroDiviso
     (Pi.finiteCategoryExactStructure (PrimaryCategory R)).K n :=
   (nativePrimaryExactFunctor R).KEquivOfMapQIsEquivalence n
 
-@[simp]
 theorem primaryKEquiv_toMonoidHom (n : ℕ) :
     ((primaryKEquiv R n).toMonoidHom : FGModuleCat.Localization.SupportedG (nonZeroDivisors R) n →*
       (Pi.finiteCategoryExactStructure (PrimaryCategory R)).K n) =
@@ -251,7 +250,6 @@ def primaryAssemblyKMap (n : ℕ) :
     (fun p => ((nativePrimaryInclusionExactFunctor R p).KMap (n + 1)).toAdditive)
 
 /-- The genuine assembly equivalence has exactly the sum of original inclusion maps forward. -/
-@[simp]
 theorem primaryAssemblyKEquiv_toAddMonoidHom (n : ℕ) :
     ((primaryAssemblyKEquiv R n).toAddMonoidHom : (⨁ p, Additive (PrimaryK R p (n + 1))) →+
       Additive (FGModuleCat.Localization.SupportedG (nonZeroDivisors R) (n + 1))) =

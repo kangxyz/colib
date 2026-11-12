@@ -262,7 +262,6 @@ def residuePrimaryKEquiv (n : ℕ) :
     (Devissage.KEquiv (primaryKilled R p) (primaryFiltrationHypothesis R p) n)
 
 /-- The forward equivalence is the original restriction-induced K-map, including rebasing. -/
-@[simp]
 theorem residuePrimaryKEquiv_toMonoidHom (n : ℕ) :
     ((residuePrimaryKEquiv R p n).toMonoidHom :
       FGModuleCat.FractionLocalization.G (ResidueQuotient R p) n →*

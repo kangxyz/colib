@@ -125,7 +125,6 @@ def quotientResidueAssemblyKMap (n : ℕ) :
   DirectSum.toAddMonoid (fun p => (quotientResidueSupportKMap R p (n + 1)).toAdditive)
 
 /-- The forward assembly equivalence is exactly the sum of the original residue pushforwards. -/
-@[simp]
 theorem quotientResidueAssemblyKEquiv_toAddMonoidHom (n : ℕ) :
     ((quotientResidueAssemblyKEquiv R n).toAddMonoidHom :
       (⨁ p, Additive (QuotientResidueK R p (n + 1))) →+

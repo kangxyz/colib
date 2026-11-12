@@ -120,7 +120,7 @@ def residueFieldAssemblyKMap (n : ℕ) :
   DirectSum.toAddMonoid (fun p => (residueFieldSupportKMap R p (n + 1)).toAdditive)
 
 /-- The assembly equivalence has exactly the sum of original pushforwards as forward map. -/
-@[simp] theorem residueFieldAssemblyKEquiv_toAddMonoidHom (n : ℕ) :
+theorem residueFieldAssemblyKEquiv_toAddMonoidHom (n : ℕ) :
     ((residueFieldAssemblyKEquiv R n).toAddMonoidHom :
       (⨁ p, Additive (ResidueFieldK R p (n + 1))) →+
         Additive (FGModuleCat.Localization.SupportedG.{u, u} (nonZeroDivisors R) (n + 1))) =

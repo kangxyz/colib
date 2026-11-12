@@ -203,7 +203,7 @@ def residueFieldKEquiv (n : ℕ) :
   (residueFieldRestrictionExact R p).smallModel.KEquivOfMapQIsEquivalence n
 
 /-- The forward comparison is exactly the original finite scalar-restriction K-map. -/
-@[simp] theorem residueFieldKEquiv_toMonoidHom (n : ℕ) :
+theorem residueFieldKEquiv_toMonoidHom (n : ℕ) :
     ((residueFieldKEquiv R p n).toMonoidHom : FGModuleCat.FractionLocalization.G
       p.asIdeal.ResidueField n →*
       FGModuleCat.FractionLocalization.G (R ⧸ p.asIdeal) n) =
