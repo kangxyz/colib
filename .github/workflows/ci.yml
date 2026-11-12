@@ -1,126 +1,40 @@
-name: Colib Cache Split Export
+name: Colib CI
+
 on:
   push:
-    branches: [codex/etale-rigidity-frontier-20261112]
-    paths: [.github/workflows/ci.yml]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      runner-profile:
+        description: Runner profile for this CI run
+        type: choice
+        options: [ec2, hosted]
+        default: ec2
+
 permissions:
   contents: read
-  actions: read
+
+concurrency:
+  # A single EC2 host retains the checkout from Build through Test.
+  group: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && vars.COLIB_PARALLEL_RUNNER_ENABLED != 'true' && 'Colib EC2' || format('Colib CI-{0}', github.ref) }}
+  cancel-in-progress: false
+  queue: max
+
 jobs:
-  export-existing-caches:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          persist-credentials: false
-      - name: Restore exact existing Stacks checkpoint
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
-        with:
-          path: .lake/ci-checkpoints/stacks.tar.zst
-          key: colib-layered-v2-stacks-9845031f79bc7a61f7dbb6e27f1a12150a1eb35aae1effb4cf01a27c9a8cf840-65b205160caa63a3e8e99a118f603473c7e543428fbdba01b7932797f505742d
-          fail-on-cache-miss: true
-      - name: Restore exact existing Colib checkpoint
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
-        with:
-          path: .lake/ci-checkpoints/root.tar.zst
-          key: colib-layered-v2-root-9845031f79bc7a61f7dbb6e27f1a12150a1eb35aae1effb4cf01a27c9a8cf840-refs/heads/codex/etale-rigidity-frontier-20261112-43174463891-1-build
-          fail-on-cache-miss: true
-      - name: Record archive hashes without compilation
-        run: |
-          sha256sum .lake/ci-checkpoints/stacks.tar.zst .lake/ci-checkpoints/root.tar.zst
-          stat -c '%n %s bytes' .lake/ci-checkpoints/stacks.tar.zst .lake/ci-checkpoints/root.tar.zst
-      - name: Split existing checkpoints without compilation
-        run: |
-          mkdir -p export-parts
-          split -b 400M -d -a 2 .lake/ci-checkpoints/stacks.tar.zst export-parts/stacks-
-          split -b 400M -d -a 2 .lake/ci-checkpoints/root.tar.zst export-parts/root-
-          sha256sum export-parts/*
-      - name: Upload stacks-00
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-00
-          path: export-parts/stacks-00
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-01
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-01
-          path: export-parts/stacks-01
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-02
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-02
-          path: export-parts/stacks-02
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-03
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-03
-          path: export-parts/stacks-03
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-04
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-04
-          path: export-parts/stacks-04
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-05
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-05
-          path: export-parts/stacks-05
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-06
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-06
-          path: export-parts/stacks-06
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-07
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-07
-          path: export-parts/stacks-07
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload stacks-08
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-stacks-08
-          path: export-parts/stacks-08
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload root-00
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-root-00
-          path: export-parts/root-00
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
-      - name: Upload root-01
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: checkpoint-root-01
-          path: export-parts/root-01
-          compression-level: 0
-          if-no-files-found: error
-          retention-days: 3
+  lean:
+    permissions:
+      contents: write
+      actions: read
+      pull-requests: read
+    uses: ./.github/workflows/lean-ci.yml
+    with:
+      package-directory: .
+      build-targets: Colib
+      runner-labels: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && (vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true' && format('["colib-ci-run-{0}-{1}"]', github.run_id, github.run_attempt) || '["colib-dependency-warmup"]') || '["ubuntu-24.04"]' }}
+      native-memory-mib: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 57344 || 13824 }}
+      lake-threads: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 8 || 4 }}
+      lint-workers: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 8 || 4 }}
+      job-timeout-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 90 || 360 }}
+      reuse-build-host: ${{ (vars.COLIB_EC2_SHARED_HOST == 'true' || vars.COLIB_PARALLEL_RUNNER_ENABLED == 'true') && vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) }}
+      build-job-timeout-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 240 || 0 }}
+      build-compiler-minutes: ${{ vars.COLIB_SELF_HOSTED_ENABLED == 'true' && github.repository == 'kangxyz/colib' && github.ref_type == 'branch' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.runner-profile == 'ec2')) && 180 || 0 }}
