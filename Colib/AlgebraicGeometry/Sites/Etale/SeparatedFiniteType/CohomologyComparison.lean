@@ -50,7 +50,7 @@ variable [HasExt.{w} (Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 
   [HasExt.{w'} (Sheaf (nisnevichTopology X.left) AddCommGrpCat.{u + 1})]
 
 /-- Ordinary cohomology comparison, with both sides using their original free abelian
-representing sources. Neither strict A1 invariance nor injective acyclicity is a premise. -/
+representing sources. Neither strict A¹-invariance nor injective acyclicity is a premise. -/
 def cohomologyRestrictionEquiv
     (F : Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 1})
     (n : ℕ) (U : EtaleSeparatedFiniteType X.left) :

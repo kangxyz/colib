@@ -10,7 +10,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.P
 public import Colib.AlgebraicGeometry.Sites.Smooth.Cohomology.Cylinder.HigherGenericBaseZero
 
 /-!
-# Strict invariance from degree-one generic vanishing and boundary epimorphy
+# Strict A¹-invariance from degree-one generic vanishing and boundary epimorphy
 
 The rank-zero input in higher degrees comes from the original smooth
 cylinder. The degree-one input and the canonical boundary epimorphism
@@ -31,7 +31,7 @@ variable {k : Type u} [Field k] [PerfectField k]
   [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
-/-- The two geometric suppliers close strict affine-line invariance over a
+/-- The two geometric suppliers close strict A¹-invariance over a
 perfect field. Both hypotheses concern the original ordinary cohomology. -/
 theorem isStrictA1Invariant_of_degreeOne_generic_and_boundary_epi
     (hEpi : Boundary.OriginalPresheaf.CanonicalBoundaryEpi k)

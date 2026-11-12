@@ -40,7 +40,7 @@ start = "COL-0372"
 
 [[sections.topics]]
 id = "sheafification-and-affine-line"
-title = "Affine-line invariance of sheafification"
+title = "A¹-invariance of sheafification"
 start = "COL-1028"
 
 [sections.transitions]
@@ -133,7 +133,7 @@ algebraic singular projection. Apply the interval homotopy of COL-0349.
 
 [[sections]]
 id = "affine-line-invariance"
-title = "Strict affine-line invariance"
+title = "Strict A¹-invariance"
 order = 40
 introduction = '''
 Over a perfect field, homotopy invariance of a Nisnevich sheaf with transfers

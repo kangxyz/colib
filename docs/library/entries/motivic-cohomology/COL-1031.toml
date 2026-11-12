@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1031"
-title = "Strict affine-line invariance of motivic cohomology sheaves"
+title = "Strict A¹-invariance of motivic cohomology sheaves"
 kind = "theorem"
 review = "author_checked"
 source_checked_on = "2026-11-12"
@@ -10,7 +10,7 @@ primary = "AlgebraicGeometry.PresheafWithTransfers.motivicSheafComplex_homology_
 statement = '''
 Let \(k\) be a field, \(q\geq 0\) a weight, and \(i\in\mathbb Z\). The
 transfer cohomology sheaf in degree \(i\) of the integral motivic complex
-\(\mathbb Z(q)\) is homotopy invariant. If \(k\) is perfect, then for every
+\(\mathbb Z(q)\) is \(\mathbb A^1\)-invariant. If \(k\) is perfect, then for every
 smooth separated finite-type \(k\)-scheme \(X\) and \(n\geq 0\), pullback
 along \(X\times_k\mathbb A^1\to X\) induces an isomorphism
 \[

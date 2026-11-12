@@ -11,7 +11,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RestrictionDiffere
 # Vanishing along a correspondence homotopy
 
 If a correspondence homotopy joins a graph to a correspondence factoring through
-an open immersion, an affine-line invariant transfer presheaf takes the two
+an open immersion, an A¹-invariant transfer presheaf takes the two
 endpoints to the same restriction of sections.
 
 Adapted from `Motivic/Cohomology/A1/Moving/OneSided.lean` at

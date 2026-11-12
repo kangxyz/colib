@@ -8,7 +8,7 @@ module
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField
 
-/-! # Strict invariance of Nisnevich sheafification over a perfect field
+/-! # Strict A¹-invariance of Nisnevich sheafification over a perfect field
 
 Adapted from `Motivic/Cohomology/A1/Sheafification/StrictInvariance.lean`
 at `a6805c4a87cdfd7717dd7a94039246a167f15380`.
@@ -27,9 +27,9 @@ variable {k : Type u} [Field k] [PerfectField k]
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
 /-- The Nisnevich sheafification of a homotopy-invariant presheaf with
-transfers over a perfect field is strictly affine-line invariant. -/
+transfers over a perfect field is strictly A¹-invariant. -/
 @[colib_tag "COL-1029", colib_ref "MVW2006" "Lecture 13, Theorem 13.8" "adaptation"
-  "Strict invariance of the actual Nisnevich sheafification over a perfect field"]
+  "Strict A¹-invariance of the actual Nisnevich sheafification over a perfect field"]
 theorem nisnevichSheafify_isStrictA1Invariant
     (P : PresheafWithTransfers.{u + 1} k) (hP : P.IsA1Invariant) :
     ((nisnevichSheafify k).obj P).IsStrictA1Invariant := by

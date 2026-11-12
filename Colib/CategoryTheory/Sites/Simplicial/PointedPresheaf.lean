@@ -22,7 +22,7 @@ presheaf. Free pointing is the categorical disjoint union with the terminal
 presheaf. Discrete Yoneda and its pointed version retain the original maps.
 
 The weak equivalences in this file are objectwise realization weak equivalences.
-No Nisnevich descent or affine-line localization is asserted at this layer.
+No Nisnevich descent or A¹-localization is asserted at this layer.
 -/
 
 @[expose] public noncomputable section

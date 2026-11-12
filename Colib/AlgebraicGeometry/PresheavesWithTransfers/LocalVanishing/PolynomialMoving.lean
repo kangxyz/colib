@@ -49,7 +49,7 @@ theorem transfer_cycle_eq_of_boundary_one
 variable [IsDomain A] [IsNoetherianRing A]
 
 /-- A signed correspondence into the smaller open factors the original
-coordinate action on any affine-line invariant presheaf with transfers. -/
+coordinate action on any A¹-invariant presheaf with transfers. -/
 theorem exists_moving_action (f g : R[X]) (hf : f.Monic) (hg : g.Monic)
     (hfg : IsCoprime f g) (a : A)
     (ha : IsUnit ((f.map (algebraMap R A)).eval a))

@@ -114,7 +114,7 @@ This is the ordinary-sheaf prerequisite with its actual base-field consumer.
 The field computation is at `Spec k` on its own smooth site, not a general
 extension field, affine-line cylinder or henselian stalk. It does not yet construct
 finite correspondences, transfer sheaves, ordinary-cohomology transfer actions,
-the motivic complex, strict A1 invariance, or the weight-one
+the motivic complex, strict \(\mathbb A^1\)-invariance, or the weight-one
 and diagonal comparisons.
 
 ## Validation

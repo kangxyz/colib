@@ -16,12 +16,12 @@ import Colib.CategoryTheory.Sites.Simplicial.ParameterCylinderInvariance
 import Colib.Util.References
 
 /-!
-# Affine-local representatives of the motivic complexes
+# A¹-local representatives of the motivic complexes
 
 The comparison from representable restrictions to all pointed cylinders
 applies to the actual affine-line interval. Integral and finite motivic
 coefficients over a perfect field therefore have the native cochain
-representatives in the affine-line localization.
+representatives in the A¹-localization.
 -/
 
 @[expose] public noncomputable section
@@ -74,11 +74,11 @@ local notation "Sₖ" => Spec (CommRingCat.of k)
 local notation "Cₖ" => SmoothSite Sₖ
 local notation "Jₖ" => SmoothSite.nisnevichTopology Sₖ
 
-/-- The affine-local cochain representative of the integral motivic complex. -/
+/-- The A¹-local cochain representative of the integral motivic complex. -/
 abbrev motivicAffineLineRepresentative (p : ℤ) (q : ℕ) : AffineLineHomotopyCategory Sₖ :=
   affineLineCochainRepresentative Sₖ p (motivicSheafComplex k q)
 
-/-- The affine-local cochain representative of the actual finite motivic cone. -/
+/-- The A¹-local cochain representative of the actual finite motivic cone. -/
 abbrev motivicFiniteAffineLineRepresentative (p : ℤ) (q n : ℕ) :
     AffineLineHomotopyCategory Sₖ :=
   affineLineCochainRepresentative Sₖ p (motivicFiniteSheafComplex k q n)
@@ -87,11 +87,11 @@ variable [PerfectField k]
   [HasDerivedCategory.{d}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
-/-- The integral affine-local representative computes the original reduced
+/-- The integral A¹-local representative computes the original reduced
 motivic cohomology of every pointed simplicial presheaf over a perfect field. -/
 @[no_expose, colib_tag "COL-1016", colib_ref "Voevodsky2003ReducedPowers"
   "Section 2, Theorem 2.1 and equation (2.9), pp. 3–5" "adaptation"
-  "Affine-local representability using the actual integral cochain model"]
+  "A¹-local representability using the actual integral cochain model"]
 def motivicAffineLineRepresentativeHomEquiv (p : ℤ) (q : ℕ)
     (X : PointedSimplicialPresheaf.{u + 1} Cₖ) :
     ((toAffineLineHomotopyCategory Sₖ).obj X ⟶ motivicAffineLineRepresentative k p q) ≃
@@ -100,7 +100,7 @@ def motivicAffineLineRepresentativeHomEquiv (p : ℤ) (q : ℕ)
     (bijective_reducedHypercohomology_map_affineLineCylinder Sₖ (motivicSheafComplex k q)
       (fun n U ↦ motivicCohomologyPresheaf_isA1Invariant k n q U) p) X
 
-/-- The finite affine-local representative computes the original reduced
+/-- The finite A¹-local representative computes the original reduced
 hypercohomology of the finite coefficient cone over a perfect field. -/
 @[no_expose, colib_tag "COL-1016"]
 def motivicFiniteAffineLineRepresentativeHomEquiv (p : ℤ) (q n : ℕ)

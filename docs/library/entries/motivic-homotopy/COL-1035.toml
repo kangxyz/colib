@@ -1,0 +1,29 @@
+[entry]
+id = "COL-1035"
+title = "Tate suspension on the Nisnevich homotopy category"
+kind = "theorem"
+section = "tate-sphere-and-suspension"
+order = 25
+primary = "AlgebraicGeometry.MotivicHomotopy.stalkwiseWeakEquivalences_tatePresheafSuspension_map"
+review = "author_checked"
+statement = '''
+On the smooth Nisnevich site of a commutative ring, smash on the right with
+the universe-lifted pointed Tate quotient of COL-1017. This functor preserves
+stalkwise weak equivalences. It therefore induces an endofunctor on the
+pointed stalkwise homotopy category, with a natural isomorphism comparing
+its composite with localization to the localization of the original smash functor.
+'''
+proof = '''
+The two axes in the pointed product meet at the basepoint. The smash is
+the pushout that collapses their wedge. Each site fiber preserves the
+wedge pushout, the product and the quotient pushout. The axes and the wedge
+inclusions are monomorphisms, so realization gluing applies to the two
+pushouts. The product comparison carries the map of fibers to the product
+of the original maps. The universal property of localization gives the
+induced functor and its comparison.
+'''
+scope = '''
+The weak equivalences are tested at the Nisnevich points in the coefficient
+universe. The proof uses the stalkwise argument in
+[@Jardine2000MotivicSpectra, Section 1.3, Lemma 1.5, p. 459].
+'''

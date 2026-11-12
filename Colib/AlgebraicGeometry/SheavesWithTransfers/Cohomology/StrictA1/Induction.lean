@@ -105,7 +105,7 @@ local instance (Y : Scheme.{u}) :
   hasExt_of_enoughInjectives _
 
 /-- Whole-cylinder generic-open vanishing and the lower-degree construction of
-Cartier puncture monicity imply strict invariance for every HI coefficient. -/
+Cartier puncture monicity imply strict A¹-invariance for every HI coefficient. -/
 theorem isStrictA1Invariant_of_cartier_puncture_mono
     (hGeneric : ∀ (F : SheafWithTransfers.{u + 1} k), F.obj.IsA1Invariant →
       ∀ n : ℕ, WholeCylinderGenericOpenZero F (n + 1))

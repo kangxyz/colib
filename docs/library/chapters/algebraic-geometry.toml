@@ -89,7 +89,7 @@ Nisnevich fibers. Conservativity relates their lifts back to the same covers.
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
-introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."
+introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary \\(\\mathbb A^1\\)-invariance without assuming transfers."
 
 [sections.transitions]
 COL-0348 = '''

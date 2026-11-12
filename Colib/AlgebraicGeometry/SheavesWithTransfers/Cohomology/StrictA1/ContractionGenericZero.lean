@@ -13,7 +13,7 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.Basic
 # Generic open zeros of positive cohomology contractions
 
 A positive ordinary cohomology class vanishes on an actual generic open
-of the Laurent cylinder. Affine-line invariance in that degree moves the
+of the Laurent cylinder. A¹-invariance in that degree moves the
 zero to the whole cylinder after one principal base localization.
 
 Adapted from `Motivic/Cohomology/Sheaf/LaurentGenericZero.lean`,

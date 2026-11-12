@@ -13,11 +13,11 @@ import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectF
 import Colib.Util.References
 
 /-!
-# Homotopy invariance of motivic cohomology sheaves
+# A¹-invariance of motivic cohomology sheaves
 
 The actual transfer cohomology sheaves of the signed motivic complex are
-affine-line invariant over every field. Over a perfect field, strict affine-line
-invariance follows for their ordinary Nisnevich cohomology.
+A¹-invariant over every field. Over a perfect field, strict A¹-invariance
+follows for their ordinary Nisnevich cohomology.
 -/
 
 @[expose] public noncomputable section
@@ -60,7 +60,7 @@ variable [HasExt.{u + 1}
   (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
 /-- Over a perfect field, each transfer cohomology sheaf of the actual motivic
-complex is strictly affine-line invariant in ordinary Nisnevich cohomology. -/
+complex is strictly A¹-invariant in ordinary Nisnevich cohomology. -/
 @[colib_tag "COL-1031"]
 theorem motivicComplex_homology_isStrictA1Invariant (q : ℕ) (i : ℤ) :
     ((motivicComplex k q).homology i).IsStrictA1Invariant :=

@@ -11,7 +11,7 @@ import Colib.AlgebraicGeometry.MotivicCohomology.AffineLineInvariance
 import Colib.Util.References
 
 /-!
-# Affine-line invariance with finite motivic coefficients
+# A¹-invariance with finite motivic coefficients
 
 The actual affine-line projection is invertible for the integral coefficient
 complex in every degree, hence for the literal multiplication cone.

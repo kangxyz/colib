@@ -27,7 +27,7 @@ base refinement, kills that boundary and its original small-site colimit class.
 
 These are lower algebraic steps. They do not assert the existence of the chart
 quotient lift, coefficient restriction monicity, a boundary epimorphism, a
-big/small cohomology comparison, or strict affine-line invariance.
+big/small cohomology comparison, or strict A¹-invariance.
 -/
 
 @[expose] public noncomputable section

@@ -12,12 +12,12 @@ import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.FiniteCohomologicalDimensi
 import Colib.Util.References
 
 /-!
-# Affine-line invariance of integral motivic cohomology
+# A¹-invariance of integral motivic cohomology
 
 The smooth scheme and its affine-line cylinder each have a finite Krull
 dimension bound. Their maximum bounds the projective dimensions of both
 free Nisnevich representing sheaves. The finite hypercohomology window and
-strict invariance of the motivic cohomology sheaves then give invariance
+strict A¹-invariance of the motivic cohomology sheaves then give invariance
 under the actual affine-line projection over a perfect field.
 -/
 
@@ -36,7 +36,7 @@ variable (k : Type u) [Field k] [PerfectField k]
   [HasDerivedCategory.{w}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
-/-- The actual integral motivic cohomology presheaf is affine-line invariant
+/-- The actual integral motivic cohomology presheaf is A¹-invariant
 over a perfect field in every integer degree and nonnegative weight. -/
 @[colib_tag "COL-1033", colib_ref "MVW2006" "Lecture 14, Proposition 14.8, forward direction"
   "adaptation" "Ordinary hypercohomology of the integral motivic coefficient complex"]

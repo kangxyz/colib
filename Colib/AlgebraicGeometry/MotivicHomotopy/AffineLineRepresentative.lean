@@ -5,8 +5,8 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.AlgebraicGeometry.MotivicHomotopy.A1Localization
 public import Colib.AlgebraicGeometry.MotivicHomotopy.NisnevichRepresentative
-public import Colib.AlgebraicGeometry.Sites.Smooth.GroupSchemes
 public import Colib.CategoryTheory.Sites.Simplicial.IntervalKInjectiveReplacement
 
 /-!
@@ -14,7 +14,7 @@ public import Colib.CategoryTheory.Sites.Simplicial.IntervalKInjectiveReplacemen
 
 The interval is the lifted simplicial Yoneda presheaf of the native affine line.
 For the original cochain complex, invariance of reduced hypercohomology under
-the pointed cylinder projections gives a representation after interval localization.
+the pointed cylinder projections gives a representation after A¹-localization.
 -/
 
 @[expose] public noncomputable section
@@ -31,26 +31,12 @@ variable (S : Scheme.{u})
 local notation "Cₛ" => SmoothSite S
 local notation "Jₛ" => SmoothSite.nisnevichTopology S
 
-/-- The native affine line as a simplicial presheaf in the coefficient universe. -/
-abbrev affineLineInterval : Cₛᵒᵖ ⥤ SSet.{u + 1} :=
-  (uliftPresheaf.{u + 1, u} Cₛ).obj
-    ((simplicialYoneda Cₛ).obj (SmoothSite.additiveGroupObject S))
-
-/-- The interval localization of the smooth Nisnevich homotopy category. -/
-abbrev AffineLineHomotopyCategory :=
-  IntervalHomotopyCategory Cₛ Jₛ (affineLineInterval S)
-
-/-- The chosen localization functor for the actual affine-line interval. -/
-abbrev toAffineLineHomotopyCategory :
-    PointedSimplicialPresheaf.{u + 1} Cₛ ⥤ AffineLineHomotopyCategory S :=
-  toIntervalHomotopyCategory Cₛ Jₛ (affineLineInterval S)
-
 variable
   [HasSheafify (SmoothSite.nisnevichTopology S) AddCommGrpCat.{u + 1}]
   [IsGrothendieckAbelian.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology S) AddCommGrpCat.{u + 1})]
 
-/-- The K-injective cochain representative viewed in the affine-line localization. -/
+/-- The K-injective cochain representative viewed in the A¹-localization. -/
 abbrev affineLineCochainRepresentative (p : ℤ)
     (K : CochainComplex (Sheaf Jₛ AddCommGrpCat.{u + 1}) ℤ) :
     AffineLineHomotopyCategory S :=
@@ -66,7 +52,7 @@ variable (p : ℤ) (K : CochainComplex
       (SmoothSite.nisnevichTopology S) K p).map
       (cylinderProjection X (affineLineInterval S)).op))
 
-/-- Under cylinder invariance, the actual affine-line localization represents
+/-- Under cylinder invariance, the actual A¹-localization represents
 reduced hypercohomology with the given coefficients. -/
 def affineLineCochainRepresentativeHomEquiv (X : PointedSimplicialPresheaf.{u + 1} Cₛ) :
     ((toAffineLineHomotopyCategory S).obj X ⟶ affineLineCochainRepresentative S p K) ≃
@@ -112,7 +98,7 @@ attribute [colib_tag "COL-1016"]
   affineLineCochainRepresentativeYonedaHomEquiv_naturality
 
 attribute [colib_ref "MorelVoevodsky1999" "§2.3, Definition 3.1 and Remark 3.3, p. 86"
-  "adaptation" "Interval localization using the actual pointed affine-line projections"]
+  "adaptation" "A¹-localization using the actual pointed affine-line projections"]
   affineLineCochainRepresentativeHomEquiv
 
 end AlgebraicGeometry.MotivicHomotopy

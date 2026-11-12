@@ -350,6 +350,14 @@ year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 59–104"
 url = "https://numdam.org/item/10.1007/s10240-003-0010-6.pdf"
 
+[sources.Jardine2000MotivicSpectra]
+kind = "article"
+title = "Motivic symmetric spectra"
+authors = ["J. F. Jardine"]
+year = 2000
+version = "Documenta Mathematica, volume 5, pages 445–552"
+url = "https://ems.press/journals/dm/articles/8965015"
+
 [sources.Voevodsky2003ReducedPowers]
 kind = "article"
 title = "Reduced power operations in motivic cohomology"

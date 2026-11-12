@@ -14,7 +14,7 @@ import Colib.CategoryTheory.Sites.Hypercohomology.RestrictionBoundedAbove
 import Mathlib.Algebra.Homology.DerivedCategory.Ext.EnoughInjectives
 
 /-!
-# Affine-line invariance of motivic hypercohomology
+# A¹-invariance of motivic hypercohomology
 
 Over a perfect field, the ordinary cohomology of each cohomology sheaf of the
 motivic complex is invariant under the affine-line projection. A common

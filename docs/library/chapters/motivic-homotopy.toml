@@ -2,7 +2,7 @@
 id = "motivic-homotopy"
 title = "Motivic Homotopy"
 order = 56
-introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site. Strict affine-line invariance for ordinary cohomology with transfers is proved in COL-1029."
+introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site. Strict \\(\\mathbb A^1\\)-invariance for ordinary cohomology with transfers is proved in COL-1029."
 
 [[sections]]
 id = "pointed-simplicial-presheaves"
@@ -18,18 +18,18 @@ introduction = '''Use the Nisnevich points of COL-1010 and the K-injective compa
 
 [[sections]]
 id = "affine-line-representatives"
-title = "Affine-line localization of representatives"
+title = "A¹-localization of representatives"
 order = 25
 introduction = '''
 Use the native affine line as the interval. The parameter coproduct
-extends invariance on smooth representables to all pointed cylinders.
+extends \(\mathbb A^1\)-invariance on smooth representables to all pointed cylinders.
 With COL-1033, the integral and finite motivic representatives compute
-the same groups after interval localization.
+the same groups after \(\mathbb A^1\)-localization.
 '''
 
 [[sections]]
 id = "tate-sphere-and-suspension"
-title = "The pointed Tate quotient"
+title = "The Tate quotient and suspension"
 order = 30
 introduction = '''Point the native affine line and multiplicative group at one. The Laurent open gives the Tate quotient and its cone maps. The target of the affine-line collapse is the reduced suspension used in COL-1009.'''
 
@@ -38,6 +38,11 @@ COL-1020 = '''
 Pass the two pushouts of COL-1017 to a Nisnevich fiber. The simplicial
 cone contracts, and the Laurent open remains a monomorphism. These
 facts identify the actual collapse to the quotient as a weak equivalence.
+'''
+COL-1035 = '''
+Smashing with the Tate quotient gives a functor on the pointed Nisnevich
+homotopy category. The proof uses the wedge and quotient pushouts on each
+fiber.
 '''
 
 [[sections]]

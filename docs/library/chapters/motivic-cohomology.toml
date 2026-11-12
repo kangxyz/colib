@@ -66,7 +66,7 @@ Forget transfers from the signed complex to obtain \(K_q\). Its ordinary
 Nisnevich hypercohomology defines \(H^{p,q}(X,\mathbb Z)\).
 At \(X=\operatorname{Spec}k\), projectivity of the free representing sheaf
 computes these groups by the complex of sections.
-Over a perfect field, strict invariance of the cohomology sheaves gives
+Over a perfect field, strict \(\mathbb A^1\)-invariance of the cohomology sheaves gives
 invariance of the hypercohomology along the affine-line projection.
 '''
 

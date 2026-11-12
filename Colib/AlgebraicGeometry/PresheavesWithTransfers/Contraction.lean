@@ -17,7 +17,7 @@ public import Mathlib.CategoryTheory.Limits.Preserves.FunctorCategory
 `contraction P` is the cokernel of restriction from the actual affine-line
 product to its Laurent principal open. Its transfer action descends the actual
 signed exterior correspondence, and its sections are the literal group quotient.
-No sheafification or strict homotopy invariance is used.
+No sheafification or strict A¹-invariance is used.
 
 Adapted from `motivic_source_a6805c4`,
 `Motivic/Transfers/Presheaf/Contraction.lean:43-162`.
