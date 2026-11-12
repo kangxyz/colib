@@ -1526,6 +1526,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Base
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BaseComponentRetainedTargetMap
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Basic
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Boundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.BoundaryBaseChange
