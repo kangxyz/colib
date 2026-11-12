@@ -1258,6 +1258,7 @@ public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Basic
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Compactness
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Functor
 public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.Pair.Support
+public import Colib.AlgebraicGeometry.Morphisms.OpenImmersion.RetainedImageMaps
 public import Colib.AlgebraicGeometry.Morphisms.QuasiFinite.Coheight
 public import Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericFiber
 public import Colib.AlgebraicGeometry.Morphisms.Smooth.Bertini.WholeFiberPrincipalNeighborhood
@@ -1489,6 +1490,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGoodGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
