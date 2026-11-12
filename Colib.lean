@@ -1499,6 +1499,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.CompatibleBoundaryF
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartCompactifiedSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartRetainedCompactificationGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FiniteFlat
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.FullBoundaryRootAuxiliaryOutput
