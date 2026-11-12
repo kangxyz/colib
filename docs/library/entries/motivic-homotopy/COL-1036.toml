@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1036"
+title = "The coordinate class on the Tate quotient"
+kind = "definition"
+section = "tate-sphere-and-suspension"
+order = 40
+primary = "AlgebraicGeometry.MotivicHomotopy.tateCoordinateClass"
+review = "author_checked"
+statement = '''
+Let \(k\) be a field, let \(G=(\mathbb G_{m,k},1)\), and let \(T\) be
+the pointed Laurent-open quotient of COL-1017. Write \(C(X)\) for the
+derived object of the sheafified reduced cochains of \(X\) and \(K\)
+for the derived object of the ordinary motivic complex \(\mathbb Z(1)\).
+The short exact sequence of the pointed Laurent open gives the native
+connecting map \(\delta\colon C(T)\to C(G)[1]\). For the reduced
+coordinate class \(\tau\colon C(G)\to K[1]\) of COL-1034, the Tate
+coordinate class is the element of \(\widetilde H^{2,1}(T,\mathbb Z)\)
+given by
+\[
+C(T)\xrightarrow{\delta} C(G)[1]\xrightarrow{\tau[1]}
+K[1][1]\xrightarrow{\sim} K[2].
+\]
+Under the shifted geometric weight-one comparison
+\(K[2]\simeq\mathbb G_m[1]\), it is the composite of \(\delta\) with
+the shift of the same relative units map defined by the forward Laurent
+coordinate.
+'''
+proof = '''
+Apply sheafified reduced cochains to the Laurent-open quotient to obtain
+its short exact sequence and the connecting map of the corresponding
+derived triangle. Shift the reduced coordinate morphism from COL-1034
+and compose with the native shift-addition isomorphism. In the
+weight-one comparison the shift-addition maps cancel, and functoriality
+of the shift identifies the resulting class with the connecting image of
+the relative units morphism.
+'''
+scope = '''
+The pointed presheaves are lifted to the coefficient universe of the
+motivic complex. The class uses the connecting morphism of the actual
+short-exact-sequence triangle and the forward Laurent coordinate. This
+is the boundary construction associated to the Tate suspension class in
+[@Voevodsky2003ReducedPowers, Section 2, pp. 5–6, following (2.9)].
+'''

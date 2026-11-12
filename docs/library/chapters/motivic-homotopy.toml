@@ -44,6 +44,16 @@ Smashing with the Tate quotient gives a functor on the pointed Nisnevich
 homotopy category. The proof uses the wedge and quotient pushouts on each
 fiber.
 '''
+COL-1038 = '''
+The affine-line term is contractible after \(\mathbb A^1\)-localization.
+Over a perfect field the reduced cochain triangles give the connecting
+isomorphism and the comparison for the actual cone collapse.
+'''
+COL-1036 = '''
+The short exact sequence of the Laurent-open quotient gives a connecting
+map on reduced cochains. It carries the torus coordinate of COL-1034 to
+the Tate class in bidegree \((2,1)\).
+'''
 
 [[sections]]
 id = "reduced-cohomology-operations"
