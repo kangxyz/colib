@@ -73,6 +73,8 @@ theorem exists_original_fixed_target_restriction
     exists_original_fixed_target_geometry (hSmooth := hSmooth)
       X s p j d hd σY τY hσY hτY hmark t ht f g hf hg
       v q bOriginal hCartesian jN y hY π hπ aY haY hjN eChart aE haE heChart B hX i₀
+  let : IsLocallyNoetherian ((etaleCurveDiagram X s p).obj i) :=
+    (etaleCurveDiagram_isNoetherian X s p i).toIsLocallyNoetherian
   let x := markL (IsLocalRing.closedPoint s.residueField)
   let U := normalComponentOpen ((etaleCurveCone X B hX s p).π.app i x)
   let U' := (etaleCurveDiagram X s p).map a.hom ⁻¹ᵁ U
