@@ -96,12 +96,12 @@ theorem etaleStageOpen_exists_same_root_consumer_result
   let cC := etaleStageOpenCone X s p i U B hX
   let bLim := etaleStageOpenBoundaryLimitMap X s p i U d B hX
   let hb := etaleStageOpenBoundaryCone_square X s p i U d B hX
-  letI hσclosed : IsClosedImmersion σ := by
+  letI _hσclosed : IsClosedImmersion σ := by
     let : IsClosedImmersion (σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i)) := by
       rw [hσ]
       infer_instance
     exact IsClosedImmersion.of_comp σ (U.ι ≫ (etaleCurveStructure X s p).app i)
-  letI hτclosed : IsClosedImmersion τ := by
+  letI _hτclosed : IsClosedImmersion τ := by
     let : IsClosedImmersion (τ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i)) := by
       rw [hτ]
       infer_instance
@@ -163,12 +163,12 @@ theorem etaleStageOpen_exists_same_root_consumer_result
   let cC := etaleStageOpenCone X s p i U B hX
   let bLim := etaleStageOpenBoundaryLimitMap X s p i U d B hX
   let hb := etaleStageOpenBoundaryCone_square X s p i U d B hX
-  let hσclosed : IsClosedImmersion σ := by
+  let _hσclosed : IsClosedImmersion σ := by
     let : IsClosedImmersion (σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i)) := by
       rw [hσ]
       infer_instance
     exact IsClosedImmersion.of_comp σ (U.ι ≫ (etaleCurveStructure X s p).app i)
-  let hτclosed : IsClosedImmersion τ := by
+  let _hτclosed : IsClosedImmersion τ := by
     let : IsClosedImmersion (τ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i)) := by
       rw [hτ]
       infer_instance

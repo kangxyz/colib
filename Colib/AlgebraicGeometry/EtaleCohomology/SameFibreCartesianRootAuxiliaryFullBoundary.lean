@@ -125,7 +125,7 @@ theorem exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_fullBoundar
       refine ⟨ε.hom z, ?_⟩
       change iLocal (ε.inv (ε.hom z)) = iLocal z
       have hz : ε.inv (ε.hom z) = z := by
-        simpa using congrArg (fun t : Z ⟶ Z => t z) ε.hom_inv_id
+        simp
       rw [hz]
   obtain ⟨M, hM, α, e, he, N, hN, a, bN, eN, ha, hbN, haB, hbB⟩ :=
     exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames
