@@ -39,7 +39,7 @@ local instance actualRefinedResultPullbackInvertible
 /-- The original Result, with an actual same-witness refinement inside its final leaf. -/
 def EtaleStageOpenRestrictionConsumerResult
     {K : Type u} [Field K] (P : PresheafWithTransfers.{v} K)
-    (hP : PresheafWithTransfers.IsA1Invariant P)
+    (_hP : PresheafWithTransfers.IsA1Invariant P)
     (X : SmoothSite (Spec (.of K)))
     (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
@@ -58,55 +58,56 @@ def EtaleStageOpenRestrictionConsumerResult
     (hdσ : ∀ z : Z, d z ∉ Set.range σ) (hdτ : ∀ z : Z, d z ∉ Set.range τ)
     (a₀ : Over i)
     [IsNormal X.left] [IsNormal N]
-    (hmark : etaleNeighborhoodMark X s.hom
+    (_hmark : etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj a₀.left) ≫
           etaleStageOpenSection X s p i U σ hσ a₀ =
       etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj a₀.left) ≫
           etaleStageOpenSection X s p i U τ hτ a₀)
     (π : U.toScheme ⟶ projectiveLine (etaleStageOpenFixedRing X s i)) [IsFinite π]
-    (hπ : π ≫ (projectiveLine (etaleStageOpenFixedRing X s i) ↘
+    (_hπ : π ≫ (projectiveLine (etaleStageOpenFixedRing X s i) ↘
         Spec (.of ↥(etaleStageOpenFixedRing X s i))) =
       U.ι ≫ (etaleCurveStructure X s p).app i)
     (cV : V ⟶ Spec (.of (Polynomial (etaleStageOpenFixedRing X s i))))
-    (hcV : cV ≫ Spec.map (CommRingCat.ofHom
+    (_hcV : cV ≫ Spec.map (CommRingCat.ofHom
         (Polynomial.C : (etaleStageOpenFixedRing X s i) →+*
           Polynomial (etaleStageOpenFixedRing X s i))) =
       j ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
-    (hjπ : j ≫ π = cV ≫ projectiveLineXChart (etaleStageOpenFixedRing X s i))
+    (_hjπ : j ≫ π = cV ≫ projectiveLineXChart (etaleStageOpenFixedRing X s i))
     {Nchart : Scheme.{u}} [IrreducibleSpace Nchart]
     (r₀ : U.toScheme ⟶ Nchart) [Flat r₀]
     {W : Scheme.{u}} (eChart : W ⟶ Nchart) [IsOpenImmersion eChart] [Nonempty W]
     (cW : Limits.pullback r₀ eChart ⟶ Spec (.of (Polynomial (etaleStageOpenFixedRing X s i))))
     [Etale cW]
-    (hcW : cW ≫ Spec.map (CommRingCat.ofHom
+    (_hcW : cW ≫ Spec.map (CommRingCat.ofHom
         (Polynomial.C : (etaleStageOpenFixedRing X s i) →+*
           Polynomial (etaleStageOpenFixedRing X s i))) =
       Limits.pullback.fst r₀ eChart ≫ (U.ι ≫ (etaleCurveStructure X s p).app i))
-    (heChart : Limits.pullback.fst r₀ eChart ≫ π =
+    (_heChart : Limits.pullback.fst r₀ eChart ≫ π =
       cW ≫ projectiveLineXChart (etaleStageOpenFixedRing X s i))
-    (hd : Set.range d = (Set.range j)ᶜ)
+    (_hd : Set.range d = (Set.range j)ᶜ)
     (σV τV : ∀ ℓ : Over i, ((smallEtaleNeighborhoodToSmooth X s).obj ℓ.left).left ⟶
       (etaleStageOpenBoundaryDiagram X s p i U j).obj ℓ)
-    (hσV : ∀ ℓ, σV ℓ ≫ (etaleStageOpenBoundaryMap X s p i U j).app ℓ =
+    (_hσV : ∀ ℓ, σV ℓ ≫ (etaleStageOpenBoundaryMap X s p i U j).app ℓ =
       etaleStageOpenSection X s p i U σ hσ ℓ)
-    (hτV : ∀ ℓ, τV ℓ ≫ (etaleStageOpenBoundaryMap X s p i U j).app ℓ =
+    (_hτV : ∀ ℓ, τV ℓ ≫ (etaleStageOpenBoundaryMap X s p i U j).app ℓ =
       etaleStageOpenSection X s p i U τ hτ ℓ)
     {T : SmoothSite (Spec (.of K))}
     (r : ∀ ℓ : Over i, (etaleStageOpenBoundaryDiagram X s p i U j).obj ℓ ⟶
       Limits.pullback ((smallEtaleNeighborhoodToSmooth X s).obj ℓ.left).hom T.hom)
-    (hr : ∀ ℓ, r ℓ ≫
+    (_hr : ∀ ℓ, r ℓ ≫
         Limits.pullback.fst ((smallEtaleNeighborhoodToSmooth X s).obj ℓ.left).hom T.hom =
       (etaleStageOpenBoundaryMap X s p i U j).app ℓ ≫
         (etaleStageOpenStructure X s p i U).app ℓ)
     (f g : ∀ ℓ : Over i, (smallEtaleNeighborhoodToSmooth X s).obj ℓ.left ⟶ T)
-    (hf : ∀ ℓ, (f ℓ).left = σV ℓ ≫ r ℓ ≫
+    (_hf : ∀ ℓ, (f ℓ).left = σV ℓ ≫ r ℓ ≫
       Limits.pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj ℓ.left).hom T.hom)
-    (hg : ∀ ℓ, (g ℓ).left = τV ℓ ≫ r ℓ ≫
+    (_hg : ∀ ℓ, (g ℓ).left = τV ℓ ≫ r ℓ ≫
       Limits.pullback.snd ((smallEtaleNeighborhoodToSmooth X s).obj ℓ.left).hom T.hom)
     (k : ℕ)
-    (hn : ∀ (A : SmoothSite (Spec (.of K)))
-      (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj A)), (k + 1) • z = 0) : Prop :=
+    (_hn : ∀ (A : SmoothSite (Spec (.of K)))
+      (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj A)),
+      (k + 1) • z = 0) : Prop :=
   let I := Over i
   let C := etaleStageOpenDiagram X s p i U
   let B' := etaleStageOpenBoundaryDiagram X s p i U d
@@ -175,7 +176,8 @@ def EtaleStageOpenRestrictionConsumerResult
         ((PresheafWithTransfers.toPresheaf K).obj P).map
           (((etaleNeighborhoodToSmooth X s.hom).map v) ≫ g ℓ).op
   OriginalRootAuxiliaryFramesConsumerResultWithFinal
-    B' C b cB cC bLim hb D E hDmap hEmap aD aE a₀ M (k + 1) α e₀ he₀ N₀ hN₀ a₀root b₀ eN₀ hb₀ ha₀ Finish
+    B' C b cB cC bLim hb D E hDmap hEmap aD aE a₀ M (k + 1) α e₀ he₀ N₀ hN₀ a₀root b₀ eN₀ hb₀ ha₀
+      Finish
 
 /-- The actual refinement producer fills the continuation, not a compatibility assumption. -/
 theorem etaleStageOpenRestrictionConsumerResult
@@ -294,7 +296,8 @@ theorem etaleStageOpenRestrictionConsumerResult
         ((PresheafWithTransfers.toPresheaf K).obj P).map
           (((etaleNeighborhoodToSmooth X s.hom).map v) ≫ g ℓ).op
   apply originalRootAuxiliaryFramesConsumerResult_withFinal_invertiblePair
-    B' C b cB cC bLim hb D E hDmap hEmap aD aE a₀ M (k + 1) α e₀ he₀ N₀ hN₀ a₀root b₀ eN₀ hb₀ ha₀ Finish H
+    B' C b cB cC bLim hb D E hDmap hEmap aD aE a₀ M (k + 1) α e₀ he₀ N₀ hN₀ a₀root b₀ eN₀ hb₀ ha₀
+      Finish H
   intro ℓ MR NR hMR hNR hMRStacks hNRStacks αR eR eNR aR bR hpow haR hbR
   obtain ⟨Anew, v, hAff, hInt, hNoeth, hG, hGC, hCN, hCNoeth,
       σ₂, τ₂, hσ₂, hτ₂, hEq⟩ :=

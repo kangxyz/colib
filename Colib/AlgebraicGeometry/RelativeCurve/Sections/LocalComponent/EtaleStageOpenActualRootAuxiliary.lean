@@ -9,7 +9,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitIntegral
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenBoundaryFinite
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitSameClosedFibre
-public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryTargetNormalized
+public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryOutput
 
 /-! # The same-root supplier on an actual component stage and its actual limit
 
@@ -86,8 +86,6 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
           (etaleStageOpenSection X s p i U τ hτ a0).ker) ≅
       SheafOfModules.unit ((etaleStageOpenBoundaryDiagram X s p i U d).obj a0).ringCatSheaf)
     {n : ℕ} (hn0 : n ≠ 0) (hn : IsUnit (n : ↥(etaleLocalRing B X.left hX s))) :
-    let C := (etaleStageOpenCone X s p i U B hX).pt
-    let ZL := (etaleStageOpenBoundaryCone X s p i U d B hX).pt
     let iL := etaleStageOpenBoundaryLimitMap X s p i U d B hX
     let f := (etaleStageOpenCone X s p i U B hX).π.app a0
     let D := (etaleStageOpenSection X s p i U σ hσ a0).ker
@@ -97,28 +95,8 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
       ((etaleStageOpenBoundaryMap X s p i U d).app a0) iL f
       (etaleStageOpenBoundaryCone_square X s p i U d B hX a0)
       (differenceSheaf D E) τStage
-    ∃ (M : C.Modules)
-      (hM : Stacks.SheafOfModules.IsInvertible C.presheaf C.ringCatIsSheaf M),
-      let _ := hM
-      let _ : AlgebraicGeometry.SheafOfModules.IsInvertible C.toRingedSpace.presheaf
-          (structureSheafRing C.toRingedSpace).property M := hM.toAlgebraicGeometry
-      ∃ (α : tensorPower C.toRingedSpace.presheaf
-          (structureSheafRing C.toRingedSpace).property M (n : ℤ) ≅
-          (Scheme.Modules.pullback f).obj (differenceSheaf D E))
-        (e : (Scheme.Modules.pullback iL).obj M ≅ SheafOfModules.unit ZL.ringCatSheaf),
-        tensorPowerCongr ZL.presheaf (ringSheafCond ZL) _ _ e n =
-          boundaryRootPowerIso iL M _ n α τL ∧
-        ∃ (Naux : C.Modules)
-          (_hNaux : AlgebraicGeometry.SheafOfModules.IsInvertible C.sheaf.obj
-            C.ringCatSheaf.property Naux)
-          (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor C.sheaf).obj M).obj Naux, ⊤))
-          (bN : Γ(Naux, ⊤))
-          (eN : (Scheme.Modules.pullback iL).obj Naux ≅ SheafOfModules.unit ZL.ringCatSheaf),
-          a ≠ 0 ∧ bN ≠ 0 ∧
-          Scheme.Modules.Hom.app (X := ZL) (Scheme.Modules.pullbackTensorFrame iL M Naux e eN).hom ⊤
-            (pullbackGlobalSections iL _ a) = (1 : Γ(ZL, ⊤)) ∧
-          Scheme.Modules.Hom.app (X := ZL) eN.hom ⊤ (pullbackGlobalSections iL Naux bN) =
-            (1 : Γ(ZL, ⊤)) := by
+    FullBoundaryRootAuxiliaryOutput iL
+      ((Scheme.Modules.pullback f).obj (differenceSheaf D E)) τL n := by
   let R := ↥(etaleLocalRing B X.left hX s)
   let : IsNoetherianRing R := isNoetherianRing_etaleLocalRing B X.left hX s
   let := etaleStageOpenCone_isIntegral X s p i U B hX x hpre
@@ -134,7 +112,7 @@ theorem etaleStageOpen_exists_actual_root_auxiliary
   have hτlocal := etaleStageOpenLimitSection_range_retained X s p i U j τ hτ hτj B hX
   have hclosed := etaleStageOpenLimitSection_same_closed_fibre
     X s p i U B hX σ τ hσ hτ a0 hmark
-  exact Stacks.Kummer.exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_target_normalized
+  exact Stacks.Kummer.exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_target_output
       R m embedding
       ((etaleStageOpenCone X s p i U B hX).π.app a0)
       (etaleStageOpenLimitStructure X s p i U B hX)
