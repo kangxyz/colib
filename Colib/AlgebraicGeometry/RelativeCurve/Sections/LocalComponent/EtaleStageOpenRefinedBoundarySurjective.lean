@@ -31,10 +31,11 @@ variable {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
   [IsIntegral ((etaleNeighborhoodToSmooth X s.hom).obj Anew).left]
   [IsClosedImmersion (((etaleNeighborhoodToSmooth X s.hom).map v).left)]
 
-private abbrev fixedStageRing : CommRingCat.{u} :=
+/-- The exact native ring of the fixed affine neighborhood, without changing its model. -/
+abbrev etaleStageOpenFixedRing : CommRingCat.{u} :=
   ((smallEtaleNeighborhoodInclusion X s).obj i).obj.left.unop
 
-local notation "Ai" => fixedStageRing X s i
+local notation "Ai" => etaleStageOpenFixedRing X s i
 local notation "Rnew" => Anew.obj.left.unop
 
 local instance refinedBoundaryCurveNormal :
@@ -57,7 +58,7 @@ local instance refinedBoundaryCurveLocallyNoetherian :
 normal component. Only the fixed-U finite cover/chart geometry is an input. -/
 theorem etaleStageOpen_refined_component_boundary_surjective
     (π : U.toScheme ⟶ projectiveLine Ai) [IsFinite π]
-    (hπ : π ≫ (projectiveLine Ai ↘ Spec Ai) =
+    (hπ : π ≫ (projectiveLine Ai ↘ Spec (.of ↥Ai)) =
       U.ι ≫ (etaleCurveStructure X s p).app i)
     {Y Z E : Scheme.{u}} (j : Y ⟶ U.toScheme)
     (cY : Y ⟶ Spec (.of (Polynomial Ai)))
@@ -102,7 +103,8 @@ theorem etaleStageOpen_refined_component_boundary_surjective
     rw [hφ]
     exact hcart
   have hsurj : Surjective (pullback.fst κ (pullback.fst vTotal d) ≫ κ ≫ qnew) :=
-    surjective_actualCartesian_component_fullBoundary pU φ.hom vTotal qnew hcartRing
+    surjective_actualCartesian_component_fullBoundary (A := ↥Ai) (R := ↥Rnew)
+      pU φ.hom vTotal qnew hcartRing
       π hπ j cY hcY hj r e cE hcE he d hd x
   let := hsurj
   exact surjective_actual_stage_boundary_pullbacks rStage d
