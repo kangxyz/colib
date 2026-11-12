@@ -17,7 +17,7 @@ named full consumer-normalized proposition. Its
 remaining arguments are exactly the original limit root and auxiliary data of
 the existing theorem, and its result retains every original recovery equation.
 The initial object `a₀` is an actual object of `Over i`, not silently identified
-with the fixed open `U`. This draft has not been compiled.
+with the fixed open `U`.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Scheme.Modules Stacks.Divisors
@@ -73,20 +73,42 @@ theorem etaleStageOpenConsumerNormalized
     fun {_ _} v => (etaleStageOpenSection_ker X s p i U τ hτ v).symm
   let aD := etaleStageOpenSection_boundary_avoids X s p i U σ hσ d hdσ
   let aE := etaleStageOpenSection_boundary_avoids X s p i U τ hτ d hdτ
-  letI hD : ∀ a, IsEffectiveCartierDivisor (D a) :=
+  letI _hD : ∀ a, IsEffectiveCartierDivisor (D a) :=
     fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U σ hσ j hσj a
-  letI hE : ∀ a, IsEffectiveCartierDivisor (E a) :=
+  letI _hE : ∀ a, IsEffectiveCartierDivisor (E a) :=
     fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U τ hτ j hτj a
-  letI hFP : (differenceSheaf (D a₀) (E a₀)).IsFinitePresentation :=
+  letI _hFP : (differenceSheaf (D a₀) (E a₀)).IsFinitePresentation :=
     @AlgebraicGeometry.SheafOfModules.isFinitePresentation_of_isInvertible
       (C.obj a₀) _ (isInvertible_differenceSheaf (D a₀) (E a₀)).toAlgebraicGeometry
   let i := a₀
   OriginalRootAuxiliaryFramesConsumerStatement
     B' C b cB cC bLim hb D E hDmap hEmap aD aE i := by
-  intro I C B' b cB cC bLim hb D E hDmap hEmap aD aE hD hE hFP i₀
+  let I := Over i
+  let C := etaleStageOpenDiagram X s p i U
+  let B' := etaleStageOpenBoundaryDiagram X s p i U d
+  let b := etaleStageOpenBoundaryMap X s p i U d
+  let cB := etaleStageOpenBoundaryCone X s p i U d B hX
+  let cC := etaleStageOpenCone X s p i U B hX
+  let bLim := etaleStageOpenBoundaryLimitMap X s p i U d B hX
+  let hb := etaleStageOpenBoundaryCone_square X s p i U d B hX
+  let D := fun a => (etaleStageOpenSection X s p i U σ hσ a).ker
+  let E := fun a => (etaleStageOpenSection X s p i U τ hτ a).ker
+  let hDmap : ∀ {a d : I} (v : a ⟶ d), (D d).comap (C.map v) = D a :=
+    fun {_ _} v => (etaleStageOpenSection_ker X s p i U σ hσ v).symm
+  let hEmap : ∀ {a d : I} (v : a ⟶ d), (E d).comap (C.map v) = E a :=
+    fun {_ _} v => (etaleStageOpenSection_ker X s p i U τ hτ v).symm
+  let aD := etaleStageOpenSection_boundary_avoids X s p i U σ hσ d hdσ
+  let aE := etaleStageOpenSection_boundary_avoids X s p i U τ hτ d hdτ
+  let _hD : ∀ a, IsEffectiveCartierDivisor (D a) :=
+    fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U σ hσ j hσj a
+  let _hE : ∀ a, IsEffectiveCartierDivisor (E a) :=
+    fun a => etaleStageOpenSection_isEffectiveCartierDivisor X s p i U τ hτ j hτj a
+  let _hFP : (differenceSheaf (D a₀) (E a₀)).IsFinitePresentation :=
+    @AlgebraicGeometry.SheafOfModules.isFinitePresentation_of_isInvertible
+      (C.obj a₀) _ (isInvertible_differenceSheaf (D a₀) (E a₀)).toAlgebraicGeometry
   exact originalRootAuxiliaryFramesConsumerStatement_of_isLimit
     B' C b cB (etaleStageOpenBoundaryConeIsLimit X s p i U d B hX)
     cC (etaleStageOpenConeIsLimit X s p i U B hX)
-    bLim hb D E hDmap hEmap aD aE i₀
+    bLim hb D E hDmap hEmap aD aE a₀
 
 end AlgebraicGeometry.Scheme.SmoothSite

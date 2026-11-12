@@ -16,6 +16,7 @@ on the closed residue field of the original etale local ring.
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
 universe u
+set_option backward.isDefEq.respectTransparency false
 namespace AlgebraicGeometry.Scheme.SmoothSite
 variable {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
   (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
@@ -46,6 +47,7 @@ theorem etaleStageOpenLimitSection_same_geometric_mark (a0 : Over i)
 
 /-- Equality at the canonical geometric point descends along the faithfully flat
 extension of the etale-local residue field. This uses the actual germ evaluation. -/
+omit [QuasiSeparatedSpace S] in
 theorem strictLocal_residue_maps_eq_of_geometric_eq {T : Scheme.{u}}
     (v w : strictHenselization B X.left hX s ⟶ T)
     (heq : geometricPointToStrictHenselization B X.left hX s ≫ v =
