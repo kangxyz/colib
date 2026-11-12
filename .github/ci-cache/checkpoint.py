@@ -541,7 +541,7 @@ def read_metadata(archive, members):
         return json.load(stream)
 
 
-def restore(args):
+def restore(args, *, verify_only=False):
     """Validate the entire archive before any overlay; atomically replace files.
 
     No tar extraction API is used. Under the required quiescent/trusted CI
@@ -550,7 +550,7 @@ def restore(args):
     before writes, preserving peer artifact bytes and source permissions.
     """
     metadata = None
-    for applying in (False, True):
+    for applying in ((False,) if verify_only else (False, True)):
         checked_parents = set()
         with archive_stream(args.input, False) as stream, tarfile.open(fileobj=stream, mode='r|') as archive:
             members = iter(archive)
@@ -597,6 +597,8 @@ def restore(args):
                         temporary.unlink(missing_ok=True)
             if next(members, None) is not None:
                 raise ValueError('unexpected extra checkpoint member')
+    if verify_only:
+        return metadata
     write_json(args.root / '.lake/ci-cache' / (args.layer + '.json'),
                dict(metadata, archive_sha256=file_hash(args.input)))
     if args.metadata:

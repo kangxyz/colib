@@ -4,6 +4,16 @@ name: Lean CI
 
 on:
   workflow_call:
+    secrets:
+      STACKS_R2_READ_ACCESS_KEY_ID:
+        required: false
+      STACKS_R2_READ_SECRET_ACCESS_KEY:
+        required: false
+      # The publish job resolves these in the stacks-cache-publish environment.
+      STACKS_R2_WRITE_ACCESS_KEY_ID:
+        required: false
+      STACKS_R2_WRITE_SECRET_ACCESS_KEY:
+        required: false
     inputs:
       package-directory:
         type: string
@@ -360,6 +370,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           STACKS_REVISION: ${{ steps.cache-layout.outputs.stacks-revision }}
           STACKS_CONTEXT: ${{ steps.cache-mode.outputs.stacks_context }}
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_READ_SECRET_ACCESS_KEY }}
         run: python3 -u .github/ci-cache/restore_stacks.py
       - name: Apply optional compilation checkpoints
         if: ${{ steps.cache-mode.outputs.layered == 'true' }}
@@ -1344,6 +1358,9 @@ jobs:
     needs: [build, test_lint]
     if: ${{ needs.build.result == 'success' && needs.test_lint.result == 'success' && needs.build.outputs.staged == 'true' && github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
     runs-on: ubuntu-24.04
+    environment:
+      name: stacks-cache-publish
+      deployment: false
     permissions:
       contents: write
       actions: read
@@ -1426,28 +1443,18 @@ jobs:
             cancelled) printf '⏹ Cancelled\n' >> "$GITHUB_STEP_SUMMARY" ;;
             *) printf '— Skipped\n' >> "$GITHUB_STEP_SUMMARY" ;;
           esac
-      - name: Publish the independent Stacks checkpoint
+      - name: Publish the Stacks baseline to R2
+        if: ${{ steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
+        continue-on-error: true
+        timeout-minutes: 8
+        env:
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_WRITE_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
+        run: python3 -u .github/ci-cache/restore_stacks.py --publish-r2 stacks.tar.zst
+      - name: Publish the Stacks baseline to GitHub Release
         if: ${{ steps.publish.outputs.skipped != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          REVISION: ${{ github.sha }}
-          ASSET: stacks-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}.tar.zst
-        run: |
-          tag=$(python3 - <<'PYTAG'
-          import importlib.util, json
-          from pathlib import Path
-          spec = importlib.util.spec_from_file_location('checkpoint', '.github/ci-cache/checkpoint.py')
-          checkpoint = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(checkpoint)
-          root = Path.cwd()
-          package = next(p for p in json.loads((root / 'lake-manifest.json').read_text())['packages'] if p['name'] == 'Stacks')
-          print('stacks-checkpoint-' + package['rev'] + '-' + checkpoint.contexts(root)['stacks_context'][:16])
-          PYTAG
-          )
-          mv stacks.tar.zst "$ASSET"
-          if gh release view "$tag" --repo "$REPOSITORY" >/dev/null 2>&1; then
-            gh release upload "$tag" "$ASSET" --repo "$REPOSITORY"
-          else
-            gh release create "$tag" "$ASSET" --repo "$REPOSITORY" --target "$REVISION" --latest=false               --title "Stacks compilation checkpoint" --notes 'Independent Stacks working-build checkpoint from successful Colib native checks.'
-          fi
+        run: python3 -u .github/ci-cache/restore_stacks.py --publish-release stacks.tar.zst
