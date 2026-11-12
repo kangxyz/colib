@@ -10,12 +10,12 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Basic
 public import StacksFrontier.CategoryTheory.Sites.Cohomology.DerivedSections.FreeYonedaSectionsUnivLE
 
 /-!
-# Strict affine-line invariance for ordinary Nisnevich cohomology
+# Strict A¹-invariance for ordinary Nisnevich cohomology
 
-Strict invariance tests the actual native affine-line projection in every
+Strict A¹-invariance tests the actual native affine-line projection in every
 nonnegative degree of Stacks' existing ordinary Ext cohomology presheaf.
 The polynomial-spectrum comparison retains the original projection map.
-This defines the target predicate, not Voevodsky's strict-invariance theorem.
+This defines the target predicate, not Voevodsky's strict A¹-invariance theorem.
 
 Adapted from `Motivic/Cohomology/A1/Basic.lean:156-167` at
 motivic@a6805c4a87cdfd7717dd7a94039246a167f15380, blob
@@ -39,13 +39,13 @@ def IsStrictA1Invariant (F : SheafWithTransfers.{u + 1} k) : Prop :=
   ∀ n : ℕ, A1.IsInvariant (.of k)
     (cohomologyPresheaf.{w, u + 1} ((toSheaf k).obj F) n)
 
-/-- Expanding strict invariance retains the actual ordinary projection map. -/
+/-- Expanding strict A¹-invariance retains the actual ordinary projection map. -/
 theorem isStrictA1Invariant_iff (F : SheafWithTransfers.{u + 1} k) :
     IsStrictA1Invariant F ↔ ∀ (n : ℕ) (X : SmoothSite (Spec (.of k))),
       IsIso ((cohomologyPresheaf.{w, u + 1} ((toSheaf k).obj F) n).map
         ((projection (SmoothSite.additiveGroupObject (Spec (.of k)))).app X).op) := Iff.rfl
 
-/-- The native target is equivalent to strict invariance on the original polynomial projection. -/
+/-- Strict A¹-invariance can be tested on the original polynomial projection. -/
 theorem isStrictA1Invariant_iff_polynomial_projection (F : SheafWithTransfers.{u + 1} k) :
     IsStrictA1Invariant F ↔ ∀ (n : ℕ) (X : SmoothSite (Spec (.of k))),
       IsIso ((cohomologyPresheaf.{w, u + 1} ((toSheaf k).obj F) n).map

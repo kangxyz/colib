@@ -40,8 +40,8 @@ scope = '''
 The category inverts the maps that are realization weak equivalences on
 every smooth Nisnevich site fiber. The coefficient sheaf universe is
 \(u+1\) for \(k\colon\mathrm{Type}\,u\), with an explicit independent
-derived category universe. The comparison applies before affine-line
-localization. The reduced derived-Hom expression is the one used in
+derived category universe. The comparison applies before
+\(\mathbb A^1\)-localization. The reduced derived-Hom expression is the one used in
 [@Voevodsky2003ReducedPowers, Section 2, equation (2.9), p. 5].
 '''
 review = "author_checked"

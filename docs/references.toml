@@ -351,6 +351,14 @@ year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 59–104"
 url = "https://numdam.org/item/10.1007/s10240-003-0010-6.pdf"
 
+[sources.Jardine2000MotivicSpectra]
+kind = "article"
+title = "Motivic symmetric spectra"
+authors = ["J. F. Jardine"]
+year = 2000
+version = "Documenta Mathematica, volume 5, pages 445–552"
+url = "https://ems.press/journals/dm/articles/8965015"
+
 [sources.Voevodsky2003ReducedPowers]
 kind = "article"
 title = "Reduced power operations in motivic cohomology"
@@ -358,6 +366,22 @@ authors = ["Vladimir Voevodsky"]
 year = 2003
 version = "Publications Mathématiques de l’IHÉS, volume 98, pages 1–57"
 url = "https://numdam.org/item/10.1007/s10240-003-0009-z.pdf"
+
+[sources.Voevodsky2008NisnevichCD]
+kind = "article"
+title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4576v1"
+url = "https://arxiv.org/abs/0805.4576v1"
+
+[sources.Voevodsky2008CDTopologies]
+kind = "article"
+title = "Homotopy theory of simplicial sheaves in completely decomposable topologies"
+authors = ["Vladimir Voevodsky"]
+year = 2008
+version = "arXiv:0805.4578v1"
+url = "https://arxiv.org/abs/0805.4578v1"
 
 [sources.mathlib_dold_kan_pin]
 kind = "software"

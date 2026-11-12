@@ -13,7 +13,7 @@ import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf
 import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf.InfiniteFieldEpi
 import Colib.AlgebraicGeometry.Sites.Smooth.Cohomology.Cylinder.DegreeOneGenericBaseZero
 
-/-! # Strict affine-line invariance over a perfect field
+/-! # Strict A¹-invariance over a perfect field
 
 The ordinary Nisnevich cohomology of a homotopy-invariant sheaf with transfers
 is invariant under the original affine-line projection in every degree.
@@ -38,7 +38,7 @@ variable {k : Type u} [Field k] [PerfectField k]
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
 /-- Over every perfect field, a homotopy-invariant Nisnevich sheaf with
-transfers is strictly affine-line invariant for ordinary Nisnevich cohomology. -/
+transfers is strictly A¹-invariant for ordinary Nisnevich cohomology. -/
 @[colib_tag "COL-1029", colib_ref "MVW2006" "Lecture 24, Theorem 24.1" "adaptation"
   "Ordinary Nisnevich cohomology of a homotopy-invariant transfer sheaf over a perfect field"]
 theorem isStrictA1Invariant_of_perfect (F : SheafWithTransfers.{u + 1} k)
@@ -56,7 +56,7 @@ theorem isStrictA1Invariant_of_perfect (F : SheafWithTransfers.{u + 1} k)
   obtain ⟨V, _, hη, hz⟩ := SheafCohomology.exists_generic_base_cylinder_h_one_zero G hG Y s
   exact ⟨V, hη, hz⟩
 
-/-- Strict affine-line invariance and coefficient homotopy invariance are
+/-- Strict A¹-invariance and coefficient homotopy invariance are
 equivalent for Nisnevich sheaves with transfers over a perfect field. -/
 @[colib_tag "COL-1029"]
 theorem isStrictA1Invariant_iff_isA1Invariant_of_perfect (F : SheafWithTransfers.{u + 1} k) :

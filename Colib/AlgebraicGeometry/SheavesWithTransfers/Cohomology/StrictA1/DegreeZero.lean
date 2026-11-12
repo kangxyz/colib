@@ -10,7 +10,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1ProjectionIso
 public import Colib.CategoryTheory.Sites.Cohomology.DegreeZero
 
 /-!
-# The degree-zero base case of strict affine-line invariance
+# The degree-zero base case of strict A¹-invariance
 
 The canonical comparison of actual free-sheaf Ext in degree zero with sections
 intertwines the literal projection maps. Consequently ordinary `H⁰` is homotopy
@@ -64,7 +64,7 @@ theorem degreeZero_isInvariant (F : SheafWithTransfers.{u + 1} k)
       (cohomologyPresheaf.{w, u + 1} ((toSheaf k).obj F) 0) :=
   (degreeZero_isInvariant_iff F).mpr hF
 
-/-- Strict affine-line invariance includes homotopy invariance of the original sections. -/
+/-- Strict A¹-invariance implies A¹-invariance of the original sections. -/
 theorem IsStrictA1Invariant.isA1Invariant {F : SheafWithTransfers.{u + 1} k}
     (hF : F.IsStrictA1Invariant) : F.obj.IsA1Invariant :=
   (degreeZero_isInvariant_iff F).mp (hF 0)

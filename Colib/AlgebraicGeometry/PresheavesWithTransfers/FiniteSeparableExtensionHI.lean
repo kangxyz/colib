@@ -16,7 +16,7 @@ The finite-separable coefficient is the actual additive precomposition functor.
 Its literal native affine projection is the original coefficient's projection
 followed by the actual native cylinder comparison. Thus ordinary coefficient
 HI is preserved, with an independent coefficient universe. This neither uses
-nor asserts strict invariance, a cohomology comparison, Cartesian trace
+nor asserts strict A¹-invariance, a cohomology comparison, Cartesian trace
 naturality, or specialization of a finite-flat family at 0 and 1.
 
 This supplies the last two declarations of motivic's

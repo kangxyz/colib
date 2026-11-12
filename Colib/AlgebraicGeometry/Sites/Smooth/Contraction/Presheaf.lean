@@ -22,7 +22,7 @@ Constants factor through that restriction and split under the actual unit sectio
 The construction is the ordinary-presheaf part of
 `Motivic/Transfers/Presheaf/Contraction.lean` at `motivic_source_a6805c4`.
 There is no assertion that the quotient carries all finite-correspondence
-transfers, is a sheaf, or satisfies strict affine-line invariance.
+transfers, is a sheaf, or satisfies strict A¹-invariance.
 -/
 
 @[expose] public noncomputable section

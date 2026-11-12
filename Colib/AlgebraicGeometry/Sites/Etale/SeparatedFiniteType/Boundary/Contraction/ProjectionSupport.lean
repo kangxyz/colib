@@ -29,7 +29,7 @@ Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
 `2327907b3010777776874bb4dd77a710fcc3b7f3`.
 The split support units are now proved lower leaves. Exactly canonical contractionToBoundary Epi
 at X and the actual cylinder remain explicit intermediate inputs, as in the original source; their
-producer is not claimed here. No such input is added to a strict A1 endpoint.
+producer is not claimed here. No such input is added to the strict A¹-invariance theorem.
 -/
 
 @[expose] public noncomputable section

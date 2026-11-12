@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1016"
-title = "Conditional affine-line representability"
+title = "A¹-local representability of motivic cochain coefficients"
 kind = "comparison"
 section = "affine-line-representatives"
 order = 10
@@ -10,9 +10,10 @@ statement = '''
 Let \(S\) be a quasi-separated scheme with the smooth Nisnevich site. Use
 the simplicial Yoneda presheaf of the native affine line over \(S\) in the
 coefficient universe as the interval \(I\). Write \(Q_I\) for the pointed
-stalkwise interval localization. For a cochain complex \(K\) of ordinary
-Nisnevich abelian sheaves and an integer \(p\), let \(R_p(K)\) be the
-pointed representative formed from the shifted K-injective resolution.
+Nisnevich localization followed by \(\mathbb A^1\)-localization. For a cochain
+complex \(K\) of ordinary Nisnevich abelian sheaves and an integer \(p\),
+let \(R_p(K)\) be the pointed representative formed from the shifted
+K-injective resolution.
 
 Suppose that for every pointed simplicial presheaf \(X\), the actual
 pointed cylinder projection \(\pi_X\colon X\times I\,/\,(*\times I)\to X\)
@@ -22,6 +23,12 @@ coefficients in \(K\). Then
 \operatorname{Hom}(Q_I X,Q_I R_p(K))
   \simeq \widetilde{\mathbb H}^{p}_{\mathrm{Nis}}(X,K).
 \]
+It suffices that ordinary Nisnevich hypercohomology of \(K\) be
+\(\mathbb A^1\)-invariant in every degree on smooth representables.
+Over a perfect field this condition holds for the integral motivic complex
+and its native finite coefficient cone by COL-1033, so the comparison
+applies to every pointed simplicial presheaf with these coefficients.
+
 For the freely pointed smooth representable \(h_{U,+}\), the target
 identifies with ordinary Nisnevich hypercohomology of \(U\).
 Precomposition by the image of an actual smooth-site map
@@ -31,15 +38,22 @@ proof = '''
 Use the natural stalkwise K-injective comparison of COL-1014 on \(X\)
 and its pointed cylinder. Naturality identifies precomposition by
 \(\pi_X\) with the indicated cohomology pullback, so its bijectivity makes
-the coefficient representative interval-local. Maps into that object
-are preserved by the interval localization. On a smooth representable,
+the coefficient representative \(\mathbb A^1\)-local. Maps into that object
+are preserved by \(\mathbb A^1\)-localization. On a smooth representable,
 the reduced derived chains identify with the original free representing
 sheaf in degree zero. That identification gives ordinary hypercohomology
-and its original restriction.
+and its original restriction. To pass from representables to all pointed
+objects, identify the reduced presheaf cochains of the cylinder with a
+coproduct indexed by the parameter maps. Its fold is adjoint to ordinary
+projection pullback. Evaluation on sections makes the latter a
+quasi-isomorphism for the K-injective coefficient model. The homotopy
+adjunction and exact sheafification then give the required cylinder
+invariance.
 '''
 scope = '''
 The coefficient sheaves take values in abelian groups in universe \(u+1\)
 for \(S\colon\mathrm{Scheme}\,u\). The sheafification, Grothendieck abelian
 structure, and independent derived category universe are explicit. The
-cohomological hypothesis concerns all pointed cylinders in the given degree.
+general representable criterion tests all cohomological degrees. The
+integral and finite motivic conclusions use a perfect base field.
 '''

@@ -639,6 +639,9 @@ class LibraryTests(unittest.TestCase):
             "COL-1030":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.HomotopyInvariance",
             "COL-1031": "Colib.AlgebraicGeometry.MotivicCohomology.CohomologySheafInvariance",
+            "COL-1032":
+                "Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.FiniteCohomologicalDimension",
+            "COL-1033": "Colib.AlgebraicGeometry.MotivicCohomology.AffineLineInvariance",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -776,7 +779,7 @@ class LibraryTests(unittest.TestCase):
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
             "canonical-motivic-complexes": ["COL-0398", "COL-1031"],
-            "motivic-hypercohomology": ["COL-0399", "COL-0400"],
+            "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [
                 "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"

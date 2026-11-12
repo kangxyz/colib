@@ -7,6 +7,7 @@ module
 
 public import Colib.CategoryTheory.Sites.Hypercohomology.SheafComparison
 public import Mathlib.Algebra.Homology.DerivedCategory.TStructure
+public import Mathlib.CategoryTheory.Triangulated.Subcategory
 import Mathlib.CategoryTheory.ConcreteCategory.EpiMono
 import Mathlib.CategoryTheory.Triangulated.Yoneda
 import StacksFrontier.Algebra.Homology.DerivedCategory.BoundedBelowNaturalTransformations
@@ -35,8 +36,42 @@ namespace Stacks.Cohomology.FreeYonedaUnivLE
 
 variable {C : Type u} [Category.{v} C] (J : GrothendieckTopology C)
   [HasSheafify J AddCommGrpCat.{max v t}]
-  [HasExt.{w'} (Sheaf J AddCommGrpCat.{max v t})]
   [HasDerivedCategory.{w} (Sheaf J AddCommGrpCat.{max v t})]
+
+/-- For a fixed site arrow, the objects with invertible restriction in every
+degree form a triangulated property, identified by the cone of the opposite
+map on the actual free representing sheaves. -/
+theorem exists_triangulated_derivedHomPresheaf_map {X Y : C} (f : X ⟶ Y) :
+    ∃ P : ObjectProperty (DerivedCategory (Sheaf J AddCommGrpCat.{max v t})),
+      P.IsTriangulated ∧ P.IsClosedUnderIsomorphisms ∧ ∀ E, P E ↔ ∀ p : ℤ,
+        IsIso (((derivedHomPresheafFunctor.{w, t} J p).obj E).map f.op) := by
+  let s := (DerivedCategory.singleFunctor _ 0).map ((freeYoneda.{t} J).map f)
+  obtain ⟨W, g, δ, hT⟩ := CategoryTheory.Pretriangulated.distinguished_cocone_triangle s.op
+  let T := Triangle.mk s.op g δ
+  let P := (preadditiveCoyoneda.obj W).homologicalKernel
+  refine ⟨P, inferInstance, inferInstance, fun E ↦ ?_⟩
+  let F := preadditiveYoneda.obj E
+  have h₁ := F.homologicalKernel.trW_iff_of_distinguished T hT
+  have h₂ := F.mem_homologicalKernel_trW_iff s.op
+  exact (F.mem_homologicalKernel_iff W).symm.trans (h₁.symm.trans h₂)
+
+/-- A mapping cone has invertible hypercohomology restriction if restriction
+is invertible in all degrees for both of its inputs. -/
+theorem isIso_hypercohomologyPresheaf_map_mappingCone {X Y : C} (f : X ⟶ Y)
+    {K L : CochainComplex (Sheaf J AddCommGrpCat.{max v t}) ℤ} (g : K ⟶ L)
+    (hK : ∀ p : ℤ, IsIso ((hypercohomologyPresheaf.{w, t} J K p).map f.op))
+    (hL : ∀ p : ℤ, IsIso ((hypercohomologyPresheaf.{w, t} J L p).map f.op)) (p : ℤ) :
+    IsIso ((hypercohomologyPresheaf.{w, t} J (CochainComplex.mappingCone g) p).map f.op) := by
+  obtain ⟨P, hP, hClosed, hIso⟩ := exists_triangulated_derivedHomPresheaf_map.{w, t} J f
+  have : P.IsTriangulated := hP
+  have : P.IsClosedUnderIsomorphisms := hClosed
+  let T := DerivedCategory.Q.mapTriangle.obj (CochainComplex.mappingCone.triangle g)
+  have hT : T ∈ distTriang _ := DerivedCategory.mappingCone_triangle_distinguished g
+  have h₁ : P T.obj₁ := (hIso _).mpr hK
+  have h₂ : P T.obj₂ := (hIso _).mpr hL
+  exact (hIso _).mp (P.ext_of_isTriangulatedClosed₃ T hT h₁ h₂) p
+
+variable [HasExt.{w'} (Sheaf J AddCommGrpCat.{max v t})]
 
 private theorem isIso_derivedHomPresheaf_map_single
     {X Y : C} (f : X ⟶ Y) (F : Sheaf J AddCommGrpCat.{max v t})
@@ -88,16 +123,9 @@ theorem isIso_derivedHomPresheaf_map_of_bounded
       IsIso ((cohomologyPresheaf.{w', t}
         ((DerivedCategory.homologyFunctor _ q).obj E) m).map f.op)) (p : ℤ) :
     IsIso (((derivedHomPresheafFunctor.{w, t} J p).obj E).map f.op) := by
-  let s := (DerivedCategory.singleFunctor _ 0).map ((freeYoneda.{t} J).map f)
-  obtain ⟨W, g, δ, hT⟩ := CategoryTheory.Pretriangulated.distinguished_cocone_triangle s.op
-  let T := Triangle.mk s.op g δ
-  let P := (preadditiveCoyoneda.obj W).homologicalKernel
-  have hEquiv (L : DerivedCategory (Sheaf J AddCommGrpCat.{max v t})) :
-      P L ↔ ∀ p : ℤ, IsIso (((derivedHomPresheafFunctor.{w, t} J p).obj L).map f.op) := by
-    let F := preadditiveYoneda.obj L
-    have h₁ := F.homologicalKernel.trW_iff_of_distinguished T hT
-    have h₂ := F.mem_homologicalKernel_trW_iff s.op
-    exact (F.mem_homologicalKernel_iff W).symm.trans (h₁.symm.trans h₂)
+  obtain ⟨P, hP, hClosed, hEquiv⟩ := exists_triangulated_derivedHomPresheaf_map.{w, t} J f
+  have : P.IsTriangulated := hP
+  have : P.IsClosedUnderIsomorphisms := hClosed
   have hE : P E := P.prop_of_isGE_of_isLE a n E hGE hLE (fun q hq₁ hq₂ ↦
     (hEquiv _).mpr (fun p ↦ isIso_derivedHomPresheaf_map_single J f _ (h q hq₁ hq₂) p))
   exact (hEquiv E).mp hE p

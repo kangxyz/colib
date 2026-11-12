@@ -14,7 +14,7 @@ public import Colib.RingTheory.Smooth.Localization
 /-!
 # Laurent local vanishing after shrinking the base
 
-A monic boundary gives an injective restriction of an affine-line invariant
+A monic boundary gives an injective restriction of an A¹-invariant
 coefficient on the whole puncture. A generic open zero therefore vanishes
 on the whole torus above one principal open of the original base.
 

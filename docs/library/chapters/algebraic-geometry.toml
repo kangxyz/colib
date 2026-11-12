@@ -64,6 +64,12 @@ map \(V\to X\) that is an isomorphism over the closed complement give a Nisnevic
 cover. On \(V\times_X V\), the diagonal and the part lying over \(U\) provide
 the cover used to check compatibility of the two restrictions.
 '''
+COL-1032 = '''
+Use finite refinements by these distinguished squares and the natural
+Mayer–Vietoris boundary for ordinary cohomology. The standard density
+filtration controls the degree of the open on which a class vanishes,
+giving the bound by the Krull dimension.
+'''
 COL-0343 = '''
 For the base object \(\operatorname{Spec}k\), the residue-field condition gives
 a lift of its field point through any Nisnevich cover. The resulting section
@@ -83,7 +89,7 @@ Nisnevich fibers. Conservativity relates their lifts back to the same covers.
 id = "algebraic-simplices"
 title = "Algebraic simplices and ordinary singular chains"
 order = 40
-introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary A1 homotopy invariance without assuming transfers."
+introduction = "Actual barycentric simplices, Cartesian coefficient change and ordinary singular chains retain their original maps. A geometric prism and interval contraction prove ordinary \\(\\mathbb A^1\\)-invariance without assuming transfers."
 
 [sections.transitions]
 COL-0348 = '''

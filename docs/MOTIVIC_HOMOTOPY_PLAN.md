@@ -56,24 +56,34 @@ to the adapted mathematical endpoints.
 [Earlier development](https://github.com/kangxyz/colib/commit/6897d796398ea31071d8dd84217b87fe68df54a8)
 · [Revert](https://github.com/kangxyz/colib/commit/6bd21f3)
 
-## Affine-line localization and the Tate suspension
+## A¹-localization and the Tate suspension
 
 1. In the Nisnevich homotopy category, localize at the actual pointed projections
    \((X\times\mathbb A^1)_+\to X_+\). The comparison in COL-1016 assumes invariance of
    reduced hypercohomology under every pointed cylinder projection. Identify the scheme
    projections with the cylinders on representables and prove the extension from the
    geometric tests to the required cylinders. To identify the entire mapping spaces, use
-   the invariance in all degrees that occur as their homotopy groups. The strict-invariance
-   migration supplies the corresponding sheaf-cohomology theorem. The comparison for the
-   actual coefficient complexes also needs a truncation or finite Nisnevich cohomological
-   dimension argument for passage from cohomology sheaves to hypercohomology.
+   the invariance in all degrees that occur as their homotopy groups. The strict
+   \(\mathbb A^1\)-invariance migration supplies the corresponding sheaf-cohomology theorem.
+   The comparison for the actual coefficient complexes also needs a truncation or finite
+   Nisnevich cohomological dimension argument for passage from cohomology sheaves to
+   hypercohomology.
 2. Develop the pointed constructions for \((\mathbb G_m,1)\) and
    \((\mathbb P^1,\infty)\), with their actual maps. Compare the motivic Tate sphere with
    \(S^1\wedge(\mathbb G_m,1)\), and record the comparison on reduced chains. The geometric
    cofiber constructions and explicit maps in COL-1017 and the stalkwise quotient
-   comparison in COL-1020 precede the coefficient locality proof.
+   comparison in COL-1020 give the map from the Tate cone to the quotient.
+   Tate smash preserves stalkwise weak equivalences by COL-1035. It also sends the
+   pointed \(\mathbb A^1\)-cylinder projection to an \(\mathbb A^1\)-weak equivalence
+   by the isomorphism that interchanges smash and cylinder.
+   Construct the stalkwise right adjoint from the pointed internal Hom and
+   Nisnevich fibrant replacement. This requires the injective fibrant comparison
+   for the existing stalkwise weak equivalences and preservation of trivial
+   monomorphisms by Tate smash. The adjunction then makes the right adjoint
+   preserve \(\mathbb A^1\)-local targets, proving descent of Tate smash to the
+   chosen localization. [Jardine, Motivic symmetric spectra, §§1.1–1.3](https://doi.org/10.4171/dm/86)
 3. Use the product with the Tate class to construct the bonding maps
-   \(T\wedge K(\Lambda(q),2q)\to K(\Lambda(q+1),2q+2)\). Verify the actual exterior-product
+   \(K(\Lambda(q),2q)\wedge T\to K(\Lambda(q+1),2q+2)\). Verify the actual exterior-product
    maps, base points, signs, and coefficient functoriality. Identify the simplicial
    suspension with cup product by the simplicial suspension class and the Tate suspension
    with cup product by the Tate class. For the stable representation, prove the loop

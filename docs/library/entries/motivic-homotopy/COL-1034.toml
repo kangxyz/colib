@@ -1,0 +1,52 @@
+[entry]
+id = "COL-1034"
+title = "The reduced weight-one class of the torus coordinate"
+kind = "definition"
+section = "tate-sphere-and-suspension"
+order = 30
+primary = "AlgebraicGeometry.MotivicHomotopy.torusCoordinateReducedMotivicClass"
+review = "author_checked"
+statement = '''
+Let \(k\) be a field and \(j\colon\operatorname{Spec}k\to\mathbb G_{m,k}\) the identity section.
+Let \(L\) be the cokernel of the actual map of free
+Nisnevich representing sheaves induced by \(j\). The forward Laurent
+coordinate \(t\) determines a morphism \(L\to\mathbb G_m\) of additive
+Nisnevich sheaves. Precomposing with the quotient from the free sheaf of
+the torus and evaluating at its identity generator recovers \(t\).
+
+In the unbounded derived category, this morphism determines a class
+\[
+L[0]\longrightarrow \mathbb Z(1)[1].
+\]
+Postcomposition with the shifted geometric weight-one comparison
+recovers the same morphism \(L[0]\to\mathbb G_m[0]\).
+
+The universe-lifted pointed representable \((\mathbb G_{m,k},1)\) has
+sheafified reduced cochains canonically isomorphic to \(L[0]\).
+The class above therefore gives the specified element of
+\(\widetilde H^{1,1}((\mathbb G_{m,k},1),\mathbb Z)\) in the reduced
+cochain model.
+'''
+proof = '''
+The pullback of \(t\) along \(j\) is the unit \(1\), which is zero in the
+additive coefficient sheaf. The free-Yoneda section equivalence sends
+this restriction to precomposition with the map of representing sheaves.
+The cokernel therefore gives the unique relative morphism. Applying the
+degree-zero derived single functor and the inverse of the signed
+weight-one comparison of COL-0403 gives the relative class.
+
+The lifted discrete representable of the base is terminal. Its map
+to the lifted torus is the actual pointed representable section.
+Free abelianization and degreewise sheafification therefore identify
+the reduction with the constant simplicial object on the relative
+cokernel. The comparison carries the reduction map to the original
+quotient projection. Normalization and extension to cochains place
+this cokernel in degree zero.
+'''
+scope = '''
+The class uses the relative source of the actual identity section of the
+native torus. The coefficient sheaf is the large Nisnevich units sheaf,
+and the derived category uses its explicit universe. This gives the
+integral torus class used in
+[@Voevodsky2003ReducedPowers, Section 2, before (2.8) and equation (2.9), p. 5].
+'''

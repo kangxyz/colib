@@ -40,7 +40,7 @@ universe u v
 namespace AlgebraicGeometry.Scheme.RelativeCurve.OriginalEtalePresentation
 
 /-- A presentation gives a literal affine zero neighborhood of its marked point
-for an affine-line invariant presheaf with transfers. -/
+for an A¹-invariant presheaf with transfers. -/
 theorem exists_zero_on_original_open
     {k : Type u} [Field k] {X A : SmoothSite (Spec (.of k))}
     [IsAffine X.left] {Y Z : Scheme.{u}}

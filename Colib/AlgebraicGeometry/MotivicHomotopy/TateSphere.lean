@@ -43,7 +43,7 @@ open CategoryTheory.PointedSimplicialPresheaf
 
 variable (R : CommRingCat.{u})
 
-/-- An affine-line localization generator is the actual pointed representable projection. -/
+/-- An A¹-localization generator is the actual pointed representable projection. -/
 def affineLineProjection (U : SmoothSite (Spec R)) :
     (PointedSimplicialPresheaf.yoneda (SmoothSite (Spec R))).obj
         ((Contraction.affineLineCylinder (S := Spec R)).obj U) ⟶

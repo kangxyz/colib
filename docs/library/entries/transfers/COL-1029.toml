@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1029"
-title = "Strict affine-line invariance of transfer sheaves"
+title = "Strict A¹-invariance of transfer sheaves"
 kind = "theorem"
 review = "author_checked"
 source_checked_on = "2026-11-12"
@@ -17,7 +17,7 @@ H^n_{\mathrm{Nis}}(X,F)\longrightarrow
 H^n_{\mathrm{Nis}}(X\times_k\mathbb A^1,F).
 \]
 Consequently the Nisnevich sheafification of a homotopy-invariant presheaf
-with transfers over $k$ is strictly affine-line invariant.
+with transfers over $k$ is strictly $\mathbb A^1$-invariant.
 '''
 scope = '''
 The groups are ordinary Nisnevich cohomology, using free representing sheaves
