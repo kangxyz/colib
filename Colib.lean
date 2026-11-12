@@ -317,6 +317,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ParameterSupp
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.Admissibility
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.ConstantUnit
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.Precomposition
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.ReducedIdentity
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.Support
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCut.Weighted
@@ -1693,6 +1694,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.AffineLineRepresentative
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Basic
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.InvariantUnit
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Representable
+public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.SingularTotal
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane
 public import Colib.AlgebraicGeometry.MotivicHomotopy.NisnevichRepresentative
 public import Colib.AlgebraicGeometry.MotivicHomotopy.ReducedMotivicBockstein
@@ -1828,11 +1830,13 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Si
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.TermExactness
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Total
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.TotalComparison
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.TotalInvariance
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Underlying
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Unit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineParameterSwap
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineTorusPoints
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.BoundaryReflection
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.CylinderNaturality
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.DoubleTorus
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.DoubleTorusPencil
