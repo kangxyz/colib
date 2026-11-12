@@ -1601,6 +1601,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Fixe
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.FixedClopenSectionPair
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.LimitDescent
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.MarkedNormalComponentSections
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalCompactifiedFixedFullBoundary
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.OriginalCompactifiedFixedRetainedTarget
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.PolynomialGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.ProjectiveLine
