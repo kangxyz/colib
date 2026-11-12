@@ -486,6 +486,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.MotivicHomotopy.ReducedMotivicBockstein",
             "pointed-simplicial-presheaves":
                 "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
+            "effective-motives":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Basic",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",
@@ -647,6 +649,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1039": "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation",
             "COL-1041":
                 "Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceGeometry",
+            "COL-1043":
+                "Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.Weighted",
+            "COL-1044":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -746,7 +752,7 @@ class LibraryTests(unittest.TestCase):
             "affine-line-invariance": ("transfers", ["COL-1029"]),
             "reduced-transfer-tori": ("motivic-cohomology", ["COL-0384", "COL-0385"]),
             "exterior-parameters": ("cycles", ["COL-0386", "COL-0388", "COL-0387", "COL-0389"]),
-            "relative-principal-cuts": ("cycles", ["COL-1040", "COL-1041"]),
+            "relative-principal-cuts": ("cycles", ["COL-1040", "COL-1041", "COL-1043"]),
         }
         for section_id, (chapter, identifiers) in expected.items():
             section = self.library["sections"][section_id]
