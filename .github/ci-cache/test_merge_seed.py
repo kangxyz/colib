@@ -10,7 +10,8 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from merge_seed import download, find_seed, sha, unpack_native, validate_producer
+from merge_seed import (download, download_release, find_published_baseline, find_seed,
+                        sha, unpack_native, validate_producer)
 
 HEAD = '1' * 40
 BRANCH = '2' * 40
@@ -103,7 +104,55 @@ class SelectMergeSeed(unittest.TestCase):
         self.assertIsNone(result)
 
 
+class SelectPublishedBaseline(unittest.TestCase):
+    def test_selects_a_published_checked_main_run_in_the_current_domain(self):
+        domain = 'Linux-X64-pin'
+        main = dict(run(BASE), head_branch='main', run_attempt=2)
+        asset = dict(name=f'lake-native-cache-{domain}-10-2.tar', state='uploaded',
+                     size=4096, digest='sha256:' + 'b'*64)
+        release = dict(tag_name=f'lean-native-{BASE}', target_commitish=BASE,
+                       draft=False, assets=[asset])
+
+        def select(runs, releases):
+            def api(path, **parameters):
+                if path == 'actions/workflows/ci.yml/runs':
+                    self.assertEqual(parameters['branch'], 'main')
+                    return {'workflow_runs': runs}
+                self.assertEqual(path, 'releases')
+                return releases
+            return find_published_baseline(api, 'main', REPOSITORY, domain)
+
+        self.assertEqual(select([main], [release]), (BASE, release['tag_name'], asset))
+        for wrong_run in (dict(main, head_branch='topic'), dict(main, run_attempt=1),
+                          dict(main, head_repository={'id': 91})):
+            self.assertIsNone(select([wrong_run], [release]))
+        for wrong_release in (dict(release, target_commitish=HEAD), dict(release, draft=True),
+                              dict(release, assets=[dict(asset, digest=None)]),
+                              dict(release, assets=[dict(asset, name='foreign.tar')])):
+            self.assertIsNone(select([main], [wrong_release]))
+
+
 class MergeSeedTransport(unittest.TestCase):
+    def test_published_archive_requires_the_api_size_and_digest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            content = b'published stage'
+            tag = f'lean-native-{BASE}'
+            name = 'lake-native-cache-Linux-X64-pin-10-2.tar'
+            archive = directory / name
+            archive.write_bytes(content)
+            asset = dict(name=name, size=len(content), digest='sha256:' + sha(archive))
+
+            with patch('merge_seed.subprocess.run') as download_command, patch(
+                    'merge_seed.shutil.disk_usage', return_value=SimpleNamespace(free=2 * 1024**3)):
+                self.assertEqual(download_release('kangxyz/colib', tag, asset, directory), archive)
+                download_command.assert_called_once_with(
+                    ['gh', 'release', 'download', tag, '--repo', 'kangxyz/colib',
+                     '--pattern', name, '--dir', str(directory)], check=True)
+                for wrong in (dict(asset, size=1), dict(asset, digest='sha256:' + '0'*64)):
+                    with self.assertRaises(ValueError):
+                        download_release('kangxyz/colib', tag, wrong, directory)
+
     def test_native_stage_rejects_links_paths_and_wrong_producer(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

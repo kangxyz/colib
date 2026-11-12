@@ -14,6 +14,7 @@ from unittest.mock import patch
 import checkpoint
 from filter_lake_log import filter_log
 import restore_stacks
+from stacks_r2 import R2Cache
 
 
 @unittest.skipUnless(shutil.which('zstd'), 'checkpoint compression needs zstd')
@@ -44,7 +45,7 @@ class StacksRestoreTests(unittest.TestCase):
         with redirect_stdout(io.StringIO()):
             checkpoint.pack(self.args)
 
-    def restore(self, *, prefix_fails=False):
+    def restore(self, *, prefix_fails=False, r2=None):
         downloads = []
 
         def download(asset, output, *, prefix=False):
@@ -54,10 +55,20 @@ class StacksRestoreTests(unittest.TestCase):
             else:
                 shutil.copyfile(self.published, output)
 
-        with patch.object(restore_stacks, 'download', side_effect=download), redirect_stdout(io.StringIO()) as log:
-            restore_stacks.restore_stacks(self.args, self.warm,
-                                         {'name': 'published.tar.zst', 'size': self.published.stat().st_size})
+        asset = {'name': 'published.tar.zst', 'size': self.published.stat().st_size}
+        with (patch.object(restore_stacks, 'published_asset', return_value=asset),
+              patch.object(restore_stacks, 'download', side_effect=download),
+              redirect_stdout(io.StringIO()) as log):
+            restore_stacks.restore_stacks(self.args, self.warm, r2)
         return downloads, log.getvalue().count('"restored": true')
+
+    def r2_baseline(self):
+        manifest = restore_stacks.manifest(self.published, self.args)
+        r2 = R2Cache('https://example', 'stacks', 'test', 'test', 'a' * 40, manifest['context'])
+        index = {'schema': 1, 'revision': r2.revision, 'context': r2.context,
+                 'generation': manifest['generation'], 'size': self.published.stat().st_size,
+                 'sha256': checkpoint.file_hash(self.published)}
+        return r2, index
 
     def test_same_generation_with_different_archive_bytes_is_restored_once(self):
         os.utime(self.shared, ns=(1_000_000, 1_000_000))
@@ -95,6 +106,137 @@ class StacksRestoreTests(unittest.TestCase):
         self.assertEqual(self.restore(), ([True, False], 1))
         self.assertEqual(self.warm.read_bytes(), self.published.read_bytes())
         self.assertEqual(self.shared.read_text(), 'baseline shared output')
+
+    def test_r2_generation_hit_only_downloads_the_index(self):
+        r2, index = self.r2_baseline()
+        shutil.copyfile(self.published, self.warm)
+        self.shared.unlink()
+        self.missing.unlink()
+
+        def request(method, key, output, **options):
+            self.assertEqual((method, key), ('GET', 'current.json'))
+            output.write_text(json.dumps(index))
+            return 200, '"a"'
+
+        with (patch.object(r2, 'request', side_effect=request),
+              patch.object(restore_stacks, 'published_asset', side_effect=AssertionError('unexpected fallback')),
+              redirect_stdout(io.StringIO())):
+            restore_stacks.restore_stacks(self.args, self.warm, r2)
+        self.assertEqual(self.missing.read_text(), 'baseline missing output')
+
+    def test_r2_bad_digest_falls_back_without_losing_partial_progress(self):
+        r2, index = self.r2_baseline()
+        self.shared.write_text('newer shared output')
+        self.missing.unlink()
+        self.pack(self.warm)
+        self.shared.unlink()
+
+        def request(method, key, output, **options):
+            if key == 'current.json':
+                output.write_text(json.dumps(index))
+                return 200, '"a"'
+            data = self.published.read_bytes()
+            if options['headers']:
+                output.write_bytes(data)
+                return 206, '"b"'
+            output.write_bytes(data[:-1] + bytes([data[-1] ^ 1]))
+            return 200, '"b"'
+
+        with patch.object(r2, 'request', side_effect=request) as remote:
+            self.assertEqual(self.restore(r2=r2), ([True, False], 2))
+        self.assertEqual(remote.call_count, 3)
+        self.assertEqual(self.shared.read_text(), 'newer shared output')
+        self.assertEqual(self.missing.read_text(), 'baseline missing output')
+
+    def test_r2_publish_rechecks_coverage_after_a_pointer_conflict(self):
+        r2, index = self.r2_baseline()
+        (self.build / 'Extra.olean').write_text('additional output')
+        self.pack(self.warm)
+        conditions = []
+        archive_uploads = []
+
+        def request(method, key, output, **options):
+            if method == 'GET' and key == 'current.json':
+                if not conditions:
+                    return 404, ''
+                output.write_text(json.dumps(index))
+                return 200, '"a"'
+            if method == 'GET':
+                self.assertEqual(key, r2.archive_key(index))
+                shutil.copyfile(self.published, output)
+                return 206, '"b"'
+            if key != 'current.json':
+                archive_uploads.append(key)
+                return 200, '"c"'
+            conditions.append(options['headers'][0])
+            pointer = json.loads(options['upload'].read_text())
+            self.assertEqual(r2.archive_key(pointer), archive_uploads[0])
+            return (412, '') if len(conditions) == 1 else (200, '"d"')
+
+        with patch.object(r2, 'request', side_effect=request), redirect_stdout(io.StringIO()):
+            restore_stacks.publish_r2(self.args, self.warm, r2)
+        self.assertEqual(conditions, ['If-None-Match: *', 'If-Match: "a"'])
+        self.assertEqual(len(archive_uploads), 1)
+
+    def test_r2_publish_reuses_same_generation_uploaded_with_different_bytes(self):
+        r2, existing = self.r2_baseline()
+        os.utime(self.shared, ns=(1_000_000, 1_000_000))
+        self.pack(self.warm)
+        self.assertNotEqual(checkpoint.file_hash(self.warm), existing['sha256'])
+        pointers = []
+
+        def request(method, key, output, **options):
+            if key == 'current.json':
+                if method == 'GET':
+                    return 404, ''
+                pointers.append(json.loads(options['upload'].read_text()))
+                return 200, '"c"'
+            self.assertEqual(key, r2.archive_key(existing))
+            if method == 'PUT':
+                self.assertEqual(options['headers'][0], 'If-None-Match: *')
+                return 412, ''
+            self.assertEqual(method, 'HEAD')
+            return 200, f"{existing['size']}\n{existing['sha256']}"
+
+        with patch.object(r2, 'request', side_effect=request), redirect_stdout(io.StringIO()):
+            restore_stacks.publish_r2(self.args, self.warm, r2)
+        self.assertEqual(pointers, [existing])
+
+    def test_github_release_skips_existing_legacy_generation(self):
+        os.utime(self.shared, ns=(1_000_000, 1_000_000))
+        self.pack(self.warm)
+        legacy = {'id': 1, 'name': 'stacks-checkpoint-123-1.tar.zst', 'state': 'uploaded',
+                  'size': self.published.stat().st_size, 'created_at': '2026-11-12T00:00:00Z',
+                  'digest': 'sha256:' + checkpoint.file_hash(self.published)}
+        self.assertNotEqual('sha256:' + checkpoint.file_hash(self.warm), legacy['digest'])
+
+        def download(asset, output, *, prefix=False):
+            self.assertEqual(asset, legacy)
+            self.assertTrue(prefix)
+            shutil.copyfile(self.published, output)
+
+        with (patch.object(restore_stacks, 'github_release', return_value={'assets': [legacy]}),
+              patch.object(restore_stacks, 'download', side_effect=download) as read,
+              patch.object(restore_stacks.subprocess, 'run', side_effect=AssertionError('unexpected upload')),
+              redirect_stdout(io.StringIO())):
+            restore_stacks.publish_release(self.args, self.warm, 'a' * 40, 'b' * 64)
+        self.assertEqual(read.call_count, 1)
+
+    def test_github_release_upload_race_reuses_winning_asset(self):
+        generation = restore_stacks.manifest(self.published, self.args)['generation']
+        asset = {'name': f'stacks-checkpoint-{generation}.tar.zst', 'state': 'uploaded',
+                 'size': self.published.stat().st_size}
+        releases = [{'assets': []}, {'assets': [asset]}]
+        rejected = subprocess.CompletedProcess([], 1, '', 'HTTP 422 already_exists')
+        with (patch.object(restore_stacks, 'github_release', side_effect=releases),
+              patch.object(restore_stacks.subprocess, 'run', return_value=rejected) as upload,
+              patch.dict(os.environ, GITHUB_REPOSITORY='test/repo', GITHUB_SHA='a' * 40),
+              redirect_stdout(io.StringIO())):
+            restore_stacks.publish_release(self.args, self.published, 'a' * 40, 'b' * 64)
+        command = upload.call_args.args[0]
+        self.assertEqual(command[:3], ['gh', 'release', 'upload'])
+        self.assertEqual(Path(command[4]).name, asset['name'])
+        self.assertTrue(self.published.is_file())
 
 
 class LakeLogTests(unittest.TestCase):
