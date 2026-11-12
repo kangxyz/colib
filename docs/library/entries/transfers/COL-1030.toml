@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1030"
+title = "Homotopy invariance of transfer singular homology"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "transfer-singular-complexes"
+order = 20
+primary = "AlgebraicGeometry.PresheafWithTransfers.singularComplex_homology_isA1Invariant"
+statement = '''
+Let \(k\) be a field, \(P\) an additive presheaf with transfers over \(k\),
+and \(r\geq 0\). For each smooth separated finite-type \(k\)-scheme \(X\),
+the projection \(X\times_k\mathbb A^1\to X\) induces an isomorphism
+\[
+H_r(C_*(P))(X)\longrightarrow H_r(C_*(P))(X\times_k\mathbb A^1)
+\]
+on the homology presheaf of the original transfer singular complex.
+'''
+scope = '''
+The result applies to the alternating algebraic simplex complex of COL-0397
+before Nisnevich sheafification. The coefficient groups may be in any
+universe. See [@MVW2006, Lecture 2, Corollary 2.19, p. 18].
+'''
+proof = '''
+Graph restriction and evaluation preserve homology. The comparison of
+COL-0397 transports the projection to the corresponding map on ordinary
+singular homology. The first barycentric coordinate identifies the
+univariate polynomial chart with the algebraic one-simplex, so the original
+interval homotopy of COL-0349 gives the required isomorphism.
+'''
