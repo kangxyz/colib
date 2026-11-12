@@ -16,6 +16,8 @@ remain exactly the original objects, without an identity ambient pullback.
 open CategoryTheory AlgebraicGeometry
 open Stacks.AlgebraicGeometry.ModuleLimits Stacks.SheafOfModules.Invertible
 universe u
+set_option backward.isDefEq.respectTransparency false
+attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
 namespace AlgebraicGeometry.Scheme.Modules
 
 local instance reparamRootPullbackInvertible {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
@@ -30,6 +32,13 @@ local instance reparamRootUnitInvertible (X : Scheme.{u}) :
       (SheafOfModules.unit X.ringCatSheaf) :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _
     (Stacks.SheafOfModules.isInvertible_unit _ _)
+
+local instance reparamRootPullbackUnitStacks {A B : Scheme.{u}} (u : A ⟶ B) :
+    Stacks.SheafOfModules.IsInvertible A.presheaf (ringSheafCond A)
+      ((pullback u).obj (SheafOfModules.unit B.ringCatSheaf)) :=
+  Stacks.SheafOfModules.IsInvertible.ofAlgebraicGeometry _ _ _
+    (Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry
+      u.toLRSHom.toShHom _ (reparamRootUnitInvertible B))
 
 /-- The original natural-power root equation is preserved with its exact original
 ambient root and power isomorphism, under any prescribed boundary reparametrization. -/
@@ -64,15 +73,15 @@ theorem boundaryFrameReparametrize_root {A B X : Scheme.{u}}
   have hn : pe = tM.symm ≪≫ (pullback u).mapIso pB ≪≫ tU := by
     have H := congrArg (fun z => tM.symm ≪≫ z)
       (pullbackTensorPowerIso_naturality u e n)
-    simpa only [Iso.trans_assoc, Iso.symm_self_id_assoc] using H
+    simpa only [tM, pe, pB, tU, Iso.trans_assoc, Iso.symm_self_id_assoc] using H.symm
   have hu : tU ≪≫ pu = (pullback u).mapIso sB ≪≫ pullbackUnitIso u ≪≫ sA.symm := by
     have H := congrArg (fun z => z ≪≫ sA.symm)
       (pullbackTensorPowerIso_structureSheaf u n)
-    simpa only [Iso.trans_assoc, Iso.self_symm_id, Iso.trans_refl] using H
+    simpa only [tU, pu, sA, sB, Iso.trans_assoc, Iso.self_symm_id, Iso.trans_refl] using H
   have hc : pc.symm ≪≫ tM.symm ≪≫ ((pullback u).mapIso qg).symm = qh.symm ≪≫ cP.symm := by
     have H := congrArg (fun z => cP ≪≫ z) (pullbackTensorPowerIso_can u g h w M n)
     have H' : (pullback u).mapIso qg ≪≫ tM ≪≫ pc = cP ≪≫ qh := by
-      simpa only [Iso.trans_assoc, Iso.self_symm_id_assoc] using H
+      simpa only [cP, qg, tM, pc, cM, qh, Iso.trans_assoc, Iso.self_symm_id_assoc] using H
     have H'' := congrArg Iso.symm H'
     simpa only [Iso.trans_symm, Iso.trans_assoc] using H''
   have hα : cP.symm ≪≫ (pullback u).mapIso ((pullback g).mapIso α) =
@@ -85,8 +94,18 @@ theorem boundaryFrameReparametrize_root {A B X : Scheme.{u}}
       Iso.symm_self_id_assoc] using H'
   have hstart : tensorPowerCongr A.presheaf (ringSheafCond A) _ _
       (boundaryFrameReparametrize u g h w M e) n = pc.symm ≪≫ pe ≪≫ pu := by
-    simp only [boundaryFrameReparametrize, tensorPowerCongr_trans, tensorPowerCongr_symm]
-    rfl
+    have hp1 := tensorPowerCongr_trans A.toRingedSpace.presheaf
+      (structureSheafRing A.toRingedSpace).property cM.symm
+      ((pullback u).mapIso e ≪≫ pullbackUnitIso u) n
+    have hp2 := tensorPowerCongr_trans A.toRingedSpace.presheaf
+      (structureSheafRing A.toRingedSpace).property
+      ((pullback u).mapIso e) (pullbackUnitIso u) n
+    have hp3 := tensorPowerCongr_symm A.toRingedSpace.presheaf
+      (structureSheafRing A.toRingedSpace).property cM n
+    have H := hp1.trans (congrArg (fun z =>
+      tensorPowerCongr A.toRingedSpace.presheaf
+        (structureSheafRing A.toRingedSpace).property _ _ cM.symm n ≪≫ z) hp2)
+    exact H.trans (congrArg (fun z => z ≪≫ pe ≪≫ pu) hp3)
   have hmid : pc.symm ≪≫ pe ≪≫ pu =
       pc.symm ≪≫ tM.symm ≪≫ (pullback u).mapIso pB ≪≫
         (pullback u).mapIso sB ≪≫ pullbackUnitIso u ≪≫ sA.symm := by
@@ -97,7 +116,7 @@ theorem boundaryFrameReparametrize_root {A B X : Scheme.{u}}
       ((pullback u).mapIso qg).symm ≪≫
         (pullback u).mapIso ((pullback g).mapIso α) ≪≫ (pullback u).mapIso τ := by
     have H := congrArg (fun z => (pullback u).mapIso z ≪≫ (pullback u).mapIso sB) he
-    simpa only [boundaryRootPowerIso, Functor.mapIso_trans, Functor.mapIso_symm,
+    simpa only [pB, sB, qg, boundaryRootPowerIso, Functor.mapIso_trans, Functor.mapIso_symm,
       Iso.trans_assoc, Iso.symm_self_id, Iso.trans_refl] using H
   have hmid' := congrArg (fun z => pc.symm ≪≫ tM.symm ≪≫ z ≪≫
     pullbackUnitIso u ≪≫ sA.symm) hframe
@@ -106,10 +125,21 @@ theorem boundaryFrameReparametrize_root {A B X : Scheme.{u}}
       pullbackUnitIso u ≪≫ sA.symm) hc
   have htarget := congrArg (fun z => qh.symm ≪≫ z ≪≫ (pullback u).mapIso τ ≪≫
     pullbackUnitIso u ≪≫ sA.symm) hα
-  exact hstart.trans (hmid.trans
-    ((by simpa only [Iso.trans_assoc] using hmid').trans
-      ((by simpa only [Iso.trans_assoc] using hend).trans
-        (by simpa only [boundaryRootPowerIso, boundaryFrameReparametrize, Iso.trans_assoc]
-          using htarget))))
+  calc
+    _ = pc.symm ≪≫ pe ≪≫ pu := hstart
+    _ = pc.symm ≪≫ tM.symm ≪≫ (pullback u).mapIso pB ≪≫
+        (pullback u).mapIso sB ≪≫ pullbackUnitIso u ≪≫ sA.symm := hmid
+    _ = pc.symm ≪≫ tM.symm ≪≫ ((pullback u).mapIso qg).symm ≪≫
+        (pullback u).mapIso ((pullback g).mapIso α) ≪≫
+        (pullback u).mapIso τ ≪≫ pullbackUnitIso u ≪≫ sA.symm := by
+      simpa only [Iso.trans_assoc] using hmid'
+    _ = qh.symm ≪≫ cP.symm ≪≫
+        (pullback u).mapIso ((pullback g).mapIso α) ≪≫
+        (pullback u).mapIso τ ≪≫ pullbackUnitIso u ≪≫ sA.symm := by
+      simpa only [Iso.trans_assoc] using hend
+    _ = boundaryRootPowerIso h M L n α
+        (boundaryFrameReparametrize u g h w L τ) := by
+      simpa only [boundaryRootPowerIso, boundaryFrameReparametrize, qh, cP, cL, sA,
+        Iso.trans_assoc] using htarget
 
 end AlgebraicGeometry.Scheme.Modules

@@ -159,7 +159,7 @@ theorem boundaryFrameReparametrize_tensorFrame {A B X : Scheme.{u}}
     (tensorProductIso B.sheaf.obj B.ringCatSheaf.property eM eN)
     (tensorProductLeftUnitor B.sheaf.obj B.ringCatSheaf.property
       (SheafOfModules.unit B.ringCatSheaf)) (pullbackUnitIso u)).trans
-      ((hp'.trans hs).trans (Iso.trans_assoc _ _ _))
+      (hp'.trans hs)
 
 /-- Both auxiliary boundary-one equations transport without changing their original
 ambient modules or sections. -/

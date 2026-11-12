@@ -17,6 +17,9 @@ affine-presentation isomorphism, without replacing the original boundary diagram
 open CategoryTheory AlgebraicGeometry
 open Stacks.AlgebraicGeometry.ModuleLimits
 universe u
+set_option backward.isDefEq.respectTransparency false
+attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
+
 namespace AlgebraicGeometry.Scheme.Modules
 
 private theorem square_can_cancel {C : Type*} [Category C]
@@ -86,10 +89,18 @@ theorem boundaryFrameReparametrize_square {A B D X Y : Scheme.{u}}
     (pullback u).mapIso (pullbackUnitIso b) ≪≫ pullbackUnitIso u) hn
   have h₃ := congrArg (fun z => (pullbackSquareIso b' i h f w' L).symm ≪≫
     (pullback b').mapIso τ ≪≫ cu.symm ≪≫ z) hu
-  exact (by simpa only [boundaryFrameReparametrize, pullbackBoundaryTrivialization,
-    Functor.mapIso_trans, Functor.mapIso_symm, Iso.trans_assoc] using h₁).trans
-      ((by simpa only [Iso.trans_assoc] using h₂).trans
-        (by simpa only [pullbackBoundaryTrivialization, Iso.trans_assoc,
-          Iso.symm_self_id_assoc] using h₃))
+  calc
+    _ = (pullbackSquareIso b' i h f w' L).symm ≪≫ c.symm ≪≫
+        (pullback u).mapIso ((pullback b).mapIso τ) ≪≫
+        (pullback u).mapIso (pullbackUnitIso b) ≪≫ pullbackUnitIso u := by
+      simpa only [boundaryFrameReparametrize, pullbackBoundaryTrivialization,
+        Functor.mapIso_trans, Functor.mapIso_symm, Iso.trans_assoc] using h₁
+    _ = (pullbackSquareIso b' i h f w' L).symm ≪≫ (pullback b').mapIso τ ≪≫
+        cu.symm ≪≫ (pullback u).mapIso (pullbackUnitIso b) ≪≫ pullbackUnitIso u := by
+      simpa only [Iso.trans_assoc] using h₂
+    _ = _ := by
+      simpa only [cu, pullbackBoundaryTrivialization, Iso.trans_assoc,
+        Iso.symm_self_id_assoc] using h₃
+
 
 end AlgebraicGeometry.Scheme.Modules
