@@ -66,9 +66,11 @@ structure NativeSectionEndpointData {k : Type u} [Field k]
     (pullback.snd (nativeAffineSection (.of k) U s).left source ≫ target) ≫ W.hom
   /-- The isomorphism from the entire Cartesian fiber to the original support. -/
   fiberIso : pullback (nativeAffineSection (.of k) U s).left source ≅ E
+  /-- The source leg on `E`, identified with the first projection of the section fiber. -/
   fiberSource : E ⟶ U.left
   fiberSourceFinite : IsFinite fiberSource
   fiberSourceFlat : Flat fiberSource
+  /-- The target leg on `E`, obtained from the family target on the section fiber. -/
   fiberTarget : E ⟶ W.left
   fiberOverBase : fiberSource ≫ U.hom = fiberTarget ≫ W.hom
   fiberSource_eq : fiberIso.hom ≫ fiberSource =

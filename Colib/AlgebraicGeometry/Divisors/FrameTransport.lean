@@ -66,7 +66,6 @@ def divisorComapEqIso :
     (Scheme.Modules.pullback f).obj (divisorSheaf D) ≅ divisorSheaf E :=
   (exists_divisorComapEqIso f D E h).choose
 
-@[simp]
 theorem divisorComapEqIso_canonicalSection :
     (divisorComapEqIso f D E h).hom.app ⊤
       (pullbackGlobalSections f (divisorSheaf D) (divisorSheafGlobalSection D)) =

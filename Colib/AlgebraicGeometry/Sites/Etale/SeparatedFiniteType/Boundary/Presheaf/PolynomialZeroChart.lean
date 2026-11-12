@@ -46,25 +46,34 @@ structure PolynomialZeroBoundaryChart (X : SmoothSite (Spec (.of k)))
     (W : EtaleSeparatedFiniteType (SmoothSite.Contraction.affineLineCylinder.obj X).left)
     (w : ((baseChange (SmoothSite.Contraction.nativeAffineSection (.of k) X 0).left).obj W).left)
     where
+  /-- The coordinate ring of the integral affine zero neighborhood. -/
   R : Type u
+  /-- The commutative ring structure used in the zero chart and its polynomial line. -/
   [ring : CommRing R]
   [domain : IsDomain R]
+  /-- The `k`-algebra structure on the coordinate ring of the zero chart. -/
   [algebra : Algebra k R]
   [smooth : Algebra.Smooth k R]
+  /-- The affine étale neighborhood of the polynomial line carrying the marked lift. -/
   Y : SmoothSite (Spec (.of k))
   [affine : IsAffine Y.left]
+  /-- The étale map from `Y` to the polynomial line over `R`. -/
   p : Y ⟶ SmoothSite.lineSite (k := k) (R := R)
   [etale : Etale p.left]
+  /-- The point of `Spec R` sent to the original marked point `w` by `vR`. -/
   wR : Spec (.of R)
   [markedMaximal : (PrimeSpectrum.comap (Polynomial.evalRingHom (0 : R)) wR).asIdeal.IsMaximal]
+  /-- The lift of the polynomial zero section identifying its full fiber in `Y`. -/
   sR : Spec (.of R) ⟶ Y.left
   section_eq : sR ≫ p.left = Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (0 : R)))
   zero_cartesian : IsPullback sR (𝟙 _) p.left
     (Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (0 : R))))
+  /-- The open chart map from `Spec R` into the zero-section pullback of `W`. -/
   vR : SmoothSite.affineSite k R ⟶
     (toSmoothSite X).obj ((baseChange (SmoothSite.Contraction.nativeAffineSection (.of k) X
       0).left).obj W)
   [open_vR : IsOpenImmersion vR.left]
+  /-- The map from the polynomial étale chart to the original neighborhood `W` over the cylinder. -/
   eR : Y ⟶ (toSmoothSite (SmoothSite.Contraction.affineLineCylinder.obj X)).obj W
   ambient_eq : p ≫ (lineCylinderIso (k := k) (R := R)).hom ≫
     SmoothSite.Contraction.affineLineCylinder.map

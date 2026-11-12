@@ -230,4 +230,5 @@ COL-0567 = "The same finite stage maps also preserve each prescribed null track 
 COL-0576 = "An index comparison of the actual square functors first identifies each finite Bass stage. Compatibility with the specified seeds then gives inverse maps on the whole telescopes."
 COL-0577 = "The index comparison preserves the actual maps. For zero-preserving model diagrams, exact categorical equivalences also give stable equivalences at every finite Bass stage."
 COL-0581 = "The natural cofiber comparison must preserve the specified null before it can be applied to a Laurent seed. The strict-diagram descent identity supplies this compatibility at every time."
+COL-0586 = "The transition square for a forward index-and-row map lets its finite comparisons descend to telescopes; levelwise stability then controls the induced telescope map."
 

@@ -30,10 +30,9 @@ universe u
 
 namespace AlgebraicGeometry.Scheme
 
-/-- An étale morphism over a locally Noetherian scheme cannot increase
-its source's global dimension. No quasi-compactness or nonemptiness is needed. -/
+/-- The source of an étale morphism has Krull dimension at most that of the target. -/
 theorem topologicalKrullDim_le_of_etale
-    {V X : Scheme.{u}} [IsLocallyNoetherian X] (p : V ⟶ X) [Etale p] :
+    {V X : Scheme.{u}} (p : V ⟶ X) [Etale p] :
     topologicalKrullDim V ≤ topologicalKrullDim X := by
   rw [topologicalKrullDim_eq_iSup_krullDimOfRing_stalk,
     topologicalKrullDim_eq_iSup_krullDimOfRing_stalk]

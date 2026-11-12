@@ -77,7 +77,7 @@ end Determinant
 /-- Full row rank follows from the actual cotangent rank. Deriving that rank
 from smoothness and transcendence degree is a separate geometric theorem. -/
 theorem exists_fullSelectedPoint_open_of_finrank [Algebra k L]
-    [Algebra.EssFiniteType k R] (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
+    (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
     (d : ℕ) (hd : Module.finrank L (L ⊗[R] Ω[R⁄k]) = d) :
     ∃ q : MvPolynomial (Fin d × Exponent σ) k, q ≠ 0 ∧
       ∀ c : Fin d × Exponent σ → k, eval c q ≠ 0 →

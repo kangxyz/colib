@@ -63,7 +63,6 @@ def divisorBasisFrame
   asIso (divisorBasisFrameHom D b)
 
 /-- The frame sends the canonical section to the literal underlying ideal generator. -/
-@[simp]
 theorem divisorBasisFrame_canonicalSection
     (b : DualBasisOne X.presheaf (structureSheafRing X.toRingedSpace).property
       (negativeTwist' D) (⊤ : X.Opens)) :
@@ -83,7 +82,6 @@ def principalDivisorFrame : divisorSheaf D ≅ SheafOfModules.unit X.ringCatShea
   divisorBasisFrame D (dualBasisOneOfPrincipal D ⟨⊤, isAffineOpen_top X⟩ hf hreg)
 
 /-- The prescribed equation, rather than an unspecified unit multiple, is the coordinate. -/
-@[simp]
 theorem principalDivisorFrame_canonicalSection :
     (principalDivisorFrame D hf hreg).hom.app ⊤ (divisorSheafGlobalSection D) = f := by
   refine (divisorBasisFrame_canonicalSection D

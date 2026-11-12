@@ -41,7 +41,7 @@ theorem quadraticResidueJet_surjective (g : σ → R)
 
 /-- Exact independent-equation count on the normalized bad-fiber chart for an
 actual affine embedding and its actual cotangent fiber. -/
-theorem finrank_ker_quadraticResidueIncidence [Algebra.EssFiniteType k R]
+theorem finrank_ker_quadraticResidueIncidence
     (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
     (a b : σ → K) (hab : a ≠ b) (d : ℕ)
     (hd : Module.finrank K (K ⊗[R] Ω[R⁄k]) = d + 1)

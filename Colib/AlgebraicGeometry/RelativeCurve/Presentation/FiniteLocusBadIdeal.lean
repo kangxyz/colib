@@ -38,8 +38,7 @@ theorem vanishingIdeal_complement_ne_bot (B : Type u) [CommRing B]
 /-- Before choosing any projection, the original étale map has a fixed nonzero
 bad ideal. Its closed scheme contains the entire prescribed nonreduced quotient. -/
 theorem exists_fixed_finite_locus_bad_ideal
-    (k B : Type u) [Field k] [CommRing B] [IsDomain B] [Algebra k B]
-    [Algebra.Smooth k B] {Y : Scheme.{u}} (p : Y ⟶ Spec (.of B))
+    (B : Type u) [CommRing B] [IsDomain B] {Y : Scheme.{u}} (p : Y ⟶ Spec (.of B))
     [Etale p] [QuasiCompact p] [IsSeparated p]
     (J : Ideal B) (hJ : J ≠ ⊥) :
     ∃ I : Ideal B, I ≠ ⊥ ∧ I ≤ J ∧

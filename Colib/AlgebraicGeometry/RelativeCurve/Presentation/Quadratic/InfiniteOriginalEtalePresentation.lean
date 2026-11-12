@@ -50,7 +50,7 @@ theorem nonempty_originalEtalePresentation_of_generators
       p a (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk J))) s x) := by
   let := Fintype.ofFinite σ
   let : IsNoetherianRing B := Algebra.FiniteType.isNoetherianRing k B
-  obtain ⟨I, hI, hIJ, U, hU, hpU⟩ := exists_fixed_finite_locus_bad_ideal k B p J hJ
+  obtain ⟨I, hI, hIJ, U, hU, hpU⟩ := exists_fixed_finite_locus_bad_ideal B p J hJ
   obtain ⟨a₀, c, _hq, hW, hZ, _he, hsm⟩ :=
     exists_wholeFiber_etale_closed_infinity k B x I hI g hg d hd 1 one_ne_zero
   let R := MvPolynomial (Fin d) k

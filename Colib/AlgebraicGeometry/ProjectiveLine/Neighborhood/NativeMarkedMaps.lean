@@ -19,9 +19,11 @@ universe u
 namespace AlgebraicGeometry.Scheme.RelativeCurve.NativeProjectiveLine.ZeroNeighborhood
 variable (R : Type u) [CommRing R] (O : (Spec (.of (Polynomial R))).Opens)
 
+/-- The whole zero section of the polynomial line, induced by evaluation at zero. -/
 abbrev polynomialZero : Spec (.of R) ⟶ Spec (.of (Polynomial R)) :=
   Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (0 : R)))
 
+/-- The structure map of the polynomial line over the coefficient spectrum. -/
 abbrev polynomialProjection : Spec (.of (Polynomial R)) ⟶ Spec (.of R) :=
   Spec.map (CommRingCat.ofHom (Polynomial.C : R →+* Polynomial R))
 
@@ -48,7 +50,7 @@ theorem zeroLift_isPullback (hO : Set.range (polynomialZero R) ⊆ O) :
     IsPullback (zeroLift R O hO) (𝟙 _) O.ι (polynomialZero R) :=
   IsPullback.of_vert_isIso_mono ⟨by simp only [zeroLift_original, Category.id_comp]⟩
 
-@[reassoc (attr := simp)] theorem zeroLift_projective
+@[reassoc] theorem zeroLift_projective
     (hO : Set.range (polynomialZero R) ⊆ O) :
     zeroLift R O hO ≫ O.ι ≫ chart R = zeroSection R := by
   exact zeroLift_original_assoc R O hO (chart R)

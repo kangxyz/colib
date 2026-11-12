@@ -46,7 +46,7 @@ def correctionCoordinateProductMap : V ⟶ W :=
 def correctionPolynomialMap : V ⟶ Spec (.of B[X]) :=
   correctionCoordinateProductMap R B z a ≫ (markedCoordinateProductIso R B z).inv
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem correctionPolynomialMap_coordinate :
     correctionPolynomialMap R B z a ≫ (markedCoordinateProductIso R B z).hom ≫
       pullback.fst _ _ = pullback.fst _ _ ≫ a := by
@@ -54,6 +54,14 @@ theorem correctionPolynomialMap_coordinate :
     (markedCoordinateProductIso R B z).hom ≫ pullback.fst _ _ = _
   rw [Category.assoc, Iso.inv_hom_id_assoc]
   exact pullback.lift_fst _ _ _
+
+/-- The correction coordinate projects to the prescribed original source map. -/
+@[reassoc (attr := simp)]
+theorem correctionPolynomialMap_comp_coordinateProjection :
+    correctionPolynomialMap R B z a ≫ Spec.map (CommRingCat.ofHom (mapRingHom (z.comp C))) =
+      pullback.fst _ _ ≫ a := by
+  simpa only [markedCoordinateProductIso_hom_fst] using
+    correctionPolynomialMap_coordinate R B z a
 
 /-- Disjointness of the original source and whole mark implies disjointness from
 its full evaluation graph. This assertion is not limited to rational points. -/

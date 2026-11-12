@@ -62,7 +62,6 @@ def compactificationInfinityDivisorFrame :
   canonicalDisjointBoundaryFrame (compactificationGraph q j).ker
     (infinityProductMap q j d) (compactificationGraph_disjoint_infinity q j d hd)
 
-@[simp]
 theorem compactificationInfinityDivisorFrame_coordinate :
     (compactificationInfinityDivisorFrame q j d hd).hom.app ⊤
       (pullbackGlobalSections (infinityProductMap q j d)

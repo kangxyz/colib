@@ -65,13 +65,13 @@ abbrev projection : compactification R p ⟶ Spec (.of R) :=
   toProjectiveLine R p ≫ (projectiveSpaceOverRing 1 (.of R) ↘ Spec (.of R))
 
 omit [IsSeparated p] in
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem inclusion_toProjectiveLine :
     inclusion R p ≫ toProjectiveLine R p = p ≫ NativeProjectiveLine.chart R :=
   (projectiveMap R p).toNormalization_fromNormalization
 
 omit [IsSeparated p] in
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem inclusion_projection :
     inclusion R p ≫ projection R p = p ≫ polynomialProjection (.of R) := by
   rw [projection, ← Category.assoc, inclusion_toProjectiveLine, Category.assoc,

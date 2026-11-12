@@ -5,11 +5,13 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectFieldAssembly
-public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf.FiniteFieldEpi
-public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf.InfiniteFieldEpi
-public import Colib.AlgebraicGeometry.Sites.Smooth.Cohomology.Cylinder.DegreeOneGenericBaseZero
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic
 public import Colib.Util.References
+public import Mathlib.FieldTheory.Perfect
+import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectFieldAssembly
+import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf.FiniteFieldEpi
+import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Boundary.Presheaf.InfiniteFieldEpi
+import Colib.AlgebraicGeometry.Sites.Smooth.Cohomology.Cylinder.DegreeOneGenericBaseZero
 
 /-! # Strict affine-line invariance over a perfect field
 

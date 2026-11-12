@@ -48,7 +48,7 @@ theorem exists_finite_affine_zero_neighborhood_of_positive_trdeg
     (x : PrimeSpectrum B) [x.asIdeal.IsMaximal]
     (J : Ideal B) (hJ : J ≠ ⊥) (d : ℕ)
     (hd : Algebra.trdeg k B = (d + 1 : ℕ))
-    {A : SmoothSite (Spec (.of k))} [IsAffine A.left]
+    {A : SmoothSite (Spec (.of k))}
     (a : A ⟶ affineSite k B) [IsOpenImmersion a.left]
     (ha : Disjoint (Set.range a.left)
       (Set.range (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk J)))))

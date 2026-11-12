@@ -75,7 +75,7 @@ theorem exists_two_prime_originalEtalePresentations_of_generators
               (Scheme.quotientBaseChangeEtaleLift B S J p s hs) y) := by
   let := Fintype.ofFinite σ
   obtain ⟨I, hI, hIJ, U, hU, hpU⟩ :=
-    exists_fixed_finite_locus_bad_ideal k B p J hJ
+    exists_fixed_finite_locus_bad_ideal B p J hJ
   obtain ⟨n, m, hn, hm, hnm, h⟩ :=
     exists_two_prime_wholeFiber_infinity_parameters k B ℓ x I hI g hg d hd
       1 one_ne_zero N₀

@@ -46,15 +46,20 @@ structure ScalarAffineWitness
     (q : Y ⟶ SmoothSite.Contraction.affineLineCylinder.obj V) [Etale q.left] (z : V ⟶ Y)
     (φ : SmoothSite.etalePullback q (SmoothSite.Contraction.openInclusion.app V) ⟶ D)
     (s : sections P (Cor.mk D)) where
+  /-- The affine étale neighborhood over the scalar extension of `Y`. -/
   E : SmoothSite (Spec (.of L))
   affine : IsAffine E.left
+  /-- The étale map from the correction neighborhood to the scalar extension of `Y`. -/
   f : E ⟶ (SmoothSite.fieldBaseChange (algebraMap k L)).obj Y
   etale : Etale f.left
+  /-- The lift of the scalar extension of the marked map `z` to `E`. -/
   mark : (SmoothSite.fieldBaseChange (algebraMap k L)).obj V ⟶ E
   mark_eq : mark ≫ f = (SmoothSite.fieldBaseChange (algebraMap k L)).map z
+  /-- The scalar coefficient section on the base change of the torus cylinder of `V`. -/
   laurentSection : sections (finiteSeparableExtension L P)
     (Cor.mk ((SmoothSite.fieldBaseChange (algebraMap k L)).obj
       (SmoothSite.Contraction.torusCylinder.obj V)))
+  /-- The scalar coefficient section on `E` whose restriction is subtracted on the overlap. -/
   ambientSection : sections (finiteSeparableExtension L P) (Cor.mk E)
   relation :
     letI := etale

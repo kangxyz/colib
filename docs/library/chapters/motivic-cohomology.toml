@@ -48,7 +48,8 @@ introduction = '''Use the ordinary Nisnevich projection on smooth schemes with t
 COL-1029 = '''
 The degree-zero comparison is restriction of sections. For positive degrees,
 the proof uses the entire affine cylinder over each generic base open and
-the original puncture along a smooth Cartier divisor.
+the original puncture along a smooth Cartier divisor. Apply COL-1028 to
+obtain the strict invariance of the actual Nisnevich reflection.
 '''
 
 [[sections]]

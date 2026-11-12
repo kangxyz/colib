@@ -103,7 +103,10 @@ def boundaryIdeal : (projectiveSpaceOverRing 1 (.of R)).IdealSheafData :=
   IdealSheafData.vanishingIdeal
     ⟨(projectiveOpen R O : Set _)ᶜ, (projectiveOpen R O).isOpen.isClosed_compl⟩
 
+/-- The closed subscheme cut out by the vanishing ideal of the complement of the open. -/
 abbrev boundary : Scheme.{u} := (boundaryIdeal R O).subscheme
+
+/-- The defining closed immersion of the boundary into the native projective line. -/
 abbrev boundaryInclusion : boundary R O ⟶ projectiveSpaceOverRing 1 (.of R) :=
   (boundaryIdeal R O).subschemeι
 

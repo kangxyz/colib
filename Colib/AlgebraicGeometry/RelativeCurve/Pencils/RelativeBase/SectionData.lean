@@ -33,13 +33,21 @@ local notation "iN" => psiBoundaryInclusion (q) π j p hq a
 
 /-- The actual global choices produced by Serre on the two distinct unchanged sources. -/
 structure SectionData where
+  /-- The pole line on the relative product of `Y` and `C` over `S`. -/
   T : (XA).Modules
   T_invertible : IsInvertibleModule XA T
+  /-- The invertible sheaf carrying both correction sections on the relative product of
+  `A` and `C` over `S`. -/
   N : (XN).Modules
   N_invertible : IsInvertibleModule XN N
+  /-- The numerator in the graph line tensored with `T`, normalized on the full boundary. -/
   aS : Γ(tensorModules F T, ⊤)
+  /-- The pole section in `T` against which the graph numerator is normalized. -/
   bS : Γ(T, ⊤)
+  /-- The correction numerator, whose boundary value is the prescribed scalar times the
+  denominator. -/
   nS : Γ(N, ⊤)
+  /-- The correction denominator, which generates `N` along the full correction boundary. -/
   dS : Γ(N, ⊤)
   normalized : (fixedFactorBoundaryIso iA F T
     (fullGraphFrame q π j p hq z s hs H e d hd)).hom.app ⊤

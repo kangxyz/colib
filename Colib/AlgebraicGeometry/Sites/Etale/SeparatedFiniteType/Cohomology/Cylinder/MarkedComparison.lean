@@ -31,7 +31,7 @@ open Stacks.Cohomology.FreeYonedaUnivLE
 
 /-- Composition into the original smooth site preserves the underlying schemes
 and arrows; only associativity of their structure maps is transported. -/
-def composeObjectToSmoothIso {B : Scheme.{u}} [IsAffine B] (X : SmoothSite B)
+def composeObjectToSmoothIso {B : Scheme.{u}} (X : SmoothSite B)
     (V : EtaleSeparatedFiniteType X.left) :
     composeObjectFunctor V ⋙ toSmoothSite X ≅ toSmoothSite ((toSmoothSite X).obj V) :=
   NatIso.ofComponents (fun W => MorphismProperty.Over.isoMk (Iso.refl _) (by

@@ -70,14 +70,14 @@ def nativeOneFiberIso :
   nativeFiberParameterIso U 1 (familySource U.hom p L a c) ≪≫
     oneFiberOverBaseIso U.hom p L a c
 
-@[reassoc (attr := simp)] theorem nativeZeroFiberIso_hom_base :
+@[reassoc, simp] theorem nativeZeroFiberIso_hom_base :
     (nativeZeroFiberIso U p L a c).hom ≫ (zeroScheme C L a).subschemeι ≫ p =
       pullback.fst (nativeAffineSection (.of k) U 0).left
         (familySource U.hom p L a c ≫ (nativeParameterIso (.of k) U).inv) := by
   simp only [nativeZeroFiberIso, Iso.trans_hom, Category.assoc,
     zeroFiberOverBaseIso_hom_base, nativeFiberParameterIso_hom_fst]
 
-@[reassoc (attr := simp)] theorem nativeOneFiberIso_hom_base :
+@[reassoc, simp] theorem nativeOneFiberIso_hom_base :
     (nativeOneFiberIso U p L a c).hom ≫ (zeroScheme C L c).subschemeι ≫ p =
       pullback.fst (nativeAffineSection (.of k) U 1).left
         (familySource U.hom p L a c ≫ (nativeParameterIso (.of k) U).inv) := by

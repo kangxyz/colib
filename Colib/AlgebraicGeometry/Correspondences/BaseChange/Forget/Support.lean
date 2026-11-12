@@ -47,7 +47,7 @@ theorem forgetBaseSupportIso_hom_inclusion :
   (exists_iso_integralComponentAt_comp (forgetBaseProductMap r f g) z).choose_spec
 
 /-- The original source projection is unchanged. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem forgetBaseSupportIso_hom_fst :
     (forgetBaseSupportIso r f g z).hom ≫
         (integralComponentAt (forgetBaseProductMap r f g z)).subschemeι ≫
@@ -56,7 +56,7 @@ theorem forgetBaseSupportIso_hom_fst :
   rw [forgetBaseSupportIso_hom_inclusion_assoc, forgetBaseProductMap_fst]
 
 /-- The original target projection is unchanged. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem forgetBaseSupportIso_hom_snd :
     (forgetBaseSupportIso r f g z).hom ≫
         (integralComponentAt (forgetBaseProductMap r f g z)).subschemeι ≫

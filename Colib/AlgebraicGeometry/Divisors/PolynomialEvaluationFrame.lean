@@ -95,7 +95,6 @@ def evaluationGraphDivisorFrame :
     (evaluationGraphEquation_regular R a).mem_nonZeroDivisors
 
 /-- The canonical section has coordinate `X - C a`, including at its zeros. -/
-@[simp]
 theorem evaluationGraphDivisorFrame_coordinate :
     (evaluationGraphDivisorFrame R a).hom.app ⊤
       (divisorSheafGlobalSection (evaluationGraphIdeal R a)) = evaluationGraphEquation R a :=

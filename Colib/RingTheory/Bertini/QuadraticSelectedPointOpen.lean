@@ -126,7 +126,7 @@ theorem exists_ground_open [Algebra k L] {τ : Type u}
 
 /-- A principal open in the original parameters guarantees independent actual
 cotangent vectors at the selected, possibly nonrational, point. -/
-theorem exists_selectedPoint_open [Algebra k L] [Algebra.EssFiniteType k R]
+theorem exists_selectedPoint_open [Algebra k L]
     (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤) (d : ℕ)
     (hd : Module.finrank L (L ⊗[R] Ω[R⁄k]) = d + 1) :
     ∃ q : MvPolynomial (Fin d × Exponent σ) k, q ≠ 0 ∧

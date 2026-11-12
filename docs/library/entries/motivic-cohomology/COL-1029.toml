@@ -16,6 +16,8 @@ $X\times_k\mathbb A^1\to X$ induces an isomorphism
 H^n_{\mathrm{Nis}}(X,F)\longrightarrow
 H^n_{\mathrm{Nis}}(X\times_k\mathbb A^1,F).
 \]
+Consequently the Nisnevich sheafification of a homotopy-invariant presheaf
+with transfers over $k$ is strictly affine-line invariant.
 '''
 scope = '''
 The groups are ordinary Nisnevich cohomology, using free representing sheaves
@@ -31,5 +33,6 @@ cylinder over a generic base open to start induction on the local rank.
 Restriction to the complement of a smooth Cartier divisor gives the positive
 rank step. The finite Leray window then proves invariance in the given degree.
 The outer induction runs over all homotopy-invariant sheaves with transfers so
-that the lower-degree result also applies to the contraction.
+that the lower-degree result also applies to the contraction. Apply COL-1028
+to obtain the assertion about sheafification.
 '''

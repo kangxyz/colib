@@ -34,14 +34,14 @@ def correspondenceGermHom (x : X.left) :
         (SmoothSite.nisnevichPointFiberCocone X x F).pt) :=
   liftFiniteCorrespondence X.hom Y.hom (fun A hA => generatorGermHom k P hP A hA x)
 
-@[simp] theorem correspondenceGermHom_single
+theorem correspondenceGermHom_single
     (A : pullback (C := Scheme) X.hom Y.hom)
     (hA : IsFiniteCorrespondencePoint X.hom Y.hom A) (c : ℤ) (x : X.left) :
     correspondenceGermHom k P hP x (singleFiniteCorrespondence X.hom Y.hom A hA c) =
       c • generatorGermHom k P hP A hA x :=
   liftFiniteCorrespondence_single X.hom Y.hom _ A hA c
 
-@[simp] theorem correspondenceGermHom_cycle
+theorem correspondenceGermHom_cycle
     (A : pullback (C := Scheme) X.hom Y.hom)
     (hA : IsFiniteCorrespondencePoint X.hom Y.hom A) (x : X.left) :
     correspondenceGermHom k P hP x (singleFiniteCorrespondence X.hom Y.hom A hA 1) =

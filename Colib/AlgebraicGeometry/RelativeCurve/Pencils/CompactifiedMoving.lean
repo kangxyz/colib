@@ -45,14 +45,19 @@ open _root_.AlgebraicGeometry.Scheme.PolynomialSectionPencil
 structure RetainedGraphPencil {k : Type u} [Field k] {S X Y A : Scheme.{u}}
     (t : S ⟶ Spec (.of k)) (q : X ⟶ S) (r : Y ⟶ S)
     (f : X ⟶ Y) (hf : f ≫ r = q) (a : A ⟶ Y) where
+  /-- The invertible sheaf carrying the two sections interpolated by the pencil. -/
   line : (pullback q r).Modules
+  /-- The invertible sheaf carrying the pole section. -/
   poleLine : (pullback q r).Modules
   [line_invertible : AlgebraicGeometry.SheafOfModules.IsInvertible
     (pullback q r).sheaf.obj (pullback q r).ringCatSheaf.property line]
   [poleLine_invertible : AlgebraicGeometry.SheafOfModules.IsInvertible
     (pullback q r).sheaf.obj (pullback q r).ringCatSheaf.property poleLine]
+  /-- The section at parameter zero, with zero ideal the product of the graph and pole ideals. -/
   graphPole : Γ(line, ⊤)
+  /-- The section at parameter one, whose zero scheme maps into the retained target. -/
   numerator : Γ(line, ⊤)
+  /-- The section defining the pole divisor in the graph-plus-pole endpoint. -/
   pole : Γ(poleLine, ⊤)
   family_finite : IsFinite (familySource (q ≫ t) (pullback.fst q r) line graphPole numerator)
   family_flat : Flat (familySource (q ≫ t) (pullback.fst q r) line graphPole numerator)

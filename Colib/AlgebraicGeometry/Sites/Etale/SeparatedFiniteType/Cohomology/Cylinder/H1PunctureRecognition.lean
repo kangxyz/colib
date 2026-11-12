@@ -39,7 +39,7 @@ namespace AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType
 /-- The ordinary H1 restriction kernel maps into the literal coefficient kernel,
 using the genuine counit edge rather than an assumed cohomology comparison. -/
 theorem H1_coefficient_kernel_of_original_restriction_zero
-    {B : Scheme.{u}} [IsAffine B] {Y U : SmoothSite B} (j : U ⟶ Y)
+    {B : Scheme.{u}} {Y U : SmoothSite B} (j : U ⟶ Y)
     (F : Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 1})
     [HasExt.{u + 1} (Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 1})]
     [HasExt.{u + 1} (Sheaf (nisnevichTopology Y.left) AddCommGrpCat.{u + 1})]

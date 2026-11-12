@@ -48,7 +48,6 @@ def evaluationKernelFrame : R[X] ≃ₗ[R[X]] RingHom.ker (evalRingHom a) :=
 theorem evaluationKernelFrame_apply (p : R[X]) :
     (evaluationKernelFrame R a p : R[X]) = p * (X - C a) := rfl
 
-@[simp]
 theorem evaluationKernelFrame_one :
     (evaluationKernelFrame R a 1 : R[X]) = X - C a := by
   simp

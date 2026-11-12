@@ -45,15 +45,21 @@ local notation "F" => ((toPresheaf k).obj P)
 all-point germ tuple. No independence or composition law is supplied as a field. -/
 structure PointedGermLiftWitness (δ : Cor.mk X ⟶ Cor.mk Y) (x : X.left)
     (a : ∀ y : Y.left, (SmoothSite.nisnevichPointFiberCocone Y y F).pt) where
+  /-- The pointed étale neighborhood of `x` over which the finite family lifts `δ`. -/
   source : SmoothSite.SmoothPointedEtaleNeighborhood X x
+  /-- The number of branches in the chosen lift. -/
   size : ℕ
+  /-- The point of `Y` assigned to each branch. -/
   point : Fin size → Y.left
+  /-- The pointed étale neighborhood of each assigned target point. -/
   target : ∀ i, SmoothSite.SmoothPointedEtaleNeighborhood Y (point i)
+  /-- The signed finite correspondence to the target neighborhood of each branch. -/
   branch : ∀ i, Cor.mk ((SmoothSite.nisnevichNeighborhoodFunctor X x).obj source) ⟶
     Cor.mk ((SmoothSite.nisnevichNeighborhoodFunctor Y (point i)).obj (target i))
   graph_eq : (∑ i, branch i ≫ (Cor.graphFunctor k).map (target i).toBase) =
     (Cor.graphFunctor k).map source.toBase ≫ δ
   center_control : ∀ i, finiteCorrespondences.TargetsIn (branch i) source.center {(target i).center}
+  /-- The section on each target neighborhood representing the assigned germ of `a`. -/
   representative : ∀ i, (F).obj
     (op ((SmoothSite.nisnevichNeighborhoodFunctor Y (point i)).obj (target i)))
   represents : ∀ i, (SmoothSite.nisnevichPointFiberCocone Y (point i) F).ι.app

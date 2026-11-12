@@ -5,8 +5,9 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.PresheavesWithTransfers.LocalVanishing.FiniteField.Coefficient
-public import Colib.AlgebraicGeometry.PresheavesWithTransfers.LocalVanishing.InfiniteField
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.LocalVanishing.IntegralAffine
+import Colib.AlgebraicGeometry.PresheavesWithTransfers.LocalVanishing.FiniteField.Coefficient
+import Colib.AlgebraicGeometry.PresheavesWithTransfers.LocalVanishing.InfiniteField
 
 /-!
 # Integral-affine local vanishing over an arbitrary field

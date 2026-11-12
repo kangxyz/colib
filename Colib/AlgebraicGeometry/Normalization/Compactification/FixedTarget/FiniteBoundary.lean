@@ -60,10 +60,13 @@ instance : IsClosedImmersion (infinityInclusion g) := by
   dsimp [infinityInclusion]
   infer_instance
 
-@[simp] theorem range_infinityInclusion :
-    Set.range (infinityInclusion g) = (Set.range g.toNormalization)ᶜ := by
-  rw [infinityInclusion, IdealSheafData.range_subschemeι]
+@[simp] theorem coe_support_infinityIdeal :
+    ((infinityIdeal g).support : Set g.normalization) = (Set.range g.toNormalization)ᶜ := by
   simp [infinityIdeal]
+
+theorem range_infinityInclusion :
+    Set.range (infinityInclusion g) = (Set.range g.toNormalization)ᶜ := by
+  rw [infinityInclusion, IdealSheafData.range_subschemeι, coe_support_infinityIdeal]
 
 theorem source_disjoint_infinity :
     Disjoint (Set.range g.toNormalization) (Set.range (infinityInclusion g)) := by

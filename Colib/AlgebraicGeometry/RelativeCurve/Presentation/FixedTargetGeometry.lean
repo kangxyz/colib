@@ -89,7 +89,7 @@ instance fixedTarget_sourceProper : IsProper e.sourceProjection := by
   infer_instance
 
 omit [IsAffine X] [IsAffine Y] [IsAffine A] [Etale p] [IsOpenImmersion a] in
-@[reassoc (attr := simp)] theorem sourceInclusion_projection :
+@[reassoc] theorem sourceInclusion_projection :
     e.sourceInclusion ≫ e.sourceProjection = e.etaleMap ≫ e.curveProjection := by
   simp only [sourceInclusion, sourceProjection, sourceProjectiveMap,
     ← Category.assoc, Scheme.Hom.toNormalization_fromNormalization]
@@ -113,6 +113,8 @@ instance fixedTarget_retainedSmooth :
 
 /-- Only the newly added complement is reduced. The original mark is unchanged. -/
 abbrev sourceInfinity := EtaleCompactification.FixedTarget.infinity e.sourceMap
+
+/-- The closed inclusion of the whole complement of the original source in its normalization. -/
 abbrev sourceInfinityInclusion :=
   EtaleCompactification.FixedTarget.infinityInclusion e.sourceMap
 

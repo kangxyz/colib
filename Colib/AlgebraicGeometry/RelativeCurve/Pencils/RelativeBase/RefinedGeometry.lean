@@ -65,7 +65,7 @@ variable (z : Z ⟶ X) (h : ∀ b : Z, (z ≫ q) b ∈ V → z b ∈ U)
   (s : Z ⟶ Y) (hs : s ≫ p = z)
 
 /-- The complete mark in the base-restricted compactification is unchanged. -/
-@[reassoc (attr := simp)]
+@[reassoc, simp]
 theorem closedLift_inclusion_original :
     (closedLift q U V z h p s hs ≫ firstInclusion q U V π j p hq) ≫
         (compactificationOpen π V).ι = (markOpen q V z).ι ≫ s ≫ j := by

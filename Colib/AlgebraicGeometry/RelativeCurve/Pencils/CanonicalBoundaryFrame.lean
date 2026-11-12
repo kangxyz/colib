@@ -132,7 +132,6 @@ def canonicalDisjointBoundaryFrame (D : X.IdealSheafData)
     (Modules.pullback i).obj (divisorSheaf D) ≅ SheafOfModules.unit Z.ringCatSheaf :=
   frameOfZeroSchemeTop _ _ (canonicalSection_zeroScheme_on_disjoint_boundary D i h)
 
-@[simp]
 theorem canonicalDisjointBoundaryFrame_coordinate (D : X.IdealSheafData)
     [IsEffectiveCartierDivisor D] (i : Z ⟶ X)
     (h : Disjoint (Set.range i) (D.support : Set X)) :
@@ -166,7 +165,6 @@ def relativeGraphBoundaryFrame [IsSeparated r] [SmoothOfRelativeDimension 1 r]
       SheafOfModules.unit Z.ringCatSheaf :=
   canonicalDisjointBoundaryFrame _ i (relativeGraph_disjoint_boundary q r φ hφ i h)
 
-@[simp]
 theorem relativeGraphBoundaryFrame_coordinate [IsSeparated r]
     [SmoothOfRelativeDimension 1 r] (i : Z ⟶ pullback q r)
     (h : Disjoint (Set.range (i ≫ pullback.snd q r)) (Set.range φ)) :

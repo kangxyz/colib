@@ -49,28 +49,40 @@ structure ProducedScalarCorrection
     {V Y D A : SmoothSite (Spec (.of k))} (w : V.left)
     (q₀ : Y ⟶ SmoothSite.Contraction.affineLineCylinder.obj V) (z₀ : V ⟶ Y)
     (δ : D ⟶ A) (e₀ : Y ⟶ A) (s : sections P (Cor.mk D)) where
+  /-- The open scalar neighborhood containing the entire fiber over `w`. -/
   B : SmoothSite (Spec (.of L))
+  /-- The inclusion of `B` into the scalar extension of `V`. -/
   i : B ⟶ (SmoothSite.fieldBaseChange (algebraMap k L)).obj V
   open_i : IsOpenImmersion i.left
   fiber : (SmoothSite.finiteScalarProjection (E := L) V).left ⁻¹' {w} ⊆ Set.range i.left
+  /-- The affine étale neighborhood over the scalar extension of the original chart `Y`. -/
   E : SmoothSite (Spec (.of L))
   affine_E : IsAffine E.left
+  /-- The étale map from `E` to the scalar extension of `Y`. -/
   η : E ⟶ (SmoothSite.fieldBaseChange (algebraMap k L)).obj Y
   etale_η : Etale η.left
+  /-- The affine-line parameter map over `B`, compatible with the original map `q₀`. -/
   q : E ⟶ SmoothSite.Contraction.affineLineCylinder.obj B
   base_eq : η ≫ (SmoothSite.fieldBaseChange (algebraMap k L)).map q₀ ≫
     (SmoothSite.fieldBaseChangeA1Iso (L := L) V).hom = q ≫
       SmoothSite.Contraction.affineLineCylinder.map i
+  /-- The lift of the scalar extension of the marked map `z₀` restricted to `B`. -/
   ζ : B ⟶ E
   mark_eq : ζ ≫ η = i ≫ (SmoothSite.fieldBaseChange (algebraMap k L)).map z₀
+  /-- The overlap obtained by pulling back the torus cylinder along `q`. -/
   O : SmoothSite (Spec (.of L))
+  /-- The projection from the overlap to the affine correction neighborhood. -/
   α : O ⟶ E
+  /-- The projection from the overlap to the torus cylinder over `B`. -/
   β : O ⟶ SmoothSite.Contraction.torusCylinder.obj B
   square : IsPullback β.left α.left (SmoothSite.Contraction.openInclusion.app B).left q.left
+  /-- The map from the overlap to the scalar extension of `D` used to restrict `s`. -/
   φ : O ⟶ (SmoothSite.fieldBaseChange (algebraMap k L)).obj D
   ambient_eq : φ ≫ (SmoothSite.fieldBaseChange (algebraMap k L)).map δ =
     α ≫ η ≫ (SmoothSite.fieldBaseChange (algebraMap k L)).map e₀
+  /-- The Laurent section on the torus cylinder over `B` in the scalar extension of `P`. -/
   a : sections (finiteSeparableExtension L P) (Cor.mk (SmoothSite.Contraction.torusCylinder.obj B))
+  /-- The section on `E` in the scalar extension of `P`, subtracted after restriction to `O`. -/
   c : sections (finiteSeparableExtension L P) (Cor.mk E)
   relation : transfer (finiteSeparableExtension L P) ((Cor.graphFunctor L).map β) a -
     transfer (finiteSeparableExtension L P) ((Cor.graphFunctor L).map α) c =

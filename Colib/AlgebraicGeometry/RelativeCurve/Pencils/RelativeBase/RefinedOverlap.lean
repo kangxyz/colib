@@ -39,7 +39,7 @@ def refinedTargetMap : overlap q U V p a ⟶ (sourceBaseOpen π V v).toScheme :=
       exact (parameterProjection q U V
         (firstMap q U V p (pullback.fst (firstMap q U V p) (secondMap q U V a) b))).property)
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem refinedTargetMap_original :
     refinedTargetMap q U V π j p hq a v φ hφ ≫ (sourceBaseOpen π V v).ι =
       overlapToOriginal q U V p a ≫ φ := IsOpenImmersion.lift_fac _ _ _

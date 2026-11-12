@@ -36,7 +36,7 @@ namespace AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType
 /-- An ordinary restriction zero gives a coefficient kernel equation when
 the original higher open-image window vanishes below the specified degree. -/
 theorem coefficient_kernel_of_original_restriction_zero
-    {B : Scheme.{u}} [IsAffine B] {Y U : SmoothSite B} (j : U ⟶ Y)
+    {B : Scheme.{u}} {Y U : SmoothSite B} (j : U ⟶ Y)
     (F : Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 1})
     [HasExt.{u + 1} (Sheaf (SmoothSite.nisnevichTopology B) AddCommGrpCat.{u + 1})]
     [HasExt.{u + 1} (Sheaf (nisnevichTopology Y.left) AddCommGrpCat.{u + 1})]
