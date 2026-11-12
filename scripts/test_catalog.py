@@ -778,7 +778,7 @@ class LibraryTests(unittest.TestCase):
         self.assertGreater(chapter["order"], chapters["cycles"]["order"])
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
-            "canonical-motivic-complexes": ["COL-0398", "COL-1031"],
+            "canonical-motivic-complexes": ["COL-0398", "COL-1031", "COL-1037"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [

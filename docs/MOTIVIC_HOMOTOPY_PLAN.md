@@ -73,24 +73,39 @@ to the adapted mathematical endpoints.
    \(S^1\wedge(\mathbb G_m,1)\), and record the comparison on reduced chains. The geometric
    cofiber constructions and explicit maps in COL-1017 and the stalkwise quotient
    comparison in COL-1020 give the map from the Tate cone to the quotient.
+   COL-1036 uses the connecting morphism of the reduced cochain sequence of
+   the Laurent-open quotient to send the forward coordinate to bidegree \((2,1)\).
    Tate smash preserves stalkwise weak equivalences by COL-1035. It also sends the
    pointed \(\mathbb A^1\)-cylinder projection to an \(\mathbb A^1\)-weak equivalence
    by the isomorphism that interchanges smash and cylinder.
    Construct the stalkwise right adjoint from the pointed internal Hom and
-   Nisnevich fibrant replacement. This requires the injective fibrant comparison
-   for the existing stalkwise weak equivalences and preservation of trivial
-   monomorphisms by Tate smash. The adjunction then makes the right adjoint
+   Nisnevich fibrant replacement. Tate smash preserves stalkwise trivial
+   monomorphisms, so its presheaf right adjoint preserves injective fibrancy.
+   Identify injective fibrant replacement with the existing stalkwise
+   localization. The resulting adjunction makes the right adjoint
    preserve \(\mathbb A^1\)-local targets, proving descent of Tate smash to the
    chosen localization. [Jardine, Motivic symmetric spectra, §§1.1–1.3](https://doi.org/10.4171/dm/86)
 3. Use the product with the Tate class to construct the bonding maps
    \(K(\Lambda(q),2q)\wedge T\to K(\Lambda(q+1),2q+2)\). Verify the actual exterior-product
-   maps, base points, signs, and coefficient functoriality. Identify the simplicial
+   maps, base points, signs, and coefficient functoriality. The normalized parameter
+   product of COL-1037 supplies the signed integral cochain map. Extend it along
+   the actual finite coefficient cone and compare it with the product on the
+   pointed representatives. Identify the simplicial
    suspension with cup product by the simplicial suspension class and the Tate suspension
    with cup product by the Tate class. For the stable representation, prove the loop
    comparison in the chosen motivic model and identify its represented cohomology.
    Voevodsky's cancellation theorem supplies the effective-motive comparison for tensoring
    with the Tate motive. Relate it to the bonding maps used here.
    [Voevodsky, Cancellation theorem](https://ems.press/books/dms/255/5073)
+
+For the cohomological suspension comparison, Voevodsky's Theorem 2.4 uses
+the projective bundle formula for \(U\times\mathbb P^1\) on smooth
+representables. The relevant comparison identifies the pullback of the
+Tate class with the first Chern class of the chosen line bundle. This
+calculation also feeds the Thom class comparison used for operations.
+For the general effective-motive comparison, use the explicit
+cancellation maps on finite correspondences and their Suslin complexes.
+[Voevodsky, Reduced power operations, §2, Theorem 2.4](https://numdam.org/item/10.1007/s10240-003-0009-z.pdf)
 
 ## Reduced powers and the norm-residue proof
 

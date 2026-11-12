@@ -56,6 +56,11 @@ with sheafification of raw singular homology in degree \(q-i\).
 Use COL-1030 and COL-1028 for homotopy invariance, then COL-1029 for
 ordinary cohomology over a perfect field.
 '''
+COL-1037 = '''
+Exterior product with the torus parameter passes through the reduced
+transfer tori and their Suslin complexes. The resulting map of motivic
+complexes raises the weight by one and uses the signed shift by one.
+'''
 
 [[sections]]
 id = "motivic-hypercohomology"
