@@ -98,7 +98,7 @@ theorem exists_sameFibreSectionKernel_cartesian_root_auxiliaryFrames_fullBoundar
             (pullbackBoundaryTrivialization b iStage iLocal f hb
               (differenceSheaf s.ker t.ker) τStage)) ∧
       ∃ (N : XLocal.Modules)
-        (hN : AlgebraicGeometry.SheafOfModules.IsInvertible XLocal.sheaf.obj
+        (_hN : AlgebraicGeometry.SheafOfModules.IsInvertible XLocal.sheaf.obj
           XLocal.ringCatSheaf.property N)
         (a : Γ(((Stacks.SheafOfModules.Tensor.sheafTensor XLocal.sheaf).obj M).obj N, ⊤))
         (bN : Γ(N, ⊤))
