@@ -127,8 +127,8 @@ theorem ambientRationalFunction_pullback_dominant (f : Γ(W, ⊤))
     [Nonempty (unitOpen (v ≫ p) f)] [Nonempty (ambientUnitOpen p v f)] :
     dominantFunctionFieldMap (parameterMap p v) (ambientRationalFunction p v f) =
       sectionRationalFunction (familySection (v ≫ p) f) := by
+  rw [← dominantFunctionFieldMap_congr _ _ (lineMap_eq_parameterMap p v)]
   unfold ambientRationalFunction ambientUnitSection ambientUnitOpen
-  simp only [lineMap_eq_parameterMap]
   rw [Scheme.Hom.dominantFunctionFieldMap_appIso_inv, unitSection, sectionRationalFunction]
   exact (parameterSpace (v ≫ p)).presheaf.germ_res_apply _ _ _ _
 
