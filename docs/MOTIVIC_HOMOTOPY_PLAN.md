@@ -98,14 +98,19 @@ to the adapted mathematical endpoints.
    with the Tate motive. Relate it to the bonding maps used here.
    [Voevodsky, Cancellation theorem](https://ems.press/books/dms/255/5073)
 
-For the cohomological suspension comparison, Voevodsky's Theorem 2.4 uses
-the projective bundle formula for \(U\times\mathbb P^1\) on smooth
-representables. The relevant comparison identifies the pullback of the
-Tate class with the first Chern class of the chosen line bundle. This
-calculation also feeds the Thom class comparison used for operations.
-For the general effective-motive comparison, use the explicit
-cancellation maps on finite correspondences and their Suslin complexes.
-[Voevodsky, Reduced power operations, §2, Theorem 2.4](https://numdam.org/item/10.1007/s10240-003-0009-z.pdf)
+For the cohomological suspension comparison, Voevodsky's Theorem 2.4
+reduces to smooth representables and uses open excision for the quotient
+of \(U\times\mathbb P^1\) by \(U\times(\mathbb P^1-\{0\})\).
+The comparison with higher Chow groups takes
+multiplication by the pulled-back Tate class to proper pushforward along
+the point section. The higher Chow localization sequence gives the
+isomorphism onto the kernel of restriction. A rank-two projective bundle
+formula with the same first Chern class gives another route to that kernel.
+The orientation comparison in Lemma 4.2 identifies the pullback of
+Voevodsky's Tate class with \(c_1(\mathcal O(1))\) on \(\mathbb P^1\).
+For the effective-motive comparison, use the explicit cancellation maps
+on finite correspondences and their Suslin complexes.
+[Voevodsky, Reduced power operations, §2, Theorem 2.4 and Lemma 2.5, and §4, Lemma 4.2](https://numdam.org/item/10.1007/s10240-003-0009-z.pdf)
 
 ## Reduced powers and the norm-residue proof
 
