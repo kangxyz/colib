@@ -12,7 +12,7 @@ The definition is a proposition, not a proof-valued definition. It retains the
 entire original quantified root/auxiliary input tail and every existential
 witness, recovery identity and boundary equation. The bridge theorem is proved
 by the existing native theorem. Actual diagram specializations need not elaborate
-that expanded proposition a second time. Uncompiled candidate.
+that expanded proposition a second time.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry Scheme.Modules
