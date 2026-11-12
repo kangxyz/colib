@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitProjective
 public import StacksFrontier.AlgebraicGeometry.ClosedSubschemeProjectiveSpace.Basic
+public import StacksFrontier.AlgebraicGeometry.ProjectiveCohomology.ModelComparison
 
 /-! # An actual polynomial projective embedding of the component limit
 

@@ -14,7 +14,6 @@ public import Mathlib.AlgebraicGeometry.QuasiAffine
 The existing diagram construction applies equally to the fixed retained open
 and to the fixed full boundary. All maps and vertices below are those actual
 objects. Complementarity is transported as a literal equality of ranges.
-Uncompiled candidate.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits
@@ -26,7 +25,7 @@ private theorem retained_range_of_isPullback {P X Y S : Scheme.{u}}
     {a : P ⟶ X} {b : P ⟶ Y} {f : X ⟶ S} {g : Y ⟶ S}
     (hp : IsPullback a b f g) : Set.range a = f ⁻¹' Set.range g := by
   rw [← hp.isoPullback_hom_fst]
-  show Set.range (pullback.fst f g ∘ hp.isoPullback.hom) = _
+  change Set.range (pullback.fst f g ∘ hp.isoPullback.hom) = _
   rw [Set.range_comp, hp.isoPullback.hom.surjective.range_eq, Set.image_univ,
     Scheme.Pullback.range_fst]
 
@@ -49,6 +48,7 @@ instance etaleStageOpenRetained_stage_smooth
     ((etaleStageOpenBoundaryMap_isPullback X s p i U j a).flip.paste_vert
       (etaleStageOpenStructure_isPullback X s p i U a)) inferInstance
 
+omit [IsOpenImmersion j] in
 /-- The entire actual stage boundary is exactly the complement of the actual retained open. -/
 theorem etaleStageOpenRetained_stage_complement
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
@@ -59,6 +59,7 @@ theorem etaleStageOpenRetained_stage_complement
     retained_range_of_isPullback (etaleStageOpenBoundaryMap_isPullback X s p i U j a), hd]
   rfl
 
+omit [IsOpenImmersion j] in
 /-- No stage point is omitted from the full retained-open/boundary cover. -/
 theorem etaleStageOpenRetained_stage_cover
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
@@ -69,6 +70,7 @@ theorem etaleStageOpenRetained_stage_cover
   rw [etaleStageOpenRetained_stage_complement X s p i U j d hd a]
   exact Classical.em _
 
+omit [IsOpenImmersion j] in
 /-- The stage cover is genuinely disjoint, not merely a union covering the curve. -/
 theorem etaleStageOpenRetained_stage_disjoint
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
@@ -93,6 +95,7 @@ instance etaleStageOpenRetained_limit_smooth
     ((etaleStageOpenBoundaryLimitMap_isPullback X s p i U j B hX).flip.paste_vert
       (etaleStageOpenLimitStructure_isPullback X s p i U B hX)) inferInstance
 
+omit [IsOpenImmersion j] in
 /-- The original complete boundary also remains the exact complement on the limit. -/
 theorem etaleStageOpenRetained_limit_complement
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme) (hd : Set.range d = (Set.range j)ᶜ) :
@@ -102,6 +105,7 @@ theorem etaleStageOpenRetained_limit_complement
     retained_range_of_isPullback (etaleStageOpenBoundaryLimitMap_isPullback X s p i U j B hX), hd]
   rfl
 
+omit [IsOpenImmersion j] in
 theorem etaleStageOpenRetained_limit_cover
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme) (hd : Set.range d = (Set.range j)ᶜ)
     (x : (etaleStageOpenCone X s p i U B hX).pt) :
@@ -110,6 +114,7 @@ theorem etaleStageOpenRetained_limit_cover
   rw [etaleStageOpenRetained_limit_complement X s p i U j B hX d hd]
   exact Classical.em _
 
+omit [IsOpenImmersion j] in
 theorem etaleStageOpenRetained_limit_disjoint
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme) (hd : Set.range d = (Set.range j)ᶜ) :
     Disjoint (Set.range (etaleStageOpenBoundaryLimitMap X s p i U j B hX))
@@ -121,8 +126,12 @@ theorem etaleStageOpenRetained_limit_disjoint
 quasi-affine source for the root/auxiliary supplier. -/
 instance etaleStageOpenRetained_limit_isAffine [IsAffine V] :
     IsAffine (etaleStageOpenBoundaryCone X s p i U j B hX).pt := by
+  have hsource : IsAffine (smallEtaleNeighborhoodStrictHenselizationCone X B hX s).pt :=
+    inferInstanceAs (IsAffine (Spec (.of ↥(etaleLocalRing B X.left hX s))))
+  have htarget : IsAffine ((smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i) :=
+    inferInstanceAs (IsAffine ((smallEtaleNeighborhoodToSmooth X s).obj i).left)
   have hb : IsAffineHom ((smallEtaleNeighborhoodStrictHenselizationCone X B hX s).π.app i) :=
-    inferInstance
+    @isAffineHom_of_isAffine _ _ _ hsource htarget
   have hp := (etaleStageOpenBoundaryLimitMap_isPullback X s p i U j B hX).flip.paste_vert
     (etaleStageOpenLimitStructure_isPullback X s p i U B hX)
   have hf : IsAffineHom
@@ -133,7 +142,7 @@ instance etaleStageOpenRetained_limit_isAffine [IsAffine V] :
 /-- The supplier's quasi-affineness concerns the same literal retained limit vertex. -/
 instance etaleStageOpenRetained_limit_isQuasiAffine [IsAffine V] :
     (etaleStageOpenBoundaryCone X s p i U j B hX).pt.IsQuasiAffine := by
-  letI := etaleStageOpenRetained_limit_isAffine X s p i U j B hX
+  let := etaleStageOpenRetained_limit_isAffine X s p i U j B hX
   infer_instance
 
 end AlgebraicGeometry.Scheme.SmoothSite
