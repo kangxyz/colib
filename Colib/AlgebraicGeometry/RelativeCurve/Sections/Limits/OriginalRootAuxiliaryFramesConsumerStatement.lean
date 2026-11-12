@@ -21,7 +21,7 @@ universe u
 set_option backward.isDefEq.respectTransparency false
 attribute [local implicit_reducible] TopCat.Sheaf sheafCompose Scheme.Modules
 namespace Stacks.AlgebraicGeometry.ModuleLimits
-local instance normalizedOriginalRootPullbackInvertible
+local instance normalizedStatementPullbackInvertible
     {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
     [hM : AlgebraicGeometry.SheafOfModules.IsInvertible Y.toRingedSpace.presheaf
       (structureSheafRing Y.toRingedSpace).property M] :
