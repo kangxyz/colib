@@ -1501,6 +1501,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ModelRefinem
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.ModeledZeroSchemeRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFrames
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFramesActualIdeals
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootAuxiliaryFramesConsumerNormalized
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.OriginalRootFinalNumerator
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.SectionModelRefinement
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.TensorBoundarySectionModel
@@ -1523,6 +1524,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.Etal
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenDiagram
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenLimitSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenOriginalSection
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionDivisors
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSectionKernels
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.EtaleStageOpenSections
 public import Colib.AlgebraicGeometry.RelativeCurve.Sections.LocalComponent.LimitDescent
