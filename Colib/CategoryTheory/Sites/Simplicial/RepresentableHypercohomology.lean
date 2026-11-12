@@ -31,7 +31,9 @@ namespace CategoryTheory.PointedSimplicialPresheaf
 
 variable (C : Type u) [Category.{v} C]
 
-private def uliftPointedYonedaIso :
+/-- Free pointing commutes with the degreewise universe lift of simplicial representables. -/
+@[no_expose]
+def uliftPointedYonedaIso :
     CategoryTheory.uliftYoneda.{w} (C := C) ⋙ discretePresheaf C ⋙ free C ≅
       PointedSimplicialPresheaf.yoneda C ⋙ uliftPointed.{w, v} C := by
   let S := simplicialYoneda C

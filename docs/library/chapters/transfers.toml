@@ -1,0 +1,151 @@
+[chapter]
+id = "transfers"
+title = "Presheaves and Sheaves with Transfers"
+order = 52
+introduction = '''
+An additive functor on the opposite of the finite correspondence category
+gives transfers. Graph restriction recovers its ordinary presheaf, where the
+Nisnevich sheaf condition is imposed. Develop sheafification first, then use
+the sheafified representables for Ext and the algebraic simplices for singular
+chains. The affine-line results supply the invariance used in motivic cohomology.
+See [@MVW2006, Lectures 2 and 13].
+'''
+
+[[sections]]
+id = "transfers-nisnevich"
+title = "Transfers and Nisnevich sheafification"
+order = 10
+introduction = '''
+Graph restriction puts a transfer presheaf on the ordinary smooth Nisnevich
+site of COL-0340. Local signed Čech exactness compares that descent condition
+with descent on correspondences. The resulting sheafification preserves
+transfers and agrees with ordinary sheafification along graphs.
+See [@MVW2006, Lecture 13, Theorem 13.1].
+'''
+
+[[sections.topics]]
+id = "transfer-presheaves-and-sheaves"
+title = "Presheaves, transfers and graph restriction"
+start = "COL-0368"
+
+[[sections.topics]]
+id = "local-exactness-and-descent"
+title = "Signed Čech relations and descent"
+start = "COL-0370"
+
+[[sections.topics]]
+id = "sheafification-and-comparison"
+title = "Sheafification and its underlying sheaf"
+start = "COL-0372"
+
+[[sections.topics]]
+id = "sheafification-and-affine-line"
+title = "Affine-line invariance of sheafification"
+start = "COL-1028"
+
+[sections.transitions]
+COL-0368 = '''
+Additivity sends a signed correspondence to the corresponding integer linear
+combination of homomorphisms. Contravariance reverses the direction of its action.
+'''
+COL-0369 = '''
+Restrict along COL-0367 to test ordinary Nisnevich descent. Morphisms of transfer
+sheaves commute with the action of every signed correspondence.
+'''
+COL-0370 = '''
+A signed relation killed by composition with a completely decomposed étale map
+has a common finite image. After lifting that image on a pointed Nisnevich
+neighborhood, write the restricted relation as a difference of Čech projections.
+'''
+COL-0371 = '''
+The signed Čech boundary gives the required compatibility with transfer arrows.
+Together with additivity on finite disjoint unions, it compares the two sheaf
+conditions.
+'''
+COL-0372 = '''
+Use the correspondence-site reflector and the descent comparison of COL-0371.
+The resulting unit and its unique extension property give the adjunction for
+transfer-preserving sheafification.
+'''
+COL-0373 = '''
+The unit of COL-0372, restricted along graphs, is locally bijective and has a
+Nisnevich sheaf as target. Extending it along ordinary sheafification fixes
+both the direction of the comparison and its relation to the units.
+'''
+COL-1028 = '''
+The zero section splits pullback along the affine-line projection. The marked
+representative argument gives injectivity of zero-section restriction after
+sheafification, making it inverse to projection pullback.
+'''
+
+[[sections]]
+id = "transfer-homological-algebra"
+title = "Homological algebra of transfers"
+order = 20
+introduction = '''
+Compute cokernels of transfer presheaves on sections, then apply the Nisnevich
+reflector to obtain the abelian category of transfer sheaves. A sheafified
+representable gives evaluation by Yoneda and serves as the first variable for
+Ext in that category.
+'''
+
+[sections.transitions]
+COL-0390 = '''
+Evaluation preserves the cokernel of a morphism of additive presheaves. Its
+quotient map commutes with every correspondence, so the sectionwise quotient
+inherits the prescribed transfers.
+'''
+COL-0381 = '''
+The reflector of COL-0372 preserves finite limits. Exact filtered colimits and
+a separator give enough injectives in the resulting abelian sheaf category.
+'''
+COL-0391 = '''
+Sheafify the signed representable in the coefficient universe. Evaluation
+at the full identity cycle identifies maps out of it with sections.
+'''
+COL-0392 = '''
+Apply Ext contravariantly to the sheafified representable of COL-0391. A signed
+correspondence acts through precomposition by its map of representables.
+'''
+
+[[sections]]
+id = "transfer-singular-complexes"
+title = "Singular complexes with transfers"
+order = 30
+introduction = '''
+For an additive transfer presheaf \(P\), take sections
+\(P(X\times_k\Delta_k^r)\) and the alternating sum of face maps. Graph
+interchange makes the differential natural for correspondences. The
+ordinary comparison identifies these same chains after graph restriction
+and after Nisnevich sheafification. See [@MVW2006, Lecture 2, pp. 16–18].
+'''
+
+[sections.transitions]
+COL-0397 = '''
+Use the graph interchange of COL-0389 for the simplex face maps. The graph
+restriction in COL-0369 gives the ordinary chain terms of COL-0348, and
+COL-0373 compares the two sheafifications degree by degree.
+'''
+COL-1030 = '''
+After graph restriction, the projection on singular homology is the ordinary
+algebraic singular projection. Apply the interval homotopy of COL-0349.
+'''
+
+[[sections]]
+id = "affine-line-invariance"
+title = "Strict affine-line invariance"
+order = 40
+introduction = '''
+Over a perfect field, homotopy invariance of a Nisnevich sheaf with transfers
+passes to its ordinary Nisnevich cohomology in every degree. Use the projection
+\(X\times_k\mathbb A^1\to X\) on the ordinary smooth site.
+See [@MVW2006, Lecture 24, Theorem 24.1].
+'''
+
+[sections.transitions]
+COL-1029 = '''
+In degree zero the assertion is invariance of sections. The higher-degree
+argument uses restriction on the entire affine cylinder and on the complement
+of a smooth Cartier divisor. For a homotopy-invariant transfer presheaf, first
+apply COL-1028 to obtain the coefficient sheaf required by the theorem.
+'''
