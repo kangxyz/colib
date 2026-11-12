@@ -44,11 +44,18 @@ private theorem boundary_frame_tensor_one {B X : Scheme.{u}}
     (differenceSheafBoundaryIso i D E hD hE).hom.app ⊤
       (pullbackSectionHom i (differenceSheaf D E) U ⊤ hi
         (canonicalDifferenceTensorSection D E U a)) = (1 : Γ(B, ⊤)) := by
-  apply frame_pullbackSectionHom_top_of_preimage i (differenceSheaf D E) U
-    (differenceSheafBoundaryIso i D E hD hE) _ hi
-  exact differenceSheafBoundaryIso_tensor_canonical_preimage i D E
+  let e := differenceSheafBoundaryIsoOfComapEqTop i D E
+    (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE)
+  have hpre := differenceSheafBoundaryIso_tensor_canonical_preimage i D E
     (comap_eq_top_of_avoids_support i D hD) (comap_eq_top_of_avoids_support i E hE)
     U a ha
+  have htop := frame_pullbackSectionHom_top_of_preimage i (differenceSheaf D E) U e
+    (canonicalDifferenceTensorSection D E U a) hi hpre
+  exact (congrArg (fun t : (Scheme.Modules.pullback i).obj (differenceSheaf D E) ≅
+    SheafOfModules.unit B.ringCatSheaf => t.hom.app ⊤
+      (pullbackSectionHom i (differenceSheaf D E) U ⊤ hi
+        (canonicalDifferenceTensorSection D E U a)))
+    (differenceSheafBoundaryIso_eq_ofComap i D E hD hE)).trans htop
 
 private theorem canonical_tensor_pullback {X' X : Scheme.{u}}
     (f : X' ⟶ X) (D E : X.IdealSheafData)
@@ -65,6 +72,17 @@ private theorem canonical_tensor_pullback {X' X : Scheme.{u}}
     ((canonicalSection' D).eval (op U)) a
   rw [invertibleSheafPullbackIso_canonicalSection_preimage f D U] at H
   exact H
+
+private theorem frame_mapIso_section_one {B X : Scheme.{u}}
+    (i : B ⟶ X) (M N : X.Modules) (e : M ≅ N)
+    (τ : (Scheme.Modules.pullback i).obj N ≅ SheafOfModules.unit B.ringCatSheaf)
+    (U : X.Opens) (hi : ⊤ ≤ i ⁻¹ᵁ U) (a : Γ(M, U))
+    (ha : τ.hom.app ⊤ (pullbackSectionHom i N U ⊤ hi (e.hom.app U a)) =
+      (1 : Γ(B, ⊤))) :
+    ((Scheme.Modules.pullback i).mapIso e ≪≫ τ).hom.app ⊤
+      (pullbackSectionHom i M U ⊤ hi a) = (1 : Γ(B, ⊤)) := by
+  exact (congrArg (τ.hom.app ⊤)
+    (Scheme.Modules.pullbackSection_naturality i e.hom U ⊤ hi a)).trans ha
 
 private theorem boundary_frame_pullback_tensor_one {B' X' X : Scheme.{u}}
     (i' : B' ⟶ X') (f : X' ⟶ X) (D E : X.IdealSheafData)
@@ -86,19 +104,16 @@ private theorem boundary_frame_pullback_tensor_one {B' X' X : Scheme.{u}}
   let ρ := differenceSheafPullbackIso f D E
   let c := pullbackSectionHom f (differenceSheaf D E) U (f ⁻¹ᵁ U) le_rfl
     (canonicalDifferenceTensorSection D E U a)
-  change (differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE).hom.app ⊤
-    (Scheme.Modules.Hom.app ((Scheme.Modules.pullback i').map ρ.hom) ⊤
-      (pullbackSectionHom i' _ (f ⁻¹ᵁ U) ⊤ hi c)) = _
-  have hn := Scheme.Modules.pullbackSection_naturality i' ρ.hom (f ⁻¹ᵁ U) ⊤ hi c
-  change Scheme.Modules.Hom.app ((Scheme.Modules.pullback i').map ρ.hom) ⊤
-    (pullbackSectionHom i' _ (f ⁻¹ᵁ U) ⊤ hi c) =
-      pullbackSectionHom i' _ (f ⁻¹ᵁ U) ⊤ hi (ρ.hom.app (f ⁻¹ᵁ U) c) at hn
-  rw [hn]
+  apply frame_mapIso_section_one i' _ _ ρ
+    (differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE) (f ⁻¹ᵁ U) hi c
   have hc := canonical_tensor_pullback f D E U a
   change ρ.hom.app (f ⁻¹ᵁ U) c = canonicalDifferenceTensorSection
     (D.comap f) (E.comap f) (f ⁻¹ᵁ U) d at hc
-  rw [hc]
-  exact boundary_frame_tensor_one i' (D.comap f) (E.comap f) hD hE (f ⁻¹ᵁ U) hi d hd
+  exact (congrArg (fun t =>
+    (differenceSheafBoundaryIso i' (D.comap f) (E.comap f) hD hE).hom.app ⊤
+      (pullbackSectionHom i' (differenceSheaf (D.comap f) (E.comap f))
+        (f ⁻¹ᵁ U) ⊤ hi t)) hc).trans
+    (boundary_frame_tensor_one i' (D.comap f) (E.comap f) hD hE (f ⁻¹ᵁ U) hi d hd)
 
 /-- The canonical boundary frame of the actual pulled-back Cartier difference is
 exactly the square pullback of the original frame, on the full boundary scheme. -/
