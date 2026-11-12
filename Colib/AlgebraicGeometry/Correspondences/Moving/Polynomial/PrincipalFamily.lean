@@ -70,7 +70,8 @@ def familyCorrespondence : Cor.mk (SmoothSite.product X (polynomialAffineLine (.
   let U := ambientUnitOpen t W.ι f
   let : Nonempty U := nonempty_ambientUnitOpen_of_boundary t W.ι b f hb
   let s := ambientUnitSection t W.ι f
-  let hU := complement_subset_ambientUnitOpen t j W.ι b hcover f hb
+  have hU := complement_subset_ambientUnitOpen t j W.ι b hcover f hb
+  rw [lineMap_eq_parameterMap] at hU
   let g' := projection (j ≫ t) ≫ g
   have hg : j' ≫ q' ≫ L.hom = g' ≫ Y.hom := by
     change parameterMap t j ≫ parameterMap X.hom q ≫ projection X.hom ≫ X.hom = _

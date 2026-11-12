@@ -166,6 +166,57 @@ private theorem boundary_frame_pullback_tensor_one {B' X' X : Scheme.{u}}
         (f ⁻¹ᵁ U) ⊤ hi t)) hc).trans
     (boundary_frame_tensor_one i' (D.comap f) (E.comap f) hD hE (f ⁻¹ᵁ U) hi d hd)
 
+/-- Transport a frame evaluation without reducing either frame's definition. -/
+private theorem frame_value_transport {Z : Scheme.{u}} {M : Z.Modules}
+    (e e₀ : M ≅ SheafOfModules.unit Z.ringCatSheaf) (he : e = e₀)
+    (s s₀ : Γ(M, ⊤)) (hs : s = s₀)
+    (h : e₀.hom.app ⊤ s₀ = (1 : Γ(Z, ⊤))) :
+    e.hom.app ⊤ s = (1 : Γ(Z, ⊤)) := by
+  exact (congrArg (fun t => t.hom.app ⊤ s) he).trans
+    ((congrArg (e₀.hom.app ⊤) hs).trans h)
+
+/-- Keep both large native frames and the selected section opaque while applying
+frame uniqueness. The equalities identify actual constructions, not assumed
+naturality: both scalar evaluations are derived below from the tensor lemmas. -/
+private theorem boundary_square_frame_eq_of_iso {B' B X' X : Scheme.{u}}
+    (b : B' ⟶ B) (i : B ⟶ X) (i' : B' ⟶ X') (f : X' ⟶ X)
+    (w : b ≫ i = i' ≫ f) (D E : X.IdealSheafData)
+    [IsEffectiveCartierDivisor D] [IsEffectiveCartierDivisor E]
+    [IsPullbackDefined f D] [IsPullbackDefined f E]
+    (hD : ∀ y : B, i y ∉ D.support) (hE : ∀ y : B, i y ∉ E.support)
+    (U : X.Opens) (hi : ⊤ ≤ i ⁻¹ᵁ U) (hi' : ⊤ ≤ i' ⁻¹ᵁ (f ⁻¹ᵁ U))
+    (a : Γ(negativeTwist' E, U)) (ha : idealSheafSection E a = (1 : Γ(X, U)))
+    (eL eR : (Scheme.Modules.pullback i').obj
+      ((Scheme.Modules.pullback f).obj (differenceSheaf D E)) ≅
+      SheafOfModules.unit B'.ringCatSheaf)
+    (heL : eL = (Scheme.Modules.pullback i').mapIso (differenceSheafPullbackIso f D E) ≪≫
+      differenceSheafBoundaryIso i' (D.comap f) (E.comap f)
+        (avoids_support_comap_square b i i' f w D hD)
+        (avoids_support_comap_square b i i' f w E hE))
+    (heR : eR = pullbackBoundaryTrivialization b i i' f w (differenceSheaf D E)
+      (differenceSheafBoundaryIso i D E hD hE))
+    (z : Γ((Scheme.Modules.pullback i').obj
+      ((Scheme.Modules.pullback f).obj (differenceSheaf D E)), ⊤))
+    (hz : z = pullbackSectionHom i' ((Scheme.Modules.pullback f).obj (differenceSheaf D E))
+      (f ⁻¹ᵁ U) ⊤ hi' (pullbackSectionHom f (differenceSheaf D E) U (f ⁻¹ᵁ U)
+        le_rfl (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property
+          (op U) (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a))) :
+    eL = eR := by
+  have hL : eL.hom.app ⊤ z = (1 : Γ(B', ⊤)) :=
+    frame_value_transport eL _ heL z _ hz
+      (boundary_frame_pullback_tensor_one i' f D E
+        (avoids_support_comap_square b i i' f w D hD)
+        (avoids_support_comap_square b i i' f w E hE) U hi' a ha)
+  have hR : eR.hom.app ⊤ z = (1 : Γ(B', ⊤)) :=
+    frame_value_transport eR _ heR z _ hz
+      (Scheme.Modules.pullbackBoundaryTrivialization_openSection_one b i i' f w
+        (differenceSheaf D E) (differenceSheafBoundaryIso i D E hD hE)
+        U (f ⁻¹ᵁ U) hi le_rfl hi'
+        (Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property
+          (op U) (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) a)
+        (boundary_frame_tensor_one i D E hD hE U hi a ha))
+  exact Scheme.Modules.frame_eq_of_same_section_one eL eR z hL hR
+
 /-- The canonical boundary frame of the actual pulled-back Cartier difference is
 exactly the square pullback of the original frame, on the full boundary scheme. -/
 theorem differenceSheafBoundaryIso_pullback_square {B' B X' X : Scheme.{u}}
@@ -183,7 +234,6 @@ theorem differenceSheafBoundaryIso_pullback_square {B' B X' X : Scheme.{u}}
   let U := canonicalDifferenceRegularOpen E
   let V := f ⁻¹ᵁ U
   let N := differenceSheaf D E
-  let τ := differenceSheafBoundaryIso i D E hD hE
   let a := Stacks.SheafOfModules.tensorSectionsAt X.sheaf.obj X.ringCatSheaf.property
             (op U)
     (divisorSheaf D) (negativeTwist' E) ((canonicalSection' D).eval (op U)) (idealOneSection E)
@@ -198,14 +248,7 @@ theorem differenceSheafBoundaryIso_pullback_square {B' B X' X : Scheme.{u}}
     exact hi (by trivial)
   let z := pullbackSectionHom i' ((Scheme.Modules.pullback f).obj N) V ⊤ hi'
     (pullbackSectionHom f N U V le_rfl a)
-  apply Scheme.Modules.frame_eq_of_same_section_one _ _ z
-  · exact boundary_frame_pullback_tensor_one i' f D E
-      (avoids_support_comap_square b i i' f w D hD)
-      (avoids_support_comap_square b i i' f w E hE) U hi' (idealOneSection E)
-      (idealSheafSection_idealOneSection E)
-  · exact Scheme.Modules.pullbackBoundaryTrivialization_openSection_one
-      b i i' f w N τ U V hi le_rfl hi' a
-      (boundary_frame_tensor_one i D E hD hE U hi (idealOneSection E)
-        (idealSheafSection_idealOneSection E))
+  exact boundary_square_frame_eq_of_iso b i i' f w D E hD hE U hi hi'
+    (idealOneSection E) (idealSheafSection_idealOneSection E) _ _ rfl rfl z rfl
 
 end Stacks.Divisors

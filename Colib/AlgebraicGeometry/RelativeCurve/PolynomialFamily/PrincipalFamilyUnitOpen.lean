@@ -316,6 +316,13 @@ theorem lineMap_eq_parameterMap {D : Scheme.{u}} (f : D ⟶ X) :
   · simp [lineMap, Scheme.PolynomialSectionPencil.parameterMap,
       Scheme.PolynomialSectionPencil.projection, pullback.map]
 
+/-- The shared parameter map is an open immersion whenever the original map is.
+This supplies the strict-family interface while retaining the legacy `lineMap` instance. -/
+instance isOpenImmersion_parameterMap {D : Scheme.{u}} (f : D ⟶ X) [IsOpenImmersion f] :
+    IsOpenImmersion (Scheme.PolynomialSectionPencil.parameterMap b f) :=
+  MorphismProperty.of_isPullback
+    (Scheme.PolynomialSectionPencil.parameterMap_isPullback b f) inferInstance
+
 end AlgebraicGeometry.PrincipalFamilyUnitOpen
 
 end

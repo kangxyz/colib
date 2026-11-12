@@ -79,7 +79,8 @@ theorem exists_familyCorrespondence_with_retained_value [Nonempty U] :
     exact (smoothOfRelativeDimension_isStableUnderBaseChange 1).of_isPullback
       (parameterMap_isPullback X.hom (j ≫ q)) inferInstance
   let s := ambientUnitSection t W.ι (W.topIso.inv r)
-  let hU := complement_subset_ambientUnitOpen t j W.ι b hcover (W.topIso.inv r) hb
+  have hU := complement_subset_ambientUnitOpen t j W.ι b hcover (W.topIso.inv r) hb
+  rw [lineMap_eq_parameterMap] at hU
   let hs := isUnit_ambientUnitSection t W.ι (W.topIso.inv r)
   have hg : j' ≫ q' ≫ (L).hom = g' ≫ (retainedSite X q j).hom := by
     change parameterMap t j ≫ parameterMap X.hom q ≫ projection X.hom ≫ X.hom =
@@ -109,7 +110,7 @@ theorem exists_familyCorrespondence_retained_endpoints :
   let : Nonempty (unitOpen (W.ι ≫ t) f) := by
     obtain ⟨z⟩ : Nonempty U := inferInstance
     obtain ⟨y, hy, _⟩ := (show z.val ∈ (parameterMap t W.ι) ''ᵁ unitOpen (W.ι ≫ t) f
-      from z.property)
+      from by simpa only [ambientUnitOpen, lineMap_eq_parameterMap] using z.property)
     exact ⟨⟨y, hy⟩⟩
   let : Nonempty (⊤ : W.toScheme.Opens) :=
     ⟨⟨genericPoint W.toScheme, TopologicalSpace.Opens.mem_top _⟩⟩

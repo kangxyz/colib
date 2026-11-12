@@ -69,6 +69,7 @@ theorem familySupport_parameterFlat [Nonempty U] (z : parameterSpace t)
       (parameterMap_isPullback X.hom (j ≫ q)) inferInstance
   let s := ambientUnitSection t W.ι (W.topIso.inv r)
   have hU := complement_subset_ambientUnitOpen t j W.ι b hcover (W.topIso.inv r) hb
+  rw [lineMap_eq_parameterMap] at hU
   have hu := isUnit_ambientUnitSection t W.ι (W.topIso.inv r)
   have hd := support_dominates_component (X := L) q' j' U hU s hu z hz
   let d := (integralComponentAt z).subschemeι
