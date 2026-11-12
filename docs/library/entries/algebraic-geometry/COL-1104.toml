@@ -1,0 +1,77 @@
+[entry]
+id = "COL-1104"
+title = "Native base geometric stalk of smooth etale extension"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 52
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.fullSmallEtaleExtendNativeBaseSheafFiberIso"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be affine, let \(Y/S\) be an original smooth separated finite-type
+object, and let \(\xi:\operatorname{Spec}\Omega\to Y\) have separably
+closed field \(\Omega\). Write \(p:Y\to S\) for its original structure
+map, \(i\) for the actual separated finite-type small-base inclusion into
+the smooth site, and \(j\) for the actual inclusion of that basis into
+the full small site of \(S\). Evaluation at the marking gives a natural
+isomorphism from the smooth-neighborhood point fiber restricted along
+\(i\) to the universe lift of the native small-base point fiber at
+\(\xi p\), restricted along \(j\).
+
+For an original affine marked neighborhood \(A\) of \(\xi\) and an
+original scheme map \(f:A\to iU\), this isomorphism sends the germ of
+\(f\) to the native lift \(\xi_A f\) into the small-base etale object
+\(U\). Every such native lift has an original affine-neighborhood
+representative, and representatives inducing the same lift agree after
+an original marked affine refinement.
+
+For every ordinary \(\mathrm{Ab}_{u+1}\)-valued sheaf \(G\) on the full
+small etale site of \(S\), the resulting natural sheaf-fiber comparison
+is
+\[
+  (\operatorname{fullSmallEtaleExtend}_S G)_{(Y,\xi)}
+  \simeq G_{\xi p}.
+\]
+The extension on the left is COL-1061's actual functor, and the point on
+the right is the original native full-small geometric point, not a
+replacement stalk. The comparison is natural in the original coefficient
+sheaf and its morphisms. The dense-basis pullback comparison preserves
+its actual native adjunction unit and counit.
+'''
+proof = '''
+Represent a native lift by the actual fiber product of its etale target
+with \(Y\), then use an affine marked refinement. For uniqueness, pull
+back the etale diagonal along the pair of original representative maps.
+The diagonal is an open immersion, so its marked pullback admits an
+original affine etale refinement where the two maps agree. Passing to
+the actual type-valued neighborhood colimit gives the fiber isomorphism;
+its representative formula proves naturality in the small-basis target.
+
+The actual small-base inclusion is representably flat: it preserves the
+terminal object and the already established pullbacks. The literal
+small-basis inclusion into the full small site preserves finite limits.
+Apply the native comapped-point sheaf-fiber isomorphism to these two
+functors, transport through the proved point isomorphism, and use the
+canonical left-adjoint uniqueness comparison with the existing
+dense-basis equivalence. Composing with that equivalence's counit yields
+the full-small extension comparison. Finally, the native equivalence of
+marked-element categories under universe lifting identifies the lifted
+small point's stalk with the original native stalk, preserving its
+representatives and coefficient morphisms.
+'''
+scope = '''
+The base marking is exactly \(\xi p\). The smooth object \(Y\) need not
+be affine. Schemes and marking fields lie in universe \(u\), coefficients
+in \(u+1\). The intermediate universe lift is removed by an explicit
+native colimit comparison. Arbitrary field bases and native residue-field
+geometric markings are included without rationality, perfectness, or
+algebraic-closedness of the base field.
+
+This computes the genuine source stalk needed after COL-1099. It does
+not yet identify the canonical counit under this new source isomorphism
+with COL-1093's structural neighborhood pullback, prove naturality for
+changes of the marked smooth object or Frobenius, or prove that the
+restriction map is invertible. No homotopy invariance, transfer, torsion,
+or rigidity conclusion is asserted. Naturality proved here is in the
+small-basis target and in coefficient sheaf morphisms.
+'''

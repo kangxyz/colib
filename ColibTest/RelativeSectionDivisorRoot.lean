@@ -22,13 +22,13 @@ example (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
     [SmoothOfRelativeDimension 1 q] :
     Smooth (closedFibreProjection R q) ∧ IsProper (closedFibreProjection R q) ∧
       SmoothOfRelativeDimension 1 (closedFibreProjection R q) := by
-  have : SmoothOfRelativeDimension 1 (closedFibreProjection R q) :=
+  have hrel : SmoothOfRelativeDimension 1 (closedFibreProjection R q) :=
     (smoothOfRelativeDimension_isStableUnderBaseChange 1).of_isPullback
       (isPullback_closedFibre R q) inferInstance
-  have : Smooth (closedFibreProjection R q) :=
-    SmoothOfRelativeDimension.smooth 1 (closedFibreProjection R q)
-  have : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
-  exact ⟨inferInstance, inferInstance, inferInstance⟩
+  have hsm : Smooth (closedFibreProjection R q) :=
+    @SmoothOfRelativeDimension.smooth 1 _ _ (closedFibreProjection R q) hrel
+  have hproper : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
+  exact ⟨hsm, hproper, hrel⟩
 
 /-- Composite exponent, with no supplied Picard class or closed-fibre tensor root. -/
 example (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]

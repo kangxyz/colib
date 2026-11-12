@@ -1,0 +1,52 @@
+[entry]
+id = "COL-1100"
+title = "Literal endpoints of the original principal polynomial correspondence"
+kind = "theorem"
+section = "principal-polynomial-families"
+order = 250
+primary = "AlgebraicGeometry.PrincipalFamilyUnitOpen.polynomialCorrespondence_endpointGraph_zero_one"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(X/k\) be affine, integral, smooth and separated, let \(Y/k\) be smooth
+and separated, and let \(q:C\to X\) be proper with \(C\) integral and
+Noetherian. Let \(j:V\hookrightarrow C\) be an integral quasi-affine open,
+smooth of relative dimension one over \(X\), and let \(v:W\hookrightarrow C\)
+be integral. A nonempty scheme \(B\) maps to \(W\), with image containing
+the whole complement of \(V\) in \(C\). Let \(f\in\Gamma(W,\mathcal O_W)\)
+restrict to one on \(B\), and assume the original polynomial ambient of
+\(C/k\) is integral and Noetherian. Fix \(g:V\to Y\) over \(k\).
+
+For the original principal polynomial correspondence
+\(K:\mathbb A^1_X\rightsquigarrow Y\) and original scalar endpoint graphs,
+\[K\circ\Gamma_0=0,\qquad (K\circ\Gamma_1).\mathrm{val}=r_*\operatorname{div}_V(f),\]
+where \(r=(qj,g):V\to X\times_kY\) is the actual retained curve map and the
+divisor uses the original curve rational function restricted to \(V\).
+Thus any already constructed finite correspondence with this exact underlying
+cycle equals the original one endpoint.
+'''
+proof = '''
+The full boundary normalization makes the original principal supports finite
+and dominant over the parameter base and places them in the retained open.
+COL-1090 gives original curve coheight one at every generic point of their
+whole scalar endpoints. Combined with COL-1097, this identifies the whole
+signed source endpoint cycles as zero and the original curve principal cycle.
+The actual open inclusion transports these identities to the retained curve.
+
+Canonical pullback comparison identifies each original image-incidence endpoint
+with its original retained source endpoint. Checking both product projections
+identifies the unchanged outer map. COL-1089 and native finite/Noetherian cycle
+pushforward then transport all multiplicities, signs and collisions together.
+The injective underlying-cycle map of finite correspondences gives the zero
+identity and the comparison with an independently constructed one endpoint.
+'''
+scope = '''
+These are literal equalities in the original native finite-correspondence and
+AlgebraicCycle models, before any rational-equivalence quotient. No endpoint
+identity, component flatness or support codimension is assumed. Nonzeroness of
+the original section and nonemptiness of its actual ambient unit open follow
+from the nonempty boundary and its literal value one. Full extended-natural
+lengths and their native toNat convention are retained. The exponent, torsion,
+homotopy-invariant action, geometric root/frame construction, and henselian
+stage descent are subsequent steps, not conclusions of this item.
+'''

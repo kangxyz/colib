@@ -1,0 +1,20 @@
+[entry]
+id = "COL-1102"
+title = "Canonical étale change of marked neighborhood values"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 46
+primary = "AlgebraicGeometry.Scheme.SmoothSite.etaleNeighborhoodValueEtaleIso"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(S\) be quasi-separated, let \(X,Y\) be affine objects of the original smooth site over \(S\), and let \(\xi:\operatorname{Spec}\Omega\to X\) and \(\eta:\operatorname{Spec}\Omega\to Y\) be markings by the same separably closed field. If \(f:X\to Y\) is étale and \(f\xi=\eta\), then the original COL-1093 contravariant pullback is the hom of a canonical isomorphism
+\[V_Y(F)\xrightarrow{\sim}V_X(F).\]
+Its inverse composes each actual affine étale neighborhood of \(X\) with \(f\), preserving its affine scheme and marking. The structural maps from the same original presheaf value \(F(S)\) are compatible with both directions. More generally these structural maps are natural for every compatible-marking morphism between affine smooth-site objects, without the étale assumption.
+'''
+proof = '''
+The inverse cocone retains the original affine scheme and marking, with the composite étale structure map. The identity scheme map compares the displayed smooth-site objects. COL-1093's formula for arbitrary compatible original neighborhood maps proves one inverse identity. The actual cartesian projection is a morphism from the composed pullback neighborhood to the original target neighborhood, so the original colimit cocone equation proves the other identity. The map from the base value uses the canonical affine presentation of the marked object; it is proved equal to restriction and inclusion on every original representative. This formula proves structural naturality and its compatibility with the identified isomorphism.
+'''
+scope = '''
+All diagrams, inclusions and values are the originals from COL-1057, and the forward hom is definitionally the COL-1093 pullback. Schemes and marking fields lie in universe u, presheaf values in u+1. No extension of a presheaf to henselian schemes, continuity, rigidity, or identification of algebraic and separable closures is used. This is an étale-change supplier for S2, not a proof of S2 or of an arbitrary-field F(k)-to-strict-stalk isomorphism.
+'''

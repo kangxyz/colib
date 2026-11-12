@@ -157,8 +157,8 @@ cohomological shifts and signs.
   open and identifies the difference of equal specialized section morphisms
   with the unit module. The ambient compactification need not be smooth.
 - COL-1055 uses this explicit unit-fibre root, proper Kummer reflection and
-  finite-boundary frame correction. Its high-level source is not yet
-  natively elaborated; no Jacobian or smooth-proper compactification is
+  finite-boundary frame correction. This high-level minimal route has now
+  compiled in native CI; no Jacobian or smooth-proper compactification is
   required by this route.
 
 - COL-1056 constructs a genuine affine fraction of the original curve
@@ -320,6 +320,33 @@ whole-program validation report.
   object agree with these values. The stronger base-source point comparison
   and final rigidity are separate.
 
+- COL-1100 closes the actual principal-family endpoint comparison: the
+  original finite correspondence composed with its zero graph is zero;
+  its one endpoint has exactly the original retained principal-divisor
+  pushforward cycle. Full boundary geometry supplies every required support
+  codimension, and actual outer maps retain all multiplicities and signs.
+  No Chow quotient or supplied endpoint identity is used.
+- COL-1102 proves canonical invariance of the original neighborhood value
+  under compatible marked affine etale change of chart. Its forward map
+  is literally COL-1093's pullback, and the original base-value structural
+  map commutes with it. This does not yet prove henselian induction.
+
+- COL-1101 descends the original full-boundary frame and finite power and
+  section equations to one common stage. Literal base-change diagrams are
+  constructed internally. The specific Kummer root witness and the
+  integer/natural power comparison still need to be assembled with it.
+- COL-1103 extends the actual radicial transfer inverse to all original
+  smooth objects, including empty and disconnected schemes, by the genuine
+  finite clopen correspondence matrix. The original relative Frobenius
+  pullback is a natural isomorphism on the original underlying presheaf.
+- COL-1104 computes the actual smooth-extension source stalk as the native
+  small-base stalk at the original composite marking, without requiring
+  the smooth object to be affine. Its coefficient naturality is proved;
+  counit-map identification and marked-object naturality remain separate.
+- The supporting rational-marking theorem lifts an actual marked etale
+  point over a rational point of a separably closed field, preserving both
+  original scheme-map equations.
+
 ## Remaining mathematical chain
 
 The required henselian section comparison is the same-specialization case:
@@ -332,7 +359,8 @@ to the normal proper compactification with only a smooth open supplied by
 the original geometric construction. COL-1054 derives the global
 section-kernel Cartier property locally on that smooth open and proves
 the exact closed-fibre unit comparison. COL-1055 assembles the minimal
-root route at source level; its high-level compilation is still pending.
+root route and has compiled in native CI. The stronger COL-1040 composition
+retains a separate closed-fibre instance elaboration repair.
 
 1. Complete native verification of the high cohomological and curve
    compositions. COL-1038 supplies the actual relative divisor/base-change
@@ -378,7 +406,7 @@ root route at source level; its high-level compilation is still pending.
    and COL-1080 reindexes the actual principal-cycle supports. COL-1089
    identifies the whole pairing with the original source endpoint cycles;
    COL-1090 supplies original chart coheight, and COL-1092 and COL-1096
-   give the actual chart and ambient support-cut zero/one values. Assemble
+   give the actual chart and ambient support-cut zero/one values. COL-1100 now assembles
    these into the final original endpoint correspondence equality. COL-1036 supplies the final
    ordinary HI/torsion action consumer once the actual family and moving
    relation are constructed. A full framed Picard group or general Picard

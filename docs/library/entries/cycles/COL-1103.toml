@@ -1,0 +1,52 @@
+[entry]
+id = "COL-1103"
+title = "Radicial torsion invariance on all smooth objects"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 18
+primary = "AlgebraicGeometry.PresheafWithTransfers.radicialGraphIsoOfComponents"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be any field, let \(n\) be invertible in \(k\), and let \(P\) be
+an \(n\)-torsion presheaf with transfers on the original smooth separated
+finite-type site. For a finite flat universal homeomorphism \(q:X\to Y\)
+between arbitrary original smooth objects, the original graph restriction
+\(q^*:P(Y)\to P(X)\) is an isomorphism. Its inverse is the finite sum of
+original source component restrictions, the full-degree Bezout-scaled
+transposed-graph transfers on the actual component pullbacks, and original
+clopen projection transfers.
+
+In positive prime characteristic, the original relative Frobenius gives a
+natural isomorphism \(P\circ (X\mapsto X^{(p)})^{\mathrm{op}}\cong P\)
+on all original smooth objects. Its component is exactly the original
+Frobenius restriction map.
+'''
+proof = '''
+The actual integral clopen irreducible components of the target give a finite
+partition. Their actual inverse images are clopen smooth subschemes. Each
+component map is the original pullback of q, hence finite and flat. Its
+universal homeomorphism to an integral target and smooth reducedness prove
+integrality of its source. COL-1094 provides its actual full-degree transfer
+inverse.
+
+Original partial diagonal cycles and graph factorizations give actual clopen
+projection correspondences, with all matrix identities and sum equal to the
+original identity. Applying the additive presheaf with transfers glues the
+component inverses; the original pullback squares prove both inverse equations.
+Native Frobenius naturality and COL-1098 geometry then give the displayed
+natural isomorphism on the original underlying presheaf.
+'''
+scope = '''
+Empty and disconnected objects are allowed. No integral-object, constant-degree,
+perfect-field, homotopy-invariance or sheaf hypothesis is imposed. The actual
+source, target, graph restriction, component pullbacks, full residue degrees,
+transpose cycles and clopen projection cycles are retained. No arbitrary reduced
+support is assumed flat, and no nilpotent fiber-product map is assumed to factor
+scheme-theoretically through the diagonal.
+
+The Frobenius natural isomorphism concerns the original underlying ordinary
+presheaf, obtained using genuine transfer inverses. It does not assert a field-
+base-change equivalence, perfection continuity, arbitrary-field counit/stalk
+comparison or final Suslin rigidity.
+'''

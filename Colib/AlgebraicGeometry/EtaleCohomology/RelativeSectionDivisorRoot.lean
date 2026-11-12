@@ -51,12 +51,12 @@ theorem exists_schemeTensorPower_iso_relativeSectionKernel_differenceSheaf
     ∃ (M : X.Modules) (hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M),
       Nonempty (Stacks.SheafOfModules.schemeTensorPower X M hM (n : ℤ) ≅
         differenceSheaf s.ker t.ker) := by
-  have : SmoothOfRelativeDimension 1 (closedFibreProjection R q) :=
+  have hrel : SmoothOfRelativeDimension 1 (closedFibreProjection R q) :=
     (smoothOfRelativeDimension_isStableUnderBaseChange 1).of_isPullback
       (isPullback_closedFibre R q) inferInstance
-  have : Smooth (closedFibreProjection R q) :=
-    SmoothOfRelativeDimension.smooth 1 (closedFibreProjection R q)
-  have : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
+  have hsm : Smooth (closedFibreProjection R q) :=
+    @SmoothOfRelativeDimension.smooth 1 _ _ (closedFibreProjection R q) hrel
+  have hproper : IsProper (closedFibreProjection R q) := isProper_closedFibreProjection R q
   let s₀ : Spec (.of (IsLocalRing.ResidueField R)) ⟶ closedFibre R q :=
     Scheme.baseChangedSection q (residueFieldPoint R) s hs
   let t₀ : Spec (.of (IsLocalRing.ResidueField R)) ⟶ closedFibre R q :=
@@ -68,8 +68,9 @@ theorem exists_schemeTensorPower_iso_relativeSectionKernel_differenceSheaf
   have hnκ : IsUnit (n : IsLocalRing.ResidueField R) := by
     simpa only [map_natCast] using hn.map (IsLocalRing.residue R)
   obtain ⟨M₀, hM₀, ⟨e₀⟩⟩ :=
-    exists_schemeTensorPower_iso_sectionKernel_differenceSheaf
-      (closedFibreProjection R q) s₀ t₀ hs₀ ht₀ hnκ
+    @exists_schemeTensorPower_iso_sectionKernel_differenceSheaf
+      (IsLocalRing.ResidueField R) _ _ (closedFibre R q) (closedFibreProjection R q)
+      inferInstance hsm hproper hrel s₀ t₀ hs₀ ht₀ n hnκ
   have := isEffectiveCartierDivisor_sectionKernel q s hs
   have := isEffectiveCartierDivisor_sectionKernel q t ht
   have hX : IsUnit (n : Γ(X, ⊤)) := by

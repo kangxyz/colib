@@ -1,0 +1,48 @@
+[entry]
+id = "COL-1101"
+title = "Descent of compatible full-boundary frames"
+kind = "theorem"
+section = "proper-etale-specialization"
+order = 110
+primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_baseChange_boundary_frame_power_comp_eq_of_isLimit_finite"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(D:I\to\mathrm{Sch}\) be a small cofiltered base diagram with affine
+transitions and a specified limit. Fix a morphism \(B_i\to C_i\) over a
+stage, with \(B_i\) quasi-compact and quasi-separated, and use its literal
+base changes. Let \(M_a\) be an invertible module on an ambient stage and
+let \(e\) be an actual frame of its restriction to the full limit boundary.
+Suppose finitely many specified tensor-power morphisms and linear morphisms
+satisfy their prescribed equations with this frame after limit pullback,
+using the native canonical comparisons. At one later stage there is an
+actual boundary frame recovering \(e\), satisfying every specified power
+and linear equation under the same transition and original comparisons.
+'''
+proof = '''
+Normalize the limit frame through its original boundary square and the
+structure-sheaf pullback comparison. Descend this actual isomorphism with
+its finite linear equations using COL-1087. Naturality and composition of
+the native tensor-power comparisons identify the pullbacks of its power
+maps with the specified original power maps. Finite eventual equality
+makes all power equations hold after one further refinement. The same
+coherence preserves them at the final transition, while canonical
+naturality preserves the linear equations. The actual stage boundary
+square converts the resulting isomorphism into a frame on the ambient
+restriction. Native base-change-of-limit results supply the boundary and
+ambient diagrams, their limits and all original morphisms.
+'''
+scope = '''
+The boundary is never replaced by its reduction, and no stage is assumed
+local. No stage frame or continuity premise is used. The ambient invertible
+stage module is input, for use after actual root descent in COL-1087.
+The concrete map `boundaryRootPowerIso` retains a specified ambient power
+isomorphism and original boundary trivialization. Power equations use
+`pullbackTensorPowerIso` and `tensorPowerCongr`, for nonnegative exponents.
+Identifying these equations with the strict-local Kummer frame convention
+using `pullbackIntegerTensorPowerIso` and `tensorPowerMap`, and assembling
+the specific root witness with its frame, remain separate steps. No
+geometric section pair, finite-flat zero scheme or final rigidity result
+is asserted. Supporting results cover arbitrary compatible diagrams and
+finite heterogeneous families of power and linear equations.
+'''

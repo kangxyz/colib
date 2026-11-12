@@ -655,6 +655,11 @@ class LibraryTests(unittest.TestCase):
             "COL-1097": "Colib.AlgebraicGeometry.Correspondences.Principal.PrincipalEndpointSourceCycle",
             "COL-1098": "Colib.AlgebraicGeometry.PresheavesWithTransfers.RelativeFrobenius",
             "COL-1099": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitNeighborhoods",
+            "COL-1100": "Colib.AlgebraicGeometry.Correspondences.Principal.PolynomialEndpointCorrespondence",
+            "COL-1102": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange",
+            "COL-1101": "Colib.AlgebraicGeometry.Modules.Limits.BaseChangeBoundaryPowerFrames",
+            "COL-1103": "Colib.AlgebraicGeometry.PresheavesWithTransfers.RadicialComponents",
+            "COL-1104": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.BasePointComparison",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -702,7 +707,7 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": ([374, *range(363, 368), 1088, 1091], ["COL-0374", "COL-0366"]),
-            "transfers-nisnevich": ([368, 1036, 1094, 1098, *range(369, 374)],
+            "transfers-nisnevich": ([368, 1036, 1094, 1098, 1103, *range(369, 374)],
                                      ["COL-0368", "COL-0370", "COL-0372"]),
         }
         for section_id, (numbers, starts) in expected.items():
@@ -958,7 +963,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
         self.assertEqual(cor.count('class="section-transition"'), 8)
-        self.assertEqual(transfers.count('class="section-transition"'), 9)
+        self.assertEqual(transfers.count('class="section-transition"'), 10)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', transfers)

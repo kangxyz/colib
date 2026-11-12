@@ -118,6 +118,13 @@ universally injective map needed above, even over imperfect fields.
 Its native twist stays integral, so the actual prime-to-characteristic
 transfer inverse applies without a caller-supplied geometry certificate.
 '''
+COL-1103 = '''
+Decompose an arbitrary smooth object into its actual finite integral clopen
+components. Original graph and projection correspondences give the complete
+matrix identities, including the empty scheme. Full-degree component
+transfer inverses therefore glue, and original Frobenius naturality gives
+a natural isomorphism on the unchanged underlying presheaf.
+'''
 COL-0369 = '''
 Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
 on smooth schemes. The ordinary Nisnevich topology is the one in COL-0340. Its
@@ -407,4 +414,12 @@ Its full fundamental-cycle coefficient is the original support-cut length,
 including off-image points. Finite signed summation identifies every original
 curve coefficient; an internally chosen affine chart evaluates coheight-one
 points at zero and one.
+'''
+
+COL-1100 = '''
+Full boundary normalization places every contributing original support endpoint
+in curve codimension one. The source-cycle identities now hold globally.
+Canonical pullback and outer-map comparisons carry them to the original
+finite correspondence: zero at zero, and the original principal pushforward
+at one, without taking a rational-equivalence quotient.
 '''
