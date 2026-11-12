@@ -165,6 +165,7 @@ public import Colib.Algebra.Homology.DerivedCategory.AdjunctionImageEdgeWindow
 public import Colib.Algebra.Homology.DerivedCategory.AdjunctionShiftedEdgeWindow
 public import Colib.Algebra.Homology.DerivedCategory.CommonRightFraction
 public import Colib.Algebra.Homology.DerivedCategory.ConeHomologyWindow
+public import Colib.Algebra.Homology.DerivedCategory.CorepresentedTotalEvaluation
 public import Colib.Algebra.Homology.DerivedCategory.EqualityDenominators
 public import Colib.Algebra.Homology.DerivedCategory.ExactFunctorTruncGE
 public import Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor
@@ -334,6 +335,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParam
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Retained
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitEndpoint
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitFiber
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.UnitSection
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFace
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceCycle
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.PrincipalCutFaceGeometry
@@ -347,6 +349,8 @@ public import Colib.AlgebraicGeometry.Correspondences.Cancellation.Reparametrize
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.SupportData
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedIncidence.SupportProduct
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedPrimeSupports
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedStalkMaps
+public import Colib.AlgebraicGeometry.Correspondences.Cancellation.ReparametrizedTorusRegular
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.RetainedPowerCutSupport
 public import Colib.AlgebraicGeometry.Correspondences.Cancellation.TorusChart
 public import Colib.AlgebraicGeometry.Correspondences.Category
@@ -2143,6 +2147,8 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.C
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Bounded
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.Single
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularPlacement
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedTruncation
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedWindow
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.Singular
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor

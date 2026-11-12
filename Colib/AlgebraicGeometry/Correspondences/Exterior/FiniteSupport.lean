@@ -97,6 +97,21 @@ def nativeExteriorFiniteSupportPushforward {k : Type u} [Field k]
   finiteCyclePushforward (p ≫ exteriorOuterDiagonal X Y T)
     (AlgebraicCycle.fundamentalCycle (pullback (m ≫ b) t))
 
+/-- The native exterior cycle uses the whole support product and the actual diagonal. -/
+theorem nativeExteriorFiniteSupportPushforward_eq {k : Type u} [Field k]
+    (X Y T : SmoothSite (Spec (.of k))) {K : Scheme.{u}} [IsNoetherian K]
+    (m : K ⟶ pullback (C := Scheme) X.hom Y.hom) [IsFinite m] :
+    let b := pullback.fst X.hom Y.hom ≫ X.hom
+    let p := pullbackParameterExtensionMap m b T.hom
+    letI : IsFinite p := isFinite_exteriorParameterSupportMap m b T.hom
+    letI : IsNoetherian (pullback (m ≫ b) T.hom) :=
+      isNoetherian_exteriorParameterSupport (m ≫ b) T.hom
+    nativeExteriorFiniteSupportPushforward X Y T m =
+      finiteCyclePushforward (p ≫ exteriorOuterDiagonal X Y T)
+        (AlgebraicCycle.fundamentalCycle (pullback (m ≫ b) T.hom)) := by
+  unfold nativeExteriorFiniteSupportPushforward
+  rfl
+
 set_option maxHeartbeats 600000 in
 -- The coefficient comparison elaborates the full product support and two finite pushforwards.
 /-- The actual exterior identity sends a finite-support fundamental cycle
