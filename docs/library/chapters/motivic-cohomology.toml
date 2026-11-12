@@ -39,6 +39,19 @@ two sheafifications.
 '''
 
 [[sections]]
+id = "affine-line-invariance"
+title = "Strict affine-line invariance"
+order = 25
+introduction = '''Use the ordinary Nisnevich projection on smooth schemes with transfer coefficients. Over a perfect field, homotopy invariance of the coefficient sheaf gives invariance of ordinary cohomology in each degree.'''
+
+[sections.transitions]
+COL-1029 = '''
+The degree-zero comparison is restriction of sections. For positive degrees,
+the proof uses the entire affine cylinder over each generic base open and
+the original puncture along a smooth Cartier divisor.
+'''
+
+[[sections]]
 id = "canonical-motivic-complexes"
 title = "Canonical motivic complexes"
 order = 30

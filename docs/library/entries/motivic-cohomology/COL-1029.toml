@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1029"
+title = "Strict affine-line invariance of transfer sheaves"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "affine-line-invariance"
+order = 10
+primary = "AlgebraicGeometry.SheafWithTransfers.isStrictA1Invariant_of_perfect"
+statement = '''
+Let $k$ be a perfect field and $F$ a homotopy-invariant Nisnevich sheaf
+with transfers. For every smooth separated finite-type $k$-scheme $X$
+and $n\geq 0$, the projection
+$X\times_k\mathbb A^1\to X$ induces an isomorphism
+\[
+H^n_{\mathrm{Nis}}(X,F)\longrightarrow
+H^n_{\mathrm{Nis}}(X\times_k\mathbb A^1,F).
+\]
+'''
+scope = '''
+The groups are ordinary Nisnevich cohomology, using free representing sheaves
+and `HasExt` in universe $u+1$ for $k$ in universe $u$. The geometric
+projection is the existing native affine-line cylinder projection. Both
+finite and infinite perfect fields are included.
+See [@MVW2006, Lecture 13, Theorem 13.8; Lecture 24, Theorem 24.1].
+'''
+proof = '''
+The ordinary degree-zero comparison identifies cohomological restriction with
+restriction of sections. For positive degrees, use vanishing of the full
+cylinder over a generic base open to start induction on the local rank.
+Restriction to the complement of a smooth Cartier divisor gives the positive
+rank step. The finite Leray window then proves invariance in the given degree.
+The outer induction runs over all homotopy-invariant sheaves with transfers so
+that the lower-degree result also applies to the contraction.
+'''
