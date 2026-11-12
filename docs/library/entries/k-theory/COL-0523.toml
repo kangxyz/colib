@@ -1,16 +1,16 @@
 [entry]
 id = "COL-0523"
-title = "Natural whole tracks under cone, loop and Bass transport"
+title = "Transport of self-homotopies through cones and loops"
 kind = "comparison"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 80
-statement = """
+statement = '''
 The original loop strength and evaluation square preserve the actual cone action.
 An original coefficient-natural whole self-track therefore induces natural loop,
 cone and Bass tracks. Whole-time intertwining maps are closed under identity,
 composition, specified equality transports, and the actual cone, loop and Bass maps.
 The cone and loop evaluation equations retain the original independent time parameters.
-"""
+'''
 scope = """
 Arbitrary indexing categories, loop-prespectrum diagrams and a specified coefficient
 transformation to the indexing endofunctor. The cone construction retains the specified

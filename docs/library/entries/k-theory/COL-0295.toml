@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0295"
-title = "Stable loop-cofiber comparison for the actual S-prespectra"
+title = "Stable loop–cofiber comparison for Waldhausen spectra"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 280
+section = "delooping-and-stable-localization"
+order = 90
 statement = "For every morphism between the actual iterated-S prespectra, the unchanged comparison from the cone of its parameter-looped map to the parameter loop of its cone is a stable equivalence in every integer degree. The comparison retains the original inclusion, complete cylinder, fiber-loop transpose and signed boundary equation."
 scope = '''The generic theorem keeps its two cone-to-fiber excision hypotheses distinct. Original all-point finite connectivity, \(T_1\) topology and chosen-point homotopy extension discharge both hypotheses for the actual native S-prespectra, including the one-degree loss under parameter looping. No exact-functor origin of the prespectrum morphism is required. The original common small universe, independent cylinder and loop times, actual mapping cones, alternating stable-shift correction and boundary convention are preserved. No stable model structure, triangulation, general unrestricted cone-loop equivalence or nonconnective completion is claimed.'''
 review = "author_checked"

@@ -2,22 +2,65 @@
 id = "k-theory-schemes"
 title = "Algebraic K-Theory of Schemes"
 order = 13
-introduction = "Scheme K-theory uses the existing vector-bundle, coherent-sheaf and native perfect-complex constructions. Geometric restriction, support and pullback lead to connective localization and its specified boundary. Affine section evaluation compares the geometric and ring-side perfect-complex models. The entries retain the distinction between their proved connective comparisons and full nonconnective localization [@ThomasonTrobaugh1990, 5.1.2 and 7.4]."
+introduction = "Algebraic K-theory of schemes begins with vector bundles, coherent sheaves and perfect complexes. These give different constructions until a comparison theorem with suitable hypotheses identifies them. We first separate vector-bundle Quillen K-theory from perfect-complex Waldhausen K-theory, then construct derived pullback and K-theory with support.\n\nFor a quasi-compact open immersion $j:U\\hookrightarrow X$ in a qcqs scheme, connective localization sees the restriction image in degree zero. Bass delooping supplies the geometric nonconnective construction, for which the Thomason\u2013Trobaugh theorem gives the full-open fiber sequence. The intervening sections develop section models, units and tensor operations needed in that argument. They are organized by their mathematical role, not by the order in which their Lean implementations were migrated."
 
 [[sections]]
-id = "scheme-k-and-g"
-title = "Vector bundles, coherent sheaves and the K-to-G comparison"
+id = "vector-bundles-coherent-sheaves-and-comparison"
+title = "Vector bundles, coherent sheaves and comparison"
 order = 10
-introduction = "Vector bundles and coherent sheaves give the specified K-to-G map. Regularity and the resolution property enter precisely in the equivalence COL-0286; they are not assumptions of the remaining perfect-complex constructions."
+introduction = "Let $K^{\\mathrm{vb}}(X)$ denote Quillen K-theory of vector bundles and let $G(X)$ denote the formalized coherent-sheaf G-theory. If $X$ is locally Noetherian, inclusion of vector bundles in coherent sheaves induces $K^{\\mathrm{vb}}(X)\\to G(X)$. For a quasi-compact regular scheme with the resolution property this is an equivalence. These statements do not identify vector-bundle K-theory with perfect-complex K-theory on arbitrary schemes."
+
 
 [sections.transitions]
 COL-0286 = "On a quasi-compact regular scheme with the resolution\nproperty, a coherent sheaf has a finite resolution by\nfinite locally free sheaves. Resolution applies to\nthe exact inclusion in COL-0285, so the comparison\nuses that inclusion on \\(K\\)-groups.\n"
 
 [[sections]]
-id = "perfect-open-localization"
-title = "Perfect complexes and open localization"
+id = "derived-pullback-and-flat-resolutions"
+title = "Derived pullback and flat resolutions"
 order = 20
-introduction = "Actual restriction on the native perfect complexes gives the open-support comparisons and connective localization sequences. The honest derived image and its degree-zero obstruction remain explicit. The fixed-pair qcqs result COL-0330 is a connective image-cover statement, not an identification with the full nonconnective theorem [@ThomasonTrobaugh1990, 7.4]."
+introduction = "Derived pullback preserves perfect complexes. On bounded complexes of finite locally free modules, ordinary pullback constructs the required functor for any scheme morphism. The bounded-above-flat model permits comparison with the formalized perfect-complex Waldhausen theory under the stated quasi-compactness hypotheses. The resulting comparisons and pullback coherence are recorded explicitly; no equivalence of all perfect complexes with globally bounded vector-bundle complexes is assumed."
+
+
+[sections.transitions]
+COL-0322 = "For a morphism \\(f\\colon Y\\to X\\), termwise pullback\ntakes bounded finite locally free complexes on \\(X\\)\nto such complexes on \\(Y\\). Flat quotients control\nthe inherited exact sequences and give the exact\npullback functor on these models.\n"
+COL-0323 = "For arbitrary perfect complexes, an upper term bound\nand flatness of the terms give a model for termwise\npullback. A bounded-above flat augmentation can use\nthe given cohomological bound, which exists for perfect\ncomplexes on a quasi-compact space.\n"
+COL-0325 = "On a quasi-compact ringed space, a map from a flat\nmodel to a perfect complex factors through a cofibration\nwith flat perfect quotient followed by a quasi-isomorphism.\nThis supplies App2 for the literal inclusion of the\nbounded-above flat models.\n"
+COL-0326 = "Termwise pullback on the flat models composes by the\ngeometric pullback comparison, with exactness from\nthe flat quotients. When the morphism target \\(X\\)\nis quasi-compact, the inverse of the inclusion comparison\non \\(X\\) gives the resulting pullback on all-perfect\n\\(K\\)-theory.\n"
+COL-0328 = "For a flat morphism or an open immersion, the flat-model\npullback square commutes with the literal inclusions\nby the actual geometric natural isomorphism. This\nidentifies the transported map with the previously\ndefined exact pullback or fine restriction map.\n"
+COL-0351 = "The same inclusion has a canonically zero-normalized\nprespectrum map. On a compact ringed space its connective\n\\(K\\)-isomorphisms identify the stable map as an\nequivalence. Flat pullback carries the inclusion square\nby a whole based prespectrum homotopy.\n"
+COL-0352 = "The composition and unit isomorphisms of termwise\npullback satisfy the pseudofunctor coherence equations.\nRestricting this pseudofunctor along \\(\\operatorname{Spec}\\)\ngives the affine coefficient diagram, with its identity\nand composition transports.\n"
+
+[[sections]]
+id = "support-and-connective-localization"
+title = "Support and connective localization"
+order = 30
+introduction = "For an open immersion $j:U\\hookrightarrow X$, put $Z=X\\setminus U$ and write $K(X\\text{ on }Z)$ for K-theory of perfect complexes acyclic on $U$. Restriction gives a map to the open theory. For quasi-compact $U$ in qcqs $X$, the connective localization result has the full positive-degree groups of $U$, but only the restriction image in degree zero [@ThomasonTrobaugh1990, 5.1.1]. With auxiliary open $T$, the kernel consists of complexes acyclic on $T\\cup U$, hence supported on $(X\\setminus T)\\cap Z$; this gives the supported version [@ThomasonTrobaugh1990, 5.1.2]. The full nonconnective target is obtained in the final section, not here."
+
+
+[[sections.topics]]
+id = "restriction-and-supported-complexes"
+title = "Restriction and supported complexes"
+start = "COL-0230"
+
+[[sections.topics]]
+id = "extension-and-the-derived-image"
+title = "Extension and the derived image"
+start = "COL-0307"
+
+[[sections.topics]]
+id = "connective-image-cover-localization"
+title = "Connective image-cover localization"
+start = "COL-0330"
+
+[[sections.topics]]
+id = "auxiliary-support-and-excision"
+title = "Auxiliary support and excision"
+start = "COL-0331"
+
+[[sections.topics]]
+id = "flat-models-and-supported-naturality"
+title = "Flat models and supported naturality"
+start = "COL-0382"
 
 [sections.transitions]
 COL-0230 = "For perfect complexes, an open immersion\n\\(j\\colon U\\hookrightarrow X\\) gives ordinary restriction\n\\(j^*\\) on actual cochain complexes. Exactness for the\nfine Waldhausen structures gives its canonical \\(K\\)-map.\n"
@@ -29,30 +72,6 @@ COL-0315 = "Perfect complements give density of that image in the\nfine category
 COL-0318 = "Under the roof and complement hypotheses, the positive\ncomparison inverses carry the relative boundary to the\nfine theory on the open. In degree zero the exact tail\nends at the actual global restriction image. This is\nalso the degree-zero image of the connective spectrum map.\n"
 COL-0319 = "The supported category identifies with the relative\nacyclic category by the original exact flattening.\nIterating \\(S\\) transports the fiber map with its\ninclusion coordinate and the entire original null path.\n"
 COL-0330 = "For a quasi-compact open in a qcqs scheme, the geometric\nroofs and complements of COL-0307 supply the preceding\nhypotheses. The coarse connective spectrum maps to the\nfine open spectrum with the positive isomorphisms and\nthe degree-zero restriction image just described.\n"
-
-[[sections]]
-id = "scalar-operations-and-boundaries"
-title = "Scalar operations and the signed boundary"
-order = 30
-introduction = "Scalar cone maps, complete additivity tracks and prescribed return paths determine the actual supported boundary. The direction of the unit action and the null-conjugation sign are retained, rather than absorbed into a new normalization."
-
-[sections.transitions]
-COL-0303 = "Let a global scalar \\(r\\) act on a perfect complex \\(P\\)\nand suppose it restricts to a unit on \\(U\\). Its signed cone\nrestricts to an acyclic complex. The scalar cylinder presents\nthat cone as an actual cofiber, so additivity applies to the\nmap from the identity sequence to the scalar sequence.\n"
-COL-0316 = "Passing to positive-dimensional generalized loops carries\nthe full additivity square to a square of cubes with two\nindependent times. The fine identity and scalar cofiber\npaths give its coarse edges, which identify the boundary\nroutes with the stipulated orientation.\n"
-COL-0317 = "The coproduct in the sum comparison is ordered with\nthe quotient first. The normalized endpoint and the reversed\nnull path of the supported cone supply the two coordinates\nof a cube in the canonical homotopy fiber.\n"
-COL-0304 = "In degree one, take the independently defined forward scalar\nloop. Its canonical fiber comparison gives the object class\nof the signed cone. With the boundary of COL-0300, the cone\nenters with positive sign.\n"
-COL-0305 = "On \\(U\\) the scalar acts by the given global-unit\nautomorphism. The forward scalar class restricts to its\nfine \\(K_1\\) class. The rank-one comparison identifies\nthe unit coordinate for structure sheaves and in the\naffine and relative Laurent cases.\n"
-COL-0320 = "On an original subdivision cube, the return path uses\nthe prescribed inverse inclusion and projection class.\nThe coordinate-zero connecting map compares its normalized\ncube with the canonical fiber cube of the actual acyclic cone.\n"
-COL-0324 = "The complete scalar tracks give raw and zero-normalized\nself-track operations. Transport of the stored paths compares\nthese operations with the prescribed return on every\nsubdivision cube, preserving the positive cone image.\n"
-COL-0329 = "The subdivision inputs represent every connective\n\\(K\\)-class. Thus the cube calculation and injectivity of\nthe supported-to-fiber comparison identify the relative\nboundary of the two scalar operations as homomorphisms\nin each connective degree.\n"
-
-[[sections]]
-id = "supported-localization"
-title = "Auxiliary support, excision and relative-open fibers"
-order = 40
-introduction = "For a fixed open pair and auxiliary support condition, the supported and bounded-flat models give approximation and comparison results with their original admissible quotients. Each entry states the support, compactness and connective scope actually proved."
-
-[sections.transitions]
 COL-0331 = "Fix an auxiliary open \\(T\\subseteq X\\) and start with\nperfect complexes acyclic on \\(T\\). Detect weak equivalences\nby restriction along \\(j\\). The acyclic objects for the\nnew class are then the perfect complexes acyclic on\n\\(T\\cup j(U)\\), by the actual support flattening.\n"
 COL-0332 = "When \\(T\\cup j(U)=X\\), restriction and extension by zero\ngive exact adjoint functors on the supported categories.\nTheir unit and counit are quasi-isomorphisms, so the\ninduced realization maps are homotopy inverses.\n"
 COL-0333 = "Suppose \\(W=T\\cup j(U)\\) is quasi-compact in a qcqs\nscheme. The supported roof has a perfect source\nacyclic on \\(T\\), and its two legs are chain maps on \\(X\\).\nFor a perfect \\(E\\) on \\(U\\) with the prescribed support,\nthe stabilized extension restricts to \\(E\\oplus E[1]\\),\nwith the shifted complement carrying the same support.\n"
@@ -65,69 +84,30 @@ COL-0505 = "Keep acyclicity on an auxiliary open \\(T\\), but test weak equivale
 COL-0506 = "The relative-acyclic objects are precisely the bounded-flat perfect complexes\nsupported outside the union of the two opens. Their exact equivalence preserves\nthe original admissible quotient. The canonical coarse-fiber comparison then\nretains the original K-theory boundary and the whole null path, with chosen-zero\nnormalization made explicit at the spectrum level and no compactness hypothesis.\n"
 COL-0507 = "Arbitrary commuting open squares pull back the original supported bounded-flat\ncomplexes, their same admissible quotients and restricted weak equivalences.\nThe resulting supported and coarse K-maps preserve restriction and the boundary.\nA single canonical normalization retains the entire fiber path; the original\nunion-supported comparison is transported by explicit coherent homotopies.\n"
 COL-0508 = "Without a support condition on its objects, the bounded-flat relative model has\nweak equivalences detected on the specified open. Arbitrary commuting open squares\ninduce its original K-pullback, with identity, composition and change-of-weak\nnaturality. On a compact ambient scheme, the literal inclusion into the relative\nperfect model is a K-equivalence with its original forward map.\n"
-COL-0566 = "Applying those finite stable comparisons to the specified scheme-indexed Laurent track gives the actual current-to-normalized telescope comparison."
-COL-0568 = "The full-open selected null has the scalar compatibility required to pass through the current and normalized telescope constructions."
-COL-0569 = "For auxiliary support, actual full-open acyclicity constructs the chosen-zero null and its two-time compatibility before telescope comparison."
-COL-0570 = "The stable maps on all three objects and the same-time null squares now compare stability of the current and normalized fiber lifts."
-COL-0573 = "COL-0570 compares current and normalized lifts. The next object-level comparison changes normalized transitions to twisted ones using the fixed geometric cone words and finite loop reversal."
-COL-0574 = "The conjugacy maps must also commute with the input maps and with the same chosen null at every time. Whole-time equivariance allows these finite identities to descend to the two telescopes."
-COL-0575 = "The three stable object maps from COL-0573 and the unchanged-null square from COL-0574 now supply the hypotheses of fiber-lift naturality. This compares the two stability assertions without assuming either one."
 
 [[sections]]
-id = "perfect-pullback"
-title = "Flat perfect models and geometric pullback"
-order = 50
-introduction = "The native bounded-above flat perfect complexes and their actual quotient complexes support geometric pullback. Their comparison with all perfect complexes and the pullback pseudofunctor retain the original zero normalizations, structure isomorphisms and exact hypotheses. They do not introduce a parallel perfect-complex model."
+id = "affine-and-global-section-models"
+title = "Affine and global section models"
+order = 40
+introduction = "Section functors connect perfect-complex constructions on schemes with coefficient diagrams. On affine schemes the proved evaluation comparisons identify the specified models; for general schemes the results construct global, supported and relative diagrams with their restriction maps. Naturality in the scheme and in Laurent coefficients is needed simultaneously. These constructions do not assert that global sections give an exact equivalence for arbitrary schemes."
 
-[sections.transitions]
-COL-0322 = "For a morphism \\(f\\colon Y\\to X\\), termwise pullback\ntakes bounded finite locally free complexes on \\(X\\)\nto such complexes on \\(Y\\). Flat quotients control\nthe inherited exact sequences and give the exact\npullback functor on these models.\n"
-COL-0323 = "For arbitrary perfect complexes, an upper term bound\nand flatness of the terms give a model for termwise\npullback. A bounded-above flat augmentation can use\nthe given cohomological bound, which exists for perfect\ncomplexes on a quasi-compact space.\n"
-COL-0325 = "On a quasi-compact ringed space, a map from a flat\nmodel to a perfect complex factors through a cofibration\nwith flat perfect quotient followed by a quasi-isomorphism.\nThis supplies App2 for the literal inclusion of the\nbounded-above flat models.\n"
-COL-0326 = "Termwise pullback on the flat models composes by the\ngeometric pullback comparison, with exactness from\nthe flat quotients. When the morphism target \\(X\\)\nis quasi-compact, the inverse of the inclusion comparison\non \\(X\\) gives the resulting pullback on all-perfect\n\\(K\\)-theory.\n"
-COL-0328 = "For a flat morphism or an open immersion, the flat-model\npullback square commutes with the literal inclusions\nby the actual geometric natural isomorphism. This\nidentifies the transported map with the previously\ndefined exact pullback or fine restriction map.\n"
-COL-0351 = "The same inclusion has a canonically zero-normalized\nprespectrum map. On a compact ringed space its connective\n\\(K\\)-isomorphisms identify the stable map as an\nequivalence. Flat pullback carries the inclusion square\nby a whole based prespectrum homotopy.\n"
-COL-0352 = "The composition and unit isomorphisms of termwise\npullback satisfy the pseudofunctor coherence equations.\nRestricting this pseudofunctor along \\(\\operatorname{Spec}\\)\ngives the affine coefficient diagram, with its identity\nand composition transports.\n"
 
-[[sections]]
+[[sections.topics]]
 id = "affine-evaluation"
-title = "Affine sections, coefficients and evaluation"
-order = 60
-introduction = "For a fixed base ring, affine evaluation compares the actual bounded-flat and perfect-complex models. The comparison retains the specified maps and open-support conditions of COL-0358 and COL-0380."
+title = "Affine evaluation"
+start = "COL-0355"
+
+[[sections.topics]]
+id = "global-and-relative-section-diagrams"
+title = "Global and relative section diagrams"
+start = "COL-0533"
 
 [sections.transitions]
 COL-0355 = "Evaluation at the identity of \\(R\\) identifies the\ncocartesian sections with the original coefficient\nfiber. Restriction along a ring map is literal\nprecomposition and preserves the chosen pointwise\nzero. These exact restrictions give the strict\ncoefficient prespectrum after small models and\niteration of \\(S\\).\n"
-COL-0380 = "For an open immersion \\(j\\colon U\\hookrightarrow\\operatorname{Spec}R\\), impose\nacyclicity after \\(j^*\\) on identity evaluation in COL-0355. Restricting its\ncategorical equivalence preserves the original sections and complexes. Their\nindependently chosen zeros are compared by a canonical normalization isomorphism,\nwhich makes the actual evaluation a strict model map with coherent inverse tracks.\n"
 COL-0358 = "For a fixed commutative ring \\(R\\), the evaluation equivalence of COL-0355,\nfollowed by the small-model lift, gives the specified prespectrum map.\nNormalize its actual categorical inverse at the chosen zero. The original\nunit and counit then give whole inverse homotopies, hence level equivalences\nand isomorphisms of stable homotopy groups in every integer degree.\n"
+COL-0380 = "For an open immersion \\(j\\colon U\\hookrightarrow\\operatorname{Spec}R\\), impose\nacyclicity after \\(j^*\\) on identity evaluation in COL-0355. Restricting its\ncategorical equivalence preserves the original sections and complexes. Their\nindependently chosen zeros are compared by a canonical normalization isomorphism,\nwhich makes the actual evaluation a strict model map with coherent inverse tracks.\n"
 COL-0501 = "The actual supported affine coefficient reindexing preserves support across every\nspecified open square. Its geometric comparison retains the inverse original\ncocartesian transition. Exactness and literal preservation of the chosen zero give\nthe strict model diagram on fixed coefficient pullbacks and its full iterated-S\nprespectrum functor. The identity-algebra object remains its actual pullback.\n"
 COL-0511 = "With fixed-ring evaluation in COL-0358 established, every ring map has an actual\ncoefficient comparison with normalized geometric pullback. Reverse the total-to-split\ncomparison and then compose with the total-to-whiskered comparison to recover the\noriginal relative comparison from the geometric split route to the whiskered route. The identity coefficient route contracts to the\nconstant evaluation track. These are whole relative homotopies, retaining the\nbasepoint and independent structure coordinates. Actual perfect inclusion preserves\nthe relative tracks; only termwise perfect pullback naturality requires flatness.\n"
-
-[[sections]]
-id = "affine-bass-constructions"
-title = "Affine Laurent seeds and Bass constructions"
-order = 70
-introduction = "The Laurent square gives the finite Bass constructions and their stabilization. The existing cone and telescope comparisons retain their signed boundaries and precise finite-stage hypotheses. These statements do not identify the full nonconnective localization sequence."
-
-[sections.transitions]
-COL-0359 = "Fully faithful identity evaluation lifts a global-unit\nautomorphism to the actual affine cocartesian sections.\nFor a commutative ring \\(R\\), the Laurent coordinate\n\\(T\\) gives this action over \\(R[T,T^{-1}]\\).\nEvaluation along a Laurent ring map identifies the two\ndirections with multiplication by the images of \\(T\\)\nand \\(T^{-1}\\), and coefficient reindexing preserves\nthe whole isomorphism strictly.\n"
-COL-0360 = "Reindex the forward unit of COL-0359 along the constant\ninclusion \\(c_R\\colon R\\to R[T,T^{-1}]\\).\nThe zero-preserving exact section map and its unit\nisomorphism give a based self-homotopy of the induced\nprespectrum map. The strict coefficient square carries\nthe entire track, with homotopy time independent of the\nstructure coordinate and, in degree zero, the input-loop\ncoordinate.\n"
-COL-0361 = "The two polynomial charts map \\(R[X]\\) to\n\\(R[T,T^{-1}]\\) by \\(X\\mapsto T\\) on the right\nand \\(X\\mapsto T^{-1}\\) on the bottom. Both source\ncomposites are \\(c_R\\). In the mapping cone of the\nstrict-square comparison, let \\(N\\) be its source-cylinder\nnullhomotopy and \\(V\\) the forward track of COL-0360\nfollowed by cone inclusion. The loop is the reverse of\n\\(N\\), followed by \\(V\\) followed by \\(N\\), with\nright-associated concatenation. Naturality of both tracks\ngives the coefficient-natural one-step Bass seed.\n"
-COL-0379 = "To use the Laurent square of COL-0361 with a fixed affine open over\n\\(R\\), retain the specified structure arrow \\(R\\to A\\) at every corner.\nBoth routes from \\(A\\) to \\(A[t,t^{-1}]\\) are the coefficient inclusion,\nalthough the two polynomial charts have opposite coordinates. Forgetting\n\\(R\\) recovers the ring square, while its actual algebra arrows also\ninduce the contravariant maps between the chosen open pullbacks.\n"
-COL-0362 = "Iterate the strict polynomial and Laurent Bass functor\non the affine section prespectrum, carrying the proved\nLaurent seed at every transition. Each original stage\nis \\(T_1\\), and finite Bass separation propagates this to\nall stages. The reduced quotient telescope therefore\nhas the canonical signed stable-group colimit comparison\nof COL-0350, now natural for every coefficient map.\n"
-COL-0375 = "The finite stages in COL-0362 retain more than \\(T_1\\) separation.\nTheir chosen points have the homotopy extension property. At level\n\\(n+i+2\\), stage \\(i\\) has singleton homotopy sets in degrees below\n\\(n+2\\), at every point. For a map from stage \\(i\\) to stage \\(j\\),\nfinite cone-fiber excision gives connectivity \\(2n+2\\) at level\n\\(n+\\max(i,j)+2\\). This increasing bound makes the original\nsource-to-cone-fiber comparison a stable equivalence.\n"
-COL-0376 = "For a coefficient map \\(f\\colon R\\to S\\), apply COL-0375 to\n\\(f_i=D_i(f)\\) at each finite Bass stage. The actual cone of the\ntelescope map identifies with the telescope of these cones. Their\n\\(T_1\\) separation permits the stable-colimit comparison, so the\nfinite signed boundaries descend to\n\\(\\delta_{f,d}\\colon\\pi_{d+1}^{\\mathrm{st}}C(f)\\to\\pi_d^{\\mathrm{st}}T(R)\\).\nSequential colimits preserve the three finite exactness positions.\nThe stage formula identifies this descended map with the original\nsigned cone boundary, and coefficient squares preserve that formula.\n"
-COL-0503 = "The fixed-base Laurent square also acts on sections acyclic over the specified pullback open.\nThe forward coordinate gives the same unit track on these sections, while the original cone\ncylinder supplies its null legs. Carrying both tracks through the actual support inclusion\ncompares the constructed supported seed with the ambient section seed before any affine\nevaluation or nonconnective localization comparison.\n"
-COL-0502 = "Use the actual affine coefficient homotopies of COL-0511 to compare the strict\nsection and raw geometric Laurent Bass squares. Moving-boundary pushout descent\nand its cone map give the one-step evaluation. The forward Laurent unit and the\noriginal positive-source cone null compare as whole tracks, so the original\nsection seed followed by this map is homotopic to evaluation followed by the\noriginal raw seed. No weak or stable equivalence of the Bass evaluation map is\nasserted.\n"
-COL-0504 = "COL-0504 constructs the relative-open section diagram using the original evaluation and\nopen-detected weak equivalences. Its actual Laurent seed commutes strictly with the unchanged\nfine-to-coarse section maps, preserving the whole unit and null tracks. Together with the\nsupport-forgetting seed square of COL-0503, this supplies the two actual seed arrows for the\nlocalization diagram; the supported cone comparison and the nonconnective localization\nidentification remain separate obligations.\n"
-COL-0509 = "The original supported-section inclusion also admits a specified initial cone comparison with the relative-open section model. Its null track is the reversed original weak zero-to-section transformation, not an arbitrary replacement. Actual evaluation preserves the inherited acyclic zero, the literal inclusion square and the entire null cylinder; the resulting cone descent is a native stable equivalence in every integer degree and retains the signed connecting formula through this same track's fiber lift. This initial comparison does not identify the coarse endpoint with full open K-theory or establish Bass nonconnective localization.\n"
-COL-0510 = "The actual affine section evaluation also compares the original polynomial span, moving-square cone and parameter-looped one-step Bass construction. Each named map is a weak homotopy equivalence at every level, including zero, and a stable equivalence in every integer degree. This preserves the original coefficient homotopies and square filler; it does not yet compare iterated Bass towers or identify nonconnective K-theory.\n"
-
-[[sections]]
-id = "global-sections-and-parameters"
-title = "Global sections and scheme parameters"
-order = 55
-introduction = "Global cocartesian sections retain the original bounded-flat perfect fibers while organizing their exact pullbacks over all schemes. Support, joint coefficient restriction and the raw parameter Laurent unit use the same evaluation and selected zero. These constructions precede the affine and Bass comparisons below."
-
-[sections.transitions]
 COL-0533 = "The perfect pullbacks above can also be organized over all schemes at once. Identity evaluation retains the geometric fiber, while the original cocartesian sections make reindexing strict. The same evaluation lifts global units without changing their scalar components."
 COL-0534 = "Impose acyclicity on an open in the sections of COL-0533. Reindexing retains that condition along a commuting open-pair square. The support-forgetting maps then form a single natural transformation, which can be restricted to the product families of COL-0536."
 COL-0535 = "Apply the global sections of COL-0533 to the full scheme-and-coefficient family. Restriction keeps identity evaluation and the selected zero literally. Its coefficient naturality is already an equality of the original functors, before any additional Waldhausen model bundling."
@@ -137,34 +117,38 @@ COL-0539 = "The ambient and supported diagrams of COL-0534 retain the global sec
 COL-0540 = "The raw unit of COL-0537 now supplies a whole realized track. Restricting the same unit, rather than choosing another automorphism, gives the supported track. Its comparison with the ambient track keeps every homotopy time through the actual support-forgetting map."
 COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-0539. The first comparison is the identity on the original unit, while the second uses its fixed-factor pullback law. Thus both arrows of the restriction factorization retain the entire Laurent track without claiming a localization equivalence."
 COL-0548 = "Global sections retain the original geometric fibers while making reindexing strict. Their identity evaluation now has its actual exact inverse. The whole comparison with geometric pullback retains both chosen zeros and the forward scalar action, so the later tensor cell can be returned to the same section category."
-COL-0572 = "COL-0571 exchanges cone directions before specialization. For schemes, the corresponding integer-base index swap and its sixteen cell identities assemble into a natural geometric permutation."
-COL-0579 = "The section-unit identities identify the global and coefficient Laurent seeds. Their exact restriction maps therefore remain stably invertible through the finite Bass stages and the telescope."
-COL-0580 = "Combine the integral Spec square with the parameter-row seed identity to obtain a telescope isomorphism. Composing it with the global-to-coefficient restriction gives the actual fine comparison."
-COL-0582 = "Apply the cone comparison to the actual geometric square. Its target, upper, lower and overlap cells identify the geometric map with the full two-cone permutation."
-COL-0583 = "The geometric permutation now gives the original seed rotation. Keeping the literal transpose and loop permutation makes the successor transition identity available for induction."
-COL-0584 = "The transition identity allows the finite comparison maps to descend to telescopes. Genuine Model inputs make these maps stable, while the same construction retains the input and whole-null squares."
-COL-0585 = "Apply the three Model telescope comparisons to the actual supported and ambient parameter diagrams. Their whole-null compatibility transfers stability between the two specified fiber lifts."
-COL-0588 = "Finite supported Model excision gives cone comparisons compatible with the Laurent transitions. These pass to the telescope without identifying the null time with its cylinder height."
-COL-0589 = "Passing from coarse restriction to the full-open target requires the actual grading map. Its degree-zero quotient comparison gives an exact tail with an injective restriction map."
-COL-0590 = "The natural graded Laurent contraction eliminates the graded telescope term. Combining the resulting restriction equivalence with coarse cone descent identifies the supported telescope with the same-null full-open fiber."
-COL-0591 = "To compare the coefficient localization with the scheme parameter construction, evaluate the fiber, ambient and open rows along integral Spec and retain their enlargement, restriction and whole-null squares."
-COL-0592 = "The three Spec comparisons now transfer stability of the coefficient fiber lift to the iterated lift. The current\u2013iterated same-null comparison gives the current-stage localization map at the integer base."
-COL-0593 = "The auxiliary localization above retains an additional open. For the ordinary support category, start instead with its own finite excision and prescribed null. These give the ordinary coarse telescope cone comparison without compactness assumptions."
-COL-0594 = "The coarse-open target still differs from the full-open target. The actual restriction and grading maps measure this difference: their degree-zero comparison is exact, rather than an assumed bijection of restriction."
-COL-0595 = "The exact grading comparison extends along the original Laurent seeds. The graded contraction kills its telescope, so the cone of the actual coarse-to-full-open telescope restriction vanishes in every signed degree."
-COL-0596 = "Compose the ordinary coarse cone comparison with this stable restriction. The composition retains the postcomposed whole null, so its cone descent, fiber lift and signed connecting maps describe one localization diagram."
-COL-0597 = "To transfer this localization to scheme parameters, compare the actual supported, ambient and open rows along integral Spec. The restriction squares alone are insufficient: the three comparisons must also preserve every value of the specified full-open null."
-COL-0598 = "The whole-null square now lets the three actual Spec comparisons transfer coefficient fiber stability to the iterated parameter lift. The established twisted and current comparisons retain the same null and complete the ordinary current-stage localization theorem."
-COL-0599 = "Pass from the current-stage construction to its actual ordinary colimit using the tensor-normalized track. The comparisons preserve the original full-open null at the same time, so the supported lift stays a stable equivalence."
-COL-0600 = "Apply the same ordinary-colimit construction to the three auxiliary support categories. Preserve union enlargement, inverse-image restriction and their entire null to transfer the auxiliary fiber theorem, including its negative stable degrees."
 
 [[sections]]
-id = "tensor-unit-prisms"
-title = "Tensor-unit actions and coefficient prisms"
-order = 58
-introduction = "The actual sheafified tensor unit acts on bounded-flat perfect complexes. Its unitor and scalar comparison determine the original nerve and iterated-S prisms. Coefficient-row normalization and global evaluation compare the two parameter model routes and their unit actions, before external parameter naturality and Bass comparisons. The normalized rank-one coefficient square also computes the original forward global-unit K-one class through the literal perfect inclusion."
+id = "units-tensor-products-and-localization-boundaries"
+title = "Units, tensor products and localization boundaries"
+order = 50
+introduction = "A global unit determines an automorphism and hence a degree-one K-class. Tensoring with the corresponding line object relates this class to the scalar operation on perfect complexes. Compatibility with restriction and support yields diagrams for the localization boundary. The homotopies below prove these diagrams commute with the chosen boundary sign; coefficient and supported variants retain the same unit class."
+
+
+[[sections.topics]]
+id = "scalar-operations-and-the-boundary"
+title = "Scalar operations and the boundary"
+start = "COL-0303"
+
+[[sections.topics]]
+id = "tensoring-by-the-unit"
+title = "Tensoring by the unit"
+start = "COL-0542"
+
+[[sections.topics]]
+id = "tensor-units-with-support"
+title = "Tensor units with support"
+start = "COL-0560"
 
 [sections.transitions]
+COL-0303 = "Let a global scalar \\(r\\) act on a perfect complex \\(P\\)\nand suppose it restricts to a unit on \\(U\\). Its signed cone\nrestricts to an acyclic complex. The scalar cylinder presents\nthat cone as an actual cofiber, so additivity applies to the\nmap from the identity sequence to the scalar sequence.\n"
+COL-0304 = "In degree one, take the independently defined forward scalar\nloop. Its canonical fiber comparison gives the object class\nof the signed cone. With the boundary of COL-0300, the cone\nenters with positive sign.\n"
+COL-0305 = "On \\(U\\) the scalar acts by the given global-unit\nautomorphism. The forward scalar class restricts to its\nfine \\(K_1\\) class. The rank-one comparison identifies\nthe unit coordinate for structure sheaves and in the\naffine and relative Laurent cases.\n"
+COL-0316 = "Passing to positive-dimensional generalized loops carries\nthe full additivity square to a square of cubes with two\nindependent times. The fine identity and scalar cofiber\npaths give its coarse edges, which identify the boundary\nroutes with the stipulated orientation.\n"
+COL-0317 = "The coproduct in the sum comparison is ordered with\nthe quotient first. The normalized endpoint and the reversed\nnull path of the supported cone supply the two coordinates\nof a cube in the canonical homotopy fiber.\n"
+COL-0320 = "On an original subdivision cube, the return path uses\nthe prescribed inverse inclusion and projection class.\nThe coordinate-zero connecting map compares its normalized\ncube with the canonical fiber cube of the actual acyclic cone.\n"
+COL-0324 = "The complete scalar tracks give raw and zero-normalized\nself-track operations. Transport of the stored paths compares\nthese operations with the prescribed return on every\nsubdivision cube, preserving the positive cone image.\n"
+COL-0329 = "The subdivision inputs represent every connective\n\\(K\\)-class. Thus the cube calculation and injectivity of\nthe supported-to-fiber comparison identify the relative\nboundary of the two scalar operations as homomorphisms\nin each connective degree.\n"
 COL-0542 = "Retain the actual structure-module tensor before passing to its unitor. The scalar comparison identifies its components with the global unit action already used on sections, so the later prisms can keep the original tensor edge."
 COL-0543 = "Normalize the chosen zero of the actual tensor-pullback map without changing its original coefficient crossing. The categorical two-time interchange lets the prism pass through each S-construction stage, with the structure interval and tensor interval still separate."
 COL-0544 = "Insert the tensor coefficient as a genuine first row rather than replacing that row by an identity model. The row isomorphism transports exactness and compares the complete scalar automorphism; those are the data needed for the two-dimensional coefficient prism."
@@ -178,30 +162,48 @@ COL-0562 = "The normalized coefficient rows then give whole coefficient cylinder
 COL-0563 = "Finally, the raw evaluation-forget square passes through the specified zero-object rebases and native Model maps to the parameter forget rectangle."
 
 [[sections]]
-id = "returned-tensor-cells"
-title = "Returned tensor cells and current Bass boundaries"
-order = 59
-introduction = '''
-The independently realized tensor-unit cell is returned through the exact global-evaluation
-inverse to the original section category. The same actual returned action supplies the finite Bass
-row-cell recursion. Its normalized forwards first agree with the original scheme-model boundaries;
-the whole prescribed null and the actual suspension backward triangle then compare those
-boundaries with the current finite Bass transitions. The four corner-generator formulas recognize
-this actual returned action, and its generator-defined finite left recursion retains the original
-index and loop/row coordinates. Stable equivalence and nonconnective localization remain outside
-this section.
-'''
+id = "bass-k-theory-and-geometric-delooping"
+title = "Bass K-theory and geometric delooping"
+order = 60
+introduction = "Polynomial and Laurent parameters define the geometric Bass seed. Iterating its cone-loop construction and taking a homotopy colimit gives the specified Bass K-theory spectrum. Affine evaluation and the supported versions identify the corresponding seed maps. The tensor-generated recursion then constructs the geometric transition and boundary maps used in localization. Cone exactness is proved for these constructions; additional ordinary-colimit or negative-group presentations are separate claims."
+
+
+[[sections.topics]]
+id = "laurent-units-and-the-affine-seed"
+title = "Laurent units and the affine seed"
+start = "COL-0359"
+
+[[sections.topics]]
+id = "connectivity-and-cone-exactness"
+title = "Connectivity and cone exactness"
+start = "COL-0375"
+
+[[sections.topics]]
+id = "evaluation-and-supported-seeds"
+title = "Evaluation and supported seeds"
+start = "COL-0502"
+
+[[sections.topics]]
+id = "tensor-generated-geometric-transitions"
+title = "Tensor-generated geometric transitions"
+start = "COL-0550"
 
 [sections.transitions]
+COL-0359 = "Fully faithful identity evaluation lifts a global-unit\nautomorphism to the actual affine cocartesian sections.\nFor a commutative ring \\(R\\), the Laurent coordinate\n\\(T\\) gives this action over \\(R[T,T^{-1}]\\).\nEvaluation along a Laurent ring map identifies the two\ndirections with multiplication by the images of \\(T\\)\nand \\(T^{-1}\\), and coefficient reindexing preserves\nthe whole isomorphism strictly.\n"
+COL-0360 = "Reindex the forward unit of COL-0359 along the constant\ninclusion \\(c_R\\colon R\\to R[T,T^{-1}]\\).\nThe zero-preserving exact section map and its unit\nisomorphism give a based self-homotopy of the induced\nprespectrum map. The strict coefficient square carries\nthe entire track, with homotopy time independent of the\nstructure coordinate and, in degree zero, the input-loop\ncoordinate.\n"
+COL-0361 = "The two polynomial charts map \\(R[X]\\) to\n\\(R[T,T^{-1}]\\) by \\(X\\mapsto T\\) on the right\nand \\(X\\mapsto T^{-1}\\) on the bottom. Both source\ncomposites are \\(c_R\\). In the mapping cone of the\nstrict-square comparison, let \\(N\\) be its source-cylinder\nnullhomotopy and \\(V\\) the forward track of COL-0360\nfollowed by cone inclusion. The loop is the reverse of\n\\(N\\), followed by \\(V\\) followed by \\(N\\), with\nright-associated concatenation. Naturality of both tracks\ngives the coefficient-natural one-step Bass seed.\n"
+COL-0362 = "Iterate the strict polynomial and Laurent Bass functor\non the affine section prespectrum, carrying the proved\nLaurent seed at every transition. Each original stage\nis \\(T_1\\), and finite Bass separation propagates this to\nall stages. The reduced quotient telescope therefore\nhas the canonical signed stable-group colimit comparison\nof COL-0350, now natural for every coefficient map.\n"
+COL-0375 = "The finite stages in COL-0362 retain more than \\(T_1\\) separation.\nTheir chosen points have the homotopy extension property. At level\n\\(n+i+2\\), stage \\(i\\) has singleton homotopy sets in degrees below\n\\(n+2\\), at every point. For a map from stage \\(i\\) to stage \\(j\\),\nfinite cone-fiber excision gives connectivity \\(2n+2\\) at level\n\\(n+\\max(i,j)+2\\). This increasing bound makes the original\nsource-to-cone-fiber comparison a stable equivalence.\n"
+COL-0376 = "For a coefficient map \\(f\\colon R\\to S\\), apply COL-0375 to\n\\(f_i=D_i(f)\\) at each finite Bass stage. The actual cone of the\ntelescope map identifies with the telescope of these cones. Their\n\\(T_1\\) separation permits the stable-colimit comparison, so the\nfinite signed boundaries descend to\n\\(\\delta_{f,d}\\colon\\pi_{d+1}^{\\mathrm{st}}C(f)\\to\\pi_d^{\\mathrm{st}}T(R)\\).\nSequential colimits preserve the three finite exactness positions.\nThe stage formula identifies this descended map with the original\nsigned cone boundary, and coefficient squares preserve that formula.\n"
+COL-0379 = "To use the Laurent square of COL-0361 with a fixed affine open over\n\\(R\\), retain the specified structure arrow \\(R\\to A\\) at every corner.\nBoth routes from \\(A\\) to \\(A[t,t^{-1}]\\) are the coefficient inclusion,\nalthough the two polynomial charts have opposite coordinates. Forgetting\n\\(R\\) recovers the ring square, while its actual algebra arrows also\ninduce the contravariant maps between the chosen open pullbacks.\n"
+COL-0502 = "Use the actual affine coefficient homotopies of COL-0511 to compare the strict\nsection and raw geometric Laurent Bass squares. Moving-boundary pushout descent\nand its cone map give the one-step evaluation. The forward Laurent unit and the\noriginal positive-source cone null compare as whole tracks, so the original\nsection seed followed by this map is homotopic to evaluation followed by the\noriginal raw seed. No weak or stable equivalence of the Bass evaluation map is\nasserted.\n"
+COL-0503 = "The fixed-base Laurent square also acts on sections acyclic over the specified pullback open.\nThe forward coordinate gives the same unit track on these sections, while the original cone\ncylinder supplies its null legs. Carrying both tracks through the actual support inclusion\ncompares the constructed supported seed with the ambient section seed before any affine\nevaluation or nonconnective localization comparison.\n"
+COL-0504 = "COL-0504 constructs the relative-open section diagram using the original evaluation and\nopen-detected weak equivalences. Its actual Laurent seed commutes strictly with the unchanged\nfine-to-coarse section maps, preserving the whole unit and null tracks. Together with the\nsupport-forgetting seed square of COL-0503, this supplies the two actual seed arrows for the\nlocalization diagram; the supported cone comparison and the nonconnective localization\nidentification remain separate obligations.\n"
+COL-0509 = "The original supported-section inclusion also admits a specified initial cone comparison with the relative-open section model. Its null track is the reversed original weak zero-to-section transformation, not an arbitrary replacement. Actual evaluation preserves the inherited acyclic zero, the literal inclusion square and the entire null cylinder; the resulting cone descent is a native stable equivalence in every integer degree and retains the signed connecting formula through this same track's fiber lift. This initial comparison does not identify the coarse endpoint with full open K-theory or establish Bass nonconnective localization.\n"
+COL-0510 = "The actual affine section evaluation also compares the original polynomial span, moving-square cone and parameter-looped one-step Bass construction. Each named map is a weak homotopy equivalence at every level, including zero, and a stable equivalence in every integer degree. This preserves the original coefficient homotopies and square filler; it does not yet compare iterated Bass towers or identify nonconnective K-theory.\n"
 COL-0550 = "The coefficient prisms of COL-0547 provide a comparison of the actual tensor action with evaluated section units. Realize that comparison in the original first row, with both cylinder directions still visible. The exact evaluation inverse returns the entire cell and its moving endpoint to the original section category, yielding an endpoint-relative comparison there."
 COL-0551 = "The returned tensor action now supplies the concrete data required by the abstract returned-action iteration of COL-0531. Run that original recursion on each finite geometric Bass square, then normalize its whole cell before the original cone inclusion. The resulting map agrees with the existing normalized forward at every finite stage, without yet claiming generated-trace recognition or localization."
-
-COL-0555 = '''
-COL-0551 identifies the returned-tensor normalized `forward` with the existing scheme-model
-normalized boundary. Now retain the original whole source null, natural seed and actual backward
-triangle. The independent `forward` comparison and the complete normalization prism connect that
-boundary with the literal current Bass transition.
-'''
+COL-0555 = "COL-0551 identifies the returned-tensor normalized `forward` with the existing scheme-model\nnormalized boundary. Now retain the original whole source null, natural seed and actual backward\ntriangle. The independent `forward` comparison and the complete normalization prism connect that\nboundary with the literal current Bass transition.\n"
 COL-0557 = "COL-0550 returns the whole independently realized tensor cell, and COL-0555 supplies the current-boundary comparison for the original scheme model. Keep that same returned model and proved unit intertwining. The four-generator recognition theorem COL-0514 can now be applied to its actual geometric square; the coefficient calculation fixes the forward Laurent action rather than leaving it as additional input."
 COL-0558 = "The preceding item recognizes the actual starting cone action, including its forward coefficient and return prism. Feed those concrete data into the original finite generator recipe COL-0528. Carry the index map, row strength and old-loop conversion through each left-recursive step. The whole boundary comparison of COL-0555 then applies to these tensor-rooted cells without replacing their prescribed null or backward map."
 
@@ -216,3 +218,64 @@ introduction = "For a noetherian affine scheme, actual global sections identify 
 COL-0612 = "The affine comparison identifies the original localization kernel with its finite-module counterpart. Quotient direct image first lands in objects annihilated by f; finite image filtrations then give devissage for all objects supported on its zero locus. This supplies the actual closed map and boundary, including the degree-zero tail."
 COL-0613 = "At a height-one prime of a Dedekind domain, choose an irreducible element in the local DVR. The principal open identifies with the prescribed fraction field and the principal quotient with the residue field. The whole supported square and boundary universe naturality identify the geometric boundary, with its original direction and sign, with the native local-DVR map."
 COL-0614 = "For a finite field, the affine comparison also transports the already established finite-module G2 vanishing to the literal public coherent G2 group of its spectrum. For a Dedekind domain with finite actual height-one residue fields, the native supported G2 vanishing also gives injectivity of the original public generic pullback, retaining any supplied fraction field. No generic G1 injectivity is assumed or concluded. This does not claim a calculation in other degrees."
+[[sections]]
+id = "thomason-trobaugh-localization"
+title = "Thomason–Trobaugh localization"
+order = 70
+introduction = "Let $j:U\\hookrightarrow X$ be a quasi-compact open immersion, with $X$ quasi-compact and quasi-separated, and put $Z=X\\setminus U$. For the tensor-generated construction $K^{\\mathrm{ten}}$ developed above, localization is the stable fiber sequence\n\\[K^{\\mathrm{ten}}(X\\text{ on }Z)\\longrightarrow K^{\\mathrm{ten}}(X)\\longrightarrow K^{\\mathrm{ten}}(U).\\]\nThe resulting long exact sequence has connecting maps $\\partial:K^{\\mathrm{ten}}_n(U)\\to K^{\\mathrm{ten}}_{n-1}(X\\text{ on }Z)$ for every $n\\in\\mathbb Z$. Unlike the connective image cover in COL-0330, the right-hand term is the full open construction. This is the direct tensor-model realization of [@ThomasonTrobaugh1990, Theorem 7.4]; the seed and delooping are related to [@ThomasonTrobaugh1990, 6.3–6.4].\n\nThe proof begins with the geometric seed and then uses the comparison roof $C\\to N\\to T\\leftarrow I\\to F$, where the letters denote current, normalized, twisted, iterated and fine constructions. These comparisons retain the chosen support-to-open null-homotopy, so they compare the induced fiber maps, not merely the spectra individually. COL-0598 supplies the ordinary endpoint. For an auxiliary quasi-compact open $T_0\\subseteq X$, with $W=X\\setminus T_0$, COL-0592 supplies the fiber sequence with supports $W\\cap Z$, $W$ and $W\\cap U$.\n\nThis proof follows the tensor-generated route recorded in the original source, not the paper's implementation: `Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/TensorBassConstruction.md:79-137` at the pinned [@quillen] revision. COL-0558 and `ColibTest.AlgebraicGeometry.TensorBassConstruction` connect the generated finite recursion, its stable comparison and both localization endpoints. Comparison with a separately prescribed raw point-set tower, or additional original negative-group boundary APIs remains a separate assertion, not an implicit hypothesis or a completed result here. COL-0599 and COL-0600 additionally transfer localization to the specified ordinary-colimit presentations."
+
+
+[[sections.topics]]
+id = "geometric-seeds"
+title = "Geometric seeds"
+start = "COL-0572"
+
+[[sections.topics]]
+id = "normalization-and-preservation-of-the-fiber-map"
+title = "Normalization and preservation of the fiber map"
+start = "COL-0566"
+
+[[sections.topics]]
+id = "coefficient-comparison"
+title = "Coefficient comparison"
+start = "COL-0579"
+
+[[sections.topics]]
+id = "localization-for-an-open-immersion"
+title = "Localization for an open immersion"
+start = "COL-0593"
+
+[[sections.topics]]
+id = "localization-with-auxiliary-support"
+title = "Localization with auxiliary support"
+start = "COL-0588"
+
+[sections.transitions]
+COL-0566 = "The finite-stage maps are compared by stable equivalences, not by equating the towers. Carry the actual input maps and every value of the chosen null through the normalized and twisted constructions."
+COL-0568 = "The full-open selected null has the scalar compatibility required to pass through the current and normalized telescope constructions."
+COL-0569 = "For auxiliary support, actual full-open acyclicity constructs the chosen-zero null and its two-time compatibility before telescope comparison."
+COL-0570 = "The stable maps on all three objects and the same-time null squares now compare stability of the current and normalized fiber lifts."
+COL-0572 = "The tensor recipe of COL-0558 fixes the actual finite cells. Its two-cone permutation must be natural before the geometric seed rotation can compare successive stages."
+COL-0573 = "COL-0570 compares current and normalized lifts. The next object-level comparison changes normalized transitions to twisted ones using the fixed geometric cone words and finite loop reversal."
+COL-0574 = "The conjugacy maps must also commute with the input maps and with the same chosen null at every time. Whole-time equivariance allows these finite identities to descend to the two telescopes."
+COL-0575 = "The three stable object maps from COL-0573 and the unchanged-null square from COL-0574 now supply the hypotheses of fiber-lift naturality. This compares the two stability assertions without assuming either one."
+COL-0579 = "Identity evaluation now connects the global geometric parameter construction with the coefficient model. Both restriction and the whole-null square will be needed to transfer a homotopy-fiber theorem."
+COL-0580 = "Combine the integral Spec square with the parameter-row seed identity to obtain a telescope isomorphism. Composing it with the global-to-coefficient restriction gives the actual fine comparison."
+COL-0582 = "Apply the cone comparison to the actual geometric square. Its target, upper, lower and overlap cells identify the geometric map with the full two-cone permutation."
+COL-0583 = "The geometric permutation now gives the original seed rotation. Keeping the literal transpose and loop permutation makes the successor transition identity available for induction."
+COL-0584 = "The transition identity allows the finite comparison maps to descend to telescopes. Genuine Model inputs make these maps stable, while the same construction retains the input and whole-null squares."
+COL-0585 = "Apply the three Model telescope comparisons to the actual supported and ambient parameter diagrams. Their whole-null compatibility transfers stability between the two specified fiber lifts."
+COL-0588 = "For the auxiliary statement, retain acyclicity on the additional open $T$ throughout. The kernel consists of complexes acyclic on $T\\cup U$, hence supported on $(X\\setminus T)\\cap(X\\setminus U)$. Its own selected null and supported finite excision give the starting cone comparison; the ordinary endpoint does not replace these data."
+COL-0589 = "Passing from coarse restriction to the full-open target requires the actual grading map. Its degree-zero quotient comparison gives an exact tail with an injective restriction map."
+COL-0590 = "The natural graded Laurent contraction eliminates the graded telescope term. Combining the resulting restriction equivalence with coarse cone descent identifies the supported telescope with the same-null full-open fiber."
+COL-0591 = "To compare the coefficient localization with the scheme parameter construction, evaluate the fiber, ambient and open rows along integral Spec and retain their enlargement, restriction and whole-null squares."
+COL-0592 = "The supported integral Spec comparisons preserve enlargement, restriction and the same full-open null. They transfer the auxiliary coefficient fiber theorem to the current-stage lift. Compactness of $T$, as well as of $U$ and $X$, is retained in this second localization statement; the map on every integer stable group is an isomorphism."
+COL-0593 = "The auxiliary localization above retains an additional open. For the ordinary support category, start instead with its own finite excision and prescribed null. These give the ordinary coarse telescope cone comparison without compactness assumptions."
+COL-0594 = "The coarse-open target still differs from the full-open target. The actual restriction and grading maps measure this difference: their degree-zero comparison is exact, rather than an assumed bijection of restriction."
+COL-0595 = "The exact grading comparison extends along the original Laurent seeds. The graded contraction kills its telescope, so the cone of the actual coarse-to-full-open telescope restriction vanishes in every signed degree."
+COL-0596 = "Compose the ordinary coarse cone comparison with this stable restriction. The composition retains the postcomposed whole null, so its cone descent, fiber lift and signed connecting maps describe one localization diagram."
+COL-0597 = "To transfer this localization to scheme parameters, compare the actual supported, ambient and open rows along integral Spec. The restriction squares alone are insufficient: the three comparisons must also preserve every value of the specified full-open null."
+COL-0598 = "The three actual Spec comparisons transfer ordinary coefficient fiber stability to the iterated parameter lift. The twisted and current comparisons retain the same null and give the ordinary endpoint of [@ThomasonTrobaugh1990, Theorem 7.4] in the tensor-generated realization. Here $U$ and $X$ are compact and $X$ is quasi-separated; neither an affine nor a noetherian hypothesis is added."
+
+COL-0599 = "The current-stage theorem transfers to its ordinary-colimit presentation through three stable comparisons preserving the same null-homotopy. This is a comparison of the constructed presentations, not a further identification with an external classical model."
+COL-0600 = "For auxiliary support, retain the three supported presentations and their null-homotopy at the same parameter time. The corresponding comparison transfers the fiber theorem and its projection formula."

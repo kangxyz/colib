@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0376"
-title = "Signed cone exactness of the affine-section Bass telescope"
+title = "Cone exactness for the affine Bass telescope"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 120
+section = "bass-k-theory-and-geometric-delooping"
+order = 60
 statement = '''Let \(D_i\) be the finite affine-section Bass stages of COL-0362, with their Laurent-seed transitions, and let \(T\) be their reduced quotient telescope. For commutative rings \(R,S\) and a homomorphism \(f\colon R\to S\), put \(f_i=D_i(f)\), \(C_i(f)=\operatorname{Cone}(f_i)\), and \(C(f)=\operatorname{Cone}(T(f))\). There is a canonical prespectrum isomorphism \(C(f)\cong\operatorname{Tel}_i C_i(f)\). For every \(d\in\mathbb Z\), the resulting isomorphism \(\operatorname*{colim}_i\pi_d^{\mathrm{st}}C_i(f)\cong\pi_d^{\mathrm{st}}C(f)\) sends the colimit leg from stage \(i\) to the map induced by the original stage-cone inclusion \(c_i\colon C_i(f)\to C(f)\).
 
 The canonical comparison \(T(R)\to\operatorname{hofib}(T(S)\to C(f))\), with the original cone-cylinder path, is a stable equivalence. Its signed boundary \(\delta_{f,d}\colon\pi_{d+1}^{\mathrm{st}}C(f)\to\pi_d^{\mathrm{st}}T(R)\) gives the exact sequence

@@ -1,10 +1,10 @@
 [entry]
 id = "COL-0521"
-title = "Actual quotient and Bass row strengths"
+title = "Row-refinement comparison maps for cones and Bass constructions"
 kind = "comparison"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 70
-statement = """
+statement = '''
 The original row-refined corner maps construct forward strengths from the reduced
 pushout and mapping cone of refined objects to the refinement of the original
 quotients. These strengths assemble into a coefficient-natural cone transformation.
@@ -12,7 +12,7 @@ They satisfy the original inclusion, overlap and source-null formulas, preserve 
 whole structure comparison, and retain the prescribed whole-homotopy formulas.
 The explicit row/old-loop coordinate isomorphism then constructs a coefficient-natural
 first-Bass strength with its strict whole comparison equation.
-"""
+'''
 scope = """
 Arbitrary pointed row-interchange families on loop-prespectra and their coefficient
 diagrams in the stated universes. The corner maps preserve the specified row

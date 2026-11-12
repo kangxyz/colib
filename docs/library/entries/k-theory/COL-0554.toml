@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0554"
-title = "The whole coefficient-natural null/unit/null seed"
+title = "The Bass seed from a unit homotopy and a cone nullhomotopy"
 kind = "definition"
-section = "bass-construction"
-order = 92
+section = "bass-delooping-normalization-and-telescopes"
+order = 40
 statement = '''
 Let S be a commutative square of prespectrum-valued diagrams on C and let A be a self-homotopy
 of its diagonal natural transformation that is natural at every unchanged time. With N the

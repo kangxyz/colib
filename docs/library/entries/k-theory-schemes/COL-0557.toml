@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0557"
-title = "Returned tensor actions are determined by their cone generators"
+title = "Determination of tensor actions by cone generators"
 kind = "theorem"
-section = "returned-tensor-cells"
-order = 40
+section = "bass-k-theory-and-geometric-delooping"
+order = 160
 statement = '''
 Fix a scheme parameter \(Q\). The actual returned tensor model, return isomorphism and proved unit
 intertwining define a family natural in the opposite-scheme index. If \(I\) is its strict initial

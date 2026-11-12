@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0595"
-title = "Stable equivalence of ordinary full-open Bass restriction"
+title = "Stable equivalence for full-open Bass restriction"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1595
+section = "thomason-trobaugh-localization"
+order = 170
 statement = '''
 Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
 with compact $P,Q$ and quasi-separated $Q$. For $a\in\operatorname{Under}R$, let

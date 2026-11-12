@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0303"
-title = "Native scalar cofiber and whole based-additivity square"
+title = "Scalar cofibers and additivity"
 kind = "theorem"
-section = "scalar-operations-and-boundaries"
+section = "units-tensor-products-and-localization-boundaries"
 order = 10
 statement = "For an open immersion and a global scalar restricting to a specified unit, the original scalar cylinder and signed cone form a genuine cofibration sequence of exact functors on native perfect complexes. The actual categorical cofiber is the signed cone through the original quotient map and lies in the relative-acyclic category. The literal identity-to-scalar sequence map gives the full continuous based-additivity square: the two transformation faces are the original identity and scalar additivity paths, the initial additivity face is the normalized inclusion cylinder, and the final face is the quotient-first normalized zero-to-cone and identity sum cylinder. Both interval parameters fix the original chosen-zero point."
 scope = '''Any open immersion \(j\colon U\to X\) of schemes in the same universe, any `r : Γ(X, top)`, any specified `q : Γ(U, top)ˣ` with `j.appTop r = q`. The categories consist of actual native Stacks perfect cochain complexes; cofibrations are ambient Mono, fine weakness is `QuasiIso`, and coarse weakness is detected by actual degreewise `Scheme.Modules` restriction. The cylinder, forward scalar, actual `quotientToCone` sign correction, relative-acyclic inclusion, quotient-first normalization, and all four whole faces are retained. The same-degree scalar-cone K-maps retain their original degree-zero object classes. No scalar regularity, quasi-compactness or quasi-separatedness hypothesis is imposed. This item does not identify coarse K-theory with fine K-theory of the open, prove projection/null alignment, compute a connecting boundary, or identify a Bass or Laurent boundary sign.'''

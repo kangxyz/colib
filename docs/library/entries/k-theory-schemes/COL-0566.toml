@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0566"
-title = "Natural current-to-normalized telescope comparison"
+title = "Comparison of geometric and normalized Bass telescopes"
 kind = "theorem"
-section = "supported-localization"
-order = 1566
+section = "thomason-trobaugh-localization"
+order = 40
 statement = '''
 For a Model-valued functor on schemes and a Laurent coefficient track on its associated
 prespectrum diagram, the actual current-to-normalized telescope map is a stable equivalence at

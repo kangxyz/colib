@@ -1,12 +1,12 @@
 [entry]
 id = "COL-0531"
-title = "Returned-action row cells and finite iteration"
+title = "Conjugation of unit actions and finite row iteration"
 kind = "theorem"
-section = "bass-construction"
-order = 88
-statement = """
+section = "bass-delooping-diagrams-and-functoriality"
+order = 140
+statement = '''
 A specified returned action is conjugated along its actual return isomorphism. The original intertwining identifies this transformation with the original identity unit. Its independent first-row realization forms a natural family, and the unchanged finite Bass recursion preserves the whole-cell comparison.
-"""
+'''
 scope = """
 Native zero-preserving exact functors and the specified return isomorphism and intertwining. The geometric realization and provenance of the supplied returned action remain application obligations.
 """

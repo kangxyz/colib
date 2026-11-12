@@ -1,10 +1,17 @@
 [entry]
 id = "COL-0277"
-title = "Whole Waldhausen prespectrum homotopies and composition"
+title = "Prespectrum homotopies and their composition"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 120
-statement = "Pointwise weak natural transformations induce actual based homotopies of the original prespectrum maps, and their composition triangle compares the composite track with its actual concatenation by a relative homotopy."
+section = "delooping-and-stable-localization"
+order = 30
+statement = '''
+A pointwise weak natural transformation \(\alpha\colon F\Rightarrow G\)
+induces a based prespectrum homotopy \(E(F)\simeq E(G)\). For composable
+transformations between chosen-zero-preserving functors, the homotopy of
+the composite and the concatenation of the two homotopies are relatively
+homotopic. These homotopies preserve the structure maps at every value
+of the independent structure and homotopy parameters.
+'''
 scope = '''Every level retains joint continuity, both endpoint maps, the whole basepoint line and an independent structure-map parameter. The composition comparison is stated for strict chosen-zero-preserving exact functors; arbitrary exact-functor homotopies use the existing canonical normalization and preserve the original `KMap`. Level zero retains its independent loop-evaluation coordinate. No pointwise homotopy-class replacement or supplied coherence law is used.'''
 review = "author_checked"
 provenance = "quillen"

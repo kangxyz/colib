@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0326"
-title = "Arbitrary Perfect K-Pullback"
+title = "Pullback on perfect-complex K-theory"
 kind = "comparison"
-section = "perfect-pullback"
+section = "derived-pullback-and-flat-resolutions"
 order = 40
 statement = "Termwise pullback along every scheme morphism preserves bounded-above flat native perfect complexes and their actual quasi-isomorphisms. Flat quotients give an exact and Waldhausen-exact functor. Its canonical connective K-map satisfies identity and composition. The proved literal flat inclusion comparison transports this map to all-perfect K-theory, naturally compatible with the original bounded-vector-bundle inclusion. On quasi-compact schemes the literal flat comparison is a natural isomorphism of contravariant K-functors. All results include degree zero."
 scope = '''Flat-model pullback has no compactness or morphism-flatness hypothesis and no lower term bound. For \(f\colon X\to Y\) the all-perfect K-map requires only `CompactSpace` Y, where the inverse literal comparison is used. Composition requires `CompactSpace` Y and `CompactSpace` Z for \(X\to Y\to Z\). There is no quasi-separatedness or resolution-property assumption and no exact underived pullback on all perfect chain complexes. Supported pair localization, arbitrary scalar descent, [@ThomasonTrobaugh1990, 5.1] image-cover geometry and Bass [@ThomasonTrobaugh1990, 7.4] remain separate.'''

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0375"
-title = "Finite affine Bass connectivity and cone-fiber excision"
+title = "Finite Bass connectivity and cone excision"
 kind = "theorem"
-section = "affine-bass-constructions"
-order = 110
+section = "bass-k-theory-and-geometric-delooping"
+order = 50
 statement = '''Let \(E\) be the strict bounded-above-flat affine-section prespectrum functor, \(B\) the polynomial and Laurent Bass endofunctor, and \(D_i=B^i(E)\). For every commutative ring \(R\), every finite stage \(i\), and every level \(m\), the inclusion of the literal chosen point of \(D_i(R)_m\) has the homotopy extension property. For every point \(x\in D_i(R)_{n+i+2}\), the homotopy set \(\pi_k(D_i(R)_{n+i+2},x)\) is a singleton whenever \(k<n+2\). Equivalently, at a level \(m\geq i+2\), this holds for \(k+i<m\).
 
 For any prespectrum map \(f:D_i(R)\to D_j(S)\), the canonical map \(D_i(R)\to\operatorname{hofib}(D_j(S)\to\operatorname{Cone}(f))\), whose path is the original cone cylinder, is \((2n+2)\)-connected at level \(n+\max(i,j)+2\). It induces an isomorphism on stable homotopy groups in every integer degree. This applies to every actual coefficient map and every iterated Laurent-seed transition.'''

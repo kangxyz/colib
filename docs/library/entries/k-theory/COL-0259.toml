@@ -1,10 +1,24 @@
 [entry]
 id = "COL-0259"
-title = "Connective change-of-weak long exact sequence"
+title = "The change-of-weak-equivalences localization sequence"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 230
-statement = '''The actual acyclic inclusion, change-of-weak `KMap` and transported path-space connecting homomorphism form the connective long exact sequence. The change-of-weak map is surjective in K-zero.'''
+section = "waldhausen-fibration-and-boundary-maps"
+order = 40
+statement = '''
+Under the structural hypotheses of Waldhausen fibration (COL-0254),
+write \(\mathcal C^w\) for the coarse-acyclic objects with fine weak equivalences.
+There is an exact sequence
+\[
+\cdots\to K_{n+1}(\mathcal C,w)\xrightarrow{\partial}
+K_n(\mathcal C^w,v)\to K_n(\mathcal C,v)\to K_n(\mathcal C,w)\to\cdots,
+\]
+ending in
+\[
+K_0(\mathcal C^w,v)\to K_0(\mathcal C,v)\to K_0(\mathcal C,w)\to0.
+\]
+The maps are induced by inclusion and change of weak equivalences; the
+boundary is transported from the path-space fiber using the specified nullhomotopy.
+'''
 scope = "Nested Waldhausen weak-equivalence classes in independent object and hom universes, coarse two-out-of-three and extension, exact joint-cylinder data and its second-endpoint section. The canonical fiber weak equivalence is proved from those structural inputs. The boundary retains the original reversed zero-to-inclusion nullhomotopy and basepoint convention. The K-zero endpoint is obtained from the genuine pointed-set tail, not from positive-degree exactness alone."
 review = "author_checked"
 provenance = "quillen"

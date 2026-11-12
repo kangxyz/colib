@@ -65,12 +65,12 @@ class KTheoryLayersTests(unittest.TestCase):
         for section in ("grothendieck-groups", "quillen-k-theory", "waldhausen-k-theory"):
             self.assertEqual(library["sections"][section]["chapter"], "k-theory")
         for section in ("k-zero-of-fields", "quillen-k-theory-of-rings",
-                        "g-theory-of-rings", "matsumoto-theorem", "finite-field-k-two"):
+                        "g-theory-of-rings", "matsumoto-theorem", "matsumoto-theorem"):
             self.assertEqual(library["sections"][section]["chapter"],
                              "k-theory-rings")
-        for section in ("scheme-k-and-g", "perfect-open-localization",
-                        "scalar-operations-and-boundaries", "supported-localization",
-                        "perfect-pullback", "affine-evaluation", "affine-bass-constructions"):
+        for section in ("vector-bundles-coherent-sheaves-and-comparison", "support-and-connective-localization",
+                        "units-tensor-products-and-localization-boundaries", "support-and-connective-localization",
+                        "derived-pullback-and-flat-resolutions", "affine-and-global-section-models", "bass-k-theory-and-geometric-delooping"):
             self.assertEqual(library["sections"][section]["chapter"], "k-theory-schemes")
         for section in ("milnor-symbols-field-change", "milnor-residues-and-specialization",
                         "milnor-norms-and-rational-residues", "milnor-norms-on-curves",
@@ -79,13 +79,13 @@ class KTheoryLayersTests(unittest.TestCase):
         expected = {
             "COL-0004": "k-zero-of-fields",
             "COL-0020": "k-zero-of-fields",
-            "COL-0230": "perfect-open-localization",
+            "COL-0230": "support-and-connective-localization",
             "COL-0262": "matsumoto-theorem",
-            "COL-0272": "quillen-k-theory",
+            "COL-0272": "resolution-devissage-and-serre-localization",
             "COL-0273": "g-theory-of-rings",
             "COL-0274": "g-theory-of-rings",
             "COL-0279": "milnor-degree-two",
-            "COL-0280": "finite-field-k-two",
+            "COL-0280": "matsumoto-theorem",
             "COL-0281": "quillen-k-theory",
         }
         for item, section in expected.items():

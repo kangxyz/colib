@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0556"
-title = "The normalized tensor coefficient represents the forward unit class"
+title = "The tensor coefficient and the degree-one unit class"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 70
+section = "units-tensor-products-and-localization-boundaries"
+order = 150
 statement = '''
 For a scheme \(X\) and a global unit \(r\in\Gamma(X,\mathcal O_X)^\times\), apply the degree-zero
 single functor to the actual coefficient row \(0,\mathcal O_X,0\). Its displayed

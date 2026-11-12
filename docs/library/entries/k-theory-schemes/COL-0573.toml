@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0573"
-title = "Stable normalized-to-twisted telescope comparison"
+title = "Comparison of normalized and twisted Bass telescopes"
 kind = "theorem"
-section = "supported-localization"
-order = 1573
+section = "thomason-trobaugh-localization"
+order = 80
 statement = '''
 For a zero-preserving native `Model`-valued functor M on schemes, a Laurent track \(A\) on its
 associated prespectrum functor, and a scheme \(X\), the normalized-to-twisted conjugacy telescope

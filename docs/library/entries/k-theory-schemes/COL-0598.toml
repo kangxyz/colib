@@ -1,23 +1,12 @@
 [entry]
 id = "COL-0598"
-title = "Ordinary current-stage full-open fiber localization"
+title = "Thomason\u2013Trobaugh localization for an open immersion"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1598
-statement = '''
-Let $f:P\to Q$ be an open immersion of schemes, with compact $P,Q$ and quasi-separated $Q$.
-Evaluate the original current-stage parameter construction at
-$\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The actual current-stage full-open fiber
-lift, defined using its original support-forgetting map, full-open restriction and selected null,
-is a stable equivalence. Consequently its induced map on stable homotopy groups is an isomorphism
-for every $d\in\mathbb{Z}$. For a pair over integral Spec, the same conclusion holds at every
-integral Spec-row coefficient.
-'''
+section = "thomason-trobaugh-localization"
+order = 200
+statement = "Let $j:U\\hookrightarrow X$ be an open immersion with $U$ quasi-compact and $X$ quasi-compact and quasi-separated, and put $Z=X\\setminus U$. Write $K^{\\mathrm{ten}}$ for the tensor-generated current-stage construction evaluated at $\\operatorname{Spec}(\\operatorname{ULift}\\mathbb Z)$. The support map and restriction, with their specified null-homotopy, give a stable fiber sequence\n\\[K^{\\mathrm{ten}}(X\\text{ on }Z)\\longrightarrow K^{\\mathrm{ten}}(X)\\longrightarrow K^{\\mathrm{ten}}(U).\\]\nPrecisely, the induced map from the supported construction to the homotopy fiber is a stable equivalence, hence an isomorphism on $\\pi_d^{\\mathrm{st}}$ for every $d\\in\\mathbb Z$. For an open pair over integral Spec the same fiber-lift statement holds at every integral Spec-row coefficient. Here support denotes ambient perfect complexes acyclic on $U$, not K-theory of a closed subscheme."
 scope = '''
-This is the ordinary current-stage lift, without an auxiliary open. The proof preserves the
-original iterated, twisted and current models and their same-null comparisons. It establishes
-localization for this constructed parameter model, not an additional identification with classical
-nonconnective K-theory.
+This is the ordinary current-stage lift, without an auxiliary open. The proof preserves the original iterated, twisted and current models and their same-null comparisons. Together with the tensor-generated construction and its specified stable roof, this gives ordinary localization in [@ThomasonTrobaugh1990, Theorem 7.4] for the original library's direct tensor-model realization. A comparison to a separately prescribed raw point-set tower, or additional original negative-group APIs is not asserted or assumed here. The ordinary-colimit presentation is treated separately in COL-0599 and COL-0600.
 '''
 proof = '''
 Use the three actual stable Spec telescope comparisons and their support-forgetting,

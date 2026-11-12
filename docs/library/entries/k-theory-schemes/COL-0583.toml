@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0583"
-title = "Rotation of the original geometric seed"
+title = "Rotation of the geometric seed"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1583
+section = "thomason-trobaugh-localization"
+order = 30
 statement = '''
 For a Laurent Track A on a scheme-opposite prespectrum diagram, applying the strict diagram
 functor to the original seed and then strength equals the cone-track seed followed by the inverse

@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0501"
-title = "Strict supported affine coefficient prespectrum functor"
+title = "Coefficient functoriality of supported affine sections"
 kind = "definition"
-section = "affine-evaluation"
+section = "affine-and-global-section-models"
 order = 40
 statement = """
 For an open immersion into an affine scheme, the existing supported bounded-above-flat

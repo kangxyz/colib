@@ -1,12 +1,14 @@
 [entry]
 id = "COL-0567"
-title = "Whole selected-null transport through normalization"
+title = "Preservation of a selected nullhomotopy under normalization"
 kind = "theorem"
-section = "bass-construction"
-order = 1567
+section = "bass-delooping-normalization-and-telescopes"
+order = 60
 statement = '''
-Finite normalization carries a prescribed diagram null-homotopy to its normalized null-homotopy at
-every spectrum level, every point and every null time.
+Finite cone–loop normalization preserves a selected diagram nullhomotopy:
+its comparison square commutes for every spectrum level, every point and
+every null time \(t\in[0,1]\). The conclusion identifies the prescribed
+nullhomotopies themselves, not only their endpoints or homotopy classes.
 '''
 scope = '''
 Any category-indexed composable pair of prespectrum maps, a chosen DiagramNullHomotopy and a

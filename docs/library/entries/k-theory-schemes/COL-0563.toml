@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0563"
-title = "Supported tensor-forget rectangles"
+title = "Tensor compatibility with support forgetting"
 kind = "proposition"
-section = "tensor-unit-prisms"
-order = 1563
+section = "units-tensor-products-and-localization-boundaries"
+order = 190
 statement = '''
 For an open immersion of schemes, the two specified parameter evaluation-forget routes are equal
 as natural isomorphisms between the associated Model functors.

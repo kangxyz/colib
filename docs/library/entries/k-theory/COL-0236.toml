@@ -1,9 +1,16 @@
 [entry]
 id = "COL-0236"
-title = "Canonical length-one Resolution equivalence"
+title = "Resolution in length one"
 kind = "theorem"
-section = "quillen-k-theory"
-order = 250
-statement = "Length-one admissible resolutions give a multiplicative equivalence on Quillen K-groups in every nonnegative degree, whose forward homomorphism is the original canonical inclusion K-map."
+section = "resolution-devissage-and-serre-localization"
+order = 40
+statement = '''
+Let \(\mathcal P\subseteq\mathcal E\) be a full exact subcategory satisfying
+the extension and resolving-kernel closure hypotheses. Suppose each \(X\in\mathcal E\)
+admits a length-one admissible resolution
+\(0\to P_1\to P_0\to X\to0\), with \(P_0,P_1\in\mathcal P\).
+Then the inclusion induces \(K_n(\mathcal P)\xrightarrow{\sim}K_n(\mathcal E)\)
+for every \(n\geq0\), through its canonical K-theory map.
+'''
 scope = "Small exact categories, the stated extension and resolving kernel closure, chosen zero normalization, and an actual length-one resolution for each ambient object. Admissible-subobject closure is derived from the length-one hypothesis, not assumed separately. The all-degree conclusion includes K-zero."
 review = "author_checked"

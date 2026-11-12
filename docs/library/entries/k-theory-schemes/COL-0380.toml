@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0380"
-title = "Supported affine section evaluation"
+title = "Affine evaluation with support"
 kind = "comparison"
-section = "affine-evaluation"
+section = "affine-and-global-section-models"
 order = 30
 statement = '''
 Let \(R\) be a commutative ring and \(j\colon U\hookrightarrow\operatorname{Spec}R\)

@@ -2,8 +2,8 @@
 id = "COL-0599"
 title = "Tensor ordinary-presentation basic localization"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1599
+section = "thomason-trobaugh-localization"
+order = 260
 statement = '''
 Let $f:P\to Q$ be an open immersion, where $P,Q$ are quasi-compact and $Q$ is quasi-separated.
 For the actual tensor-normalized ordinary-colimit presentations evaluated at

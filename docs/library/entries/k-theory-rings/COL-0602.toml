@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0602"
-title = "The original projective completion and Q-loop homotopy equivalence"
+title = "Projective completion and the Quillen Q-loop space"
 kind = "comparison"
 section = "quillen-k-theory-of-rings"
-order = 306
+order = 30
 primary = "ModuleCat.FiniteProjective.completionToOriginalQLoopsHomotopyEquiv"
 statement = '''
 Let $R$ be an arbitrary ring. At every displayed completion vertex $U$, the original standard

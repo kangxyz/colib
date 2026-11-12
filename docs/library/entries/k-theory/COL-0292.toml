@@ -1,10 +1,21 @@
 [entry]
 id = "COL-0292"
-title = "The actual stable localization and its K-map criterion"
+title = "The stable homotopy category and the K-equivalence criterion"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 160
-statement = '''The native loop prespectra admit their actual coherent-homotopy quotient and categorical localization at all-integer stable equivalences. Every functor respecting those whole homotopies and inverting those stable equivalences has a constructed strict universal lift, uniquely determined by its composite. An original exact Waldhausen functor becomes invertible in this localization exactly when its original `KMap` is bijective in every nonnegative degree, including K-zero.'''
+section = "delooping-and-stable-localization"
+order = 70
+statement = '''
+Loop prespectra admit a quotient by coherent homotopy and a categorical
+localization at maps inducing isomorphisms in every integer stable degree.
+Every functor respecting these homotopies and inverting these maps has
+a strict universal lift, uniquely determined by its composite with localization.
+For an exact Waldhausen functor \(F\), its prespectrum map is invertible
+in this localization if and only if
+\[
+F_*\colon K_n(\mathcal C)\longrightarrow K_n(\mathcal D)
+\]
+is bijective for every \(n\geq0\).
+'''
 scope = "The construction uses Mathlib's existing categorical quotient and localization, retaining the native prespectra and actual integer stable-group functors. The universal target has independent object and morphism universes. The original Waldhausen structures retain their common independent universe pair and normalized exact-functor maps; canonical zero rebasing introduces no strict chosen-zero premise. Identity, composition, weak-transformation invariance and the original K-map comparison are preserved. Positive-degree equivalences alone do not suffice without K-zero. The inverse is categorical, not an asserted continuous inverse prespectrum map. No model structure, triangulation, nonconnective completion or new spectrum model is claimed."
 review = "author_checked"
 provenance = "quillen"

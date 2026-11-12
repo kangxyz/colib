@@ -1,14 +1,20 @@
 [entry]
 id = "COL-0576"
-title = "Index change for strict-square Bass telescopes"
+title = "Change of index for Bass telescopes"
 kind = "comparison"
-section = "bass-construction"
-order = 1576
+section = "bass-delooping-normalization-and-telescopes"
+order = 70
 statement = '''
-Let K : C → D be a functor between categories, let Q₁ and Q₂ be square functors, and let α : K ⋙
-Q₂ ≅ Q₁ ⋙ K.mapArrow.mapArrow. Given ρ : K ⋙ F ≅ G and seeds η₂ and η₁ satisfying the displayed
-seed compatibility square, there is a natural isomorphism K ⋙ telescope Q₂ η₂ ≅ telescope Q₁ η₁.
-Its maps retain the specified finite-stage inclusions and whole-cylinder formulas.
+Let \(K\colon\mathcal C\to\mathcal D\) be an index functor, and let
+\(Q_1,Q_2\) be square functors intertwined by the specified natural
+isomorphism. Suppose a row isomorphism \(K^*F\cong G\) intertwines the
+seeds \(\eta_2\) and \(\eta_1\). It induces a natural isomorphism
+\[
+K^*\operatorname{Tel}_{Q_2}(F,\eta_2)
+\cong\operatorname{Tel}_{Q_1}(G,\eta_1).
+\]
+The comparison preserves the finite-stage inclusions and the prescribed
+cylinder formulas.
 '''
 scope = '''
 An index functor K, an isomorphism between the actual square functors, a row isomorphism rho and
