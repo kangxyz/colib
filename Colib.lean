@@ -215,6 +215,7 @@ public import Colib.Algebra.Homology.MappingCone.WeakMap
 public import Colib.Algebra.Homology.OrientedList.Basic
 public import Colib.Algebra.Homology.OrientedList.SubdivisionTerms
 public import Colib.Algebra.Homology.OrientedList.Support
+public import Colib.Algebra.Homology.ShortComplex.AbRepresentative
 public import Colib.Algebra.Homology.ShortComplex.ModuleQuasiIso
 public import Colib.Algebra.Homology.ShortComplex.ModuleQuasiIsoCriterion
 public import Colib.Algebra.Homology.TensorCoefficients
@@ -2392,6 +2393,7 @@ public import Colib.AlgebraicGeometry.WeilRestriction.Affine.Witness
 public import Colib.AlgebraicTopology.DoldKan.CochainRepresentative
 public import Colib.AlgebraicTopology.DoldKan.CochainRepresentative.Homotopy
 public import Colib.AlgebraicTopology.DoldKan.NormalizedMooreMap
+public import Colib.AlgebraicTopology.DoldKan.NormalizedRepresentatives
 public import Colib.AlgebraicTopology.SimplexCategory.EpiZero
 public import Colib.AlgebraicTopology.SimplexCategory.Prism
 public import Colib.AlgebraicTopology.SimplicialObject.SetwisePaths
