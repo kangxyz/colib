@@ -18,7 +18,7 @@ source checkpoint. The proof retains the actual affinization morphism.
 
 @[expose] public noncomputable section
 
-open CategoryTheory AlgebraicGeometry
+open CategoryTheory AlgebraicGeometry TopologicalSpace
 
 universe u
 
@@ -35,5 +35,21 @@ theorem isFinite_of_isProper_of_isQuasiAffine {X Y : Scheme.{u}}
     IsClosedImmersion.of_isPreimmersion _ X.toSpecΓ.isClosedMap.isClosed_range
   have : IsAffine X := isAffine_of_isAffineHom X.toSpecΓ
   exact IsFinite.iff_isProper_and_isAffineHom.mpr ⟨inferInstance, inferInstance⟩
+
+/-- Every closed scheme contained in the retained quasi-affine open is finite over the
+original affine base. This statement retains all nilpotents of the closed scheme. -/
+theorem isFinite_closed_support_in_quasiAffine_open
+    {C S V D : Scheme.{u}} [IsAffine S] [V.IsQuasiAffine]
+    (q : C ⟶ S) [IsProper q] (j : V ⟶ C) [IsOpenImmersion j]
+    (d : D ⟶ C) [IsClosedImmersion d] (hd : Set.range d ⊆ Set.range j) :
+    IsFinite (d ≫ q) := by
+  let f := IsOpenImmersion.lift j d hd
+  have hf : f ≫ j = d := IsOpenImmersion.lift_fac j d hd
+  have : IsClosedImmersion (f ≫ j) := by rw [hf]; infer_instance
+  have : IsClosedImmersion f := IsClosedImmersion.of_comp f j
+  have : CompactSpace C := QuasiCompact.compactSpace_of_compactSpace q
+  have : CompactSpace D := QuasiCompact.compactSpace_of_compactSpace d
+  have : D.IsQuasiAffine := Scheme.IsQuasiAffine.of_isImmersion f
+  exact Scheme.isFinite_of_isProper_of_isQuasiAffine (d ≫ q)
 
 end AlgebraicGeometry.Scheme
