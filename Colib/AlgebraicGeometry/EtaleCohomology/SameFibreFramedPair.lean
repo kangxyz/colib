@@ -78,18 +78,18 @@ theorem exists_sameFibreSectionKernel_root_framed_pair
         Hom.app eN.hom ⊤ (pullbackGlobalSections i N (b.eval (op ⊤))) =
           (1 : Γ(Spec (CommRingCat.of B), ⊤)) ∧
         IsRelativeEffectiveCartierDivisor q
-          (zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a) ∧
+          (AlgebraicGeometry.zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a) ∧
         Stacks.Morphisms.IsFiniteLocallyFree
-          ((zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a).subschemeι ≫ q) ∧
-        Set.range (zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a).subschemeι ⊆
+          ((AlgebraicGeometry.zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a).subschemeι ≫ q) ∧
+        Set.range (AlgebraicGeometry.zeroScheme X ((pullbackTwistFunctor R m g d).obj M) a).subschemeι ⊆
           Set.range j ∧
-        IsRelativeEffectiveCartierDivisor q (zeroScheme X N (b.eval (op ⊤))) ∧
-        Stacks.Morphisms.IsFiniteLocallyFree ((zeroScheme X N (b.eval (op ⊤))).subschemeι ≫ q) ∧
-        Set.range (zeroScheme X N (b.eval (op ⊤))).subschemeι ⊆ Set.range j := by
+        IsRelativeEffectiveCartierDivisor q (AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))) ∧
+        Stacks.Morphisms.IsFiniteLocallyFree ((AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))).subschemeι ≫ q) ∧
+        Set.range (AlgebraicGeometry.zeroScheme X N (b.eval (op ⊤))).subschemeι ⊆ Set.range j := by
   obtain ⟨M, hM, α, e, he⟩ := exists_sameFibreSectionKernel_root_compatible_frame
     R q j s t hs ht hsj htj hst B i his hit hn0 hn
-  letI := hM
-  letI : AlgebraicGeometry.SheafOfModules.IsInvertible X.sheaf.obj
+  let := hM
+  let : AlgebraicGeometry.SheafOfModules.IsInvertible X.sheaf.obj
       X.ringCatSheaf.property M := hM.toAlgebraicGeometry
   obtain ⟨d, hd⟩ := exists_nonzero_compatible_boundary_framed_divisor_pair
     R B m g q i j hcover M e

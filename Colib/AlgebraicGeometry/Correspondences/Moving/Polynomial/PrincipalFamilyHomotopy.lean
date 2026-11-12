@@ -31,7 +31,8 @@ open _root_.AlgebraicGeometry.Scheme
 open _root_.AlgebraicGeometry.Scheme.PolynomialSectionPencil
 open _root_.AlgebraicGeometry.Scheme.SmoothSite.Contraction
 open _root_.AlgebraicGeometry.AlgebraicCycle
-open PrincipalFamilyUnitOpen
+open _root_.AlgebraicGeometry.PrincipalFamilyUnitOpen hiding
+  parameterSpace projection parameter endpoint
 
 /-- The actual canonical open contains the whole original omitted locus. -/
 theorem canonical_boundary_cover {C V B : Scheme.{u}} (j : V ⟶ C) (W : C.Opens)

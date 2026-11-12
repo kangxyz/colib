@@ -35,7 +35,8 @@ namespace AlgebraicGeometry.Cor.PrincipalOrder
 open _root_.AlgebraicGeometry.Scheme
 open _root_.AlgebraicGeometry.Scheme.PolynomialSectionPencil
 open _root_.AlgebraicGeometry.Scheme.SmoothSite.Contraction
-open PrincipalFamilyUnitOpen
+open _root_.AlgebraicGeometry.PrincipalFamilyUnitOpen hiding
+  parameterSpace projection parameter endpoint
 
 variable {k : Type u} [Field k] (X Y : SmoothSite (Spec (.of k))) [IsAffine X.left]
   {C V B : Scheme.{u}} [IsIntegral C] [IsNoetherian C] [V.IsQuasiAffine]
