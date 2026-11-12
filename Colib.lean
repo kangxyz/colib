@@ -1361,6 +1361,7 @@ public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalFinit
 public import Colib.AlgebraicGeometry.Normalization.Compactification.NormalIntegralSource
 public import Colib.AlgebraicGeometry.Normalization.StrictLocalBaseChange.Normal
 public import Colib.AlgebraicGeometry.Polynomial.RationalCoordinateSection
+public import Colib.AlgebraicGeometry.Polynomial.RationalTailFieldPoint
 public import Colib.AlgebraicGeometry.Polynomial.RelativeRationalSection
 public import Colib.AlgebraicGeometry.Polynomial.ValueSection
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant
@@ -1489,6 +1490,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Compa
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteSeparableRetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageOriginalTarget
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageOriginalTargetEtale
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStagePresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
@@ -1498,6 +1500,8 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Origi
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLocalizedConsumerGeometry
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLocalizedInputs
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageOriginalMark
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousEtaleGoodNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousFiniteCoordinates
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SimultaneousGoodNeighborhood
@@ -1743,6 +1747,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Neighborhood
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodBaseChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSections
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtaleChange
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEtalePreimage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodEvaluation
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionOriginalTargetRestriction

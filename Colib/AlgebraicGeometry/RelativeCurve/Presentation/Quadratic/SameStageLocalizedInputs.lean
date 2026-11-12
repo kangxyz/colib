@@ -6,6 +6,8 @@ Authors: kangxyz
 module
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameStageLocalizedConsumerGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
+public import Colib.AlgebraicGeometry.RelativeCurve.Sections.EtaleChartFieldMarkTransport
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageOriginalTargetEtale
 
 /-! # Store one finite-stage geometry package over the original ground field
 
@@ -59,6 +61,7 @@ structure SameStageLocalizedInputs (K Ω : Type u) [Field K] [Field Ω] where
   T : SmoothSite (Spec (.of K))
   [affineA : IsAffine A.left]
   [affineZ : IsAffine Z.left]
+  [affineT : IsAffine T.left]
   q : A ⟶ Z
   [etaleQ : Etale q.left]
   p : Z ⟶ SmoothSite.mk tail
@@ -91,6 +94,9 @@ structure SameStageLocalizedInputs (K Ω : Type u) [Field K] [Field Ω] where
   hd : Set.range d = (Set.range j)ᶜ
   targetU : U ⟶ T.left
   hTarget : targetU ≫ T.hom = (j ≫ fN) ≫ tail
+  originalMark : Spec (.of Ω) ⟶ T.left
+  originalMark_eq : ξ ≫ (i ≫ targetU) = originalMark
+  [originalChartEtale : Etale (i ≫ targetU)]
   π : N ⟶ projectiveLine R
   [finitePi : IsFinite π]
   hπ : π ≫ (projectiveLine R ↘ Spec (.of R)) = fN
@@ -266,6 +272,12 @@ def sameStageLocalizedInputs
       _ = ((U.ι ≫ fN) ≫ tailF) ≫ toGround := congrArg (fun z => z ≫ toGround) hTargetF
       _ = (U.ι ≫ fN) ≫ (tailF ≫ toGround) := Category.assoc _ _ _
       _ = _ := congrArg (fun z => (U.ι ≫ fN) ≫ z) (hScalar R)
+  have hOriginal : ξ ≫ (iU ≫ targetU) =
+      β ≫ xE ≫ finiteStageOriginalTarget F E B := by
+    rw [show iU ≫ targetU = (pullback.snd je W.ι ≫ W.ι) ≫
+      finiteStageOriginalTarget F E B from G9.2.2.2.2.1]
+    exact Scheme.EtaleChart.fieldMark_original_target φ ξE
+      (pullback.snd je W.ι ≫ W.ι) xE H6.2.2 (finiteStageOriginalTarget F E B) _ rfl
   have hd : Set.range (retainedBoundaryInclusion U) = (Set.range U.ι)ᶜ := by
     rw [range_retainedBoundaryInclusion, Scheme.Opens.range_ι]
   exact {
@@ -282,6 +294,7 @@ def sameStageLocalizedInputs
     T := T
     affineA := hA
     affineZ := hZ
+    affineT := inferInstanceAs (IsAffine (Spec (.of B)))
     q := q
     etaleQ := hq
     p := p
@@ -314,6 +327,10 @@ def sameStageLocalizedInputs
     hd := hd
     targetU := targetU
     hTarget := hTarget
+    originalMark := β ≫ xE ≫ finiteStageOriginalTarget F E B
+    originalMark_eq := hOriginal
+    originalChartEtale := (congrArg Etale G9.2.2.2.2.1).mpr
+      (finiteStageRetainedOriginalTarget_tower_etale K F E B re r)
     π := π
     finitePi := G5.2.2.2.1
     hπ := rfl
