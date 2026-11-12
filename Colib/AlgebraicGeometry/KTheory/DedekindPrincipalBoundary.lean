@@ -153,7 +153,7 @@ private theorem inverseSpecTriangle :
 
 omit hπ in
 private theorem pullbackG_congr {X Y : Scheme.{u}}
-    [IsLocallyNoetherian X] [IsLocallyNoetherian Y] {f g : X ⟶ Y}
+    [IsLocallyNoetherian X] {f g : X ⟶ Y}
     [Flat f] [Flat g] (h : f = g) (n : ℕ) : Scheme.pullbackG f n = Scheme.pullbackG g n := by
   subst g
   rfl

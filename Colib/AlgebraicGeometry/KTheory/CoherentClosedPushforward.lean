@@ -30,7 +30,7 @@ namespace AlgebraicGeometry.Scheme
 
 /-- Actual closed direct image on the existing coherent G-groups. -/
 def closedPushforwardG {Z X : Scheme.{u}} (i : Z ⟶ X) [IsClosedImmersion i]
-    [IsLocallyNoetherian Z] [IsLocallyNoetherian X] (n : ℕ) : G Z n →* G X n :=
+    [IsLocallyNoetherian X] (n : ℕ) : G Z n →* G X n :=
   (Modules.Coherent.closedPushforwardExact i).smallKMap.{u + 1} n
 
 namespace Modules.Coherent
