@@ -79,9 +79,9 @@ archive check remains in place. The compressed Stacks checkpoint also survives
 per-job temporary-directory cleanup and is reused if Test adds no Stacks outputs.
 
 Successful main pushes publish Colib's native archive and the independently named
-`stacks-checkpoint-<Stacks revision>-<context>` release. A later upstream Stacks
-cache provider can replace Stacks acquisition while retaining this storage
-boundary and the native applicability checks. See [cache operations](../docs/CACHING.md).
+`stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish
+cache also publishes the verified Stacks checkpoint to R2. Build restores
+this checkpoint from R2 with GitHub Release fallback. See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks).
 
 ## Native checks and Library
 

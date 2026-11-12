@@ -27,6 +27,11 @@ jobs:
       actions: read
       pull-requests: read
     uses: ./.github/workflows/lean-ci.yml
+    secrets:
+      STACKS_R2_READ_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}
+      STACKS_R2_READ_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_READ_SECRET_ACCESS_KEY }}
+      STACKS_R2_WRITE_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_WRITE_ACCESS_KEY_ID }}
+      STACKS_R2_WRITE_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
     with:
       package-directory: .
       build-targets: Colib
