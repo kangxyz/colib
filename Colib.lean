@@ -1754,6 +1754,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackNaturality
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRestrictionTwoStage
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.SeparableClosedStructuralMono
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.StrictHenselization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Smooth.FiniteCovers
