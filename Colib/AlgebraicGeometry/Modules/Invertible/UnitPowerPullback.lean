@@ -147,28 +147,28 @@ private theorem power_unit_core {C D : Type*} [Category C] [Category D]
   rw [hunit, F.mapIso_trans]
   simp only [Iso.trans_assoc]
 
-local instance (X : Scheme.{u}) :
+local instance unitPowerPullbackStacksUnit (X : Scheme.{u}) :
     Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf
       (SheafOfModules.unit X.ringCatSheaf) :=
   Stacks.SheafOfModules.isInvertible_unit _ _
 
-local instance {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
+local instance unitPowerPullbackStacksPullback {X Y : Scheme.{u}} (f : X ⟶ Y) (M : Y.Modules)
     [Stacks.SheafOfModules.IsInvertible Y.presheaf Y.ringCatIsSheaf M] :
     Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf ((pullback f).obj M) :=
   Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj f.toLRSHom.toShHom M
 
-local instance (X : Scheme.{u}) (M : X.Modules)
+local instance unitPowerPullbackRingedInvertible (X : Scheme.{u}) (M : X.Modules)
     [hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property M :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _ hM
 
-local instance (X : Scheme.{u}) (M : X.Modules)
+local instance unitPowerPullbackSchemeInvertible (X : Scheme.{u}) (M : X.Modules)
     [hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.presheaf (ringSheafCond X) M :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _ hM
 
-local instance {X Y : Scheme.{u}} (f : X ⟶ Y) :
+local instance unitPowerPullbackUnitPullbackInvertible {X Y : Scheme.{u}} (f : X ⟶ Y) :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.presheaf (ringSheafCond X)
       ((pullback f).obj Y.unitModule) :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _
@@ -190,7 +190,7 @@ private theorem map_iso_left {C D : Type*} [Category C] [Category D] (F : C ⥤ 
     F.mapIso a ≪≫ F.mapIso b ≪≫ u = F.mapIso (a ≪≫ b) ≪≫ u := by
   rw [F.mapIso_trans, Iso.trans_assoc]
 
-local instance (X : Scheme.{u}) :
+local instance unitPowerPullbackUnitInvertible (X : Scheme.{u}) :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.presheaf (ringSheafCond X) X.unitModule :=
   AlgebraicGeometry.isInvertible_unit X
 

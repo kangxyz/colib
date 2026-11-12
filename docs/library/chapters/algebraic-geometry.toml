@@ -167,6 +167,13 @@ actual neighborhood pullback as an isomorphism. The same counit naturality
 square therefore transports invertibility to a closed point with separable
 residue, without changing the presheaf or assuming the stalk comparison.
 '''
+COL-1114 = '''
+Affine closed geometric points already detect the actual smooth-site sheaf.
+Combine this conservativity with the same Frobenius comparison and native
+characteristic-zero residue separability. The global counit question is now
+exactly the original structural-neighborhood restriction at closed separable
+residues; the remaining geometric rigidity proof must establish that map.
+'''
 
 [[sections]]
 id = "affine-curve-parameters"

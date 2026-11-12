@@ -27,14 +27,14 @@ universe u w w'
 
 namespace Stacks.AlgebraicGeometry.ModuleLimits
 
-local instance {X Y : Scheme.{u}} (f : X ⟶ Y) (L : Y.Modules)
+local instance baseChangeBoundaryPullbackInvertible {X Y : Scheme.{u}} (f : X ⟶ Y) (L : Y.Modules)
     [hL : AlgebraicGeometry.SheafOfModules.IsInvertible Y.toRingedSpace.presheaf
       (structureSheafRing Y.toRingedSpace).property L] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property ((Scheme.Modules.pullback f).obj L) :=
   Stacks.RingedSpace.modulePullback_isInvertible_algebraicGeometry f.toLRSHom.toShHom L hL
 
-local instance (X : Scheme.{u}) :
+local instance baseChangeBoundaryPowerUnitInvertible (X : Scheme.{u}) :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property (SheafOfModules.unit X.ringCatSheaf) :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _

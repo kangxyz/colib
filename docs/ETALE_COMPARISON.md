@@ -390,20 +390,21 @@ whole-program validation report.
   makes all their literal whole zero schemes finite locally free at one
   common stage, retaining their original full ideal sheaves. Supporting
   constructions select the original auxiliary module, numerator, denominator
-  and auxiliary frame along one refinement chain, with denominator boundary
-  value one. The numerator's equation with the same final root frame still
-  requires the actual tensor comparisons and finite-equation assembly.
+  and auxiliary frame along one refinement chain. Further supporting
+  constructions retain the original numerator and denominator boundary
+  equations with the same root and frame at a common stage. Their final
+  finite locally free refinement and geometric-stage integration remain.
 - Supporting strict-local geometry constructs the actual normal integral
   clopen component containing both original section specializations. It
   retains their maps, an affine dense smooth relative curve open, the entire
   finite surjective boundary, and the integral Noetherian polynomial cylinder.
   The separate original etale chart supplies boundary surjectivity through
   the actual finite projective-line map. Projectivity is preserved when
-  given on the original compactification. A separate minimal application of
-  native Stacks projectivity supplies a candidate for that input; it is
-  source-reviewed but not locally compiled because its native dependencies
-  are absent locally. It must pass the normal repository CI. Descending
-  this same geometry to a genuine etale stage remains separate.
+  given on the original compactification. A minimal direct application of
+  native Stacks projectivity supplies that input and compiled in the native
+  CI. Its focused test has not yet run there, and the local dependency
+  closure is absent. Integration with the final geometric stage remains
+  separate from that production compilation.
 - Supporting finite-subfield models realize a separable algebraic extension
   as the actual filtered algebra colimit and actual scheme inverse limit,
   with finite separable stages still in the original smooth category.
@@ -412,7 +413,13 @@ whole-program validation report.
   The original finite projective-line cover is surjective; its full retained
   boundary meets every base fiber and remains nonempty after marked base
   shrinking. Polynomial ambient integrality and Noetherianity are proved.
-  Simultaneous finite-stage curve-data descent is not asserted.
+  Supporting descent now constructs this same normal proper curve from
+  one finite separable stage, retaining the original parameters, point,
+  both opens and the actual quotient-induced bad scheme. The explicit
+  adapted-chart sections and original-PST representative formulas compile;
+  the finite-stage rational marking also preserves the original geometric
+  source through a genuine rational tensor point. The action equality and
+  rigidity induction remain separate.
 
 ## Remaining mathematical chain
 
@@ -429,12 +436,15 @@ hypotheses must not be silently applied to a merely normal compactification.
    smooth finite-type etale stage. COL-1112 now supplies the same-root
    full-frame descent through every specified refinement; COL-1113 and its
    supporting applications retain original sections, auxiliary frame and
-   whole finite locally free zero schemes. The original numerator boundary
-   equation must still be connected to that same frame at the final stage.
+   whole finite locally free zero schemes. Supporting descent now retains the original root, auxiliary pair and
+   both unit boundary equations at one stage. The final finite locally free
+   refinement must still be assembled with the same geometric stage.
    The strict henselization itself is not in the smooth finite-type site.
    The required normal clopen integral component and full surjective boundary
-   are constructed, but their geometric stage model and a projective
-   presentation for the actual pair producer remain to be supplied. At that
+   are constructed. The original projective presentation now compiles in
+   the native CI; its local dependency closure and focused test have not
+   been checked locally. Final geometric-stage integration with the actual
+   pair producer remains to be supplied. At that
    stage use COL-1105's general-base action theorem with the actual pair.
    COL-1079 assumes a local base ring and cannot simply be applied to an
    arbitrary affine etale stage.
@@ -451,15 +461,22 @@ hypotheses must not be silently applied to a merely normal compactification.
    relative dimension are available. The original coefficients and distinct
    opens now descend together to one finite separable stage, retaining
    full-map finiteness, etaleness on the chosen chart, and tail-map smoothness
-   on the separate whole-fiber open. The marked fiber, relative dimension,
-   compactification and geometric induction still need to be assembled.
+   on the separate whole-fiber open. Supporting theorems now retain the entire marked fiber, relative
+   dimension and actual normal proper compactification at that same stage,
+   including the quotient-induced bad scheme and surjective infinity.
+   The adapted-chart pair and original-presheaf representative formulas
+   also compile. The finite-stage rational marking preserves the original
+   geometric source and the exact marked point, even when its field is not
+   algebraic over k. The actual two-section action equality and the resulting
+   dimension induction remain to be assembled.
 3. Use the completed original Frobenius marked-neighborhood and canonical
    counit transport of COL-1111 to reduce positive-characteristic closed
    points to separable residue. In characteristic zero their finite residue
-   fields are already separable. After the first two steps prove counit
-   invertibility there, apply COL-1095's conservative closed geometric points
-   to the actual full-small/smooth canonical counit. No objectwise transfer
-   isomorphism is being substituted for this actual stalk comparison.
+   fields are already separable. COL-1114 now assembles the full global
+   reduction, proving actual affine closed-point conservativity and reducing
+   the canonical counit exactly to the original structural-neighborhood
+   pullback at closed separable residues. The first two steps must still
+   prove that explicit map invertible; the reduction is not final rigidity.
 
 The endpoint is the fixed-exponent MVW 7.20-type theorem for every field k
 and every positive n invertible in k. A derived or motivic comparison,

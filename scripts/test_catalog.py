@@ -668,6 +668,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1111": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleNeighborhoodRadicial",
             "COL-1112": "Colib.AlgebraicGeometry.Modules.Invertible.LimitBoundaryRoot",
             "COL-1113": "Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteSectionPairs",
+            "COL-1114": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",

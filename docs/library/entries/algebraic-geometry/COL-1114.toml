@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1114"
+title = "Global counit reduction at separable closed residues"
+kind = "comparison"
+section = "smooth-etale-sites"
+order = 60
+primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_iff_separableClosedNeighborhood"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+statement = '''
+Let \(k\) be any field and \(P\) a presheaf with transfers on the original
+\(\mathrm{Sm}(k)\), with values in the existing abelian-group universe.
+Let \(n\in\mathbb N\) be invertible in \(k\) and annihilate \(P\) on every
+original smooth object. Write \(F=a_{\acute et}P\), and let \(\varepsilon\)
+be the canonical counit of the actual full-small/smooth étale adjunction.
+
+Then \(\varepsilon_F\) is an isomorphism if and only if the original
+structural marked-neighborhood pullback is an isomorphism at every
+separably closed marking of every affine smooth object whose image is
+closed and has separable residue over \(k\). The residue-field action is
+induced by the original structure morphism. The source of this pullback
+is the actual base marked-neighborhood colimit.
+
+Consequently, that explicit restriction condition places \(F\) in the
+essential image of the actual extension from the full small étale site.
+'''
+proof = '''
+Affine open neighborhoods of closed points supply an actual conservative
+family of geometric neighborhood points on the smooth étale site. Use
+COL-1108 to identify the counit there with the original structural
+restriction. In characteristic zero, the actual finite closed residue
+fields are separable. In positive characteristic, COL-1111 transports
+the counit to a closed marking with separable residue through an actual
+finite relative Frobenius iterate. Apply affine closed conservativity,
+and the native counit essential-image lemma.
+'''
+scope = '''
+This is a global reduction, not the remaining rigidity proof. The
+original structural-neighborhood restriction condition is explicit and
+still requires the geometric argument. No homotopy invariance,
+perfection, constructibility, finite coefficient group, or presheaf over
+a substituted extension field is assumed. The exponent can be composite.
+The affine conservative-family result also applies to arbitrary sheaf
+morphisms over an affine Jacobson base, not only this counit.
+'''

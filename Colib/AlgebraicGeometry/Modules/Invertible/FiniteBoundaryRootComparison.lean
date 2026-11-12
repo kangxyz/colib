@@ -27,20 +27,20 @@ universe u v
 
 namespace AlgebraicGeometry.Scheme.Modules
 
-local instance (X : Scheme.{v}) (M : X.Modules)
+local instance finiteBoundaryRootRingedInvertible (X : Scheme.{v}) (M : X.Modules)
     [hM : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.toRingedSpace.presheaf
       (structureSheafRing X.toRingedSpace).property M :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _ hM
 
-local instance {X Y : Scheme.{v}} (b : X ⟶ Y) (M : Y.Modules)
+local instance finiteBoundaryRootPullbackInvertible {X Y : Scheme.{v}} (b : X ⟶ Y) (M : Y.Modules)
     [Stacks.SheafOfModules.IsInvertible Y.presheaf Y.ringCatIsSheaf M] :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.presheaf (ringSheafCond X)
       ((pullback b).obj M) :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _
     (Stacks.PullbackMonoidalSheaf.isInvertible_pullbackFunctor_obj b.toLRSHom.toShHom M)
 
-local instance (X : Scheme.{v}) :
+local instance finiteBoundaryRootUnitInvertible (X : Scheme.{v}) :
     AlgebraicGeometry.SheafOfModules.IsInvertible X.presheaf (ringSheafCond X)
       (SheafOfModules.unit X.ringCatSheaf) :=
   Stacks.SheafOfModules.IsInvertible.toAlgebraicGeometry _ _ _
