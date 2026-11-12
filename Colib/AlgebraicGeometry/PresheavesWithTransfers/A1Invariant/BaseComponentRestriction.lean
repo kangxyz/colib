@@ -56,7 +56,7 @@ theorem restriction_baseComponent_same_root
     {A Anew T : SmoothSite (Spec (.of K))}
     [IsAffine Anew.left] [IsIntegral Anew.left]
     (v : Anew ⟶ A) [IsOpenImmersion v.left] [IsClosedImmersion v.left]
-    {X Y B : Scheme.{u}} (q : X ⟶ A.left) [IsProper q]
+    {X Y B : Scheme.{u}} (q : X ⟶ A.left) [_hProper : IsProper q]
     [IsNormal (Limits.pullback q v.left)] [IsNoetherian (Limits.pullback q v.left)]
     (j : Y ⟶ X) [IsAffine Y] [IsOpenImmersion j]
     [SmoothOfRelativeDimension 1 (j ≫ q)]
