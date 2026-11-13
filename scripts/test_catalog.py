@@ -741,6 +741,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1112": "Colib.AlgebraicGeometry.Modules.Invertible.LimitBoundaryRoot",
             "COL-1113": "Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteSectionPairs",
             "COL-1114": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction",
+            "COL-1222": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -803,6 +804,21 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("No equality with archived named `PerfectK`", item["scope"])
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertTrue(result["entries"]["COL-0179"]["references"])
+
+    def test_rigidity_endpoint_records_the_actual_counit(self):
+        item = self.library["entries"]["COL-1222"]
+        self.assertEqual(item["section"], "smooth-etale-sites")
+        self.assertEqual(item["kind"], "theorem")
+        self.assertEqual(item["primary"],
+                         "AlgebraicGeometry.PresheafWithTransfers."
+                         "isIso_fullSmallEtale_sheafification_counit_of_A1Invariant")
+        self.assertIn("n+1", item["statement"])
+        self.assertIn("canonical counit", item["statement"])
+        self.assertIn("No perfectness assumption", item["scope"])
+        section = self.library["sections"]["smooth-etale-sites"]
+        self.assertGreater(section["entries"].index("COL-1222"),
+                           section["entries"].index("COL-1114"))
+        self.assertIn("COL-1222", section["transitions"])
 
     def test_parallel_catalog_items_keep_distinct_permanent_ids(self):
         expected = {

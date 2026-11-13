@@ -12,9 +12,11 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Polyn
 
 /-! # The actual étale rigidity counit
 
-UNVERIFIED final integration candidate. Its positive-dimensional production
-chain and this file require CI validation. The exact reduction and source
-conditions are retained; no completed public endpoint is asserted yet.
+For an A¹-invariant presheaf with transfers annihilated by a fixed positive
+integer invertible in the ground field, the canonical full-small/smooth étale
+adjunction counit is an isomorphism on its actual étale sheafification.
+Polynomial-tail induction supplies the exact original-neighborhood condition;
+no perfection assumption or replacement presheaf over extension fields is used.
 -/
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Limits Opposite
@@ -30,6 +32,8 @@ local instance {K : Type u} [Field K] :
 
 /-- Coefficient homotopy invariance and prime-to-characteristic torsion make the
 actual full-small-étale extension counit invertible on the actual sheafification. -/
+@[colib_tag "COL-1222", colib_ref "MVW2006" "Lecture 7, Theorem 7.20, p. 51" "adaptation"
+  "Fixed invertible positive exponent; canonical full-small/smooth etale counit"]
 theorem isIso_fullSmallEtale_sheafification_counit_of_A1Invariant
     (K : Type u) [Field K] (P : PresheafWithTransfers.{u + 1} K)
     (hP : IsA1Invariant P) (n : ℕ)

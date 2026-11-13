@@ -10,9 +10,10 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.SeparableCoefficientStr
 
 /-! # Polynomial-tail simultaneous induction
 
-UNVERIFIED integration candidate. All lower-dimensional hypotheses are discharged
-by Nat induction, but this file and its positive-step dependency still require
-production validation. No completed public rigidity endpoint is claimed.
+Natural-number induction discharges all lower-dimensional polynomial-tail
+hypotheses simultaneously over finite separable coefficient fields. The
+result supplies the original-neighborhood condition used by the étale
+rigidity counit theorem.
 -/
 @[expose] public noncomputable section
 open CategoryTheory AlgebraicGeometry Opposite

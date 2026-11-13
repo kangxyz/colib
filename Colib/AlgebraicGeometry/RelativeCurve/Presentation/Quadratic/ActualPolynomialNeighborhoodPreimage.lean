@@ -10,8 +10,9 @@ public import Colib.AlgebraicGeometry.Limits.EtalePolynomialCoordinate
 
 /-! # Preimages on the actual polynomial étale neighborhood
 
-Integration candidate. The positive integral step remains pending production
-validation. No complete Nat induction is asserted in this file.
+The integral positive-dimensional step supplies preimages on the original
+polynomial étale neighborhood. `PolynomialTailSimultaneousInduction` uses
+this result in its successor step.
 -/
 @[expose] public noncomputable section
 open CategoryTheory AlgebraicGeometry Opposite

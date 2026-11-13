@@ -11,12 +11,10 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.SameS
 
 /-! # The positive-dimensional rational integral step
 
-UNVERIFIED integration candidate. This consumes only dimension-d polynomial-tail
-isomorphisms, and constructs preimages for a geometrically integral algebra of
-transcendence degree d+1 using the actual tuple producer and S1. It is not yet the
-arbitrary-neighborhood Nat induction. The two wide prerequisite candidates have
-not been compiled locally; the first complete validation is delegated to CI.
-No full rigidity endpoint or completed Nat induction is asserted here.
+This consumes dimension-d polynomial-tail isomorphisms and constructs
+preimages for a geometrically integral algebra of transcendence degree d+1
+using the actual tuple producer and same-stage restriction. The simultaneous
+natural-number induction is assembled in `PolynomialTailSimultaneousInduction`.
 -/
 @[expose] public noncomputable section
 open scoped TensorProduct

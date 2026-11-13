@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1222"
+title = "Étale rigidity of homotopy-invariant torsion transfers"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 70
+primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_of_A1Invariant"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be any field and \(P\) an additive presheaf with transfers on
+Colib's original \(\mathrm{Sm}(k)\), valued in abelian groups. Assume that
+\(P\) is \(\mathbb A^1\)-invariant. Fix \(n\in\mathbb N\) such that
+\(n+1\) is invertible in \(k\) and annihilates every section of \(P\)
+on every original smooth object.
+
+Write \(F=a_{\acute et}(P|_{\mathrm{Sm}(k)})\) for its actual étale
+sheafification. The canonical counit
+\[
+  \varepsilon_F:L R F\longrightarrow F
+\]
+of the actual full-small/smooth étale extension–restriction adjunction is
+an isomorphism. In particular, \(F\) comes from the full small étale site
+through this adjunction, with the comparison given by its counit.
+'''
+proof = '''
+Apply the algebraically closed, separable-residue form of COL-1114's
+canonical counit reduction. Simultaneous natural-number induction proves
+polynomial-tail isomorphisms in every dimension, retaining the original
+presheaf and its finite separable coefficient stages. The positive step
+uses the same-stage geometric construction and original transfer action;
+its actual chart preimages and structural monomorphism give the required
+isomorphism. Transport these polynomial-tail maps to the original affine
+structural-neighborhood pullbacks and discharge the counit condition.
+'''
+scope = '''
+This is the fixed-exponent form of [@MVW2006, Lecture 7, Theorem 7.20, p. 51],
+expressed using Colib's canonical adjunction rather than an unrelated
+isomorphic sheaf. No perfectness assumption on \(k\), finite generation of
+coefficient groups, or presheaf on a substituted ground field is required.
+The exponent may be composite, and \(n=0\) includes the exponent-one case.
+The field has universe \(u\) and the abelian-group coefficients have
+universe \(u+1\), as in the existing transfer category. This is an ordinary
+sheaf counit theorem, not a derived or motivic comparison or an assertion
+about torsion presheaves with no common annihilating exponent.
+'''

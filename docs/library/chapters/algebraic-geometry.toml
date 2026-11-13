@@ -142,8 +142,8 @@ base-value restrictions commute with this change of chart.
 COL-1061 = '''
 Insert this basis equivalence into the actual extension/restriction
 adjunction. Its canonical unit and counit remain the original Kan and
-sheafification maps; proving the counit invertible for HI torsion transfers
-is the remaining rigidity assertion, not a consequence of the adjunction alone.
+sheafification maps. COL-1222 proves the counit invertible for HI torsion
+transfers; this is not a consequence of the adjunction alone.
 '''
 
 COL-1099 = '''
@@ -178,7 +178,14 @@ Affine closed geometric points already detect the actual smooth-site sheaf.
 Combine this conservativity with the same Frobenius comparison and native
 characteristic-zero residue separability. The global counit question is now
 exactly the original structural-neighborhood restriction at closed separable
-residues; the remaining geometric rigidity proof must establish that map.
+residues. COL-1222 supplies the geometric induction proving that map invertible.
+'''
+
+COL-1222 = '''
+Polynomial-tail induction now supplies this exact original-neighborhood
+restriction condition in every dimension. Apply the canonical counit
+reduction to obtain rigidity for A¹-invariant transfers with a fixed
+positive exponent invertible in the field, without requiring perfectness.
 '''
 
 [[sections]]
