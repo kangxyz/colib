@@ -2919,6 +2919,7 @@ public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Base
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitBasePoint
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitNeighborhoods
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestriction
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.NeighborhoodGerms
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.ExtensionExact

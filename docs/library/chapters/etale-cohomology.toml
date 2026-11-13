@@ -31,6 +31,13 @@ title = "Stalks and the canonical counit"
 start = "COL-1093"
 
 [sections.transitions]
+COL-1232 = '''
+The full-small restriction of COL-1061 is exact, so it induces an unbounded
+derived functor. The tautological section gives a morphism from the small
+free source to the restricted big free source, not an asserted isomorphism.
+Precomposition with this morphism gives the derived-Hom comparison in every
+integer degree, naturally in the original coefficient complex.
+'''
 COL-1082 = '''
 For a native algebraically closed geometric point, these same affine
 neighborhoods form an initial subdiagram of the bounded native diagram.

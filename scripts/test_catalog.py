@@ -762,6 +762,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1229": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso",
             "COL-1230": "Colib.RingTheory.AdjoinRoot.LinearFactorNorm",
             "COL-1231": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneSheafComparison",
+            "COL-1232": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestriction",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -932,6 +933,7 @@ for (const [root, hash, home, kind, expected] of cases) {
             "COL-1229": ("homological-algebra", "finite-coefficient-composition"),
             "COL-1230": ("commutative-algebra", "charpoly-branches"),
             "COL-1231": ("motivic-cohomology", "weight-one-comparison"),
+            "COL-1232": ("etale-cohomology", "smooth-etale-sites"),
         }
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]
