@@ -78,11 +78,24 @@ def finiteCorrespondences (f : X ⟶ S) (g : Y ⟶ S) :
 
 /-- Definitional membership reduction for finite correspondences. The equality form lets
 `dsimp` unfold the subgroup carrier without attempting to simplify its geometric conditions. -/
-@[defeq, simp]
+@[defeq]
 theorem mem_finiteCorrespondences_eq (f : X ⟶ S) (g : Y ⟶ S)
     (c : AlgebraicCycle (pullback (C := Scheme) f g) ℤ) :
     (c ∈ finiteCorrespondences f g) =
       (c.support.Finite ∧ ∀ z, c z ≠ 0 → IsFiniteCorrespondencePoint f g z) := rfl
+
+/-- The finite-support and geometric admissibility conditions on an integer cycle. -/
+def IsFiniteCorrespondenceCycle (f : X ⟶ S) (g : Y ⟶ S)
+    (c : AlgebraicCycle (pullback (C := Scheme) f g) ℤ) : Prop :=
+  c.support.Finite ∧ ∀ z, c z ≠ 0 → IsFiniteCorrespondencePoint f g z
+
+/-- Membership is normalized to the named cycle predicate, leaving its geometric
+conditions available for explicit unfolding rather than simplifying subtype carriers. -/
+@[simp]
+theorem mem_finiteCorrespondences_iff_isFiniteCorrespondenceCycle
+    (f : X ⟶ S) (g : Y ⟶ S)
+    (c : AlgebraicCycle (pullback (C := Scheme) f g) ℤ) :
+    c ∈ finiteCorrespondences f g ↔ IsFiniteCorrespondenceCycle f g c := Iff.rfl
 
 /-- Membership retains both finite support and the geometric component condition. -/
 theorem mem_finiteCorrespondences (f : X ⟶ S) (g : Y ⟶ S)
