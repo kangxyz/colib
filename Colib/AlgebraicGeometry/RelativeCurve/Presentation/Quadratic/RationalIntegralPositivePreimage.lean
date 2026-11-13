@@ -84,6 +84,8 @@ theorem exists_rational_integral_original_preimage_of_polynomial_tail_iso
     have h' := congrArg (fun z => Spec.map (CommRingCat.ofHom φ) ≫ z) h
     simpa only [Category.id_comp, Category.comp_id, Category.assoc,
       ψ, CommRingCat.ofHom_comp, Spec.map_comp] using h'
+  let : IsAffine (SmoothSite.mk G.tail).left :=
+    inferInstanceAs (IsAffine (Spec (.of G.R)))
   let : IsIso (etaleNeighborhoodValuePullback G.tailToBase G.originalMark_base.symm
       ((PresheafWithTransfers.toPresheaf K).obj P)) :=
     sameStageLocalizedInputs_lower_iso K F E B hfin hsep g d ⊤ a c (xE default)
