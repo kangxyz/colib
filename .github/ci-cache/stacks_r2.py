@@ -3,19 +3,12 @@ import json
 import os
 from pathlib import Path
 import re
-import subprocess
-from urllib.parse import urlencode
-from xml.etree import ElementTree
 
 import checkpoint
+from r2_storage import INDEX_BYTES, MAX_ARCHIVE_BYTES, R2Storage
 
 PREFIX_BYTES = 8 * 1024**2
 LARGE_PREFIX_BYTES = 16 * 1024**2
-
-INDEX_BYTES = 8192
-# R2's single-request upload limit is 5 GiB minus 5 MiB.
-MAX_ARCHIVE_BYTES = 5 * 1024**3 - 5 * 1024**2
-WRITE_CONFLICT = (409, 412)
 RETAINED_GENERATIONS = 2
 
 
@@ -24,55 +17,21 @@ def preview_bytes(archive_size):
     return min(archive_size, LARGE_PREFIX_BYTES if archive_size >= 2 * 1024**3 else PREFIX_BYTES)
 
 
-class R2Cache:
+class R2Cache(R2Storage):
     def __init__(self, endpoint, bucket, access_key, secret_key, revision, context):
-        self.url = f'{endpoint}/{bucket}'
-        self.credentials = f'{access_key}:{secret_key}'
+        super().__init__(endpoint, bucket, access_key, secret_key,
+                         f'stacks/v{checkpoint.SCHEMA}/{revision}/{context}')
         self.revision = revision
         self.context = context
-        self.prefix = f'stacks/v{checkpoint.SCHEMA}/{revision}/{context}'
 
     @classmethod
     def configured(cls, revision, context):
-        endpoint = os.environ.get('STACKS_R2_ENDPOINT', '').rstrip('/')
-        bucket = os.environ.get('STACKS_R2_BUCKET', '')
-        access_key = os.environ.get('STACKS_R2_ACCESS_KEY_ID', '')
-        secret_key = os.environ.get('STACKS_R2_SECRET_ACCESS_KEY', '')
-        if not all((endpoint, bucket, access_key, secret_key)):
+        connection = cls.connection()
+        if connection is None:
             return None
-        if not re.fullmatch(r'https://[0-9a-f]{32}(?:\.(?:eu|fedramp|us))?\.r2\.cloudflarestorage\.com',
-                            endpoint):
-            raise ValueError('invalid R2 S3 endpoint')
-        if not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,61}[a-z0-9]', bucket):
-            raise ValueError('invalid R2 bucket name')
         if not re.fullmatch(r'[0-9a-f]{40}', revision) or not re.fullmatch(r'[0-9a-f]{64}', context):
             raise ValueError('invalid R2 Stacks revision or context')
-        return cls(endpoint, bucket, access_key, secret_key, revision, context)
-
-    def request(self, method, key, output, *, seconds, headers=(), upload=None, limit=None,
-                response_headers=('etag',), query=None):
-        # Feed credentials on stdin so they are absent from process arguments.
-        command = ['curl', '--disable', '--silent', '--show-error', '--proto', '=https',
-                   '--aws-sigv4', 'aws:amz:auto:s3', '--config', '-', '--request', method,
-                   '--connect-timeout', '10', '--max-time', str(seconds),
-                   '--output', str(output), '--write-out',
-                   '%{http_code}\n' + '\n'.join(f'%header{{{name}}}' for name in response_headers)]
-        if method == 'HEAD':
-            command.append('--head')
-        for header in headers:
-            command += ['--header', header]
-        if upload is not None:
-            command += ['--upload-file', str(upload)]
-        if limit is not None:
-            command += ['--max-filesize', str(limit)]
-        url = f'{self.url}/{self.prefix}/{key}' if query is None else f'{self.url}?{urlencode(query)}'
-        result = subprocess.run([*command, url], text=True,
-                                input='user = ' + json.dumps(self.credentials) + '\n',
-                                capture_output=True)
-        if result.returncode:
-            raise OSError(f'R2 {method} {key} failed (curl exit {result.returncode})')
-        status, _, fields = result.stdout.partition('\n')
-        return int(status), fields.strip()
+        return cls(*connection, revision, context)
 
     def current(self, output):
         status, etag = self.request('GET', 'current.json', output, seconds=15, limit=INDEX_BYTES)
@@ -101,30 +60,8 @@ class R2Cache:
         if current is None:
             return
         live = self.archive_key(current)
-        prefix = self.prefix + '/objects/'
-        parameters = {'list-type': 2, 'prefix': prefix}
-        archived = []
-        listing = directory / 'r2-objects.xml'
-        while True:
-            status, _ = self.request('GET', '', listing, seconds=20, query=parameters)
-            if status != 200:
-                raise OSError(f'R2 ListObjectsV2 returned HTTP {status}')
-            try:
-                objects = ElementTree.parse(listing).getroot()
-            except ElementTree.ParseError as error:
-                raise ValueError('invalid R2 object listing') from error
-            for item in objects.findall('{*}Contents'):
-                key = item.findtext('{*}Key', '').removeprefix(self.prefix + '/')
-                date = item.findtext('{*}LastModified', '')
-                if date and re.fullmatch(r'objects/[0-9a-f]{64}[.]tar[.]zst', key):
-                    archived.append((date, key))
-            if objects.findtext('{*}IsTruncated') != 'true':
-                break
-            marker = objects.findtext('{*}NextContinuationToken')
-            if not marker or marker == parameters.get('continuation-token'):
-                raise ValueError('invalid R2 object listing continuation')
-            parameters['continuation-token'] = marker
-        dates = {key: date for date, key in archived}
+        dates = {key: date for key, date in self.list_objects(directory, 'objects/')
+                 if date and re.fullmatch(r'objects/[0-9a-f]{64}[.]tar[.]zst', key)}
         if live not in dates or not dates[live]:
             raise ValueError('R2 current checkpoint is missing in its object listing')
         # Objects newer than the live archive can belong to an in-flight publisher.
@@ -164,13 +101,6 @@ class R2Cache:
             raise ValueError('R2 Stacks archive size mismatch')
         if not prefix and checkpoint.file_hash(output) != index['sha256']:
             raise ValueError('R2 Stacks archive digest mismatch')
-
-    def put(self, key, source, digest, condition, *, seconds, metadata=()):
-        status, _ = self.request('PUT', key, Path(os.devnull), seconds=seconds, upload=source,
-                                 headers=(condition, f'x-amz-content-sha256: {digest}', *metadata))
-        if status == 200 or status in WRITE_CONFLICT:
-            return status
-        raise OSError(f'R2 PUT {key} returned HTTP {status}')
 
     def store_archive(self, index, source):
         key = self.archive_key(index)

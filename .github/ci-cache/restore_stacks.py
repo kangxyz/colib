@@ -12,7 +12,8 @@ import tempfile
 
 import checkpoint
 import stacks_release_volumes as volumes
-from stacks_r2 import MAX_ARCHIVE_BYTES, RETAINED_GENERATIONS, R2Cache, WRITE_CONFLICT, preview_bytes
+from r2_storage import MAX_ARCHIVE_BYTES, WRITE_CONFLICT
+from stacks_r2 import RETAINED_GENERATIONS, R2Cache, preview_bytes
 
 RESTORE_ERRORS = (OSError, ValueError, KeyError, TypeError, AttributeError, tarfile.TarError)
 DOWNLOAD_ERRORS = (*RESTORE_ERRORS, subprocess.CalledProcessError)

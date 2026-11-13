@@ -80,8 +80,11 @@ per-job temporary-directory cleanup and is reused if Test adds no Stacks outputs
 
 Successful main pushes publish Colib's native archive and the independently named
 `stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish
-cache also publishes the verified Stacks checkpoint to R2. Build restores
-this checkpoint from R2 with GitHub Release fallback. See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks).
+cache also backs up the verified Colib native archive and Stacks checkpoint to
+R2. R2 keeps up to two distinct Colib archives and up to two Stacks generations
+per dependency context. Build can restore either baseline from R2 with GitHub
+Release fallback.
+See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks-and-colib).
 
 ## Native checks and Library
 

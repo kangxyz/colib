@@ -7,11 +7,13 @@ import tarfile
 import tempfile
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import zipfile
 
-from merge_seed import (download, download_release, find_published_baseline, find_seed,
+from merge_seed import (archive_content, download, download_release, find_published_baseline,
+                        find_seed, restore_published_baseline, restore_r2_baseline,
                         sha, unpack_native, validate_producer)
+from stage import MAP_SCHEMA
 
 HEAD = '1' * 40
 BRANCH = '2' * 40
@@ -133,6 +135,31 @@ class SelectPublishedBaseline(unittest.TestCase):
 
 
 class MergeSeedTransport(unittest.TestCase):
+    def test_colib_content_hash_excludes_revision_tar_time_and_mapping_order(self):
+        repository, domain = 'kangxyz/colib', 'Linux-X64-' + 'a' * 16
+        name = 'c' * 16 + '.ltar'
+        rows = [['a' * 16, name], ['b' * 16, name]]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            hashes = []
+            for index, (revision, data, mapping) in enumerate(
+                    [(HEAD, b'one', rows), (BASE, b'one', rows[::-1]), (BASE, b'two', rows)]):
+                directory = root / str(index)
+                directory.mkdir()
+                archive = directory / 'stage.tar'
+                files = {name: data,
+                         'producer.json': json.dumps(dict(repository=repository, domain=domain,
+                                                          revision=revision, compiler='Lean', package='Colib')).encode(),
+                         'outputs.jsonl': '\n'.join(map(json.dumps, [MAP_SCHEMA, *mapping])).encode()}
+                with tarfile.open(archive, 'w') as tar:
+                    for member, content in files.items():
+                        info = tarfile.TarInfo(member)
+                        info.size, info.mtime = len(content), index
+                        tar.addfile(info, BytesIO(content))
+                hashes.append(archive_content(archive, directory, repository, revision, domain))
+            self.assertEqual(hashes[0], hashes[1])
+            self.assertNotEqual(hashes[1], hashes[2])
+
     def test_published_archive_requires_the_api_size_and_digest(self):
         with tempfile.TemporaryDirectory() as tmp:
             directory = Path(tmp)
@@ -206,6 +233,72 @@ class MergeSeedTransport(unittest.TestCase):
                         with self.assertRaises(ValueError):
                             download('kangxyz/colib', record, target, 'lake-native-cache.tar')
                         self.assertFalse((target / 'lake-native-cache.tar').exists())
+
+
+class ColibR2Restore(unittest.TestCase):
+    repository = 'kangxyz/colib'
+    domain = 'Linux-X64-' + 'b' * 16
+
+    @staticmethod
+    def candidate(revision, number):
+        entry = dict(revision=revision, run_id=number + 10, run_number=number, attempt=1)
+        attempt = dict(run(revision), head_branch='main', id=number + 10, run_number=number, run_attempt=1)
+        path = f'actions/runs/{number + 10}/attempts/1'
+        return entry, path, attempt
+
+    def test_previous_baseline_used_if_latest_is_corrupt_or_build_failed(self):
+        latest, latest_path, attempt = self.candidate(HEAD, 2)
+        previous, previous_path, previous_attempt = self.candidate(BASE, 1)
+        for failure in ('wrong digest', 'failed Build'):
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as tmp:
+                mirror = Mock()
+                mirror.matching.return_value = [latest, previous]
+                archive = Path(tmp) / 'known-good.tar'
+                mirror.download.side_effect = [ValueError('wrong digest'), archive] if failure == 'wrong digest' else [archive]
+                api = {latest_path: dict(attempt, conclusion='failure' if failure == 'failed Build' else 'success'),
+                       latest_path + '/jobs': {'jobs': [{'name': 'lean / Build', 'status': 'completed',
+                                                         'conclusion': 'failure', 'head_sha': HEAD}]},
+                       previous_path: previous_attempt}
+                with (patch('merge_seed.ColibR2.configured', return_value=mirror),
+                      patch.dict('os.environ', {'RUNNER_TEMP': tmp}),
+                      patch('merge_seed.import_native') as imported,
+                      patch('builtins.print')):
+                    self.assertTrue(restore_r2_baseline(lambda path, **_: api[path], self.repository,
+                                                        'main', REPOSITORY, self.domain))
+                self.assertEqual(imported.call_args.args[3], BASE)
+                self.assertEqual(mirror.download.call_count, 2 if failure == 'wrong digest' else 1)
+
+    def test_cancelled_publication_can_use_an_archive_whose_build_and_tests_passed(self):
+        entry, path, attempt = self.candidate(HEAD, 2)
+        mirror = Mock()
+        mirror.matching.return_value = [entry]
+        jobs = [dict(name=name, status='completed', conclusion='success', head_sha=HEAD)
+                for name in ('lean / Build', 'lean / Test, lint and axiom audit')]
+        api = {path: dict(attempt, conclusion='cancelled'), path + '/jobs': {'jobs': jobs}}
+        with (tempfile.TemporaryDirectory() as tmp,
+              patch.dict('os.environ', {'RUNNER_TEMP': tmp}),
+              patch('merge_seed.ColibR2.configured', return_value=mirror),
+              patch('merge_seed.import_native') as imported,
+              patch('builtins.print')):
+            self.assertTrue(restore_r2_baseline(lambda key, **_: api[key], self.repository, 'main',
+                                               REPOSITORY, self.domain))
+        self.assertEqual(imported.call_args.args[3], HEAD)
+
+    def test_unavailable_index_uses_the_release_fallback(self):
+        asset = {'name': 'known-good.tar'}
+        with (tempfile.TemporaryDirectory() as tmp,
+              patch.dict('os.environ', {'RUNNER_TEMP': tmp, 'GITHUB_REPOSITORY': self.repository,
+                                        'GITHUB_REPOSITORY_ID': str(REPOSITORY), 'DEFAULT_BRANCH': 'main'}),
+              patch('merge_seed.Path.is_file', return_value=False),
+              patch('merge_seed.native_domain', return_value=self.domain),
+              patch('merge_seed.restore_r2_baseline', side_effect=OSError('unavailable')),
+              patch('merge_seed.find_published_baseline', return_value=(BASE, 'release', asset)),
+              patch('merge_seed.download_release') as download,
+              patch('merge_seed.import_native') as imported,
+              patch('builtins.print')):
+            restore_published_baseline()
+        self.assertEqual(download.call_args.args[:3], (self.repository, 'release', asset))
+        self.assertEqual(imported.call_args.args[3], BASE)
 
 
 if __name__ == '__main__':

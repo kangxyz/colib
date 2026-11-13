@@ -466,11 +466,15 @@ jobs:
         id: published-root
         if: ${{ steps.cache-mode.outputs.layered == 'true' && steps.merge-seed.outputs.imported != 'true' }}
         continue-on-error: true
-        timeout-minutes: 8
+        timeout-minutes: 12
         working-directory: ${{ inputs.package-directory }}
         env:
           GH_TOKEN: ${{ github.token }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_READ_SECRET_ACCESS_KEY }}
         run: python3 .github/ci-cache/merge_seed.py --published-baseline
       - name: Refresh archive hash metadata after cache preparation
         working-directory: ${{ inputs.package-directory }}
@@ -1428,25 +1432,7 @@ jobs:
               exit "$release_code"
             fi
           fi
-      - name: Report cache publication
-        if: ${{ always() }}
-        env:
-          RESULT: ${{ steps.publish.outcome }}
-          SKIPPED: ${{ steps.publish.outputs.skipped }}
-        run: |
-          if test "$SKIPPED" = true; then
-            printf 'Cache publication skipped: a newer default-branch revision exists.\n' >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          printf '## Cache publication\n\n' >> "$GITHUB_STEP_SUMMARY"
-          case "$RESULT" in
-            success)
-              printf '✅ [Native cache for `%.12s`](https://github.com/%s/releases/tag/lean-native-%s)\n' \
-                "$GITHUB_SHA" "$GITHUB_REPOSITORY" "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY" ;;
-            failure) printf '❌ Publication failed. See the job log for details.\n' >> "$GITHUB_STEP_SUMMARY" ;;
-            cancelled) printf '⏹ Cancelled\n' >> "$GITHUB_STEP_SUMMARY" ;;
-            *) printf '— Skipped\n' >> "$GITHUB_STEP_SUMMARY" ;;
-          esac
+          printf 'asset=%s\ndomain=%s\n' "$ASSET" "$domain" >> "$GITHUB_OUTPUT"
       - name: Publish the Stacks baseline to R2
         id: stacks-r2
         if: ${{ steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
@@ -1481,3 +1467,43 @@ jobs:
               printf '::warning::Could not prune older R2 Stacks generations.\n'
           fi
           python3 -u .github/ci-cache/restore_stacks.py --prune-release stacks.tar.zst
+      - name: Back up the verified Colib cache to R2
+        id: colib-r2
+        if: ${{ steps.publish.outcome == 'success' && steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
+        continue-on-error: true
+        timeout-minutes: 6
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          COLIB_ARCHIVE: ${{ steps.publish.outputs.asset }}
+          COLIB_DOMAIN: ${{ steps.publish.outputs.domain }}
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_WRITE_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
+        run: python3 -u .github/ci-cache/merge_seed.py --publish-r2 "$COLIB_ARCHIVE" "$COLIB_DOMAIN"
+      - name: Report cache publication
+        if: ${{ always() }}
+        env:
+          RESULT: ${{ steps.publish.outcome }}
+          SKIPPED: ${{ steps.publish.outputs.skipped }}
+          R2_RESULT: ${{ steps.colib-r2.outcome }}
+        run: |
+          if test "$SKIPPED" = true; then
+            printf 'Cache publication skipped: a newer default-branch revision exists.\n' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          printf '## Cache publication\n\n' >> "$GITHUB_STEP_SUMMARY"
+          case "$RESULT" in
+            success)
+              printf -- '- ✅ [Native cache for `%.12s`](https://github.com/%s/releases/tag/lean-native-%s)\n' \
+                "$GITHUB_SHA" "$GITHUB_REPOSITORY" "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY" ;;
+            failure) printf -- '- ❌ Native cache publication failed.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+            cancelled) printf -- '- ⏹ Native cache publication cancelled.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+            *) printf -- '- — Native cache publication skipped.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+          esac
+          case "$R2_RESULT" in
+            success) printf -- '- ✅ Colib R2 backup is up to date.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+            failure) printf -- '- ⚠️ Colib R2 backup or cleanup failed. See the job log.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+            cancelled) printf -- '- ⏹ Colib R2 backup cancelled.\n' >> "$GITHUB_STEP_SUMMARY" ;;
+          esac

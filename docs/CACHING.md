@@ -118,7 +118,7 @@ python3 .github/ci-cache/checkpoint.py restore --root . --layer stacks \
 Materialize the pinned dependency sources first. A later native build/verification
 checks applicability; a matching archive alone is not a successful compilation.
 
-### Cloudflare R2 for Stacks
+### Cloudflare R2 for Stacks and Colib
 
 Create a private Standard bucket named `colib-stacks-cache` and two S3 credentials
 scoped to it, one with **Object Read only** and one with **Object Read & Write**.
@@ -144,6 +144,24 @@ Set the same endpoint and bucket variables and run:
 ```bash
 python3 -u .github/ci-cache/restore_stacks.py --publish-r2 /path/to/stacks-checkpoint.tar.zst
 ```
+
+Colib's verified native Release archives also have a private R2 backup under
+`colib/v1/`. The index keeps the two most recently published distinct sets of
+native outputs from default-branch CI. A repeated output set reuses its backup
+even if the CI revision and tar metadata have changed. Publication uploads the
+archive, advances the index, then removes the evicted archive. A later
+publication also cleans up unindexed archives left by an interrupted upload.
+
+When a verified working checkpoint or merge seed is unavailable, Build tries the
+compatible Colib R2 archives in order, followed by the GitHub Release baseline.
+The restore checks the producer run and archive digest before the existing
+native-stage validation and Lake input rehash.
+
+Failed and timed-out builds save the completed Colib outputs to the branch's
+Actions checkpoint after the compiler stops. The next run can resume with those
+outputs when Lake's input hashes match. A job cancelled before its checkpoint
+save finishes resumes from the last saved checkpoint. R2 retains verified
+default-branch archives from builds that passed Test, lint, and the axiom audit.
 
 Each `stacks/v2/<Stacks revision>/<context>/current.json` points to an immutable
 archive named by its checkpoint generation and records its SHA-256. Publication

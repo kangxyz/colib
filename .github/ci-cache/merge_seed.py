@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""Restore native Colib outputs from a checked branch or a published baseline."""
+"""Restore checked Colib native outputs and back up published archives."""
 
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -15,6 +14,10 @@ import tomllib
 from urllib.parse import urlencode
 import zipfile
 
+from checkpoint import digest, file_hash as sha
+from colib_r2 import ColibR2
+from stage import read_map
+
 COMMIT = re.compile(r'[0-9a-f]{40}')
 DIGEST = re.compile(r'sha256:[0-9a-f]{64}')
 NATIVE_FILE = re.compile(r'[0-9a-f]{16}(?:\.[A-Za-z0-9._+-]+)?')
@@ -25,21 +28,20 @@ def output(*command):
     return subprocess.check_output(command, text=True).strip()
 
 
-def sha(path):
-    with path.open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
-
-
 def github(repository, endpoint, **parameters):
     query = '?' + urlencode(parameters) if parameters else ''
     return json.loads(output('gh', 'api', f'repos/{repository}/{endpoint}{query}'))
 
 
-def checked_push(run, repository_id):
+def repository_push(run, repository_id):
     return (run.get('event') == 'push' and run.get('path') == '.github/workflows/ci.yml'
-            and run.get('status') == 'completed' and run.get('conclusion') == 'success'
             and (run.get('repository') or {}).get('id') == repository_id
             and (run.get('head_repository') or {}).get('id') == repository_id)
+
+
+def checked_push(run, repository_id):
+    return (repository_push(run, repository_id) and run.get('status') == 'completed'
+            and run.get('conclusion') == 'success')
 
 
 def source_commits(api, head, target, repository_id, parents):
@@ -174,7 +176,7 @@ def validate_producer(staging, repository, revision, package, domain, compiler):
     producer = json.loads((staging / 'producer.json').read_text())
     expected = dict(repository=repository, revision=revision, package=package,
                     domain=domain, compiler=compiler)
-    if any(producer.get(key) != value for key, value in expected.items()):
+    if not isinstance(producer, dict) or any(producer.get(key) != value for key, value in expected.items()):
         raise ValueError('native artifact producer does not match the verified build')
 
 
@@ -199,18 +201,56 @@ def import_native(archive, staging, repository, revision, domain, *, force=False
         out.write('imported=true\n')
 
 
+def restore_r2_baseline(api, repository, branch, repository_id, domain):
+    mirror = ColibR2.configured(repository, branch)
+    if mirror is None:
+        return False
+    with tempfile.TemporaryDirectory(prefix='colib-native-r2-index-', dir=os.environ['RUNNER_TEMP']) as tmp:
+        entries = mirror.matching(domain, Path(tmp))
+    for entry in entries:
+        try:
+            attempt_path = f'actions/runs/{entry["run_id"]}/attempts/{entry["attempt"]}'
+            run = api(attempt_path)
+            if (not repository_push(run, repository_id) or run.get('head_branch') != branch
+                    or run.get('head_sha') != entry['revision'] or run.get('run_number') != entry['run_number']
+                    or run.get('run_attempt') != entry['attempt'] or run.get('id') != entry['run_id']):
+                raise ValueError('the Colib R2 archive has the wrong default-branch producer')
+            if not checked_push(run, repository_id):
+                # Publication can be interrupted after the audited archive was indexed.
+                jobs = api(attempt_path + '/jobs', per_page=100)['jobs']
+                verified = {job['name'] for job in jobs if job.get('status') == 'completed'
+                            and job.get('conclusion') == 'success' and job.get('head_sha') == entry['revision']}
+                if not {'lean / Build', 'lean / Test, lint and axiom audit'} <= verified:
+                    raise ValueError('the Colib R2 producer did not pass Build and Test')
+            with tempfile.TemporaryDirectory(prefix='colib-native-r2-', dir=os.environ['RUNNER_TEMP']) as tmp:
+                directory = Path(tmp)
+                archive = mirror.download(entry, directory)
+                import_native(archive, directory / 'stage', repository, entry['revision'], domain)
+            print(f'Imported published Colib native cache from R2 ({entry["revision"]}).', flush=True)
+            return True
+        except (OSError, ValueError, KeyError, TypeError, tarfile.TarError, subprocess.CalledProcessError) as error:
+            print(f'::warning::Skipping Colib R2 cache {entry["revision"]}: {error}', flush=True)
+    return False
+
+
 def restore_published_baseline():
     if Path('.lake/ci-cache/root.json').is_file():
         print('Using the verified Colib root checkpoint.', flush=True)
         return
     repository = os.environ['GITHUB_REPOSITORY']
+    branch = os.environ['DEFAULT_BRANCH']
+    repository_id = int(os.environ['GITHUB_REPOSITORY_ID'])
     domain = native_domain()
 
     def api(endpoint, **parameters):
         return github(repository, endpoint, **parameters)
 
-    seed = find_published_baseline(api, os.environ['DEFAULT_BRANCH'],
-                                   int(os.environ['GITHUB_REPOSITORY_ID']), domain)
+    try:
+        if restore_r2_baseline(api, repository, branch, repository_id, domain):
+            return
+    except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError) as error:
+        print(f'::warning::Colib R2 index unavailable: {error}', flush=True)
+    seed = find_published_baseline(api, branch, repository_id, domain)
     if seed is None:
         print('No compatible published Colib baseline.', flush=True)
         return
@@ -220,6 +260,52 @@ def restore_published_baseline():
         archive = download_release(repository, tag, asset, directory)
         import_native(archive, directory / 'stage', repository, revision, domain)
     print(f'Imported published Colib native cache {revision} ({asset["name"]}).', flush=True)
+
+
+def archive_content(archive, directory, repository, revision, domain):
+    staging = directory / 'stage'
+    unpack_native(archive, staging)
+    producer = json.loads((staging / 'producer.json').read_bytes())
+    if (not isinstance(producer, dict) or producer.get('repository') != repository
+            or producer.get('revision') != revision or producer.get('domain') != domain
+            or producer.get('package') != 'Colib'
+            or not isinstance(producer.get('compiler'), str) or not producer['compiler']):
+        raise ValueError('native archive has an invalid Colib producer identity')
+    bindings = {}
+    read_map(staging / 'outputs.jsonl', bindings)
+    files = {path.name: sha(path) for path in staging.iterdir() if NATIVE_FILE.fullmatch(path.name)}
+    if files.keys() != set(bindings.values()):
+        raise ValueError('native archive and Colib output map differ')
+    return digest({'compiler': producer['compiler'], 'mapping': bindings, 'files': files})
+
+
+def publish_r2_baseline(archive, domain):
+    repository = os.environ['GITHUB_REPOSITORY']
+    branch = os.environ['DEFAULT_BRANCH']
+    if os.environ['GITHUB_EVENT_NAME'] != 'push' or os.environ['GITHUB_REF'] != 'refs/heads/' + branch:
+        raise ValueError('Colib R2 publishing requires a default-branch push')
+    mirror = ColibR2.configured(repository, branch)
+    if mirror is None:
+        raise ValueError('Colib R2 publishing requires the CI cache bucket and write credentials')
+    revision = os.environ['GITHUB_SHA']
+    run_id, attempt = int(os.environ['GITHUB_RUN_ID']), int(os.environ['GITHUB_RUN_ATTEMPT'])
+    release = github(repository, f'releases/tags/lean-native-{revision}')
+    if release['draft'] or release['target_commitish'] != revision:
+        raise ValueError('Colib Release has the wrong producer revision')
+    name = f'lake-native-cache-{domain}-{run_id}-{attempt}.tar'
+    asset = next((item for item in release['assets']
+                  if item['name'] == name and item['state'] == 'uploaded'
+                  and DIGEST.fullmatch(item.get('digest') or '')), None)
+    if asset is None or archive.name != name or archive.stat().st_size != asset['size']:
+        raise ValueError('Colib R2 backup has no matching verified Release asset')
+    with tempfile.TemporaryDirectory(prefix='colib-r2-publish-', dir=os.environ['RUNNER_TEMP']) as tmp:
+        directory = Path(tmp)
+        entry = {
+            'revision': revision, 'domain': domain, 'sha256': asset['digest'].removeprefix('sha256:'),
+            'size': asset['size'], 'run_id': run_id, 'run_number': int(os.environ['GITHUB_RUN_NUMBER']),
+            'attempt': attempt, 'content_sha256': archive_content(archive, directory, repository, revision, domain),
+        }
+        mirror.publish(archive, entry, directory)
 
 
 def restore_layer(layer, archive, native_cache):
@@ -281,7 +367,9 @@ def main():
 if __name__ == '__main__':
     if sys.argv[1:] == ['--published-baseline']:
         restore_published_baseline()
+    elif len(sys.argv) == 4 and sys.argv[1] == '--publish-r2':
+        publish_r2_baseline(Path(sys.argv[2]), sys.argv[3])
     elif len(sys.argv) == 1:
         main()
     else:
-        raise SystemExit('usage: merge_seed.py [--published-baseline]')
+        raise SystemExit('usage: merge_seed.py [--published-baseline | --publish-r2 ARCHIVE DOMAIN]')
