@@ -151,7 +151,7 @@ theorem nativeExterior_eq_diagonal_parameterPullback
     exact congrArg (fun β : AlgebraicCycle
       (pullback (SmoothSite.product X T).hom (SmoothSite.product Y T).hom) ℤ => α.val z • β)
       (nativeExteriorPrime_eq_diagonal_flatPullback X Y T z hz)
-  · simp [finiteCorrespondenceContribution, hz]
+  · simp only [finiteCorrespondenceContribution, dite_eq_right hz, map_zero]
 
 /-- The final signed-cycle interface, displaying the actual finite sum and every grade. -/
 theorem nativeExterior_eq_diagonal_flatPullback_finsum
