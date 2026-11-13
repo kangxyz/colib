@@ -104,8 +104,11 @@ the current inputs and restores only matching outputs.
 
 After all checks pass, main pushes publish the normal `lean-native-<Colib revision>`
 production archive and a separate `stacks-checkpoint-<Stacks revision>-<context>`
-release. Its `.tar.zst` asset uses the versioned checkpoint manifest and can be
-restored through:
+release. Checkpoints under GitHub's 2 GiB per-asset limit use one `.tar.zst`
+asset. Larger checkpoints use numbered volumes and a `.parts.json` index.
+The publisher verifies each uploaded volume before exposing the index.
+The CI reader checks the size and SHA-256 of every volume and the reassembled
+archive. To restore a local single or reassembled `.tar.zst` archive, run:
 
 ```bash
 python3 .github/ci-cache/checkpoint.py restore --root . --layer stacks \
@@ -146,13 +149,14 @@ Each `stacks/v2/<Stacks revision>/<context>/current.json` points to an immutable
 archive named by its checkpoint generation and records its SHA-256. Publication
 verifies the archive and advances the pointer when the new checkpoint covers
 the previous baseline. Conditional writes let concurrent publishers share one
-object per generation. When pruning old generations, keep the archives referenced
-by active pointers.
+object per generation. After both publication steps succeed, CI prunes older
+R2 checkpoints for the active dependency context. It retains the current archive
+and the previous generation recorded in the pointer.
 
-GitHub Release assets also use the checkpoint generation as the file name.
-Publication checks the digest and manifest of legacy assets named by CI run and
-attempt, so a retry can reuse the existing asset even if tar timestamps differ.
-Both restore paths continue to accept those assets.
+GitHub Release checkpoints use the generation to identify the single asset or
+the volume index. CI keeps the latest two complete generations per release
+after publication. Both formats remain readable. A retry can reuse the volume
+bytes that are already present, or match a legacy checkpoint by its manifest.
 
 `scripts/stacks_cache.py pack/restore` retains the initial standalone `.tar.gz`
 format for existing consumers and earlier `stacks-native` releases. It verifies
