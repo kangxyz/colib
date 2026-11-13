@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1230"
+title = "Norm of a linear factor in the complete monic root algebra"
+kind = "theorem"
+section = "charpoly-branches"
+order = 5
+primary = "AdjoinRoot.norm_algebraMap_sub_root_of_monic"
+review = "author_checked"
+statement = '''
+For a commutative ring \(R\), a monic polynomial \(p\in R[T]\), and \(a\in R\),
+the actual determinant norm in the full finite free quotient algebra satisfies
+\[N_{R[T]/(p)/R}(a-\bar T)=p(a).\]
+In particular, for \(n>0\), the complete algebra \(R[T]/(T^n-a)\) satisfies
+\(N(1-\bar T)=1-a\).
+'''
+proof = '''
+Use the native power basis of the monic quotient. The determinant of scalar
+multiplication minus multiplication by the root is the evaluation of its
+characteristic polynomial. The power-basis characteristic polynomial is its
+minimal polynomial, and the monic quotient-root theorem identifies this with
+\(p\). The binomial formula is evaluation at one.
+The precise implementation ingredients are the determinant-norm and
+characteristic-polynomial identities in [@mathlib_stable_localization_pin]
+and the quotient-root minimal-polynomial theorem in [@axiom_stacks_5ed82d14].
+'''
+scope = '''
+No field, irreducibility, separability, invertible exponent, or chosen primitive
+root is required. The algebra is the complete polynomial quotient, not one
+chosen root field; reducible polynomials are retained. The binomial norm
+identity is an algebraic ingredient for a later Steinberg argument, not a
+proof of the cohomological Steinberg relation or a norm-residue theorem.
+'''

@@ -232,6 +232,12 @@ order = 40
 introduction = "Actual multiplication characteristic polynomials connect scalar extension, integral closures and DVR residue reduction. A supplied tensor decomposition yields the integral product identity; normalized factor counts then prove the exact ramification-weighted residue-branch multiplicities with all relative residue degrees retained."
 
 [sections.transitions]
+COL-1230 = '''
+For a monic polynomial \(p\), multiplication by its root in the complete
+quotient algebra has characteristic polynomial \(p\). Evaluating the
+scalar-minus-root determinant gives \(N(a-\bar T)=p(a)\); retaining the
+complete quotient is essential even when \(p\) is reducible.
+'''
 COL-0203 = '''
 Under a tensor-product decomposition, multiplication by \(1\otimes x\) acts
 on the factor indexed by \(i\) as multiplication by the \(i\)-th image of \(x\).

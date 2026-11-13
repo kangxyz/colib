@@ -1860,6 +1860,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotie
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Complex
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleNaturality
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Hypercohomology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.ParameterProduct
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.RestrictionInvariance
@@ -3044,6 +3045,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.AffineSpaceInduction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ChangeOfTopology
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.ClosedPoints
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.DerivedChangeOfTopology
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.DerivedNaturality
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EnoughPoints
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartLocalizedRestrictionPreimage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangePreimage
@@ -4812,6 +4814,7 @@ public import Colib.RingTheory.AdicCompletion.OriginalBranch
 public import Colib.RingTheory.AdicCompletion.SemilocalBranches
 public import Colib.RingTheory.AdjoinRoot.EtaleNormalization
 public import Colib.RingTheory.AdjoinRoot.FactorIndexEquiv
+public import Colib.RingTheory.AdjoinRoot.LinearFactorNorm
 public import Colib.RingTheory.AdjoinRoot.LocalLength
 public import Colib.RingTheory.AdjoinRoot.Map
 public import Colib.RingTheory.AdjoinRoot.MapEquiv
