@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1227"
+title = "Global units modulo powers inject into ordinary Kummer cohomology"
+kind = "theorem"
+section = "etale-kummer-symbols"
+order = 10
+primary = "Stacks.Kummer.kummerClassModuloPowers_injective"
+review = "author_checked"
+statement = '''
+Let \(X\) be a scheme and let \(n>0\) be invertible in its ring of global
+sections. The original small-etale Kummer boundary induces an injective
+homomorphism
+\[\Gamma(X,\mathcal O_X)^\times/
+ (\Gamma(X,\mathcal O_X)^\times)^n\longrightarrow H^1(X_{et},\mu_n).\]
+The source is represented additively by the quotient by the range of
+multiplication by \(n\). Its value on a coset is exactly the original
+Kummer boundary applied to the corresponding degree-zero cohomology class.
+'''
+proof = '''
+Use the native degree-zero cohomology equivalence at the terminal object of
+the small etale site to identify global units with \(H^0(X,\mathbf G_m)\).
+Compose it with the native Kummer connecting homomorphism. Exactness says
+that the kernel is the image of the power map; the existing cohomological
+power-map formula identifies this with multiplication by \(n\). Descend by
+this exact kernel and apply the native quotient injectivity criterion.
+'''
+scope = '''
+The statement uses the ordinary AddCommGrpCat-valued small-etale sheaf
+cohomology with its explicit HasExt assumption and independent universe
+parameters. It holds for schemes, hence in particular for spectra of fields.
+It does not assume a primitive root of unity, perfectness or finite
+cohomological dimension. It does not assert surjectivity, a Galois-cocycle
+normalization, field-change naturality, higher cup symbols, an etale Tate
+comparison or the norm-residue theorem. The map retains the actual native
+Kummer boundary, rather than naming a motivic target ordinary cohomology.
+'''

@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1225"
+title = "The actual coefficient cone maps to its strict quotient"
+kind = "definition"
+section = "finite-coefficient-composition"
+order = 20
+primary = "CochainComplex.finiteCoefficients.toQuotient"
+review = "author_checked"
+statement = '''
+For a cochain complex \(K\) in an abelian category and \(n\in\mathbb N\),
+let \(Q_n(K)=\operatorname{coker}(n\operatorname{id}_K)\). There is a canonical
+map from the actual finite coefficient cone
+\(\operatorname{Cone}(n\operatorname{id}_K)\) to \(Q_n(K)\). Its composite
+with the original integral insertion is the cokernel projection.
+Multiplication by \(n\) is zero on \(Q_n(K)\), and on every one of its terms.
+If multiplication by \(n\) on \(K\) is a monomorphism, this map is a
+quasi-isomorphism.
+'''
+proof = '''
+Use the native cone map associated to the cokernel short complex. The
+cokernel relation and its epimorphic projection imply strict annihilation.
+For a monomorphism, the cokernel sequence is short exact, and the native
+mapping-cone comparison is a quasi-isomorphism.
+'''
+scope = '''
+The same construction is specialized to the original ordinary motivic sheaf
+complex and its existing finite coefficient cone. That specialization adds
+no torsion-freeness hypothesis to define the map or to prove annihilation.
+The actual quotient is also lifted to a complex of module sheaves over the
+constant ZMod n ring sheaf, by reusing the existing torsion-sheaf coefficient
+functor. Forgetting coefficients gives a canonical isomorphism with that
+actual quotient. The original finite cone maps to this underlying module
+complex, compatibly with its original cone-to-quotient map. This construction
+requires the displayed standard sheafification and locally-bijective instances.
+The monomorphism hypothesis has not yet been proved for the actual motivic
+terms. No unconditional motivic quasi-isomorphism, derived tensor identification
+or etale Tate comparison is asserted here.
+'''

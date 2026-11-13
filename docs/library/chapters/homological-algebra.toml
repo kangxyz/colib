@@ -227,11 +227,26 @@ Dold–Kan to the good truncation of the shifted K-injective coefficient to
 identify maps into its actual pointed representative with reduced derived Hom.
 '''
 
+COL-1226 = '''
+At a terminal site object, the universe-lifted free representing sheaf is
+canonically the constant integer sheaf. Its Ext and actual derived-Hom groups
+recover ordinary Sheaf.H while retaining independent coefficient universes.
+'''
+
 [[sections]]
 id = "finite-coefficient-composition"
 title = "Finite coefficient triangles"
 order = 20
 introduction = '''Compose two multiplication maps on the original cochain complex. The resulting cone triangle identifies its third arrow with the mod-\(n\) Bockstein and fixes its sign.'''
+
+[sections.transitions]
+
+COL-1225 = '''
+The actual multiplication cone maps canonically to its cokernel. That quotient
+is strictly annihilated by the coefficient level and has a genuine module-sheaf
+model. The cone-to-quotient map is a quasi-isomorphism only under the stated
+monomorphism hypothesis; this hypothesis is not proved for every motivic term.
+'''
 
 [[sections]]
 id = "ext-products"

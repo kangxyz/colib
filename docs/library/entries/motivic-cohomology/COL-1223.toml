@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1223"
+title = "Chain-level étale change of topology for finite motivic coefficients"
+kind = "comparison"
+section = "canonical-motivic-complexes"
+order = 60
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicFiniteEtaleComparison"
+review = "author_checked"
+statement = '''
+Let \(k\) be a field and \(q,n\in\mathbb N\). Write \(K_q\) for the actual
+ordinary Nisnevich motivic sheaf complex underlying COL-0398 and
+\(K_{q,n}=\operatorname{Cone}(n\operatorname{id}_{K_q})\).
+Let \(a\) be the Nisnevich-to-étale sheafification functor of COL-1208 and
+\(r\) the restriction functor on ordinary sheaves. Applying these functors
+degreewise gives the canonical chain map
+\[
+K_{q,n}\longrightarrow r(a(K_{q,n})),
+\]
+whose component in degree \(i\) is the original sheafification unit.
+There is also a specified chain isomorphism
+\[
+a(K_{q,n})\cong\operatorname{Cone}(n\operatorname{id}_{a(K_q)}).
+\]
+This isomorphism preserves the integral-reduction morphism and the connecting
+Bockstein morphism, with the native signed comparison for cochain shifts.
+'''
+proof = '''
+The naturality square for the original sheafification unit supplies the
+chain-map equation. Apply the native additive-functor comparison for mapping
+cones, then identify the image of multiplication by \(n\) using additivity
+and preservation of identity morphisms. The native mapping-cone equations
+for integral inclusion and the signed connecting morphism give the two
+compatibility diagrams.
+'''
+scope = '''
+This uses the actual signed motivic complexes, ordinary sheaves of abelian
+groups, and the native sheafification hypotheses. It is valid at every
+natural coefficient level, without invertibility hypotheses. It is only a
+chain-level comparison: the degreewise restriction functor is not asserted
+to be its right derived functor, the unit is not asserted to be a
+quasi-isomorphism, and no roots-of-unity or cup-product comparison is claimed.
+'''

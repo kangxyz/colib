@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1226"
+title = "Terminal-object cohomology with lifted coefficient universes"
+kind = "comparison"
+section = "derived-hom-comparisons"
+order = 25
+primary = "Stacks.Cohomology.FreeYonedaUnivLE.terminalCohomologyFunctorIso"
+review = "author_checked"
+statement = '''
+Let \((C,J)\) be a site whose morphisms lie in universe \(v\), let \(U\)
+be terminal, and take abelian sheaves in universe \(\max(v,t)\). The lifted
+free abelian representing sheaf of \(U\) is canonically the constant
+\(\operatorname{ULift}\mathbb Z\) sheaf. Consequently its degree-\(n\)
+Ext cohomology, for \(n\in\mathbb N\), is naturally isomorphic to the
+existing ordinary sheaf cohomology \(\mathrm{Sheaf.H}(-,n)\).
+With a derived category, the same comparison starts from the actual derived
+morphisms between the representing single complex and the shifted coefficient
+single complex.
+'''
+proof = '''
+The lifted terminal representable is the singleton presheaf. Apply the free
+abelian group functor and the existing singleton-to-integers comparison,
+then sheafify. Contravariant Ext functoriality in this canonical source
+isomorphism gives the comparison, naturally in the coefficient sheaf.
+'''
+scope = '''
+The source is the actual universe-independent freeYoneda construction used
+by the motivic hypercohomology interfaces. This removes the coefficient
+universe restriction of the pinned Stacks terminal comparison. It does not
+identify an etale Tate complex, prove a big/small-site comparison, or assert
+that a Nisnevich-to-etale comparison is an isomorphism.
+'''

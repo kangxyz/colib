@@ -117,3 +117,16 @@ start = "COL-1209"
 id = "framed-specialization-roots"
 title = "Framed roots and same-specialization sections"
 start = "COL-1212"
+
+[[sections]]
+id = "etale-kummer-symbols"
+title = "Ordinary Kummer classes and units modulo powers"
+order = 30
+introduction = "The native small-étale Kummer boundary identifies the kernel on global units with the subgroup of powers. This yields an injective quotient class without identifying it with a motivic or norm-residue comparison."
+
+[sections.transitions]
+COL-1227 = '''
+Factor the original Kummer class through global units modulo powers. Exactness
+proves injectivity of this actual quotient map. Its specialization to a field
+uses the ordinary étale coefficient object; no higher-weight symbol map is assumed.
+'''

@@ -469,6 +469,7 @@ class LibraryTests(unittest.TestCase):
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
+            "etale-kummer-symbols": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
             "boundary-frames-and-descent":
                 "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
             "homotopy-invariant-transfer-actions":
@@ -753,6 +754,11 @@ class LibraryTests(unittest.TestCase):
             "COL-1113": "Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteSectionPairs",
             "COL-1114": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction",
             "COL-1222": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit",
+            "COL-1223": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology",
+            "COL-1225": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Quotient",
+            "COL-1226": "Colib.CategoryTheory.Sites.TerminalCohomologyUnivLE",
+            "COL-1227": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
+            "COL-1228": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -912,6 +918,23 @@ for (const [root, hash, home, kind, expected] of cases) {
 }
 """
         subprocess.run([node, "-e", script], check=True, capture_output=True, text=True)
+
+    def test_etale_comparison_slices_keep_their_actual_mathematical_owners(self):
+        expected = {
+            "COL-1223": ("motivic-cohomology", "canonical-motivic-complexes"),
+            "COL-1225": ("homological-algebra", "finite-coefficient-composition"),
+            "COL-1226": ("homological-algebra", "derived-hom-comparisons"),
+            "COL-1227": ("etale-cohomology", "etale-kummer-symbols"),
+            "COL-1228": ("motivic-cohomology", "motivic-hypercohomology"),
+        }
+        for identifier, (chapter, section) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(self.library["sections"][section]["chapter"], chapter)
+            self.assertIn(identifier, self.library["sections"][section]["transitions"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier in expected:
+            self.assertTrue(built["entries"][identifier]["primary"])
 
     def test_rigidity_endpoint_records_the_actual_counit(self):
         item = self.library["entries"]["COL-1222"]
@@ -1154,8 +1177,8 @@ for (const [root, hash, home, kind, expected] of cases) {
         self.assertGreater(chapter["order"], chapters["cycles"]["order"])
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
-            "canonical-motivic-complexes": ["COL-0398", "COL-1031", "COL-1037"],
-            "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033"],
+            "canonical-motivic-complexes": ["COL-0398", "COL-1031", "COL-1037", "COL-1223"],
+            "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033", "COL-1228"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [
                 "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"

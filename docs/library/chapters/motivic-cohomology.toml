@@ -62,6 +62,12 @@ transfer tori and their Suslin complexes. The resulting map of motivic
 complexes raises the weight by one and uses the signed shift by one.
 '''
 
+COL-1223 = '''
+Apply ordinary étale sheafification to the actual finite cone. Its unit defines
+the original chain-level comparison, and the additive cone isomorphism preserves
+integral reduction and the signed Bockstein. No quasi-isomorphism is asserted.
+'''
+
 [[sections]]
 id = "motivic-hypercohomology"
 title = "Motivic cohomology and field evaluation"
@@ -92,6 +98,13 @@ Use the common finite dimension bound from COL-1032 to compare a finite
 window of the original complex along the projection. COL-1031 supplies
 invariance in that window. The multiplication cone gives the same
 invariance for finite coefficients.
+'''
+
+COL-1228 = '''
+Exact étale sheafification transports the actual finite-complex derived Hom.
+The canonical source comparison identifies the original representing sheaf.
+This constructs the comparison in every integer degree, not an isomorphism
+theorem or an identification with roots-of-unity coefficients.
 '''
 
 [[sections]]
