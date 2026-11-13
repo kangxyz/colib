@@ -195,7 +195,7 @@ theorem transfer_lambda_comp_graph_eq_id
   let IA := zeroScheme (pullback b π) (tensorModules F c.T) c.aS
   let IB := zeroScheme (pullback b π) c.T c.bS
   have hAB := c.retainedFirstFactors_comap_finite_relativeCartier v hc
-  let : IsNoetherian Y := isNoetherian_of_finiteType (b ≫ t)
+  let : IsNoetherian Y := isNoetherian_of_finiteType_of_isNoetherian (b ≫ t)
   let : IsAffineHom ((v ≫ π) ≫ t) := isAffineHom_of_isAffine _
   have hfull := lambdaBoundary_retained_cover π j s d v hc
   have hA : Set.range IA.subschemeι ⊆ Set.range iV :=

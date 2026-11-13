@@ -7,7 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.Morphisms.Generalizing.GenericPoints
 public import Mathlib.AlgebraicGeometry.Noetherian
-public import Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite
+public import Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericFiber
 
 /-!
 # Actual fibers above generic points
@@ -38,48 +38,9 @@ namespace AlgebraicGeometry.Scheme.Hom
 
 variable {X Y : Scheme.{u}} (f : X ⟶ Y) [LocallyQuasiFinite f]
 
-/-- A generization above a generic target point must equal the original point. -/
-theorem specializes_eq_of_image_generic {x' x : X} (hx : f x ∈ genericPoints Y)
-    (h : x' ⤳ x) : x' = x := by
-  have hy : f x' ⤳ f x := h.map f.continuous
-  have hback : f x ⤳ f x' := specializes_iff_closure_subset.mpr
-    (hx.2 isIrreducible_singleton.closure hy.closure_subset)
-  have heq : f x' = f x := (hy.antisymm hback).eq
-  exact (f.isDiscrete_preimage_singleton (f x)).eq_of_specializes h heq rfl
-
-/-- Locally quasi-finite morphisms reflect actual component generic points. -/
-theorem mem_genericPoints_of_image_generic (x : X) (hx : f x ∈ genericPoints Y) :
-    x ∈ genericPoints X := by
-  refine ⟨isIrreducible_singleton.closure, ?_⟩
-  intro s hs hxs
-  have h : hs.genericPoint ⤳ x := hs.isGenericPoint_genericPoint_closure.specializes
-    (subset_closure (hxs (subset_closure (by simp))))
-  have heq := specializes_eq_of_image_generic f hx h
-  rw [← heq, hs.genericPoint_closure_eq]
-  exact subset_closure
-
 /-- With genuine generalization lifting, the generic-point criterion is bidirectional. -/
 theorem image_mem_genericPoints_iff_of_generalizing (hf : GeneralizingMap f) (x : X) :
     f x ∈ genericPoints Y ↔ x ∈ genericPoints X :=
   ⟨mem_genericPoints_of_image_generic f x, mem_genericPoints_of_generalizing f hf x⟩
-
-/-- The actual point fiber above a generic target point consists exactly of
-source generic points; this is an equivalence, not a product-of-stalks claim. -/
-def genericFiberEquiv (y : genericPoints Y) :
-    {x : X // f x = y.1} ≃ {x : genericPoints X // f x.1 = y.1} where
-  toFun x := ⟨⟨x.1, mem_genericPoints_of_image_generic f x.1 (by simpa only [x.2] using y.2)⟩, x.2⟩
-  invFun x := ⟨x.1.1, x.2⟩
-  left_inv _ := rfl
-  right_inv _ := rfl
-
-@[simp]
-theorem genericFiberEquiv_apply_val (y : genericPoints Y) (x : {x : X // f x = y.1}) :
-    ((genericFiberEquiv f y x).1 : X) = x.1 := rfl
-
-@[simp]
-theorem genericFiberEquiv_symm_apply_val (y : genericPoints Y)
-    (x : {x : genericPoints X // f x.1 = y.1}) :
-    ((genericFiberEquiv f y).symm x : X) = x.1.1 := rfl
-
 
 end AlgebraicGeometry.Scheme.Hom

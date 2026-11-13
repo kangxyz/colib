@@ -538,6 +538,25 @@ jobs:
             echo "::warning::Build stopped with timeout/kill status $status at the job's compiler cutoff. Partial outputs will be saved where possible by the following cache steps; rerun this branch to resume the incremental build."
           fi
           exit "$status"
+      # Diagnostic only: preserve the original Build outcome and collect all candidate
+      # collisions in this same run instead of discovering one per root import retry.
+      - name: Diagnose candidate aggregate import collisions
+        if: ${{ !cancelled() && steps.build.outcome == 'failure' && steps.build.outputs.attempted == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 12
+        working-directory: ${{ inputs.package-directory }}
+        run: |
+          timeout --signal=TERM --kill-after=15s 600s python3 .github/ci-cache/check_import_collisions.py \
+            --groups .github/ci-cache/import-collision-groups.json \
+            --output "$RUNNER_TEMP/import-collision-diagnostics" --timeout 20
+      - name: Upload aggregate import diagnostics
+        if: ${{ !cancelled() && steps.build.outcome == 'failure' && steps.build.outputs.attempted == 'true' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: import-collision-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/import-collision-diagnostics
+          if-no-files-found: ignore
       - name: Quiesce this job's native scopes before cache saving
         id: quiesce
         if: ${{ always() }}

@@ -137,10 +137,10 @@ private theorem finiteCyclePushforward_torusGraphCut {Z : Scheme.{u}}
     (p : k[X]) (hp : p.Monic) (h₀ : IsUnit (p.coeff 0))
     (a : LaurentPolynomial k) (ha : IsUnit a)
     (hs : s = (vq).appTop (chartCutSection (a * toLaurent p))) :
-    letI : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (p₀(s))
+    letI : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (p₀(s))
     finiteCyclePushforward (p₀(s) ≫ j) (AlgebraicCycle.fundamentalCycle Z₀(s)) =
       (p.natDegree : ℤ) • finiteCyclePushforward j (AlgebraicCycle.fundamentalCycle P) := by
-  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (p₀(s))
+  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (p₀(s))
   apply finiteCyclePushforward_chartCut_of_eq q j p hp h₀ a ha
   rw [hs, chartCutParameter_baseChange (torusFieldChart_isPullback q)]
 
@@ -153,8 +153,8 @@ theorem torusIdentityGraph_powerCut_sub {Z : Scheme.{u}} (j : P ⟶ Z) [IsFinite
     let t := torusGraphCoordinate q ^ (n + 1) - torusGraphCoordinate q
     letI : IsFinite (p₀(s)) := torusGraphNumerator_isFinite q n
     letI : IsFinite (p₀(t)) := torusGraphDenominator_isFinite q n hn
-    letI : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (p₀(s))
-    letI : IsNoetherian Z₀(t) := isNoetherian_of_finiteType (p₀(t))
+    letI : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (p₀(s))
+    letI : IsNoetherian Z₀(t) := isNoetherian_of_finiteType_of_isNoetherian (p₀(t))
     finiteCyclePushforward (p₀(s) ≫ j) (AlgebraicCycle.fundamentalCycle Z₀(s)) -
         finiteCyclePushforward (p₀(t) ≫ j) (AlgebraicCycle.fundamentalCycle Z₀(t)) =
       finiteCyclePushforward j (AlgebraicCycle.fundamentalCycle P) := by

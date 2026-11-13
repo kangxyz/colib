@@ -5,6 +5,9 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Basic
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting
+
 public import Colib.AlgebraicGeometry.Sites.Smooth.Nisnevich.Topology
 public import Mathlib.CategoryTheory.Limits.MorphismProperty
 public import Mathlib.CategoryTheory.MorphismProperty.OverAdjunction
@@ -33,53 +36,9 @@ universe u v
 
 namespace AlgebraicGeometry.Scheme
 
-/-- Separated finite-type étale structure morphisms. -/
-abbrev etaleSeparatedFiniteType : MorphismProperty Scheme.{u} :=
-  (@Etale ⊓ @IsSeparated) ⊓ @QuasiCompact
-
-instance etaleSeparatedFiniteType_isStableUnderBaseChange :
-    etaleSeparatedFiniteType.{u}.IsStableUnderBaseChange where
-  of_isPullback sq hg :=
-    ⟨⟨MorphismProperty.IsStableUnderBaseChange.of_isPullback (P := @Etale) sq hg.1.1,
-      MorphismProperty.IsStableUnderBaseChange.of_isPullback (P := @IsSeparated) sq hg.1.2⟩,
-      MorphismProperty.IsStableUnderBaseChange.of_isPullback (P := @QuasiCompact) sq hg.2⟩
-
-instance etaleSeparatedFiniteType_isMultiplicative :
-    etaleSeparatedFiniteType.{u}.IsMultiplicative where
-  id_mem X := ⟨⟨inferInstance, inferInstance⟩, inferInstance⟩
-  comp_mem f g hf hg := by
-    have : Etale f := hf.1.1
-    have : Etale g := hg.1.1
-    have : IsSeparated f := hf.1.2
-    have : IsSeparated g := hg.1.2
-    have : QuasiCompact f := hf.2
-    have : QuasiCompact g := hg.2
-    exact ⟨⟨inferInstance, inferInstance⟩, inferInstance⟩
-
-instance etaleSeparatedFiniteType_hasOfPostcompProperty :
-    etaleSeparatedFiniteType.{u}.HasOfPostcompProperty etaleSeparatedFiniteType where
-  of_postcomp f g hg hfg := by
-    have : Etale g := hg.1.1
-    have : IsSeparated g := hg.1.2
-    have : Etale (f ≫ g) := hfg.1.1
-    have : IsSeparated (f ≫ g) := hfg.1.2
-    have : QuasiCompact (f ≫ g) := hfg.2
-    exact ⟨⟨Etale.of_comp f g, IsSeparated.of_comp f g⟩, QuasiCompact.of_comp f g⟩
-
-/-- The native small site category, retaining the actual schemes and scheme maps. -/
-abbrev EtaleSeparatedFiniteType (S : Scheme.{u}) := etaleSeparatedFiniteType.Over ⊤ S
-
 namespace EtaleSeparatedFiniteType
 
 variable {S T : Scheme.{u}}
-
-instance (X : EtaleSeparatedFiniteType S) : Etale X.hom := X.prop.1.1
-instance (X : EtaleSeparatedFiniteType S) : IsSeparated X.hom := X.prop.1.2
-instance (X : EtaleSeparatedFiniteType S) : QuasiCompact X.hom := X.prop.2
-
-/-- Forget the structure map, without changing the underlying scheme. -/
-abbrev forgetScheme (S : Scheme.{u}) : EtaleSeparatedFiniteType S ⥤ Scheme.{u} :=
-  MorphismProperty.Over.forget _ _ S ⋙ Over.forget S
 
 /-- The actual Nisnevich covering families on the small finite-type site. -/
 def nisnevichPrecoverage (S : Scheme.{u}) : Precoverage (EtaleSeparatedFiniteType S) :=
@@ -104,14 +63,6 @@ theorem ofArrows_mem_nisnevichPrecoverage_iff {X : EtaleSeparatedFiniteType S} {
 def baseChange (f : T ⟶ S) : EtaleSeparatedFiniteType S ⥤ EtaleSeparatedFiniteType T :=
   MorphismProperty.Over.pullback etaleSeparatedFiniteType ⊤ f
 
-/-- Restrict an ambient smooth presheaf to the finite-type étale neighborhood objects. -/
-def toSmoothSite {B : Scheme.{u}} (X : SmoothSite B) :
-    EtaleSeparatedFiniteType X.left ⥤ SmoothSite B where
-  obj U := SmoothSite.mk (U.hom ≫ X.hom)
-  map f := SmoothSite.homMk f.left (by simp [← Category.assoc])
-  map_id _ := rfl
-  map_comp _ _ := rfl
-
 instance (S : Scheme.{u}) : (nisnevichPrecoverage S).HasIsos := by
   unfold nisnevichPrecoverage
   infer_instance
@@ -127,14 +78,6 @@ instance (S : Scheme.{u}) : (nisnevichPrecoverage S).IsStableUnderBaseChange := 
 instance (S : Scheme.{u}) : (forgetScheme S).IsContinuous
     (nisnevichTopology S) Nisnevich.topology :=
   Functor.isContinuous_toGrothendieck_of_pullbacksPreservedBy _ _ _ le_rfl
-
-instance toSmoothSite_preservesPullbacks {B : Scheme.{u}} (X : SmoothSite B) :
-    PreservesLimitsOfShape WalkingCospan (toSmoothSite X) := by
-  have : PreservesLimitsOfShape WalkingCospan
-      (toSmoothSite X ⋙ SmoothSite.forgetScheme B) :=
-    inferInstanceAs (PreservesLimitsOfShape WalkingCospan (forgetScheme X.left))
-  exact preservesLimitsOfShape_of_reflects_of_preserves
-    (toSmoothSite X) (SmoothSite.forgetScheme B)
 
 instance toSmoothSite_isContinuous {B : Scheme.{u}} (X : SmoothSite B) :
     (toSmoothSite X).IsContinuous

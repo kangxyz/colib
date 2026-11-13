@@ -45,12 +45,12 @@ theorem ofFiniteFlatSpan_pair
     (m : D ⟶ pullback Y.hom Z.hom) [IsFinite m]
     [IsFinite (m ≫ pullback.fst Y.hom Z.hom)] [Flat (m ≫ pullback.fst Y.hom Z.hom)] :
     letI : IsNoetherian ((𝟭 Scheme).obj Y.left) := inferInstanceAs (IsNoetherian Y.left)
-    letI := isNoetherian_of_finiteType (m ≫ pullback.fst Y.hom Z.hom)
+    letI := isNoetherian_of_finiteType_of_isNoetherian (m ≫ pullback.fst Y.hom Z.hom)
     ofFiniteFlatSpan (m ≫ pullback.fst Y.hom Z.hom) (m ≫ pullback.snd Y.hom Z.hom)
       (by simp only [Category.assoc, pullback.condition]) =
         finiteFlatSpanFundamental Y.hom Z.hom m := by
   let : IsNoetherian ((𝟭 Scheme).obj Y.left) := inferInstanceAs (IsNoetherian Y.left)
-  let := isNoetherian_of_finiteType (m ≫ pullback.fst Y.hom Z.hom)
+  let := isNoetherian_of_finiteType_of_isNoetherian (m ≫ pullback.fst Y.hom Z.hom)
   apply Subtype.ext
   rw [ofFiniteFlatSpan_val, finiteFlatSpanFundamental_val]
   let h : (m ≫ pullback.fst Y.hom Z.hom) ≫ Y.hom =
@@ -89,8 +89,8 @@ theorem graph_comp_ofFiniteFlatSpan_pair_of_cartesian_endpoint
           m ≫ pullback.snd Y.hom Z.hom) (wholeEndpoint_base φ m) := by
   let : IsNoetherian ((𝟭 Scheme).obj Y.left) := inferInstanceAs (IsNoetherian Y.left)
   let : IsNoetherian ((𝟭 Scheme).obj X.left) := inferInstanceAs (IsNoetherian X.left)
-  let := isNoetherian_of_finiteType (m ≫ pullback.fst Y.hom Z.hom)
-  let := isNoetherian_of_finiteType
+  let := isNoetherian_of_finiteType_of_isNoetherian (m ≫ pullback.fst Y.hom Z.hom)
+  let := isNoetherian_of_finiteType_of_isNoetherian
     (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
   let e := closedSupportEndpointIso X.hom Y.hom Z.hom φ.left q a H m
   let n := pullback.lift

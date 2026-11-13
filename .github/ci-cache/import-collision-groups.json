@@ -1,0 +1,532 @@
+[
+  {
+    "group": "1-forward",
+    "modules": [
+      "StacksFrontier.CategoryTheory.Limits.PiEval",
+      "Colib.CategoryTheory.Pi.Abelian"
+    ],
+    "names": [
+      "CategoryTheory.Pi.evalPreservesLimitsOfShape",
+      "CategoryTheory.Pi.evalPreservesColimitsOfShape"
+    ]
+  },
+  {
+    "group": "1-reverse",
+    "modules": [
+      "Colib.CategoryTheory.Pi.Abelian",
+      "StacksFrontier.CategoryTheory.Limits.PiEval"
+    ],
+    "names": [
+      "CategoryTheory.Pi.evalPreservesLimitsOfShape",
+      "CategoryTheory.Pi.evalPreservesColimitsOfShape"
+    ]
+  },
+  {
+    "group": "2-forward",
+    "modules": [
+      "StacksFrontier.Algebra.Homology.Embedding.MapExtend07Q9",
+      "Colib.Algebra.Homology.Embedding.MapExtend"
+    ],
+    "names": [
+      "HomologicalComplex.mapExtendIso",
+      "HomologicalComplex.mapExtendIso_hom_naturality"
+    ]
+  },
+  {
+    "group": "2-reverse",
+    "modules": [
+      "Colib.Algebra.Homology.Embedding.MapExtend",
+      "StacksFrontier.Algebra.Homology.Embedding.MapExtend07Q9"
+    ],
+    "names": [
+      "HomologicalComplex.mapExtendIso",
+      "HomologicalComplex.mapExtendIso_hom_naturality"
+    ]
+  },
+  {
+    "group": "3-forward",
+    "modules": [
+      "StacksFrontier.Algebra.Homology.MapExtendComplex",
+      "Colib.Algebra.Homology.Embedding.MapExtend"
+    ],
+    "names": [
+      "HomologicalComplex.mapExtendIso_hom_f"
+    ]
+  },
+  {
+    "group": "3-reverse",
+    "modules": [
+      "Colib.Algebra.Homology.Embedding.MapExtend",
+      "StacksFrontier.Algebra.Homology.MapExtendComplex"
+    ],
+    "names": [
+      "HomologicalComplex.mapExtendIso_hom_f"
+    ]
+  },
+  {
+    "group": "4-forward",
+    "modules": [
+      "StacksFrontier.AlgebraicGeometry.EtaleCohomology.CohomologicalDimension.FiniteTypeReduction",
+      "Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.isNoetherian_of_finiteType"
+    ]
+  },
+  {
+    "group": "4-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.Scheme.FiniteTypeNoetherian",
+      "StacksFrontier.AlgebraicGeometry.EtaleCohomology.CohomologicalDimension.FiniteTypeReduction"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.isNoetherian_of_finiteType"
+    ]
+  },
+  {
+    "group": "5-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullPresentationActions",
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorPresentationActions"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.fullMap_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.fullNull_equivariant"
+    ]
+  },
+  {
+    "group": "5-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorPresentationActions",
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterFullPresentationActions"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.fullMap_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.fullNull_equivariant"
+    ]
+  },
+  {
+    "group": "6-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryPresentationActions",
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorPresentationActions"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.enlargement_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.restriction_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.auxiliaryNull_equivariant"
+    ]
+  },
+  {
+    "group": "6-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorPresentationActions",
+      "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryPresentationActions"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.enlargement_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.restriction_equivariant",
+      "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.auxiliaryNull_equivariant"
+    ]
+  },
+  {
+    "group": "7-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.ClosedProjectionFinite",
+      "Colib.RingTheory.Bertini.QuadraticCoordinateFinite"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_finite_of_no_infinity"
+    ]
+  },
+  {
+    "group": "7-reverse",
+    "modules": [
+      "Colib.RingTheory.Bertini.QuadraticCoordinateFinite",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.ClosedProjectionFinite"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_finite_of_no_infinity"
+    ]
+  },
+  {
+    "group": "8-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.ClosedProjectionFinite",
+      "Colib.AlgebraicGeometry.RelativeCurve.Presentation.QuadraticFiniteCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticClosedTuple_isFinite"
+    ]
+  },
+  {
+    "group": "8-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Presentation.QuadraticFiniteCoordinates",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.ClosedProjectionFinite"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticClosedTuple_isFinite"
+    ]
+  },
+  {
+    "group": "9-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Compactification.OriginalEmbedding",
+      "Colib.RingTheory.Bertini.QuadraticValuationBoundary"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.linearIndex",
+      "QuadraticIncidence.InfinityChart.monomialFunction_linear"
+    ]
+  },
+  {
+    "group": "9-reverse",
+    "modules": [
+      "Colib.RingTheory.Bertini.QuadraticValuationBoundary",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Compactification.OriginalEmbedding"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.linearIndex",
+      "QuadraticIncidence.InfinityChart.monomialFunction_linear"
+    ]
+  },
+  {
+    "group": "10-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.ZeroRow",
+      "Colib.RingTheory.Bertini.QuadraticCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom",
+      "QuadraticIncidence.InfinityChart.originalFunction_eq_sum_rows",
+      "QuadraticIncidence.InfinityChart.eraseZeroRow",
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_prepend_zero",
+      "QuadraticIncidence.InfinityChart.noCommonInfinityZero_prepend_zero"
+    ]
+  },
+  {
+    "group": "10-reverse",
+    "modules": [
+      "Colib.RingTheory.Bertini.QuadraticCoordinates",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.ZeroRow"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom",
+      "QuadraticIncidence.InfinityChart.originalFunction_eq_sum_rows",
+      "QuadraticIncidence.InfinityChart.eraseZeroRow",
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_prepend_zero",
+      "QuadraticIncidence.InfinityChart.noCommonInfinityZero_prepend_zero"
+    ]
+  },
+  {
+    "group": "11-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.QuotientCoordinates",
+      "Colib.RingTheory.Bertini.QuadraticQuotientCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticGenerators_quotient",
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_quotient"
+    ]
+  },
+  {
+    "group": "11-reverse",
+    "modules": [
+      "Colib.RingTheory.Bertini.QuadraticQuotientCoordinates",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.QuotientCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.quadraticGenerators_quotient",
+      "QuadraticIncidence.InfinityChart.quadraticCoordinateHom_quotient"
+    ]
+  },
+  {
+    "group": "12-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.RelativeCoordinates",
+      "Colib.RingTheory.Bertini.QuadraticRelativeCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.originalFunction_prepend_succ",
+      "QuadraticIncidence.InfinityChart.quadraticRelativeCoordinateHom",
+      "QuadraticIncidence.InfinityChart.quadraticRelativeCoordinateHom_comp_C"
+    ]
+  },
+  {
+    "group": "12-reverse",
+    "modules": [
+      "Colib.RingTheory.Bertini.QuadraticRelativeCoordinates",
+      "Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Charts.RelativeCoordinates"
+    ],
+    "names": [
+      "QuadraticIncidence.InfinityChart.originalFunction_prepend_succ",
+      "QuadraticIncidence.InfinityChart.quadraticRelativeCoordinateHom",
+      "QuadraticIncidence.InfinityChart.quadraticRelativeCoordinateHom_comp_C"
+    ]
+  },
+  {
+    "group": "13-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.WholeFiberSmoothProjection",
+      "Colib.RingTheory.Polynomial.OriginalFunctionEvaluation"
+    ],
+    "names": [
+      "QuadraticIncidence.eval_map_original_function"
+    ]
+  },
+  {
+    "group": "13-reverse",
+    "modules": [
+      "Colib.RingTheory.Polynomial.OriginalFunctionEvaluation",
+      "Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.WholeFiberSmoothProjection"
+    ],
+    "names": [
+      "QuadraticIncidence.eval_map_original_function"
+    ]
+  },
+  {
+    "group": "14-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.BoundaryPrescribedScheme",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrescribedNeighborhood"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.finite_morphismRestrict_of_le",
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_finite_retainedBoundary_preserving_scheme"
+    ]
+  },
+  {
+    "group": "14-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrescribedNeighborhood",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.BoundaryPrescribedScheme"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.finite_morphismRestrict_of_le",
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_finite_retainedBoundary_preserving_scheme"
+    ]
+  },
+  {
+    "group": "15-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.CompactNeighborhood",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.CompactRetainedPrincipalNeighborhood"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_compact_retained_principal_neighborhood"
+    ]
+  },
+  {
+    "group": "15-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.CompactRetainedPrincipalNeighborhood",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.CompactNeighborhood"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_compact_retained_principal_neighborhood"
+    ]
+  },
+  {
+    "group": "16-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrincipalNeighborhood",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrincipalRetainedBoundary"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_principal_finite_retainedBoundary_preserving_scheme"
+    ]
+  },
+  {
+    "group": "16-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrincipalRetainedBoundary",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.PrincipalNeighborhood"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.exists_principal_finite_retainedBoundary_preserving_scheme"
+    ]
+  },
+  {
+    "group": "17-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.AffineImage",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.AffineRetainedImage"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.affine_smooth_image",
+      "AlgebraicGeometry.Scheme.RelativeCurve.whole_fiber_image"
+    ]
+  },
+  {
+    "group": "17-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.AffineRetainedImage",
+      "Colib.AlgebraicGeometry.RelativeCurve.Compactification.Retained.AffineImage"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.RelativeCurve.affine_smooth_image",
+      "AlgebraicGeometry.Scheme.RelativeCurve.whole_fiber_image"
+    ]
+  },
+  {
+    "group": "18-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericFiber",
+      "Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericPoints"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Hom.specializes_eq_of_image_generic",
+      "AlgebraicGeometry.Scheme.Hom.mem_genericPoints_of_image_generic",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv_apply_val",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv_symm_apply_val"
+    ]
+  },
+  {
+    "group": "18-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericPoints",
+      "Colib.AlgebraicGeometry.Morphisms.QuasiFinite.GenericFiber"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.Hom.specializes_eq_of_image_generic",
+      "AlgebraicGeometry.Scheme.Hom.mem_genericPoints_of_image_generic",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv_apply_val",
+      "AlgebraicGeometry.Scheme.Hom.genericFiberEquiv_symm_apply_val"
+    ]
+  },
+  {
+    "group": "19-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Basic",
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_isStableUnderBaseChange",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_isMultiplicative",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_hasOfPostcompProperty",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.forgetScheme",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.toSmoothSite"
+    ]
+  },
+  {
+    "group": "19-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich",
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Basic"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_isStableUnderBaseChange",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_isMultiplicative",
+      "AlgebraicGeometry.Scheme.etaleSeparatedFiniteType_hasOfPostcompProperty",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.forgetScheme",
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.toSmoothSite"
+    ]
+  },
+  {
+    "group": "20-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting",
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.toSmoothSite_preservesPullbacks"
+    ]
+  },
+  {
+    "group": "20-reverse",
+    "modules": [
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Nisnevich",
+      "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting"
+    ],
+    "names": [
+      "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.toSmoothSite_preservesPullbacks"
+    ]
+  },
+  {
+    "group": "21-forward",
+    "modules": [
+      "StacksFrontier.AlgebraicGeometry.Spaces.CoprimeDegreeSchemeDescent",
+      "Colib.FieldTheory.FiniteExtension.CoprimeTensorField"
+    ],
+    "names": [
+      "Algebra.TensorProduct.isField_of_coprime_finrank"
+    ]
+  },
+  {
+    "group": "21-reverse",
+    "modules": [
+      "Colib.FieldTheory.FiniteExtension.CoprimeTensorField",
+      "StacksFrontier.AlgebraicGeometry.Spaces.CoprimeDegreeSchemeDescent"
+    ],
+    "names": [
+      "Algebra.TensorProduct.isField_of_coprime_finrank"
+    ]
+  },
+  {
+    "group": "22-forward",
+    "modules": [
+      "StacksFrontier.RingTheory.DiscreteValuationRing.Abhyankar.ResidueFieldTensor",
+      "Colib.RingTheory.DiscreteValuationRing.TensorFiberLengths"
+    ],
+    "names": [
+      "IsDiscreteValuationRing.residueTensorMap"
+    ]
+  },
+  {
+    "group": "22-reverse",
+    "modules": [
+      "Colib.RingTheory.DiscreteValuationRing.TensorFiberLengths",
+      "StacksFrontier.RingTheory.DiscreteValuationRing.Abhyankar.ResidueFieldTensor"
+    ],
+    "names": [
+      "IsDiscreteValuationRing.residueTensorMap"
+    ]
+  },
+  {
+    "group": "23-forward",
+    "modules": [
+      "Colib.Topology.LocalCoefficients.MarkedSphericalTwoCycle",
+      "Colib.Topology.LocalCoefficients.SphericalRelativeCycle"
+    ],
+    "names": [
+      "FundamentalGroupoid.LocalCoefficients.spherical_restrictSimplex_eq_const"
+    ]
+  },
+  {
+    "group": "23-reverse",
+    "modules": [
+      "Colib.Topology.LocalCoefficients.SphericalRelativeCycle",
+      "Colib.Topology.LocalCoefficients.MarkedSphericalTwoCycle"
+    ],
+    "names": [
+      "FundamentalGroupoid.LocalCoefficients.spherical_restrictSimplex_eq_const"
+    ]
+  },
+  {
+    "group": "equalizer-regression-forward",
+    "modules": [
+      "Colib.AlgebraicGeometry.Morphisms.Etale.Neighborhood.ClosedFiberEtaleEqualization",
+      "StacksFrontier.AlgebraicGeometry.FundamentalGroup.LocalConnectedness.Basic"
+    ],
+    "names": [
+      "AlgebraicGeometry.isOpenImmersion_equalizer_\u03b9_left"
+    ]
+  },
+  {
+    "group": "equalizer-regression-reverse",
+    "modules": [
+      "StacksFrontier.AlgebraicGeometry.FundamentalGroup.LocalConnectedness.Basic",
+      "Colib.AlgebraicGeometry.Morphisms.Etale.Neighborhood.ClosedFiberEtaleEqualization"
+    ],
+    "names": [
+      "AlgebraicGeometry.isOpenImmersion_equalizer_\u03b9_left"
+    ]
+  }
+]

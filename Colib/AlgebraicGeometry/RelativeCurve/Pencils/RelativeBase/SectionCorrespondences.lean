@@ -69,7 +69,7 @@ def lambda : finiteCorrespondences ((j ≫ π) ≫ t) (rV ≫ t) :=
   let IA := (zeroScheme _ (tensorModules F c.T) c.aS).comap rA
   let IB := (zeroScheme _ c.T c.bS).comap rA
   let hAB := c.retainedFirstFactors_comap_finite_relativeCartier v hc
-  letI : IsNoetherian Y := isNoetherian_of_finiteType ((j ≫ π) ≫ t)
+  letI : IsNoetherian Y := isNoetherian_of_finiteType_of_isNoetherian ((j ≫ π) ≫ t)
   letI : IsAffineHom (rV ≫ t) := isAffineHom_of_isAffine _
   Cor.ofFiniteFlatSpanRaw ((j ≫ π) ≫ t) (rV ≫ t)
       (IA.subschemeι ≫ pullback.fst (j ≫ π) rV) (IA.subschemeι ≫ pullback.snd (j ≫ π) rV)
@@ -88,7 +88,7 @@ def psi : finiteCorrespondences ((a ≫ q) ≫ t) (rV ≫ t) :=
   let IN := (zeroScheme _ c.N c.nS).comap rN
   let ID := (zeroScheme _ c.N c.dS).comap rN
   let hND := c.retainedCorrectionFactors_comap_finite_relativeCartier v hc
-  letI : IsNoetherian A := isNoetherian_of_finiteType ((a ≫ q) ≫ t)
+  letI : IsNoetherian A := isNoetherian_of_finiteType_of_isNoetherian ((a ≫ q) ≫ t)
   letI : IsAffineHom (rV ≫ t) := isAffineHom_of_isAffine _
   Cor.ofFiniteFlatSpanRaw ((a ≫ q) ≫ t) (rV ≫ t)
       (ID.subschemeι ≫ pullback.fst (a ≫ q) rV) (ID.subschemeι ≫ pullback.snd (a ≫ q) rV)

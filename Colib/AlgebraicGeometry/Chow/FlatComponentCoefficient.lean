@@ -74,12 +74,12 @@ omit [AlgebraicGeometry.IsNoetherian D] [Flat f] in
 generic point of the whole pullback. -/
 theorem finiteCyclePushforward_comap_fundamentalCycle_apply_generic
     (I : D.IdealSheafData) (x : genericPoints E) :
-    letI := Scheme.isNoetherian_of_finiteType (I.comap f).subschemeι
+    letI := Scheme.isNoetherian_of_finiteType_of_isNoetherian (I.comap f).subschemeι
     finiteCyclePushforward (I.comap f).subschemeι
       (AlgebraicCycle.fundamentalCycle (I.comap f).subscheme) x.val =
         ((Module.length (E.presheaf.stalk x.val)
           (E.presheaf.stalk x.val ⧸ IdealSheafData.stalk (I.comap f) x.val)).toNat : ℤ) := by
-  have := Scheme.isNoetherian_of_finiteType (I.comap f).subschemeι
+  have := Scheme.isNoetherian_of_finiteType_of_isNoetherian (I.comap f).subschemeι
   calc
     _ = ((closedImmersionQuotientStalkLength (I.comap f).subschemeι x.val).toNat : ℤ) :=
       finiteCyclePushforward_fundamentalCycle_apply_eq_quotientStalkLength
@@ -93,7 +93,9 @@ omit [AlgebraicGeometry.IsNoetherian D] in
 theorem fundamentalCycle_apply_eq_sum_flat_components [Fintype (genericPoints D)]
     (x : genericPoints E) :
     letI : ∀ z : genericPoints D, IsNoetherian ((integralComponentAt z.val).comap f).subscheme :=
-      fun z => Scheme.isNoetherian_of_finiteType ((integralComponentAt z.val).comap f).subschemeι
+      fun z =>
+        Scheme.isNoetherian_of_finiteType_of_isNoetherian
+          ((integralComponentAt z.val).comap f).subschemeι
     AlgebraicCycle.fundamentalCycle E x.val =
       ∑ z : genericPoints D,
         ((Module.length (D.presheaf.stalk z.val) (D.presheaf.stalk z.val)).toNat : ℤ) *
@@ -102,7 +104,9 @@ theorem fundamentalCycle_apply_eq_sum_flat_components [Fintype (genericPoints D)
               ((integralComponentAt z.val).comap f).subscheme) x.val := by
   classical
   let : ∀ z : genericPoints D, IsNoetherian ((integralComponentAt z.val).comap f).subscheme :=
-    fun z => Scheme.isNoetherian_of_finiteType ((integralComponentAt z.val).comap f).subschemeι
+    fun z =>
+      Scheme.isNoetherian_of_finiteType_of_isNoetherian
+        ((integralComponentAt z.val).comap f).subschemeι
   let z₀ : genericPoints D := ⟨f x.val, mem_genericPoints_of_flat f x.property⟩
   rw [Finset.sum_eq_single z₀]
   · rw [finiteCyclePushforward_comap_fundamentalCycle_apply_generic,

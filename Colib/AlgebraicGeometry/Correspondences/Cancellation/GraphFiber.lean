@@ -115,17 +115,17 @@ theorem finiteCyclePushforward_chartCutBaseChange [IsNoetherian P] {Z : Scheme.{
     letI : IsFinite (AffineLineFiber.inclusion f 0 ≫ π) :=
       chartCutBaseChange_isFinite H p hp h₀ a ha
     letI : IsNoetherian (AffineLineFiber.fiber f 0) :=
-      isNoetherian_of_finiteType (AffineLineFiber.inclusion f 0 ≫ π)
+      isNoetherian_of_finiteType_of_isNoetherian (AffineLineFiber.inclusion f 0 ≫ π)
     finiteCyclePushforward ((AffineLineFiber.inclusion f 0 ≫ π) ≫ j)
         (AlgebraicCycle.fundamentalCycle (AffineLineFiber.fiber f 0)) =
       (p.natDegree : ℤ) • finiteCyclePushforward j (AlgebraicCycle.fundamentalCycle P) := by
   let f := v ≫ chartCutParameter (a * toLaurent p)
   let : IsFinite (AffineLineFiber.inclusion f 0 ≫ π) := chartCutBaseChange_isFinite H p hp h₀ a ha
   let : IsNoetherian (AffineLineFiber.fiber f 0) :=
-    isNoetherian_of_finiteType (AffineLineFiber.inclusion f 0 ≫ π)
+    isNoetherian_of_finiteType_of_isNoetherian (AffineLineFiber.inclusion f 0 ≫ π)
   let : IsFinite (projection p) := projection_isFinite p hp
   let : IsNoetherian (pullback q (projection p)) :=
-    isNoetherian_of_finiteType (pullback.fst q (projection p))
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst q (projection p))
   let h := (chartCutBaseChange_isPullback H p h₀ a ha).flip
   let e := h.isoPullback
   have he := finiteCyclePushforward_comp_apply e.hom (pullback.fst q (projection p) ≫ j)

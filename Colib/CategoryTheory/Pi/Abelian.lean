@@ -7,6 +7,7 @@ Authors: kangxyz
 module
 
 public import StacksFrontier.CategoryTheory.Pi.Preadditive
+public import StacksFrontier.CategoryTheory.Limits.PiEval
 public import Mathlib.CategoryTheory.Abelian.SerreClass.Basic
 public import Mathlib.CategoryTheory.Limits.Preserves.Shapes.AbelianImages
 
@@ -83,19 +84,7 @@ instance piHasColimitsOfShape [∀ i, HasColimitsOfShape J (C i)] :
     ⟨familyCocone C F (fun _ => colimit.cocone _),
       familyCoconeIsColimit C F (fun _ => colimit.isColimit _)⟩
 
-instance evalPreservesLimitsOfShape [∀ i, HasLimitsOfShape J (C i)] (i : I) :
-    PreservesLimitsOfShape J (Pi.eval C i) where
-  preservesLimit {F} := by
-    apply preservesLimit_of_preserves_limit_cone
-      (familyConeIsLimit C F (fun j => limit.isLimit (F ⋙ Pi.eval C j)))
-    exact limit.isLimit (F ⋙ Pi.eval C i)
-
-instance evalPreservesColimitsOfShape [∀ i, HasColimitsOfShape J (C i)] (i : I) :
-    PreservesColimitsOfShape J (Pi.eval C i) where
-  preservesColimit {F} := by
-    apply preservesColimit_of_preserves_colimit_cocone
-      (familyCoconeIsColimit C F (fun j => colimit.isColimit (F ⋙ Pi.eval C j)))
-    exact colimit.isColimit (F ⋙ Pi.eval C i)
+-- The evaluation-preservation instances are re-exported from the shared PiEval module.
 end Limits
 
 instance piHasFiniteLimits [∀ i, HasFiniteLimits (C i)] : HasFiniteLimits (∀ i, C i) where

@@ -42,9 +42,9 @@ variable {k : Type u} [Field k] {X Y Z : Scheme.SmoothSite (Spec (.of k))}
 omit [IsNoetherian D] in
 /-- A prime original term retains its actual entire comap component and outer map. -/
 theorem graph_comp_closedSupport_single_val_of_flat (z : genericPoints D) :
-    letI := isNoetherian_of_finiteType
+    letI := isNoetherian_of_finiteType_of_isNoetherian
       (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
-    letI := isNoetherian_of_finiteType
+    letI := isNoetherian_of_finiteType_of_isNoetherian
       ((integralComponentAt z.val).comap
         (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subschemeι
     ((graphFunctor k).map φ ≫ singleFiniteCorrespondence Y.hom Z.hom (m z.val)
@@ -57,9 +57,9 @@ theorem graph_comp_closedSupport_single_val_of_flat (z : genericPoints D) :
         (AlgebraicCycle.fundamentalCycle
           ((integralComponentAt z.val).comap
             (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subscheme) := by
-  have := isNoetherian_of_finiteType
+  have := isNoetherian_of_finiteType_of_isNoetherian
     (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
-  have := isNoetherian_of_finiteType
+  have := isNoetherian_of_finiteType_of_isNoetherian
     ((integralComponentAt z.val).comap
       (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subschemeι
   let hw := isFiniteCorrespondencePoint_finiteFlat_generic Y.hom Z.hom m z
@@ -80,13 +80,13 @@ theorem graph_comp_closedSupport_single_val_of_flat (z : genericPoints D) :
 
 /-- Actual composition is the original length-weighted sum of full component pullbacks. -/
 theorem graph_comp_closedFiniteFlatSpan_val_eq_weighted_flat_pullbacks :
-    letI := isNoetherian_of_finiteType
+    letI := isNoetherian_of_finiteType_of_isNoetherian
       (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
     letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
     letI : ∀ z : genericPoints D, IsNoetherian
         ((integralComponentAt z.val).comap
           (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subscheme :=
-      fun z => isNoetherian_of_finiteType
+      fun z => isNoetherian_of_finiteType_of_isNoetherian
         ((integralComponentAt z.val).comap
           (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subschemeι
     ((graphFunctor k).map φ ≫ finiteFlatSpanFundamental Y.hom Z.hom m).val =
@@ -102,13 +102,13 @@ theorem graph_comp_closedFiniteFlatSpan_val_eq_weighted_flat_pullbacks :
                 ((integralComponentAt z.val).comap
                   (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subscheme)) := by
   classical
-  have := isNoetherian_of_finiteType
+  have := isNoetherian_of_finiteType_of_isNoetherian
     (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
   let : ∀ z : genericPoints D, IsNoetherian
       ((integralComponentAt z.val).comap
         (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subscheme :=
-    fun z => isNoetherian_of_finiteType
+    fun z => isNoetherian_of_finiteType_of_isNoetherian
         ((integralComponentAt z.val).comap
           (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subschemeι
   rw [finiteFlatSpanFundamental_eq_sum_single_of_closed, Preadditive.comp_sum]
@@ -125,7 +125,7 @@ theorem graph_comp_closedFiniteFlatSpan_val_eq_weighted_flat_pullbacks :
 
 /-- A flat graph pulls the entire finite-flat closed family back, with its true weights. -/
 theorem graph_comp_closedFiniteFlatSpan_val_eq_whole_flat_pullback :
-    letI := isNoetherian_of_finiteType
+    letI := isNoetherian_of_finiteType_of_isNoetherian
       (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
     ((graphFunctor k).map φ ≫ finiteFlatSpanFundamental Y.hom Z.hom m).val =
       finiteCyclePushforward
@@ -134,13 +134,13 @@ theorem graph_comp_closedFiniteFlatSpan_val_eq_whole_flat_pullback :
         (AlgebraicCycle.fundamentalCycle
           (pullback φ.left (m ≫ pullback.fst Y.hom Z.hom))) := by
   classical
-  have := isNoetherian_of_finiteType
+  have := isNoetherian_of_finiteType_of_isNoetherian
     (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
   let : ∀ z : genericPoints D, IsNoetherian
       ((integralComponentAt z.val).comap
         (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subscheme :=
-    fun z => isNoetherian_of_finiteType
+    fun z => isNoetherian_of_finiteType_of_isNoetherian
         ((integralComponentAt z.val).comap
           (pullback.snd φ.left (m ≫ pullback.fst Y.hom Z.hom))).subschemeι
   let e := closedSupportGraphFiberMap X.hom Y.hom Z.hom m φ.left

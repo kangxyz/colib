@@ -87,7 +87,7 @@ theorem exists_open_finset_persistent_residueFieldLifting
   let T := I.subscheme
   let j : T ⟶ U := I.subschemeι
   have hj : Set.range j = (Z : Set U) := Scheme.IdealSheafData.range_subschemeι_vanishingIdeal Z
-  have : IsNoetherian T := Scheme.isNoetherian_of_finiteType j
+  have : IsNoetherian T := Scheme.isNoetherian_of_finiteType_of_isNoetherian j
   have : IsReduced T := Scheme.IdealSheafData.isReduced_subscheme_vanishingIdeal Z
   by_cases hx : x ∈ closure (Set.range (j ≫ g))
   · obtain ⟨η, hη⟩ := exists_generic_specializes_of_mem_closure_range (j ≫ g) x hx

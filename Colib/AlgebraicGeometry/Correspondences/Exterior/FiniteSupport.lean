@@ -79,7 +79,7 @@ theorem isNoetherian_exteriorParameterSupport {P S T : Scheme.{u}} (b : P ⟶ S)
       (inferInstance : LocallyOfFiniteType t)
   letI : QuasiCompact (pullback.fst b t) :=
     MorphismProperty.of_isPullback (P := @QuasiCompact) hsq (inferInstance : QuasiCompact t)
-  Scheme.isNoetherian_of_finiteType (pullback.fst b t)
+  Scheme.isNoetherian_of_finiteType_of_isNoetherian (pullback.fst b t)
 
 /-- Push forward the full fundamental cycle of the actual parameter product. -/
 def nativeExteriorFiniteSupportPushforward {k : Type u} [Field k]

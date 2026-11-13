@@ -44,7 +44,7 @@ theorem polynomialComponentEndpoint_coheight_one (a : k) (z : parameterSpace p)
   let d := (integralComponentAt z).subschemeι
   let D := (integralComponentAt z).subscheme
   let : IsIntegral D := isIntegral_integralComponentAt z
-  let : IsNoetherian D := isNoetherian_of_finiteType d
+  let : IsNoetherian D := isNoetherian_of_finiteType_of_isNoetherian d
   let n := relativeDimension T.dimensionFunction b (genericPoint (parameterSpace p))
   have hb : schemeDeltaDimension T b = (n : EInt) :=
     schemeDeltaDimension_eq_genericPoint T b

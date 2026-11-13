@@ -39,14 +39,14 @@ open AlgebraicCycle
 private theorem polynomialEndpointMap_fundamentalCycle_integral {k : Type u} [Field k]
     {D : Scheme.{u}} [IsIntegral D] [IsNoetherian D]
     (f : D ⟶ Spec (.of (Polynomial k))) (a : k) :
-    letI : IsNoetherian (fiber f a) := isNoetherian_of_finiteType (inclusion f a)
+    letI : IsNoetherian (fiber f a) := isNoetherian_of_finiteType_of_isNoetherian (inclusion f a)
     polynomialEndpointMap f a (fundamentalCycle D) = fundamentalCycle (fiber f a) := by
   classical
-  let : IsNoetherian (fiber f a) := isNoetherian_of_finiteType (inclusion f a)
+  let : IsNoetherian (fiber f a) := isNoetherian_of_finiteType_of_isNoetherian (inclusion f a)
   let i := (integralComponentAt (genericPoint D)).subschemeι
   let : IsIso i := isIso_integralComponentAt_genericPoint_inclusion
   let : IsNoetherian (fiber (i ≫ f) a) :=
-    isNoetherian_of_finiteType (inclusion (i ≫ f) a ≫ i)
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (i ≫ f) a ≫ i)
   let : IsIso (AffineLineFiber.fiberMap f a i) :=
     MorphismProperty.of_isPullback (AffineLineFiber.fiberMap_isPullback f a i).flip inferInstance
   rw [fundamentalCycle_eq_single_genericPoint, polynomialEndpointMap_single, one_zsmul]
@@ -136,10 +136,11 @@ theorem graph_comp_torusPowerCutPencilSectionCut [IsIntegral P] [IsNoetherian P]
       p₀ v₀ (torusPowerCutPencilRetainedEndpoint_over k j)
       ((σ(a)).appTop s) hgen₀ := by
   let : IsIntegral W := inferInstanceAs (IsIntegral (pullback b (A₁).hom))
-  let : IsNoetherian W := isNoetherian_of_finiteType π
-  let : IsNoetherian (fiber (sMap(s)) 0) := isNoetherian_of_finiteType (inclusion (sMap(s)) 0)
+  let : IsNoetherian W := isNoetherian_of_finiteType_of_isNoetherian π
+  let : IsNoetherian (fiber (sMap(s)) 0) :=
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (sMap(s)) 0)
   let : IsNoetherian (fiber (sMap₀(a, s)) 0) :=
-    isNoetherian_of_finiteType (inclusion (sMap₀(a, s)) 0)
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (sMap₀(a, s)) 0)
   let : IsFinite (inclusion (sMap(s)) 0 ≫ (m ≫ pullback.fst (B).hom (V).hom)) := by
     rw [torusPowerCutPencilRetainedSupportMap_fst]
     infer_instance
@@ -176,8 +177,8 @@ theorem graph_comp_torusPowerCutPencilSectionCut [IsIntegral P] [IsNoetherian P]
     (torusPowerCutPencilFace_isPullback k X a) m f
     (torusPowerCutPencilRetainedSupport_parameter k j)
   let : IsIntegral F := IsIntegral.of_isIso e.hom
-  let : IsNoetherian F := isNoetherian_of_finiteType e.inv
-  let : IsNoetherian (fiber h 0) := isNoetherian_of_finiteType (inclusion h 0)
+  let : IsNoetherian F := isNoetherian_of_finiteType_of_isNoetherian e.inv
+  let : IsNoetherian (fiber h 0) := isNoetherian_of_finiteType_of_isNoetherian (inclusion h 0)
   have heq : sMap₀(a, s) = e.hom ≫ h := by
     let iₐ : P ⟶ W := σ(a)
     have hi : iₐ ≫ π = 𝟙 P := nativeAdditiveParameterSection_fst b a

@@ -36,11 +36,12 @@ variable {k : Type u} [Field k] {D : Scheme.{u}} [IsNoetherian D]
 
 private theorem finiteCyclePushforward_fundamentalCycle_ker {E : Scheme.{u}}
     [IsNoetherian E] (j : E ⟶ D) [IsClosedImmersion j] :
-    letI : IsNoetherian j.ker.subscheme := isNoetherian_of_finiteType j.ker.subschemeι
+    letI : IsNoetherian j.ker.subscheme :=
+      isNoetherian_of_finiteType_of_isNoetherian j.ker.subschemeι
     finiteCyclePushforward j (fundamentalCycle E) =
       finiteCyclePushforward j.ker.subschemeι (fundamentalCycle j.ker.subscheme) := by
   let I := j.ker
-  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType I.subschemeι
+  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType_of_isNoetherian I.subschemeι
   obtain ⟨e, he⟩ := exists_iso_of_ker_eq j I.subschemeι (I.ker_subschemeι.symm)
   calc
     _ = finiteCyclePushforward (e.hom ≫ I.subschemeι) (fundamentalCycle E) :=

@@ -30,7 +30,7 @@ variable {C : Type u₁} {D : Type u₂} [Category.{v₁} C] [Category.{v₂} D]
 /-- The cone augmentation agrees with the image of the original resolution augmentation. -/
 @[reassoc]
 theorem imageExtendedι_mapExtendIso :
-    I.imageExtendedι R ≫ (I.cocomplex.mapExtendIso R ComplexShape.embeddingUpNat).inv =
+    I.imageExtendedι R ≫ (I.cocomplex.mapExtendIsoRetained R ComplexShape.embeddingUpNat).inv =
       (singleMapHomologicalComplex R (.up ℤ) 0).inv.app Y ≫
         (R.mapHomologicalComplex (.up ℤ)).map I.extendedι := by
   apply from_single_hom_ext
@@ -41,10 +41,10 @@ theorem imageExtendedι_mapExtendIso :
     extendMap_f I.ι ComplexShape.embeddingUpNat (i := 0) rfl]
   have hh (a : Option ℕ) (h : a = some 0) :
       (extend.XIso ((R.mapHomologicalComplex (.up ℕ)).obj I.cocomplex) h).inv ≫
-        (extend.mapXIso I.cocomplex R a).inv = R.map (extend.XIso I.cocomplex h).inv := by
+        (MapExtend.isoX R I.cocomplex a).inv = R.map (extend.XIso I.cocomplex h).inv := by
     subst a
-    simp [extend.XIso, extend.mapXIso, extend.X, Functor.mapHomologicalComplex]
-  simp only [mapExtendIso, mapExtendXIso, imageι_f_zero, imageComplex,
+    simp [extend.XIso, MapExtend.isoX, extend.X, Functor.mapHomologicalComplex]
+  simp only [mapExtendIsoRetained, HomologicalComplex.mapExtendIso, imageι_f_zero, imageComplex,
     singleObjXSelf, singleObjXIsoOfEq, extendXIso,
     Functor.mapHomologicalComplex_obj_X, CochainComplex.single₀_obj_zero,
     Iso.refl_inv, Category.id_comp, ComplexShape.embeddingUpNat_f, Int.cast_ofNat_Int,

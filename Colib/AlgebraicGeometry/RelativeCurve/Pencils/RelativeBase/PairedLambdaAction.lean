@@ -238,7 +238,7 @@ theorem componentLambdaDifference_eq_principal (r : Γ(pullback b π, U)) (hr : 
       let D := (I.comap iB).comap ι₁
       letI := retainedSupportSource_isFinite b b' rB α rfl (I.comap iB)
       letI := retainedSupportSource_flat b b' rB α rfl (I.comap iB)
-      letI := isNoetherian_of_finiteType (D.subschemeι ≫ pullback.fst b' rB)
+      letI := isNoetherian_of_finiteType_of_isNoetherian (D.subschemeι ≫ pullback.fst b' rB)
       letI := Cor.isFinite_relativeSupportTargetMap b' rB rA D g hg'
       ∀ x : A', finiteCyclePushforward (D.subschemeι ≫ m₁)
         (AlgebraicCycle.fundamentalCycle D.subscheme) x =
@@ -247,7 +247,7 @@ theorem componentLambdaDifference_eq_principal (r : Γ(pullback b π, U)) (hr : 
     let D := (I.comap iB).comap ι₁
     let := retainedSupportSource_isFinite b b' rB α rfl (I.comap iB)
     let := retainedSupportSource_flat b b' rB α rfl (I.comap iB)
-    let := isNoetherian_of_finiteType (D.subschemeι ≫ pullback.fst b' rB)
+    let := isNoetherian_of_finiteType_of_isNoetherian (D.subschemeι ≫ pullback.fst b' rB)
     let := Cor.isFinite_relativeSupportTargetMap b' rB rA D g hg'
     intro x
     have hD : D = (I.comap ρ₁).comap iB' :=

@@ -58,7 +58,7 @@ theorem exists_rank_zero_cylinder_restriction_zero
         (pointedBase (.of k) (relativeFieldPoint b K (𝟙 _)))).map f.op s = 0 := by
   let Φ := relativeFieldPoint b K (𝟙 _)
   let D := pointedCylinderValues (.of k) Φ P (pointedBase (.of k) Φ)
-  let : IsNoetherian V.obj.left := Scheme.isNoetherian_of_finiteType
+  let : IsNoetherian V.obj.left := Scheme.isNoetherian_of_finiteType_of_isNoetherian
     (show V.obj.left ⟶ X.left from V.obj.hom)
   obtain ⟨O, hO, hI, a, ha⟩ :=
     exists_integral_affine_point_open_refinement X K b p V.obj V.val
@@ -69,7 +69,7 @@ theorem exists_rank_zero_cylinder_restriction_zero
   let : IsAffine Y.left := hO
   let : IsIntegral Y.left := hI
   let : IsIntegral W.left := hI
-  let : IsNoetherian W.left := Scheme.isNoetherian_of_finiteType
+  let : IsNoetherian W.left := Scheme.isNoetherian_of_finiteType_of_isNoetherian
     (show W.left ⟶ X.left from W.hom)
   let s' : P.obj (op (SmoothSite.Contraction.affineLineCylinder.obj Y)) := D.map f.op s
   obtain ⟨U, hU, hz⟩ := hgen Y s'

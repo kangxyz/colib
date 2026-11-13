@@ -25,7 +25,7 @@ namespace SmoothSite
 variable {S : Scheme.{u}}
 
 instance isNoetherian_left [IsNoetherian S] (X : SmoothSite S) : IsNoetherian X.left :=
-  isNoetherian_of_finiteType (Y := S) X.hom
+  isNoetherian_of_finiteType_of_isNoetherian (Y := S) X.hom
 
 /-- Smooth-site objects over a field have finitely many irreducible components. -/
 theorem finite_irreducibleComponents (K : Type u) [Field K] (X : SmoothSite (Spec (.of K))) :

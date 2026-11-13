@@ -239,14 +239,14 @@ theorem correctionLambdaDifference_eq_principal
       (hI : Set.range I₀.subschemeι ⊆ Set.range iB) :
       let D := I₀.comap iB
       letI := Cor.isFinite_relativeSupportTargetMap b rB rA D g hg'
-      letI := isNoetherian_of_finiteType (D.subschemeι ≫ pullback.fst b rB)
+      letI := isNoetherian_of_finiteType_of_isNoetherian (D.subschemeι ≫ pullback.fst b rB)
       ∀ x : A', finiteCyclePushforward (D.subschemeι ≫ mB)
         (AlgebraicCycle.fundamentalCycle D.subscheme) x =
           finiteCyclePushforward F (cartierCycle I₀) (iA' x) := by
     dsimp only
     let D := I₀.comap iB
     let := Cor.isFinite_relativeSupportTargetMap b rB rA D g hg'
-    let := isNoetherian_of_finiteType (D.subschemeι ≫ pullback.fst b rB)
+    let := isNoetherian_of_finiteType_of_isNoetherian (D.subschemeι ≫ pullback.fst b rB)
     intro x
     obtain ⟨eD, heD⟩ := exists_openSupportIso iB I₀ D rfl hI
     exact (finiteCyclePushforward_cartierCycle_apply_of_supportIso I₀ F iA'
@@ -383,9 +383,10 @@ theorem transfer_lambda_sub_correction_eq_graph
   let : IsNoetherian A := inferInstanceAs (IsNoetherian (A₀).left)
   let : IsNoetherian X := inferInstanceAs (IsNoetherian (X₀).left)
   let : IsNoetherian (pullback b (f ≫ π)) :=
-    isNoetherian_of_finiteType (pullback.fst b (f ≫ π))
-  let : IsNoetherian T₀ := isNoetherian_of_finiteType (pullback.fst b π)
-  let : IsNoetherian (pullback bA π) := isNoetherian_of_finiteType (pullback.fst bA π)
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst b (f ≫ π))
+  let : IsNoetherian T₀ := isNoetherian_of_finiteType_of_isNoetherian (pullback.fst b π)
+  let : IsNoetherian (pullback bA π) :=
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst bA π)
   let : IsAffine A' := retainedProduct_affine b π (a ≫ jA)
   let : IsNoetherian A' :=
     { toIsLocallyNoetherian := LocallyOfFiniteType.isLocallyNoetherian iA'

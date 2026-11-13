@@ -41,7 +41,8 @@ private theorem polynomialComponentEndpoint_eq_zero_of_not_specializes (x : fibe
     polynomialComponentEndpoint f a z x = 0 := by
   let J := integralComponentAt z
   let j := J.subschemeι
-  let : IsNoetherian (fiber (j ≫ f) a) := isNoetherian_of_finiteType (inclusion (j ≫ f) a ≫ j)
+  let : IsNoetherian (fiber (j ≫ f) a) :=
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (j ≫ f) a ≫ j)
   change finiteCyclePushforward (fiberMap f a j) (fundamentalCycle (fiber (j ≫ f) a)) x = 0
   apply finiteCyclePushforward_fundamentalCycle_eq_zero_of_notMem_range
   rintro ⟨w, hw⟩
@@ -65,7 +66,7 @@ private theorem polynomialComponentEndpoint_eq_quotientLength (x : fiber f a) (z
             IdealSheafData.stalk (integralComponentAt z) (inclusion f a x)))).toNat : ℤ) := by
   let J := integralComponentAt z
   let j := J.subschemeι
-  let : IsNoetherian J.subscheme := isNoetherian_of_finiteType j
+  let : IsNoetherian J.subscheme := isNoetherian_of_finiteType_of_isNoetherian j
   have hI : closedImmersionQuotientStalkLength (fiberMap f a j ≫ inclusion f a)
       (inclusion f a x) = Module.length (D.presheaf.stalk (inclusion f a x))
         (D.presheaf.stalk (inclusion f a x) ⧸
@@ -102,13 +103,13 @@ private theorem componentGenericPointsThrough_subschemeι_iff (Z : D.IdealSheafD
 
 private theorem polynomialEndpointMap_pushforward_fundamentalCycle_apply_eq_finsum
     (Z : D.IdealSheafData) (x : fiber f a) :
-    letI : IsNoetherian Z.subscheme := isNoetherian_of_finiteType Z.subschemeι
+    letI : IsNoetherian Z.subscheme := isNoetherian_of_finiteType_of_isNoetherian Z.subschemeι
     let c := finiteCyclePushforward Z.subschemeι (fundamentalCycle Z.subscheme)
     polynomialEndpointMap f a c x =
       ∑ᶠ z ∈ componentGenericPointsThrough Z (inclusion f a x),
         c z * polynomialComponentEndpoint f a z x := by
   classical
-  let : IsNoetherian Z.subscheme := isNoetherian_of_finiteType Z.subschemeι
+  let : IsNoetherian Z.subscheme := isNoetherian_of_finiteType_of_isNoetherian Z.subschemeι
   let : Fintype (genericPoints Z.subscheme) :=
     (fundamentalCycle_genericPoints_finite Z.subscheme).fintype
   let y := inclusion f a x
@@ -164,14 +165,14 @@ theorem polynomialEndpointMap_pushforward_fundamentalCycle_apply_eq_principalEul
     (hproper : ∀ q : PrimeSpectrum (D.presheaf.stalk (inclusion f a x)),
       q.asIdeal ∈ (IdealSheafData.stalk Z (inclusion f a x)).minimalPrimes →
         scalar f a (inclusion f a x) ∉ q.asIdeal) :
-    letI : IsNoetherian Z.subscheme := isNoetherian_of_finiteType Z.subschemeι
+    letI : IsNoetherian Z.subscheme := isNoetherian_of_finiteType_of_isNoetherian Z.subschemeι
     polynomialEndpointMap f a (finiteCyclePushforward Z.subschemeι
         (fundamentalCycle Z.subscheme)) x =
       Module.principalEuler
         (N := D.presheaf.stalk (inclusion f a x) ⧸ IdealSheafData.stalk Z (inclusion f a x))
         (scalar f a (inclusion f a x)) := by
   classical
-  let : IsNoetherian Z.subscheme := isNoetherian_of_finiteType Z.subschemeι
+  let : IsNoetherian Z.subscheme := isNoetherian_of_finiteType_of_isNoetherian Z.subschemeι
   let y := inclusion f a x
   let R := D.presheaf.stalk y
   let t := scalar f a y

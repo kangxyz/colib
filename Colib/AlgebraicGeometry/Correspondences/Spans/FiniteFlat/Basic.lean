@@ -45,7 +45,7 @@ theorem isFinite_spanMap (f : A ⟶ X.left) [IsFinite f] (g : A ⟶ Y.left)
 /-- The native correspondence of the whole actual finite flat span. -/
 def ofFiniteFlatSpan (f : A ⟶ X.left) [IsFinite f] [Flat f]
     (g : A ⟶ Y.left) (h : f ≫ X.hom = g ≫ Y.hom) : Cor.mk X ⟶ Cor.mk Y := by
-  letI : IsNoetherian A := isNoetherian_of_finiteType f
+  letI : IsNoetherian A := isNoetherian_of_finiteType_of_isNoetherian f
   letI : IsFinite (pullback.lift f g h) := isFinite_spanMap f g h
   letI : IsFinite (pullback.lift f g h ≫ pullback.fst X.hom Y.hom) := by
     simpa only [pullback.lift_fst] using (inferInstance : IsFinite f)

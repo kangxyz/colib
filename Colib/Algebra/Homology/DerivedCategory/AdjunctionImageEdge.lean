@@ -51,12 +51,12 @@ theorem imageResolutionHomAddEquiv_eq
         L.mapDerivedCategoryFactors.hom.app _ ≫
           DerivedCategory.Q.map
             ((L.mapHomologicalComplex (.up ℤ)).map
-              (I.cocomplex.mapExtendIso R ComplexShape.embeddingUpNat).inv ≫
+              (I.cocomplex.mapExtendIsoRetained R ComplexShape.embeddingUpNat).inv ≫
                 (NatTrans.mapHomologicalComplex adj.counit (.up ℤ)).app _) := by
   have := adj.mapExtendedResolution_isKInjective I
   change adj.kInjectiveHomAddEquiv K _
     (𝟙 _ ≫ x ≫ DerivedCategory.Q.map
-      (I.cocomplex.mapExtendIso R ComplexShape.embeddingUpNat).inv) = _
+      (I.cocomplex.mapExtendIsoRetained R ComplexShape.embeddingUpNat).inv) = _
   rw [Category.id_comp, adj.kInjectiveHomAddEquiv_eq, Functor.map_comp,
     Category.assoc,
     L.mapDerivedCategoryFactors_hom_naturality_assoc]

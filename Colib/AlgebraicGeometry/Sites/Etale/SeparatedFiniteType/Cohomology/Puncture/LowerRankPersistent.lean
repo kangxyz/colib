@@ -73,7 +73,7 @@ theorem persistentPunctureImageZero_of_lowerRank [IsOpenImmersion j.left]
     change j.left (pullback.snd V.hom j.left y) =
       (show V.left ⟶ X.left from V.hom) (pullback.fst V.hom j.left y) at hc
     exact hc.trans ((congrArg (fun z => (show V.left ⟶ X.left from V.hom) z) he).trans ht)
-  let : IsNoetherian V.left := Scheme.isNoetherian_of_finiteType
+  let : IsNoetherian V.left := Scheme.isNoetherian_of_finiteType_of_isNoetherian
     (show V.left ⟶ X.left from V.hom)
   have hdt : ringKrullDim (V.left.presheaf.stalk t) = d := by
     rw [_root_.AlgebraicGeometry.ringKrullDim_stalk_eq_of_etale

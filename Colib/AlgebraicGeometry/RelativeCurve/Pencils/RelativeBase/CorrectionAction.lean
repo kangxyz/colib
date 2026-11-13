@@ -132,7 +132,7 @@ theorem transfer_psi_comp_graph_eq_zero
   let IN := zeroScheme (pullback b π) c.N c.nS
   let ID := zeroScheme (pullback b π) c.N c.dS
   have hND := c.retainedCorrectionFactors_comap_finite_relativeCartier v hc
-  let : IsNoetherian A := isNoetherian_of_finiteType (b ≫ t)
+  let : IsNoetherian A := isNoetherian_of_finiteType_of_isNoetherian (b ≫ t)
   let : IsAffineHom ((v ≫ π) ≫ t) := isAffineHom_of_isAffine _
   have hcover := psiBoundary_retained_cover q π j p hq a z s hs d v hc
   have hN : Set.range IN.subschemeι ⊆ Set.range iV :=

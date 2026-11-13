@@ -82,7 +82,7 @@ theorem exists_torusPowerCutPencilAdmissibleAt
   let : IsIntegral Pₜ := isIntegral_integralComponentAt z
   let : IsLocallyNoetherian Pₜ := LocallyOfFiniteType.isLocallyNoetherian (Y := Sₖ) b
   let : IsIntegral W := inferInstanceAs (IsIntegral (pullback b (A₁).hom))
-  let : IsNoetherian W := isNoetherian_of_finiteType (Y := Sₖ) bW
+  let : IsNoetherian W := isNoetherian_of_finiteType_of_isNoetherian (Y := Sₖ) bW
   let F : (B).left ⟶ Sₖ := (B).hom
   let : Smooth F := inferInstanceAs (Smooth (B).hom)
   let G := supportParameterExtension g A₁

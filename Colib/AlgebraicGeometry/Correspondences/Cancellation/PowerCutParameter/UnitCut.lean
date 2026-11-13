@@ -114,11 +114,11 @@ private theorem torusPowerParameterUnitPrime_cut_aux
   let i : Z ⟶ P := AffineLineFiber.inclusion (F(w, n, u₀)) 0
   let : IsNoetherian (pullback (C := Scheme) g h) :=
     SmoothSite.isNoetherian_overField k (product (G(X)) (G(Y)))
-  let : IsNoetherian P := Scheme.isNoetherian_of_finiteType j
+  let : IsNoetherian P := Scheme.isNoetherian_of_finiteType_of_isNoetherian j
   let : IsNoetherian X.left := SmoothSite.isNoetherian_overField k X
   let : IsClosedImmersion i := inferInstanceAs
     (IsClosedImmersion (AffineLineFiber.inclusion (F(w, n, u₀)) 0))
-  let : IsNoetherian Z := Scheme.isNoetherian_of_finiteType i
+  let : IsNoetherian Z := Scheme.isNoetherian_of_finiteType_of_isNoetherian i
   let : IsIntegral P := isIntegral_integralComponentAt w
   let gP := j ≫ pullback.fst g h
   let j' := j ≫ J

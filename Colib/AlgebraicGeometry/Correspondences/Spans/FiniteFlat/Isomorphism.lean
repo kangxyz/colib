@@ -36,8 +36,8 @@ theorem ofFiniteFlatSpan_eq_of_iso (e : D ≅ E)
     (g' : E ⟶ Y.left) (h' : f' ≫ X.hom = g' ≫ Y.hom)
     (hf : e.hom ≫ f' = f) (hg : e.hom ≫ g' = g) :
     ofFiniteFlatSpan f g h = ofFiniteFlatSpan f' g' h' := by
-  have := isNoetherian_of_finiteType f
-  have := isNoetherian_of_finiteType f'
+  have := isNoetherian_of_finiteType_of_isNoetherian f
+  have := isNoetherian_of_finiteType_of_isNoetherian f'
   have := isFinite_spanMap f g h
   have := isFinite_spanMap f' g' h'
   have he : e.hom ≫ pullback.lift f' g' h' = pullback.lift f g h := by

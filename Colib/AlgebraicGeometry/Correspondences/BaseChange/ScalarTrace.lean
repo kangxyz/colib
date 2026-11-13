@@ -56,7 +56,7 @@ theorem finiteScalarTrace_comp_graph (X : SmoothSite (Spec (.of k))) :
   let : IsNoetherian ((𝟭 Scheme).obj X.left) := inferInstanceAs (IsNoetherian X.left)
   let p := (SmoothSite.finiteScalarProjection (E := E) X).left
   let : IsNoetherian (SmoothSite.finiteScalarExtension (E := E) X).left :=
-    isNoetherian_of_finiteType p
+    isNoetherian_of_finiteType_of_isNoetherian p
   let d : X.left ⟶ pullback X.hom X.hom :=
     pullback.lift (𝟙 X.left) (𝟙 X.left) (by simp)
   let : IsFinite d := isFinite_spanMap (𝟙 X.left) (𝟙 X.left) _

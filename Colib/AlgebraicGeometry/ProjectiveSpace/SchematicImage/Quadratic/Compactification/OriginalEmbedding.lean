@@ -5,6 +5,7 @@ Authors: kangxyz
 -/
 module
 public import Colib.AlgebraicGeometry.ProjectiveSpace.SchematicImage.Quadratic.Compactification.OriginalClosure
+public import Colib.RingTheory.Bertini.QuadraticCoordinates
 public import Mathlib.AlgebraicGeometry.Morphisms.Immersion
 /-! # The original quadratic map is an actual immersion for original algebra generators -/
 @[expose] public noncomputable section
@@ -18,20 +19,11 @@ namespace QuadraticIncidence.InfinityChart
 variable (k R : Type u) [Field k] [CommRing R] [Algebra k R]
   {σ : Type u} [Finite σ] (g : σ → R)
 
-/-- The original linear coordinate is included in the same degree-at-most-two family. -/
-def linearIndex (i : σ) : Exponent σ := ⟨Finsupp.single i 1, by simp⟩
-
 omit [Finite σ] in
 theorem linearIndex_ne_constant (i : σ) : linearIndex i ≠ constantIndex := by
   intro h
   have h' := congrArg (fun e : Exponent σ => e.val i) h
   simp [linearIndex, constantIndex] at h'
-
-omit [Finite σ] in
-@[simp]
-theorem monomialFunction_linear (i : σ) : monomialFunction k R g (linearIndex i) = g i := by
-  change aeval g (MvPolynomial.X i) = g i
-  simp
 
 /-- No new embedding coordinates are chosen: the original quadratic family already
 contains the given affine algebra generators. -/

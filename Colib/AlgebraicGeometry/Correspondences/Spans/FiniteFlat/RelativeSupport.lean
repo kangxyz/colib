@@ -31,7 +31,7 @@ theorem flat_of_spanLeg_eq {D X : Scheme.{u}} {f g : D ⟶ X}
 theorem isNoetherian_of_finite_spanLeg {D X : Scheme.{u}} [IsNoetherian X]
     (f : D ⟶ X) (hf : IsFinite f) : IsNoetherian D :=
   letI : IsFinite f := hf
-  isNoetherian_of_finiteType f
+  isNoetherian_of_finiteType_of_isNoetherian f
 
 /-- The two literal legs of a whole relative support commute over the ground base. -/
 theorem relativeSupport_legs_over_base {X Y S T : Scheme.{u}}
@@ -58,7 +58,7 @@ def ofFiniteFlatSpanRaw {S X Y D : Scheme.{u}} [IsNoetherian X]
     (f : D ⟶ X) [hFin : IsFinite f] [hFlat : Flat f]
     (g : D ⟶ Y) (h : f ≫ a = g ≫ b) :
     finiteCorrespondences a b :=
-  letI := isNoetherian_of_finiteType f
+  letI := isNoetherian_of_finiteType_of_isNoetherian f
   let m := pullback.lift f g h
   let hm : m ≫ pullback.fst a b = f := pullback.lift_fst f g h
   letI : IsFinite (m ≫ pullback.fst a b) := isFinite_of_spanLeg_eq hm hFin
@@ -74,7 +74,7 @@ def finiteFlatSpanFromAmbientLegRaw {S X Y D : Scheme.{u}} [IsNoetherian X]
     (hf : m ≫ pullback.fst a b = f) (hFin : IsFinite f) (hFlat : Flat f) :
     finiteCorrespondences a b :=
   letI : IsFinite f := hFin
-  letI : IsNoetherian D := isNoetherian_of_finiteType f
+  letI : IsNoetherian D := isNoetherian_of_finiteType_of_isNoetherian f
   letI : IsFinite (m ≫ pullback.fst a b) := isFinite_of_spanLeg_eq hf hFin
   letI : Flat (m ≫ pullback.fst a b) := flat_of_spanLeg_eq hf hFlat
   finiteFlatSpanFundamental a b m

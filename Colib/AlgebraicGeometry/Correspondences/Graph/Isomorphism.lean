@@ -69,7 +69,7 @@ theorem graph_iso_comp_single_val (e : X' ≅ X)
   let : IsIso a := productMap_left_isIso e.inv (𝟙 Y)
   let : IsFinite p := hw.1
   let : IsNoetherian ((𝟭 Scheme).obj X.left) := SmoothSite.isNoetherian_overField k X
-  let : IsNoetherian P := Scheme.isNoetherian_of_finiteType p
+  let : IsNoetherian P := Scheme.isNoetherian_of_finiteType_of_isNoetherian p
   let : IsIntegral P := isIntegral_integralComponentAt w
   let : IsNoetherian X'.left := SmoothSite.isNoetherian_overField k X'
   let : IsNoetherian V := isNoetherian_correspondenceGraphFiber X.hom Y.hom w e.hom.left hw

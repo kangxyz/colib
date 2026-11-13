@@ -113,8 +113,9 @@ theorem nisnevichImage_transfer_pairedLambdaDifference_zero_of_pairedNormUnit
   let : IsNoetherian Y := inferInstanceAs (IsNoetherian (Y₀).left)
   let : IsNoetherian X := inferInstanceAs (IsNoetherian (X₀).left)
   let : IsNoetherian (pullback b (f ≫ π)) :=
-    isNoetherian_of_finiteType (pullback.fst b (f ≫ π))
-  let : IsNoetherian (pullback bA π) := isNoetherian_of_finiteType (pullback.fst bA π)
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst b (f ≫ π))
+  let : IsNoetherian (pullback bA π) :=
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst bA π)
   let : IsNormal (Spec (.of k)) :=
     isNormal_spec_of_isNormalRing (IsNormalRing.of_isIntegrallyClosed k)
   let : IsNormal Y := AlgebraicGeometry.isNormal_of_smooth (b ≫ t)
@@ -142,9 +143,10 @@ theorem nisnevichImage_transfer_pairedLambdaDifference_zero_of_pairedNormUnit
   let : IsNoetherian (K y).toScheme := inferInstanceAs (IsNoetherian (Ksite y).left)
   let ρ := retainedSourceChange b (bK y) π (K y).ι rfl
   let : IsIntegral (pullback (bK y) π) := hIntegral (K y).toScheme (bK y)
-  let : IsNoetherian (pullback (bK y) π) := isNoetherian_of_finiteType (pullback.fst (bK y) π)
+  let : IsNoetherian (pullback (bK y) π) :=
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst (bK y) π)
   let : IsNoetherian (pullback (bK y) (f ≫ π)) :=
-    isNoetherian_of_finiteType (pullback.fst (bK y) (f ≫ π))
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst (bK y) (f ≫ π))
   let : Nonempty (retainedProduct (bK y) π (a ≫ jA)) := by
     let x : (K y).toScheme := ⟨y, hmem y⟩
     obtain ⟨w, hw⟩ := hPuncture (bK y x)

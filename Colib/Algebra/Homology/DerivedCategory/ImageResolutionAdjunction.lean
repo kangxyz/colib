@@ -54,7 +54,7 @@ theorem mapExtendedResolution_isKInjective :
         ComplexShape.embeddingUpNat) :=
     adj.imageResolution_isKInjective I
   exact CochainComplex.isKInjective_of_iso
-    (I.cocomplex.mapExtendIso R ComplexShape.embeddingUpNat).symm
+    (I.cocomplex.mapExtendIsoRetained R ComplexShape.embeddingUpNat).symm
 
 variable [HasDerivedCategory.{w₁} C] [HasDerivedCategory.{w₂} D]
 
@@ -67,7 +67,7 @@ def imageResolutionHomAddEquiv (K : CochainComplex C ℤ) :
   have := adj.mapExtendedResolution_isKInjective I
   exact (Iso.homCongrAddEquiv (Iso.refl _)
     ((DerivedCategory.Q.mapIso
-      (I.cocomplex.mapExtendIso R ComplexShape.embeddingUpNat)).symm)).trans
+      (I.cocomplex.mapExtendIsoRetained R ComplexShape.embeddingUpNat)).symm)).trans
       (adj.kInjectiveHomAddEquiv K _)
 
 end CategoryTheory.Adjunction

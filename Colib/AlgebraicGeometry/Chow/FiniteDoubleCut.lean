@@ -41,7 +41,7 @@ theorem doubleCut_length_ne_top_of_finite
           IdealSheafData.stalk j.ker (inclusion f a x))) ≠ ⊤ := by
   let i := inclusion f a
   let d := fiberMap f a j
-  let : IsNoetherian (fiber (j ≫ f) a) := isNoetherian_of_finiteType (d ≫ i)
+  let : IsNoetherian (fiber (j ≫ f) a) := isNoetherian_of_finiteType_of_isNoetherian (d ≫ i)
   let : IsFinite (d ≫ v) :=
     MorphismProperty.of_isPullback ((fiberMap_isPullback f a j).paste_horiz hv).flip
       (inferInstance : IsFinite (j ≫ p))

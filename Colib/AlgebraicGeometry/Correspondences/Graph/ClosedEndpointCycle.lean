@@ -117,7 +117,7 @@ omit [IsFinite (m ≫ pullback.fst Y.hom Z.hom)] [Flat (m ≫ pullback.fst Y.hom
 /-- An admissible original support point has its full original component endpoint cycle. -/
 theorem graph_comp_closedSupport_single_val_of_admissible (z : D)
     (hw : IsFiniteCorrespondencePoint Y.hom Z.hom (m z)) :
-    letI := isNoetherian_of_finiteType (integralComponentAt z).subschemeι
+    letI := isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z).subschemeι
     ((graphFunctor k).map φ ≫ singleFiniteCorrespondence Y.hom Z.hom (m z)
       hw 1).val =
       finiteCyclePushforward
@@ -128,7 +128,7 @@ theorem graph_comp_closedSupport_single_val_of_admissible (z : D)
         (AlgebraicCycle.fundamentalCycle
           (fiber ((integralComponentAt z).subschemeι ≫ m ≫
             pullback.fst Y.hom Z.hom ≫ q) a)) := by
-  have := isNoetherian_of_finiteType (integralComponentAt z).subschemeι
+  have := isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z).subschemeι
   have := isNoetherian_correspondenceGraphFiber (X := X.left)
     Y.hom Z.hom (m z) φ.left hw
   have := isFinite_correspondenceGraphFiberMap X.hom Y.hom Z.hom (m z)
@@ -147,7 +147,7 @@ theorem graph_comp_closedSupport_single_val_of_admissible (z : D)
 
 /-- Each original generic support term has the actual original component endpoint cycle. -/
 theorem graph_comp_closedSupport_single_val (z : genericPoints D) :
-    letI := isNoetherian_of_finiteType (integralComponentAt z.val).subschemeι
+    letI := isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z.val).subschemeι
     ((graphFunctor k).map φ ≫ singleFiniteCorrespondence Y.hom Z.hom (m z.val)
       (isFiniteCorrespondencePoint_finiteFlat_generic Y.hom Z.hom m z) 1).val =
       finiteCyclePushforward
@@ -165,7 +165,7 @@ theorem graph_comp_closedSupport_single_val (z : genericPoints D) :
 theorem graph_comp_closedFiniteFlatSpan_val_eq_weighted_endpoints :
     letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
     letI : ∀ z : genericPoints D, IsNoetherian (integralComponentAt z.val).subscheme :=
-      fun z => isNoetherian_of_finiteType (integralComponentAt z.val).subschemeι
+      fun z => isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z.val).subschemeι
     ((graphFunctor k).map φ ≫ finiteFlatSpanFundamental Y.hom Z.hom m).val =
       finiteCyclePushforward
         (closedSupportEndpointMap X.hom Y.hom Z.hom φ.left
@@ -181,7 +181,7 @@ theorem graph_comp_closedFiniteFlatSpan_val_eq_weighted_endpoints :
   classical
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
   let : ∀ z : genericPoints D, IsNoetherian (integralComponentAt z.val).subscheme :=
-    fun z => isNoetherian_of_finiteType (integralComponentAt z.val).subschemeι
+    fun z => isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z.val).subschemeι
   rw [finiteFlatSpanFundamental_eq_sum_single_of_closed, Preadditive.comp_sum]
   change (finiteCorrespondences X.hom Z.hom).subtype _ = _
   rw [map_sum, map_sum]
@@ -205,7 +205,7 @@ theorem graph_comp_closedFiniteFlatSpan_val_eq_whole_endpoint :
   classical
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D).fintype
   let : ∀ z : genericPoints D, IsNoetherian (integralComponentAt z.val).subscheme :=
-    fun z => isNoetherian_of_finiteType (integralComponentAt z.val).subschemeι
+    fun z => isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z.val).subschemeι
   have : Flat (m ≫ pullback.fst Y.hom Z.hom ≫ q) := by
     rw [← Category.assoc]
     infer_instance

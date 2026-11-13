@@ -15,6 +15,16 @@ namespace QuadraticIncidence.InfinityChart
 variable (k R : Type u) [Field k] [CommRing R] [Algebra k R]
   {σ : Type u} [Fintype σ] (g : σ → R) (d : ℕ)
 
+/-- The original affine generators occur among the unchanged quadratic monomials. -/
+def linearIndex (i : σ) : Exponent σ := ⟨Finsupp.single i 1, by simp⟩
+
+omit [Fintype σ] in
+@[simp]
+theorem monomialFunction_linear (i : σ) :
+    monomialFunction k R g (linearIndex i) = g i := by
+  change aeval g (X i) = g i
+  exact aeval_X _ _
+
 /-- The unchanged original coordinate map with any number of rows. -/
 def quadraticCoordinateHom (c : Fin d × Exponent σ → k) :
     MvPolynomial (Fin d) k →+* R :=

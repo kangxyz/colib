@@ -35,10 +35,10 @@ def retainedIdealSpan (I : (pullback q r).IdealSheafData)
   let h : f ≫ q ≫ t = g ≫ r ≫ t := by
     simp only [f, g, Category.assoc, pullback.condition_assoc]
   let z := pullback.lift f g h
-  let : IsNoetherian X := isNoetherian_of_finiteType (q ≫ t)
+  let : IsNoetherian X := isNoetherian_of_finiteType_of_isNoetherian (q ≫ t)
   let : IsFinite f := inferInstanceAs (IsFinite (I.subschemeι ≫ pullback.fst q r))
   let : Flat f := inferInstanceAs (Flat (I.subschemeι ≫ pullback.fst q r))
-  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType f
+  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType_of_isNoetherian f
   have hf : z ≫ pullback.fst (q ≫ t) (r ≫ t) = f := pullback.lift_fst _ _ _
   let : IsFinite (z ≫ pullback.fst (q ≫ t) (r ≫ t)) := hf.symm ▸ ‹IsFinite f›
   let : Flat (z ≫ pullback.fst (q ≫ t) (r ≫ t)) := hf.symm ▸ ‹Flat f›
@@ -58,10 +58,10 @@ theorem retainedSpan_add_of_ideal_product (I J K : (pullback q r).IdealSheafData
   let m := forgetBaseProductMap t q r
   let : IsClosedImmersion m := inferInstanceAs (IsClosedImmersion (forgetBaseProductMap t q r))
   let : IsFinite m := inferInstance
-  let : IsNoetherian X := isNoetherian_of_finiteType (q ≫ t)
-  let := isNoetherian_of_finiteType (I.subschemeι ≫ pullback.fst q r)
-  let := isNoetherian_of_finiteType (J.subschemeι ≫ pullback.fst q r)
-  let := isNoetherian_of_finiteType (K.subschemeι ≫ pullback.fst q r)
+  let : IsNoetherian X := isNoetherian_of_finiteType_of_isNoetherian (q ≫ t)
+  let := isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ pullback.fst q r)
+  let := isNoetherian_of_finiteType_of_isNoetherian (J.subschemeι ≫ pullback.fst q r)
+  let := isNoetherian_of_finiteType_of_isNoetherian (K.subschemeι ≫ pullback.fst q r)
   have hmf : m ≫ pullback.fst (q ≫ t) (r ≫ t) = pullback.fst q r :=
     forgetBaseProductMap_fst t q r
   have hms : m ≫ pullback.snd (q ≫ t) (r ≫ t) = pullback.snd q r :=

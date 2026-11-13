@@ -130,7 +130,7 @@ theorem retainedIdealDifference_source_endpoints
     rw [retainedSpan_add_of_ideal_product t q r G Pole H₀
         (isLocallyPrincipal_of_isEffectiveCartierDivisor G inferInstance) hP h₀,
       add_sub_cancel_right]
-    let : IsNoetherian X := isNoetherian_of_finiteType (q ≫ t)
+    let : IsNoetherian X := isNoetherian_of_finiteType_of_isNoetherian (q ≫ t)
     let : IsFinite ((G).subschemeι ≫ pullback.fst q r) := hGraphFin
     let : Flat ((G).subschemeι ≫ pullback.fst q r) := hGraphFlat
     have hId : (𝟙 X) ≫ (q ≫ t) = φ ≫ (r ≫ t) := by

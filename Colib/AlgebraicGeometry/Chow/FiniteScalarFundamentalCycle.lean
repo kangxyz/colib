@@ -57,12 +57,13 @@ theorem finitePushforward_scalar_fundamentalCycle {X : Scheme.{u}} [IsNoetherian
     (q : X ⟶ Spec (.of k)) :
     let p := pullback.fst q (Spec.map (CommRingCat.ofHom (algebraMap k E)))
     letI : IsNoetherian (pullback q (Spec.map (CommRingCat.ofHom (algebraMap k E)))) :=
-      isNoetherian_of_finiteType p
+      isNoetherian_of_finiteType_of_isNoetherian p
     finiteCyclePushforward p (AlgebraicCycle.fundamentalCycle _) =
       (Module.finrank k E : ℤ) • AlgebraicCycle.fundamentalCycle X := by
   dsimp only
   let : IsNoetherian (pullback q (Spec.map (CommRingCat.ofHom (algebraMap k E)))) :=
-    isNoetherian_of_finiteType (pullback.fst q (Spec.map (CommRingCat.ofHom (algebraMap k E))))
+    isNoetherian_of_finiteType_of_isNoetherian
+        (pullback.fst q (Spec.map (CommRingCat.ofHom (algebraMap k E))))
   apply finiteCyclePushforward_fundamentalCycle_of_constant_finrank
   exact fun x => finrank_scalarProjection q x
 

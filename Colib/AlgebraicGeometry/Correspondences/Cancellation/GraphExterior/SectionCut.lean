@@ -39,7 +39,7 @@ local notation "gₖ" => (multiplicativeGroupBaseChange Sₖ ↘ Sₖ)
 
 private theorem isNoetherian_of_finite_map {A B : Scheme.{u}} [IsNoetherian B]
     (f : A ⟶ B) [IsFinite f] : IsNoetherian A :=
-  Scheme.isNoetherian_of_finiteType f
+  Scheme.isNoetherian_of_finiteType_of_isNoetherian f
 
 section Base
 
@@ -116,7 +116,7 @@ theorem signedSectionCutCorrespondence_exteriorIdentity
     rw [hbase, ht]
     exact torusGraphDenominator_isFinite bW n hn
   let : IsFinite pW := hz.1
-  let : IsNoetherian (W).subscheme := isNoetherian_of_finiteType pW
+  let : IsNoetherian (W).subscheme := isNoetherian_of_finiteType_of_isNoetherian pW
   let : IsIntegral (W).subscheme := isIntegral_integralComponentAt z
   let : IsNoetherian Z₀(p,s) := isNoetherian_of_finite_map (i₀(p,s) ≫ π)
   let : IsNoetherian Z₀(p,t) := isNoetherian_of_finite_map (i₀(p,t) ≫ π)

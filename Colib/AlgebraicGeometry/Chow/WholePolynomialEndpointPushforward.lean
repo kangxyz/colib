@@ -61,8 +61,10 @@ theorem polynomialComponentEndpoint_closed_image (z : E) :
   let v := (integralComponentAt (j z)).subschemeι
   let e := integralComponentMap j z
   let : IsIso e := integralComponentMap_isIso_of_isClosedImmersion j z
-  let : IsNoetherian (integralComponentAt z).subscheme := isNoetherian_of_finiteType u
-  let : IsNoetherian (integralComponentAt (j z)).subscheme := isNoetherian_of_finiteType v
+  let : IsNoetherian (integralComponentAt z).subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian u
+  let : IsNoetherian (integralComponentAt (j z)).subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian v
   have he : e ≫ v = u ≫ j := integralComponentMap_subschemeι j z
   have hfamily : (u ≫ (j ≫ f)) ≫ 𝟙 _ = e ≫ (v ≫ f) := by
     rw [Category.comp_id, ← Category.assoc e v f, he, Category.assoc]
@@ -130,7 +132,7 @@ theorem polynomialEndpointMap_fundamentalCycle_apply_of_regular
     (Finset.sum_subtype h.toFinset (fun z => h.mem_toFinset) d).symm.trans
       (hs.symm.trans (sum_apply_smul_single_eq_self_on_univ s))
   let : ∀ z : genericPoints D, IsNoetherian (integralComponentAt z.val).subscheme :=
-    fun z => isNoetherian_of_finiteType (integralComponentAt z.val).subschemeι
+    fun z => isNoetherian_of_finiteType_of_isNoetherian (integralComponentAt z.val).subschemeι
   rw [show fundamentalCycle D = c from rfl, ← hd]
   simp only [d, map_sum, polynomialEndpointMap_single, coe_sum, Finset.sum_apply,
     coe_zsmul, Pi.smul_apply]

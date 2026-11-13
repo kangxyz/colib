@@ -98,7 +98,7 @@ private theorem graph_comp_torusPowerCutPencilPrime_of_commonFactor
   let : IsIntegral Pₜ := isIntegral_integralComponentAt z
   let : IsNoetherian (torusPowerCutAmbient k X Y) :=
     SmoothSite.isNoetherian_overField k (product XG YG)
-  let : IsNoetherian Pₜ := isNoetherian_of_finiteType j
+  let : IsNoetherian Pₜ := isNoetherian_of_finiteType_of_isNoetherian j
   let τ := multiplicativeGroupBaseChange Sₖ ↘ Sₖ
   let g₀ : Pₜ ⟶ pullback X.hom τ := g
   let : IsFinite g₀ := hz.1

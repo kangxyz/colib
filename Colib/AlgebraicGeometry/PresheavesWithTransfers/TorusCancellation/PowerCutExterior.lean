@@ -98,7 +98,7 @@ private theorem innerSectionCut_eq_exterior
   let j := (integralComponentAt w).subschemeι
   let : IsNoetherian (pullback (C := Scheme) (G(X)).hom (G(Y)).hom) :=
     SmoothSite.isNoetherian_overField k (product (G(X)) (G(Y)))
-  let : IsNoetherian P := isNoetherian_of_finiteType j
+  let : IsNoetherian P := isNoetherian_of_finiteType_of_isNoetherian j
   let pT : D₀ ⟶ (G(X)).left := pullbackParameterExtensionMap p X.hom (T).hom
   let qT : D₀ ⟶ (G(Y)).left := sectionCutExteriorTarget T p q h
   let p'₀ : D₀ ⟶ (G(X)).left := (e).hom ≫ p'

@@ -61,15 +61,15 @@ theorem finiteCyclePushforward_fundamentalCycle_add_of_ideal_product
     [IsFinite (K.subschemeι ≫ p)]
     [Flat (I.subschemeι ≫ p)] [Flat (J.subschemeι ≫ p)] [Flat (K.subschemeι ≫ p)]
     (hI : IsLocallyPrincipal I) (hJ : IsEffectiveCartierDivisor J) (hK : K = I * J) :
-    letI := Scheme.isNoetherian_of_finiteType (I.subschemeι ≫ p)
-    letI := Scheme.isNoetherian_of_finiteType (J.subschemeι ≫ p)
-    letI := Scheme.isNoetherian_of_finiteType (K.subschemeι ≫ p)
+    letI := Scheme.isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ p)
+    letI := Scheme.isNoetherian_of_finiteType_of_isNoetherian (J.subschemeι ≫ p)
+    letI := Scheme.isNoetherian_of_finiteType_of_isNoetherian (K.subschemeι ≫ p)
     finiteCyclePushforward K.subschemeι (AlgebraicCycle.fundamentalCycle K.subscheme) =
       finiteCyclePushforward I.subschemeι (AlgebraicCycle.fundamentalCycle I.subscheme) +
         finiteCyclePushforward J.subschemeι (AlgebraicCycle.fundamentalCycle J.subscheme) := by
-  have := Scheme.isNoetherian_of_finiteType (I.subschemeι ≫ p)
-  have := Scheme.isNoetherian_of_finiteType (J.subschemeι ≫ p)
-  have := Scheme.isNoetherian_of_finiteType (K.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType_of_isNoetherian (J.subschemeι ≫ p)
+  have := Scheme.isNoetherian_of_finiteType_of_isNoetherian (K.subschemeι ≫ p)
   apply finiteCyclePushforward_fundamentalCycle_mul_of_stalk_ker
     p I.subschemeι J.subschemeι K.subschemeι
   intro x hx

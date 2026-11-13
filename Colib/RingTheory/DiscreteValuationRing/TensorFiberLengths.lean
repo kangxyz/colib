@@ -8,6 +8,7 @@ module
 public import Colib.RingTheory.Charpoly.DVRResidueArbitrary
 public import Colib.RingTheory.Charpoly.IntegralTensorProduct
 public import Colib.RingTheory.DiscreteValuationRing.RamificationSquare
+public import StacksFrontier.RingTheory.DiscreteValuationRing.Abhyankar.ResidueFieldTensor
 public import Colib.RingTheory.Polynomial.PowerFactorCount
 import Mathlib.FieldTheory.SeparableClosure
 import Mathlib.RingTheory.Adjoin.PowerBasis
@@ -253,22 +254,13 @@ variable (R S T U : Type u)
   [IsLocalHom (algebraMap R S)] [IsLocalHom (algebraMap R T)]
   [IsLocalHom (algebraMap R U)] [IsLocalHom (algebraMap S U)] [IsLocalHom (algebraMap T U)]
 
-/-- The tensor of the actual residue maps to a common residue field. -/
-def residueTensorMap :
-    ResidueField T ⊗[ResidueField R] ResidueField S →ₐ[ResidueField T] ResidueField U := by
-  let : IsLocalHom (IsScalarTower.toAlgHom R S U) :=
-    ⟨fun x hx => IsUnit.of_map (algebraMap S U) x hx⟩
-  exact Algebra.TensorProduct.lift (Algebra.ofId (ResidueField T) (ResidueField U))
-    (ResidueField.mapAlgHom' (IsScalarTower.toAlgHom R S U)) (fun _ _ => Commute.all _ _)
+-- The tensor of the actual residue maps is re-exported from the canonical Stacks module.
 
 /-- The source residue field maps through the original upper local ring map. -/
 theorem residueTensorMap_one_tmul (s : ResidueField S) :
     residueTensorMap R S T U (1 ⊗ₜ[ResidueField R] s) =
       ResidueField.map (algebraMap S U) s := by
-  obtain ⟨x, rfl⟩ := residue_surjective s
-  unfold residueTensorMap
-  rw [Algebra.TensorProduct.lift_tmul, map_one, one_mul, ResidueField.mapAlgHom'_residue,
-    ResidueField.map_residue]
+  simp only [residueTensorMap, Algebra.TensorProduct.lift_tmul, map_one, one_mul]
   rfl
 
 end ResidueTensor

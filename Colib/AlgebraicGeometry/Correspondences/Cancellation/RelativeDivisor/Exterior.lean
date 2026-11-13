@@ -216,11 +216,11 @@ theorem sectionCutCorrespondence_exterior
   let : IsFinite m := sectionCutSupportMap_isFinite p g h s
   let : IsFinite mT := @sectionCutSupportMap_isFinite k _ (product X T) (product Y T) PT
     pT gT hT sT hfT
-  let : IsNoetherian Z := isNoetherian_of_finiteType (i ≫ p)
+  let : IsNoetherian Z := isNoetherian_of_finiteType_of_isNoetherian (i ≫ p)
   let : IsNoetherian
       (pullback (product X T).hom (product Y T).hom : Scheme.{u}) :=
     inferInstanceAs (IsNoetherian (product (product X T) (product Y T)).left)
-  let : IsNoetherian ZT := Scheme.isNoetherian_of_finiteType mT
+  let : IsNoetherian ZT := Scheme.isNoetherian_of_finiteType_of_isNoetherian mT
   let : IsFinite m' := isFinite_exteriorParameterSupportMap m b T.hom
   let : IsNoetherian Z' := isNoetherian_exteriorParameterSupport bZ T.hom
   let : IsFinite (m' ≫ δ) := MorphismProperty.comp_mem (@IsFinite) _ _

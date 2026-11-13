@@ -138,7 +138,8 @@ variable {k : Type u} [Field k] {P : Scheme.{u}} [IsNoetherian P]
 /-- The whole endpoint of the integral closed support of an original point. -/
 def polynomialComponentEndpoint (z : P) : AlgebraicCycle (fiber f a) ℤ := by
   let i := (integralComponentAt z).subschemeι
-  let : IsNoetherian (fiber (i ≫ f) a) := isNoetherian_of_finiteType (inclusion (i ≫ f) a ≫ i)
+  let : IsNoetherian (fiber (i ≫ f) a) :=
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (i ≫ f) a ≫ i)
   exact finiteCyclePushforward (fiberMap f a i) (fundamentalCycle (fiber (i ≫ f) a))
 
 /-- Intersect each closed component with the same full polynomial endpoint. -/

@@ -42,7 +42,7 @@ theorem finiteCyclePushforward_polynomialEndpointMap_fundamentalCycle_eq_sum
       ∑ z : genericPoints D,
         let j := (integralComponentAt z.val).subschemeι
         letI : IsNoetherian (fiber (j ≫ f) a) :=
-          isNoetherian_of_finiteType (inclusion (j ≫ f) a ≫ j)
+          isNoetherian_of_finiteType_of_isNoetherian (inclusion (j ≫ f) a ≫ j)
         ((Module.length (D.presheaf.stalk z.val) (D.presheaf.stalk z.val)).toNat : ℤ) •
           finiteCyclePushforward ((inclusion (j ≫ f) a ≫ j) ≫ m)
             (fundamentalCycle (fiber (j ≫ f) a)) := by
@@ -56,7 +56,7 @@ theorem finiteCyclePushforward_polynomialEndpointMap_fundamentalCycle_eq_sum
   let j := (integralComponentAt z.val).subschemeι
   let q := AffineLineFiber.fiberMap f a j
   let : IsNoetherian (fiber (j ≫ f) a) :=
-    isNoetherian_of_finiteType (inclusion (j ≫ f) a ≫ j)
+    isNoetherian_of_finiteType_of_isNoetherian (inclusion (j ≫ f) a ≫ j)
   let c := fundamentalCycle (fiber (j ≫ f) a)
   let w : ℤ := (Module.length (D.presheaf.stalk z.val) (D.presheaf.stalk z.val)).toNat
   change w • finiteCyclePushforward m (finiteCyclePushforward i (finiteCyclePushforward q c)) =

@@ -108,8 +108,10 @@ theorem polynomialComponentEndpoint_open_apply (z : E) (x : fiber (j ≫ f) a) :
   have H := isPullback_of_isClosedImmersion _ _ _ _ hcomp hker
   let : IsOpenImmersion (fiberMap f a j) :=
     MorphismProperty.of_isPullback (fiberMap_isPullback f a j).flip inferInstance
-  let : IsNoetherian (integralComponentAt z).subscheme := isNoetherian_of_finiteType u
-  let : IsNoetherian (integralComponentAt (j z)).subscheme := isNoetherian_of_finiteType v
+  let : IsNoetherian (integralComponentAt z).subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian u
+  let : IsNoetherian (integralComponentAt (j z)).subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian v
   exact fundamentalCycle_pushforward_cartesian_open_apply _ _ _ _ H x
 
 omit [IsNoetherian E] in
@@ -118,7 +120,8 @@ theorem polynomialComponentEndpoint_open_eq_zero (z : D) (hz : z ∉ Set.range j
     (x : fiber (j ≫ f) a) :
     polynomialComponentEndpoint f a z (fiberMap f a j x) = 0 := by
   let i := (integralComponentAt z).subschemeι
-  let : IsNoetherian (integralComponentAt z).subscheme := isNoetherian_of_finiteType i
+  let : IsNoetherian (integralComponentAt z).subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian i
   by_contra h
   change finiteCyclePushforward (fiberMap f a i)
     (fundamentalCycle (fiber (i ≫ f) a)) (fiberMap f a j x) ≠ 0 at h

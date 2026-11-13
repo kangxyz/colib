@@ -148,7 +148,7 @@ theorem retainSourceGraph_ofFiniteFlatSpan [IsFinite p] [Flat p] :
     retainSourceGraph r (ofFiniteFlatSpan (X := U) (Y := V) p q h) =
       ofFiniteFlatSpan (X := U) (Y := XV) p (retainedSpanTarget r p q h)
         (retainedSpanTarget_base r p q h) := by
-  let : IsNoetherian D := isNoetherian_of_finiteType p
+  let : IsNoetherian D := isNoetherian_of_finiteType_of_isNoetherian p
   let m := pullback.lift p q h
   let n := pullback.lift p (retainedSpanTarget r p q h) (retainedSpanTarget_base r p q h)
   let : IsFinite m := isFinite_spanMap p q h

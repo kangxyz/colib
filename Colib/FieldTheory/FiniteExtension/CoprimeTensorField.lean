@@ -20,7 +20,7 @@ universe u v w
 
 /-- Coprime degrees make the entire tensor algebra a field, not merely one of
 its residue branches. The proof uses the actual linear-disjointness API. -/
-theorem isField_of_coprime_finrank
+theorem isField_of_coprime_finrank_linearDisjoint
     (k : Type u) [Field k] (K : Type v) [Field K] [Algebra k K]
     (L : Type w) [Field L] [Algebra k L]
     (h : (Module.finrank k K).Coprime (Module.finrank k L)) :
@@ -38,7 +38,7 @@ theorem isField_residue_finiteExtension
     (K : Type v) [Field K] [Algebra k K]
     (n : ℕ) [NeZero n] (h : (Module.finrank k K).Coprime n) :
     IsField (K ⊗[k] FiniteField.Extension k p n) := by
-  apply isField_of_coprime_finrank k K (FiniteField.Extension k p n)
+  apply isField_of_coprime_finrank_linearDisjoint k K (FiniteField.Extension k p n)
   simpa only [FiniteField.finrank_extension] using h
 
 end Algebra.TensorProduct

@@ -51,14 +51,14 @@ theorem finiteCyclePushforward_polynomialSupport (j : P ⟶ Z) [IsFinite j]
     (q : P ⟶ Spec (.of k)) (p : k[X]) (hp : p.Monic) :
     letI : IsFinite (projection p) := projection_isFinite p hp
     letI : IsNoetherian (pullback q (projection p)) :=
-      isNoetherian_of_finiteType (pullback.fst q (projection p))
+      isNoetherian_of_finiteType_of_isNoetherian (pullback.fst q (projection p))
     finiteCyclePushforward (pullback.fst q (projection p) ≫ j)
         (AlgebraicCycle.fundamentalCycle (pullback q (projection p))) =
       (p.natDegree : ℤ) • finiteCyclePushforward j (AlgebraicCycle.fundamentalCycle P) := by
   let : IsFinite (projection p) := projection_isFinite p hp
   let : Flat (projection p) := projection_flat p hp
   let : IsNoetherian (pullback q (projection p)) :=
-    isNoetherian_of_finiteType (pullback.fst q (projection p))
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst q (projection p))
   rw [← finiteCyclePushforward_comp_apply (pullback.fst q (projection p)) j,
     finiteCyclePushforward_fundamentalCycle_of_constant_finrank
       (pullback.fst q (projection p)) p.natDegree
@@ -71,7 +71,7 @@ def powerCutSupportCycle (j : P ⟶ Z) [IsFinite j] (q : P ⟶ Spec (.of k))
   let p := powerSubOneDenominator (R := k) n hn
   letI : IsFinite (projection p.val) := projection_isFinite p.val p.property.1
   letI : IsNoetherian (pullback q (projection p.val)) :=
-    isNoetherian_of_finiteType (pullback.fst q (projection p.val))
+    isNoetherian_of_finiteType_of_isNoetherian (pullback.fst q (projection p.val))
   finiteCyclePushforward (pullback.fst q (projection p.val) ≫ j)
     (AlgebraicCycle.fundamentalCycle (pullback q (projection p.val)))
 

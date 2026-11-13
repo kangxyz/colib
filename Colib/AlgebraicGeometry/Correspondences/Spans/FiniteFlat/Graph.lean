@@ -41,7 +41,7 @@ theorem ofFiniteFlatSpan_comp_graph
       ofFiniteFlatSpan f (g ≫ a.left)
         (by rw [Category.assoc, MorphismProperty.Over.w, h]) := by
   classical
-  let : IsNoetherian A := isNoetherian_of_finiteType f
+  let : IsNoetherian A := isNoetherian_of_finiteType_of_isNoetherian f
   let m := pullback.lift f g h
   let n := pullback.lift f (g ≫ a.left)
     (by rw [Category.assoc, MorphismProperty.Over.w, h])

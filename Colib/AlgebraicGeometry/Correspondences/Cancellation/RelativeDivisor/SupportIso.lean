@@ -114,8 +114,8 @@ theorem sectionCutCorrespondence_supportIso
     sectionCutCorrespondence (k := k) (X := X) (Y := Y) (P := D) (e.hom ≫ p) (e.hom ≫ g)
       (by simp only [Category.assoc, h]) s₁ h₁ =
         sectionCutCorrespondence (k := k) (X := X) (Y := Y) (P := P) p g h s h₀ := by
-  let : IsNoetherian Z₀ := isNoetherian_of_finiteType (i₀ ≫ p)
-  let : IsNoetherian Z₁ := isNoetherian_of_finiteType (e₀).hom
+  let : IsNoetherian Z₀ := isNoetherian_of_finiteType_of_isNoetherian (i₀ ≫ p)
+  let : IsNoetherian Z₁ := isNoetherian_of_finiteType_of_isNoetherian (e₀).hom
   let m := sectionCutSupportMap (k := k) (X := X) (Y := Y) (P := P) p g h s
   let m' := sectionCutSupportMap (k := k) (X := X) (Y := Y) (P := D) (e.hom ≫ p) (e.hom ≫ g)
     (by simp only [Category.assoc, h]) s₁

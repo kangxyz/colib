@@ -9,6 +9,12 @@ public import Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite
 
 /-! # Actual generic-point fibres of locally quasi-finite morphisms -/
 
+/-!
+Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/GenericFiber.lean`, blob
+`d1085d9cc5ef7fcecf30149a6c0ad58fd1f0480a`.
+-/
+
 @[expose] public noncomputable section
 
 open CategoryTheory AlgebraicGeometry TopologicalSpace

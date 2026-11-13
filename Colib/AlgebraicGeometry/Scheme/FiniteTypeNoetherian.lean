@@ -28,7 +28,7 @@ namespace AlgebraicGeometry.Scheme
 variable {X Y : Scheme.{u}}
 
 /-- Finite-type schemes over a Noetherian base are Noetherian. -/
-theorem isNoetherian_of_finiteType (f : X ⟶ Y) [LocallyOfFiniteType f]
+theorem isNoetherian_of_finiteType_of_isNoetherian (f : X ⟶ Y) [LocallyOfFiniteType f]
     [QuasiCompact f] [IsNoetherian Y] : IsNoetherian X where
   toIsLocallyNoetherian := LocallyOfFiniteType.isLocallyNoetherian f
   toCompactSpace := QuasiCompact.compactSpace_of_compactSpace f

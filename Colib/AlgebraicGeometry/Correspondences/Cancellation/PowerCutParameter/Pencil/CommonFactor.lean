@@ -93,10 +93,10 @@ theorem signedSectionCutCorrespondence_mul_common [IsAffineHom p] [LocallyOfFini
   change (sectionCutCorrespondence p q h (s * c) hscg).val -
       (sectionCutCorrespondence p q h (t * c) htcg).val =
     (sectionCutCorrespondence p q h s hsg).val - (sectionCutCorrespondence p q h t htg).val
-  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (i₀(s))
-  let : IsNoetherian Z₀(t) := isNoetherian_of_finiteType (i₀(t))
-  let : IsNoetherian Z₀(s * c) := isNoetherian_of_finiteType (i₀(s * c))
-  let : IsNoetherian Z₀(t * c) := isNoetherian_of_finiteType (i₀(t * c))
+  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (i₀(s))
+  let : IsNoetherian Z₀(t) := isNoetherian_of_finiteType_of_isNoetherian (i₀(t))
+  let : IsNoetherian Z₀(s * c) := isNoetherian_of_finiteType_of_isNoetherian (i₀(s * c))
+  let : IsNoetherian Z₀(t * c) := isNoetherian_of_finiteType_of_isNoetherian (i₀(t * c))
   simp only [sectionCutCorrespondence_val]
   simpa only [C, map_sub, finiteCyclePushforward_comp_apply, hm] using he
 

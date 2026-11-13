@@ -62,8 +62,10 @@ theorem exists_pointed_puncture_projection_lift
             ((toSmoothSite U).map ((baseChange j.left).map f))).op α := by
   let P := cohomologyPresheaf.{u + 1, u + 1} ((SheafWithTransfers.toSheaf k).obj F) N
   let W := (baseChange j.left).obj V
-  let : IsNoetherian V.left := Scheme.isNoetherian_of_finiteType (show V.left ⟶ X.left from V.hom)
-  let : IsNoetherian W.left := Scheme.isNoetherian_of_finiteType (show W.left ⟶ U.left from W.hom)
+  let : IsNoetherian V.left :=
+    Scheme.isNoetherian_of_finiteType_of_isNoetherian (show V.left ⟶ X.left from V.hom)
+  let : IsNoetherian W.left :=
+    Scheme.isNoetherian_of_finiteType_of_isNoetherian (show W.left ⟶ U.left from W.hom)
   let t := (relativeFieldPointFiberEquiv b K (𝟙 _) V a).left p
   have hα : ∀ y : W.left, pullback.fst V.hom j.left y ⤳ t →
       markedSectionGerm

@@ -66,7 +66,8 @@ private theorem parameterProduct_projection_single
   let : IsNoetherian ((𝟭 Scheme).obj (Xₜ).left) :=
     inferInstanceAs (IsNoetherian (Xₜ).left)
   let : IsNoetherian Wₜ.subscheme :=
-    Scheme.isNoetherian_of_finiteType (Wₜ.subschemeι ≫ pullback.fst (Xₜ).hom (Yₜ).hom)
+    Scheme.isNoetherian_of_finiteType_of_isNoetherian
+        (Wₜ.subschemeι ≫ pullback.fst (Xₜ).hom (Yₜ).hom)
   let : IsIntegral Wₜ.subscheme := isIntegral_integralComponentAt zₜ
   let r := correspondenceGraphPostcompositionMap (Xₜ).hom (Yₜ).hom Y.hom
     q.left (MorphismProperty.Over.w q) zₜ
@@ -80,7 +81,7 @@ private theorem parameterProduct_projection_single
   let e := nativeExteriorSupportIso X Y T z hz
   let d := H.isoPullback
   let : IsNoetherian (exteriorIdentitySupport X Y T W) :=
-    Scheme.isNoetherian_of_finiteType e.hom
+    Scheme.isNoetherian_of_finiteType_of_isNoetherian e.hom
   let : IsNoetherian
       (pullback (pullback.fst X.hom T.hom) (exteriorSupportSourceProjection X Y W)) :=
     inferInstanceAs (IsNoetherian (correspondenceGraphFiber X.hom Y.hom z p.left))

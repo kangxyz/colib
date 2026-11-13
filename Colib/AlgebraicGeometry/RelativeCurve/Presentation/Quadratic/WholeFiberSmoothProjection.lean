@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.RingTheory.Bertini.WholeFiberOriginalFunctions
+public import Colib.RingTheory.Polynomial.OriginalFunctionEvaluation
 public import Colib.RingTheory.Bertini.CommonResidueFieldExtension
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.ResidueIndependentSmoothMap
 
@@ -17,14 +18,6 @@ set_option backward.isDefEq.respectTransparency.types false
 open Module TensorProduct KaehlerDifferential _root_.MvPolynomial AlgebraicGeometry
 universe u
 namespace QuadraticIncidence
-
-/-- Polynomial evaluation at an actual algebra-valued point retains the original function. -/
-theorem eval_map_original_function {k R K σ : Type u}
-    [CommRing k] [CommRing R] [CommRing K] [Algebra k R] [Algebra k K]
-    (s : R →ₐ[k] K) (g : σ → R) (p : MvPolynomial σ k) :
-    eval (fun j => s (g j)) (MvPolynomial.map (algebraMap k K) p) = s (aeval g p) := by
-  rw [eval_map]
-  exact (comp_aeval_apply g s p).symm
 
 /-- This is a smooth-near-every-fiber-prime assertion for one unchanged polynomial
 projection. It does not assert that the projection is finite or proper. -/

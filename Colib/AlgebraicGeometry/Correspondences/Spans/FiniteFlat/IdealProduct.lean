@@ -51,9 +51,9 @@ theorem ofFiniteFlatSpan_add_of_ideal_product
       (J.subschemeι ≫ m ≫ pullback.snd X.hom Y.hom)
       (by simp only [Category.assoc, pullback.condition]) := by
   let : IsNoetherian ((𝟭 Scheme).obj X.left) := inferInstanceAs (IsNoetherian X.left)
-  let := isNoetherian_of_finiteType (I.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
-  let := isNoetherian_of_finiteType (J.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
-  let := isNoetherian_of_finiteType (K.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
+  let := isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
+  let := isNoetherian_of_finiteType_of_isNoetherian (J.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
+  let := isNoetherian_of_finiteType_of_isNoetherian (K.subschemeι ≫ m ≫ pullback.fst X.hom Y.hom)
   have hcycle := finiteCyclePushforward_fundamentalCycle_add_of_ideal_product
     (m ≫ pullback.fst X.hom Y.hom) I J K hI hJ hK
   let span (T : C.IdealSheafData)

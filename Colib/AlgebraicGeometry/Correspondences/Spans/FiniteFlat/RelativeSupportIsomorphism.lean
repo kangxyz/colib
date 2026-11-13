@@ -44,8 +44,8 @@ theorem ofFiniteFlatSpanRaw_eq_of_iso
   let n := pullback.lift f' g' h'
   let : IsFinite m := finitePair f g h
   let : IsFinite n := finitePair f' g' h'
-  let : IsNoetherian D := Scheme.isNoetherian_of_finiteType f
-  let : IsNoetherian E := Scheme.isNoetherian_of_finiteType f'
+  let : IsNoetherian D := Scheme.isNoetherian_of_finiteType_of_isNoetherian f
+  let : IsNoetherian E := Scheme.isNoetherian_of_finiteType_of_isNoetherian f'
   have he : e.hom ≫ n = m := by
     apply pullback.hom_ext
     · simpa only [m, n, Category.assoc, pullback.lift_fst] using hf

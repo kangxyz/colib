@@ -114,7 +114,7 @@ def retainedZeroSpan (s : Γ(L, ⊤))
     (hf : IsFinite ((zeroScheme (pullback q r) L s).subschemeι ≫ pullback.fst q r))
     (hflat : Flat ((zeroScheme (pullback q r) L s).subschemeι ≫ pullback.fst q r)) :
     finiteCorrespondences (q ≫ t) (r ≫ t) :=
-  letI : IsNoetherian X := isNoetherian_of_finiteType (q ≫ t)
+  letI : IsNoetherian X := isNoetherian_of_finiteType_of_isNoetherian (q ≫ t)
   letI := hf
   letI := hflat
   ofFiniteFlatSpanRaw (q ≫ t) (r ≫ t)

@@ -41,7 +41,7 @@ theorem weighted_closedSupport_cut_val
     (hc : ∀ z : genericPoints D,
       let j := (integralComponentAt z.val).subschemeι
       letI : IsNoetherian (fiber (j ≫ f) a) :=
-        isNoetherian_of_finiteType (inclusion (j ≫ f) a ≫ j)
+        isNoetherian_of_finiteType_of_isNoetherian (inclusion (j ≫ f) a ≫ j)
       (c z).val = finiteCyclePushforward ((inclusion (j ≫ f) a ≫ j) ≫ m)
         (fundamentalCycle (fiber (j ≫ f) a))) :
     letI := (fundamentalCycle_genericPoints_finite D).fintype

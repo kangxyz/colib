@@ -73,7 +73,7 @@ correspondence group, with the given generic-image condition. -/
 def sectionCutCorrespondence (s : Γ(P, ⊤)) [IsFinite (p₀(s))]
     (hgen : ∀ a : genericPoints Z₀(s), p₀(s) a.val ∈ genericPoints X.left) :
     Cor.mk X ⟶ Cor.mk Y := by
-  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (p₀(s))
+  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (p₀(s))
   let m := sectionCutSupportMap p g h s
   let : IsFinite m := sectionCutSupportMap_isFinite p g h s
   refine ⟨finiteCyclePushforward m (AlgebraicCycle.fundamentalCycle Z₀(s)),
@@ -106,7 +106,7 @@ theorem sectionCutCorrespondence_comp_graph {Y' : SmoothSite (Spec (.of k))}
       sectionCutCorrespondence p (g ≫ a.left)
         (by rw [Category.assoc, MorphismProperty.Over.w, h]) s hgen := by
   classical
-  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType (p₀(s))
+  let : IsNoetherian Z₀(s) := isNoetherian_of_finiteType_of_isNoetherian (p₀(s))
   let h' : p ≫ X.hom = (g ≫ a.left) ≫ Y'.hom :=
     by rw [Category.assoc, MorphismProperty.Over.w, h]
   let m := sectionCutSupportMap p g h s

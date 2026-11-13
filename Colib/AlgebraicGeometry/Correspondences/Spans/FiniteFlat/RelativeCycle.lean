@@ -52,8 +52,8 @@ theorem ofFiniteFlatSpan_relativeCycle_val [IsNoetherian (pullback b r)] :
       (I.subschemeι ≫ pullback.fst b r) (I.subschemeι ≫ pullback.snd b r)
       (relativeSupport_legs_over_base b r t I)).val =
     finiteCyclePushforward (forgetBaseProductMap t b r) (cartierCycle I) := by
-  let : IsNoetherian K := isNoetherian_of_finiteType (b ≫ t)
-  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType
+  let : IsNoetherian K := isNoetherian_of_finiteType_of_isNoetherian (b ≫ t)
+  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType_of_isNoetherian
     (I.subschemeι ≫ pullback.fst b r)
   let p := I.subschemeι ≫ pullback.fst b r
   let q := I.subschemeι ≫ pullback.snd b r
@@ -95,8 +95,8 @@ theorem ofFiniteFlatSpan_relativeCycle_comp_graph_val :
     let m := I.subschemeι ≫ productSecondMap b r' r g hg.symm
     letI : IsFinite m := isFinite_relativeSupportTargetMap b r r' I g hg
     letI : IsNoetherian I.subscheme := by
-      let : IsNoetherian K := isNoetherian_of_finiteType (b ≫ t)
-      exact isNoetherian_of_finiteType (I.subschemeι ≫ pullback.fst b r)
+      let : IsNoetherian K := isNoetherian_of_finiteType_of_isNoetherian (b ≫ t)
+      exact isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ pullback.fst b r)
     (ofFiniteFlatSpan (X := K₀) (Y := V₀)
       (I.subschemeι ≫ pullback.fst b r) (I.subschemeι ≫ pullback.snd b r)
       (relativeSupport_legs_over_base b r t I) ≫ (graphFunctor k).map u).val =
@@ -104,8 +104,9 @@ theorem ofFiniteFlatSpan_relativeCycle_comp_graph_val :
       (finiteCyclePushforward m (AlgebraicCycle.fundamentalCycle I.subscheme)) := by
   let : IsFinite (I.subschemeι ≫ productSecondMap b r' r g hg.symm) :=
     isFinite_relativeSupportTargetMap b r r' I g hg
-  let : IsNoetherian K := isNoetherian_of_finiteType (b ≫ t)
-  let : IsNoetherian I.subscheme := isNoetherian_of_finiteType (I.subschemeι ≫ pullback.fst b r)
+  let : IsNoetherian K := isNoetherian_of_finiteType_of_isNoetherian (b ≫ t)
+  let : IsNoetherian I.subscheme :=
+    isNoetherian_of_finiteType_of_isNoetherian (I.subschemeι ≫ pullback.fst b r)
   let p := I.subschemeι ≫ pullback.fst b r
   let q := I.subschemeι ≫ pullback.snd b r
   have h : p ≫ (b ≫ t) = (q ≫ g) ≫ (r' ≫ t) := by

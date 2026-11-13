@@ -45,8 +45,8 @@ theorem graph_comp_ofFiniteFlatSpan_pair_of_flat
           m ≫ pullback.snd Y.hom Z.hom) (wholeEndpoint_base φ m) := by
   let : IsNoetherian ((𝟭 Scheme).obj Y.left) := inferInstanceAs (IsNoetherian Y.left)
   let : IsNoetherian ((𝟭 Scheme).obj X.left) := inferInstanceAs (IsNoetherian X.left)
-  have := isNoetherian_of_finiteType (m ≫ pullback.fst Y.hom Z.hom)
-  have := isNoetherian_of_finiteType
+  have := isNoetherian_of_finiteType_of_isNoetherian (m ≫ pullback.fst Y.hom Z.hom)
+  have := isNoetherian_of_finiteType_of_isNoetherian
     (pullback.fst φ.left (m ≫ pullback.fst Y.hom Z.hom))
   rw [ofFiniteFlatSpan_pair]
   apply Subtype.ext

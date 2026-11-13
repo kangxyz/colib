@@ -49,7 +49,7 @@ instance projection_smooth : Smooth (projection t) := by
   exact MorphismProperty.of_isPullback (P := @Smooth) (IsPullback.of_hasPullback t π).flip hπ
 
 instance parameterSpace_isNoetherian [IsNoetherian D] : IsNoetherian (parameterSpace t) :=
-  isNoetherian_of_finiteType (projection t)
+  isNoetherian_of_finiteType_of_isNoetherian (projection t)
 
 instance parameterSpace_isIntegral [IsIntegral D] [IsLocallyNoetherian D] :
     IsIntegral (parameterSpace t) := by

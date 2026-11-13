@@ -47,7 +47,7 @@ theorem existsUnique_prime_over_of_coprime_residueDegree
     ∃! y : PrimeSpectrum (R ⊗[k] L),
       PrimeSpectrum.comap (algebraMap R (R ⊗[k] L)) y = x := by
   let e := scalarResidueFiberEquiv k R L x
-  have hf := isField_of_coprime_finrank k x.asIdeal.ResidueField L h
+  have hf := isField_of_coprime_finrank_linearDisjoint k x.asIdeal.ResidueField L h
   let : Field (x.asIdeal.Fiber (R ⊗[k] L)) := (e.toMulEquiv.isField hf).toField
   let E := PrimeSpectrum.preimageEquivFiber R (R ⊗[k] L) x
   let z : PrimeSpectrum (x.asIdeal.Fiber (R ⊗[k] L)) := ⟨⊥, inferInstance⟩

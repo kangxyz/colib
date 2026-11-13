@@ -7,6 +7,7 @@ module
 
 public import Mathlib.AlgebraicGeometry.Morphisms.Etale
 public import Mathlib.AlgebraicGeometry.Morphisms.Separated
+public import StacksFrontier.AlgebraicGeometry.FundamentalGroup.LocalConnectedness.Basic
 
 
 /-! # Ambient open refinement of equality on a closed fiber
@@ -38,15 +39,8 @@ universe u
 
 namespace AlgebraicGeometry
 
-/-- The relative scheme-theoretic equalizer of maps to an etale target is open. -/
-instance isOpenImmersion_equalizer_ι_left {S : Scheme.{u}} {D V : Over S}
-    [Etale V.hom] (f g : D ⟶ V) : IsOpenImmersion (equalizer.ι f g).left := by
-  refine MorphismProperty.of_isPullback
-    ((Limits.isPullback_equalizer_prod f g).map (Over.forget _)).flip ?_
-  rw [← MorphismProperty.cancel_right_of_respectsIso @IsOpenImmersion _
-    (Over.prodLeftIsoPullback V V).hom]
-  convert! (inferInstance : IsOpenImmersion (pullback.diagonal V.hom))
-  ext1 <;> simp [← Over.comp_left]
+-- Reuse the canonical equalizer theorem while retaining the instance interface.
+attribute [instance] isOpenImmersion_equalizer_ι_left
 
 namespace Scheme.Hom
 
