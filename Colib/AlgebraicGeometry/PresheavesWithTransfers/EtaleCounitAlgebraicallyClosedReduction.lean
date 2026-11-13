@@ -57,10 +57,8 @@ theorem isIso_fullSmallEtale_sheafification_counit_iff_algebraicallyClosedSepara
   dsimp only
   constructor
   · intro hc
-    letI := hc
-    intro X _ Ω _ _ ξ _
-    dsimp only
-    intro _
+    let := hc
+    intro X _ Ω _ _ ξ _ _
     apply (isIso_fullSmallEtale_sheafification_counit_iff_structuralNeighborhoodPullback
       X ξ (homMk X.hom (by change X.hom ≫ 𝟙 _ = X.hom; simp))
         rfl ((toPresheaf k).obj P)).mp
