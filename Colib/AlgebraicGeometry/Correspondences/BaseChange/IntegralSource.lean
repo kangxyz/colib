@@ -106,13 +106,15 @@ theorem eq_coeff_zsmul_structureGraph (a : finiteCorrespondences f (𝟙 S)) :
   classical
   apply Subtype.ext
   ext z
+  change a.val z = structureCorrespondenceCoeff f a •
+    (single (structureGraphPoint f) (1 : ℤ)) z
   by_cases hz : z = structureGraphPoint f
   · subst z
-    simp [structureCorrespondenceCoeff, structureGraphCorrespondence]
+    simp [structureCorrespondenceCoeff]
   · have ha : a.val z = 0 := by
       by_contra h
       exact hz (eq_structureGraphPoint_of_isFiniteCorrespondencePoint f z (a.property.2 z h))
-    simp [structureGraphCorrespondence, hz, ha]
+    simp [single_apply, hz, ha]
 
 /-- The graph sum used by the correspondence category is this same prime cycle. -/
 theorem graphCorrespondenceOfComponents_structure
@@ -133,7 +135,9 @@ def structureCorrespondenceEquiv : finiteCorrespondences f (𝟙 S) ≃+ ℤ whe
   toFun := structureCorrespondenceCoeff f
   invFun n := n • structureGraphCorrespondence f
   left_inv a := (eq_coeff_zsmul_structureGraph f a).symm
-  right_inv n := by simp
+  right_inv n := by
+    rw [map_zsmul, structureCorrespondenceCoeff_graph]
+    exact Int.mul_one n
   map_add' := (structureCorrespondenceCoeff f).map_add
 
 end Stacks.Chow

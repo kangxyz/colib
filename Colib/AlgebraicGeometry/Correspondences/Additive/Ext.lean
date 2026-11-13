@@ -41,7 +41,8 @@ theorem singleFiniteCorrespondence_eq_zsmul (z : pullback (C := Scheme) f g)
   classical
   apply Subtype.ext
   ext x
-  by_cases hx : x = z <;> simp [singleFiniteCorrespondence, single_apply, hx]
+  change single z n x = n • single z (1 : ℤ) x
+  by_cases hx : x = z <;> simp [single_apply, hx]
 
 /-- The finite decomposition into signed primes, inside the native subgroup itself. -/
 theorem finiteCorrespondence_eq_sum_signedSingles (c : finiteCorrespondences f g) :

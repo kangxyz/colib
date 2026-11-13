@@ -259,7 +259,7 @@ theorem polynomialCycle_pow (f : Spec (.of R) ⟶ S)
       (by simpa only [coeff_zero_eq_eval_zero, eval_pow] using hu.pow n) =
       n • polynomialCycle f p hp hu := by
   induction n with
-  | zero => simp
+  | zero => simp only [pow_zero, polynomialCycle_one, zero_nsmul]
   | succ n ih =>
     calc
       polynomialCycle f (p ^ (n + 1)) _ _ =
