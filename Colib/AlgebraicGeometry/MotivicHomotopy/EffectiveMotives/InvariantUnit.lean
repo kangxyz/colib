@@ -40,6 +40,18 @@ def singularDerivedUnitApp (P : PresheafWithTransfers.{u + 1} k) :
       (a.obj P)).hom ≫
     DerivedCategory.Q.map (e.inv ≫ (a.mapHomologicalComplex (.up ℤ)).map (singularCochainUnitApp P))
 
+/-- The singular derived unit is the class of the original cochain augmentation. -/
+theorem singularDerivedUnitApp_eq_cochain (P : PresheafWithTransfers.{u + 1} k) :
+    singularDerivedUnitApp k P =
+      DerivedCategory.Q.map
+        ((HomologicalComplex.singleMapHomologicalComplex (nisnevichSheafify k) (.up ℤ)
+          (0 : ℤ)).inv.app P ≫
+          ((nisnevichSheafify k).mapHomologicalComplex (.up ℤ)).map
+            (singularCochainUnitApp P)) := by
+  unfold singularDerivedUnitApp
+  change 𝟙 _ ≫ _ = _
+  exact Category.id_comp _
+
 /-- The actual degree-zero coefficient maps isomorphically to its singular
 effective representative when its original affine projection is invertible. -/
 theorem isIso_singularDerivedUnitApp (P : PresheafWithTransfers.{u + 1} k)

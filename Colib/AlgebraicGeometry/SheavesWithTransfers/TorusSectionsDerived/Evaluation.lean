@@ -71,6 +71,18 @@ def torusSectionsEvaluationDerivedUnit (X : SmoothSite S) :
   Functor.whiskerLeft (B.mapHomologicalComplex (.up ℤ)) (transferEvaluationDerivedUnit k X) ≫
     Functor.whiskerRight (torusSectionsDerivedUnit k) E
 
+omit [HasExt.{u + 1}
+  (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
+/-- The evaluation composition uses both original derived units on a cochain complex. -/
+theorem torusSectionsEvaluationDerivedUnit_app (X : SmoothSite S)
+    (K : CochainComplex (SheafWithTransfers.{u + 1} k) ℤ) :
+    (torusSectionsEvaluationDerivedUnit k X).app K =
+      (transferEvaluationDerivedUnit k X).app
+        (((torusSectionsFunctor k).mapHomologicalComplex (.up ℤ)).obj K) ≫
+      (transferEvaluationDerivedFunctor k X).map ((torusSectionsDerivedUnit k).app K) := by
+  unfold torusSectionsEvaluationDerivedUnit
+  rfl
+
 private theorem isIso_torusSectionsEvaluationDerivedUnit_app_resolution (X : SmoothSite S)
     (K : CochainComplex (SheafWithTransfers.{u + 1} k) ℤ) :
     IsIso ((torusSectionsEvaluationDerivedUnit k X).app

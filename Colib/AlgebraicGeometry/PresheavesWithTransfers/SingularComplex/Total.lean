@@ -62,6 +62,11 @@ def singularTotalFunctor :
       CochainComplex (PresheafWithTransfers.{v} k) ℤ :=
   singularBicomplexFunctor k ⋙ HomologicalComplex₂.totalFunctor (PresheafWithTransfers.{v} k) c c c
 
+instance : (singularTotalFunctor k : CochainComplex (PresheafWithTransfers.{v} k) ℤ ⥤
+    CochainComplex (PresheafWithTransfers.{v} k) ℤ).Additive := by
+  unfold singularTotalFunctor singularBicomplexFunctor
+  infer_instance
+
 /-- Each bicomplex column is the existing singular complex in degrees at most zero. -/
 @[simp]
 theorem singularBicomplexFunctor_obj_X (K : CochainComplex (PresheafWithTransfers.{v} k) ℤ)

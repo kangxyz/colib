@@ -1,7 +1,7 @@
 [chapter]
 id = "motivic-homotopy"
-title = "Motivic Homotopy"
-order = 56
+title = "Motivic Homotopy Theory"
+order = 57
 introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site. Strict \\(\\mathbb A^1\\)-invariance for ordinary cohomology with transfers is proved in COL-1029."
 
 [[sections]]
@@ -53,24 +53,6 @@ COL-1036 = '''
 The short exact sequence of the Laurent-open quotient gives a connecting
 map on reduced cochains. It carries the torus coordinate of COL-1034 to
 the Tate class in bidegree \((2,1)\).
-'''
-
-[[sections]]
-id = "effective-motives"
-title = "Effective motives with transfers"
-order = 35
-introduction = '''
-The bounded-above derived category of Nisnevich sheaves with transfers
-contains the objects with \(\mathbb A^1\)-invariant cohomology. The
-signed singular construction and Nisnevich sheafification give the
-representatives of smooth schemes in this category.
-'''
-
-[sections.transitions]
-COL-1044 = '''
-Evaluate the singular representatives of COL-1042 after exterior product
-with the torus. The comparison uses the right-derived functor of the actual
-torus sections. Each smooth representable gives a finite truncation bound.
 '''
 
 [[sections]]

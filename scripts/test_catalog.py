@@ -488,6 +488,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.CategoryTheory.Sites.Simplicial.ReducedSuspensionCircle",
             "effective-motives":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Basic",
+            "tate-twists-and-cancellation":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",
@@ -655,6 +657,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
             "COL-1045":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Suslin",
+            "COL-1046":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.TateTwist",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -847,6 +851,23 @@ class LibraryTests(unittest.TestCase):
             matches = [row for row in records if row.get("id") == identifier]
             self.assertEqual(len(matches), 1)
             self.assertEqual(matches[0]["path"], f"tag/{identifier}/")
+
+    def test_motives_chapter_precedes_motivic_homotopy_theory(self):
+        chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
+        motives = chapters["voevodsky-motives"]
+        homotopy = chapters["motivic-homotopy"]
+        self.assertEqual(motives["title"], "Voevodsky’s Motives")
+        self.assertEqual(homotopy["title"], "Motivic Homotopy Theory")
+        self.assertLess(motives["order"], homotopy["order"])
+        for identifier, section_id in {
+            "COL-1042": "effective-motives",
+            "COL-1044": "tate-twists-and-cancellation",
+            "COL-1046": "tate-twists-and-cancellation",
+        }.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section_id)
+            self.assertEqual(self.library["sections"][section_id]["chapter"], motives["id"])
+            self.assertEqual(item["path"], f"docs/library/entries/{motives['id']}/{identifier}.toml")
 
     def test_weight_one_normalization_registration_and_binding_sources(self):
         # These are metadata fixtures, not evidence of native Lean elaboration.

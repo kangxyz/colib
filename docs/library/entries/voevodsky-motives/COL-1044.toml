@@ -2,8 +2,8 @@
 id = "COL-1044"
 title = "Derived torus sections of singular transfer complexes"
 kind = "theorem"
-section = "effective-motives"
-order = 20
+section = "tate-twists-and-cancellation"
+order = 10
 primary = "AlgebraicGeometry.SheafWithTransfers.isIso_singularSheafDerivedTorusSectionsMap"
 review = "author_checked"
 source_checked_on = "2026-11-13"
