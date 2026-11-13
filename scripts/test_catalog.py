@@ -759,6 +759,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1226": "Colib.CategoryTheory.Sites.TerminalCohomologyUnivLE",
             "COL-1227": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
             "COL-1228": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison",
+            "COL-1229": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -926,6 +927,7 @@ for (const [root, hash, home, kind, expected] of cases) {
             "COL-1226": ("homological-algebra", "derived-hom-comparisons"),
             "COL-1227": ("etale-cohomology", "etale-kummer-symbols"),
             "COL-1228": ("motivic-cohomology", "motivic-hypercohomology"),
+            "COL-1229": ("homological-algebra", "finite-coefficient-composition"),
         }
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]

@@ -32,7 +32,8 @@ functor. Forgetting coefficients gives a canonical isomorphism with that
 actual quotient. The original finite cone maps to this underlying module
 complex, compatibly with its original cone-to-quotient map. This construction
 requires the displayed standard sheafification and locally-bijective instances.
-The monomorphism hypothesis has not yet been proved for the actual motivic
-terms. No unconditional motivic quasi-isomorphism, derived tensor identification
-or etale Tate comparison is asserted here.
+For nonzero n, the actual motivic monomorphism and the resulting canonical
+quasi-isomorphisms are proved in COL-1229. This entry records the construction
+and its integral compatibility. No derived tensor identification or etale
+Tate comparison is asserted here.
 '''

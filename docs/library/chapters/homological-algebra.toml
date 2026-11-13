@@ -245,7 +245,16 @@ COL-1225 = '''
 The actual multiplication cone maps canonically to its cokernel. That quotient
 is strictly annihilated by the coefficient level and has a genuine module-sheaf
 model. The cone-to-quotient map is a quasi-isomorphism only under the stated
-monomorphism hypothesis; this hypothesis is not proved for every motivic term.
+monomorphism hypothesis. COL-1229 establishes that hypothesis for the actual
+motivic terms when the coefficient level is nonzero.
+'''
+
+COL-1229 = '''
+Commuting coordinate resets split the original all-axis reduced torus quotient.
+Integer cycle cancellation passes through that section, the singular terms, and
+exact sheafification. Thus nonzero multiplication is monic on the actual motivic
+complex, and its original finite cone computes the strict coefficient model.
+This is a coefficient-model quasi-isomorphism, not the etale Tate comparison.
 '''
 
 [[sections]]

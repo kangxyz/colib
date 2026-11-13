@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1229"
+title = "The original finite motivic cone computes its strict coefficient model"
+kind = "theorem"
+section = "finite-coefficient-composition"
+order = 21
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicFiniteToCoefficientQuotient_quasiIso"
+review = "author_checked"
+statement = '''
+For an arbitrary field k, weight q and nonzero natural number n, multiplication
+by n is monic on every term of the original ordinary motivic sheaf complex.
+The canonical map from its original multiplication cone to the actual strict
+coefficient quotient is a quasi-isomorphism. With the displayed constant-ring
+sheafification instances, its lift to the underlying actual ZMod n module
+sheaf complex is likewise a quasi-isomorphism.
+'''
+proof = '''
+The native coordinate resets commute and are idempotent. Their ordered
+complementary product kills every original identity axis and descends to a
+transfer-natural section of the all-axis reduced torus quotient. Native
+integer cycle cancellation therefore passes to the original reduced torus,
+then to its literal singular presheaf terms. Exact sheafification, the actual
+signed-placement term isomorphisms, and the zero terms above the weight give
+termwise monomorphisms. The native mapping-cone comparison for the resulting
+short exact sequence proves the quasi-isomorphism.
+'''
+scope = '''
+The proof does not assume monicity of motivic multiplication from the caller,
+and does not infer torsion-freeness from an arbitrary quotient of a free group.
+No perfect-field or invertibility-of-n hypothesis is required for this
+coefficient-model theorem. The original cone, integral insertion, and signed
+shift are unchanged. This is not the etale Tate comparison, nor a proof of
+coefficient-level naturality, tensor/product compatibility, or norm-residue
+bijectivity. The displayed sheafification instances remain explicit.
+'''

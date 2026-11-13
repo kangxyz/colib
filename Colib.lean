@@ -1856,6 +1856,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.FieldTopDegree
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.AffineLineInvariance
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientModules
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotient
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Complex
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison
@@ -2090,6 +2091,8 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusCancellation
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusParameter
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusProjector
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusSplit
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusTorsionFree
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RelativeFrobenius
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Representable
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RepresentableLarge
@@ -3157,6 +3160,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Sheaves.IntegralAffineSheafif
 public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.Basic
 public import Colib.AlgebraicGeometry.Sites.Smooth.Simplex.GeometricallyIntegral
 public import Colib.AlgebraicGeometry.Sites.Smooth.Torus
+public import Colib.AlgebraicGeometry.Sites.Smooth.Torus.Reset
 public import Colib.AlgebraicGeometry.Sites.Smooth.TorusParameter
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.BoundaryOneComplex
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.Presheaf
@@ -3543,6 +3547,7 @@ public import Colib.CategoryTheory.Preadditive.AdditiveFunctorAbelian
 public import Colib.CategoryTheory.Preadditive.AdditiveFunctorGrothendieck
 public import Colib.CategoryTheory.Preadditive.AdditiveFunctorLimits
 public import Colib.CategoryTheory.Preadditive.CokernelAdditive
+public import Colib.CategoryTheory.Preadditive.FiniteProjector
 public import Colib.CategoryTheory.Preadditive.LiftedAdditiveYoneda
 public import Colib.CategoryTheory.Preadditive.SplitCokernelKernel
 public import Colib.CategoryTheory.Prespectrum.AdjointBonding
