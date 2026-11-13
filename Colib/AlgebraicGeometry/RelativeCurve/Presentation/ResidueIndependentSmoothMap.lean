@@ -38,65 +38,7 @@ theorem polynomialProjection_smooth_one (k : Type u) [CommRing k] :
   exact Algebra.IsStandardSmoothOfRelativeDimension.of_algEquiv 1
     (MvPolynomial.uniqueAlgEquiv k PUnit.{u + 1})
 
-/-- The original polynomial map on the genuine principal neighborhood is smooth
-of relative dimension one. Adding a coordinate is used only to prove this property. -/
-@[colib_tag "COL-1073", colib_ref "motivic_source_3df0a472"
-  "Motivic/Aglib/RingTheory/Kaehler/ResidueIndependentSmoothMap.lean:56-70"
-  "ingredient" "Original independent functions completed to an etale coordinate tuple; the \
-    relative-curve map uses this ingredient."]
-theorem exists_smooth_one_of_residue_independent
-    (k R : Type u) [Field k] [CommRing R] [IsDomain R] [Algebra k R] [Algebra.Smooth k R]
-    (p : Ideal R) [p.IsPrime] (d : ℕ) (f : Fin d → R)
-    (hd : Algebra.trdeg k R = (d + 1 : ℕ))
-    (hf : LinearIndependent p.ResidueField
-      (fun i => (1 ⊗ₜ[R] D k R (f i) : p.ResidueField ⊗[R] Ω[R⁄k]))) :
-    ∃ r ∉ p, SmoothOfRelativeDimension 1
-      (Spec.map (CommRingCat.ofHom ((algebraMap R (Localization.Away r)).comp
-        (MvPolynomial.aeval (R := k) f).toRingHom))) := by
-  obtain ⟨t, r, hr, he⟩ := Algebra.exists_etale_cons_of_residue_independent k R p d f hd hf
-  let P := MvPolynomial (Fin d) k
-  let Q := MvPolynomial (Fin (d + 1)) k
-  let a : Q →+* Localization.Away r := (algebraMap R (Localization.Away r)).comp
-    (MvPolynomial.aeval (R := k) (Fin.cons t f : Fin (d + 1) → R)).toRingHom
-  let e := (MvPolynomial.finSuccEquiv k d).toRingEquiv.toCommRingCatIso
-  let m := Spec.map (CommRingCat.ofHom a)
-  let j := Spec.map e.inv
-  let π := Spec.map (CommRingCat.ofHom (Polynomial.C : P →+* Polynomial P))
-  have : Etale m := (HasRingHomProperty.Spec_iff (P := @Etale)).mpr he
-  have : SmoothOfRelativeDimension 1 π :=
-    polynomialProjection_smooth_one P
-  have hcomp : SmoothOfRelativeDimension 1 ((m ≫ j) ≫ π) :=
-    inferInstanceAs (SmoothOfRelativeDimension (0 + 1) ((m ≫ j) ≫ π))
-  refine ⟨r, hr, ?_⟩
-  convert hcomp using 1
-  dsimp only [m, j, π]
-  rw [← Spec.map_comp, ← Spec.map_comp]
-  congr 1
-  apply CommRingCat.hom_ext
-  apply MvPolynomial.ringHom_ext
-  · intro x
-    change algebraMap R (Localization.Away r) ((MvPolynomial.aeval f) (MvPolynomial.C x)) =
-      a ((MvPolynomial.finSuccEquiv k d).symm (Polynomial.C (MvPolynomial.C x)))
-    have hx : (MvPolynomial.finSuccEquiv k d).symm (Polynomial.C (MvPolynomial.C x)) =
-        MvPolynomial.C x := by
-      apply (MvPolynomial.finSuccEquiv k d).injective
-      simp [MvPolynomial.finSuccEquiv_apply]
-    rw [hx]
-    change algebraMap R (Localization.Away r) _ = algebraMap R (Localization.Away r) _
-    congr 1
-    exact (MvPolynomial.aeval_C f x).trans
-      (MvPolynomial.aeval_C (Fin.cons t f : Fin (d + 1) → R) x).symm
-  · intro i
-    change algebraMap R (Localization.Away r) ((MvPolynomial.aeval f) (MvPolynomial.X i)) =
-      a ((MvPolynomial.finSuccEquiv k d).symm (Polynomial.C (MvPolynomial.X i)))
-    have hx : (MvPolynomial.finSuccEquiv k d).symm (Polynomial.C (MvPolynomial.X i)) =
-        MvPolynomial.X i.succ := by
-      apply (MvPolynomial.finSuccEquiv k d).injective
-      simp [MvPolynomial.finSuccEquiv_X_succ]
-    rw [hx]
-    change algebraMap R (Localization.Away r) _ = algebraMap R (Localization.Away r) _
-    congr 1
-    exact (MvPolynomial.aeval_X f i).trans
-      (MvPolynomial.aeval_X (Fin.cons t f : Fin (d + 1) → R) i.succ).symm
+/- The relative-curve existence theorem is publicly re-exported from the canonical
+ring-theoretic module above, together with its catalog attribution. -/
 
 end AlgebraicGeometry
