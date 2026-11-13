@@ -35,6 +35,7 @@ variable (k : Type u) [Field k]
   [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (SheafWithTransfers.{u + 1} k)]
 
+/-- Use the abelian structure on the target of Nisnevich sheafification. -/
 local instance : Abelian (SheafWithTransfers.{u + 1} k) :=
   SheafWithTransfers.abelian k
 

@@ -55,6 +55,7 @@ local notation "R" => effectiveReducedTorusSectionsFunctor k
 set_option quotPrecheck false in
 local notation "η" => (effectiveReducedTorusTensorAdjunction k).unit
 
+/-- Use the abelian structure on Nisnevich sheaves with transfers in the cancellation proof. -/
 local instance : Abelian (SheafWithTransfers.{u + 1} k) :=
   SheafWithTransfers.abelian k
 

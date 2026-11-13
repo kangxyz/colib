@@ -44,6 +44,7 @@ local notation "J" => effectiveMotivesMinusToDerived k
 local notation "R" => effectiveReducedTorusSectionsFunctor k
 local notation "L" => effectiveReducedTorusTensorFunctor k
 
+/-- Use the abelian structure on Nisnevich sheaves with transfers for the derived adjunctions. -/
 local instance : Abelian (SheafWithTransfers.{u + 1} k) :=
   SheafWithTransfers.abelian k
 

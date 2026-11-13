@@ -111,11 +111,10 @@ theorem torusSectionsDerived_isLE_of_isLE_of_isA1Invariant
     (asIso (U.map (H.map f)))
 
 /-- The actual cohomology of total derived torus sections is the torus
-sections of the original cohomology coefficient on bounded-above
-A¹-invariant inputs. -/
+sections of the original cohomology coefficient on A¹-invariant inputs. -/
 @[no_expose]
-def torusSectionsDerivedHomologyIsoOfIsLEOfIsA1Invariant
-    (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) [K.IsLE b]
+def torusSectionsDerivedHomologyIsoOfIsA1Invariant
+    (K : DerivedCategory (SheafWithTransfers.{u + 1} k))
     (hK : ∀ i : ℤ, ((DerivedCategory.homologyFunctor _ i).obj K).obj.IsA1Invariant)
     (i : ℤ) :
     (DerivedCategory.homologyFunctor _ i).obj ((torusSectionsDerivedFunctor k).obj K) ≅
@@ -154,15 +153,14 @@ def torusSectionsDerivedHomologyIsoOfIsLEOfIsA1Invariant
       (torusSectionsFunctor_rightAcyclic_of_perfect k _ (hK i)) i) ≪≫
     (DerivedCategory.singleFunctorCompHomologyFunctorIso A i).app _
 
-/-- The original A¹-invariance condition is preserved by total derived
-torus sections on bounded-above effective inputs. -/
-theorem torusSectionsDerived_homology_isA1Invariant_of_isLE
-    (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) [K.IsLE b]
+/-- Total derived torus sections preserve A¹-invariant cohomology. -/
+theorem torusSectionsDerived_homology_isA1Invariant
+    (K : DerivedCategory (SheafWithTransfers.{u + 1} k))
     (hK : ∀ i : ℤ, ((DerivedCategory.homologyFunctor _ i).obj K).obj.IsA1Invariant)
     (i : ℤ) :
     PresheafWithTransfers.IsA1Invariant
       (((DerivedCategory.homologyFunctor _ i).obj ((torusSectionsDerivedFunctor k).obj K)).obj) :=
-  let e := torusSectionsDerivedHomologyIsoOfIsLEOfIsA1Invariant k K b hK i
+  let e := torusSectionsDerivedHomologyIsoOfIsA1Invariant k K hK i
   (withParameter_isA1Invariant _ (hK i) G).of_iso
     ((SheafWithTransfers.forget k).mapIso e.symm)
 

@@ -46,10 +46,8 @@ def effectiveReducedTorusSectionsFunctor : EffectiveMotivesMinus k ⥤ Effective
     exact ⟨b, reducedTorusSectionsDerived_isLE_of_isLE_of_isA1Invariant k L b K.property⟩)
   refine (effectiveCohomologyCondition k).lift G ?_
   intro K i
-  obtain ⟨b, hb⟩ := K.obj.property
   let L := (effectiveMotivesMinusToDerived k).obj K
-  let : L.IsLE b := hb
-  exact reducedTorusSectionsDerived_homology_isA1Invariant_of_isLE k L b K.property i
+  exact reducedTorusSectionsDerived_homology_isA1Invariant k L K.property i
 
 /-- Forgetting the effective structure recovers the native derived kernel
 functor on the same maps. -/

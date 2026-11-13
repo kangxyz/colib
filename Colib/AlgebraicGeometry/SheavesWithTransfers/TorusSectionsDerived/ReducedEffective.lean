@@ -76,10 +76,9 @@ theorem reducedTorusSectionsDerived_isLE_of_isLE_of_isA1Invariant
   let e := (reducedTorusSectionsRetract k K).map (DerivedCategory.homologyFunctor _ i)
   exact IsZero.of_epi e.r (DerivedCategory.isZero_of_isLE (R.obj K) b i hi)
 
-/-- The cohomology sheaves of reduced derived torus sections remain
-A¹-invariant for an effective input. -/
-theorem reducedTorusSectionsDerived_homology_isA1Invariant_of_isLE
-    (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) [K.IsLE b]
+/-- Reduced derived torus sections preserve A¹-invariant cohomology. -/
+theorem reducedTorusSectionsDerived_homology_isA1Invariant
+    (K : DerivedCategory (SheafWithTransfers.{u + 1} k))
     (hK : ∀ i : ℤ, ((DerivedCategory.homologyFunctor _ i).obj K).obj.IsA1Invariant) (i : ℤ) :
     PresheafWithTransfers.IsA1Invariant
       (((DerivedCategory.homologyFunctor _ i).obj
@@ -87,6 +86,6 @@ theorem reducedTorusSectionsDerived_homology_isA1Invariant_of_isLE
   isA1Invariant_of_retract k
     ((reducedTorusSectionsRetract k K).map
       (DerivedCategory.homologyFunctor _ i ⋙ SheafWithTransfers.forget k))
-    (torusSectionsDerived_homology_isA1Invariant_of_isLE k K b hK i)
+    (torusSectionsDerived_homology_isA1Invariant k K hK i)
 
 end AlgebraicGeometry.SheafWithTransfers

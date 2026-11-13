@@ -61,8 +61,7 @@ theorem forget_preservesCoproducts (I : Type w)
 /-- Actual torus reindexing on Nisnevich sheaves with transfers preserves
 direct sums. -/
 theorem torusSectionsFunctor_preservesCoproducts (I : Type w)
-    [HasColimitsOfShape (Discrete I) AddCommGrpCat.{u + 1}]
-    [HasColimitsOfShape (Discrete I) (SheafWithTransfers.{u + 1} k)] :
+    [HasColimitsOfShape (Discrete I) AddCommGrpCat.{u + 1}] :
     PreservesColimitsOfShape (Discrete I)
       (torusSectionsFunctor k : SheafWithTransfers.{u + 1} k ⥤ _) := by
   let A := AddCommGrpCat.{u + 1}
