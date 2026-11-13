@@ -60,7 +60,9 @@ instance : IsClosedImmersion (infinityInclusion g) := by
   dsimp [infinityInclusion]
   infer_instance
 
-@[simp] theorem coe_support_infinityIdeal :
+-- Keep this as an explicit rewrite: globally simplifying the complement of a range
+-- can launch an unrelated search for surjectivity of the normalization inclusion.
+theorem coe_support_infinityIdeal :
     ((infinityIdeal g).support : Set g.normalization) = (Set.range g.toNormalization)ᶜ := by
   simp [infinityIdeal]
 
