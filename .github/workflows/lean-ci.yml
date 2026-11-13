@@ -364,7 +364,7 @@ jobs:
       - name: Restore Stacks checkpoint and baseline
         if: ${{ !inputs.prepared-dependencies && (steps.cache-mode.outputs.layered == 'true') }}
         continue-on-error: true
-        timeout-minutes: 8
+        timeout-minutes: 12
         working-directory: ${{ inputs.package-directory }}
         env:
           GH_TOKEN: ${{ github.token }}
@@ -1384,7 +1384,7 @@ jobs:
       contents: write
       actions: read
     concurrency:
-      group: lean-cache-${{ github.repository }}-${{ github.sha }}
+      group: lean-cache-${{ github.repository }}-${{ github.ref }}
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -1463,6 +1463,7 @@ jobs:
             *) printf '— Skipped\n' >> "$GITHUB_STEP_SUMMARY" ;;
           esac
       - name: Publish the Stacks baseline to R2
+        id: stacks-r2
         if: ${{ steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
         continue-on-error: true
         timeout-minutes: 8
@@ -1473,7 +1474,25 @@ jobs:
           STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
         run: python3 -u .github/ci-cache/restore_stacks.py --publish-r2 stacks.tar.zst
       - name: Publish the Stacks baseline to GitHub Release
+        id: stacks-release
         if: ${{ steps.publish.outputs.skipped != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 -u .github/ci-cache/restore_stacks.py --publish-release stacks.tar.zst
+      - name: Retain two published Stacks generations
+        if: ${{ steps.stacks-release.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 4
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STACKS_R2_PUBLISHED: ${{ steps.stacks-r2.outcome }}
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_WRITE_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
+        run: |
+          if test "$STACKS_R2_PUBLISHED" = success; then
+            python3 -u .github/ci-cache/restore_stacks.py --prune-r2 ||
+              printf '::warning::Could not prune older R2 Stacks generations.\n'
+          fi
+          python3 -u .github/ci-cache/restore_stacks.py --prune-release stacks.tar.zst

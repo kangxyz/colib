@@ -11,7 +11,8 @@ import tarfile
 import tempfile
 
 import checkpoint
-from stacks_r2 import MAX_ARCHIVE_BYTES, PREFIX_BYTES, R2Cache, WRITE_CONFLICT
+import stacks_release_volumes as volumes
+from stacks_r2 import MAX_ARCHIVE_BYTES, PREFIX_BYTES, RETAINED_GENERATIONS, R2Cache, WRITE_CONFLICT
 
 RESTORE_ERRORS = (OSError, ValueError, KeyError, TypeError, AttributeError, tarfile.TarError)
 DOWNLOAD_ERRORS = (*RESTORE_ERRORS, subprocess.CalledProcessError)
@@ -45,15 +46,41 @@ def asset_priority(asset):
     return asset['size'], asset['created_at']
 
 
-def published_asset():
+def release_indexes(release, directory):
+    assets = {asset['name']: asset for asset in (release or {}).get('assets', [])
+              if asset['state'] == 'uploaded' and asset['size'] > 0}
+    for asset in assets.values():
+        if (not volumes.INDEX_NAME.fullmatch(asset['name']) or asset['size'] > volumes.INDEX_LIMIT
+                or not re.fullmatch(r'sha256:[0-9a-f]{64}', asset.get('digest') or '')):
+            continue
+        index = directory / 'release-parts.json'
+        try:
+            download_file(asset, index)
+            yield volumes.read_index(asset, index, assets)
+        except DOWNLOAD_ERRORS as error:
+            print(f'::warning::Skipping Stacks Release index {asset["name"]}: {error}')
+
+
+def published_assets(directory):
     tag = release_tag(os.environ['STACKS_REVISION'], os.environ['STACKS_CONTEXT'])
-    asset = max(release_assets(github_release(tag)), key=asset_priority, default=None)
-    if asset is not None and (match := GENERATION_ASSET.fullmatch(asset['name'])):
-        return dict(asset, generation=match[1])
-    return asset
+    release = github_release(tag)
+    assets = [dict(asset, generation=match[1]) if (match := GENERATION_ASSET.fullmatch(asset['name']))
+              else asset for asset in release_assets(release)]
+    single_file = max(assets, key=asset_priority, default=None)
+    split = list(release_indexes(release, directory))
+    if single_file is not None:
+        split.append(single_file)
+    yield from sorted(split, key=asset_priority, reverse=True)
 
 
 def download(asset, output, *, prefix=False):
+    if 'parts' in asset:
+        volumes.download(asset, output, download_file, prefix=prefix)
+    else:
+        download_file(asset, output, prefix=prefix)
+
+
+def download_file(asset, output, *, prefix=False):
     repository = os.environ['GITHUB_REPOSITORY']
     api = os.environ['GITHUB_API_URL']
     url = f"{api}/repos/{repository}/releases/assets/{asset['id']}"
@@ -66,11 +93,10 @@ def download(asset, output, *, prefix=False):
         command += ['--range', f'0-{limit - 1}']
     auth = f'header = "Authorization: Bearer {os.environ["GH_TOKEN"]}"\n'
     subprocess.run([*command, url], text=True, input=auth, check=True)
-    if not prefix:
-        if output.stat().st_size != limit:
-            raise ValueError('published Stacks checkpoint size mismatch')
-        if asset.get('digest') and asset['digest'] != 'sha256:' + checkpoint.file_hash(output):
-            raise ValueError('published Stacks checkpoint digest mismatch')
+    if output.stat().st_size != limit:
+        raise ValueError('published Stacks checkpoint size mismatch')
+    if not prefix and asset.get('digest') and asset['digest'] != 'sha256:' + checkpoint.file_hash(output):
+        raise ValueError('published Stacks checkpoint digest mismatch')
 
 
 def read_manifest(path):
@@ -151,8 +177,6 @@ def restore_baseline(args, warm, local, asset, fetch, directory, source):
 
 
 def restore_stacks(args, warm, r2=None):
-    sources = [('GitHub Release', published_asset, download)]
-
     local = None
     if warm.is_file():
         try:
@@ -164,14 +188,21 @@ def restore_stacks(args, warm, r2=None):
     with tempfile.TemporaryDirectory(prefix='stacks-baseline-', dir=warm.parent) as scratch:
         directory = Path(scratch)
         if r2 is not None:
-            sources.insert(0, ('R2', lambda: r2.current(directory / 'current.json')[0], r2.download))
-        for source, lookup, fetch in sources:
             try:
-                asset = lookup()
-                if asset is not None and restore_baseline(args, warm, local, asset, fetch, directory, source):
+                index, _ = r2.current(directory / 'current.json')
+                if index is not None and restore_baseline(args, warm, local, index, r2.download, directory, 'R2'):
                     return
             except DOWNLOAD_ERRORS as error:
-                print(f'::warning::Published Stacks baseline from {source} unavailable: {error}')
+                print(f'::warning::Published Stacks baseline from R2 unavailable: {error}')
+        try:
+            for asset in published_assets(directory):
+                try:
+                    if restore_baseline(args, warm, local, asset, download, directory, 'GitHub Release'):
+                        return
+                except DOWNLOAD_ERRORS as error:
+                    print(f'::warning::Published Stacks baseline from GitHub Release unavailable: {error}')
+        except DOWNLOAD_ERRORS as error:
+            print(f'::warning::Published Stacks baseline from GitHub Release unavailable: {error}')
     if local is not None:
         apply(args, warm)
 
@@ -226,6 +257,45 @@ def legacy_release_contains(args, archive, generation, assets):
     return False
 
 
+def publish_volumes(archive, generation, tag, release, directory):
+    repository = os.environ['GITHUB_REPOSITORY']
+    if release is None:
+        create = ['gh', 'release', 'create', tag, '--repo', repository, '--target', os.environ['GITHUB_SHA'],
+                  '--latest=false', '--title', 'Stacks compilation checkpoint',
+                  '--notes', 'Independent Stacks working-build checkpoint from successful Colib native checks.']
+        result = subprocess.run(create, text=True, capture_output=True)
+        if result.returncode and github_release(tag) is None:
+            raise OSError(f'Could not create the Stacks Release: {result.stderr.strip()}')
+
+    def upload(path, identity, *, index=False):
+        def existing():
+            current = github_release(tag)
+            return next((asset for asset in current['assets']
+                         if asset['state'] == 'uploaded' and asset['name'] == path.name), None)
+
+        def complete(asset):
+            if asset is None:
+                return False
+            if asset['size'] == identity['size'] and asset.get('digest') == identity['digest']:
+                return True
+            if index:
+                return any(item['generation'] == generation for item in release_indexes(github_release(tag), directory))
+            raise ValueError(f'existing Stacks Release volume has unexpected bytes: {path.name}')
+
+        asset = next((asset for asset in (release or {}).get('assets', [])
+                      if asset['state'] == 'uploaded' and asset['name'] == path.name), None)
+        if complete(asset):
+            return
+        command = ['gh', 'release', 'upload', tag, str(path), '--repo', repository]
+        result = subprocess.run(command, text=True, capture_output=True)
+        if complete(existing()):
+            return
+        raise OSError(f'Could not publish Stacks Release asset {path.name}: {result.stderr.strip()}')
+
+    index, identity = volumes.publish(archive, generation, directory, upload)
+    upload(index, identity, index=True)
+
+
 def publish_release(args, archive, revision, context):
     candidate = manifest(archive, args)
     if not candidate['entries']:
@@ -242,7 +312,15 @@ def publish_release(args, archive, revision, context):
 
     repository = os.environ['GITHUB_REPOSITORY']
     with tempfile.TemporaryDirectory(prefix='stacks-release-publish-', dir=archive.parent) as scratch:
-        asset = Path(scratch) / name
+        directory = Path(scratch)
+        if any(item['generation'] == generation for item in release_indexes(release, directory)):
+            print(f'GitHub Release already has Stacks checkpoint generation {generation[:12]}.')
+            return
+        if archive.stat().st_size >= volumes.ASSET_LIMIT:
+            publish_volumes(archive, generation, tag, release, directory)
+            print(f'Published Stacks checkpoint generation {generation[:12]} to GitHub Release in volumes.')
+            return
+        asset = directory / name
         asset.hardlink_to(archive)
         upload = ['gh', 'release', 'upload', tag, str(asset), '--repo', repository]
         create = ['gh', 'release', 'create', tag, str(asset), '--repo', repository,
@@ -260,6 +338,46 @@ def publish_release(args, archive, revision, context):
                 return
             raise OSError(f'GitHub Stacks Release publication failed: {result.stderr.strip()}')
     print(f'Published Stacks checkpoint generation {generation[:12]} to GitHub Release.')
+
+
+def prune_release(tag, generation, directory):
+    release = github_release(tag)
+    single = release_assets(release)
+    split = list(release_indexes(release, directory))
+    represented = [(match[1], asset) for asset in single if (match := GENERATION_ASSET.fullmatch(asset['name']))]
+    represented.extend((asset['generation'], asset) for asset in split)
+    # A broken or unreadable index cannot authorize deleting an older fallback.
+    if len(split) != sum(bool(volumes.INDEX_NAME.fullmatch(asset['name']))
+                         for asset in (release or {}).get('assets', []) if asset['state'] == 'uploaded'):
+        raise ValueError('cannot prune a Stacks Release with an unreadable volume index')
+    ordered = sorted(represented, key=lambda item: item[1]['created_at'], reverse=True)
+    keep_generations = set()
+    keep_ids = set()
+    for identity, asset in ordered:
+        if identity in keep_generations or len(keep_generations) >= RETAINED_GENERATIONS:
+            continue
+        keep_generations.add(identity)
+        keep_ids.add(asset['id'])
+        keep_ids.update(part['id'] for part in asset.get('parts', []))
+    if generation not in keep_generations or len(keep_generations) != RETAINED_GENERATIONS:
+        return
+    # Two complete named generations supersede the historical run-named files.
+    obsolete = [asset for asset in single + split if asset['id'] not in keep_ids]
+    # Remove an obsolete split index before any of its parts. Unindexed uploads
+    # belong to a publisher that may still be finishing or retrying.
+    obsolete.sort(key=lambda asset: not bool(asset.get('parts')))
+    repository = os.environ['GITHUB_REPOSITORY']
+    for asset in obsolete:
+        ids = [asset['id'], *(part['id'] for part in asset.get('parts', []))]
+        for asset_id in ids:
+            if asset_id in keep_ids:
+                continue
+            result = subprocess.run(['gh', 'api', '--method', 'DELETE',
+                                     f'repos/{repository}/releases/assets/{asset_id}'],
+                                    text=True, capture_output=True)
+            if result.returncode and '(HTTP 404)' not in result.stderr:
+                raise OSError(f'Could not remove obsolete Stacks Release asset {asset_id}: {result.stderr.strip()}')
+        print(f'Pruned obsolete Stacks Release asset {asset["name"]}.', flush=True)
 
 
 def publish_r2(args, archive, r2):
@@ -297,8 +415,11 @@ def publish_r2(args, archive, r2):
                 if stored is None:
                     continue
                 index = stored
-                checkpoint.write_json(pointer, index)
                 uploaded = True
+            next_pointer = dict(index)
+            if current is not None:
+                next_pointer['previous_generation'] = current['generation']
+            checkpoint.write_json(pointer, next_pointer)
             condition = f'If-Match: {etag}' if etag else 'If-None-Match: *'
             status = r2.put('current.json', pointer, checkpoint.file_hash(pointer), condition, seconds=20)
             if status not in WRITE_CONFLICT:
@@ -312,26 +433,37 @@ def main():
     publish = parser.add_mutually_exclusive_group()
     publish.add_argument('--publish-r2', type=Path, metavar='ARCHIVE')
     publish.add_argument('--publish-release', type=Path, metavar='ARCHIVE')
+    publish.add_argument('--prune-r2', action='store_true')
+    publish.add_argument('--prune-release', type=Path, metavar='ARCHIVE')
     command = parser.parse_args()
     root = Path.cwd()
     args = argparse.Namespace(root=root, layer='stacks',
                               native_cache=Path(os.environ.get('LAKE_CACHE_DIR', root / '.lake/native-cache')).absolute(),
                               metadata=None, github_output=None)
     checkpoint.supported(root)
-    if command.publish_r2 is not None or command.publish_release is not None:
+    if command.publish_r2 is not None or command.publish_release is not None or command.prune_r2 or command.prune_release:
         context = checkpoint.contexts(root)['stacks_context']
         packages = json.loads((root / 'lake-manifest.json').read_text())['packages']
         revision = next(package['rev'] for package in packages if package['name'] == 'Stacks')
         try:
+            if command.prune_release is not None:
+                data = manifest(command.prune_release, args)
+                with tempfile.TemporaryDirectory(prefix='stacks-release-prune-') as scratch:
+                    prune_release(release_tag(revision, context), data['generation'], Path(scratch))
+                return
             if command.publish_release is not None:
                 publish_release(args, command.publish_release, revision, context)
                 return
             r2 = R2Cache.configured(revision, context)
             if r2 is None:
                 raise ValueError('R2 endpoint, bucket and write credentials are required')
-            publish_r2(args, command.publish_r2, r2)
+            if command.prune_r2:
+                with tempfile.TemporaryDirectory(prefix='stacks-r2-prune-') as scratch:
+                    r2.prune_archives(Path(scratch))
+            else:
+                publish_r2(args, command.publish_r2, r2)
         except DOWNLOAD_ERRORS as error:
-            parser.exit(1, f'Could not publish the Stacks checkpoint: {error}\n')
+            parser.exit(1, f'Could not publish or prune the Stacks checkpoint: {error}\n')
         return
     try:
         r2 = R2Cache.configured(os.environ['STACKS_REVISION'], os.environ['STACKS_CONTEXT'])
