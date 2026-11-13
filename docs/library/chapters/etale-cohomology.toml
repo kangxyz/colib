@@ -1,0 +1,119 @@
+[chapter]
+id = "etale-cohomology"
+title = "Étale Sites and Cohomology"
+order = 45
+introduction = '''
+Ordinary étale sites, geometric points and sheaf adjunctions provide the language of [@MVW2006, Lecture 6]. Proper base change and Kummer specialization supply the relative-Picard input of Lecture 7. These results do not by themselves impose transfer actions or homotopy invariance. The cycle identities remain in Cycles and Correspondences, and Suslin rigidity is the transfer-specific conclusion in COL-1222.
+'''
+
+[[sections]]
+id = "smooth-etale-sites"
+title = "Étale sites, geometric points and the canonical counit"
+order = 10
+introduction = '''
+Start with ordinary étale sheaves on the original smooth category, then compare the full small étale site with its finite-type basis. Marked affine neighborhoods and strict henselization compute actual geometric values. The native extension–restriction counit is identified on these values without assuming transfers or homotopy invariance. See [@MVW2006, Lecture 6]; the transfer-specific rigidity conclusion is organized separately in COL-1222.
+'''
+legacy_items = ["COL-1111", "COL-1114", "COL-1222"]
+
+[[sections.topics]]
+id = "topologies-and-site-comparison"
+title = "Topologies and comparison of sites"
+start = "COL-1203"
+
+[[sections.topics]]
+id = "geometric-neighborhoods"
+title = "Marked neighborhoods and conservativity"
+start = "COL-1057"
+
+[[sections.topics]]
+id = "stalks-and-canonical-counit"
+title = "Stalks and the canonical counit"
+start = "COL-1093"
+
+[sections.transitions]
+COL-1082 = '''
+For a native algebraically closed geometric point, these same affine
+neighborhoods form an initial subdiagram of the bounded native diagram.
+Their actual limit is the strict henselization, retaining the canonical
+map to the base and the original marked lift at every stage.
+'''
+COL-1085 = '''
+Choose the native algebraic closure at every point of every smooth object.
+The original neighborhood germs produce an actual etale cover inside any
+sieve detected by these points, proving conservativity. Thus ordinary
+abelian sheaf isomorphisms are detected on the actual neighborhood values,
+with the same native markings used in COL-1082.
+'''
+COL-1095 = '''
+Over a Jacobson base, closed points suffice. A closed specialization lies
+in an actual etale image, and openness carries that image back to every
+generalization. These same arrows form the original covering sieve, proving
+conservativity of the closed residue-geometric subfamily.
+'''
+COL-1060 = '''
+The full small etale site contains objects outside the finite-type smooth
+category. Use its genuine separated finite-type basis and affine cover
+density to compare sheaves while retaining literal restriction.
+'''
+COL-1093 = '''
+Use actual Cartesian affine neighborhoods to pull back their original values.
+At the algebraically marked rational origins of affine spaces, the coordinate
+projection and zero-section give a split pair. Their formulas on each original
+representative isolate the reverse composite needed for dimension induction.
+'''
+COL-1102 = '''
+An actual affine etale change of marked chart gives a canonical isomorphism
+whose forward map is the same neighborhood pullback. Its inverse keeps each
+original affine neighborhood and composes its structure map. The original
+base-value restrictions commute with this change of chart.
+'''
+COL-1061 = '''
+Insert this basis equivalence into the actual extension/restriction
+adjunction. Its canonical unit and counit remain the original Kan and
+sheafification maps. COL-1222 proves the counit invertible for HI torsion
+transfers; this is not a consequence of the adjunction alone.
+'''
+COL-1099 = '''
+Normalize this actual counit on the original marked neighborhood values.
+Its Kan generators map by the original presheaf restriction, and these
+values identify with native small-site stalks on the same smooth object.
+COL-1104 identifies the source with the base geometric-point value.
+'''
+COL-1104 = '''
+Evaluate an original neighborhood germ at its marking. Actual fiber products
+and etale diagonals identify this point with the original small-base point
+at the composite structure map. Native comapped-point and dense-basis
+comparisons compute the genuine extension source stalk, naturally in its
+coefficient sheaf. COL-1108 identifies the actual counit map.
+'''
+COL-1108 = '''
+On each original base germ, the native source comparison and actual
+adjunction triangles identify the canonical counit with the original
+structural restriction. The actual sheafification units retain the original
+presheaf itself. Marked affine-morphism naturality keeps the same base point
+and maps, isolating exactly the restriction whose invertibility remains.
+'''
+
+[[sections]]
+id = "proper-etale-specialization"
+title = "Proper base change and Kummer specialization"
+order = 20
+introduction = '''
+Native proper étale base change and Kummer theory reflect Picard divisibility from a closed fibre. Follow the relative-Picard method of [@MVW2006, Lecture 7, Lemma 7.13 and Exercise 7.15 and Corollary 7.19], retaining the actual tensor root and its specified full-boundary frame. Closed-curve divisibility has stronger smooth-proper hypotheses than the same-specialization route; the two are distinct topics, not interchangeable certificates.
+'''
+legacy_items = ["COL-1054", "COL-1087", "COL-1101", "COL-1109", "COL-1110", "COL-1112", "COL-1113", "COL-1207", "COL-1213"]
+
+[[sections.topics]]
+id = "proper-base-change-and-kummer"
+title = "Proper base change and Kummer divisibility"
+start = "COL-1205"
+
+[[sections.topics]]
+id = "closed-curve-roots"
+title = "Degree-zero roots on smooth proper curves"
+start = "COL-1209"
+
+[[sections.topics]]
+id = "framed-specialization-roots"
+title = "Framed roots and same-specialization sections"
+start = "COL-1212"

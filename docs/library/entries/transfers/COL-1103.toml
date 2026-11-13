@@ -2,8 +2,8 @@
 id = "COL-1103"
 title = "Radicial torsion invariance on all smooth objects"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 18
+section = "radicial-transfer-invariance"
+order = 30
 primary = "AlgebraicGeometry.PresheafWithTransfers.radicialGraphIsoOfComponents"
 review = "author_checked"
 source_checked_on = "2026-11-12"

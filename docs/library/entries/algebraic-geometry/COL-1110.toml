@@ -2,8 +2,8 @@
 id = "COL-1110"
 title = "Simultaneous descent of finite locally free zero schemes"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 120
+section = "boundary-frames-and-descent"
+order = 60
 primary = "AlgebraicGeometry.exists_zeroSchemes_isFiniteLocallyFree_of_isLimit_finite"
 review = "author_checked"
 source_checked_on = "2026-11-12"

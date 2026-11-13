@@ -2,8 +2,8 @@
 id = "COL-1098"
 title = "Original relative Frobenius on torsion transfers"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 17
+section = "radicial-transfer-invariance"
+order = 20
 primary = "AlgebraicGeometry.PresheafWithTransfers.relativeFrobeniusIso"
 review = "author_checked"
 source_checked_on = "2026-11-12"

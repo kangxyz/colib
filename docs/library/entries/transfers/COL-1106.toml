@@ -2,8 +2,8 @@
 id = "COL-1106"
 title = "Separable closed points after actual iterated Frobenius"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 19
+section = "radicial-transfer-invariance"
+order = 40
 primary = "AlgebraicGeometry.PresheafWithTransfers.exists_separable_closedPoint_iteratedFrobenius_iso"
 review = "author_checked"
 source_checked_on = "2026-11-12"

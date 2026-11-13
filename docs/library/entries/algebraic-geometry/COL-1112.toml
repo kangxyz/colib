@@ -2,8 +2,8 @@
 id = "COL-1112"
 title = "Common-stage descent of an original root and boundary frame"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 119
+section = "boundary-frames-and-descent"
+order = 50
 primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_root_boundary_frame_of_isLimit_finite"
 review = "author_checked"
 source_checked_on = "2026-11-12"

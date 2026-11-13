@@ -2,8 +2,8 @@
 id = "COL-1211"
 title = "Endpoint actions on homotopy-invariant transfer coefficients"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 13
+section = "homotopy-invariant-transfer-actions"
+order = 10
 primary = "AlgebraicGeometry.PresheafWithTransfers.transfer_homotopy_endpoints"
 review = "author_checked"
 statement = '''

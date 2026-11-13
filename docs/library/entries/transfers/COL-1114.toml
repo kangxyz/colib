@@ -2,8 +2,8 @@
 id = "COL-1114"
 title = "Global counit reduction at separable closed residues"
 kind = "comparison"
-section = "smooth-etale-sites"
-order = 60
+section = "etale-rigidity"
+order = 20
 primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_iff_separableClosedNeighborhood"
 review = "author_checked"
 source_checked_on = "2026-11-12"

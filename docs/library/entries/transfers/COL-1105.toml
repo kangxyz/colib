@@ -2,8 +2,8 @@
 id = "COL-1105"
 title = "Actual framed finite-pair homotopy-invariant torsion actions"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 15
+section = "homotopy-invariant-transfer-actions"
+order = 20
 primary = "AlgebraicGeometry.PresheafWithTransfers.transfer_framed_pair_eq"
 review = "author_checked"
 source_checked_on = "2026-11-12"

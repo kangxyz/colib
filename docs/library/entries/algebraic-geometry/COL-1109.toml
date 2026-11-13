@@ -2,8 +2,8 @@
 id = "COL-1109"
 title = "Native tensor-power and root-frame comparisons"
 kind = "comparison"
-section = "proper-etale-specialization"
-order = 118
+section = "boundary-frames-and-descent"
+order = 20
 primary = "AlgebraicGeometry.Scheme.Modules.root_frame_equation_iff"
 review = "author_checked"
 source_checked_on = "2026-11-12"

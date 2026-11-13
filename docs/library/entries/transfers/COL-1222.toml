@@ -2,8 +2,8 @@
 id = "COL-1222"
 title = "Étale rigidity of homotopy-invariant torsion transfers"
 kind = "theorem"
-section = "smooth-etale-sites"
-order = 70
+section = "etale-rigidity"
+order = 30
 primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_of_A1Invariant"
 review = "author_checked"
 source_checked_on = "2026-11-13"

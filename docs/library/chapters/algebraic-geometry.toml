@@ -19,6 +19,23 @@ The pullback projections give the maps for a change of \(A\), and the map to
 '''
 
 [[sections]]
+id = "scheme-products-and-index-squares"
+title = "Scheme products and geometric index squares"
+order = 15
+introduction = "Products over the integral terminal scheme retain their fixed-factor maps. Their interchange defines the geometric polynomial and Laurent index squares and the projection equations used by scheme K-theory."
+
+[sections.transitions]
+COL-0532 = '''
+For two schemes over the integral terminal scheme, the two nested pullbacks have
+three coordinate projections. Their interchange fixes the base coordinate and
+exchanges the two independent factors. Applied to the polynomial and Laurent
+charts, these maps assemble into the opposite index square and retain the
+projection to its original source leg.
+'''
+COL-0536 = "The independent-factor products of COL-0532 also transport an open immersion in the fixed factor. As the scheme parameter varies, the two product maps retain the entire commuting square. This gives the actual open-pair family used for supported sections in COL-0534."
+COL-0578 = "Polynomial and Laurent base-change squares provide the geometric comparison required to apply the index-change construction to the integral Spec functor."
+
+[[sections]]
 id = "perfect-complexes"
 title = "Perfect complexes"
 order = 20
@@ -83,109 +100,6 @@ COL-1010 = '''
 The field-valued lifting test of COL-0340 applies in each affine étale
 neighborhood of a scheme point. The marked neighborhood diagrams give actual
 Nisnevich fibers. Conservativity relates their lifts back to the same covers.
-'''
-
-[[sections]]
-id = "smooth-etale-sites"
-title = "Étale topology on smooth schemes"
-order = 35
-introduction = '''
-Keep the smooth separated finite-type objects and their original scheme maps
-from COL-0340. Jointly surjective étale families give a finer topology on this
-same category. Restriction of its sheaves to the Nisnevich topology changes
-neither their sections nor their morphisms.
-Native sheafification on this same smooth category gives the ordinary
-change-of-topology left adjoint with its canonical unit and counit.
-Affine etale neighborhoods marked by a separably closed field point give
-actual point fibers on this smooth category. Their original colimit maps
-retain representatives, refinement equations and the sheafification unit.
-'''
-
-[sections.transitions]
-COL-1082 = '''
-For a native algebraically closed geometric point, these same affine
-neighborhoods form an initial subdiagram of the bounded native diagram.
-Their actual limit is the strict henselization, retaining the canonical
-map to the base and the original marked lift at every stage.
-'''
-COL-1085 = '''
-Choose the native algebraic closure at every point of every smooth object.
-The original neighborhood germs produce an actual etale cover inside any
-sieve detected by these points, proving conservativity. Thus ordinary
-abelian sheaf isomorphisms are detected on the actual neighborhood values,
-with the same native markings used in COL-1082.
-'''
-COL-1095 = '''
-Over a Jacobson base, closed points suffice. A closed specialization lies
-in an actual etale image, and openness carries that image back to every
-generalization. These same arrows form the original covering sieve, proving
-conservativity of the closed residue-geometric subfamily.
-'''
-
-COL-1060 = '''
-The full small etale site contains objects outside the finite-type smooth
-category. Use its genuine separated finite-type basis and affine cover
-density to compare sheaves while retaining literal restriction.
-'''
-COL-1093 = '''
-Use actual Cartesian affine neighborhoods to pull back their original values.
-At the algebraically marked rational origins of affine spaces, the coordinate
-projection and zero-section give a split pair. Their formulas on each original
-representative isolate the reverse composite needed for dimension induction.
-'''
-COL-1102 = '''
-An actual affine etale change of marked chart gives a canonical isomorphism
-whose forward map is the same neighborhood pullback. Its inverse keeps each
-original affine neighborhood and composes its structure map. The original
-base-value restrictions commute with this change of chart.
-'''
-COL-1061 = '''
-Insert this basis equivalence into the actual extension/restriction
-adjunction. Its canonical unit and counit remain the original Kan and
-sheafification maps. COL-1222 proves the counit invertible for HI torsion
-transfers; this is not a consequence of the adjunction alone.
-'''
-
-COL-1099 = '''
-Normalize this actual counit on the original marked neighborhood values.
-Its Kan generators map by the original presheaf restriction, and these
-values identify with native small-site stalks on the same smooth object.
-COL-1104 identifies the source with the base geometric-point value.
-'''
-COL-1104 = '''
-Evaluate an original neighborhood germ at its marking. Actual fiber products
-and etale diagonals identify this point with the original small-base point
-at the composite structure map. Native comapped-point and dense-basis
-comparisons compute the genuine extension source stalk, naturally in its
-coefficient sheaf. COL-1108 identifies the actual counit map.
-'''
-COL-1108 = '''
-On each original base germ, the native source comparison and actual
-adjunction triangles identify the canonical counit with the original
-structural restriction. The actual sheafification units retain the original
-presheaf itself. Marked affine-morphism naturality keeps the same base point
-and maps, isolating exactly the restriction whose invertibility remains.
-'''
-COL-1111 = '''
-Lift the original markings through actual Frobenius base-change equivalences.
-The original transfer inverse and initial neighborhood functor identify the
-actual neighborhood pullback as an isomorphism. The same counit naturality
-square therefore transports invertibility to a closed point with separable
-residue, without changing the presheaf or assuming the stalk comparison.
-'''
-COL-1114 = '''
-Affine closed geometric points already detect the actual smooth-site sheaf.
-Combine this conservativity with the same Frobenius comparison and native
-characteristic-zero residue separability. The global counit question is now
-exactly the original structural-neighborhood restriction at closed separable
-residues. COL-1222 supplies the geometric induction proving that map invertible.
-'''
-
-COL-1222 = '''
-Polynomial-tail induction now supplies this exact original-neighborhood
-restriction condition in every dimension. Apply the canonical counit
-reduction to obtain rigidity for A¹-invariant transfers with a fixed
-positive exponent invertible in the field, without requiring perfectness.
 '''
 
 [[sections]]
@@ -282,23 +196,22 @@ choice for the original line bundle.
 '''
 
 [[sections]]
-id = "proper-etale-specialization"
-title = "Proper étale specialization"
-order = 37
+id = "boundary-frames-and-descent"
+title = "Boundary frames and finite-stage descent"
+order = 38
 introduction = '''
-For a proper scheme over a strictly henselian local base, its closed fibre
-is a geometric fibre. Native proper base change and dimension shifting
-identify the canonical restriction on ordinary small-site étale cohomology
-with finite-exponent coefficients. The native Kummer boundary embeds the
-Picard group modulo n into roots-of-unity cohomology and reflects divisibility
-from the closed fibre. Actual section-kernel pullback identifies the divisor
-difference under arbitrary base change. Finite-algebra unit roots then supply
-a compatible frame on the full finite affine boundary, preserving nilpotents
-and the original tensor-power equation. For sections with the same
-closed-fibre morphism, the actual difference is already the unit module
-on that fibre. The direct proper Kummer route then needs smoothness only
-on the open containing their images.
+An invertible module and its specified tensor-power equation are geometric data, not a cohomology class. Choose compatible full-boundary frames and descend the same roots, sections and whole zero schemes to one finite stage. These tools feed the relative-Picard specialization route of [@MVW2006, Lecture 7, Lemma 7.13 and Exercise 7.15] without identifying a scheme with its reduction.
 '''
+
+[[sections.topics]]
+id = "frames-and-power-comparisons"
+title = "Frames and tensor-power comparisons"
+start = "COL-1207"
+
+[[sections.topics]]
+id = "finite-stage-root-and-section-descent"
+title = "One finite stage for roots, frames and sections"
+start = "COL-1087"
 
 [sections.transitions]
 COL-1087 = '''
@@ -321,19 +234,19 @@ equation is therefore the precise nonnegative-power equation used in
 COL-1101, and the existing strictly henselian finite-boundary supplier
 constructs such a frame. COL-1112 performs their common-stage assembly.
 '''
-COL-1112 = '''
-Select the actual root once, retaining its original power isomorphism and
-whole-boundary frame. After every prescribed refinement, all finitely many
-original section equations and the actual power relation descend with that
-same frame to one further stage. Auxiliary modules may therefore be selected
-before the frame equations are imposed, without choosing a different root.
-'''
 COL-1110 = '''
 Once the actual modules and sections are defined at a stage, retain their
 whole zero schemes through native base change. Finite local freeness at
 the limit descends simultaneously for a finite family to one later stage.
 This preserves the original numerator and denominator rather than replacing
 their zero schemes by reduced supports.
+'''
+COL-1112 = '''
+Select the actual root once, retaining its original power isomorphism and
+whole-boundary frame. After every prescribed refinement, all finitely many
+original section equations and the actual power relation descend with that
+same frame to one further stage. Auxiliary modules may therefore be selected
+before the frame equations are imposed, without choosing a different root.
 '''
 COL-1113 = '''
 Choose the actual finite family of sections internally from the limit,
@@ -369,7 +282,6 @@ hypotheses, its generic germ is the previous meromorphic quotient.
 A denominator framed as one contains the full boundary in this open;
 tensor recovery computes coordinate one in the original frame of the quotient module.
 '''
-
 COL-1058 = '''
 Keep the ordinary quotient on its original open when forming powers.
 The native successor comparisons and the exact Kummer power frame carry
@@ -378,21 +290,18 @@ The original integer-power pullback square and root-frame compatibility
 then preserve this coordinate in the target. Integrality is needed only
 for the separate comparison with positive meromorphic powers.
 '''
-
 COL-1059 = '''
 The canonical numerator now has an ordinary representative on the original
 denominator complement. Its full-boundary pullback has coordinate exactly
 one in the original Cartier difference frame, so no replacement frame or
 merely divisor-equivalent section enters the later ratio.
 '''
-
 COL-1063 = '''
 The two ordinary representatives now determine their own common generator
 open and actual unit ratio. Pullback of the defining equation preserves
 value one on the full boundary. Generic regularity makes this same open
 dense and identifies its unit with the original meromorphic ratio.
 '''
-
 COL-1066 = '''
 Use the canonical numerator and the actual framed power of the original
 quotient a/b. The same correction function gives the positive principal
@@ -427,21 +336,3 @@ canonical homology comparison. To use integer cochain degrees, place chain
 degree \(r\) in degree \(q-r\); the specified term isomorphisms carry the original
 differential, without yet identifying this placement with a signed shift.
 '''
-
-[[sections]]
-id = "scheme-products-and-index-squares"
-title = "Scheme products and geometric index squares"
-order = 15
-introduction = "Products over the integral terminal scheme retain their fixed-factor maps. Their interchange defines the geometric polynomial and Laurent index squares and the projection equations used by scheme K-theory."
-
-[sections.transitions]
-COL-0532 = '''
-For two schemes over the integral terminal scheme, the two nested pullbacks have
-three coordinate projections. Their interchange fixes the base coordinate and
-exchanges the two independent factors. Applied to the polynomial and Laurent
-charts, these maps assemble into the opposite index square and retain the
-projection to its original source leg.
-'''
-COL-0536 = "The independent-factor products of COL-0532 also transport an open immersion in the fixed factor. As the scheme parameter varies, the two product maps retain the entire commuting square. This gives the actual open-pair family used for supported sections in COL-0534."
-COL-0578 = "Polynomial and Laurent base-change squares provide the geometric comparison required to apply the index-change construction to the integral Spec functor."
-

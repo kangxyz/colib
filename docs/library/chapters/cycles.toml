@@ -119,6 +119,33 @@ forward the same cycle with the same residue-field degrees.
 '''
 
 [[sections]]
+id = "relative-principal-cuts"
+title = "Relative principal cuts"
+order = 30
+introduction = '''
+A principal equation on an integral support defines a zero scheme with its
+original multiplicities. Finiteness over the source gives the support for a
+finite correspondence. Pulling the cut across a closed polynomial face
+requires comparing the weighted cycles on the two zero schemes.
+'''
+
+[sections.transitions]
+COL-1040 = '''
+The Laurent coordinate on a torus support is a unit. A power of this
+coordinate can dominate the positive and negative Laurent exponents in
+integral equations for another unit on the same support.
+'''
+COL-1041 = '''
+A cut whose components have generic image can be restricted along a
+Cartesian closed face of the source. The local comparison uses the Euler
+lengths of the two principal equations in the original support stalk.
+'''
+COL-1043 = '''
+Use the closed-face comparison on both endpoints of a polynomial
+family of principal cuts. A common power bound makes the construction
+finite on the original signed correspondence.
+'''
+[[sections]]
 id = "cartier-correspondences"
 title = "Cartier divisor correspondences"
 order = 55
@@ -128,6 +155,9 @@ whole closed zero schemes, including their nilpotent multiplicities. Under
 finite flatness over the source, their unchanged source-target maps give
 native finite correspondences. Cycle transport retains every residue degree
 and adds coefficients of coincident images; the ambient map need not be finite.
+
+
+These are cycle and correspondence identities before applying a coefficient presheaf. COL-1211 and COL-1105 in Presheaves and Sheaves with Transfers supply their homotopy-invariant action-theoretic consequences, as in [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17].
 '''
 
 [sections.transitions]
@@ -156,6 +186,31 @@ dominance, giving an actual signed finite correspondence with its residue
 degrees. Endpoint Tor comparisons remain necessary for a correspondence
 homotopy.
 '''
+
+[[sections.topics]]
+id = "principal-families-and-local-cuts"
+title = "Principal families and local cuts"
+start = "COL-1214"
+
+[[sections.topics]]
+id = "finite-images-and-residue-degrees"
+title = "Finite images and residue degrees"
+start = "COL-1062"
+
+[[sections.topics]]
+id = "signed-support-identities"
+title = "Signed support identities"
+start = "COL-1077"
+
+[[sections.topics]]
+id = "whole-endpoint-fibers"
+title = "Whole endpoint fibres and fundamental cycles"
+start = "COL-1081"
+
+[[sections.topics]]
+id = "global-zero-one-endpoints"
+title = "Global zero and one endpoints"
+start = "COL-1092"
 
 [sections.transitions]
 COL-1216 = '''
@@ -191,7 +246,6 @@ localized full quotient lengths recover every codimension-one order visible
 from that stalk. The polynomial chart and endpoint specializations still
 need to be identified with this fraction.
 '''
-
 COL-1056 = '''
 Choose a genuine affine fraction of the original curve function. The actual
 polynomial chart transports that same function to its literal numerator
@@ -199,21 +253,18 @@ and denominator, so their nonzero endpoint germs are proved rather than
 supplied. The signed local Tor values now recover zero and the original
 order; finite-image residue-degree transport remains separate.
 '''
-
 COL-1062 = '''
 Transport full principal cuts through a finite image without assuming
 flatness of its support. The native norm formula retains both the generic
 residue degree and every fibre-point degree, summing all coincident images.
 Identifying these maps with the actual principal family remains necessary.
 '''
-
 COL-1065 = '''
 Use the actual principal-component map and its native integral image.
 Quasi-finite fibres supply coheight one; the original pointwise and generic
 degrees therefore give the coefficient formula without a fibre-codimension
 certificate. The signed principal coefficient is unchanged throughout.
 '''
-
 COL-1068 = '''
 Use the literal parameter equation of the original endpoint rather than a
 supplied nonzero section. The actual graph Cartesian square identifies its
@@ -237,7 +288,6 @@ original principal component. This retains all source and image collisions
 in the whole endpoint-graph pairing. The remaining comparison is with the
 original local-prime/order weights and whole endpoint cycles.
 '''
-
 COL-1077 = '''
 At each original local prime, native Euler lengths recover the signed
 principal order and the full endpoint cut. Keep both numerator and
@@ -253,21 +303,18 @@ The actual stalk-spectrum map identifies the surviving local-prime terms
 with the original principal-cycle supports. This removes the local indexing
 mismatch while leaving the incidence and source-fiber reindexing explicit.
 '''
-
 COL-1081 = '''
 Going down over the normal base puts every generic point of the actual
 full endpoint fiber over the original base generic point. This yields
 its placement in the finite incidence target without assuming component
 flatness or replacing the fiber by its reduction.
 '''
-
 COL-1083 = '''
 Use this generic-point placement in the actual endpoint pullback square.
 The original source fibers now give an explicit bijection, and the native
 residue-degree tower preserves both factors and every outer image test.
 The original local lengths still have to be inserted into this sum.
 '''
-
 COL-1084 = '''
 The original polynomial cylinder now supplies the coordinates, normal
 base ring and actual endpoint pullback squares needed in COL-1083.
@@ -280,7 +327,6 @@ incidence stalk length. The native incidence cycle therefore is the whole
 fundamental cycle, and its original graph-fiber isomorphism lets native
 finite pushforward carry all multiplicities and collisions at once.
 '''
-
 COL-1089 = '''
 Insert the original full source-fiber lengths and both residue degrees into
 COL-1086. Native finite pushforward now identifies the whole endpoint graph
@@ -301,7 +347,6 @@ Transport the entire signed support-cut sum through the actual open chart.
 Original ambient supports, full quotient lengths and the literal endpoint
 equation remain unchanged, giving the global ambient zero and one values.
 '''
-
 COL-1097 = '''
 The actual whole source-support endpoint is closed in the original curve.
 Its full fundamental-cycle coefficient is the original support-cut length,
@@ -309,39 +354,10 @@ including off-image points. Finite signed summation identifies every original
 curve coefficient; an internally chosen affine chart evaluates coheight-one
 points at zero and one.
 '''
-
 COL-1100 = '''
 Full boundary normalization places every contributing original support endpoint
 in curve codimension one. The source-cycle identities now hold globally.
 Canonical pullback and outer-map comparisons carry them to the original
 finite correspondence: zero at zero, and the original principal pushforward
 at one, without taking a rational-equivalence quotient.
-'''
-
-[[sections]]
-id = "relative-principal-cuts"
-title = "Relative principal cuts"
-order = 30
-introduction = '''
-A principal equation on an integral support defines a zero scheme with its
-original multiplicities. Finiteness over the source gives the support for a
-finite correspondence. Pulling the cut across a closed polynomial face
-requires comparing the weighted cycles on the two zero schemes.
-'''
-
-[sections.transitions]
-COL-1040 = '''
-The Laurent coordinate on a torus support is a unit. A power of this
-coordinate can dominate the positive and negative Laurent exponents in
-integral equations for another unit on the same support.
-'''
-COL-1041 = '''
-A cut whose components have generic image can be restricted along a
-Cartesian closed face of the source. The local comparison uses the Euler
-lengths of the two principal equations in the original support stalk.
-'''
-COL-1043 = '''
-Use the closed-face comparison on both endpoints of a polynomial
-family of principal cuts. A common power bound makes the construction
-finite on the original signed correspondence.
 '''

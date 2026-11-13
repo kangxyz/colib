@@ -2,8 +2,8 @@
 id = "COL-1087"
 title = "Descent of actual tensor-power roots"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 96
+section = "boundary-frames-and-descent"
+order = 30
 primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_tensorPower_root_of_isLimit"
 review = "author_checked"
 source_checked_on = "2026-11-12"

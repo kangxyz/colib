@@ -2,8 +2,8 @@
 id = "COL-1207"
 title = "Tensor-power-compatible frames on a finite boundary"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 30
+section = "boundary-frames-and-descent"
+order = 10
 primary = "AlgebraicGeometry.exists_compatible_frame_of_module_finite"
 review = "author_checked"
 statement = '''

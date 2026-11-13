@@ -469,6 +469,13 @@ class LibraryTests(unittest.TestCase):
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
+            "boundary-frames-and-descent":
+                "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
+            "homotopy-invariant-transfer-actions":
+                "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints",
+            "radicial-transfer-invariance":
+                "Colib.AlgebraicGeometry.PresheavesWithTransfers.RadicialTorsion",
+            "etale-rigidity": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit",
             "proper-etale-specialization":
                 "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
             "affine-curve-parameters":
@@ -810,9 +817,105 @@ class LibraryTests(unittest.TestCase):
         result = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertTrue(result["entries"]["COL-0179"]["references"])
 
+    def test_rigidity_items_have_mathematical_owners(self):
+        expected = {
+            "etale-cohomology": [1055, 1057, 1060, 1061, 1082, 1085, 1093, 1095,
+                                 1099, 1102, 1104, 1108, 1203, 1205, 1206, 1208,
+                                 1209, 1210, 1212, 1215],
+            "transfers": [1094, 1098, 1103, 1105, 1106, 1111, 1114, 1211, 1222],
+            "algebraic-geometry": [1047, 1048, 1050, 1052, 1054, 1058, 1059, 1063,
+                                   1064, 1066, 1067, 1069, 1073, 1075, 1076, 1087,
+                                   1101, 1109, 1110, 1112, 1113, 1207, 1213, 1217,
+                                   1219, 1221],
+            "commutative-algebra": [1204],
+            "cycles": [1049, 1051, 1053, 1056, 1062, 1065, 1068, 1070, 1071,
+                       1072, 1074, 1077, 1078, 1079, 1080, 1081, 1083, 1084,
+                       1086, 1088, 1089, 1090, 1091, 1092, 1096, 1097, 1100,
+                       1214, 1216, 1218, 1220],
+        }
+        self.assertEqual(sum(map(len, expected.values())), 87)
+        for chapter, numbers in expected.items():
+            for number in numbers:
+                identifier = f"COL-{number:04d}"
+                item = self.library["entries"][identifier]
+                self.assertEqual(self.library["sections"][item["section"]]["chapter"], chapter)
+                self.assertEqual(item["path"], f"docs/library/entries/{chapter}/{identifier}.toml")
+        self.assertEqual(len(self.library["sections"]["principal-polynomial-families"]["topics"]), 5)
+
+    def test_moved_item_aliases_must_target_another_existing_section(self):
+        path = self.root / "docs/library/chapters/transfers.toml"
+        text = path.read_text()
+        path.write_text(text.replace('"COL-1211", "COL-1094"',
+                                     '"COL-0368", "COL-1094"'))
+        # Use a structural replacement independent of the legacy list ordering.
+        import tomllib
+        section = tomllib.loads(text)["sections"][0]
+        first = section["legacy_items"][0]
+        path.write_text(text.replace('legacy_items = ["' + first + '"',
+                                     'legacy_items = ["COL-0368"', 1))
+        with self.assertRaisesRegex(ValueError, "invalid moved item"):
+            catalog.load_library(self.root)
+        path.write_text(text.replace('legacy_items = ["' + first + '"',
+                                     'legacy_items = ["COL-999999"', 1))
+        with self.assertRaisesRegex(ValueError, "invalid moved item"):
+            catalog.load_library(self.root)
+
+    def test_moved_rigidity_items_keep_real_pages_and_fragments(self):
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        for section in self.library["sections"].values():
+            page = (output / f"sections/{section['id']}/index.html").read_text()
+            for identifier in section.get("legacy_items", []):
+                self.assertIn(f'class="legacy-item" id="{identifier}"', page)
+                self.assertIn(f'href="../../tag/{identifier}/"', page)
+                permanent = (output / f"tag/{identifier}/index.html").read_text()
+                destination = self.library["entries"][identifier]["section"]
+                self.assertIn(f'href="../../sections/{destination}/"', permanent)
+        self.assertTrue((output / "sections/smooth-etale-sites/index.html").exists())
+        self.assertTrue((output / "sections/proper-etale-specialization/index.html").exists())
+        self.assertTrue((output / "chapters/algebraic-geometry/index.html").exists())
+        self.assertTrue((output / "chapters/transfers/index.html").exists())
+        self.assertTrue((output / "chapters/etale-cohomology/index.html").exists())
+        records = json.loads((output / "search.json").read_text())
+        self.assertEqual(next(x for x in records if x.get("id") == "COL-1222")["path"],
+                         "tag/COL-1222/")
+
+    def test_item_fragment_redirects_on_old_sections_and_chapters(self):
+        node = shutil.which("node")
+        if node is None:
+            self.skipTest("Node is needed for the browser fragment compatibility test")
+        source = (catalog.ROOT / "docs/site/site.js").read_text()
+        begin = source.index("function redirectMovedLibraryItem()")
+        end = source.index("\nredirectMovedLibraryItem();", begin)
+        function = source[begin:end]
+        cases = [
+            ["./", "#COL-1222", "true", "missing", "./tag/COL-1222/"],
+            ["../../", "#COL-1222", "false", "legacy", "../../tag/COL-1222/"],
+            ["../../", "#COL-1207", "false", "legacy", "../../tag/COL-1207/"],
+            ["../../", "#COL-1105", "false", "legacy", "../../tag/COL-1105/"],
+            ["../../", "#COL-1222", "false", "missing", "../../tag/COL-1222/"],
+            ["../../", "#COL-%31%32%32%32", "false", "legacy", "../../tag/COL-1222/"],
+            ["../../", "#COL-1203", "false", "current", None],
+            ["../../", "#%not-valid", "false", "missing", None],
+            ["../../", "#a-declaration", "false", "missing", None],
+        ]
+        script = "const cases = " + json.dumps(cases) + ";\n"
+        script += """
+for (const [root, hash, home, kind, expected] of cases) {
+  let actual = null;
+  const location = {hash, replace: value => {actual = value;}};
+  const document = {body: {dataset: {home}}, getElementById: () =>
+    kind === "missing" ? null : {matches: () => kind === "legacy"}};
+""" + function + """
+  redirectMovedLibraryItem();
+  if (actual !== expected) throw Error(JSON.stringify({hash, actual, expected}));
+}
+"""
+        subprocess.run([node, "-e", script], check=True, capture_output=True, text=True)
+
     def test_rigidity_endpoint_records_the_actual_counit(self):
         item = self.library["entries"]["COL-1222"]
-        self.assertEqual(item["section"], "smooth-etale-sites")
+        self.assertEqual(item["section"], "etale-rigidity")
         self.assertEqual(item["kind"], "theorem")
         self.assertEqual(item["primary"],
                          "AlgebraicGeometry.PresheafWithTransfers."
@@ -820,7 +923,8 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("n+1", item["statement"])
         self.assertIn("canonical counit", item["statement"])
         self.assertIn("No perfectness assumption", item["scope"])
-        section = self.library["sections"]["smooth-etale-sites"]
+        section = self.library["sections"]["etale-rigidity"]
+        self.assertEqual(section["title"], "Suslin rigidity for étale sheaves")
         self.assertGreater(section["entries"].index("COL-1222"),
                            section["entries"].index("COL-1114"))
         self.assertIn("COL-1222", section["transitions"])
@@ -951,7 +1055,7 @@ class LibraryTests(unittest.TestCase):
                 "cycles", [374, *range(363, 368), 1088, 1091], ["COL-0374", "COL-0366"]
             ),
             "transfers-nisnevich": (
-                "transfers", [368, 1211, 1105, 1094, 1098, 1103, 1106, *range(369, 374), 1028],
+                "transfers", [*range(368, 374), 1028],
                 ["COL-0368", "COL-0370", "COL-0372", "COL-1028"]
             ),
         }
@@ -976,15 +1080,15 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(chapters["transfers"]["title"], "Presheaves and Sheaves with Transfers")
         self.assertEqual(chapters["transfers"]["sections"],
                          ["transfers-nisnevich", "transfer-homological-algebra",
-                          "transfer-singular-complexes", "affine-line-invariance"])
+                          "homotopy-invariant-transfer-actions", "radicial-transfer-invariance",
+                          "etale-rigidity", "transfer-singular-complexes", "affine-line-invariance"])
         self.assertLess(chapters["cycles"]["order"], chapters["transfers"]["order"])
         self.assertLess(chapters["transfers"]["order"], chapters["motivic-cohomology"]["order"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "scheme-products-and-index-squares",
                           "perfect-complexes", "nisnevich-sites", "affine-curve-parameters",
-                          "normal-curve-compactifications", "smooth-etale-sites",
-                          "projective-section-lifting", "proper-etale-specialization",
-                          "meromorphic-section-divisors",
+                          "normal-curve-compactifications", "projective-section-lifting",
+                          "boundary-frames-and-descent", "meromorphic-section-divisors",
                           "algebraic-simplices"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
@@ -1265,7 +1369,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
         self.assertEqual(cor.count('class="section-transition"'), 8)
-        self.assertEqual(transfers.count('class="section-transition"'), 13)
+        self.assertEqual(transfers.count('class="section-transition"'), 7)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
         self.assertIn('href="../../chapters/transfers/">Presheaves and Sheaves with Transfers</a>',

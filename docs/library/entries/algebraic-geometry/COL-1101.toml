@@ -2,8 +2,8 @@
 id = "COL-1101"
 title = "Descent of compatible full-boundary frames"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 110
+section = "boundary-frames-and-descent"
+order = 40
 primary = "Stacks.AlgebraicGeometry.ModuleLimits.exists_baseChange_boundary_frame_power_comp_eq_of_isLimit_finite"
 review = "author_checked"
 source_checked_on = "2026-11-12"

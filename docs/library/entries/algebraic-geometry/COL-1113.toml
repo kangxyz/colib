@@ -2,8 +2,8 @@
 id = "COL-1113"
 title = "Actual finite families of sections and whole zero schemes descend together"
 kind = "theorem"
-section = "proper-etale-specialization"
-order = 122
+section = "boundary-frames-and-descent"
+order = 70
 primary = "AlgebraicGeometry.exists_sections_and_finiteLocallyFree_zeroSchemes_of_isLimit"
 review = "author_checked"
 source_checked_on = "2026-11-12"

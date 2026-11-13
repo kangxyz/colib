@@ -2,8 +2,8 @@
 id = "COL-1111"
 title = "Actual Frobenius transport of the canonical counit"
 kind = "comparison"
-section = "smooth-etale-sites"
-order = 58
+section = "etale-rigidity"
+order = 10
 primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_counit_iff_nFoldRelativeFrobenius"
 review = "author_checked"
 source_checked_on = "2026-11-12"

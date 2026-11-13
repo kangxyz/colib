@@ -215,6 +215,14 @@ def load_library(root=ROOT):
         "retired": retired,
     }
     for section in sections.values():
+        legacy_items = section.get("legacy_items", [])
+        if (not isinstance(legacy_items, list) or
+                any(not isinstance(identifier, str) for identifier in legacy_items) or
+                len(legacy_items) != len(set(legacy_items))):
+            raise ValueError(f"Section {section['id']} needs distinct legacy item IDs")
+        for identifier in legacy_items:
+            if identifier not in entries or identifier in section["entries"]:
+                raise ValueError(f"Section {section['id']} has an invalid moved item {identifier}")
         transitions = section.get("transitions", {})
         if not isinstance(transitions, dict):
             raise ValueError(f"Section {section['id']} transitions must be a table")

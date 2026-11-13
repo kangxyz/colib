@@ -2,8 +2,8 @@
 id = "COL-1213"
 title = "Section-divisor differences under arbitrary base change"
 kind = "comparison"
-section = "proper-etale-specialization"
-order = 55
+section = "meromorphic-section-divisors"
+order = 20
 primary = "Stacks.Divisors.sectionKernelDifferencePullbackIso"
 review = "author_checked"
 statement = '''

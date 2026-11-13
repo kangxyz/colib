@@ -2,8 +2,8 @@
 id = "COL-1054"
 title = "The actual unit difference of sections with equal specialization"
 kind = "comparison"
-section = "proper-etale-specialization"
-order = 85
+section = "meromorphic-section-divisors"
+order = 30
 primary = "Stacks.Divisors.sectionKernelDifferencePullbackUnitIsoOfRangeSubset"
 review = "author_checked"
 statement = '''

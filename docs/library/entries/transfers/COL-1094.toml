@@ -2,8 +2,8 @@
 id = "COL-1094"
 title = "Radicial pullback on prime-to-characteristic torsion"
 kind = "theorem"
-section = "transfers-nisnevich"
-order = 16
+section = "radicial-transfer-invariance"
+order = 10
 primary = "AlgebraicGeometry.PresheafWithTransfers.radicialGraphIso"
 review = "author_checked"
 source_checked_on = "2026-11-12"
