@@ -18,7 +18,7 @@ rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
 [[require]]
 name = "Stacks"
 git = "https://github.com/AxiomMath/Stacks"
-rev = "5ed82d14634e8d9576bb844c7bd4e3da66d450e7"
+rev = "c496df0d9beea9deaeabcea8492605f9a0a2313b"
 
 [[lean_lib]]
 name = "Colib"
