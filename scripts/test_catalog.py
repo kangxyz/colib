@@ -761,6 +761,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1228": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison",
             "COL-1229": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso",
             "COL-1230": "Colib.RingTheory.AdjoinRoot.LinearFactorNorm",
+            "COL-1231": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneSheafComparison",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -930,6 +931,7 @@ for (const [root, hash, home, kind, expected] of cases) {
             "COL-1228": ("motivic-cohomology", "motivic-hypercohomology"),
             "COL-1229": ("homological-algebra", "finite-coefficient-composition"),
             "COL-1230": ("commutative-algebra", "charpoly-branches"),
+            "COL-1231": ("motivic-cohomology", "weight-one-comparison"),
         }
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]
@@ -1185,7 +1187,7 @@ for (const [root, hash, home, kind, expected] of cases) {
             "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033", "COL-1228"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [
-                "COL-0402", "COL-0403", "COL-0404", "COL-1008", "COL-1007"
+                "COL-0402", "COL-0403", "COL-1231", "COL-0404", "COL-1008", "COL-1007"
             ],
             "milnor-motivic-comparison": ["COL-1023"],
             "diagonal-motivic-comparison": ["COL-1025", "COL-1026"],

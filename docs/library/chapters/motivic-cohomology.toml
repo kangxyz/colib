@@ -156,6 +156,12 @@ COL-0403 = '''
 Compose the geometric norm with the units comparison, then carry the
 composite through the signed placement of COL-0398.
 '''
+COL-1231 = '''
+Apply the original finite-coefficient cone to COL-0403. Its quasi-isomorphism
+identifies the finite weight-one complex with the shifted units cone, keeping
+the integral map and positive Bockstein. For nonzero coefficients COL-1229
+then identifies the actual coefficient quotient with that same cone in D(Ab).
+'''
 COL-0404 = '''
 Postcompose the derived Hom of COL-0399 with the weight-one comparison.
 The shift by minus one gives ordinary cohomology of units in degree

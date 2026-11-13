@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1231"
+title = "The finite weight-one coefficient model and the actual units cone"
+kind = "comparison"
+section = "weight-one-comparison"
+order = 25
+primary = "AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneCoefficientQuotientUnitsIso"
+review = "author_checked"
+statement = '''
+For any field k and any nonzero natural n, the actual strict coefficient
+quotient of the weight-one motivic complex is canonically isomorphic in the
+derived category of ordinary Nisnevich abelian sheaves to the multiplication
+cone of n on the literal global-units sheaf shifted by -1. For every n,
+including zero, the original finite weight-one comparison is a
+quasi-isomorphism and preserves the original integral map and positive Bockstein.
+'''
+proof = '''
+The native mapping-cone triangle and two-out-of-three show that taking the
+original finite coefficients preserves quasi-isomorphisms. Apply this to the
+completed geometric weight-one comparison COL-0403, then compose in the
+derived category with the inverse of the actual coefficient-quotient
+quasi-isomorphism COL-1229. Integral and Bockstein compatibility use the
+original finite-cone naturality equations, without changing their signs.
+'''
+scope = '''
+This result is in D(Ab), not a derived ZMod-linear Tate identification.
+No invertibility-of-n or perfect-field assumption is needed here. The units
+cone has not yet been identified with roots of unity on the smooth etale site;
+that requires actual Kummer local surjectivity. No full-weight tensor
+comparison, norm-residue bijectivity, or automatic lift from D(Ab) to D(Z/n)
+is asserted. The companion units leaf supplies literal smooth-etale units
+and their canonical Nisnevich-to-etale sheafification isomorphism only.
+'''

@@ -133,6 +133,7 @@ public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Exact
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Functoriality
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Map
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.ModBockstein
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.QuasiIso
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Quotient
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.ShiftComparison
 public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Triangle
@@ -1867,6 +1868,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.RestrictionInvari
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.TransferParameterProduct
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOne
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneClasses
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneSheafComparison
 public import Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology
 public import Colib.AlgebraicGeometry.MotivicCohomology.HypercohomologyInvariance
 public import Colib.AlgebraicGeometry.MotivicCohomology.OrdinaryShiftComparison
@@ -3165,6 +3167,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Torus
 public import Colib.AlgebraicGeometry.Sites.Smooth.Torus.Reset
 public import Colib.AlgebraicGeometry.Sites.Smooth.TorusParameter
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.BoundaryOneComplex
+public import Colib.AlgebraicGeometry.Sites.Smooth.Units.EtaleSheaf
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.Presheaf
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.Sheaf
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex
