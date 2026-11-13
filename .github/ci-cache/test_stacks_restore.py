@@ -252,6 +252,45 @@ class StacksRestoreTests(unittest.TestCase):
             volumes.download(split, output, download)
         self.assertFalse(output.exists())
 
+    def test_release_volume_upload_recovers_from_starter_asset(self):
+        generation = restore_stacks.manifest(self.published, self.args)['generation']
+        archive_digest = checkpoint.file_hash(self.published)
+        name = volumes.volume_name(archive_digest, 1)
+        assets = [{'id': 1, 'name': name, 'state': 'starter'}]
+        deleted = []
+        def run(cmd, **kwargs):
+            if cmd[1] == 'api':
+                deleted.append(int(cmd[-1].rsplit('/', 1)[1]))
+                assets[:] = [asset for asset in assets if asset['id'] != deleted[-1]]
+            else:
+                path = Path(cmd[4])
+                assets.append({'id': len(assets) + 2, 'name': path.name, 'state': 'uploaded',
+                               'size': path.stat().st_size, 'digest': 'sha256:' + checkpoint.file_hash(path)})
+            return subprocess.CompletedProcess(cmd, 0, '', '')
+        with (patch.object(volumes, 'VOLUME_BYTES', self.published.stat().st_size // 2),
+              patch.object(restore_stacks, 'github_release', return_value={'assets': assets}),
+              patch.object(restore_stacks.subprocess, 'run', side_effect=run),
+              patch.dict(os.environ, GITHUB_REPOSITORY='test/repo')):
+            restore_stacks.publish_volumes(self.published, generation, 'tag', {'assets': assets}, self.base)
+        self.assertEqual(deleted, [1])
+        self.assertTrue(assets[-1]['name'].endswith('.parts.json'))
+        self.assertTrue(all(asset['state'] == 'uploaded' for asset in assets))
+
+    def test_large_checkpoint_preview_requests_16_mib(self):
+        r2, index = self.r2_baseline()
+        index['size'] = 3 * 1024**3
+        with patch.object(r2, 'request', return_value=(206, '')) as request:
+            output = self.base / 'preview.tar.zst'
+            with output.open('wb') as stream:
+                stream.truncate(16 * 1024**2)
+            r2.download(index, output, prefix=True)
+            self.assertEqual(request.call_args.kwargs['headers'], ('Range: bytes=0-16777215',))
+        split = {'size': index['size'], 'parts': [{'size': 1792 * 1024**2}]}
+        def fetch(part, destination, *, prefix=False):
+            self.assertTrue(prefix)
+            self.assertEqual(part['checkpoint_size'], index['size'])
+        volumes.download(split, output, fetch, prefix=True)
+
     def test_r2_pruning_keeps_pointer_generations_and_uncommitted_upload(self):
         r2, current = self.r2_baseline()
         current = dict(current, previous_generation='a' * 64)

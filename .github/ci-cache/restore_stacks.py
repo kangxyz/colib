@@ -12,7 +12,7 @@ import tempfile
 
 import checkpoint
 import stacks_release_volumes as volumes
-from stacks_r2 import MAX_ARCHIVE_BYTES, PREFIX_BYTES, RETAINED_GENERATIONS, R2Cache, WRITE_CONFLICT
+from stacks_r2 import MAX_ARCHIVE_BYTES, RETAINED_GENERATIONS, R2Cache, WRITE_CONFLICT, preview_bytes
 
 RESTORE_ERRORS = (OSError, ValueError, KeyError, TypeError, AttributeError, tarfile.TarError)
 DOWNLOAD_ERRORS = (*RESTORE_ERRORS, subprocess.CalledProcessError)
@@ -84,7 +84,7 @@ def download_file(asset, output, *, prefix=False):
     repository = os.environ['GITHUB_REPOSITORY']
     api = os.environ['GITHUB_API_URL']
     url = f"{api}/repos/{repository}/releases/assets/{asset['id']}"
-    limit = min(PREFIX_BYTES, asset['size']) if prefix else asset['size']
+    limit = min(asset['size'], preview_bytes(asset.get('checkpoint_size', asset['size']))) if prefix else asset['size']
     command = ['curl', '--config', '-', '--location', '--fail', '--silent', '--show-error',
                '--connect-timeout', '15', '--max-time', '20' if prefix else '180',
                '--max-filesize', str(limit), '--header', 'Accept: application/octet-stream',
@@ -270,11 +270,12 @@ def publish_volumes(archive, generation, tag, release, directory):
     def upload(path, identity, *, index=False):
         def existing():
             current = github_release(tag)
-            return next((asset for asset in current['assets']
-                         if asset['state'] == 'uploaded' and asset['name'] == path.name), None)
+            if current is None:
+                raise OSError(f'Stacks Release disappeared during publication: {tag}')
+            return next((asset for asset in current['assets'] if asset['name'] == path.name), None)
 
         def complete(asset):
-            if asset is None:
+            if asset is None or asset['state'] != 'uploaded':
                 return False
             if asset['size'] == identity['size'] and asset.get('digest') == identity['digest']:
                 return True
@@ -282,14 +283,19 @@ def publish_volumes(archive, generation, tag, release, directory):
                 return any(item['generation'] == generation for item in release_indexes(github_release(tag), directory))
             raise ValueError(f'existing Stacks Release volume has unexpected bytes: {path.name}')
 
-        asset = next((asset for asset in (release or {}).get('assets', [])
-                      if asset['state'] == 'uploaded' and asset['name'] == path.name), None)
-        if complete(asset):
-            return
+        asset = existing()
         command = ['gh', 'release', 'upload', tag, str(path), '--repo', repository]
-        result = subprocess.run(command, text=True, capture_output=True)
-        if complete(existing()):
-            return
+        for _ in range(2):
+            if complete(asset):
+                return
+            if asset is not None and asset['state'] == 'starter':
+                delete_release_asset(asset['id'])
+            result = subprocess.run(command, text=True, capture_output=True)
+            asset = existing()
+            if complete(asset):
+                return
+            if asset is None or asset['state'] != 'starter':
+                break
         raise OSError(f'Could not publish Stacks Release asset {path.name}: {result.stderr.strip()}')
 
     index, identity = volumes.publish(archive, generation, directory, upload)
@@ -340,6 +346,15 @@ def publish_release(args, archive, revision, context):
     print(f'Published Stacks checkpoint generation {generation[:12]} to GitHub Release.')
 
 
+def delete_release_asset(asset_id):
+    repository = os.environ['GITHUB_REPOSITORY']
+    result = subprocess.run(['gh', 'api', '--method', 'DELETE',
+                             f'repos/{repository}/releases/assets/{asset_id}'],
+                            text=True, capture_output=True)
+    if result.returncode and '(HTTP 404)' not in result.stderr:
+        raise OSError(f'Could not remove Stacks Release asset {asset_id}: {result.stderr.strip()}')
+
+
 def prune_release(tag, generation, directory):
     release = github_release(tag)
     single = release_assets(release)
@@ -366,17 +381,11 @@ def prune_release(tag, generation, directory):
     # Remove an obsolete split index before any of its parts. Unindexed uploads
     # belong to a publisher that may still be finishing or retrying.
     obsolete.sort(key=lambda asset: not bool(asset.get('parts')))
-    repository = os.environ['GITHUB_REPOSITORY']
     for asset in obsolete:
         ids = [asset['id'], *(part['id'] for part in asset.get('parts', []))]
         for asset_id in ids:
-            if asset_id in keep_ids:
-                continue
-            result = subprocess.run(['gh', 'api', '--method', 'DELETE',
-                                     f'repos/{repository}/releases/assets/{asset_id}'],
-                                    text=True, capture_output=True)
-            if result.returncode and '(HTTP 404)' not in result.stderr:
-                raise OSError(f'Could not remove obsolete Stacks Release asset {asset_id}: {result.stderr.strip()}')
+            if asset_id not in keep_ids:
+                delete_release_asset(asset_id)
         print(f'Pruned obsolete Stacks Release asset {asset["name"]}.', flush=True)
 
 

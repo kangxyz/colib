@@ -10,9 +10,9 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.FiniteIntegralChartPrei
 
 /-! # Positive preimages on the original étale coordinate chart
 
-Integration candidate: the rational positive predecessor compiled in 9a86 CI.
-This new theorem keeps its actual integral component and reflects the same
-preimage to the original chart. It does not assert the complete Nat induction.
+The rational positive-dimensional step retains its actual integral component
+and reflects the same preimage to the original étale coordinate chart.
+The simultaneous induction is assembled in `PolynomialTailSimultaneousInduction`.
 -/
 @[expose] public noncomputable section
 open scoped TensorProduct

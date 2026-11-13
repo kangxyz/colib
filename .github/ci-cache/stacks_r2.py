@@ -10,11 +10,18 @@ from xml.etree import ElementTree
 import checkpoint
 
 PREFIX_BYTES = 8 * 1024**2
+LARGE_PREFIX_BYTES = 16 * 1024**2
+
 INDEX_BYTES = 8192
 # R2's single-request upload limit is 5 GiB minus 5 MiB.
 MAX_ARCHIVE_BYTES = 5 * 1024**3 - 5 * 1024**2
 WRITE_CONFLICT = (409, 412)
 RETAINED_GENERATIONS = 2
+
+
+def preview_bytes(archive_size):
+    # Larger checkpoints carry a larger compressed file manifest.
+    return min(archive_size, LARGE_PREFIX_BYTES if archive_size >= 2 * 1024**3 else PREFIX_BYTES)
 
 
 class R2Cache:
@@ -147,7 +154,7 @@ class R2Cache:
         return f"objects/{index['generation']}.tar.zst"
 
     def download(self, index, output, *, prefix=False):
-        length = min(PREFIX_BYTES, index['size']) if prefix else index['size']
+        length = preview_bytes(index['size']) if prefix else index['size']
         headers = (f'Range: bytes=0-{length - 1}',) if prefix else ()
         status, _ = self.request('GET', self.archive_key(index), output,
                                  seconds=20 if prefix else 180, headers=headers, limit=length)

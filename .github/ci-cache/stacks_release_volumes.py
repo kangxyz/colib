@@ -63,7 +63,7 @@ def copy_bytes(source, target, size, *digests):
 def download(asset, output, fetch, *, prefix=False):
     parts = asset['parts']
     if prefix:
-        fetch(parts[0], output, prefix=True)
+        fetch(dict(parts[0], checkpoint_size=asset['size']), output, prefix=True)
         return
     room = asset['size'] + max(part['size'] for part in parts)
     if shutil.disk_usage(output.parent).free < room:
