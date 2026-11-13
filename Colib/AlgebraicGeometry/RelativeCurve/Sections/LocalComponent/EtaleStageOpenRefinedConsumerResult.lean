@@ -56,7 +56,6 @@ def EtaleStageOpenRefinedConsumerResult
     (hσj : Set.range σ ⊆ Set.range j) (hτj : Set.range τ ⊆ Set.range j)
     (hdσ : ∀ z : Z, d z ∉ Set.range σ) (hdτ : ∀ z : Z, d z ∉ Set.range τ)
     (a₀ : Over i)
-    [IsNormal X.left] [IsNormal N]
     (hmark : etaleNeighborhoodMark X s.hom
         ((smallEtaleNeighborhoodInclusion X s).obj a₀.left) ≫
           etaleStageOpenSection X s p i U σ hσ a₀ =
@@ -141,7 +140,6 @@ theorem etaleStageOpenRefinedConsumerResult
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
     {Z : Scheme.{u}} (d : Z ⟶ U.toScheme)
     [IsLocallyNoetherian X.left] [IsProper p] [IsClosedImmersion U.ι]
-    [IsClosedImmersion d]
     (B : BigEtaleSite.{u}) (hX : B.Contains X.left)
     (σ τ : (smallEtaleNeighborhoodToSmooth X s ⋙ forgetScheme S).obj i ⟶ U.toScheme)
     (hσ : σ ≫ (U.ι ≫ (etaleCurveStructure X s p).app i) = 𝟙 _)

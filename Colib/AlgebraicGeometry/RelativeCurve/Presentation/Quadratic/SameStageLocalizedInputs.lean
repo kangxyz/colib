@@ -50,65 +50,93 @@ theorem intersection_original_tail {B R : Type u} [CommRing B] [CommRing R]
 
 /-- The actual geometry and markings selected by one finite-stage construction. -/
 structure SameStageLocalizedInputs (K Ω : Type u) [Field K] [Field Ω] where
+  /-- The coefficient ring of the polynomial-tail base. -/
   R : Type u
+  /-- The commutative ring structure on the tail coefficient ring. -/
   [ring : CommRing R]
+  /-- The structural morphism from the tail base to the ground field. -/
   tail : Spec (.of R) ⟶ Spec (.of K)
   [tailSmooth : Smooth tail]
   [tailSeparated : IsSeparated tail]
   [tailQuasiCompact : QuasiCompact tail]
+  /-- The retained affine chart in the smooth site over the ground field. -/
   A : SmoothSite (Spec (.of K))
+  /-- The affine smooth-site object through which the retained chart maps to the tail base. -/
   Z : SmoothSite (Spec (.of K))
+  /-- The original affine target in the smooth site over the ground field. -/
   T : SmoothSite (Spec (.of K))
   [affineA : IsAffine A.left]
   [affineZ : IsAffine Z.left]
   [affineT : IsAffine T.left]
+  /-- The étale map from the retained chart to the intermediate affine object. -/
   q : A ⟶ Z
   [etaleQ : Etale q.left]
+  /-- The smooth projection from the intermediate object to the tail base. -/
   p : Z ⟶ SmoothSite.mk tail
   [smoothP : Smooth p.left]
+  /-- The section of the projection to the tail base. -/
   s : SmoothSite.mk tail ⟶ Z
   hs : s.left ≫ p.left = 𝟙 _
+  /-- The element defining the good principal open of the tail base. -/
   tGood : R
+  /-- The geometric marking of the retained affine chart. -/
   ξ : Spec (.of Ω) ⟶ A.left
+  /-- The corresponding geometric marking of the tail base. -/
   η : Spec (.of Ω) ⟶ Spec (.of R)
   hξ : ξ ≫ q.left = η ≫ s.left
+  /-- The lift of the tail marking to the good principal open. -/
   ηV : Spec (.of Ω) ⟶ Spec (.of (Localization.Away tGood))
   hη : ηV ≫ QuadraticLocalized.scalar tGood = η
+  /-- The affine open curve in the proper model. -/
   U : Scheme.{u}
+  /-- The integral normal proper model over the tail base. -/
   N : Scheme.{u}
+  /-- The closed boundary complementing the affine open curve. -/
   D : Scheme.{u}
+  /-- The open chart carrying the retained étale coordinate. -/
   E : Scheme.{u}
   [affineU : IsAffine U]
   [integralN : IsIntegral N]
   [normalN : IsNormal N]
+  /-- The open immersion of the affine curve into its proper model. -/
   j : U ⟶ N
   [openJ : IsOpenImmersion j]
+  /-- The proper structural morphism of the model over the tail base. -/
   fN : N ⟶ Spec (.of R)
   [properFN : IsProper fN]
   [smoothU : SmoothOfRelativeDimension 1 (j ≫ fN)]
+  /-- The map from the retained affine chart into the open curve. -/
   i : A.left ⟶ U
   hi : i ≫ (j ≫ fN) = q.left ≫ p.left
+  /-- The closed immersion of the boundary into the proper model. -/
   d : D ⟶ N
   [closedD : IsClosedImmersion d]
   [finiteLocal : IsFinite ((d ≫ fN) ∣_ PrimeSpectrum.basicOpen tGood)]
   hd : Set.range d = (Set.range j)ᶜ
+  /-- The map from the affine curve to the original target. -/
   targetU : U ⟶ T.left
   hTarget : targetU ≫ T.hom = (j ≫ fN) ≫ tail
+  /-- The geometric marking retained on the original target. -/
   originalMark : Spec (.of Ω) ⟶ T.left
   originalMark_eq : ξ ≫ (i ≫ targetU) = originalMark
   [originalChartEtale : Etale (i ≫ targetU)]
+  /-- The finite morphism from the proper model to the projective line over the tail base. -/
   π : N ⟶ projectiveLine R
   [finitePi : IsFinite π]
   hπ : π ≫ (projectiveLine R ↘ Spec (.of R)) = fN
+  /-- The affine-line coordinate on the open curve, compatible with the projective-line map. -/
   aU : U ⟶ Spec (.of (Polynomial R))
   haU : aU ≫ Spec.map (CommRingCat.ofHom Polynomial.C) = j ≫ fN
   hjπ : j ≫ π = aU ≫ projectiveLineXChart R
+  /-- The open immersion of the étale coordinate chart into the proper model. -/
   eChart : E ⟶ N
   [openChart : IsOpenImmersion eChart]
+  /-- The étale affine-line coordinate on the open chart. -/
   aE : E ⟶ Spec (.of (Polynomial R))
   [etaleAE : Etale aE]
   haE : aE ≫ Spec.map (CommRingCat.ofHom Polynomial.C) = eChart ≫ fN
   heπ : eChart ≫ π = aE ≫ projectiveLineXChart R
+  /-- The geometric marking of the open coordinate chart above the tail marking. -/
   ζ : Spec (.of Ω) ⟶ E
   hζ : (ζ ≫ eChart) ≫ fN = η
 

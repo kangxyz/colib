@@ -13,7 +13,7 @@ universe u v
 namespace AlgebraicGeometry.Scheme.SmoothSite
 
 theorem etaleNeighborhood_restriction_maps_eq_of_two_small_stages
-    {S : Scheme.{u}} [QuasiSeparatedSpace S] (X T : SmoothSite S) [IsAffine X.left]
+    {S : Scheme.{u}} [QuasiSeparatedSpace S] (X T : SmoothSite S)
     (s : GeometricPoint X.left)
     {i₀ i : SmallEtaleNeighborhood X s} (e : i ⟶ i₀) (a : Over i)
     (ℓ : Over a.left) (Anew : EtaleNeighborhood X s.hom)

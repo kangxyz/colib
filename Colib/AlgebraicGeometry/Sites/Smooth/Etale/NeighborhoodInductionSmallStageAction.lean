@@ -22,7 +22,7 @@ namespace AlgebraicGeometry.Scheme.SmoothSite
 
 /-- The actual small-stage transition composes to the original neighborhood map. -/
 theorem smallEtaleNeighborhoodMap_comp_hom
-    {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S) [IsAffine X.left]
+    {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
     (s : GeometricPoint X.left) {i j : SmallEtaleNeighborhood X s} (v : i ⟶ j) :
     (smallEtaleNeighborhoodToSmooth X s).map v ≫
         etaleNeighborhoodHom X s.hom ((smallEtaleNeighborhoodInclusion X s).obj j) =

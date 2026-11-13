@@ -34,7 +34,7 @@ theorem etaleNeighborhoodMap_comp_hom
 actual final neighborhood. The stage maps are identified by their actual
 composite formulas; no new final map or compatibility producer is supplied. -/
 theorem etaleNeighborhood_restriction_maps_eq_of_stage
-    {S : Scheme.{u}} [QuasiSeparatedSpace S] {X Y : SmoothSite S} [IsAffine X.left]
+    {S : Scheme.{u}} [QuasiSeparatedSpace S] {X Y : SmoothSite S}
     {Ω : Type u} [Field Ω] (ξ : Spec (.of Ω) ⟶ X.left)
     (F : (SmoothSite S)ᵒᵖ ⥤ AddCommGrpCat.{u + 1}) (f₀ g₀ : X ⟶ Y)
     {N N₀ : EtaleNeighborhood X ξ} (v : N ⟶ N₀)

@@ -51,7 +51,7 @@ four layers of descended witnesses. This is a named proposition, not a new input
 def EtaleStageOpenSameRootRefinedResult
     {S : Scheme.{u}} [QuasiSeparatedSpace S] (X : SmoothSite S)
     (s : GeometricPoint X.left) {N : Scheme.{u}} (p : N ⟶ X.left)
-    [IsLocallyNoetherian X.left] [IsProper p] [IsNormal X.left] [IsNormal N]
+    [IsLocallyNoetherian X.left] [IsProper p]
     (i : SmallEtaleNeighborhood X s) (U : ((etaleCurveDiagram X s p).obj i).Opens)
     [IsClosedImmersion U.ι]
     [IsSeparated (U.ι ≫ (etaleCurveStructure X s p).app i)]

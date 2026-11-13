@@ -66,8 +66,11 @@ def liftFiniteCorrespondence : finiteCorrespondences f g →+ A where
         finiteCorrespondenceContribution f g φ c +
           finiteCorrespondenceContribution f g φ d := by
       funext z
-      by_cases hz : IsFiniteCorrespondencePoint f g z <;>
-        simp [finiteCorrespondenceContribution, hz, add_zsmul]
+      by_cases hz : IsFiniteCorrespondencePoint f g z
+      · simp only [finiteCorrespondenceContribution, dite_eq_left hz, Pi.add_apply]
+        change (c.val z + d.val z) • φ z hz = c.val z • φ z hz + d.val z • φ z hz
+        exact add_zsmul _ _ _
+      · simp [finiteCorrespondenceContribution, hz]
     change (∑ᶠ z, finiteCorrespondenceContribution f g φ (c + d) z) = _
     rw [heq]
     exact finsum_add_distrib

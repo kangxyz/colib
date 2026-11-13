@@ -76,8 +76,15 @@ def finiteCorrespondences (f : X ⟶ S) (g : Y ⟶ S) :
     intro a ha
     exact ⟨by simpa using ha.1, fun z hz => ha.2 z (by simpa using hz)⟩
 
+/-- Definitional membership reduction for finite correspondences. The equality form lets
+`dsimp` unfold the subgroup carrier without attempting to simplify its geometric conditions. -/
+@[defeq, simp]
+theorem mem_finiteCorrespondences_eq (f : X ⟶ S) (g : Y ⟶ S)
+    (c : AlgebraicCycle (pullback (C := Scheme) f g) ℤ) :
+    (c ∈ finiteCorrespondences f g) =
+      (c.support.Finite ∧ ∀ z, c z ≠ 0 → IsFiniteCorrespondencePoint f g z) := rfl
+
 /-- Membership retains both finite support and the geometric component condition. -/
-@[simp]
 theorem mem_finiteCorrespondences (f : X ⟶ S) (g : Y ⟶ S)
     (c : AlgebraicCycle (pullback (C := Scheme) f g) ℤ) :
     c ∈ finiteCorrespondences f g ↔
