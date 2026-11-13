@@ -5,7 +5,7 @@ Authors: kangxyz, Codex
 -/
 module
 
-public import Mathlib.Topology.Sheaves.Flasque
+public import StacksFrontier.Topology.Sheaves.Flasque.Biproducts
 
 /-! # Extension closure of flasque sheaves -/
 
@@ -43,16 +43,5 @@ theorem of_shortExact_of_isFlasque₁₃ {S : ShortComplex (Sheaf AddCommGrpCat.
     change S.f.hom.app V (S.X₁.obj.map k d) = S.X₂.obj.map k (S.f.hom.app U d) at hf
     rw [map_add, ← hf, hd, ha]
     abel
-
-/-- Flasqueness is invariant under a sheaf isomorphism. -/
-theorem of_iso {F G : Sheaf AddCommGrpCat.{u} X} (e : F ≅ G) (hF : F.IsFlasque) :
-    G.IsFlasque where
-  epi {U V} i := by
-    let := hF
-    have h (W : _) : IsIso (e.hom.hom.app W) := ⟨⟨e.inv.hom.app W,
-      congrArg (fun g => g.hom.app W) e.hom_inv_id, congrArg (fun g => g.hom.app W) e.inv_hom_id⟩⟩
-    have h₂ : Epi (F.obj.map i ≫ e.hom.hom.app V) := inferInstance
-    rw [e.hom.hom.naturality i] at h₂
-    exact (CategoryTheory.epi_comp_iff_of_epi (e.hom.hom.app U) (G.obj.map i)).1 h₂
 
 end TopCat.Sheaf.IsFlasque
