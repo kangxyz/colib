@@ -43,7 +43,7 @@ private theorem preservesInitial_toAffineLineHomotopyCategory :
   let X := point.{u + 1} Cᵣ
   let α := stalkwiseToIntervalHomotopyCategoryCompIso Cᵣ Jᵣ (affineLineInterval (Spec R))
   have hₛ : IsInitial (Qₛ.obj X) :=
-    isInitial_stalkwisePoint.{u + 1} Jᵣ (exists_nisnevichInjectiveFibrantReplacement R)
+    isInitialStalkwisePoint.{u + 1} Jᵣ (exists_nisnevichInjectiveFibrantReplacement R)
   have h : IsInitial ((Q).obj X) := (hₛ.isInitialObj L _).ofIso (α.app X)
   let e : X ≅ (⊥_ (PointedSimplicialPresheaf.{u + 1} Cᵣ)) :=
     (point_isZero.{u + 1} Cᵣ).isInitial.uniqueUpToIso initialIsInitial

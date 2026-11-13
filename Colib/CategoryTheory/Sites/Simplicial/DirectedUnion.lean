@@ -29,7 +29,7 @@ variable {C : Type u} [Category.{v} C] {P : Cᵒᵖ ⥤ SSet.{w}}
 
 @[simp]
 theorem homOfLE_app_app {B D : Subpresheaf P} (h : B ≤ D) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ)
-    (s : ((toPresheaf B).obj U).obj n) : ((homOfLE h).app U).app n s = ⟨s.val, h _ s.property⟩ :=
+    (s : B.obj (U, n)) : ((homOfLE h).app U).app n s = ⟨s.val, h _ s.property⟩ :=
   rfl
 
 /-- The original inclusion maps between the stages of a monotone family. -/

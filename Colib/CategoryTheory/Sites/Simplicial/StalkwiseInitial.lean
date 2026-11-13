@@ -26,7 +26,7 @@ local notation "Q" => toStalkwiseHomotopyCategory C J
 replacement exists. Every map into a fibrant target is represented by a
 strict pointed map, and the strict map from the point is unique. -/
 @[no_expose]
-def isInitial_stalkwisePoint
+def isInitialStalkwisePoint
     (hrep : ∀ X : PointedSimplicialPresheaf.{w} C,
       ∃ (Y : PointedSimplicialPresheaf.{w} C) (i : X ⟶ Y),
         stalkwiseTrivialMonomorphisms C J i ∧ IsStalkwiseInjectiveFibrant C J Y) :

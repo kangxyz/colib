@@ -91,7 +91,7 @@ theorem coproductRightMap_sigmaMap (f : ∀ i, X i ⟶ Y i) :
   exact congrArg Under.Hom.right (Limits.Sigma.ι_map f i)
 
 /-- The underlying coproduct map is a cobase change of the sum of the underlying maps. -/
-theorem sigmaMap_right_isPushout [HasPushouts C] (f : ∀ i, X i ⟶ Y i) :
+theorem sigmaMap_right_isPushout (f : ∀ i, X i ⟶ Y i) :
     IsPushout (Limits.Sigma.map (fun i => (f i).right)) (coproductRightMap X)
       (coproductRightMap Y) (Limits.Sigma.map f).right := by
   have ha : coproductSourceMap X ≫ Limits.Sigma.map (fun i => (f i).right) =

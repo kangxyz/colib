@@ -35,7 +35,7 @@ instance : HasInitial (AffineLineHomotopyCategory (Spec R)) := by
   let Q := stalkwiseToIntervalHomotopyCategory Cᵣ Jᵣ (affineLineInterval (Spec R))
   let : Q.IsLeftAdjoint := (motivicLocalizationAdjunction R).isLeftAdjoint
   let X := (toStalkwiseHomotopyCategory.{u + 1} Cᵣ Jᵣ).obj (point.{u + 1} Cᵣ)
-  have hX : IsInitial X := isInitial_stalkwisePoint.{u + 1} Jᵣ
+  have hX : IsInitial X := isInitialStalkwisePoint.{u + 1} Jᵣ
     (exists_nisnevichInjectiveFibrantReplacement R)
   exact (hX.isInitialObj Q X).hasInitial
 

@@ -25,7 +25,7 @@ universe u
 namespace SSet
 
 private theorem realizationWeakEquivalences_map_of_successors
-    {J : Type u} [LinearOrder J] [SuccOrder J] [OrderBot J] [WellFoundedLT J]
+    {J : Type u} [LinearOrder J] [SuccOrder J] [WellFoundedLT J]
     (F : J ⥤ SSet.{u}) [F.IsWellOrderContinuous]
     (h : ∀ j : J, ¬ IsMax j →
       realizationWeakEquivalences (F.map (homOfLE (Order.le_succ j))))

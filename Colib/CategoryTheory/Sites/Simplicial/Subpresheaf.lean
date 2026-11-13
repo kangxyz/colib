@@ -44,7 +44,7 @@ def inclusion (A : Subpresheaf P) : toPresheaf A ⟶ P :=
 
 @[simp]
 theorem inclusion_app_app (A : Subpresheaf P) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ)
-    (s : ((toPresheaf A).obj U).obj n) :
+    (s : A.obj (U, n)) :
     ((inclusion A).app U).app n s = s.val := rfl
 
 instance inclusion_mono (A : Subpresheaf P) : Mono (inclusion A) := by

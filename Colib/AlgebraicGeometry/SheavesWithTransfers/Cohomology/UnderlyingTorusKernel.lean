@@ -49,7 +49,7 @@ local notation "D" => DerivedCategory ((SmoothSite S)ᵒᵖ ⥤ LargeAb k)
 omit [HasDerivedCategory (LargePresheaves k)] [HasDerivedCategory (LargeSheaves k)]
   [HasDerivedCategory AddCommGrpCat.{u + 1}]
   [HasExt (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
-instance ordinaryPresheafDerivedFunctor_commShift :
+instance ordinaryPresheafDerivedFunctorCommShift :
     (ordinaryPresheafDerivedFunctor k).CommShift ℤ :=
   Stacks.Injectives.commShiftOfComplexUnit
     (sheafToPresheaf (SmoothSite.nisnevichTopology S) (LargeAb k))

@@ -61,9 +61,9 @@ private theorem weak_tensorHom_at (Φ : J.Point.{w})
       (CartesianMonoidalCategory.prodComparison_natural F f g)) (hf.tensorHom hg)
 
 /-- The original cartesian pushout-product of a weak monomorphism with
-a monomorphism is weak on every site fiber. -/
+any map is weak on every site fiber. -/
 theorem weak_presheafFiber_pushoutProduct (Φ : J.Point.{w})
-    {A B X Y : Cᵒᵖ ⥤ SSet.{w}} (f : A ⟶ B) (g : X ⟶ Y) [Mono f] [Mono g]
+    {A B X Y : Cᵒᵖ ⥤ SSet.{w}} (f : A ⟶ B) (g : X ⟶ Y) [Mono f]
     (hf : SSet.IsRealizationWeakEquivalence (Φ.presheafFiber.map f)) :
     SSet.IsRealizationWeakEquivalence (Φ.presheafFiber.map (Arrow.mk f □ Arrow.mk g).hom) := by
   let F := Φ.presheafFiber (A := SSet.{w})
