@@ -59,7 +59,6 @@ def parameterTensorUnit (P : PresheafWithTransfers.{u + 1} k) :
         rw [parameterTensorTransfer_generator, Category.comp_id, parameterTensorGenerator_transfer,
           Category.id_comp] }
 
-@[simp]
 theorem parameterTensorUnit_app_apply (P : PresheafWithTransfers.{u + 1} k)
     (X : Cor k) (s : sections P X) :
     (parameterTensorUnit T P).hom.app (op X) s =

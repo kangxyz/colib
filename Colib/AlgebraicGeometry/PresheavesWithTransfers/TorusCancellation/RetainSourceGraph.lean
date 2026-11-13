@@ -49,13 +49,13 @@ def retainSourceGraphMap (r : U ⟶ X) : B ⟶ B' :=
       rw [SmoothSite.product_hom, ← Category.assoc, pullback.lift_fst,
         Category.assoc, MorphismProperty.Over.w])
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem retainSourceGraphMap_fst (r : U ⟶ X) :
     retainSourceGraphMap (V := V) r ≫ pullback.fst U.hom (XV).hom =
       pullback.fst U.hom V.hom :=
   pullback.lift_fst _ _ _
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem retainSourceGraphMap_snd_fst (r : U ⟶ X) :
     retainSourceGraphMap (V := V) r ≫ pullback.snd U.hom (XV).hom ≫ pullback.fst X.hom V.hom =
       pullback.fst U.hom V.hom ≫ r.left := by
@@ -63,7 +63,7 @@ theorem retainSourceGraphMap_snd_fst (r : U ⟶ X) :
   unfold retainSourceGraphMap
   rw [pullback.lift_snd, pullback.lift_fst]
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem retainSourceGraphMap_snd_snd (r : U ⟶ X) :
     retainSourceGraphMap (V := V) r ≫ pullback.snd U.hom (XV).hom ≫ pullback.snd X.hom V.hom =
       pullback.snd U.hom V.hom := by

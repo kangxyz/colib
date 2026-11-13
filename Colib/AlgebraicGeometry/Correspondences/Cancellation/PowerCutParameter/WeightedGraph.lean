@@ -85,7 +85,6 @@ def torusPowerParameterGraph : D →+ finiteCorrespondences g h' where
     apply Subtype.ext
     exact map_add (finiteCyclePushforward J) a.val.val b.val.val
 
-@[simp]
 theorem torusPowerParameterGraph_val (a : D) :
     (torusPowerParameterGraph k X Y n u₀ a).val = finiteCyclePushforward J a.val.val :=
   rfl

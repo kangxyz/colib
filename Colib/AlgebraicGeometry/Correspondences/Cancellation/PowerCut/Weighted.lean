@@ -132,7 +132,6 @@ def torusPowerCut : torusPowerCutDomain k X Y n →+ C₀ :=
       torusPowerCutPrime k X Y z n h else 0)).comp (torusPowerCutDomain k X Y n).subtype
 
 /-- The cut retains the original signed coefficient of an admissible prime. -/
-@[simp]
 theorem torusPowerCut_single (hz : IsFiniteCorrespondencePoint (XG).hom (YG).hom z)
     (h : TorusPowerCutAdmissibleAt k X Y z n) (r : ℤ) :
     torusPowerCut k X Y n

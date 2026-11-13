@@ -109,14 +109,14 @@ local notation3 (prettyPrint := false) "m₀" => reparametrizedRemainingMiddlePa
 variable (x : pullback («C» := Scheme) p r)
 
 /-- The original point viewed on the actual native incidence. -/
-abbrev reparametrizedStalk_incidencePoint : correspondenceIncidence f g h z w :=
+abbrev reparametrizedStalkIncidencePoint : correspondenceIncidence f g h z w :=
   let e : pullback («C» := Scheme) p r ≅ correspondenceIncidence f g h z w :=
     @reparametrizedIncidenceIso k _ U X Z T z w Q P p r l hl eQ eP hQ hP
   e.hom x
 
 local notation3 (prettyPrint := false) "y" => v x
 local notation3 (prettyPrint := false) "xₙ" =>
-  reparametrizedStalk_incidencePoint U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkIncidencePoint U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "xₗ" => correspondenceIncidenceInclusion f g h z w xₙ
 local notation3 (prettyPrint := false) "xₐ" => i (c y)
 local notation3 (prettyPrint := false) "xᵦ" => d y
@@ -143,32 +143,32 @@ theorem reparametrizedStalk_middlePoint : m₀ y = m xᵦ :=
     (reparametrizedCoefficientQuotientMap_remainingPair U X Z T z w p r l hl eQ eP hQ hP).symm y
 
 /-- The original ambient parameter quotient map at the common incidence. -/
-def reparametrizedStalk_parameterMap :
+def reparametrizedStalkParameterMap :
     (A).presheaf.stalk xₐ ⟶ (B).presheaf.stalk xᵦ :=
   let emb : B ⟶ A := j
   emb.stalkMapAtImage xᵦ xₐ
     (reparametrizedStalk_parameterPoint U X Z T z w p r l hl eQ eP hQ hP x)
 
 /-- The remaining ambient quotient map at the common incidence. -/
-def reparametrizedStalk_remainingMap :
+def reparametrizedStalkRemainingMap :
     (B).presheaf.stalk xᵦ ⟶ (L).presheaf.stalk xₗ :=
   let emb : L ⟶ B := j'
   emb.stalkMapAtImage xₗ xᵦ
     (reparametrizedStalk_remainingPoint U X Z T z w p r l hl eQ eP hQ hP x)
 
 /-- The original diagonal scalars in the ambient parameter quotient. -/
-def reparametrizedStalk_middleMap :
+def reparametrizedStalkMiddleMap :
     (pullback X.hom X.hom).presheaf.stalk (m₀ y) ⟶ (B).presheaf.stalk xᵦ :=
   let middle : B ⟶ pullback X.hom X.hom := m
   middle.stalkMapAtImage xᵦ (m₀ y)
     (reparametrizedStalk_middlePoint U X Z T z w p r l hl eQ eP hQ hP x)
 
 local notation3 (prettyPrint := false) "α" =>
-  reparametrizedStalk_parameterMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkParameterMap U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "β" =>
-  reparametrizedStalk_remainingMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkRemainingMap U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "σ" =>
-  reparametrizedStalk_middleMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkMiddleMap U X Z T z w p r l hl eQ eP hQ hP x
 
 /-- The two quotient routes into the common coefficient stalk agree literally. -/
 theorem reparametrizedStalk_parameterSquare :

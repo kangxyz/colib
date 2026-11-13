@@ -38,7 +38,6 @@ def parameterTensorRepresentableHom (X : Cor k) :
     (sectionHomLarge (withParameter (R((F).obj X)) T) X (ULift.up (𝟙 ((F).obj X))))
 
 /-- The comparison composes with the original exterior image of the representing arrow. -/
-@[simp]
 theorem parameterTensorRepresentableHom_app (X U Y : Cor k) (b : Y ⟶ X)
     (a : U ⟶ (F).obj Y) :
     (parameterTensorRepresentableHom T X).hom.app (op U)
@@ -59,7 +58,6 @@ def parameterTensorRepresentableInv (X : Cor k) :
   sectionHomLarge _ ((F).obj X)
     (parameterTensorGenerator F (R(X)) ((F).obj X) X (ULift.up (𝟙 X)) (𝟙 _))
 
-@[simp]
 theorem parameterTensorRepresentableInv_app (X U : Cor k) (a : U ⟶ (F).obj X) :
     (parameterTensorRepresentableInv T X).hom.app (op U) (ULift.up a) =
       parameterTensorGenerator F (R(X)) U X (ULift.up (𝟙 X)) a := by

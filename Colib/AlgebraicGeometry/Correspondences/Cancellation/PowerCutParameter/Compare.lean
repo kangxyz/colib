@@ -52,7 +52,6 @@ def torusPowerParameterUnitCut : finiteCorrespondences g h' →+
   (Preadditive.rightComp (Cor.mk X) ((graphFunctor k).map (torusPowerParameterForget k Y))).comp
     (Preadditive.leftComp (Cor.mk (V(Y))) ((graphFunctor k).map (unitSection.app X)))
 
-@[simp]
 theorem torusPowerParameterUnitCut_apply (a : finiteCorrespondences g h') :
     torusPowerParameterUnitCut k X Y a =
       (graphFunctor k).map (unitSection.app X) ≫ a ≫

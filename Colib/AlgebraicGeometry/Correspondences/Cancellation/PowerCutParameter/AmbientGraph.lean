@@ -113,21 +113,21 @@ private theorem ambientSchemeIso_torus :
   congrArg (fun f => f.left) (torusPowerCutAmbientIso_hom_torus k X Y)
 
 /-- The old source base projection is unchanged by the ambient graph. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem torusPowerParameterAmbientGraph_source :
     J ≫ p' ≫ pullback.fst X.hom (T).hom = p ≫ pullback.fst X.hom (T).hom := by
   rw [torusPowerParameterAmbientGraph, torusPowerCutRetainedParameterGraph_fst_assoc,
     parameterProjection_source, Category.id_comp]
 
 /-- The old target with its torus is retained by the ambient graph. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem torusPowerParameterAmbientGraph_target :
     J ≫ q' ≫ pullback.fst (G(Y)).hom (T).hom = q := by
   rw [torusPowerParameterAmbientGraph, torusPowerCutRetainedParameterGraph_snd_assoc,
     Category.id_comp, ambientSchemeIso_target]
 
 /-- The old source torus is the extra retained target coordinate. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem torusPowerParameterAmbientGraph_torus :
     J ≫ q' ≫ pullback.snd (G(Y)).hom (T).hom = p ≫ pullback.snd X.hom (T).hom := by
   rw [torusPowerParameterAmbientGraph, torusPowerCutRetainedParameterGraph_snd_assoc,

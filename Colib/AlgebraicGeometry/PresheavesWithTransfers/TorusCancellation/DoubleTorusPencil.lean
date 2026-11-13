@@ -174,14 +174,14 @@ private theorem swapBoundary_sub (a b : Rˣ) :
 
 /-- The actual signed pencil homotopy, corrected by its constant endpoint. -/
 @[no_expose]
-def reducedDoubleTorusPairGraph_swapHomotopy (a b : Rˣ) : Cor.mk V ⟶ Cor.mk XGG :=
+def reducedDoubleTorusPairGraphSwapHomotopy (a b : Rˣ) : Cor.mk V ⟶ Cor.mk XGG :=
   let H := swapBoundary j p a b
   H + projectionGraph U' ≫ (B(b,a⁻¹) - sectionGraph U' 1 ≫ H)
 
 /-- The retained base is unchanged at both actual endpoints of the signed pencil. -/
 theorem reducedDoubleTorusPairGraph_swapHomotopy_endpoints (a b : Rˣ) :
-    γ (σ(0)) ≫ reducedDoubleTorusPairGraph_swapHomotopy j p a b = B(a,b) ∧
-      γ (σ(1)) ≫ reducedDoubleTorusPairGraph_swapHomotopy j p a b = B(b,a⁻¹) := by
+    γ (σ(0)) ≫ reducedDoubleTorusPairGraphSwapHomotopy j p a b = B(a,b) ∧
+      γ (σ(1)) ≫ reducedDoubleTorusPairGraphSwapHomotopy j p a b = B(b,a⁻¹) := by
   let H := swapBoundary j p a b
   let c := B(b,a⁻¹) - sectionGraph U' 1 ≫ H
   have hc (r : k) : sectionGraph U' r ≫ projectionGraph U' ≫ c = c := by
@@ -208,7 +208,7 @@ on the original affine-line cylinder. -/
 theorem exists_reducedDoubleTorusPairGraph_swap_homotopy (a b : Rˣ) :
     ∃ H : Cor.mk V ⟶ Cor.mk XGG,
       γ (σ(0)) ≫ H = B(a,b) ∧ γ (σ(1)) ≫ H = B(b,a⁻¹) :=
-  ⟨reducedDoubleTorusPairGraph_swapHomotopy j p a b,
+  ⟨reducedDoubleTorusPairGraphSwapHomotopy j p a b,
     reducedDoubleTorusPairGraph_swapHomotopy_endpoints j p a b⟩
 
 set_option maxHeartbeats 1200000 in
@@ -221,8 +221,8 @@ theorem reducedDoubleTorusPairGraph_swapHomotopy_graph_precomp
     (hj : g ≫ j = j') (hp : g ≫ p = p' ≫ f)
     (t : U'.left ⟶ Spec (.of (Polynomial k))) [Flat t] (d : k)
     (H : IsPullback g.left U''.hom t (AffineLineFiber.point d)) (a b : Rˣ) :
-    γ (affineLineCylinder.map g) ≫ reducedDoubleTorusPairGraph_swapHomotopy j p a b =
-      reducedDoubleTorusPairGraph_swapHomotopy j' p' a b ≫ γ (torusDoubleBaseMap k f) := by
+    γ (affineLineCylinder.map g) ≫ reducedDoubleTorusPairGraphSwapHomotopy j p a b =
+      reducedDoubleTorusPairGraphSwapHomotopy j' p' a b ≫ γ (torusDoubleBaseMap k f) := by
   let c : Cor.mk (affineLineCylinder.obj U'') ⟶ Cor.mk V := γ (affineLineCylinder.map g)
   let g₀ : Cor.mk U'' ⟶ Cor.mk U' := γ g
   let m := torusDoubleBaseMap k f

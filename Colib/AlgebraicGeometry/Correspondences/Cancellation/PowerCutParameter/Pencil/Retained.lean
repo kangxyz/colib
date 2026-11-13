@@ -75,7 +75,7 @@ instance torusPowerCutPencilRetainedSupportMap_isClosedImmersion [IsClosedImmers
   infer_instance
 
 /-- The retained closed support still projects by the actual finite pencil map. -/
-@[reassoc (attr := simp)] theorem torusPowerCutPencilRetainedSupportMap_fst :
+@[reassoc] theorem torusPowerCutPencilRetainedSupportMap_fst :
     torusPowerCutPencilRetainedSupportMap k j ≫ pullback.fst (B).hom (V).hom =
       torusPowerCutPencilProjection k g := by
   have h := congrArg (fun m => m.left) (torusPowerCutAmbientIso_hom_source k X Y)
@@ -95,7 +95,7 @@ instance torusPowerCutPencilRetainedSupportMap_isClosedImmersion [IsClosedImmers
     exact (pullback.lift_snd _ _ _).trans (Category.comp_id _)
 
 /-- The retained target map is the original one pulled back to the pencil support. -/
-@[reassoc (attr := simp)] theorem torusPowerCutPencilRetainedSupportMap_snd :
+@[reassoc] theorem torusPowerCutPencilRetainedSupportMap_snd :
     torusPowerCutPencilRetainedSupportMap k j ≫ pullback.snd (B).hom (V).hom =
       π ≫ r ≫ pullback.snd X.hom (V).hom := by
   change torusPowerCutPencilRetainedSupportMap k j ≫ (productSnd B V).left =

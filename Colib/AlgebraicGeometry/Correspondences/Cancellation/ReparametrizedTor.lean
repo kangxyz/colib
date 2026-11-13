@@ -130,17 +130,17 @@ variable (x : pullback («C» := Scheme) p r)
 
 local notation3 (prettyPrint := false) "y" => v x
 local notation3 (prettyPrint := false) "xₙ" =>
-  reparametrizedStalk_incidencePoint U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkIncidencePoint U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "xₗ" => correspondenceIncidenceInclusion f g h z w xₙ
 local notation3 (prettyPrint := false) "xₐ" => i (c y)
 local notation3 (prettyPrint := false) "xᵦ" => d y
 local notation3 (prettyPrint := false) "xₘ" => m₀ y
 local notation3 (prettyPrint := false) "α" =>
-  reparametrizedStalk_parameterMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkParameterMap U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "β" =>
-  reparametrizedStalk_remainingMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkRemainingMap U X Z T z w p r l hl eQ eP hQ hP x
 local notation3 (prettyPrint := false) "σ" =>
-  reparametrizedStalk_middleMap U X Z T z w p r l hl eQ eP hQ hP x
+  reparametrizedStalkMiddleMap U X Z T z w p r l hl eQ eP hQ hP x
 
 set_option maxHeartbeats 600000 in
 -- The ordered quotient stalks have distinct coefficient rings and module actions.
@@ -214,7 +214,7 @@ theorem reparametrizedIncidenceTor_length_eq_remainingKoszul
     change IsSMulRegular C' ((i₀ ≫ aMap).stalkMap (c y) s₀) at hRegular
     exact he ▸ hRegular
   have hkerβ : RingHom.ker (β).hom = Ideal.ofList sB := by
-    rw [reparametrizedStalk_remainingMap, ker_stalkMapAtImage,
+    rw [reparametrizedStalkRemainingMap, ker_stalkMapAtImage,
       exteriorAmbientRemainingInclusion_ker,
       idealStalk_comap_stalkMapAtImage _ m xᵦ xₘ hM, ← hk, Ideal.map_ofList]
     rfl

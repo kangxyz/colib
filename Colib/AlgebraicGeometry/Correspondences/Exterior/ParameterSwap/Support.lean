@@ -72,12 +72,12 @@ def nativeExteriorIteratedSupportIso :
 
 local notation "E₂" => nativeExteriorIteratedSupportIso X Y T V z hz
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedSupportIso_hom_fst :
     (E₂).hom ≫ pullback.fst bₜ V.hom = pullback.fst b₁ V.hom ≫ (E).hom :=
   pullback.lift_fst _ _ _
 
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedSupportIso_hom_snd :
     (E₂).hom ≫ pullback.snd bₜ V.hom = pullback.snd b₁ V.hom :=
   (pullback.lift_snd _ _ _).trans (Category.comp_id _)
@@ -91,7 +91,7 @@ def nativeExteriorIteratedInclusion :
 local notation "I" => nativeExteriorIteratedInclusion X Y T V z hz
 
 /-- The old source product is retained by the actual iterated support inclusion. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedInclusion_source_fst :
     I ≫ pullback.fst (Xₜᵥ).hom (Yₜᵥ).hom ≫ pullback.fst (Xₜ).hom V.hom =
       pullback.fst b₁ V.hom ≫ exteriorIdentitySource X Y T W := by
@@ -102,7 +102,7 @@ theorem nativeExteriorIteratedInclusion_source_fst :
     exteriorIdentitySource_fst, nativeExteriorIteratedSupportIso_hom_fst_assoc, h]
 
 /-- The old target product is retained by the actual iterated support inclusion. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedInclusion_target_fst :
     I ≫ pullback.snd (Xₜᵥ).hom (Yₜᵥ).hom ≫ pullback.fst (Yₜ).hom V.hom =
       pullback.fst b₁ V.hom ≫ exteriorIdentityTarget X Y T W := by
@@ -113,7 +113,7 @@ theorem nativeExteriorIteratedInclusion_target_fst :
     exteriorIdentityTarget_fst, nativeExteriorIteratedSupportIso_hom_fst_assoc, h]
 
 /-- The new source parameter is the literal second product projection. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedInclusion_source_snd :
     I ≫ pullback.fst (Xₜᵥ).hom (Yₜᵥ).hom ≫ pullback.snd (Xₜ).hom V.hom =
       pullback.snd b₁ V.hom := by
@@ -121,7 +121,7 @@ theorem nativeExteriorIteratedInclusion_source_snd :
     exteriorIdentitySource_snd, nativeExteriorIteratedSupportIso_hom_snd]
 
 /-- The new target parameter is the same literal product projection. -/
-@[reassoc (attr := simp)]
+@[reassoc]
 theorem nativeExteriorIteratedInclusion_target_snd :
     I ≫ pullback.snd (Xₜᵥ).hom (Yₜᵥ).hom ≫ pullback.snd (Yₜ).hom V.hom =
       pullback.snd b₁ V.hom := by

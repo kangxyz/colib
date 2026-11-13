@@ -111,7 +111,7 @@ def torusDoubleSwapHomotopy : Cor.mk (affineLineCylinder.obj D) ⟶ Cor.mk D := 
   let a : Rˣ := affineUnitOfPoint (e.hom ≫ productFst Gₖ Gₖ)
   let b : Rˣ := affineUnitOfPoint (e.hom ≫ productSnd Gₖ Gₖ)
   exact γ (affineLineCylinder.map (productSwapLast X₀ Gₖ Gₖ)) ≫
-    reducedDoubleTorusPairGraph_swapHomotopy j p a b
+    reducedDoubleTorusPairGraphSwapHomotopy j p a b
 
 set_option maxHeartbeats 1000000 in
 -- The source, affine chart, and projected graph endpoints use the original dependent objects.
@@ -166,7 +166,7 @@ theorem torusDoubleSwapHomotopy_endpoints :
     · apply product_hom_ext <;>
         simp [s, i, p, doubleTorus_base, doubleTorus_last, productSwapLast, Category.assoc]
     · simp [s, i, doubleTorus_first, productSwapLast, Category.assoc]
-  let H := reducedDoubleTorusPairGraph_swapHomotopy j p a b
+  let H := reducedDoubleTorusPairGraphSwapHomotopy j p a b
   obtain ⟨H₀, H₁⟩ := reducedDoubleTorusPairGraph_swapHomotopy_endpoints j p a b
   have hH₀ : γ (σ(0)) ≫ H = torusDoubleReduction k X := by
     rw [H₀, reducedDoubleTorusPairGraph]
@@ -250,8 +250,8 @@ theorem torusDoubleSwapHomotopy_graph_precomp_of_cartesian_face
   have hs : g ≫ s = s' ≫ g :=
     productSwapLast_naturality X'.toSmoothSite Gₖ Gₖ f (𝟙 Gₖ) (𝟙 Gₖ)
   change γ (affineLineCylinder.map g) ≫ γ (affineLineCylinder.map s) ≫
-      reducedDoubleTorusPairGraph_swapHomotopy j p a b =
-    (γ (affineLineCylinder.map s') ≫ reducedDoubleTorusPairGraph_swapHomotopy j' p' a b) ≫ γ g
+      reducedDoubleTorusPairGraphSwapHomotopy j p a b =
+    (γ (affineLineCylinder.map s') ≫ reducedDoubleTorusPairGraphSwapHomotopy j' p' a b) ≫ γ g
   rw [← Category.assoc, ← Functor.map_comp, ← Functor.map_comp, hs,
     Functor.map_comp, Functor.map_comp, Category.assoc, hpair, ← Category.assoc]
 

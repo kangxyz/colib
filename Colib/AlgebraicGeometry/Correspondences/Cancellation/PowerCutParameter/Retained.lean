@@ -85,7 +85,7 @@ private theorem extension_snd :
   pullbackParameterExtensionMap_snd r (B).hom (Gₘ).hom
 
 /-- The first projection of the closed graph is its projection to the new source. -/
-@[reassoc (attr := simp)] theorem torusPowerCutRetainedParameterGraph_fst (a : Aₚˣ) :
+@[reassoc] theorem torusPowerCutRetainedParameterGraph_fst (a : Aₚˣ) :
     torusPowerCutRetainedParameterGraph k j a ≫ pullback.fst (Gₓ).hom (V).hom =
       torusPowerCutParameterProjection k g a := by
   apply pullback.hom_ext
@@ -115,7 +115,7 @@ private theorem extension_snd :
     exact congrArg parameterMap (retained_structureMap k j)
 
 /-- The second projection is the original map to the retained target. -/
-@[reassoc (attr := simp)] theorem torusPowerCutRetainedParameterGraph_snd (a : Aₚˣ) :
+@[reassoc] theorem torusPowerCutRetainedParameterGraph_snd (a : Aₚˣ) :
     torusPowerCutRetainedParameterGraph k j a ≫ pullback.snd (Gₓ).hom (V).hom =
       r ≫ pullback.snd X.hom (V).hom := by
   have h := congrArg (fun q => q.left) (productSwapLast_snd X V Gₘ)
