@@ -24,7 +24,8 @@ open QuadraticIncidence.InfinityChart
 universe u
 namespace AlgebraicGeometry.PresheafWithTransfers
 
-local instance {K : Type u} [Field K] : IsAffine (base (Spec (.of K))).left :=
+local instance {K : Type u} [Field K] :
+    IsAffine (AlgebraicGeometry.Scheme.SmoothSite.base (Spec (.of K))).left :=
   inferInstanceAs (IsAffine (Spec (.of K)))
 
 /-- Coefficient homotopy invariance and prime-to-characteristic torsion make the
@@ -37,7 +38,8 @@ theorem isIso_fullSmallEtale_sheafification_counit_of_A1Invariant
     (hnK : IsUnit ((n + 1 : ℕ) : K)) :
     let F := (presheafToSheaf (SmoothSite.etaleTopology (Spec (.of K)))
       AddCommGrpCat.{u + 1}).obj ((toPresheaf K).obj P)
-    IsIso ((fullSmallEtaleAdjunction (base (Spec (.of K)))).counit.app F) := by
+    IsIso ((fullSmallEtaleAdjunction
+      (AlgebraicGeometry.Scheme.SmoothSite.base (Spec (.of K)))).counit.app F) := by
   apply (isIso_fullSmallEtale_sheafification_counit_iff_algebraicallyClosedSeparableNeighborhood
     P (n + 1) hnK (torsionBy_of_succ_nsmul P n hn)).mpr
   exact counit_separable_condition_of_polynomial_tails K P
