@@ -2,17 +2,28 @@
 id = "cycles"
 title = "Cycles and Correspondences"
 order = 50
-introduction = 'Finite integer cycles on products form correspondence groups. Tor multiplicities define composition, and componentwise graph cycles connect the resulting category to smooth schemes. The route from correspondences to transfer presheaves follows [@MVW2006, Lectures 1 and 2], followed here by Nisnevich sheafification. The smooth schemes and ordinary Nisnevich topology are in COL-0340; the local length formula for finite-pushforward multiplicities is COL-0181. The reduced torus input in COL-0384 and COL-0385 now begins Motivic Cohomology; its transfer singular chains and canonical complex are COL-0397 and COL-0398.'
+introduction = '''
+A finite correspondence is a signed cycle on a product whose integral supports
+are finite and surjective over components of the source. Composition and graph
+cycles turn these groups into the category used by COL-0368. Exterior extension
+then describes what happens to a correspondence and its graphs when a parameter
+is added or changed. See [@MVW2006, Lecture 1].
+'''
 
 [[sections]]
 id = "finite-correspondences"
 title = "Finite correspondences and the graph functor"
 order = 10
-introduction = 'Finite integer cycles on products define correspondence groups. Incidence Tor multiplicities give their composition, and componentwise diagonal and graph cycles connect them to smooth schemes over a field.'
+introduction = '''
+Start with the support condition on a fiber product. Over a field, compose two
+such cycles by intersecting along the middle factor and pushing forward to the
+outer product. Full diagonal cycles give the identities on the smooth objects
+of COL-0340, and graphs send their scheme morphisms to correspondences.
+'''
 
 [[sections.topics]]
 id = "cycles-and-composition"
-title = "Cycles and composition"
+title = "Admissible cycles and composition"
 start = "COL-0374"
 
 [[sections.topics]]
@@ -22,34 +33,27 @@ start = "COL-0366"
 
 [sections.transitions]
 COL-0374 = '''
-For schemes over a common base, the support condition selects the integral
-components that can carry a finite correspondence. Finite support makes a cycle
-an integer linear combination of these components, including when its source
-is not quasi-compact.
+For \(X\) and \(Y\) over a common base, admissibility is a condition on each
+integral support in \(X\times Y\) over that base. Finite support gives an
+integer linear combination of admissible primes.
 '''
 COL-0363 = '''
-Now let the base be a field and the factors be smooth, with the middle and target
-separated. For admissible points in two successive products, the incidence Tor
-construction gives a correspondence between the outer factors. The finite-sum
-presentation in COL-0374 extends this value to signed cycles in both arguments.
+For two prime correspondences over a field, the incidence Tor cycle supplies
+the multiplicities before finite pushforward. Extend the calculation to signed
+cycles by additivity in both factors.
 '''
 COL-0364 = '''
-For three prime correspondences, the two compositions are finite pushforwards of
-the same combined-diagonal triple Tor cycle. Their equality on these generators,
-followed by additive extensionality in all three arguments, gives associativity
-for the signed cycles of COL-0363.
+The two triple compositions push forward the same combined-diagonal Tor cycle.
+Equality on primes extends to arbitrary signed cycles.
 '''
 COL-0365 = '''
-An identity must include every source component. Its graph is the sum of the
-diagonal prime cycles, so the generic-point set must be finite. In composing a
-prime correspondence with that sum, exactly one component contributes the
-original prime and the other incidences are empty; biadditivity gives the unit
-law for an arbitrary signed cycle.
+Sum the diagonals of the source components. When a prime is composed with that
+sum, its own component contributes the prime and the other incidences are empty.
 '''
 COL-0366 = '''
-The smooth separated finite-type objects of COL-0340 have the finite generic-point
-sets needed in COL-0365. On these objects, COL-0364 and COL-0365 supply the category laws,
-while the two additive structures in COL-0363 supply preadditivity.
+The smooth separated finite-type objects of COL-0340 have finitely many generic
+points. Use the associative pairing and the full diagonal sums to obtain the
+preadditive category.
 '''
 COL-0367 = '''
 For a morphism of smooth schemes, take the graph on each irreducible source
@@ -71,171 +75,47 @@ Tor-composition identity without replacing the self-fiber product by its reducti
 '''
 
 [[sections]]
-id = "transfers-nisnevich"
-title = "Transfers and Nisnevich sheafification"
-order = 20
-introduction = 'Additive presheaves on the correspondence category have contravariant transfers, as in [@MVW2006, Lecture 2, Definition 2.1]. Graph restriction relates their Nisnevich descent to the ordinary smooth site of COL-0340. Local signed Čech exactness supplies the comparison needed for transfer-preserving sheafification. For the classical sheafification statement and its universal property, see [@MVW2006, Lecture 13, Theorem 13.1].'
-
-[[sections.topics]]
-id = "transfer-presheaves-and-sheaves"
-title = "Transfer presheaves and sheaves"
-start = "COL-0368"
-
-[[sections.topics]]
-id = "local-exactness-and-descent"
-title = "Local exactness and descent"
-start = "COL-0370"
-
-[[sections.topics]]
-id = "sheafification-and-comparison"
-title = "Sheafification and comparison"
-start = "COL-0372"
-
-[sections.transitions]
-COL-1036 = '''
-Before imposing a sheaf condition, ordinary homotopy invariance makes the
-actual affine-cylinder sections act identically. Signed correspondence
-composition and torsion cancellation retain the original graph restrictions.
-This is the action-theoretic consumer for rigidity; its geometric moving
-family remains a separate input.
-'''
-
-COL-0368 = '''
-An additive functor on the opposite of the category in COL-0366 turns each
-signed correspondence into a homomorphism in the reverse direction. Its
-functoriality and additivity give the transfer composition and integer-linearity
-identities without changing the underlying cycles.
-'''
-COL-1105 = '''
-The original full-boundary-normalized unit now produces the required
-polynomial homotopy through COL-1100. Applying this to the actual moving
-relation kills its principal correction. Given the original finite pair,
-positive torsion therefore identifies its divisor and section-graph actions
-on general smooth finite-type stages, without a local-ring hypothesis.
-'''
-COL-1094 = '''
-For prime-to-characteristic torsion, the full radicial residue degree is
-coprime to the exponent. Its native Bezout coefficient times the actual
-transpose transfer is an explicit inverse to the original graph pullback.
-No homotopy invariance is needed for this objectwise calculation.
-'''
-COL-1098 = '''
-The original smooth relative Frobenius supplies the finite, flat and
-universally injective map needed above, even over imperfect fields.
-Its native twist stays integral, so the actual prime-to-characteristic
-transfer inverse applies without a caller-supplied geometry certificate.
-'''
-COL-1103 = '''
-Decompose an arbitrary smooth object into its actual finite integral clopen
-components. Original graph and projection correspondences give the complete
-matrix identities, including the empty scheme. Full-degree component
-transfer inverses therefore glue, and original Frobenius naturality gives
-a natural isomorphism on the unchanged underlying presheaf.
-'''
-COL-1106 = '''
-A finite purely inseparable exponent moves each original closed point,
-through the literal native iterated Frobenius, to a closed point with
-separable residue field. Its actual marked factorization and the original
-iterated transfer isomorphism are retained. Characteristic-zero closed
-residue fields are already finite separable.
-'''
-COL-0369 = '''
-Restriction along the graph functor of COL-0367 recovers an ordinary presheaf
-on smooth schemes. The ordinary Nisnevich topology is the one in COL-0340. Its
-sheaf condition is imposed on that restriction; morphisms still commute with
-every correspondence, not only graph arrows.
-'''
-COL-0370 = '''
-To compare descent on the two sites, consider a relation killed by composition
-with the graph of a completely decomposed étale map. Lift its common finite
-image over a pointed Nisnevich neighborhood. The resulting contraction writes
-the restricted signed relation as the first Čech projection minus the second,
-with the original multiplicities.
-'''
-COL-0371 = '''
-The local boundary in COL-0370 turns compatibility for the two Čech projections
-into compatibility for correspondence arrows. Additivity also handles finite
-disjoint unions and the empty scheme. These facts compare sheafness for the
-correspondence topology with the graph-restricted condition of COL-0369.
-'''
-COL-0372 = '''
-Sheafify on the correspondence site. Preservation of addition in source arrows
-gives transfers on the result, and COL-0371 gives ordinary Nisnevich descent.
-With coefficients in universe \(u+1\) for a field in universe \(u\), the
-canonical unit and its unique extension property give the stated adjunction.
-'''
-COL-0373 = '''
-Restrict the unit of COL-0372 along the graph functor. It is locally bijective
-and its target is an ordinary Nisnevich sheaf. Ordinary sheafification therefore
-extends it to an isomorphism, with the direction and unit identity fixed by
-that extension.
-'''
-
-[[sections]]
-id = "transfer-homological-algebra"
-title = "Homological algebra of transfers"
-order = 30
-introduction = 'The sectionwise quotient description first concerns additive presheaves. Passing through the Nisnevich reflection gives an abelian category with enough injectives. Sheafified signed representables then provide the first variable of transfer Ext; comparison with ordinary cohomology is a separate question.'
-
-[sections.transitions]
-COL-0390 = '''
-For a morphism of the additive presheaves in COL-0368, evaluation preserves its
-cokernel. The resulting group quotient keeps the transfer action because the
-cokernel projection is natural for every signed correspondence.
-'''
-COL-0381 = '''
-Cokernels in the sheaf category require the reflection of COL-0372. Its
-finite-limit preservation gives an abelian category; exact filtered colimits
-and a separator descend through the same adjunction, giving enough injectives.
-'''
-COL-0391 = '''
-For a smooth scheme, lift its signed correspondence representable to the
-coefficient universe and apply the reflector. The adjunction reduces maps out
-of this sheaf to additive Yoneda, with evaluation at the full identity cycle.
-'''
-COL-0392 = '''
-Use the sheafified representable of COL-0391 as the first Ext variable.
-Covariance of that representable and contravariance of Ext give restriction
-along each signed correspondence. This defines transfer Ext without identifying
-it with the cohomology of an underlying ordinary sheaf.
-'''
-
-[[sections]]
 id = "exterior-parameters"
-title = "Exterior parameters and graph incidence"
-order = 50
-introduction = 'A geometrically integral smooth parameter extends a prime correspondence by its diagonal parameter support, retaining the signed coefficients. Reindexing the graph components gives preservation of full graph and identity cycles. Changing the parameter identifies the unique matching graph incidence. Its common regular family computes the local Tor coefficient, and its finite support map gives graph interchange. Compatibility with arbitrary correspondence composition is a separate question.'
+title = "Exterior extension and graph interchange"
+order = 20
+introduction = '''
+Extend a correspondence along a geometrically integral smooth parameter by
+using the same parameter on its source and target. The comparison with full
+graph cycles handles a fixed parameter. The incidence calculation handles a
+morphism between parameters, as needed for the simplex operators in COL-0397.
+'''
+
+[[sections.topics]]
+id = "exterior-extension"
+title = "Exterior extension and full graphs"
+start = "COL-0386"
+
+[[sections.topics]]
+id = "parameter-change"
+title = "Changing the parameter"
+start = "COL-0387"
 
 [sections.transitions]
 COL-0386 = '''
-For an integral correspondence support, take its relative product with the
-parameter and use the same parameter coordinate on both sides. Geometric
-integrality makes this a single integral support; its finite source projection
-and component image allow the integer-linear extension of COL-0374.
+The product of an admissible prime support with the parameter is integral.
+Its diagonal parameter support supplies the exterior prime, with the same
+integer coefficient.
 '''
 COL-0388 = '''
-Apply the exterior operation of COL-0386 to each component of an actual graph.
-The projection \(X\times_kT\to X\) identifies the source components by preimage,
-and each exterior graph prime is the corresponding product graph prime with
-coefficient one. Reindexing the finite sum gives the full graph equation;
-the identity morphism then gives the full diagonal identity.
+The source components of a product with the parameter are indexed by the
+original source components. Match each exterior graph prime to its product
+graph prime, then sum. This also identifies the full diagonal.
 '''
 COL-0387 = '''
-COL-0388 keeps the parameter fixed. Now change it by a morphism and choose a
-component of its graph whose source image contains the exterior source image.
-The graph projection is an
-open immersion, so the source map lifts uniquely into it. Together with the
-parameter map on the exterior support, this lift identifies the actual incidence
-scheme and retains its source-target finite map.
+For a morphism of parameters, a graph component can contribute only when its
+source image contains the exterior support's source image. The graph projection
+on that component is an open immersion and gives the unique lift in the
+matching incidence scheme.
 '''
 COL-0389 = '''
-In COL-0387 the matching source component was an explicit choice. Select it
-from the image of the exterior support, and discard the other, empty incidences.
-The matching isomorphism identifies the scheme and the finite map. To compare
-its cycle, keep one ordered family of middle-diagonal equations through the
-actual coefficient chart: the resulting Tor calculation gives coefficient one.
-Both graph compositions then push forward the same exterior prime, with the
-same residue-field degrees.
+Select the matching component by the support image. The regular equations on
+its incidence scheme give Tor coefficient one. Both composites then push
+forward the same cycle with the same residue-field degrees.
 '''
 
 [[sections]]
@@ -278,22 +158,22 @@ homotopy.
 '''
 
 [sections.transitions]
-COL-1041 = '''
-Carry forward the actual finite supports of COL-1039. Smooth relative
+COL-1216 = '''
+Carry forward the actual finite supports of COL-1214. Smooth relative
 dimension one forces their images to be source components. The original
 source-target maps therefore give finite-correspondence points, and their
 native finite pushforwards retain every order and residue-degree factor.
 '''
-COL-1043 = '''
+COL-1218 = '''
 The polynomial correspondence has literal numerator and denominator
 functions. Cut them by the actual endpoint stalk map. The signed difference
 of their full quotient lengths recovers zero and the original order at the
 two endpoints; comparison with graph-incidence Tor coefficients remains separate.
 '''
-COL-1045 = '''
+COL-1220 = '''
 The endpoint section is Cartier, so its actual stalk kernel has a regular
 generator. The nonzero specialized equation then makes the weighted native
-endpoint stalk Tor sum equal to the full cut length of COL-1043. Identifying
+endpoint stalk Tor sum equal to the full cut length of COL-1218. Identifying
 these local modules and weights with the original graph incidence and its
 finite pushforwards is the remaining coefficient comparison.
 '''
@@ -436,4 +316,32 @@ in curve codimension one. The source-cycle identities now hold globally.
 Canonical pullback and outer-map comparisons carry them to the original
 finite correspondence: zero at zero, and the original principal pushforward
 at one, without taking a rational-equivalence quotient.
+'''
+
+[[sections]]
+id = "relative-principal-cuts"
+title = "Relative principal cuts"
+order = 30
+introduction = '''
+A principal equation on an integral support defines a zero scheme with its
+original multiplicities. Finiteness over the source gives the support for a
+finite correspondence. Pulling the cut across a closed polynomial face
+requires comparing the weighted cycles on the two zero schemes.
+'''
+
+[sections.transitions]
+COL-1040 = '''
+The Laurent coordinate on a torus support is a unit. A power of this
+coordinate can dominate the positive and negative Laurent exponents in
+integral equations for another unit on the same support.
+'''
+COL-1041 = '''
+A cut whose components have generic image can be restricted along a
+Cartesian closed face of the source. The local comparison uses the Euler
+lengths of the two principal equations in the original support stalk.
+'''
+COL-1043 = '''
+Use the closed-face comparison on both endpoints of a polynomial
+family of principal cuts. A common power bound makes the construction
+finite on the original signed correspondence.
 '''

@@ -95,7 +95,7 @@ namespace Stacks.Kummer
 open Stacks.Divisors
 
 /-- Equal full lengths give an actual tensor root of the specified difference module. -/
-@[colib_tag "COL-1035", stacks 03RP
+@[colib_tag "COL-1210", stacks 03RP
   "Tensor roots of equal-length effective Cartier divisor differences on a smooth proper curve",
   stacks 0AYY "The degree uses the whole divisor scheme, including nonreduced multiplicities"]
 theorem exists_schemeTensorPower_iso_differenceSheaf_of_length_eq

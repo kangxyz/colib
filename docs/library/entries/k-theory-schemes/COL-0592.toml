@@ -1,0 +1,23 @@
+[entry]
+id = "COL-0592"
+title = "Thomason\u2013Trobaugh localization with auxiliary support"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 250
+statement = "Let $j:U\\hookrightarrow X$ be an open immersion with $U,X$ quasi-compact and $X$ quasi-separated. Let $T\\subseteq X$ be a quasi-compact auxiliary open, and put $W=X\\setminus T$ and $Z=X\\setminus U$. For the tensor-generated current-stage construction evaluated at integral Spec, the supported restriction fits into a stable fiber sequence\n\\[K^{\\mathrm{ten}}(X\\text{ on }W\\cap Z)\\longrightarrow K^{\\mathrm{ten}}(X\\text{ on }W)\\longrightarrow K^{\\mathrm{ten}}(U\\text{ on }W\\cap U).\\]\nThe fiber lift is defined by the specified support-forgetting map and its null-homotopy. It is a stable equivalence and induces isomorphisms on $\\pi_d^{\\mathrm{st}}$ for every $d\\in\\mathbb Z$. Its projection is the support-forgetting map. For schemes over integral Spec the coefficientwise comparison is available at every coefficient."
+scope = '''
+This is the auxiliary-supported current-stage lift. Compactness of the additional open $T$ is retained, and support means ambient perfect complexes acyclic on $T$, not perfect complexes on a closed subscheme. The projection identity itself does not need the compactness hypotheses. Together with the tensor-generated construction and its specified stable roof, this gives the auxiliary localization statement of [@ThomasonTrobaugh1990, Theorem 7.4] in the original library's direct tensor-model realization. A comparison to a separately prescribed raw point-set tower, or additional original negative-group APIs is not asserted or assumed here. The ordinary-colimit presentation is treated separately in COL-0599 and COL-0600.
+'''
+proof_kind = "outline"
+proof = '''
+Apply homotopyFiberLift_isStableEquivalence_iff to the three stable integral Spec telescope
+comparisons, their enlargement and restriction squares, and their whole-null square. The
+coefficient full-open localization theorem supplies stability on the coefficient side. Transfer it
+to the current lift using current_iterated_lift_stable_iff. For arbitrary schemes use their
+terminal maps to Spec(ULift ℤ) and the identity coefficient; the signed isomorphism and projection
+follow from stable equivalence and the defining fiber lift.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryCurrentFiber.currentLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -1,10 +1,9 @@
 /-
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 kangxyz, Colib and Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticIncidenceAlgebra
 public import Mathlib.LinearAlgebra.StdBasis
 
@@ -13,29 +12,6 @@ public import Mathlib.LinearAlgebra.StdBasis
 open _root_.MvPolynomial Module TensorProduct KaehlerDifferential LinearMap
 universe u v w z
 namespace QuadraticIncidence
-
-@[simp]
-theorem monomialBasis_coe (A : Type w) [CommRing A] (σ : Type z) (q : Exponent σ) :
-    ((monomialBasis A σ) q).val = monomial q.val 1 := by
-  classical
-  change AddMonoidAlgebra.ofCoeff
-    (((Finsupp.supportedEquivFinsupp (R := A)
-      {e : σ →₀ ℕ | e.sum (fun _ n => n) ≤ 2}).symm (Finsupp.single q 1)).val) = _
-  exact congrArg (fun f : (σ →₀ ℕ) →₀ A => (AddMonoidAlgebra.ofCoeff f : MvPolynomial σ A))
-    (Finsupp.supportedEquivFinsupp_symm_single _ q 1)
-
-
-/-- One fixed monomial coordinate basis for all projection coordinates. -/
-def parameterBasis (A : Type w) [CommRing A] (σ : Type z) (d : ℕ) :
-    Basis (Fin d × Exponent σ) A (Fin d → restrictTotalDegree σ A 2) :=
-  (Pi.basis fun _ : Fin d => monomialBasis A σ).reindex
-    (Equiv.sigmaEquivProd (Fin d) (Exponent σ))
-
-@[simp]
-theorem parameterBasis_apply (A : Type w) [CommRing A] (σ : Type z) (d : ℕ)
-    (q : Fin d × Exponent σ) :
-    parameterBasis A σ d q = Pi.single q.1 (monomialBasis A σ q.2) := by
-  simp [parameterBasis, Basis.reindex_apply]
 
 variable (k : Type u) (R : Type v) (K : Type w)
   [CommRing k] [CommRing R] [Field K] [Algebra k R] [Algebra R K]

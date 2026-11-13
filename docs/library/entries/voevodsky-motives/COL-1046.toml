@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1046"
+title = "Cancellation for bounded-above effective motives"
+kind = "theorem"
+section = "tate-twists-and-cancellation"
+order = 20
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveTateTwistFullyFaithful"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be a perfect field. For any \(K,L\) in
+\(DM^{\mathrm{eff}}_-(k)\) the Tate twist induces a bijection
+\[
+\operatorname{Hom}(K,L)\longrightarrow\operatorname{Hom}(K(1),L(1)).
+\]
+The map sends a morphism to its image under the derived tensor with
+the reduced transfer torus, followed by the cochain shift \([-1]\).
+'''
+scope = '''
+The coefficient ring is \(\mathbb Z\). The Tate twist uses the
+complement of the unit summand of \(\mathbb G_m\). On the motive
+of the base, the shift identifies with the original signed
+weight-one motivic complex.
+[@Voevodsky2010Cancellation, Corollary 4.10, p. 684]
+'''
+proof = '''
+The derived reduced torus tensor is left adjoint to the kernel of
+derived restriction along the unit section. On a smooth motive the
+unit of this adjunction is the original exterior-product map of
+COL-1045 under the derived comparison of COL-1044. It is therefore
+invertible. The functors preserve sums with a common upper bound, so
+invertibility extends to projective retracts of sums of representables.
+A bounded-above projective resolution reduces each cohomological
+degree to a finite window. The unit is invertible on every effective
+motive, which makes the tensor and its Tate shift fully faithful.
+'''

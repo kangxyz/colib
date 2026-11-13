@@ -1,0 +1,85 @@
+/-
+Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: kangxyz
+-/
+module
+
+public import Colib.AlgebraicGeometry.Morphisms.Generalizing.GenericPoints
+public import Mathlib.AlgebraicGeometry.Noetherian
+public import Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite
+
+/-!
+# Actual fibers above generic points
+
+A locally quasi-finite scheme map reflects generic points: a point mapping to
+an actual generic point has no strict generization, because its fiber is
+discrete. This gives a literal reindexing of that fiber by source generic
+points. No dimension, purity, integrality or reducedness assumption is used.
+The converse direction needs a genuine generalizing-map hypothesis; finite
+maps alone need not send every source generic point to a target generic point.
+-/
+
+/-!
+Adapted from `kangxyz/motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
+`Motivic/Aglib/AlgebraicGeometry/Morphisms/QuasiFinite/GenericFiber.lean`, blob
+`d1085d9cc5ef7fcecf30149a6c0ad58fd1f0480a`.
+The source is the actual original scheme or ordinary free-Yoneda Ext group.
+All monic quotient fibers retain their full scheme structure.
+-/
+
+@[expose] public section
+
+open CategoryTheory AlgebraicGeometry
+
+universe u
+
+namespace AlgebraicGeometry.Scheme.Hom
+
+variable {X Y : Scheme.{u}} (f : X ⟶ Y) [LocallyQuasiFinite f]
+
+/-- A generization above a generic target point must equal the original point. -/
+theorem specializes_eq_of_image_generic {x' x : X} (hx : f x ∈ genericPoints Y)
+    (h : x' ⤳ x) : x' = x := by
+  have hy : f x' ⤳ f x := h.map f.continuous
+  have hback : f x ⤳ f x' := specializes_iff_closure_subset.mpr
+    (hx.2 isIrreducible_singleton.closure hy.closure_subset)
+  have heq : f x' = f x := (hy.antisymm hback).eq
+  exact (f.isDiscrete_preimage_singleton (f x)).eq_of_specializes h heq rfl
+
+/-- Locally quasi-finite morphisms reflect actual component generic points. -/
+theorem mem_genericPoints_of_image_generic (x : X) (hx : f x ∈ genericPoints Y) :
+    x ∈ genericPoints X := by
+  refine ⟨isIrreducible_singleton.closure, ?_⟩
+  intro s hs hxs
+  have h : hs.genericPoint ⤳ x := hs.isGenericPoint_genericPoint_closure.specializes
+    (subset_closure (hxs (subset_closure (by simp))))
+  have heq := specializes_eq_of_image_generic f hx h
+  rw [← heq, hs.genericPoint_closure_eq]
+  exact subset_closure
+
+/-- With genuine generalization lifting, the generic-point criterion is bidirectional. -/
+theorem image_mem_genericPoints_iff_of_generalizing (hf : GeneralizingMap f) (x : X) :
+    f x ∈ genericPoints Y ↔ x ∈ genericPoints X :=
+  ⟨mem_genericPoints_of_image_generic f x, mem_genericPoints_of_generalizing f hf x⟩
+
+/-- The actual point fiber above a generic target point consists exactly of
+source generic points; this is an equivalence, not a product-of-stalks claim. -/
+def genericFiberEquiv (y : genericPoints Y) :
+    {x : X // f x = y.1} ≃ {x : genericPoints X // f x.1 = y.1} where
+  toFun x := ⟨⟨x.1, mem_genericPoints_of_image_generic f x.1 (by simpa only [x.2] using y.2)⟩, x.2⟩
+  invFun x := ⟨x.1.1, x.2⟩
+  left_inv _ := rfl
+  right_inv _ := rfl
+
+@[simp]
+theorem genericFiberEquiv_apply_val (y : genericPoints Y) (x : {x : X // f x = y.1}) :
+    ((genericFiberEquiv f y x).1 : X) = x.1 := rfl
+
+@[simp]
+theorem genericFiberEquiv_symm_apply_val (y : genericPoints Y)
+    (x : {x : genericPoints X // f x.1 = y.1}) :
+    ((genericFiberEquiv f y).symm x : X) = x.1.1 := rfl
+
+
+end AlgebraicGeometry.Scheme.Hom

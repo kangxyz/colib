@@ -1,11 +1,11 @@
 /-
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 kangxyz, Colib and Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticIncidenceAlgebra
+public import Colib.RingTheory.Kaehler.ResidueGeneratorGradientBaseChange
 public import Mathlib.LinearAlgebra.TensorProduct.Pi
 public import Mathlib.LinearAlgebra.TensorProduct.Prod
 
@@ -40,17 +40,6 @@ theorem map_eval_pderiv_monomial_one (a : σ → A) (e : σ →₀ ℕ) (i : σ)
   simp
 
 variable [Fintype σ]
-
-/-- Cancellation of scalar extension transports the actual generator gradient. -/
-theorem baseChange_residueGeneratorGradient (g : σ → R) (c : σ → A) :
-    AlgebraTensorModule.cancelBaseChange R A K K Ω[R⁄k]
-        (1 ⊗ₜ[A] residueGeneratorGradient k R A g c) =
-      residueGeneratorGradient k R K g (algebraMap A K ∘ c) := by
-  simp only [residueGeneratorGradient, Fintype.linearCombination_apply,
-    tmul_sum, map_sum]
-  apply Finset.sum_congr rfl
-  intro i _
-  simp [smul_tmul', Algebra.smul_def]
 
 /-- The native base-change equivalence on the literal incidence target. -/
 def coefficientBaseChange (d : ℕ) :

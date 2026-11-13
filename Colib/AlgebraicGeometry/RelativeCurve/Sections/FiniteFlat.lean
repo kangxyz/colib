@@ -75,7 +75,7 @@ theorem isEffectiveCartierDivisor_comap_fiberι_of_locallyQuasiFinite
 
 /-- Local principality and quasi-finiteness on a smooth relative curve produce Cartier
 regularity and relative flatness over an arbitrary base. -/
-@[colib_tag "COL-1046", stacks 062Y
+@[colib_tag "COL-1221", stacks 062Y
   "locally principal quasi-finite subschemes on smooth relative curves, via the fibre criterion"]
 theorem isRelativeEffectiveCartierDivisor_of_isLocallyPrincipal_of_locallyQuasiFinite
     {X S : Scheme.{u}} (f : X ⟶ S) [SmoothOfRelativeDimension 1 f]
@@ -97,7 +97,7 @@ theorem isRelativeEffectiveCartierDivisor_zeroScheme_of_locallyQuasiFinite
 
 /-- Finite whole zero schemes on smooth relative curves are finite locally free. Flatness
 and finite presentation are conclusions, not hypotheses. -/
-@[colib_tag "COL-1046", stacks 0B9D
+@[colib_tag "COL-1221", stacks 0B9D
   "finite zero schemes with flatness derived from local principality"]
 theorem isFiniteLocallyFree_zeroScheme_of_isFinite
     {X S : Scheme.{u}} (f : X ⟶ S) [SmoothOfRelativeDimension 1 f] (L : X.Modules)

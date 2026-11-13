@@ -1,18 +1,10 @@
 [entry]
 id = "COL-0330"
-title = "Fixed-pair qcqs connective image-cover localization"
+title = "Connective localization for a quasi-compact open immersion"
 kind = "theorem"
-section = "perfect-open-localization"
+section = "support-and-connective-localization"
 order = 90
-statement = """
-For a quasi-compact open in a quasi-compact quasi-separated scheme, the actual coarse
-S-prespectrum is connective and Omega. Its actual restriction is bijective on positive stable
-groups and injective in degree zero with exactly the global restriction image. The actual
-supported fiber lift, its projection and whole nullhomotopy give the original fiber sequence;
-the lift and its canonical rebase are stable equivalences in every integer degree. The
-coarse factorization agrees coherently with ordinary flat restriction. The corresponding fine
-K-groups have all three exact positions and the honest image-valued degree-zero tail.
-"""
+statement = "Let $j:U\\hookrightarrow X$ be an open immersion, with $X$ quasi-compact and quasi-separated and $U$ quasi-compact. Put $Z=X\\setminus U$. The connective relative-open model $K^{\\mathrm{im}}(U;X)$ fits into a stable fiber sequence\n\\[K(X\\text{ on }Z)\\longrightarrow K(X)\\longrightarrow K^{\\mathrm{im}}(U;X).\\]\nIts map to the fine open theory is an isomorphism on positive stable homotopy groups and is injective in degree zero, with image $\\operatorname{im}(K_0(X)\\to K_0(U))$. The supported fiber map retains the restriction null-homotopy and is a stable equivalence in every integer degree; this gives the connective localization sequence with the indicated image-valued degree-zero tail."
 scope = '''Fixed open immersion; compact ambient and open spaces; quasi-separated ambient space; an
 arbitrary chosen derived category of modules on the open. Native qcqs geometry discharges
 roofs and complements. Uses the existing coarse model as the [@ThomasonTrobaugh1990, 5.1.1] image-cover target,

@@ -4,7 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticSelectedPointOpen
 
 /-! # Full-rank selected-point condition in the same compactifying quadratic tuple -/
@@ -75,8 +74,26 @@ theorem independent_of_fullSelectedDeterminant (c : Fin d × Exponent σ → L)
 
 end Determinant
 
-/-- All rows of the same quadratic tuple have full original cotangent rank on
-one nonempty ground principal open, without assuming a rational selected point. -/
+/-- Full row rank follows from the actual cotangent rank. Deriving that rank
+from smoothness and transcendence degree is a separate geometric theorem. -/
+theorem exists_fullSelectedPoint_open_of_finrank [Algebra k L]
+    (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
+    (d : ℕ) (hd : Module.finrank L (L ⊗[R] Ω[R⁄k]) = d) :
+    ∃ q : MvPolynomial (Fin d × Exponent σ) k, q ≠ 0 ∧
+      ∀ c : Fin d × Exponent σ → k, eval c q ≠ 0 →
+        LinearIndependent L (fun i => selectedDerivative (k := k) (L := L) g
+          (parameterTuple L σ d (algebraMap k L ∘ c) i)) := by
+  let : Module.Finite L (L ⊗[R] Ω[R⁄k]) :=
+    Module.Finite.of_surjective (residueGeneratorGradient k R L g)
+      (residueGeneratorGradient_surjective k R L g hg)
+  let B := Module.finBasisOfFinrankEq L (L ⊗[R] Ω[R⁄k]) hd
+  let J := selectedDerivative (k := k) (L := L) g
+  obtain ⟨q, hq, h⟩ := exists_ground_open (k := k) (fullSelectedDeterminant d B J)
+    (fullSelectedDeterminant_ne_zero d B J (selectedDerivative_surjective g hg))
+  exact ⟨q, hq, fun c hc => independent_of_fullSelectedDeterminant d B J _ (h c hc)⟩
+
+/-- For a smooth integral algebra, transcendence degree supplies the cotangent
+rank in the full selected-point condition. -/
 theorem exists_fullSelectedPoint_open [Algebra k L] [IsDomain R]
     [Algebra.Smooth k R] (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
     (d : ℕ) (hd : Algebra.trdeg k R = d) :
@@ -84,13 +101,8 @@ theorem exists_fullSelectedPoint_open [Algebra k L] [IsDomain R]
       ∀ c : Fin d × Exponent σ → k, eval c q ≠ 0 →
         LinearIndependent L (fun i => selectedDerivative (k := k) (L := L) g
           (parameterTuple L σ d (algebraMap k L ∘ c) i)) := by
-  have hr : Module.finrank L (L ⊗[R] Ω[R⁄k]) = d := by
-    rw [Algebra.cotangent_finrank_eq_trdeg_toNat k R L, hd]
-    simp
-  let B := Module.finBasisOfFinrankEq L (L ⊗[R] Ω[R⁄k]) hr
-  let J := selectedDerivative (k := k) (L := L) g
-  obtain ⟨q, hq, h⟩ := exists_ground_open (k := k) (fullSelectedDeterminant d B J)
-    (fullSelectedDeterminant_ne_zero d B J (selectedDerivative_surjective g hg))
-  exact ⟨q, hq, fun c hc => independent_of_fullSelectedDeterminant d B J _ (h c hc)⟩
+  apply exists_fullSelectedPoint_open_of_finrank g hg d
+  rw [Algebra.cotangent_finrank_eq_trdeg_toNat k R L, hd]
+  simp
 
 end QuadraticIncidence

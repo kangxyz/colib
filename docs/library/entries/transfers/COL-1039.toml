@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1039"
+title = "The reduced torus comparison of Suslin complexes"
+kind = "definition"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "transfer-singular-complexes"
+order = 30
+primary = "AlgebraicGeometry.PresheafWithTransfers.torusCancellationChainMap"
+statement = '''
+Let \(k\) be a field, \(G=\mathbb G_m\), and \(Y\) a smooth separated
+finite-type \(k\)-scheme. Let \(Q_Y\) be the quotient of
+\(\mathbb Z_{\mathrm{tr}}(Y\times G)\) by the image of its unit section.
+The presheaf \(F_Y\) is the kernel of restriction
+\(Q_Y(X\times G)\to Q_Y(X\times\operatorname{Spec}k)\) along the source
+unit. Exterior product on signed correspondences gives the comparison
+\[
+C_*(\mathbb Z_{\mathrm{tr}}(Y))\longrightarrow C_*(F_Y).
+\]
+The canonical signed representative on \(\alpha\in\operatorname{Cor}(X,Y)\)
+is \(\alpha\boxtimes\operatorname{id}_G\) minus its postcomposition with
+\(e_Y\), where \(e_Y\) is projection followed by the unit section on
+\(Y\times G\). The comparison commutes with signed postcomposition in \(Y\).
+'''
+scope = '''
+Both unit maps use the original base-product coordinates. In chain
+degree \(r\), evaluate the comparison on \(X\times\Delta^r_k\) in the
+existing alternating singular complex of COL-0397. This is the chain
+map used in [@Voevodsky2010Cancellation, Corollary 4.9, p. 684].
+'''
+proof = '''
+Naturality of the original parameter unit moves a source restriction to
+postcomposition with the target unit. The target quotient kills this
+composite, giving the map to the source kernel. The split section of
+the target quotient removes the constant-unit part on signed
+correspondences. Functoriality of the quotient, kernel and Suslin
+construction gives the postcomposition equation.
+'''

@@ -6,14 +6,14 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorNormRetraction
-public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.PolynomialNormComparisonAll
+public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorSymbolSurjectivity
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.SymbolFieldChange
 
 /-!
 # Milnor K-theory and integral diagonal motivic cohomology
 
-The original rational graph map and the descended norm are inverse in
-characteristic zero. Rational graphs give one inverse identity. The other
+The rational graph map and the descended norm are inverse over any field.
+Rational graphs give one inverse identity. The other
 uses finite norm compatibility on the actual native prime cycles and extends
 by signed additivity. The inverse consequently respects scalar pullback and
 finite corestriction under the original base-field comparison.
@@ -33,46 +33,19 @@ namespace AlgebraicGeometry.MotivicCohomology.DiagonalMilnorEquivalence
 
 open _root_.AlgebraicGeometry.Scheme
 open PresheafWithTransfers DiagonalTopDegree DiagonalCycleSymbols
-open DiagonalPointNorm DiagonalPointPresentation DiagonalMilnorSymbol DiagonalMilnorBoundaryDescent
+open DiagonalMilnorSymbol DiagonalMilnorBoundaryDescent
 open DiagonalCorestriction (corestriction integralCorestriction integralCorestriction_comparison)
 open DiagonalPolynomialNormComparisonAll (rawSymbol_milnorKNorm)
 
 section Equivalences
 
-variable (k : Type u) [Field k] [CharZero k] (q : ℕ)
-
-/-- Norm evaluation on a native coefficient-one point recovers its actual cycle class. -/
-theorem rawSymbol_generatorValue (Z : Generator k q) :
-    rawSymbol k q (generatorValue Z) =
-      cycleClass k q (singleFiniteCorrespondence _ _ Z.val Z.property 1) := by
-  let : CharZero (coordinateRing Z) :=
-    charZero_of_injective_algebraMap (algebraMap k (coordinateRing Z)).injective
-  let N := coordinateRing Z
-  let a : Fin q → Nˣ := coordinateUnit Z
-  let tr := corestriction (k := k) (E := N) q
-  calc
-    _ = tr (rawSymbol N q (milnorKTupleSymbol a)) :=
-      rawSymbol_milnorKNorm (k := k) (E := N) q (milnorKTupleSymbol a)
-    _ = tr (graphSymbol N q a) := congrArg tr (rawSymbol_symbol N q a)
-    _ = _ := (cycleClass_generator Z).symm
-
-/-- Norm evaluation followed by the graph map recovers the class of every signed point cycle. -/
-theorem rawSymbol_cycleValue (α : point k ⟶ target k q) :
-    rawSymbol k q (cycleValue k q α) = cycleClass k q α := by
-  have h : (rawSymbol k q).comp (cycleValue k q) = cycleClass k q := by
-    apply finiteCorrespondences.addHom_ext_one (𝟙 (Spec (.of k)))
-      (SmoothSite.torusPower (Spec (.of k)) q).hom
-    intro z hz
-    let Z : Generator k q := ⟨z, hz⟩
-    exact (congrArg (rawSymbol k q) (cycleValue_cycle Z)).trans
-      (rawSymbol_generatorValue k q Z)
-  exact DFunLike.congr_fun h α
+variable (k : Type u) [Field k] (q : ℕ)
 
 /-- The rational graph map also inverts the norm on the actual raw diagonal group. -/
 theorem rawSymbol_rawNorm (x : (motivicRawBaseComplex k q).homology q) :
     rawSymbol k q (rawNorm k q x) = x := by
-  obtain ⟨α, rfl⟩ := DiagonalCorestriction.cycleClass_surjective k q x
-  rw [rawNorm_cycleClass, rawSymbol_cycleValue]
+  obtain ⟨z, rfl⟩ := rawSymbol_surjective k q x
+  rw [rawNorm_rawSymbol]
 
 /-- The original raw diagonal group with its actual symbol map and norm inverse. -/
 def rawEquiv : MilnorKTheory k q ≃+ (motivicRawBaseComplex k q).homology q where
@@ -97,10 +70,10 @@ theorem motivicSymbol_motivicNorm
       congrArg (rawSymbol k q) (motivicNorm_comparison k q x)
     _ = _ := rawSymbol_rawNorm k q (motivicRawBaseEvaluationComparison k q q x)
 
-/-- Milnor K-theory is the original integral diagonal motivic cohomology in characteristic zero. -/
+/-- Milnor K-theory is the integral diagonal motivic cohomology of any field. -/
 @[colib_tag "COL-1026",
   colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/MilnorEquivalence.lean:34-106"
-  "adaptation" "The native graph symbol and signed point norm on original integral cohomology"]
+  "adaptation" "The characteristic-zero graph and point-norm comparison extended to all fields"]
 def motivicEquiv : MilnorKTheory k q ≃+
     motivicCohomology k q q (SmoothSite.base (Spec (.of k))) where
   toFun := motivicSymbol k q
@@ -126,7 +99,7 @@ open DiagonalFieldChange (fieldChange)
 open DiagonalSymbolFieldChange (rawSymbol_fieldChange motivicFieldChange
   motivicFieldChange_rawComparison)
 
-variable {k L : Type u} [Field k] [CharZero k] [Field L] [CharZero L] (q : ℕ)
+variable {k L : Type u} [Field k] [Field L] (q : ℕ)
 
 /-- The raw inverse commutes with scalar pullback of the actual raw cycle classes. -/
 theorem rawNorm_fieldChange (φ : k →+* L) (x : (motivicRawBaseComplex k q).homology q) :

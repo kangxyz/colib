@@ -4,7 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticDiagonalFieldExtension
 public import Mathlib.RingTheory.TensorProduct.Nontrivial
 

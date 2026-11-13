@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0360"
-title = "The coefficient-natural affine-section Laurent self-homotopy"
+title = "Laurent unit homotopy on affine sections"
 kind = "theorem"
-section = "affine-bass-constructions"
+section = "bass-k-theory-and-geometric-delooping"
 order = 20
 statement = '''The actual constant Laurent inclusion carries a native zero-preserving exact section-model
 map. Its pointwise forward Laurent unit yields a based structure-compatible self-homotopy

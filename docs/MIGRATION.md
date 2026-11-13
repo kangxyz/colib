@@ -148,25 +148,24 @@ no scalar, Laurent or boundary-sign theorem is asserted. See the
 The integrated sources, tests and attributes passed the native CI recorded above.
 The earlier source-only preparation record is not the current validation status.
 
-## Matsumoto's theorem for K₂ in characteristic zero
+## Matsumoto's theorem for K₂
 
-The completed source chain gives characteristic-zero additive equivalences from
-the native Milnor K₂ group to actual right-projective Quillen K₂ and the literal
+The completed source chain gives additive equivalences over every field from
+native Milnor K₂ to right-projective Quillen K₂ and the literal
 upper finite-module `SmallK.{u+1} 2`. Their forward homomorphisms are the original
-Milnor-to-kernel-to-Quillen composites. Fiber perfectness, kernel generation and
-the detector are proved inputs, not additional endpoint hypotheses. Both
-directions commute with the original field-extension maps; the negative
-normalization is minus the positive inverse.
+Milnor-to-kernel-to-Quillen composites. A nonidentity diagonal scaling supplies
+the Steinberg root relations over infinite fields. Integral Milnor K₂ vanishing
+gives injectivity over finite fields. Both directions commute with the original
+field-extension maps, and the negative normalization is minus the positive inverse.
 
-The positive ordered scalar-unit-product marking holds over every field,
-with a `ZMod 5` regression. Bijectivity retains `[CharZero F]`.
-Finite realization geometry now uses native `Convexity.StdSimplex` coordinates directly.
+The positive ordered scalar-unit-product marking uses the native
+`Convexity.StdSimplex` coordinates. The regressions cover the infinite
+characteristic-two field `RatFunc (ZMod 2)` and the fields `ZMod 2` and `ZMod 3`.
 Earlier candidate endpoints and regressions passed focused strict compilation
-and native QA within their recorded scopes. The Lean 4.35 integration is published
-at `0fd43f0253d6ff441fbc3e82420a0573ad694310`, whose original whole-library
+and native QA within their recorded scopes. The original characteristic-zero
+integration is at `0fd43f0253d6ff441fbc3e82420a0573ad694310`. Its whole-library
 [CI run](https://github.com/kangxyz/colib/actions/runs/42373233801) passed build,
-tests, native lint, axiom audit and Library checks. This exact-commit result does
-not certify later descendants. See the
+tests, native lint, axiom audit and Library checks. See the
 [exact comparison and verification scope](migration/quillen/field-k2-comparison.md),
 [algebraic map](migration/quillen/field-k2-native-kernel.md), and
 [stable-fiber proof](migration/quillen/field-k2-stable-fiber.md).

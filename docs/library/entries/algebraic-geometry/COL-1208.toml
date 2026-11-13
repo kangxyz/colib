@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1208"
+title = "Ordinary Nisnevich-to-etale change of topology"
+kind = "theorem"
+section = "smooth-etale-sites"
+order = 20
+primary = "AlgebraicGeometry.Scheme.SmoothSite.nisnevichToEtaleSheafAdjunction"
+review = "author_checked"
+statement = '''
+On the same category of smooth schemes over \(S\), étale sheafification of
+the underlying Nisnevich sheaf is left adjoint to the literal restriction
+of étale sheaves to the Nisnevich topology. Its unit is the native map to
+sheafification, and its counit is the native sheafification lift of the
+identity. The counit is an isomorphism. This left adjoint preserves finite
+colimits; it also preserves finite limits under native sheafification and
+finite-limit hypotheses, and is additive for abelian coefficients.
+'''
+proof = '''
+Compose the Nisnevich sheaf inclusion with the native étale sheafification
+functor. Restrict the native sheafification adjunction along the fully
+faithful Nisnevich inclusion. The native restriction formulas identify
+the unit and counit with the actual sheafification maps. Full faithfulness
+of COL-1203 makes the counit invertible. Colimit preservation follows from
+the adjunction; finite-limit preservation and additivity are inherited
+from the two native factors under their precise hypotheses.
+'''
+scope = '''
+The adjunction uses HasWeakSheafify for the actual étale topology; finite
+limits use HasFiniteLimits on coefficients and HasSheafify, while additivity
+uses abelian coefficients and HasSheafify. Scheme, coefficient-object and
+coefficient-morphism universes remain independent. This is ordinary
+change of topology, not transfer preservation, a derived adjunction, or
+the motivic-to-étale comparison theorem. The restricted-adjunction
+construction is the pinned [@mathlib_stable_localization_pin] implementation
+in Mathlib/CategoryTheory/Adjunction/Restrict.lean:42-58.
+'''

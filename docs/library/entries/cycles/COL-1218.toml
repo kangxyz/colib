@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1218"
+title = "Full endpoint cut lengths and the original order"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 30
+primary = "AlgebraicGeometry.PrincipalFamilyEndpointCuts.signedCutCoefficient_one"
+review = "author_checked"
+statement = '''
+Let \(W\) be an integral noetherian scheme over a field \(k\), let
+\(x\in W\) have coheight one, and let \(a,b\in\Gamma(W,\mathcal O_W)\)
+have nonzero germs at \(x\). On the actual polynomial cylinder, use
+numerator \(t a+(1-t)b\) and denominator \(b\). Cut the ambient stalk
+by the kernel of the actual endpoint stalk map and the respective equation
+germ. The signed difference of the full quotient lengths at endpoint one
+is the native order at \(x\) of the original fraction \(a_x/b_x\).
+At endpoint zero the two full cut lengths are equal, so their signed
+difference is zero.
+'''
+proof = '''
+The actual endpoint is a closed immersion, so its stalk map is surjective.
+The quotient by its kernel plus the equation is ring-isomorphic to the
+original stalk quotient by the specialized equation. Native length
+invariance retains the full length across this isomorphism. The literal
+numerator specializes to \(b\) at zero and \(a\) at one; the denominator
+specializes to \(b\) at both endpoints. At zero the lengths cancel.
+At one use the native order formula as numerator colength minus denominator
+colength. Coheight one and the two nonzero germs prove finiteness of these
+whole quotient lengths before interpreting their natural-number values.
+'''
+scope = '''
+The quotient rings are never reduced, and no flatness of a support is
+assumed. The zero-endpoint equality also holds without the integral,
+noetherian or coheight hypotheses. The one-endpoint order comparison
+retains all of them and both nonzero-germ conditions. The scheme and
+field have universe \(u\). The native order formula is
+ord_div_algebraMap_eq_length_sub in FlatPullbackPrincipalDivisor of
+[@axiom_stacks_5ed82d14]. COL-1220 identifies these local cut coefficients
+with weighted actual endpoint-stalk Tor. Its further identification with
+the original graph incidence and finite pushforwards of COL-1216 is still
+required for a literal principal-correspondence endpoint identity.
+'''

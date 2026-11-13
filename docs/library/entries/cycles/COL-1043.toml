@@ -1,42 +1,32 @@
 [entry]
 id = "COL-1043"
-title = "Full endpoint cut lengths and the original order"
-kind = "comparison"
-section = "principal-polynomial-families"
+title = "Polynomial homotopy between large torus cuts"
+kind = "theorem"
+section = "relative-principal-cuts"
 order = 30
-primary = "AlgebraicGeometry.PrincipalFamilyEndpointCuts.signedCutCoefficient_one"
+primary = "AlgebraicGeometry.Cor.exists_torusPowerCut_pencil"
 review = "author_checked"
+source_checked_on = "2026-11-13"
 statement = '''
-Let \(W\) be an integral noetherian scheme over a field \(k\), let
-\(x\in W\) have coheight one, and let \(a,b\in\Gamma(W,\mathcal O_W)\)
-have nonzero germs at \(x\). On the actual polynomial cylinder, use
-numerator \(t a+(1-t)b\) and denominator \(b\). Cut the ambient stalk
-by the kernel of the actual endpoint stalk map and the respective equation
-germ. The signed difference of the full quotient lengths at endpoint one
-is the native order at \(x\) of the original fraction \(a_x/b_x\).
-At endpoint zero the two full cut lengths are equal, so their signed
-difference is zero.
-'''
-proof = '''
-The actual endpoint is a closed immersion, so its stalk map is surjective.
-The quotient by its kernel plus the equation is ring-isomorphic to the
-original stalk quotient by the specialized equation. Native length
-invariance retains the full length across this isomorphism. The literal
-numerator specializes to \(b\) at zero and \(a\) at one; the denominator
-specializes to \(b\) at both endpoints. At zero the lengths cancel.
-At one use the native order formula as numerator colength minus denominator
-colength. Coheight one and the two nonzero germs prove finiteness of these
-whole quotient lengths before interpreting their natural-number values.
+Let \(c\) be a finite correspondence from \(X\times\mathbb G_m\)
+to \(Y\times\mathbb G_m\) over a field. For all sufficiently large
+\(m,n\), there is a finite correspondence
+\(H\colon X\times\mathbb A^1\rightsquigarrow Y\) whose restrictions
+by the graphs of the sections at zero and one are \(\rho_n(c)\)
+and \(\rho_m(c)\), respectively.
 '''
 scope = '''
-The quotient rings are never reduced, and no flatness of a support is
-assumed. The zero-endpoint equality also holds without the integral,
-noetherian or coheight hypotheses. The one-endpoint order comparison
-retains all of them and both nonzero-germ conditions. The scheme and
-field have universe \(u\). The native order formula is
-ord_div_algebraMap_eq_length_sub in FlatPullbackPrincipalDivisor of
-[@axiom_stacks_5ed82d14]. COL-1045 identifies these local cut coefficients
-with weighted actual endpoint-stalk Tor. Its further identification with
-the original graph incidence and finite pushforwards of COL-1041 is still
-required for a literal principal-correspondence endpoint identity.
+The cut uses \((t^{r+1}-1)/(t^{r+1}-u)\), with \(t,u\) the
+source and target torus coordinates. The native correspondence
+retains all original integer coefficients. Our endpoint order comes
+from the family \(s g_m+(1-s)g_n\).
+[@Voevodsky2010Cancellation, Remark 4.2, p. 680]
+'''
+proof = '''
+Clear the two denominators on each original prime support. Laurent
+integrality gives finite numerator and denominator cuts for a common
+bound on the two exponents. Restrict both cycles to the scalar
+fibres using the principal-cut comparison of COL-1041. A common
+factor contributes equally to both cuts and cancels. Sum the prime
+families with the original signed multiplicities.
 '''

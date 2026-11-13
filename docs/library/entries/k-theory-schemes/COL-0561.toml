@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0561"
-title = "Supported coefficient rows and input normalization"
+title = "Supported coefficient rows and normalization"
 kind = "proposition"
-section = "tensor-unit-prisms"
-order = 1561
+section = "units-tensor-products-and-localization-boundaries"
+order = 170
 statement = '''
 The first supported coefficient row of the tensor-unit construction is an exact functor.
 '''

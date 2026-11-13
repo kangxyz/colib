@@ -9,6 +9,7 @@ public import Mathlib.RingTheory.Etale.Kaehler
 public import Mathlib.RingTheory.Etale.Locus
 public import Mathlib.RingTheory.RingHom.Etale
 public import Mathlib.RingTheory.LocalRing.Module
+public import Mathlib.LinearAlgebra.TensorProduct.Tower
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 /-! # The original polynomial coordinate map is étale near a residue basis

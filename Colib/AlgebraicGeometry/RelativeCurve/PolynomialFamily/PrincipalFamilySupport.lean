@@ -41,7 +41,7 @@ set_option backward.isDefEq.respectTransparency.types false in
 include j hcover in
 /-- Every nonzero coefficient of the literal signed principal family has finite
 native integral support over the original affine parameter base. -/
-@[colib_tag "COL-1039",
+@[colib_tag "COL-1214",
   colib_ref "axiom_stacks_5ed82d14"
     "StacksFrontier/AlgebraicGeometry/Chow/Vocabulary/PrincipalCycle.lean:208-222"
     "ingredient" "The literal native principal cycle and its order-of-vanishing coefficients"]

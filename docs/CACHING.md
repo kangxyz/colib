@@ -34,12 +34,12 @@ compilation without changing Colib's root/tool/dependency caches.
 
 ## Reuse and transfer
 
-Build compares the warm Stacks manifest with a bounded preview of the published
-baseline. A compatible warm checkpoint that covers the baseline is restored
-once. For a partial checkpoint, Build restores the baseline and then overlays
-the warm archive to keep newer completed outputs. The release tag binds the
-Stacks revision and checkpoint context. The restore helper validates the archive
-against that context before applying it.
+Build compares the warm Stacks manifest with the published baseline's generation
+or a bounded preview of its manifest. A warm checkpoint that covers the baseline
+is restored once. For a partial checkpoint, Build restores the baseline and then
+overlays the warm archive to keep newer completed outputs. The restore helper
+tries R2 when configured and uses the GitHub Release if R2 is unavailable or
+invalid. Both sources bind the Stacks revision and checkpoint context.
 
 The standard Actions cache directory is `.lake/ci-checkpoints/`, relative to
 the repository checkout. Its four archives are `root.tar.zst`,
@@ -93,6 +93,13 @@ store for the imported native outputs. A successful native import adds
 `--rehash` to that Build invocation. If a matching branch run or usable artifact
 is unavailable, the usual incremental build can proceed.
 
+When the root checkpoint and a checked branch seed are absent, Build can
+reuse a published Colib stage from a successful default-branch push.
+The archive must match the runner's toolchain domain, the published digest,
+and the producer repository, revision and compiler. The native stage
+validator checks the module archives before import. Lake then rehashes
+the current inputs and restores only matching outputs.
+
 ## Publication and manual exports
 
 After all checks pass, main pushes publish the normal `lean-native-<Colib revision>`
@@ -107,6 +114,45 @@ python3 .github/ci-cache/checkpoint.py restore --root . --layer stacks \
 
 Materialize the pinned dependency sources first. A later native build/verification
 checks applicability; a matching archive alone is not a successful compilation.
+
+### Cloudflare R2 for Stacks
+
+Create a private Standard bucket named `colib-stacks-cache` and two S3 credentials
+scoped to it, one with **Object Read only** and one with **Object Read & Write**.
+Use the S3 API's Access Key ID and Secret Access Key. [Cloudflare R2 authentication](https://developers.cloudflare.com/r2/api/tokens/)
+
+| GitHub Actions setting | Value |
+|---|---|
+| Repository variable `STACKS_R2_BUCKET` | `colib-stacks-cache` |
+| Repository variable `STACKS_R2_ENDPOINT` | The bucket's S3 API endpoint, such as `https://<account-id>.r2.cloudflarestorage.com` |
+| Repository secrets `STACKS_R2_READ_ACCESS_KEY_ID`, `STACKS_R2_READ_SECRET_ACCESS_KEY` | The read-only credential pair |
+| Environment secrets `STACKS_R2_WRITE_ACCESS_KEY_ID`, `STACKS_R2_WRITE_SECRET_ACCESS_KEY` | The read/write credential pair in `stacks-cache-publish` |
+
+In the `stacks-cache-publish` environment, set **Deployment branches and tags** to
+**Selected branches and tags** and add a branch rule for `main`. Add the repository
+variables after setting up the secrets to enable R2.
+
+The next successful main push can populate the bucket from its staged Stacks
+checkpoint. To seed it beforehand, use a Linux x64 checkout with the archive's
+matching pins, download the desired GitHub Release asset, and load the write
+credentials into `STACKS_R2_ACCESS_KEY_ID` and `STACKS_R2_SECRET_ACCESS_KEY`.
+Set the same endpoint and bucket variables and run:
+
+```bash
+python3 -u .github/ci-cache/restore_stacks.py --publish-r2 /path/to/stacks-checkpoint.tar.zst
+```
+
+Each `stacks/v2/<Stacks revision>/<context>/current.json` points to an immutable
+archive named by its checkpoint generation and records its SHA-256. Publication
+verifies the archive and advances the pointer when the new checkpoint covers
+the previous baseline. Conditional writes let concurrent publishers share one
+object per generation. When pruning old generations, keep the archives referenced
+by active pointers.
+
+GitHub Release assets also use the checkpoint generation as the file name.
+Publication checks the digest and manifest of legacy assets named by CI run and
+attempt, so a retry can reuse the existing asset even if tar timestamps differ.
+Both restore paths continue to accept those assets.
 
 `scripts/stacks_cache.py pack/restore` retains the initial standalone `.tar.gz`
 format for existing consumers and earlier `stacks-native` releases. It verifies

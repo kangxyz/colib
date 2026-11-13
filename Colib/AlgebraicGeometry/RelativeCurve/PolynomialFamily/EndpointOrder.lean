@@ -53,7 +53,7 @@ theorem numerator_cutLength_zero (a b : Γ(W, ⊤)) (x : W) :
 
 /-- The one endpoint recovers the native order of the same fraction of original germs.
 Both nonzero germ hypotheses and codimension one are explicit. -/
-@[colib_tag "COL-1043",
+@[colib_tag "COL-1218",
   colib_ref "axiom_stacks_5ed82d14"
     "StacksFrontier/AlgebraicGeometry/Chow/RationalEquivalence/\
       FlatPullbackPrincipalDivisor.lean:585-594"

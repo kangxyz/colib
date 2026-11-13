@@ -119,7 +119,7 @@ theorem surjective_pullbackGlobalSections_tensor_of_surjective_tensor_unit
 
 /-- Prescribed values on the whole closed boundary lift to actual global sections after a
 uniform twist bound, for a projective closed embedding over a noetherian base. -/
-@[colib_tag "COL-1044", stacks 01YS
+@[colib_tag "COL-1219", stacks 01YS
   "full closed-boundary section lifting via Serre vanishing and a projective closed embedding"]
 theorem exists_surjective_pullbackGlobalSections_pullbackTwist
     (R : Type u) [CommRing R] [IsNoetherianRing R] (n : ℕ)
@@ -149,7 +149,7 @@ theorem exists_surjective_pullbackGlobalSections_pullbackTwist
 
 /-- Two coherent modules admit simultaneous prescribed full-boundary sections for every twist
 past one common bound. The lifted global sections are produced, not assumed. -/
-@[colib_tag "COL-1044", stacks 01YS
+@[colib_tag "COL-1219", stacks 01YS
   "simultaneous full closed-boundary section lifting with a common Serre bound"]
 theorem exists_prescribed_boundary_section_pair
     (R : Type u) [CommRing R] [IsNoetherianRing R] (n : ℕ)
@@ -171,7 +171,7 @@ theorem exists_prescribed_boundary_section_pair
 
 /-- Frames on the full boundary produce two global sections whose boundary frame coordinates
 are literally one. These equations include every nilpotent of the boundary. -/
-@[colib_tag "COL-1044", stacks 01YS
+@[colib_tag "COL-1219", stacks 01YS
   "literal boundary frame equations for the two sections produced by Serre lifting"]
 theorem exists_boundary_framed_section_pair
     (R : Type u) [CommRing R] [IsNoetherianRing R] (n : ℕ)

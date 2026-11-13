@@ -4,11 +4,11 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticFullSelectedPointOpen
 public import Colib.RingTheory.Bertini.QuadraticParameterBaseChange
 public import Colib.RingTheory.Kaehler.PolynomialResidueGradient
 public import Colib.RingTheory.Etale.ResidueCoordinateCriterion
+public import Colib.RingTheory.Kaehler.SmoothCotangentTrdeg
 
 /-! # The unchanged full quadratic tuple is étale at the selected point on a true open -/
 @[expose] public noncomputable section
@@ -28,7 +28,11 @@ theorem exists_selectedEtale_open (k R : Type u) [Field k] [CommRing R] [IsDomai
         ∃ r ∉ P.asIdeal, ((algebraMap R (Localization.Away r)).comp
           (aeval (R := k) (fun i => aeval g (parameterTuple k σ n c i).val)).toRingHom).Etale := by
   let L := P.asIdeal.ResidueField
-  obtain ⟨q, hq, hselected⟩ := exists_fullSelectedPoint_open (L := L) g hg n hd
+  have hrank : Module.finrank L (L ⊗[R] Ω[R⁄k]) = n := by
+    rw [Algebra.cotangent_finrank_eq_trdeg_toNat k R L, hd]
+    simp
+  obtain ⟨q, hq, hselected⟩ := exists_fullSelectedPoint_open_of_finrank
+    (L := L) g hg n hrank
   refine ⟨q, hq, fun c hc => ?_⟩
   let f : Fin n → R := fun i => aeval g (parameterTuple k σ n c i).val
   have hv := hselected c hc
@@ -37,9 +41,6 @@ theorem exists_selectedEtale_open (k R : Type u) [Field k] [CommRing R] [IsDomai
       (pderiv j (parameterTuple L σ n (algebraMap k L ∘ c) i).val))) at hv
   have hi : LinearIndependent L (fun i => (1 : L) ⊗ₜ[R] D k R (f i)) := by
     simpa only [← parameterTuple_map, residueGeneratorGradient_map_polynomial] using hv
-  have hrank : Module.finrank L (L ⊗[R] Ω[R⁄k]) = n := by
-    rw [Algebra.cotangent_finrank_eq_trdeg_toNat k R L, hd]
-    simp
   let b := basisOfLinearIndependentOfCardEqFinrank'
     (fun i => (1 : L) ⊗ₜ[R] D k R (f i)) hi (by simpa using hrank.symm)
   exact Algebra.exists_etale_polynomial_map_of_residue_differential_basis

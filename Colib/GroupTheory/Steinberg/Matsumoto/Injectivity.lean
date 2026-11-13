@@ -23,18 +23,18 @@ public import Colib.GroupTheory.MonoidHom.CentralKernel
 public import Colib.GroupTheory.Steinberg.Basic
 public import Colib.GroupTheory.StableGeneralLinear.Basic
 public import Colib.GroupTheory.StableGeneralLinear.Elementary
+public import Colib.RingTheory.KTheory.MilnorK.FiniteField
 public import Colib.RingTheory.KTheory.MilnorK.Steinberg
 
 /-!
-# Injectivity
+# Injectivity of the Milnor map to the stable Steinberg kernel
 
 Adapted from Quillen Matsumoto/Injectivity.lean at
 `c561118b7795eb9780be9ed391c3251d6a4d0afd`, using the native Stacks
 homogeneous Milnor group and native matrix units throughout.
 
-The declarations retain their original field, rank, central-kernel and explicit
-transport hypotheses. Their current consumer is the finite Matsumoto normalizer,
-Bruhat action, or conditional original-root detector construction.
+Over an infinite field the finite Bruhat detectors satisfy the root relations
+by diagonal covariance. Over a finite field the native Milnor K₂ is zero.
 -/
 
 @[expose] public section
@@ -130,7 +130,7 @@ theorem bruhatRootSections_base (n : ℕ) (a : F) :
     (bruhatLeftToGL_surjective_det_value F (n + 1)) 0 1 (finiteBaseRoot_lt n).ne
     (bruhatBaseRootSection F n) a
 
-variable [CharZero F]
+variable [Infinite F]
 open scoped commutatorElement
 
 /-- All three original root relations in the actual group, with producer inputs discharged. -/
@@ -147,9 +147,11 @@ theorem bruhatRootSections_relations (n : ℕ) (hn : 3 ≤ n) :
       ⁅FiniteRootLifting.root (bruhatRootSections F n) i j hij a,
         FiniteRootLifting.root (bruhatRootSections F n) j k hjk b⁆ =
           FiniteRootLifting.root (bruhatRootSections F n) i k hik (a * b)) :=
-  FiniteRootLifting.original_root_relations (bruhatLeftToGL F (n + 1))
-    (bruhatLeftToGL_ker_central F (n + 1)) (bruhatRootSections F n)
-    (bruhatRootSections_projection F n) (bruhatRootSections_diagonal_covariance F n) (by omega)
+  RootSectionProducer.rootSections_original_relations F (bruhatLeftToGL F (n + 1))
+    (bruhatLeftToGL_ker_central F (n + 1)) (bruhatLeftToGL_surjective_det_value F (n + 1))
+    0 1 (finiteBaseRoot_lt n).ne (bruhatTorusInclusion F (n + 1)) (bruhatBaseRootSection F n)
+    (bruhatLeftToGL_torus F (n + 1)) (bruhatBaseRootSection_projection F n)
+    (bruhatBaseRootSection_covariance F n) (by omega)
 
 end StableSteinberg.RootCoordinate
 
@@ -204,7 +206,7 @@ theorem finiteRootOperator_add (n : ℕ) (i j : Fin n) (hij : i ≠ j) (a b : F)
     exact (FiniteRootLifting.root_add (bruhatRootSections F n) _ _ _ a b).symm
   exact congrArg Subtype.val he
 
-variable [CharZero F]
+variable [Infinite F]
 
 theorem finiteRootOperator_disjoint (n : ℕ) (hn : 3 ≤ n) (i j k l : Fin n)
     (hij : i ≠ j) (hkl : k ≠ l) (hjk : j ≠ k) (hli : l ≠ i) (a b : F) :
@@ -481,7 +483,7 @@ end
 section
 
 /-!
-# Injectivity of the original marked Milnor map in characteristic zero
+# Injectivity of the original marked Milnor map
 
 The detector of rank n acts on the actual Bruhat state in matrix dimension n+2;
 each original rank-n root uses two standard final-coordinate inclusions. The
@@ -493,10 +495,11 @@ noncomputable section
 universe u
 namespace StableSteinberg
 open RootCoordinate
-variable (F : Type u) [Field F] [CharZero F]
+variable (F : Type u) [Field F]
 
-/-- The original Milnor map to the Steinberg kernel is injective in characteristic zero. -/
-theorem milnorToKernel_injective_charZero : Function.Injective (milnorToKernel F) := by
+/-- The Bruhat detectors prove injectivity of the original Milnor map over an infinite field. -/
+theorem milnorToKernel_injective_of_infinite [Infinite F] :
+    Function.Injective (milnorToKernel F) := by
   apply CommutatorDetectorTransfer.milnorToKernel_injective_of_commutator_detectors
     (F := F) (S := fun n => BruhatState F (n + 1)) 5 (finiteRootOperator F)
     (fun n _ i j hij a b => finiteRootOperator_add F n i j hij a b)
@@ -509,6 +512,14 @@ theorem milnorToKernel_injective_charZero : Function.Injective (milnorToKernel F
     (fun n _ => bruhatBase F (n + 1)) (finiteDetectorCoordinate F)
   intro n _ a
   exact finiteCoefficientOperator_coordinate F n a
+
+/-- The original Milnor map to the stable Steinberg kernel is injective over every field. -/
+theorem milnorToKernel_injective : Function.Injective (milnorToKernel F) := by
+  rcases finite_or_infinite F with hF | hF
+  · let _ : Finite F := hF
+    intro x y _
+    exact Subsingleton.elim x y
+  · exact @milnorToKernel_injective_of_infinite F _ hF
 
 end StableSteinberg
 

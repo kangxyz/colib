@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticIncidenceRank
+public import Colib.RingTheory.Bertini.QuadraticParameterBasis
 
 /-! # The original quadratic polynomial tuple of a coefficient choice -/
 @[expose] public noncomputable section

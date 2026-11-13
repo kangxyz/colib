@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1045"
+title = "Cancellation for the singular transfer complex"
+kind = "theorem"
+section = "transfer-singular-complexes"
+order = 40
+primary = "AlgebraicGeometry.PresheafWithTransfers.torusCancellationChainMap_quasiIso"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be a field and \(Y\) a smooth \(k\)-scheme. For the reduced
+transfer torus \(S_t^1\), write
+\[
+ F_Y(X)=\operatorname{Hom}(S_t^1\otimes\mathbb Z_{\mathrm{tr}}(X),
+                              S_t^1\otimes\mathbb Z_{\mathrm{tr}}(Y)).
+\]
+The exterior-product map \(\mathbb Z_{\mathrm{tr}}(Y)\to F_Y\)
+of COL-1039 induces a quasi-isomorphism on the signed singular complexes
+of presheaves with transfers.
+'''
+scope = '''
+The base is the native category of smooth separated finite-type schemes
+and finite correspondences. The reduced torus uses the actual unit
+section and its complementary projector. The assertion is integral
+and applies before Nisnevich sheafification.
+[@Voevodsky2010Cancellation, Corollary 4.9, p. 684]
+'''
+proof = '''
+A common exponent for the principal cuts commutes with each of the
+finitely many source restrictions. Cutting an exterior identity
+recovers the original correspondence. Apply this to the relative
+interval giving a normalized boundary to prove reflection of boundaries.
+Cutting the interchange of the two reduced torus factors gives a relative
+interval from an arbitrary normalized target cycle to the exterior product
+of its cut. The signed prism gives the difference of endpoints as a
+normalized boundary. The natural Moore comparison gives the claimed
+quasi-isomorphism of the original alternating complexes.
+'''

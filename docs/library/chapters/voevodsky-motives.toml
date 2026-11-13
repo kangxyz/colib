@@ -1,0 +1,49 @@
+[chapter]
+id = "voevodsky-motives"
+title = "Voevodsky’s Motives"
+order = 56
+introduction = '''
+Voevodsky’s triangulated category of effective motives
+\(DM^{\mathrm{eff}}_-(k)\) is the full subcategory of the bounded-above
+derived category of Nisnevich sheaves with transfers whose cohomology
+sheaves are \(\mathbb A^1\)-invariant. The singular complex gives the
+motive of a smooth scheme. The reduced multiplicative group and derived
+torus sections enter the Tate twist.
+[@Voevodsky2000TriangulatedMotives, Sections 3.1–3.2]
+'''
+
+[[sections]]
+id = "effective-motives"
+title = "Effective motives and smooth representatives"
+order = 10
+introduction = '''
+Use the standard t-structure on the derived category of Nisnevich sheaves
+with transfers. Exact sheafification of the signed singular complex gives
+the effective motive of each smooth transfer representable. Over a perfect
+field the total singular construction gives the left adjoint to the
+effective inclusion.
+'''
+
+[[sections]]
+id = "tate-twists-and-cancellation"
+title = "Tate twists and cancellation"
+order = 20
+introduction = '''
+The unit section of \(\mathbb G_m\) splits off the base summand.
+COL-1045 gives the integral cancellation map on signed singular complexes.
+Compare these complexes with derived torus sections to transport this map
+to the effective category.
+'''
+
+[sections.transitions]
+COL-1044 = '''
+Evaluate the singular representatives of COL-1042 after exterior product
+with the torus. The Nisnevich cohomological dimensions of a smooth test
+scheme and its product with \(\mathbb G_m\) give a common finite bound.
+'''
+COL-1046 = '''
+Use the reduced summand of the derived torus sections. On a smooth
+representative the adjunction unit is the singular map of COL-1045.
+Uniformly bounded direct sums and projective resolutions extend this
+calculation to every effective motive.
+'''

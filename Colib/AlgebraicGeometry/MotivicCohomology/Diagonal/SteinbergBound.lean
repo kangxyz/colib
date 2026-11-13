@@ -16,11 +16,11 @@ import Mathlib.Tactic.FinCases
 /-!
 # The Steinberg relation for the literal weight-two graph classes
 
-The two full cubic endpoints give a bound over a field containing a cubic
-root of unity. Corestriction along the whole cubic and quadratic root algebras
+The two full cubic endpoints give a bound over a field containing a root of
+`X² + X + 1`. Corestriction along the whole cubic and quadratic root algebras
 uses all residue degrees and local lengths, yielding the uniform bound
 twelve. Applying mixed corestriction to one more whole root algebra removes
-the annihilator in characteristic zero.
+the annihilator over every field.
 
 Adapted from `Motivic/Cohomology/WeightTwo/{SteinbergTorsion,SteinbergBound}.lean`
 at `motivic_source_a6805c4`.
@@ -91,9 +91,9 @@ theorem graphSymbol_prod_right {ι : Type*} (s : Finset ι) (a : kˣ) (b : ι �
   | @insert i s hi ih =>
     rw [Finset.prod_insert hi, Finset.sum_insert hi, graphSymbol_mul_right, ih]
 
-/-- The bound is uniform over all fields of characteristic zero in the given universe. -/
+/-- The bound is uniform over all fields in the given universe. -/
 def UniversalSteinbergAnnihilator (n : ℕ) : Prop :=
-  ∀ (F : Type u) [Field F] [CharZero F] (a b : Fˣ),
+  ∀ (F : Type u) [Field F] (a b : Fˣ),
     (b : F) = 1 - (a : F) → n • graphSymbol F 2 ![a, b] = 0
 
 private theorem norm_one_sub_root {F : Type u} [Field F] (P : F[X]) (hP : P.Monic) :
@@ -115,12 +115,12 @@ local instance quotientField {R : Type u} [CommRing R] (q : MaximalSpectrum R) :
 
 /-- The full root algebra removes a positive factor from the uniform annihilator. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/WeightTwo/SteinbergTorsion.lean:72-128"
-  "adaptation" "Whole root algebra and full residue-field norms remove the factor"]
+  "adaptation" "Full residue norms extend the original characteristic-zero argument"]
 theorem remove_positive_factor (m p : ℕ) (hp : 0 < p)
     (h : UniversalSteinbergAnnihilator.{u} (m * p)) :
     UniversalSteinbergAnnihilator.{u} m := by
   classical
-  intro F _ _ a b hab
+  intro F _ a b hab
   let P : F[X] := (Polynomial.X : F[X]) ^ p - C (a : F)
   have hP : P.Monic := monic_X_pow_sub_C (a : F) hp.ne'
   let : Module.Finite F (AdjoinRoot P) := hP.finite_adjoinRoot
@@ -159,7 +159,6 @@ theorem remove_positive_factor (m p : ℕ) (hp : 0 < p)
   have hbranch (q : MaximalSpectrum (AdjoinRoot P)) :
       m • graphSymbol F 2 ![a, N q] = 0 := by
     let E := AdjoinRoot P ⧸ q.asIdeal
-    let : CharZero E := Algebra.charZero_of_charZero F E
     have hpow_units : (rootUnit q) ^ p = Units.map (algebraMap F E).toMonoidHom a := by
       apply Units.ext
       exact hpow q
@@ -188,10 +187,10 @@ theorem remove_positive_factor (m p : ℕ) (hp : 0 < p)
 
 /-- A positive uniform bound and mixed norm descent give the complementary graph relation. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/WeightTwo/SteinbergTorsion.lean:130-138"
-  "adaptation" "Remove the whole positive annihilator at once"]
+  "adaptation" "Remove the whole positive annihilator at once over arbitrary fields"]
 theorem graphSymbol_eq_zero_of_universal_annihilator (n : ℕ) (hn : 0 < n)
     (h : UniversalSteinbergAnnihilator.{u} n)
-    (F : Type u) [Field F] [CharZero F] (a b : Fˣ)
+    (F : Type u) [Field F] (a b : Fˣ)
     (hab : (b : F) = 1 - (a : F)) : graphSymbol F 2 ![a, b] = 0 := by
   have h1 : UniversalSteinbergAnnihilator.{u} 1 :=
     remove_positive_factor 1 n hn (by simpa only [one_mul] using h)
@@ -277,7 +276,7 @@ theorem cubic_symbol_relation (w a b₀ b₁ b₂ c : kˣ)
   have h := hzero.symm.trans ((cubic_cycleClass_endpoints (a : k) a.ne_zero ha3).trans hone)
   simpa only [add_assoc, graphSymbol_add_swap, add_zero] using h
 
-/-- A quadratic root of unity gives annihilation by two for complementary cube symbols. -/
+/-- A root of `X ^ 2 + X + 1` gives annihilation by two for complementary cube symbols. -/
 theorem two_nsmul_cube_symbol (w a c : kˣ)
     (hw : (w : k) ^ 2 + (w : k) + 1 = 0) (hc : (c : k) = 1 - (a : k) ^ 3) :
     2 • graphSymbol k 2 ![a ^ 3, c] = 0 := by
@@ -439,13 +438,13 @@ theorem twelve_nsmul_graphSymbol (a b : kˣ) (hab : (b : k) = 1 - (a : k)) :
 
 /-- The bound is uniform over all fields in the torsion-removal argument. -/
 theorem universalSteinbergAnnihilator_twelve : UniversalSteinbergAnnihilator.{u} 12 := by
-  intro F _ _ a b hab
+  intro F _ a b hab
   exact twelve_nsmul_graphSymbol a b hab
 
-/-- Complementary units have zero actual weight-two graph class in characteristic zero. -/
+/-- Complementary units have zero actual weight-two graph class over every field. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/WeightTwo/SteinbergBound.lean:238-243"
-  "adaptation" "Integral Steinberg relation for the genuine rational graph class"]
-theorem graphSymbol_steinberg (k : Type u) [Field k] [CharZero k] (a b : kˣ)
+  "adaptation" "Extends the original characteristic-zero graph relation to every field"]
+theorem graphSymbol_steinberg (k : Type u) [Field k] (a b : kˣ)
     (hab : (b : k) = 1 - (a : k)) : graphSymbol k 2 ![a, b] = 0 :=
   graphSymbol_eq_zero_of_universal_annihilator 12 (by decide)
     universalSteinbergAnnihilator_twelve k a b hab

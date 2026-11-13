@@ -31,7 +31,6 @@ universe u
 variable (A S : Type u) [CommRing A] [IsDedekindDomain A]
   [CommRing S] [IsDedekindDomain S] [Algebra A S] [Module.Finite A S]
   [Module.IsTorsionFree A S]
-  [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))]
 
 /-- The actual residue-field norm at the contracted height-one prime. -/
 def pointResidueNorm (n : ℕ) (q : HeightOneSpectrum S) :
@@ -50,8 +49,7 @@ def residuePushforward (n : ℕ) :
   DFinsupp.lsum ℤ fun q =>
     (DFinsupp.lsingle (q.under A)).comp (pointResidueNorm A S n q)
 
-omit [Module.IsTorsionFree A S]
-  [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
+omit [Module.IsTorsionFree A S] in
 @[simp] theorem residuePushforward_single (n : ℕ) (q : HeightOneSpectrum S)
     (x : MilnorKTheory (ResidueField (Localization.AtPrime q.asIdeal)) n) :
     residuePushforward A S n (DFinsupp.single q x) =
@@ -64,13 +62,11 @@ def branchPoint (p : HeightOneSpectrum A)
   ((Localization.heightOneOverEquivPrimesOver (S := S) p).symm
     ((Localization.primesOverEquivIdealBranch p.asIdeal p.ne_bot).symm q)).val
 
-omit [Module.Finite A S]
-  [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
+omit [Module.Finite A S] in
 @[simp] theorem branchPoint_asIdeal (p : HeightOneSpectrum A)
     (q : IdealBranch (p.asIdeal.map (algebraMap A S))) :
     (branchPoint A S p q).asIdeal = q.val := rfl
 
-omit [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
 @[simp] theorem branchPoint_under (p : HeightOneSpectrum A)
     (q : IdealBranch (p.asIdeal.map (algebraMap A S))) :
     (branchPoint A S p q).under A = p := by
@@ -104,8 +100,7 @@ def pointResidueNormOver (p : HeightOneSpectrum A) (n : ℕ)
     (congrArg HeightOneSpectrum.asIdeal h)
   exact (milnorKNorm _ _ n).toIntLinearMap
 
-omit [Module.IsTorsionFree A S]
-  [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
+omit [Module.IsTorsionFree A S] in
 theorem pointResidueNormOver_eq (p : HeightOneSpectrum A) (n : ℕ)
     (q : HeightOneSpectrum S) (h : q.under A = p)
     (x : MilnorKTheory (ResidueField (Localization.AtPrime q.asIdeal)) n) :
@@ -117,7 +112,6 @@ theorem pointResidueNormOver_eq (p : HeightOneSpectrum A) (n : ℕ)
   simp only [DFinsupp.single_eq_same]
   rfl
 
-omit [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
 /-- Each branch summand agrees with the corresponding coordinate of the
 single-point pushforward. -/
 theorem branchCoordinateNorm_eq (p : HeightOneSpectrum A) (n : ℕ)
@@ -131,7 +125,6 @@ theorem branchCoordinateNorm_eq (p : HeightOneSpectrum A) (n : ℕ)
   exact pointResidueNormOver_eq A S p n (branchPoint A S p q)
     (branchPoint_under A S p q) x
 
-omit [∀ p : HeightOneSpectrum A, CharZero (ResidueField (Localization.AtPrime p.asIdeal))] in
 /-- The coordinate formula sums every original prime branch, and only those branches. -/
 theorem residuePushforward_apply (p : HeightOneSpectrum A) (n : ℕ)
     (y : Π₀ q : HeightOneSpectrum S,
@@ -175,7 +168,7 @@ theorem residuePushforward_apply (p : HeightOneSpectrum A) (n : ℕ)
   simpa only [LinearMap.comp_apply, DFinsupp.lapply_apply, LinearMap.sum_apply]
     using LinearMap.congr_fun hm y
 
-variable (F E : Type u) [Field F] [CharZero F] [Algebra A F] [IsFractionRing A F]
+variable (F E : Type u) [Field F] [Algebra A F] [IsFractionRing A F]
   [Field E] [Algebra S E] [IsFractionRing S E]
   [Algebra A E] [IsScalarTower A S E]
   [Algebra F E] [IsScalarTower A F E] [FiniteDimensional F E]
@@ -211,6 +204,6 @@ attribute [colib_tag "COL-1003",
 attribute [colib_tag "COL-1003",
   colib_ref "aglib_milnor_4f65be4e"
     "KTheory/MilnorK/Dedekind/ResidueDirectSum.lean:167-184" "adaptation"
-    "The finite-support square for the native norm and total residues"]
+    "The finite-support square for native norms and residues in arbitrary characteristic"]
   Stacks.Chow.DedekindResidue.totalResidue_milnorKNorm
   Stacks.Chow.DedekindResidue.totalResidue_comp_milnorKNorm

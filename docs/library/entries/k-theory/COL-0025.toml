@@ -3,7 +3,7 @@ id = "COL-0025"
 title = 'Naturality of the short-exact-sequence comparison'
 kind = "comparison"
 section = "grothendieck-groups"
-order = 90
+order = 70
 statement = '''
 Let \(F\colon\mathcal A\to\mathcal B\) be an exact functor between abelian
 categories. Write \(F_{\mathrm{ex},*}\) for its map on the Grothendieck groups

@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1037"
+title = "The normalized multiplicative parameter map of motivic complexes"
+kind = "definition"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "canonical-motivic-complexes"
+order = 30
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicSheafParameterProduct"
+statement = '''
+Let \(k\) be a field, let \(q\geq0\), and write \(K_q\) for the ordinary
+Nisnevich sheaf complex underlying the integral motivic complex of COL-0398.
+Let \(R_{\mathbb G_m}\) denote reindexing along the actual smooth product
+\(U\mapsto U\times_k\mathbb G_m\). Exterior product with the identity of
+\(\mathbb G_m\) defines a cochain map
+\[
+K_q\longrightarrow R_{\mathbb G_m}\bigl(K_{q+1}[1]\bigr).
+\]
+Its composite with restriction along the section \(u\mapsto(u,1)\) is zero.
+The differential in the target in degrees \(i,j\) is
+\(-R_{\mathbb G_m}(d_{K_{q+1}}^{i+1,j+1})\).
+'''
+scope = '''
+The map is on the ordinary integral complexes, with the coefficient universe
+and Nisnevich sheafification assumptions of COL-0398. The parameter becomes
+the first torus coordinate, and the section is the actual multiplicative
+unit in the smooth site.
+'''
+proof = '''
+Take the external product of a signed correspondence with the identity
+correspondence of \(\mathbb G_m\), then move the parameter to coordinate
+zero. Each old identity axis maps into the corresponding shifted identity
+axis, so the map descends to the reduced tori of COL-0385. At parameter one
+it factors through the identity axis in coordinate zero. The swap between
+the simplex and parameter commutes with each face, giving a map for the
+original alternating differential. Extend through the actual Nisnevich
+sheafification unit. Naturality of the unit-section restriction preserves
+the zero composite through extension by zero and the signed shift.
+The shift-addition identity \(-(q+1)+1=-q\) gives the target placement.
+The exterior product is the ingredient used for multiplication in
+[@Voevodsky2003ReducedPowers, Section 2, immediately before (2.1), p. 3].
+'''

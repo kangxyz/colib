@@ -1,9 +1,17 @@
 [entry]
 id = "COL-0162"
-title = "Surjectivity onto actual homotopical K-zero"
+title = "Surjectivity of the Grothendieck–Quillen comparison"
 kind = "theorem"
 section = "quillen-k-theory"
-order = 200
-statement = "The existing canonical homomorphism from the exact-category Grothendieck group to actual homotopical Quillen K-zero is surjective. The original completed-loop comparison factors through the existing algebraic Grothendieck equivalence and this canonical homomorphism."
+order = 70
+statement = '''
+The object-loop homomorphism
+\[
+K_0^{\mathrm{Gr}}(\mathcal E)\longrightarrow\pi_1(BQ\mathcal E,0)
+\]
+is surjective. The comparison from the groupoid completion of \(Q\mathcal E\)
+factors through this homomorphism and the algebraic Grothendieck comparison.
+Injectivity is the additional assertion of COL-0240.
+'''
 scope = 'A preadditive category with finite biproducts and an exact structure, with independent object and morphism universes. The target is the genuine \(K_0\), via its existing based fundamental-group equivalence. This proves surjectivity onto all classes, not merely the object-generated subgroup. The injectivity and full comparison equivalence are the separate item COL-0240.'
 review = "author_checked"

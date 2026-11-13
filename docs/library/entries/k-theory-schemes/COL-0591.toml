@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0591"
+title = "Integral affine telescope comparisons with support"
+kind = "comparison"
+section = "thomason-trobaugh-localization"
+order = 240
+statement = '''
+Let f:P→Q be an open immersion over Spec(CommRingCat.of(ULift ℤ)), let T⊆Q be open, and let
+a∈Under(CommRingCat.of(ULift ℤ)). The fiber and open comparisons use f and T; the ambient
+comparison is defined for Q and T alone. These comparison and naturality theorems require no
+compactness or quasi-separatedness. The fiber, ambient and open forward Spec telescope comparisons
+are stable equivalences. They intertwine the enlargement and restriction maps, and carry the
+entire selected parameter null to the coefficient full-open null.
+'''
+scope = '''
+The maps are constructed from the given finite evaluation comparisons and seed squares, rather
+than chosen abstract stable inverses. Cylinder formulas preserve the finite stage and height, and
+the null square holds for every homotopy time.
+'''
+proof_kind = "outline"
+proof = '''
+Apply StrictDiagramIndexRowMap.telescopeMap to each of the three row comparisons, using its
+already established seed square. Their finite comparison stability gives the three telescope
+stable equivalences. The complete row naturality theorem proves the enlargement and restriction
+squares; cylinder-wise comparison of the fixed nulls proves telescope_fullNull_square.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalAuxiliaryParameterCoefficient.fiberTelescopeComparison_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

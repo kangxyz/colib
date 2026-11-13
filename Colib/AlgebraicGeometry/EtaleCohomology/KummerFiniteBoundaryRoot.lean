@@ -34,7 +34,7 @@ local instance (S : Scheme.{u}) :
 /-- A closed-fibre tensor root gives a global root with a frame realizing the specified
 boundary trivialization through the actual global root isomorphism. Both the global root
 isomorphism and its full finite-boundary compatibility are part of the conclusion. -/
-@[colib_tag "COL-1037"]
+@[colib_tag "COL-1212"]
 theorem exists_schemeTensorPower_iso_compatible_frame_of_closedFibre
     (R : Type u) [CommRing R] [StrictlyHenselianLocalRing R]
     {X : Scheme.{u}} (f : X ⟶ Spec (.of R)) [IsProper f]

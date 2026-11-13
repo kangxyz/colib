@@ -1,11 +1,12 @@
 /-
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 kangxyz, Colib and Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Kaehler.ResidueFunctionBasis
+public import Mathlib.RingTheory.Kaehler.Basic
+public import Mathlib.LinearAlgebra.TensorProduct.Tower
 public import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 
 /-! # Cotangent gradients from an actual affine embedding

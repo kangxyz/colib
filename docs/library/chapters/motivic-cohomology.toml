@@ -2,149 +2,200 @@
 id = "motivic-cohomology"
 title = "Motivic Cohomology"
 order = 55
-introduction = '''The reduced transfer torus supplies the coefficients of the Suslin–Voevodsky complex. Algebraic-simplex chains, transfer-preserving Nisnevich sheafification and the specified cochain shift define \(\mathbb Z(q)\). Its ordinary underlying complex defines motivic cohomology by unbounded derived Hom, and projective evaluation computes these groups at the base field. The correspondence category and its Nisnevich reflection remain in COL-0366 and COL-0372; the ordinary simplex construction and general hypercohomology remain in COL-0348, COL-0395 and COL-0342.'''
+introduction = '''
+The coefficient in weight \(q\) is the reduced transfer presheaf of the
+\(q\)-fold multiplicative group. Its sheafified singular chains, with the
+signed weight shift, form \(\mathbb Z(q)\). Ordinary Nisnevich
+hypercohomology defines the groups, and evaluation at the base field leads
+to the norm in weight one and the comparison with Milnor \(K\)-theory.
+See [@MVW2006, Lectures 3–5].
+'''
 
 [[sections]]
 id = "reduced-transfer-tori"
-title = "Split tori and their reduced transfer quotients"
+title = "Reduced transfer tori"
 order = 10
-introduction = 'Relative powers of the native multiplicative group have actual identity-coordinate inclusions. Their graph correspondences define the relations in the reduced torus presheaf of [@MVW2006, Lecture 2, Definition 2.12, pp. 15–16].'
+introduction = '''
+Use the actual products of \(\mathbb G_m\) and the maps that insert the
+unit \(1\) in one coordinate. Quotient the signed representable by the
+images of those maps to obtain the reduced coefficient \(\widetilde L_q\).
+See [@MVW2006, Lecture 2, Definition 2.12, pp. 15–16].
+'''
 
 [sections.transitions]
 COL-0384 = '''
-Before forming a quotient of correspondence groups, fix the geometric maps:
-the multiplicative group is the native base change, its base point represents
-one, and its powers are relative products of smooth-site objects.
+The relative products and the unit sections determine the coordinate
+inclusions used to define the quotient.
 '''
 COL-0385 = '''
-Over a field, apply the graph functor to each identity-coordinate inclusion
-from COL-0384 and then postcompose signed correspondences with that graph.
-The cokernel of the sum of these maps has, section by section, the quotient
-by all their images. Naturality of the projection fixes its transfer action.
-'''
-
-[[sections]]
-id = "transfer-singular-complexes"
-title = "Singular complexes with transfers"
-order = 20
-introduction = 'For an additive transfer presheaf \(P\), the terms \(P(U\times_k\Delta_k^r)\) retain the actual exterior correspondence action. Graph cofaces give the differential, and the Nisnevich reflection of COL-0372 applies to its terms and maps.'
-
-[sections.transitions]
-COL-0397 = '''
-The quotient in COL-0385 is a presheaf with transfers, so its singular chains
-must respect every correspondence. First construct these chains for an arbitrary
-transfer presheaf. The ordinary comparison identifies their graph restriction
-with COL-0348 on the same literal product sections; COL-0373 then compares the
-two sheafifications.
+Postcompose correspondences with the graph of each coordinate inclusion.
+The cokernel of their sum quotients out precisely the images of all
+identity-coordinate maps.
 '''
 
 [[sections]]
 id = "canonical-motivic-complexes"
-title = "Canonical motivic complexes"
-order = 30
-introduction = 'Insert the reduced torus \(\widetilde L_q\) into the transfer singular construction. The canonical complex uses the signed shift by \(-q\); its comparison with the placement in degrees \(q-r\) specifies the factor \((-1)^{qr}\).'
+title = "The signed motivic complex and its cohomology sheaves"
+order = 20
+introduction = '''
+Apply the transfer singular construction of COL-0397 to \(\widetilde L_q\).
+The shift by \(-q\) and its signed comparison with the placement in degrees
+\(q-r\) fix the canonical complex \(\mathbb Z(q)\).
+'''
 
 [sections.transitions]
 COL-0398 = '''
-Write \(S_q(P)\) for the sheafified placement of the chains of COL-0397 in
-degrees \(q-r\), with their original alternating differential. The signed
-shift \(S_0(P)[-q]\) has the same occupied terms but multiplies the differential
-by \((-1)^q\). Multiplication by \((-1)^{qr}\) in chain degree \(r\) gives
-the comparison. Apply it to the reduced torus of COL-0385.
+The sheafified term in chain degree \(r\) lies in cochain degree \(q-r\).
+The signed shift multiplies the differential by \((-1)^q\).
+Multiplication by \((-1)^{qr}\) in chain degree \(r\) identifies this shift
+with the alternating-differential placement of COL-0397.
+'''
+COL-1031 = '''
+Exact sheafification identifies the cohomology sheaf in degree \(i\leq q\)
+with sheafification of raw singular homology in degree \(q-i\).
+Use COL-1030 and COL-1028 for homotopy invariance, then COL-1029 for
+ordinary cohomology over a perfect field.
+'''
+COL-1037 = '''
+Exterior product with the torus parameter passes through the reduced
+transfer tori and their Suslin complexes. The resulting map of motivic
+complexes raises the weight by one and uses the signed shift by one.
 '''
 
 [[sections]]
 id = "motivic-hypercohomology"
-title = "Motivic hypercohomology and base-field evaluation"
-order = 40
-introduction = 'Forget transfers from the actual signed complex to obtain \(K_q\) on the ordinary smooth Nisnevich site. Derived Hom from the free representing sheaf defines \(H^{p,q}(X,\mathbb Z)\). At the base object, the projectivity supplied by COL-0343 turns the definition into the literal sections-complex calculation of COL-0394.'
+title = "Motivic cohomology and field evaluation"
+order = 30
+introduction = '''
+Forget transfers from the signed complex to obtain \(K_q\). Its ordinary
+Nisnevich hypercohomology defines \(H^{p,q}(X,\mathbb Z)\).
+At \(X=\operatorname{Spec}k\), projectivity of the free representing sheaf
+computes these groups by the complex of sections.
+Over a perfect field, strict \(\mathbb A^1\)-invariance of the cohomology sheaves gives
+invariance of the hypercohomology along the affine-line projection.
+'''
 
 [sections.transitions]
 COL-0399 = '''
-Forgetting transfers applies to every term and to the signed differential in
-COL-0398. Use that entire complex as the second derived-Hom variable in
-COL-0342. A morphism \(f\colon X\to Y\) acts by precomposition with the
-free-sheaf map associated to \(f\).
+Apply the derived-Hom construction of COL-0342 to \(K_q\).
+For \(f\colon X\to Y\), pullback is precomposition with the map of free
+representing sheaves for \(f\).
 '''
 COL-0400 = '''
-For \(X=\operatorname{Spec}k\), COL-0343 supplies projectivity of the same
-free representing sheaf. The comparison of COL-0394 therefore applies to
-\(K_q\) in every integer degree. Its target is the cohomology of actual
-sections of \(K_q\), not a replacement definition of the motivic groups.
+Use projectivity at the base object from COL-0343 in the comparison of
+COL-0394. It identifies derived evaluation with the cohomology of actual
+sections, using the same signed complex in both calculations.
+'''
+
+COL-1033 = '''
+Use the common finite dimension bound from COL-1032 to compare a finite
+window of the original complex along the projection. COL-1031 supplies
+invariance in that window. The multiplication cone gives the same
+invariance for finite coefficients.
 '''
 
 [[sections]]
 id = "weight-one-norm"
 title = "The geometric norm in weight one"
-order = 50
-introduction = 'For the reduced one-dimensional torus, the determinant norm takes signed finite correspondences to ordinary global units. Its boundary-one divisor kernel gives a quasi-isomorphism of the sheafified singular chain complexes.'
+order = 40
+introduction = '''
+The determinant norm reads a signed correspondence to \(\mathbb G_m\)
+as a global unit. Rational functions equal to one along the boundary
+describe the kernel and give the unshifted quasi-isomorphism.
+See [@MVW2006, Lecture 4].
+'''
 
 [sections.transitions]
 COL-0401 = '''
-Take the weight-one quotient of COL-0385 and forget its transfers. On integral
-affine sources the forward torus coordinate has a determinant norm; the
-identity-coordinate relation has norm one. Ordinary naturality extends this
-map to the smooth site. The kernel must be compared with actual boundary-one
-rational functions before passing from the norm to a quasi-isomorphism.
+Take the weight-one quotient of COL-0385. The determinant norm sends
+the identity-coordinate relation to one, so it descends to that quotient.
+The boundary-one divisor comparison identifies its kernel.
 '''
 
 [[sections]]
 id = "weight-one-comparison"
-title = "Units and the signed weight-one comparison"
-order = 60
-introduction = 'The unshifted norm target is still a singular complex. Its projection maps identify the simplicial units sheaf with constant units. Combining its contraction with the canonical signed shift gives the weight-one comparison and its effect on unbounded hypercohomology.'
+title = "Weight-one cohomology and units"
+order = 50
+introduction = '''
+Identify the simplicial units sheaf with constant units and apply the
+canonical weight shift. The resulting comparison computes weight-one
+hypercohomology. At the base field it identifies the rational graph with
+its unit and computes finite coefficients by reduction modulo powers.
+'''
+
+[[sections.topics]]
+id = "weight-one-signed-comparison"
+title = "The units sheaf and the weight shift"
+start = "COL-0402"
+
+[[sections.topics]]
+id = "weight-one-cohomology-calculations"
+title = "Cohomology and field calculations"
+start = "COL-0404"
 
 [sections.transitions]
 COL-0402 = '''
-The target of COL-0401 records units on every product with a simplex. To
-replace it by units in degree zero, use pullback along the actual projections,
-then check that these isomorphisms respect all simplex operators.
+The norm target is the simplicial sheaf of units on the simplex products.
+The product projections identify its terms with constant units and
+respect the simplex operators.
 '''
 COL-0403 = '''
-Compose the norm of COL-0401 with the contraction of COL-0402 before extending
-chains into cochains. The source of the final map must be the signed complex
-of COL-0398. Its ordinary comparison therefore carries the same shift and
-the same differential sign through the composite.
+Compose the geometric norm with the units comparison, then carry the
+composite through the signed placement of COL-0398.
 '''
 COL-0404 = '''
-Apply the derived-Hom definition of COL-0399 to the particular map in
-COL-0403. Postcomposition keeps the representing-sheaf restriction maps;
-the shift by minus one changes degree p to p minus one. For a single sheaf,
-the existing comparison with ordinary Ext identifies the resulting groups.
+Postcompose the derived Hom of COL-0399 with the weight-one comparison.
+The shift by minus one gives ordinary cohomology of units in degree
+\(p-1\), with the original restriction maps.
 '''
-
 COL-1008 = '''
-At the base field, COL-0400 computes the hypercohomology of the actual source
-of COL-0403. Its degree-one target is \(k^\times\). Track a literal point cycle
-through the sheafification and signed-shift coordinates. The determinant norm
-then determines both the forward map and its rational graph inverse.
+At the base field, evaluate by COL-0400 and trace the rational graph through
+COL-0403. Its determinant norm is the original unit, and the
+rational graph gives the inverse on that unit.
+'''
+COL-1007 = '''
+Apply the coefficient cone to COL-1008. Positive integral
+insertion and degree-two vanishing give units modulo powers in degree one,
+with the inherited norm and graph formulas.
 '''
 
-COL-1007 = '''
-At the base field, the normalized integral comparison of COL-1008 sends the literal
-rational graph to its unit. The original coefficient cone has positive
-integral insertion, and degree-two integral weight-one cohomology vanishes.
-Its exact sequence therefore reduces the finite computation to that same
-unit group modulo actual powers. Retain the graph and norm formulas when
-passing to the quotient, including at level zero and in positive characteristic.
+[[sections]]
+id = "milnor-motivic-comparison"
+title = "Milnor symbols in weights zero and one"
+order = 60
+introduction = '''
+The structural graph in weight zero gives the integer degree.
+In weight one the rational graph records its unit by the geometric norm.
+These two calculations identify the first two diagonal groups with
+the corresponding Milnor \(K\)-groups.
+'''
+
+[sections.transitions]
+COL-1023 = '''
+The empty symbol corresponds to the structural graph with coefficient one.
+The one-entry symbol corresponds to the rational graph at that coordinate.
 '''
 
 [[sections]]
 id = "diagonal-motivic-comparison"
-title = "Milnor K-theory and diagonal motivic cohomology"
+title = 'Milnor \(K\)-theory on the motivic diagonal'
 order = 70
-introduction = '''The base-field evaluation of COL-0400 identifies the diagonal with the homology of actual reduced torus cycles. Finite field extensions give pushforward on these cycles. Rational graphs and the Milnor relations connect the resulting groups with the Milnor K-theory of the base field.'''
+introduction = '''
+Base-field evaluation identifies \(H^{q,q}(k,\mathbb Z)\) with homology of
+reduced torus cycles. Finite pushforward supplies corestriction, and the
+rational graph symbol identifies the diagonal in every weight with
+Milnor \(K\)-theory. See [@MVW2006, Lecture 5].
+'''
 
 [sections.transitions]
 COL-1025 = '''
-Finite pushforward preserves the signed cycles and the identity-coordinate
-relations of COL-0385. Compare its two face maps on the full endpoint fibers
-before applying the base-field comparison of COL-0400 to define the
-derived transfer.
+Finite pushforward respects the signed cycles and the identity-coordinate
+relations of COL-0385. Compare its two face maps before using COL-0400
+to obtain corestriction on the diagonal groups.
 '''
 COL-1026 = '''
-Rational graph classes satisfy the Milnor relations in characteristic zero.
-The norm of each closed point gives the inverse after the full endpoint
-comparison shows that it kills boundaries. Use the finite transfers of
-COL-1025 to return from each residue field to the base field.
+The Milnor relations give the rational graph symbol. The weighted endpoint
+calculation shows that closed-point norms kill the boundary, and the
+corestriction of COL-1025 expresses each closed point as a pushforward
+of its rational graph over the residue field.
 '''

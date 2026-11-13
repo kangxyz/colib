@@ -65,7 +65,7 @@ instance isInvertible_pullbackTwistFunctor_obj
 
 /-- Actual simultaneous boundary-prescribed sections with finite locally free Cartier zero
 schemes. The common Serre bound works for every supplied pair of full-boundary frames. -/
-@[colib_tag "COL-1046"]
+@[colib_tag "COL-1221"]
 theorem exists_boundary_framed_finiteLocallyFree_section_pair
     (R : Type u) [CommRing R] [IsNoetherianRing R] (n : ℕ)
     {X Z U S : Scheme.{u}} [IsAffine S] [U.IsQuasiAffine]

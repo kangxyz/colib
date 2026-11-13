@@ -1,0 +1,35 @@
+[entry]
+id = "COL-0586"
+title = "Stable comparison of Bass telescopes"
+kind = "comparison"
+section = "bass-delooping-normalization-and-telescopes"
+order = 90
+statement = '''
+Consider two Bass towers over index categories related by
+\(K\colon\mathcal C\to\mathcal D\), a square-functor comparison and a
+forward row transformation \(K^*F\to G\) satisfying the seed square.
+If all finite-stage comparisons at \(X\) are stable equivalences and both
+towers have \(T_1\) levels, the induced map
+\[
+\operatorname{Tel}_{Q_2}(F,\eta_2)(KX)
+\longrightarrow\operatorname{Tel}_{Q_1}(G,\eta_1)(X)
+\]
+is a stable equivalence. Compatible row and seed squares give naturality
+of this map at every cylinder height. No inverse row transformation is assumed.
+'''
+scope = '''
+The construction uses a forward row transformation, with no inverse required. The T1 and
+finite-stage stability hypotheses belong to the stability theorem; the complete naturality
+identity instead requires the stated row and seed squares.
+'''
+proof_kind = "outline"
+proof = '''
+Apply the finite index-and-row comparison to each strict iterate. Its transition square supplies
+the compatibility required by Telescope.map_isStableEquivalence. For naturality, use
+natural-transformation extensionality and telescope cylinder extensionality, then apply
+finiteMap_naturality without changing the cylinder height or its interval coordinate.
+'''
+review = "author_checked"
+primary = "KTheory.Bass.StrictDiagramIndexRowMap.telescopeMap_stable"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

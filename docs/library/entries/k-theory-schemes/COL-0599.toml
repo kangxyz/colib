@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0599"
+title = "Tensor ordinary-presentation basic localization"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 260
+statement = '''
+Let $f:P\to Q$ be an open immersion, where $P,Q$ are quasi-compact and $Q$ is quasi-separated.
+For the actual tensor-normalized ordinary-colimit presentations evaluated at
+$\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$, the support-forgetting map and full-open
+restriction, together with their original selected nullhomotopy, induce a stable equivalence
+from the supported presentation to the homotopy fiber of restriction.
+'''
+scope = '''
+The source is the genuine ordinary colimit of the original pushout sequence, with the same
+support category and normalized tensor track. The comparison preserves the full null at each
+parameter time. This transports the constructed current-stage localization theorem; it does
+not assert an additional identification with classical nonconnective K-theory.
+'''
+proof = '''
+Use the original three current-to-ordinary-colimit stable comparisons and the strict maps
+induced by the original finite-stage data. Whole-track equalities identify the tensor-normalized
+tracks without changing those maps. The exact timewise null comparison supplies the same-null
+fiber-lift square, and stability transfers from the established current-stage lift.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.basicLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-12"

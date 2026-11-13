@@ -1,10 +1,20 @@
 [entry]
 id = "COL-0260"
-title = "Gillet-Waldhausen for the original single-complex K-map"
+title = "The Gillet–Waldhausen comparison"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 360
-statement = '''The original degree-zero single-complex insertion induces a multiplicative K-group equivalence in every nonnegative degree. Its forward homomorphism is definitionally the original canonical `KMap` into bounded termwise-P complexes with genuine quasi-isomorphisms.'''
+section = "additivity-approximation-and-comparison-theorems"
+order = 60
+statement = '''
+Let \(\mathcal P\) be a full subcategory of an abelian category containing
+zero and closed under isomorphisms, extensions and kernels of surjections.
+Give bounded complexes in \(\mathcal P\) the inherited cofibrations and ambient
+quasi-isomorphisms. Degree-zero insertion induces
+\[
+K_n(\mathcal P)\xrightarrow{\sim}K_n(\operatorname{Ch}^b(\mathcal P),\mathrm{qis})
+\quad(n\geq0).
+\]
+The equivalence uses the canonical K-map of this insertion.
+'''
 scope = '''An abelian ambient category A with independent object and hom universe bounds and an object property P containing zero and closed under isomorphisms, extensions and kernels of surjections. Actual term bounds, inherited cofibrations and ambient quasi-isomorphisms are retained. The bounded-complex canonical fiber equivalence needs no kernel closure; kernel closure is used for the acyclic-cycle decomposition. No fibration, cylinder, realization, K-map bijectivity or homotopy-inverse conclusion is an input. This is the connective K-group consequence for the existing unnormalized `IsZero` S-model; no Q/S comparison, strict-model comparison, scheme specialization, nonconnective spectrum or chosen homotopy inverse is asserted.'''
 review = "author_checked"
 provenance = "quillen"

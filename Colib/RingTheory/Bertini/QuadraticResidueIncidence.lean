@@ -1,10 +1,9 @@
 /-
-Copyright (c) 2026 Motivic Cohomology contributors. All rights reserved.
+Copyright (c) 2026 kangxyz, Colib and Motivic Cohomology contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticJetParameters
 public import Colib.RingTheory.Bertini.NormalizedIncidenceConstraints
 public import Colib.RingTheory.Kaehler.ResidueGeneratorGradient
@@ -42,7 +41,7 @@ theorem quadraticResidueJet_surjective (g : σ → R)
 
 /-- Exact independent-equation count on the normalized bad-fiber chart for an
 actual affine embedding and its actual cotangent fiber. -/
-theorem finrank_ker_quadraticResidueIncidence [Algebra.EssFiniteType k R]
+theorem finrank_ker_quadraticResidueIncidence
     (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤)
     (a b : σ → K) (hab : a ≠ b) (d : ℕ)
     (hd : Module.finrank K (K ⊗[R] Ω[R⁄k]) = d + 1)
@@ -50,6 +49,9 @@ theorem finrank_ker_quadraticResidueIncidence [Algebra.EssFiniteType k R]
     (2 * d + 1) +
       Module.finrank K (normalizedJetConstraints (quadraticResidueJet k R K g a b) w).ker =
         Module.finrank K (Fin d → restrictTotalDegree σ K 2) := by
+  let : Module.Finite K (K ⊗[R] Ω[R⁄k]) :=
+    Module.Finite.of_surjective (residueGeneratorGradient k R K g)
+      (residueGeneratorGradient_surjective k R K g hg)
   have h := finrank_ker_normalizedJetConstraints _
     (quadraticResidueJet_surjective k R K g hg a b hab) w i₀ hw
   simpa [hd, two_mul, Nat.add_assoc] using h

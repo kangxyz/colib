@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticMonomials
+public import Colib.RingTheory.Bertini.QuadraticParameterBasis
 public import Colib.RingTheory.AlgebraicIndependent.QuotientTrdeg
 public import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
 public import Mathlib.RingTheory.Localization.FractionRing

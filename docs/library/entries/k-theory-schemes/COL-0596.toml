@@ -1,0 +1,34 @@
+[entry]
+id = "COL-0596"
+title = "Full-open localization with the specified null-homotopy"
+kind = "comparison"
+section = "thomason-trobaugh-localization"
+order = 180
+statement = '''
+Let $R$ be a commutative ring object and $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
+with compact $P,Q$ and quasi-separated $Q$. At $a\in\operatorname{Under}R$, write
+$i:S_\infty\to A_\infty$ for support forgetting and $j:A_\infty\to F_\infty$ for ambient
+restriction followed by the original full-open telescope restriction. Postcomposing the original
+coarse localization null with full-open restriction gives the specified null of $ji$. Its cone
+descent $\operatorname{Cone}(i)\to F_\infty$ and its fiber lift $S_\infty\to\operatorname{Fib}(j)$
+are stable equivalences. Fiber projection recovers $i$, and the cone and fiber connecting maps
+agree in every signed degree through this same lift.
+'''
+scope = '''
+These are the constructed ordinary section-completion objects. The statement does not identify
+them with an additional classical nonconnective K-theory model. The projection and signed
+connecting identities do not require the compactness or quasi-separatedness hypotheses; those
+hypotheses enter the stability conclusions.
+'''
+proof = '''
+Compose the ordinary coarse cone comparison with the actual stable full-open restriction. Check on
+the cone inclusion and cylinder that this composite is precisely descent along the postcomposed
+whole null. The existing same-null cone-to-fiber criterion gives fiber stability, projection
+follows from the fiber-lift formula, and the cone-descending connecting identity preserves the
+original sign.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedBassTelescopeFullOpenFiberMap_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

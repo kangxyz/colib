@@ -11,7 +11,7 @@ both runner profiles; the mathematical dependency pins are unchanged.
 
 | Setting | GitHub-hosted | EC2 |
 |---|---|---|
-| Labels | `ubuntu-24.04` | `colib-dependency-warmup` |
+| Labels | `ubuntu-24.04` | `colib-ci-run-<run>-<attempt>` |
 | Native scope memory request | 13,824 MiB | 57,344 MiB |
 | Lake threads / declaration lint workers | 4 / 4 | 8 / 8 |
 | Build job / compiler cap | 360 minutes / remaining safe window | 240 / 180 minutes |
@@ -23,55 +23,18 @@ reserve and disables swap. Compiler and staging scopes stop before checkpoints
 are read. A job deadline reserves time for staging and saving completed work after
 compiler failure. Resource samples are retained as workflow artifacts.
 
-With `COLIB_SELF_HOSTED_ENABLED=true`, owner pushes and manual runs on
-Colib repository branches default to the high-memory EC2 runner. Pull request
-runs and the explicit `hosted` profile use GitHub-hosted runners.
-`COLIB_EC2_SHARED_HOST=true` keeps Build and Test in the same checkout.
-With `COLIB_PARALLEL_RUNNER_ENABLED=true`, ordinary Colib CI queues by branch.
-Each attempt uses a private runner label shared by Build and Test. The EC2
-controller holds the instance until the attempt finishes. Without the
-parallel profile, EC2 CI shares the ordered `Colib EC2` queue with the pilot
-and dependency warmup.
+With `COLIB_SELF_HOSTED_ENABLED=true` and `COLIB_PARALLEL_RUNNER_ENABLED=true`,
+owner pushes and manual runs on Colib branches default to EC2. Pull requests and
+the explicit `hosted` profile use GitHub-hosted runners. Setting either variable
+to `false` routes new runs to GitHub-hosted runners with their usual resource limits.
 
-The [EC2 operating guide](../infra/ci/ec2/README.md) owns the deployed fleet,
-webhook, GitHub App authorization and future activation. No EC2 trial is performed
-while disabled. The root-owned marker is `colib-ci-runner-v1` in
-`/etc/colib-ci-runner-mode`; Build restarts `colib-ci-expiry.timer`.
+CI queues separately for each ref. The EC2 controller admits up to three attempts
+across branches. Build and Test use the same per-attempt runner label and share the
+checkout and native store. The controller releases the instance when the attempt ends.
 
-## Dependency warmup
-
-The repository owner can run **Dependency warmup** from a Colib branch to build
-modules from one pinned dependency. Set `dependency` to `Mathlib` or `Stacks`
-and enter the space-separated Lean module names in `modules`. After the
-[one-time fleet setup](../infra/ci/ec2/README.md#on-demand-dependency-warmup),
-each request starts an EC2 runner with the standard 57,344 MiB memory budget
-and eight Lake threads. The compiler cutoff leaves time for cache packing
-before the runner becomes idle.
-
-- Stacks restores compatible checkpoints and uploads `build-stacks` in the
-  existing `stacks.tar.zst` format. A compiler failure or cutoff can save
-  completed work to the cache and upload `build-stacks-partial`.
-- Mathlib fetches the official cache for the requested modules and their
-  imports, compiles missing outputs, and uploads the selected closure in
-  `build-mathlib`. Extract `mathlib-cache.tar` into a directory in a workspace
-  with the same pins and run `lake exe cache unstage --staging-dir=DIR`
-  followed by `lake exe cache unpack` to expand the local archives.
-
-## Split EC2 CI
-
-The repository owner can run **Colib split CI** manually from a Colib branch.
-The high-memory runner builds the external imports of Colib and ColibTest and
-prepares the pinned checker tools. Lake's module and import queries select the
-targets from the current checkout. The dependency job restores compatible
-checkpoints and saves completed work after a compiler cutoff.
-
-The standard `m7i.xlarge` runner uses up to 13,824 MiB and four Lake threads.
-It verifies the producer commit, run, attempt, archive digests and distinct
-runner before restoring the Stacks, dependency and checker checkpoints.
-It restores the official Mathlib cache and applies the Mathlib build files
-created or changed by the dependency job, including native checker outputs.
-Lake verifies the restored dependencies with `--no-build`
-before compiling Colib. Test runs in the same standard-runner checkout.
+The [EC2 operating guide](../infra/ci/ec2/README.md) documents the controller and
+deployment. The root-owned marker is `colib-ci-runner-v1` in
+`/etc/colib-ci-runner-mode`. Build and Test restart `colib-ci-expiry.timer`.
 
 ## Checkpoints and transport
 
@@ -116,9 +79,9 @@ archive check remains in place. The compressed Stacks checkpoint also survives
 per-job temporary-directory cleanup and is reused if Test adds no Stacks outputs.
 
 Successful main pushes publish Colib's native archive and the independently named
-`stacks-checkpoint-<Stacks revision>-<context>` release. A later upstream Stacks
-cache provider can replace Stacks acquisition while retaining this storage
-boundary and the native applicability checks. See [cache operations](../docs/CACHING.md).
+`stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish
+cache also publishes the verified Stacks checkpoint to R2. Build restores
+this checkpoint from R2 with GitHub Release fallback. See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks).
 
 ## Native checks and Library
 
@@ -153,9 +116,8 @@ Unknown layouts fail before compilation instead of silently choosing the old
 combined-cache path. Aglib's historical, repository-specific `first-ci-cache`
 promotion seed is rejected; its recorded producer and cache do not belong to Colib.
 
-Cache integrity tests live in `ci-cache/test_*.py`. `actionlint.yaml` records the
-custom runner label. Actionlint 1.7.12 needs a narrow ignore for its unrecognized
-`concurrency.queue` field, which is present in the working upstream workflow:
+Cache integrity tests live in `ci-cache/test_*.py`. Actionlint 1.7.12 needs a
+narrow ignore because it does not recognize GitHub's `concurrency.queue` field.
 
 ```bash
 actionlint -shellcheck= -ignore 'unexpected key "queue" for "concurrency" section'

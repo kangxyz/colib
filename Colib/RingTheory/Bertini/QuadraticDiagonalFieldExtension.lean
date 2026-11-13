@@ -4,10 +4,10 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.ClosedPointMovingCoefficients
 public import Colib.RingTheory.Bertini.QuadraticSelectedPointOpen
 public import Colib.RingTheory.Bertini.QuadraticIncidenceBaseChange
+public import Colib.RingTheory.Kaehler.ResidueGeneratorGradientBaseChange
 public import Colib.RingTheory.Bertini.QuadraticParameterBaseChange
 public import Mathlib.RingTheory.Flat.Basic
 

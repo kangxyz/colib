@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0611"
+title = "Affine coherent G-theory and its actual scalar maps"
+kind = "comparison"
+section = "coherent-g-theory-localization"
+order = 10
+statement = 'For a commutative noetherian ring R, actual affine global sections induce an equivalence from the public coherent G-group of Spec R to finite-module G-theory in every nonnegative degree. The comparison retains geometric localization pullback, ring-isomorphism pullback and finite closed direct image.'
+scope = 'The sheaves are native coherent module sheaves. The public upper universe compares with the lower finite-module universe through the canonical small-model map of the same exact category. Flatness is required for exact pullback; no arbitrary underived pullback is asserted.'
+review = "author_checked"
+provenance = "quillen"

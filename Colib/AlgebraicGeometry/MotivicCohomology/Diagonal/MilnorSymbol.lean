@@ -13,10 +13,11 @@ public import Colib.RingTheory.KTheory.MilnorK.Symbols.Descent
 /-!
 # The all-weight diagonal Milnor symbol
 
-The graph of an ordered tuple gives a multilinear class in the actual raw
-diagonal homology. Insertion propagates the weight-two Steinberg relation to
-the adjacent pairs of the native Milnor presentation. The field evaluation
-equivalence transports the resulting homomorphism to integral hypercohomology.
+Over any field, the graph of an ordered tuple gives a multilinear class in
+the actual raw diagonal homology. Insertion propagates the weight-two
+Steinberg relation to the adjacent pairs of the native Milnor presentation.
+The field evaluation equivalence transports this homomorphism to integral
+hypercohomology.
 -/
 
 @[expose] public noncomputable section
@@ -51,7 +52,7 @@ theorem graphSymbol_one_weight (a : Fin 1 → kˣ) :
 /-- Multilinearity and insertion give the native Milnor symbol relations for actual graphs. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/MilnorSymbol.lean:41-48"
   "adaptation" "Coordinate additivity and Steinberg for the actual diagonal graph classes"]
-theorem graphSymbol_isSymbolMap [CharZero k] (q : ℕ) : IsMilnorKSymbolMap (graphSymbol k q) where
+theorem graphSymbol_isSymbolMap (q : ℕ) : IsMilnorKSymbolMap (graphSymbol k q) where
   map_mul := graphSymbol_mul k q
   steinberg a i j hij hab :=
     DiagonalCoordinateInsertion.graphSymbol_steinberg_of_two k
@@ -59,8 +60,6 @@ theorem graphSymbol_isSymbolMap [CharZero k] (q : ℕ) : IsMilnorKSymbolMap (gra
         intro h
         have hv := congrArg Fin.val h
         omega) hab
-
-variable [CharZero k]
 
 /-- The graph map descends through the native Milnor group into the raw diagonal homology. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/MilnorSymbol.lean:50-57"

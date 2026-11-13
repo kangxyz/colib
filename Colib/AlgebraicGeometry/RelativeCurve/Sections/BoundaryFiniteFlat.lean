@@ -55,7 +55,7 @@ namespace Scheme.Modules
 /-- A finite whole zero scheme supported inside a smooth curve open is Cartier on the
 compactification and finite locally free over the base. Its literal restriction has the same
 properties. The compactification need not be smooth. -/
-@[colib_tag "COL-1046"]
+@[colib_tag "COL-1221"]
 theorem finiteLocallyFree_zeroScheme_on_smooth_open
     {X U S : Scheme.{u}} (q : X ⟶ S) (j : U ⟶ X) [IsOpenImmersion j]
     [SmoothOfRelativeDimension 1 (j ≫ q)] (L : X.Modules)
@@ -116,7 +116,7 @@ theorem finiteLocallyFree_zeroScheme_on_smooth_open
 
 /-- A literal full-boundary frame equation produces the whole and restricted finite flat
 Cartier zero schemes. No regularity, flatness or existence of divisors is an input. -/
-@[colib_tag "COL-1046"]
+@[colib_tag "COL-1221"]
 theorem finiteLocallyFree_zeroScheme_of_boundary_frame
     {X B U S : Scheme.{u}} [IsAffine S] [U.IsQuasiAffine]
     (q : X ⟶ S) [IsProper q] (i : B ⟶ X) (j : U ⟶ X) [IsOpenImmersion j]

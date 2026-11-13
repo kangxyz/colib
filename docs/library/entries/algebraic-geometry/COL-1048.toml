@@ -8,7 +8,7 @@ primary = "AlgebraicGeometry.Scheme.Modules.exists_compatible_boundary_framed_di
 review = "author_checked"
 statement = '''
 In the proper compactification and smooth quasi-affine open setting of
-COL-1046, let the projective presentation be over a noetherian local ring
+COL-1221, let the projective presentation be over a noetherian local ring
 \(R\), and let the full closed boundary be \(\operatorname{Spec}B\),
 where \(B\) is module-finite over \(R\). Fix an invertible module \(M\)
 and its original boundary frame \(e\). For every sufficiently large twist,
@@ -25,7 +25,7 @@ Native semilocality of a module-finite algebra over a local ring and triviality
 of its Picard group produce the auxiliary frame \(h\). The frame of
 \(M\otimes H\) is the canonical pullback/tensor comparison followed by
 the tensor of the fixed frame \(e\) with \(h\), and then the unit
-multiplication. Apply COL-1046 to \(M\) and the unit module. The actual
+multiplication. Apply COL-1221 to \(M\) and the unit module. The actual
 left unitor transports the second lifted section from \(\mathcal O\otimes H\)
 to \(H\); naturality of global-section pullback retains its prescribed
 value. The full-boundary geometric criterion proves the same finite locally

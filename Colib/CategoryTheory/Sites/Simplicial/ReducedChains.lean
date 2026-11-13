@@ -347,7 +347,9 @@ private theorem normalizedConstIsoSingleApp_hom_f_zero (M : A) :
   have h : K.d 1 0 ≫ f = 0 := (normalizedConst_isZero_succ M 0).eq_zero_of_src _
   exact (ChainComplex.toSingle₀Equiv_symm_apply_f_zero f h).trans Subobject.underlyingIso_top_hom
 
-private def normalizedConstIsoSingle (A : Type*) [Category* A] [Abelian A] :
+/-- The normalized Moore complex of a constant simplicial object is the degree-zero complex. -/
+@[no_expose]
+def normalizedConstIsoSingle (A : Type*) [Category* A] [Abelian A] :
     SimplicialObject.const A ⋙ normalizedMooreComplex A ≅ ChainComplex.single₀ A :=
   NatIso.ofComponents normalizedConstIsoSingleApp (by
     intro M N f

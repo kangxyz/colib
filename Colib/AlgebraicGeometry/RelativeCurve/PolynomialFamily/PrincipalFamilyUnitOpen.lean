@@ -31,6 +31,9 @@ of the boundary is taken: the hypothesis is equality of sections on the full bou
 scheme. The proper integral relative-curve hypotheses needed for support finiteness
 and principal cycle endpoints are not claimed or weakened by this module.
 
+The strict-family source is also recorded at Motivic checkpoint
+`a6805c4a87cdfd7717dd7a94039246a167f15380`.
+
 -/
 
 @[expose] public noncomputable section

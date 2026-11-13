@@ -12,9 +12,10 @@ public import Colib.RingTheory.KTheory.MilnorK.Symbols.Transport
 /-!
 # Field change of the diagonal Milnor symbol
 
-The scalar pullback of the literal rational graph applies the field map to
-every unit. The resulting square on native Milnor groups transports through
-the canonical field evaluation comparison to integral motivic cohomology.
+For every field homomorphism, scalar pullback of the literal rational graph
+applies the field map to every unit. The canonical field evaluation comparison
+carries the resulting square on native Milnor groups to integral motivic
+cohomology.
 -/
 
 @[expose] public noncomputable section
@@ -33,7 +34,7 @@ variable {k L : Type u} [Field k] [Field L] (φ : k →+* L)
 /-- Pullback commutes with the raw graph symbol on the native Milnor group. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/FieldChange.lean:137-151"
   "adaptation" "Naturality from the scalar pullback of the literal rational graphs"]
-theorem rawSymbol_fieldChange [CharZero k] [CharZero L] (q : ℕ) (x : MilnorKTheory k q) :
+theorem rawSymbol_fieldChange (q : ℕ) (x : MilnorKTheory k q) :
     fieldChange φ q (rawSymbol k q x) = rawSymbol L q (milnorKTheoryMap φ q x) := by
   have h : (fieldChange φ q).comp (rawSymbol k q) =
       (rawSymbol L q).comp (milnorKTheoryMap φ q).toAddMonoidHom := by
@@ -63,8 +64,6 @@ theorem motivicFieldChange_rawComparison (q : ℕ)
     motivicRawBaseEvaluationComparison L q q (motivicFieldChange φ q x) =
       fieldChange φ q (motivicRawBaseEvaluationComparison k q q x) :=
   (motivicRawBaseEvaluationComparison L q q).apply_symm_apply _
-
-variable [CharZero k] [CharZero L]
 
 /-- The integral diagonal Milnor symbol commutes with scalar pullback. -/
 @[colib_ref "motivic_source_a6805c4" "Motivic/Cohomology/Diagonal/FieldChange.lean:153-170"

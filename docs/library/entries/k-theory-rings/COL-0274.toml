@@ -1,10 +1,10 @@
 [entry]
 id = "COL-0274"
-title = "Principal closed/open G-localization"
+title = "Principal closed/open G-theory localization"
 kind = "theorem"
 section = "g-theory-of-rings"
 order = 340
-statement = '''For a commutative Noetherian ring R and any r, actual quotient-ring restriction identifies \(G(R/(r))\) with G-theory supported on powers of r. The equivalence is proved by finite image filtrations and classical devissage. Its forward map followed by supported inclusion is exactly the original quotient-restriction `smallKMap`. Transporting the original localization boundary through the inverse equivalence gives all three recurring exactness positions and the homotopical G-zero surjection for the principal closed/open sequence.'''
+statement = "Let $R$ be a commutative Noetherian ring and $r\\in R$. Restriction of scalars from $R/(r)$ identifies its G-groups with the K-groups of finite $R$-modules killed by a power of $r$. Consequently localization gives\n\\[\\cdots\\to G_{n+1}(R[r^{-1}])\\xrightarrow{\\partial}G_n(R/(r))\\to G_n(R)\\to G_n(R[r^{-1}])\\to\\cdots\\qquad(n\\ge0),\\]\nending in $G_0(R/(r))\\to G_0(R)\\to G_0(R[r^{-1}])\\to0$. The closed-to-ambient map is induced by restriction of scalars, and $\\partial$ is the localization boundary transported through the d\u00e9vissage isomorphism, with its prescribed sign. No regular-element assumption on $r$ is required."
 scope = '''R : Type u, `CommRing` R, `IsNoetherianRing` R, r : R and `Small.{v,u}` R, with actual `FGModuleCat.{v}`, the native quotient `R / Ideal.span {r}`, localization at `Submonoid.powers` r, and Mathlib `SmallModel.{u}`. All connective degrees n : Nat, including the boundary from open G-one to closed G-zero. No domain, regular-element, proper-ideal, nonunit or nontriviality assumption. The lower quotient equivalence requires neither Noetherianity nor smallness. Objectwise finite image filtrations are constructed; no uniform length, extension closure or devissage conclusion is assumed. The closed boundary has the original transported sign; no boundary-symbol formula, general scheme-open theorem or negative G-theory is asserted.'''
 review = "author_checked"
 provenance = "quillen"

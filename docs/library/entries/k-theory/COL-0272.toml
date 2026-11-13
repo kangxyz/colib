@@ -1,10 +1,22 @@
 [entry]
 id = "COL-0272"
-title = "Canonical localization at actual targets and small models"
+title = "Serre localization for essentially small categories"
 kind = "theorem"
-section = "quillen-k-theory"
-order = 320
-statement = '''An actual additive Serre localization has the connective localization sequence on its original K-map, with the existing path-space boundary transported through the proved target equivalence. An exact Serre localization between essentially small abelian categories has the same sequence on its original `smallKMap`. All three exactness positions and homotopical K-zero surjectivity hold.'''
+section = "resolution-devissage-and-serre-localization"
+order = 90
+statement = '''
+Let \(L\colon\mathcal A\to\mathcal B\) be an additive Serre localization,
+with kernel \(\mathcal P\). The canonical Serre sequence transports to the
+maps induced by \(\mathcal P\hookrightarrow\mathcal A\) and \(L\):
+\[
+\cdots\to K_{n+1}(\mathcal B)\xrightarrow{\partial}K_n(\mathcal P)
+\to K_n(\mathcal A)\xrightarrow{L_*}K_n(\mathcal B)\to\cdots,
+\]
+ending in a surjection \(K_0(\mathcal A)\to K_0(\mathcal B)\).
+An exact Serre localization between essentially small abelian categories
+has the same sequence on the chosen small-model K-groups. The boundary
+is transported through the target equivalence, not chosen independently.
+'''
 scope = '''The actual-target theorem retains small source and target categories at a common universe. The `SmallModel` theorem allows independent source/target object and hom universes and one common chosen smallness universe. Its input is an actual exact functor preserving finite limits and colimits, localized at its actual Serre kernel. The target lift, its equivalence, the identity exact-structure comparison, and the canonical map identities are proved. No K-equivalence, exactness conclusion, arbitrary boundary choice, negative K-theory, or independent change of sign convention is assumed.'''
 review = "author_checked"
 provenance = "quillen"

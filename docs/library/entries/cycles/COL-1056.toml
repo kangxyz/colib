@@ -28,7 +28,7 @@ function-field maps of the polynomial projection and chart preserve the
 original parameter, so the ambient function is exactly \(tF+(1-t)\),
 and hence the stated literal fraction. Actual endpoint evaluations give
 the numerator germs \(b_x\) and \(a_x\), with denominator germ \(b_x\).
-Apply COL-1045 to those original germs and retain the sign of each full
+Apply COL-1220 to those original germs and retain the sign of each full
 quotient. No polynomial fraction comparison is supplied as a premise.
 '''
 scope = '''

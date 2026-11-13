@@ -55,7 +55,7 @@ def Scheme.Modules.pullbackIntegerTensorPowerIso {D X : Scheme.{v}} (i : D ⟶ X
 
 /-- Every specified global root admits a frame compatible with the specified trivialization
 of its target on a module-finite boundary, without any initial-frame or reducedness input. -/
-@[colib_tag "COL-1037",
+@[colib_tag "COL-1212",
   colib_ref "axiom_stacks_5ed82d14"
     "Algebra/Category/ModuleCat/Sheaf/TensorPowerPullback.lean:180-186"
     "ingredient" "The native pullback comparison for integer tensor powers"]

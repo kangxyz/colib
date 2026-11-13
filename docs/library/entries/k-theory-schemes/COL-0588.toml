@@ -1,0 +1,30 @@
+[entry]
+id = "COL-0588"
+title = "Cone comparison for the supported coarse telescope"
+kind = "comparison"
+section = "thomason-trobaugh-localization"
+order = 210
+statement = '''
+Let R be a commutative ring object, f:P→Q a morphism over Spec R whose underlying map is an open
+immersion, T an open of Q, and a an object of Under R. No compactness or quasi-separatedness
+assumption is required for this comparison. The mapping cone of the supported-fiber-to-ambient
+telescope map has a canonical map to the coarse-open telescope, defined by the existing whole
+localization null. This actual cone map is a stable equivalence at every coefficient a.
+'''
+scope = '''
+The finite supported Model maps, their telescope inclusions, the cone-fiber comparison and the
+signed connecting identity use the same null homotopy. On a telescope cylinder the null time and
+telescope height remain independent.
+'''
+proof_kind = "outline"
+proof = '''
+Use the finite supported cone-descent stable equivalences and their transition-compatible null
+homotopies. The finite Model diagrams supply the required T1-space instances.
+Telescope.coneDesc_isStableEquivalence then proves stability of the induced cone descent.
+Telescope.coneFiberComparison_isStableEquivalence gives the associated cone-fiber comparison, and
+mappingConeDesc_connecting identifies the signed boundary maps.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedFiberBassTelescopeOpenConeMap_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

@@ -6,7 +6,7 @@ section = "milnor-norms-on-curves"
 order = 428
 primary = "Stacks.Chow.DedekindResidue.totalResidue_milnorKNorm"
 statement = '''
-Let \(A\to S\) be a map of Dedekind domains with \(S\) finite and torsion-free over \(A\), and with specified fraction fields \(F\) and \(E\) respectively. Assume \(F\) has characteristic zero and \(E/F\) is finite, with the given compatible scalar actions along \(A\to F\to E\) and \(A\to S\to E\). For every height-one prime \(\mathfrak p\) of \(A\), assume that \(\kappa(A_{\mathfrak p})\) has characteristic zero.
+Let \(A\to S\) be a map of Dedekind domains with \(S\) finite and torsion-free over \(A\), and with specified fraction fields \(F\) and \(E\) respectively. Assume \(E/F\) is finite, with the given compatible scalar actions along \(A\to F\to E\) and \(A\to S\to E\).
 
 Fix \(n\geq 0\). For \(T=A,S\), write \(T^{(1)}\) for the set of height-one primes and put
 \[

@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.LinearIncidenceAlgebra
+public import Mathlib.Algebra.Algebra.Subalgebra.Tower
 
 /-! # Actual coefficient-field specialization of linear incidence equations -/
 @[expose] public noncomputable section

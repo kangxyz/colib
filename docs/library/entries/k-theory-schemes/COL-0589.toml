@@ -1,0 +1,29 @@
+[entry]
+id = "COL-0589"
+title = "The supported degree-zero exact sequence"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 220
+statement = '''
+Let f:P→Q be an open immersion over Spec R and T an open of Q. Assume P, Q and T are compact and Q
+is quasi-separated; let a∈Under R. Write r₀ and q₀ for the actual degree-zero K-maps of the
+supported open restriction Model map and its grading Model map. The map r₀ is injective, its image
+equals the kernel of q₀, and q₀ is surjective.
+'''
+scope = '''
+The separate grading-surjectivity result only assumes compact P. The image-kernel identity assumes
+compact P and Q. Quasi-separated Q and compact T enter the combined exact tail through the
+supported cofinality theorem proving injectivity. No degree-zero surjectivity of r₀ is asserted.
+'''
+proof_kind = "outline"
+proof = '''
+Compare the actual K-zero maps with the algebraic Grothendieck restriction map and its quotient
+using supported perfect evaluation and the AsSmall K-zero equivalence. Check these comparisons on
+object classes. Injectivity of the coarse value map transfers quotient surjectivity and
+image-kernel exactness back to q₀. Combine these identities with the supported cofinality
+injectivity theorem for r₀.
+'''
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedOpenModel_KZero_exact"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

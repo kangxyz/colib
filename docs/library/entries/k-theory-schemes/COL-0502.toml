@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0502"
-title = "Actual affine Bass evaluation and original seed compatibility"
+title = "Affine evaluation of the Bass seed"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 5020
+section = "bass-k-theory-and-geometric-delooping"
+order = 80
 statement = """
 For every commutative ring, the actual evaluation from strict bounded-above-flat affine
 sections to the original geometric bounded-flat prespectrum induces a map on the actual

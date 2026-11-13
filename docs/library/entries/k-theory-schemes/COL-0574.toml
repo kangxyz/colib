@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0574"
-title = "Twisted input maps preserve the chosen null homotopy"
+title = "Twisted maps and the selected null-homotopy"
 kind = "theorem"
-section = "supported-localization"
-order = 1574
+section = "thomason-trobaugh-localization"
+order = 90
 statement = '''
 Let \(A\), \(B\) and \(D\) be Laurent tracks, let \(a\) and \(b\) be equivariant input maps, and
 let \(N\) be a chosen null homotopy of their composite whose every time slice is equivariant. The

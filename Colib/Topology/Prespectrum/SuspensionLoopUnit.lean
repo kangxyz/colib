@@ -33,6 +33,25 @@ def suspensionCylinderHomotopy (E : LoopPrespectrum.{u}) :
 def suspensionLoopUnit (E : LoopPrespectrum.{u}) : E ⟶ parameterLooping (suspensionCone E) :=
   (suspensionCylinderHomotopy E).zeroLoopMap
 
+/-- Every value of the actual unit is the original cone-cylinder point. -/
+theorem suspensionLoopUnit_apply (E : LoopPrespectrum.{u}) (n : ℕ)
+    (x : E.space n) (s : unitInterval) :
+    Path.toContinuousMap ((suspensionLoopUnit E).map n x) s =
+      ReducedMappingCone.cylinder (E.point n) (pointPrespectrum.point n)
+        ((zeroHom E pointPrespectrum).map n) (s, x) := rfl
+
+/-- The entire actual unit commutes with genuine prespectrum maps. -/
+theorem suspensionLoopUnit_naturality {E F : LoopPrespectrum.{u}} (f : E ⟶ F) :
+    f ≫ suspensionLoopUnit F =
+      suspensionLoopUnit E ≫ parameterLoopingMap (suspensionConeMap f) := by
+  apply Hom.ext
+  funext n
+  apply ContinuousMap.ext
+  intro x
+  apply Path.ext
+  funext s
+  rfl
+
 /-- The triangle evaluates at the same original loop time, without reversal or transpose. -/
 @[colib_ref "quillen" "Quillen/Topology/Prespectrum/SuspensionLoopUnit.lean:57"
   "adaptation" "Original actual suspension evaluation and backward triangle"]

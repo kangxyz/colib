@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0510"
-title = "Weak and stable equivalence of actual affine Bass evaluation"
+title = "Stable affine Bass evaluation"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 5030
+section = "bass-k-theory-and-geometric-delooping"
+order = 120
 statement = """
 For every commutative ring, the actual evaluation map from the strict affine-section
 polynomial span to the original bounded-flat geometric span is a weak homotopy equivalence

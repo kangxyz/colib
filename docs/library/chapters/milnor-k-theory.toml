@@ -1,7 +1,7 @@
 [chapter]
 id = "milnor-k-theory"
 title = "Milnor K-Theory"
-order = 11
+order = 10
 introduction = '''The graded Steinberg quotient gives ordered Milnor symbols and their field maps. Tame residues over \(k(X)\) give bounded lifts of finite residue data and describe finite separable norms through the residue at infinity. In residue characteristic zero, local norm–residue formulas assemble into the Dedekind pushforward square, linking the rational calculation to curve reciprocity and weighted affine endpoint identities. In degree two, the symbols give a map to the stable Steinberg kernel and vanish over finite fields.'''
 
 [[sections]]
@@ -354,13 +354,13 @@ COL-1001 = '''
 A polynomial presentation of the extension induces an isomorphism of integral closures. Over a complete DVR of residue characteristic zero, norm naturality from COL-0396 carries the square for the quotient field and its integral closure to the specified field and closure.
 '''
 COL-1002 = '''
-For an arbitrary DVR of residue characteristic zero, the completed fraction tensor product separates the original branches of a finite torsion-free Dedekind model. The complete square applies in each coordinate, and the residue-field maps of completion identify those terms with norms of residues at the original localizations.
+The completed fraction tensor product separates the original branches of a finite torsion-free Dedekind model. The complete square for finite extensions applies in each coordinate. The residue-field maps of completion identify those terms with norms of residues at the original localizations.
 '''
 COL-1003 = '''
 At a height-one prime of the base, the all-branch sum runs over the points that contract to that prime. Since a Milnor class has finitely many nonzero residues, these local identities assemble into a square of total residues and pushforward.
 '''
 COL-1004 = '''
-For \(k[X]\to S\), the finite residue pushforward and the residue-field norm towers identify the affine sum with the finite part of rational reciprocity. Inverting \(X\) brings the infinity term into the same local norm–residue formula.
+For \(k[X]\to S\) with \(k\) of characteristic zero, the finite residue pushforward and the residue-field norm towers identify the affine sum with the finite part of rational reciprocity. Inverting \(X\) brings the infinity term into the same local norm–residue formula.
 '''
 COL-1005 = '''
 Before taking norms to \(k\) and summing, the affine pushforward retains the residue at each polynomial prime. If the affine residue vector on \(S\) vanishes, every finite residue of the field norm vanishes. Bass–Tate exactness then puts that norm in the constant image.
@@ -384,9 +384,3 @@ Over a finite field it suffices to compute the degree-two
 symbols, since they generate the integral homogeneous group.
 The finite-field calculation gives zero for each such symbol.
 '''
-
-[[sections]]
-id = "milnor-motivic-comparison"
-title = "Low-degree comparison with motivic cohomology"
-order = 60
-introduction = '''The original base-field motivic groups are computed from signed singular chains by COL-0400. In weight zero, the structural graph gives the integer degree. In weight one, the geometric norm of COL-1008 reads the rational graph class as its unit. These calculations identify the first two native Milnor groups with their diagonal motivic groups. COL-1026 gives the comparison in all weights over fields of characteristic zero.'''

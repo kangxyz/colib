@@ -34,7 +34,7 @@ def nisnevichToEtaleSheaf [HasWeakSheafify (etaleTopology S) A] :
   sheafToPresheaf (nisnevichTopology S) A ⋙ presheafToSheaf (etaleTopology S) A
 
 /-- Ordinary change of topology is the restriction of the native sheafification adjunction. -/
-@[colib_tag "COL-1033",
+@[colib_tag "COL-1208",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/CategoryTheory/Adjunction/Restrict.lean:42-58" "specialization"
     "Restrict native sheafification to Nisnevich sheaves on the same smooth category"]

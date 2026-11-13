@@ -4,15 +4,15 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticInfinityAvoidance
+public import Mathlib.Algebra.MvPolynomial.Funext
 
 /-! # A compactifying coordinate inside the unchanged quadratic parameter family -/
 @[expose] public noncomputable section
 open _root_.MvPolynomial
 universe u
 namespace QuadraticIncidence
-variable (k : Type u) [Field k] {N : Type u} (d : ℕ)
+variable (k : Type u) [CommRing k] {N : Type u} (d : ℕ)
 
 /-- One auxiliary row is adjoined without changing any of the original `d` rows. -/
 def prependParameters (a : N → k) (c : Fin d × N → k) : Fin (d + 1) × N → k :=
@@ -39,7 +39,7 @@ theorem eval_specializeAuxiliary (a : N → k) (c : Fin d × N → k)
 
 /-- A nonzero condition on the full same-family space leaves a nonempty principal
 open on the original rows after choosing one auxiliary row over the infinite ground field. -/
-theorem exists_specializeAuxiliary_ne_zero [Infinite k]
+theorem exists_specializeAuxiliary_ne_zero [IsDomain k] [Infinite k]
     (f : MvPolynomial (Fin (d + 1) × N) k) (hf : f ≠ 0) :
     ∃ a : N → k, specializeAuxiliary k d a f ≠ 0 := by
   by_contra! h

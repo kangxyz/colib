@@ -12,6 +12,13 @@ public import Mathlib.RingTheory.Spectrum.Prime.Topology
 # Principal neighborhoods of prime ideals
 -/
 
+/-!
+Adapted from `Motivic/Aglib/RingTheory/Spectrum/Prime/PrincipalNeighborhood.lean` at
+`motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`,
+blob `b15fcf47537bd4949ec5d130fd6eec4de6565243`. The actual native cylinder, Laurent open,
+whole closed fiber and original residue marking are retained.
+-/
+
 @[expose] public noncomputable section
 set_option backward.defeqAttrib.useBackward true
 set_option backward.isDefEq.respectTransparency false

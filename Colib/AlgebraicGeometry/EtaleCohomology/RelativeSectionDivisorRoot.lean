@@ -37,7 +37,7 @@ namespace Stacks.Kummer
 /-- The signed difference of two actual sections has a global tensor root over a strictly
 henselian local base. The closed fibre is explicitly required to be a curve in the native
 sense; the geometric assumption is not inferred from relative dimension alone. -/
-@[colib_tag "COL-1040", stacks 03RP
+@[colib_tag "COL-1215", stacks 03RP
   "Closed-curve degree-zero tensor roots, transported by actual divisor pullback \
   and proper Kummer specialization",
   stacks 095T "Proper base change used by Kummer specialization to lift divisibility"]
@@ -90,7 +90,7 @@ local instance (S : Scheme.{u}) :
 /-- Actual section kernels admit a global root and a frame on the full finite boundary,
 compatible with the canonical trivialization away from their images. Neither a fibre root,
 a boundary trivialization, nor an initial frame is supplied as input. -/
-@[colib_tag "COL-1040", stacks 095T
+@[colib_tag "COL-1215", stacks 095T
   "Proper Kummer specialization of actual section-divisor roots \
   with compatible finite-boundary frame"]
 theorem exists_relativeSectionKernel_root_compatible_frame

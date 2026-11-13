@@ -36,9 +36,9 @@ theorem milnorKNorm_mulSymbol (F E : Type u) [Field F] [Field E] [Algebra F E]
 namespace DedekindResidue
 
 open Polynomial PolynomialResidue PolynomialDedekindResidue IsLocalRing IsDedekindDomain
-attribute [local instance] Classical.decEq polynomialPointResidueCharZero
+attribute [local instance] Classical.decEq
 
-variable (k S E : Type u) [Field k] [CharZero k]
+variable (k S E : Type u) [Field k]
   [CommRing S] [IsDedekindDomain S] [Algebra k[X] S] [Module.Finite k[X] S]
   [Module.IsTorsionFree k[X] S]
   [Field E] [Algebra S E] [IsFractionRing S E]

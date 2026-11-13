@@ -2,9 +2,9 @@
 id = "COL-0280"
 title = 'Quillen \(K_{2}\) of finite fields'
 kind = "theorem"
-section = "finite-field-k-two"
-order = 10
-statement = 'The original right-projective Quillen \(K_{2}\) group and upper finite-module Quillen \(K_{2}\) group have one element over every finite field. Every class is the identity.'
-scope = '''The actual exact-category K 2 of right finite projective modules and `SmallK.{u+1}` of the abelian exact structure on `FGModuleCat.{u}` F. Surjectivity of the original native Milnor comparison and integral Milnor \(K_{2}\) vanishing supply the proof. Includes \(F_{2}\) and \(F_{3}\), with no external perfectness or generation premise. Lower-universe \(G_2\) and coherent scheme \(G_2\) are separate comparisons.'''
+section = "matsumoto-theorem"
+order = 20
+statement = 'For every finite field \(F\), one has \(K_2(F)=0\) in the finite-projective and upper finite-module Quillen models, and \(G_2(F)=0\) in the canonical lower finite-module model.'
+scope = '''The actual exact-category K 2 of right finite projective modules and `SmallK.{u+1}` of the abelian exact structure on `FGModuleCat.{u}` F. Surjectivity of the original native Milnor comparison and integral Milnor \(K_{2}\) vanishing supply the proof. Includes \(F_{2}\) and \(F_{3}\), with no external perfectness or generation premise. The original same-category small-model universe equivalence also gives lower-universe \(G_2\) vanishing. Coherent scheme \(G_2\) is a separate comparison.'''
 review = "author_checked"
 provenance = "quillen"

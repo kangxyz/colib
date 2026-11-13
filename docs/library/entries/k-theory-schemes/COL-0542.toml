@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0542"
-title = "Genuine tensor-unit action and the scalar comparison"
+title = "Tensoring by the unit and scalar multiplication"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 10
+section = "units-tensor-products-and-localization-boundaries"
+order = 90
 statement = "For a scheme X and a unit r of its global sections, degreewise tensoring a bounded-above flat perfect complex by the actual structure-module unit gives the original tensor functor and its unit automorphism. The genuine left unitor intertwines this automorphism with multiplication by r on the original complex. The same comparison holds after geometric pullback; its degreewise components retain the original tensor coefficient edge."
 scope = "Arbitrary schemes and scheme morphisms in the fixed universe, with the native Stacks sheafified tensor and original bounded-flat perfect fibers. Tensor by the unit is an actual tensor functor related to identity by the unitor; it is not silently defined as identity. No product on K-theory or tensor-generated Bass equivalence is asserted."
 proof_kind = "outline"

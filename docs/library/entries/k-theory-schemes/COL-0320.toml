@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0320"
-title = "Prescribed scalar return and canonical fiber comparison"
+title = "Scalar return maps and the canonical fiber"
 kind = "comparison"
-section = "scalar-operations-and-boundaries"
+section = "units-tensor-products-and-localization-boundaries"
 order = 60
 statement = "For an open immersion and a scalar restricting to a unit, the prescribed return on each original positive-dimensional subdivision cube has the inverse inclusion/projection class. Its normalized cube maps by the coordinate-zero connecting homomorphism to the canonical fiber image of the actual acyclic cone, with positive sign."
 scope = "Every original subdivision cube of dimension n + 1, including n = 0. Constructs the entire normalized-to-canonical fiber homotopy, retaining both cancellations, both times and every spatial boundary. No supplied filler, Theta, comparison, fiber equivalence or coverage assumption. The prespectrum operation identification, input descent and global formula are separate. This is not TT localization or an all-integer Bass result."

@@ -1,10 +1,17 @@
 [entry]
 id = "COL-0267"
-title = "The actual graded Waldhausen delooping"
+title = "The delooping of a graded Waldhausen category"
 kind = "theorem"
-section = "waldhausen-k-theory"
-order = 370
-statement = "The original coarse Waldhausen delooping is weakly equivalent to the nerve of the actual subgroup of realized object grades."
+section = "delooping-and-stable-localization"
+order = 10
+statement = '''
+Suppose an additive object grading \(g\) is invariant under weak
+equivalences and vanishes at zero. With the stated functorial factorization,
+the associated coarse Waldhausen delooping is weakly equivalent to
+\(BH\), where \(H\) is the subgroup of the grading group realized by
+object grades. The target is \(H\), not an arbitrary grading group presumed
+to be realized in full.
+'''
 scope = '''An additive object grading, invariant under original weak maps and normalized at zero, and genuine source functorial factorization. The original S-construction and group-grading map are retained. Finite replacement proves grade realizability; surjectivity onto an arbitrary grading group is not assumed. This adapts the graded step of [@ThomasonTrobaugh1990, 1.10.1], without identifying homotopical K-zero with the grading group or asserting a spectrum fiber sequence.'''
 review = "author_checked"
 provenance = "quillen"

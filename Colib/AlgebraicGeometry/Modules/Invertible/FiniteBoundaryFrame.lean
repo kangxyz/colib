@@ -46,7 +46,7 @@ variable (B : Type v) [CommRing B] [Algebra R B] [Module.Finite R B]
 /-- A prescribed trivialization of a tensor power on a finite boundary is the tensor
 power of an actual frame. The initial frame is given, rather than inferred from an
 unproved semilocal triviality assertion. -/
-@[colib_tag "COL-1032",
+@[colib_tag "COL-1207",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/EtaleCohomology/KummerTheory/Basic.lean:1049-1064,1128-1138"
     "ingredient" "The native trivialization ratio criterion and tensor-power composition"]
@@ -80,7 +80,7 @@ theorem exists_frame_tensorPowerMap_eq_of_module_finite {n : ℕ}
 /-- The corrected frame on the actual pullback along a morphism from the finite affine
 `R`-scheme `Spec B` satisfies the prescribed equation on the original boundary, including
 its nilpotents. -/
-@[colib_tag "COL-1032"]
+@[colib_tag "COL-1207"]
 theorem exists_pullback_frame_tensorPowerMap_eq_of_module_finite
     {C : Scheme.{v}} (i : Spec (CommRingCat.of B) ⟶ C) (L : C.Modules)
     [IsInvertible (Spec (CommRingCat.of B)).presheaf
@@ -99,7 +99,7 @@ theorem exists_pullback_frame_tensorPowerMap_eq_of_module_finite
 
 /-- Every prescribed tensor-power trivialization on `Spec B` admits an exact compatible
 frame. Semilocal triviality supplies the initial frame, including when `B` is the zero ring. -/
-@[colib_tag "COL-1032",
+@[colib_tag "COL-1207",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/SemilocalFibre/Basic.lean:151-155"
     "ingredient" "A module-finite algebra over a local ring is semilocal",
@@ -127,7 +127,7 @@ theorem exists_compatible_frame_of_module_finite {n : ℕ} (hn : IsUnit (n : R))
 
 /-- An invertible actual pullback to the finite affine `R`-scheme `Spec B` has a frame
 whose tensor power is the prescribed trivialization, without an initial-frame input. -/
-@[colib_tag "COL-1032"]
+@[colib_tag "COL-1207"]
 theorem exists_compatible_pullback_frame_of_module_finite
     {C : Scheme.{v}} (i : Spec (CommRingCat.of B) ⟶ C) (L : C.Modules)
     [IsInvertible (Spec (CommRingCat.of B)).presheaf

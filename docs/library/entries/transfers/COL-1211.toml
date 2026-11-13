@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1211"
+title = "Endpoint actions on homotopy-invariant transfer coefficients"
+kind = "theorem"
+section = "transfers-nisnevich"
+order = 13
+primary = "AlgebraicGeometry.PresheafWithTransfers.transfer_homotopy_endpoints"
+review = "author_checked"
+statement = '''
+For an ordinary A1-invariant presheaf with transfers, every actual signed
+finite correspondence out of the native affine cylinder has equal transfer
+actions at any two constant sections. The signed difference of these actual
+endpoint correspondences therefore acts by zero. If a difference of original
+graph correspondences is an integer multiple plus such an explicit endpoint
+difference, and that integer kills the output section group, the original
+ordinary restrictions are equal.
+'''
+proof = '''
+The actual cylinder projection pulls back isomorphically. Each constant
+section is its inverse, so cancellation gives equality of section pullbacks.
+Contravariant transfer composition turns this equality into equality of
+actions for any signed cylinder correspondence. Additivity gives nullity of
+the endpoint difference. Applying transfer to the stated graph relation and
+using integer-linearity leaves a multiple in the output group, which vanishes
+by the specified annihilation. The maps remain the original graph restrictions.
+'''
+scope = '''
+The ordinary section statement allows an arbitrary commutative base ring
+and an arbitrary coefficient category with independent object and morphism
+universes. Transfer statements allow any base field and an independent
+coefficient universe; no perfectness or sheaf hypothesis is needed.
+The torsion integer is arbitrary and annihilation is on the codomain of the
+contravariant action. The geometric graph relation is explicit input. No
+principal-family producer, moving-divisor theorem, strict A1 invariance,
+or completed rigidity theorem is asserted. The proof adapts the ordinary
+endpoint and torsion-action arguments in the 2026-10-21 Motivic checkpoint,
+using Colib's current native cycle subgroup and transfer maps.
+'''

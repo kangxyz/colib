@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.MovingPointCoefficientDimension
+public import Colib.RingTheory.Bertini.MovingPointParameterMap
 public import Colib.RingTheory.Bertini.QuadraticIncidenceGenericFiber
 public import Colib.RingTheory.Bertini.MovingPointDistinctness
 
@@ -22,12 +22,6 @@ namespace QuadraticIncidence.MovingPointChart
 variable (k R B : Type u) [Field k] [CommRing R] [IsDomain R] [CommRing B]
   [Algebra k R] [Algebra k B] [Algebra R B] [IsScalarTower k R B]
   [Module.Finite R B] [Algebra.Smooth k R] {σ : Type u} [Fintype σ]
-
-/-- The full original incidence quotient on an actual normalized chart. -/
-abbrev incidenceRing (g : σ → R) (a : σ → B) (d : ℕ) (i₀ : Fin d) (j : σ) :=
-  let t := algebraMap R B (g j) - a j
-  let A := Ring B d i₀ t
-  CoordinateRing k R A g (algebraMap B A ∘ a) d (weight B d i₀ t)
 
 /-- Every actual prime component has strictly fewer parameters than the full
 quadratic projection space. No component dimension or rank hypothesis is supplied. -/

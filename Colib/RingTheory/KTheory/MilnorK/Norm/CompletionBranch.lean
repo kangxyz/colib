@@ -8,6 +8,9 @@ module
 public import Colib.RingTheory.KTheory.MilnorK.Norm.CompletionResidues
 public import Colib.RingTheory.KTheory.MilnorK.Norm.DVRComplete
 
+import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
+import Colib.RingTheory.KTheory.MilnorK.Norm.DVRCompleteFinite
+
 /-!
 # The actual completed norm on one original DVR branch
 
@@ -17,6 +20,8 @@ fraction lift are retained. No norm compatibility premise is assumed.
 
 Adapted from `Aglib/KTheory/MilnorK/Norm/FiniteExtension/CompletionBranch.lean`
 at revision `4f65be4eafa8964bd1f7a83682e99aa8165bd418`, lines 44–74.
+The cited proof assumes residue characteristic zero. The complete finite norm square
+and finite residue-norm equivariance give the formula in arbitrary characteristic.
 -/
 
 @[expose] public noncomputable section
@@ -30,7 +35,6 @@ universe u
 attribute [local instance] dvrCompletion_isDomain dvrCompletion_isDiscreteValuationRing
 
 variable (R S E : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
-  [CharZero (ResidueField R)]
   [CommRing S] [IsDomain S] [IsDiscreteValuationRing S]
   [Algebra R S] [IsLocalHom (algebraMap R S)]
   [FiniteDimensional (ResidueField R) (ResidueField S)]
@@ -69,11 +73,9 @@ theorem dvrMilnorTameSymbol_completed_norm_eq_original_branch
         (milnorKNorm QR QS (n + 1) (milnorKTheoryMap φS (n + 1) x))) =
       milnorKNorm (ResidueField R) (ResidueField S) n
         (dvrMilnorTameSymbol' S E n x) := by
-  have : CharZero (ResidueField CR) := (eR).symm.toRingHom.charZero
-  have : CharZero CR := (IsLocalRing.residue CR).charZero
-  have : CharZero QR := charZero_of_injective_algebraMap (IsFractionRing.injective CR QR)
-  rw [dvrMilnorTameSymbol'_milnorKNorm_complete CR QR QS CS,
-    milnorKNorm_completionResidueEquiv R S]
+  rw [dvrMilnorTameSymbol'_milnorKNorm_complete_of_finite CR QR QS CS,
+    milnorKNorm_map_ringEquiv_of_finite (eR).symm (eS).symm
+      (RingHom.ext (dvrCompletionResidueEquiv_algebraMap R S))]
   have hc := dvrMilnorTameSymbol'_completion_identification S E n x
   dsimp only at hc
   have hc' : milnorKTransport (eS).symm.toRingHom n

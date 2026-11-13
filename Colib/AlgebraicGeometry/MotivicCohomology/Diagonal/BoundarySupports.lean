@@ -7,18 +7,21 @@ module
 
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.FaceSquare
 public import Mathlib.Algebra.Polynomial.FieldDivision
-public import Mathlib.FieldTheory.Perfect
 public import Mathlib.FieldTheory.RatFunc.Basic
 public import Mathlib.LinearAlgebra.FreeModule.PID
 public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
+
+import StacksFrontier.RingTheory.Nagata.Examples
+import StacksFrontier.RingTheory.Nagata.Polynomial
+import StacksFrontier.RingTheory.Nagata.Shrink
 
 /-!
 # Integral supports of the native diagonal one-simplex
 
 The coordinate algebra is the original support's global sections with the
 polynomial action induced by the actual source projection. Normalization
-uses its own fraction field, and characteristic zero gives finiteness over
-the same polynomial base. The forward Laurent units are pulled back from
+uses its own fraction field, and the Japanese property gives finiteness over
+the polynomial base for any field. The forward Laurent units are pulled back from
 the original ordered torus coordinates.
 
 Adapted from Motivic `a6805c4a87cdfd7717dd7a94039246a167f15380`,
@@ -283,17 +286,30 @@ instance normalizationTorsionFree : Module.IsTorsionFree k[X] (normalizationRing
   rw [IsScalarTower.algebraMap_apply k[X] (normalizationRing Z) (FractionRing (coordinateRing Z)),
     IsScalarTower.algebraMap_apply k[X] (normalizationRing Z) (FractionRing (coordinateRing Z)), h]
 
-instance normalizationFiniteBase [CharZero k] : Module.Finite k[X] (normalizationRing Z) := by
-  let : IsIntegralClosure (normalizationRing Z) k[X] (FractionRing (coordinateRing Z)) :=
+instance normalizationFiniteBase : Module.Finite k[X] (normalizationRing Z) := by
+  let E := FractionRing (coordinateRing Z)
+  let : IsIntegralClosure (normalizationRing Z) k[X] E :=
     normalization_isIntegralClosure_base Z
-  exact IsIntegralClosure.finite k[X] (RatFunc k) (FractionRing (coordinateRing Z)) _
+  have hk : IsJapaneseRing k :=
+    MonogenicN1.isJapaneseRing_of_isNagataRing IsNagataRing.of_field
+  have hpoly : IsJapaneseRing k[X] := (Polynomial.isN1_and_isJapaneseRing k).2 inferInstance hk
+  let : Module.Finite k[X] (integralClosure k[X] E) :=
+    module_finite_integralClosure_of_isJapaneseRing hpoly (RatFunc k) E
+  exact Module.Finite.equiv
+    (IsIntegralClosure.equiv k[X] (integralClosure k[X] E) E (normalizationRing Z)).toLinearEquiv
 
-instance normalizationDedekind [CharZero k] : IsDedekindDomain (normalizationRing Z) := by
-  let : IsIntegralClosure (normalizationRing Z) k[X] (FractionRing (coordinateRing Z)) :=
-    normalization_isIntegralClosure_base Z
-  exact IsIntegralClosure.isDedekindDomain k[X] (RatFunc k) (FractionRing (coordinateRing Z)) _
+instance normalizationDedekind : IsDedekindDomain (normalizationRing Z) := by
+  let S := normalizationRing Z
+  let E := FractionRing (coordinateRing Z)
+  let : IsIntegralClosure S k[X] E := normalization_isIntegralClosure_base Z
+  let : IsNoetherianRing S := IsNoetherianRing.of_finite k[X] S
+  let : Algebra.IsIntegral k[X] S := IsIntegralClosure.isIntegral_algebra k[X] E
+  refine (isDedekindDomain_iff S E).mpr ⟨inferInstance, inferInstance,
+    Ring.DimensionLEOne.of_isIntegral k[X] S, ?_⟩
+  intro x hx
+  exact (IsIntegralClosure.isIntegral_iff (A := S)).mp (isIntegral_trans (R := k[X]) x hx)
 
-instance normalizationFiniteSupport [CharZero k] :
+instance normalizationFiniteSupport :
     Module.Finite (coordinateRing Z) (normalizationRing Z) :=
   Module.Finite.of_restrictScalars_finite k[X] (coordinateRing Z) (normalizationRing Z)
 
@@ -315,20 +331,20 @@ instance normalizationSpecMapSurjective : Surjective (normalizationSpecMap Z) :=
 instance normalizationMapSurjective : Surjective (normalizationMap Z) :=
   inferInstanceAs (Surjective (normalizationSpecMap Z ≫ (supportIsoSpec Z).inv))
 
-instance normalizationSpecMapFinite [CharZero k] : IsFinite (normalizationSpecMap Z) :=
+instance normalizationSpecMapFinite : IsFinite (normalizationSpecMap Z) :=
   (IsFinite.SpecMap_iff _).mpr (RingHom.finite_algebraMap.mpr inferInstance)
 
-instance normalizationMapFinite [CharZero k] : IsFinite (normalizationMap Z) :=
+instance normalizationMapFinite : IsFinite (normalizationMap Z) :=
   inferInstanceAs (IsFinite (normalizationSpecMap Z ≫ (supportIsoSpec Z).inv))
 
 /-- The normalization retains the same polynomial parameter. -/
 abbrev normalizationBaseMap : Spec (.of (normalizationRing Z)) ⟶ Spec (.of k[X]) :=
   Spec.map (CommRingCat.ofHom (algebraMap k[X] (normalizationRing Z)))
 
-instance normalizationBaseMapFinite [CharZero k] : IsFinite (normalizationBaseMap Z) :=
+instance normalizationBaseMapFinite : IsFinite (normalizationBaseMap Z) :=
   (IsFinite.SpecMap_iff _).mpr (RingHom.finite_algebraMap.mpr inferInstance)
 
-instance normalizationBaseMapFlat [CharZero k] : Flat (normalizationBaseMap Z) := by
+instance normalizationBaseMapFlat : Flat (normalizationBaseMap Z) := by
   let : Module.Free k[X] (normalizationRing Z) := Module.free_of_finite_type_torsion_free'
   exact Flat.SpecMap_iff.mpr (by
     change (algebraMap k[X] (normalizationRing Z)).Flat

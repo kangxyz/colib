@@ -2,47 +2,82 @@
 id = "k-theory-rings"
 title = "Algebraic K-Theory of Rings"
 order = 12
-introduction = "Module and projective categories specialize the general constructions to rings and fields. This chapter treats dimension, projective completion, the precisely scoped Matsumoto comparison, finite-field degree two, and G-theory localization. Milnor symbol theory stays in its own chapter; only its comparison interfaces are used here. Affine perfect-complex evaluation remains with the scheme results COL-0358 and COL-0380."
-
-[[sections]]
-id = "k-zero-of-fields"
-title = "\\(K_{0}\\) of fields"
-order = 10
-introduction = "Dimension identifies the Grothendieck group of finite-dimensional vector spaces with the integers. The standard exact structure gives the same map on the conflation presentation."
-
-[sections.transitions]
-COL-0020 = "For finite-dimensional vector spaces, the conflations of the\nstandard exact structure are the short exact sequences.\nThe comparison of COL-0019 identifies their object generators,\nso the dimension computation applies to the conflation\npresentation with the same normalization on the field.\n"
+introduction = "Let $R$ be a ring. Quillen K-theory applies the Q-construction to the exact category $\\mathcal P(R)$ of finite projective modules. Its degree-zero group records virtual projective modules, whereas the stable general linear group describes a different entry point through the plus construction. For a Noetherian ring, the abelian category of finite modules gives G-theory; it must not be confused with projective K-theory without an appropriate comparison theorem.\n\nWe first study projective completion and its zero component, then compute $K_0$ over a field. Matsumoto's theorem identifies $K_2^M(F)$ with Quillen $K_2(F)$; the symbol presentation itself remains in the Milnor K-theory chapter. Finally, localization and dévissage give the connective G-theory sequence for a principal closed/open pair. The product decomposition uses the specified plus-certified completion component and ordinary homotopies; no replacement by an arbitrary plus model or Bass fundamental theorem is asserted."
 
 [[sections]]
 id = "quillen-k-theory-of-rings"
-title = "Projective completion"
-order = 20
-introduction = "Finite projective modules give the ring specialization of exact-category K-theory. Direct sum and the actual completion identify components with the original \\(K_0\\) in COL-0378. This comparison retains the original exact-category model."
+title = "Projective modules and the plus construction"
+order = 10
+introduction = "Direct sum makes the isomorphism groupoid of $\\mathcal P(R)$ symmetric monoidal. Its group-completion category has objects represented by pairs $(A,B)$, with virtual class $[B]-[A]$. The first result identifies its components with $K_0(\\mathcal P(R))$.\n\nWrite $C_0(R)$ for the specified zero component of this completion and $E(R)\\subseteq GL_\\infty(R)$ for the stable elementary subgroup. The second result proves that the specified map $BGL_\\infty(R)\\to C_0(R)$ satisfies the homological plus-construction conditions: it kills precisely $E(R)$ on fundamental groups and preserves homology with all target local systems in the stated universe. The Q-loop comparison then gives $K_0(R)_{\\mathrm{disc}}\\times C_0(R)\\simeq\\Omega BQ(R)$ with ordinary inverse homotopies (COL-0606). Here $C_0(R)$ is the specified plus-certified model; natural choices of inverse and multiplicative coherence are not asserted."
+
+[[sections.topics]]
+id = "components"
+title = "Virtual projective modules"
+start = "COL-0378"
+
+[[sections.topics]]
+id = "plus-construction"
+title = "The zero component and stable general linear group"
+start = "COL-0513"
+
+[[sections.topics]]
+id = "q-loop-comparison"
+title = "The Q-loop comparison and product decomposition"
+start = "COL-0602"
 
 [sections.transitions]
-COL-0378 = "Direct sum makes the isomorphism groupoid of finite projective modules symmetric monoidal.\nSimultaneous translation of pairs then gives the actual completion category.\nIts components record virtual projective classes; splitting of the inherited conflations\ncompares these classes with the original exact Grothendieck group.\n"
-COL-0513 = "The same all-ring completion model also carries the original stable map from\nits stable general linear classifying space. [COL-0513] certifies that actual\nmap, with its specified basepoint path and exact elementary kernel, by the\nfull local-coefficient homological plus conditions. This assembles the proved\nnative inputs; it does not assert CW uniqueness or a product decomposition\nof the completion space.\n"
+COL-0602 = "The plus certificate concerns the zero component. The projective-completion comparison now gives a genuine homotopy equivalence with the Q-loop space, and restricts to the specified zero components without changing the forward map or its basepoint track."
+COL-0606 = "The continuous $K_0$ classifier separates the open loop components. Choosing representatives normalized at zero identifies them with translations of the zero component, giving $K_0(R)_{\\mathrm{disc}}\\times C_0(R)\\simeq\\Omega BQ(R)$. Naturality is asserted for the forward maps up to ordinary homotopy, not for a choice of inverse."
+COL-0378 = "Since every short exact sequence of projective modules splits, the direct-sum relations agree with the exact-category Grothendieck relations. The denominator is the first coordinate, explaining the sign $[B]-[A]$; compare [@WeibelKBook, IV, Lemma 4.3.1]."
+COL-0513 = "The component calculation does not determine higher homotopy. To study the zero component, use the stable general linear map. Its surjection on fundamental groups has elementary kernel; the local-coefficient chain comparison then supplies the homological plus certificate."
+
+[[sections]]
+id = "k-zero-of-fields"
+title = "$K_0$ of fields"
+order = 20
+introduction = "For a field $k$, every finite module is a finite-dimensional vector space. Dimension is additive on short exact sequences, so it induces\n\\[K_0(\\mathcal V_k)\\longrightarrow\\mathbb Z,\\qquad [V]\\longmapsto\\dim_kV.\\]\nThe class of $k$ gives its inverse. The two results below concern the short-exact-sequence and conflation presentations of this same invariant, not distinct K-theories."
+
+[sections.transitions]
+COL-0020 = "The standard exact structure has exactly the short exact sequences as conflations. COL-0019 identifies the object generators, so the dimension isomorphism carries over with $[k]\\mapsto1$ unchanged."
 
 [[sections]]
 id = "matsumoto-theorem"
 title = "Matsumoto's theorem"
 order = 30
-introduction = "For a field, the classical Matsumoto presentation identifies degree-two K-theory with symbols subject to the Steinberg relation [@Matsumoto1969, Section 5, Theorem 5.10 and Corollary 5.11] and [@WeibelKBook, III, Theorem 6.1]. COL-0262 proves the implemented characteristic-zero comparison with the specified Quillen models; it does not claim bijectivity over every field. Its forward map is the ordered-symbol map of COL-0255, and the comparison retains the positive scalar-product normalization. The graded Milnor construction, symbol relations and residues remain in the independent Milnor chapter (COL-0005, COL-0007 and COL-0122)."
+introduction = "For a field $F$, Matsumoto's theorem gives\n\\[K_2^M(F)\\xrightarrow{\\sim}K_2(F).\\]\nThe Milnor symbol relations and stable Steinberg construction belong to the independent Milnor K-theory chapter. Here the comparison is made with the specified projective and finite-module Quillen groups. Its positive normalization sends $\\{a,b\\}$ to the scalar action of $a$ on the positive $K_1$-class of $b$.\n\nThe stable Steinberg-kernel presentation is [@Matsumoto1969, Section 5, Theorem 5.10 and Corollary 5.11]; compare [@WeibelKBook, III, Theorem 6.1]. The implementation treats finite fields separately using Milnor $K_2$ vanishing. Thus the statement includes every field, including $\\mathbb F_2$ and $\\mathbb F_3$."
 
-[[sections]]
-id = "finite-field-k-two"
-title = "\\(K_2\\) of finite fields"
-order = 40
-introduction = "COL-0279 computes the vanishing of Milnor \\(K_2\\) over finite fields. Surjectivity of the existing comparison gives COL-0280 for the specified Quillen groups. This argument does not invoke the characteristic-zero bijectivity of COL-0262."
+[[sections.topics]]
+id = "comparison"
+title = "The natural symbol isomorphism"
+start = "COL-0262"
+
+[[sections.topics]]
+id = "finite-fields"
+title = "Finite-field vanishing"
+start = "COL-0280"
 
 [sections.transitions]
-COL-0280 = "Over finite fields the original Milnor comparison is\nsurjective. The integral vanishing of the source in\nCOL-0279 therefore gives vanishing of both native\nQuillen groups in degree two.\n"
+COL-0262 = "The ordered-symbol map of COL-0255 is the comparison map, not merely an unspecified abstract isomorphism. Its compatibility with scalar extension fixes both naturality and the sign convention."
+COL-0280 = "For finite $F$, COL-0279 proves $K_2^M(F)=0$. Surjectivity of the same symbol comparison therefore gives $K_2(F)=0$ in each of the two Quillen models."
 
 [[sections]]
 id = "g-theory-of-rings"
-title = "G-theory of rings"
-order = 50
-introduction = "Localization of finite modules over a Noetherian ring gives a connective sequence with an annihilator support condition. For a principal closed subset, dévissage identifies the supported group with the G-theory of the quotient ring."
+title = "G-theory and localization"
+order = 40
+introduction = "Let $R$ be a commutative Noetherian ring and $S\\subseteq R$ a multiplicative submonoid. Let $\\mathcal T_S$ be the full subcategory of finite modules annihilated by some element of $S$. Localization gives the connective exact sequence\n\\[\\cdots\\longrightarrow G_{n+1}(S^{-1}R)\\xrightarrow{\\partial}K_n(\\mathcal T_S)\\longrightarrow G_n(R)\\longrightarrow G_n(S^{-1}R)\\longrightarrow\\cdots.\\]\nIts degree-zero tail ends in $G_0(S^{-1}R)\\to0$. For $S=\\{1,r,r^2,\\ldots\\}$, dévissage identifies the supported term with $G(R/(r))$. This is the principal closed/open localization sequence; no regular-element hypothesis is required."
 
 [sections.transitions]
-COL-0274 = "If \\(r^nM=0\\), the finite filtration by \\(r^iM\\) has\nquotients annihilated by \\(r\\). Those factors are\nmodules over \\(R/(r)\\). Dévissage identifies the\nsupported term through the original restriction-of-scalars\nmap, so the localization boundary transports through\nthat same equivalence.\n"
+COL-0273 = "Finite generation turns elementwise S-torsion into annihilation by one element of S. The supported exact category is therefore the kernel of finite-module localization. The Serre-localization theorem from the general K-theory chapter applies to this actual functor."
+COL-0274 = "If $r^nM=0$, the filtration by $r^iM$ has successive quotients annihilated by $r$, hence finite $R/(r)$-modules. Dévissage identifies the supported group through restriction of scalars. Transporting the localization boundary through that equivalence yields the closed/open sequence with the same sign."
+
+[[sections]]
+id = "dedekind-residue-localization"
+title = "Residue localization over Dedekind domains"
+order = 55
+introduction = 'Finite torsion modules decompose into their height-one primary parts. Dévissage identifies each primary contribution with its residue-field G-theory. The resulting assembly describes the coordinates of the original generic localization boundary.'
+
+[sections.transitions]
+COL-0604 = 'Use the inverse assembly to read the supported boundary one residue at a time. The coordinate kernels detect the generic image. Lifting an arbitrary finite family requires the stated injectivity of the generic G₁ map.'
+COL-0605 = 'Finiteness of the residue fields instead annihilates the supported G₂ term, using finite-field G₂ vanishing. Exactness then gives generic G₂ injectivity, without assuming or proving generic G₁ injectivity.'
+COL-0609 = 'Localize now at a height-one prime. The ordinary module-localization square and its original scalar-extension map identify the local-DVR boundary with the global residue coordinate.'
+COL-0610 = 'The coordinate equality transports the kernel-intersection statement and the conditional finite-family lifting theorem to the actual local-DVR boundaries. The generic G₁ injectivity premise is unchanged.'

@@ -1,9 +1,16 @@
 [entry]
 id = "COL-0029"
-title = 'Algebraic \(K_{0}\) of the canonical Serre quotient'
+title = "The Grothendieck group of a Serre quotient"
 kind = "theorem"
-section = "grothendieck-groups"
-order = 120
-statement = 'For the canonical Serre quotient, the induced algebraic \(K_{0}\) map is surjective with kernel the Serre-object subgroup, and its quotient equivalence preserves each actual object class.'
+section = "resolution-devissage-and-serre-localization"
+order = 20
+statement = '''
+For the canonical Serre quotient \(q\colon\mathcal A\to\mathcal A/\mathcal P\),
+\[
+K_0(\mathcal A)/\langle[P]\mid P\in\mathcal P\rangle
+\xrightarrow{\ \sim\ }K_0(\mathcal A/\mathcal P),\qquad [A]\longmapsto[q(A)].
+\]
+In particular, \(K_0(q)\) is surjective with the displayed kernel.
+'''
 scope = '''An abelian category C : Type u with `Category.{u}` C and a Serre class P. The source object and hom universes coincide. The actual functor is `P.isoModSerre.Q`; the upstream quotient abelian structure is used locally. This specializes [@stacks, Tag 02MX(1)], not its second clause or a Q-construction homotopy group. Source correspondence was checked against the cited clauses on 2026-11-05; this does not record independent mathematical review or compilation.'''
 review = "author_checked"

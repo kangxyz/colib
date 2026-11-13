@@ -2,8 +2,15 @@
 id = "COL-0079"
 title = "Grothendieck cocycle on Q"
 kind = "definition"
-section = "grothendieck-groups"
-order = 140
-statement = "The weight of an admissible span is its apex Grothendieck class minus its source class. It descends through apex isomorphisms, is additive under pullback composition, and defines a functor from Q to the one-object groupoid of the multiplicative Grothendieck group, recovering object generators exactly."
+section = "quillen-k-theory"
+order = 40
+statement = '''
+For an admissible span \(X\twoheadleftarrow U\hookrightarrow Y\) in
+\(Q\mathcal E\), put \(w(X\leftarrow U\to Y)=[U]-[X]\in K_0(\mathcal E)\).
+This is the class of the kernel of the left admissible epimorphism. The weight
+is invariant under isomorphism of spans and satisfies \(w(g\circ f)=w(f)+w(g)\).
+It therefore defines a functor to the one-object groupoid of \(K_0(\mathcal E)\),
+with the prescribed value on each object generator.
+'''
 scope = '''The source category is preadditive with finite biproducts, a selected exact structure, and independent object and hom universes. The left leg is an admissible quotient, so this weight equals the class of its kernel, matching the algebraic computation in Example 6.2.3. It is not target minus apex or the opposite sign. The actual `SingleObj` composition convention is respected using commutativity of the algebraic Grothendieck group. This cocycle and its generator formulas do not identify any topological paths or homotopy groups. Source correspondence was checked against the cited scope on 2026-11-05; this does not record independent mathematical review or compilation.'''
 review = "author_checked"

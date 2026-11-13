@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1038"
+title = "The Tate quotient connecting isomorphism"
+kind = "comparison"
+section = "tate-sphere-and-suspension"
+order = 35
+primary = "AlgebraicGeometry.MotivicHomotopy.bijective_precomp_tateSphereConnecting"
+review = "author_checked"
+statement = '''
+Let \(k\) be a perfect field and \(C(X)\) the derived object of the
+sheafified reduced cochains of a pointed simplicial presheaf. Write
+\(T\) for the pointed Tate quotient of COL-1017 and
+\(G=(\mathbb G_{m,k},1)\). The connecting morphism
+\(\delta\colon C(T)\to C(G)[1]\) of the Laurent-open quotient induces
+a bijection by precomposition from
+\(\operatorname{Hom}(C(G)[1],\mathbb Z(q)[p])\)
+to \(\widetilde H^{p,q}(T,\mathbb Z)\).
+
+The collapse from the Tate cone to the reduced simplicial suspension
+of \(G\) induces an isomorphism by pullback on the same reduced motivic
+cohomology groups. Both statements apply for all integers \(p\) and
+nonnegative weights \(q\).
+'''
+proof = '''
+The polynomial contraction to one fixes the chosen basepoint and
+identifies the pointed affine line with the point after
+\(\mathbb A^1\)-localization. The perfect-field representability
+of COL-1016 gives vanishing of its reduced motivic cohomology.
+
+The Laurent-open quotient and the cone collapse give short exact
+sequences of reduced cochain complexes. Their derived triangles retain
+the actual quotient and collapse maps. Applying the contravariant Hom
+sequence and using the affine-line vanishing in consecutive degrees
+proves the two comparisons.
+'''
+scope = '''
+The coefficients are the native signed integral motivic complexes, and the
+pointed objects are in the coefficient universe. The geometric comparison
+of the Tate quotient and the suspended torus is
+[@MorelVoevodsky1999, Section 3.2, Lemma 2.15, p. 111].
+'''

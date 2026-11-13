@@ -4,9 +4,9 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.MovingPointIncidenceDimension
 public import Colib.RingTheory.Bertini.QuadraticIncidenceParameterMap
+public import Colib.RingTheory.Bertini.MovingPointParameterMap
 public import Colib.RingTheory.Bertini.IncidenceNonDominance
 
 /-! # A nonzero original parameter equation for each whole bad-point chart
@@ -21,13 +21,6 @@ namespace QuadraticIncidence.MovingPointChart
 variable (k R B : Type u) [Field k] [CommRing R] [IsDomain R] [CommRing B]
   [Algebra k R] [Algebra k B] [Algebra R B] [IsScalarTower k R B]
   [Module.Finite R B] [Algebra.Smooth k R] {σ : Type u} [Fintype σ]
-
-/-- The actual ground-coefficient parameter map for the original normalized chart. -/
-def chartParameterMap (g : σ → R) (a : σ → B) (d : ℕ) (i₀ : Fin d) (j : σ) :
-    MvPolynomial (Fin d × Exponent σ) k →ₐ[k] incidenceRing k R B g a d i₀ j :=
-  let t := algebraMap R B (g j) - a j
-  let A := Ring B d i₀ t
-  parameterMap k R A g (algebraMap B A ∘ a) d (weight B d i₀ t)
 
 /-- The original prime quotient, not only its fraction field, has strictly
 smaller transcendence degree than the full parameter space. -/

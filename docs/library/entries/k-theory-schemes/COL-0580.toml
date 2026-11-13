@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0580"
-title = "The integral Spec-to-fine telescope comparison"
+title = "Integral affine comparison with the fine telescope"
 kind = "theorem"
-section = "global-sections-and-parameters"
-order = 1580
+section = "thomason-trobaugh-localization"
+order = 140
 statement = '''
 For Q over Spec of the lifted integers and a ring object a under the lifted integers, the
 component at a of fineTelescopeComparison Q is a stable equivalence. This comparison is the

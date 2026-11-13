@@ -1,0 +1,31 @@
+[entry]
+id = "COL-0600"
+title = "Tensor ordinary-presentation auxiliary localization"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 270
+statement = '''
+Let $f:P\to Q$ be an open immersion, with $P,Q$ quasi-compact and $Q$ quasi-separated,
+and let $T$ be a quasi-compact open of $Q$. Evaluate the tensor-normalized ordinary-colimit
+presentations at $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The original enlargement
+from union support to $T$ support and restriction to the inverse-image support, with their
+selected whole nullhomotopy, induce a stable equivalence to the homotopy fiber of restriction.
+Its fiber projection is precisely the original enlargement map.
+'''
+scope = '''
+The three actual support presentations and their same-time null square are retained. In
+particular the induced maps on stable homotopy groups are isomorphisms in every integer degree,
+including all negative degrees. This is a statement about the constructed tensor presentation,
+not an additional comparison with a classical K-theory model.
+'''
+proof = '''
+Use the original three current-to-ordinary-colimit stable comparisons and the strict maps
+induced by the original finite-stage data. Whole-track equalities identify the tensor-normalized
+tracks without changing those maps. The exact timewise null comparison supplies the same-null
+fiber-lift square, and stability transfers from the established current-stage lift.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterTensorPresentation.auxiliaryLift_integer_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-12"

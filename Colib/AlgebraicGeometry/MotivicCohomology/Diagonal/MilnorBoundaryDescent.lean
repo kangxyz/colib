@@ -13,7 +13,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.ReducedPointNor
 
 The zero-simplex chart identifies reduced zero-chains with sections at the
 base field. The degree-one faces give the original endpoint point norms.
-Normalized endpoint comparison in characteristic zero gives their equality.
+The normalized endpoint comparison gives their equality over any field.
 Evaluation descends through the actual singular boundary to the original
 raw and derived diagonal groups.
 -/
@@ -91,8 +91,6 @@ theorem degreeZeroNorm_face_quotient (i : Fin 2)
     _ = DiagonalPointNorm.cycleValue k q (zeroSimplexInv k ≫ δ ≫ α) :=
       degreeZeroNorm_quotient k q (δ ≫ α)
     _ = _ := by rw [← Category.assoc, hface]
-
-variable [CharZero k]
 
 /-- The two actual point norms agree, so evaluation kills the alternating boundary. -/
 theorem degreeZeroNorm_boundary

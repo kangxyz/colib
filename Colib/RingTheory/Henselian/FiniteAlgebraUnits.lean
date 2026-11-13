@@ -34,7 +34,7 @@ variable (B : Type v) [CommRing B] [Algebra R B] [Module.Finite R B]
 
 /-- Every unit of a module-finite algebra over a strictly henselian local ring has an `n`-th
 root whenever `n` is invertible in the base. The algebra need not be local or nonzero. -/
-@[colib_tag "COL-1029",
+@[colib_tag "COL-1204",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/EtaleCohomology/HenselianRings/FiniteAlgebras.lean:44-74"
     "ingredient" "Finite henselian local factor decomposition, allowing an empty product",
@@ -70,7 +70,7 @@ theorem exists_pow_eq_of_isUnit_of_module_finite {n : ℕ} (hn : IsUnit (n : R))
 
 /-- The power map on the units of an arbitrary finite algebra over a strictly henselian
 local ring is surjective when its exponent is invertible in the base. -/
-@[colib_tag "COL-1029"]
+@[colib_tag "COL-1204"]
 theorem surjective_pow_units_of_module_finite {n : ℕ} (hn : IsUnit (n : R)) :
     Function.Surjective (fun u : Bˣ => u ^ n) := by
   have hn0 : n ≠ 0 := by

@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1042"
+title = "Bounded-above effective motives and their singular representatives"
+kind = "definition"
+section = "effective-motives"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.EffectiveMotivesMinus"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(\operatorname{NST}(k)\) be the category of integral Nisnevich
+sheaves with transfers on smooth schemes over a field \(k\). The category
+\(DM^{\mathrm{eff}}_-(k)\) is the full subcategory of
+\(D^-(\operatorname{NST}(k))\) on objects whose cohomology sheaves are
+\(\mathbb A^1\)-invariant. The motive of a smooth scheme is represented
+by the Nisnevich sheafification of the singular complex of its
+transfer representable.
+'''
+scope = '''
+The base category is the native smooth separated finite-type
+correspondence category. Boundedness uses the standard t-structure
+on the original derived category. See
+[@Voevodsky2000TriangulatedMotives, Section 3.1, after Proposition 3.1.13]
+for the full subcategory and [@Voevodsky2000TriangulatedMotives, Section 3.2]
+for its singular representatives.
+'''
+proof = '''
+Place the signed singular chain complex in cochain degrees \(-r\).
+Its cohomology is the sheafification of the original singular homology
+by exactness of transfer sheafification. Singular homology is
+\(\mathbb A^1\)-invariant by COL-1030, and COL-1028 preserves this
+condition after Nisnevich sheafification. These comparisons give the
+effective object and are compatible with the original coefficient maps.
+'''

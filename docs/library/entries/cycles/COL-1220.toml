@@ -1,0 +1,47 @@
+[entry]
+id = "COL-1220"
+title = "Weighted endpoint stalk Tor and full cut lengths"
+kind = "comparison"
+section = "principal-polynomial-families"
+order = 40
+primary = "AlgebraicGeometry.PrincipalFamilyEndpointCuts.weightedEndpointStalkTor_eq_cutLength"
+review = "author_checked"
+statement = '''
+Let \(W\) be an integral noetherian scheme over a field \(k\), suppose
+its actual polynomial cylinder is noetherian, and let \(x\in W\) have
+coheight one. For an endpoint \(c\in k\), write \(R\) for the ambient
+cylinder stalk and \(S=\mathcal O_{W,x}\), with its original scalar action
+through the endpoint stalk map \(R\to S\). Let \(g\in R\) be the germ
+of a global cylinder section whose image in \(S\) is nonzero. Sum the
+alternating lengths of the actual native modules
+\(\operatorname{Tor}^R_i(S,R/\mathfrak p)\), in degrees zero and one,
+over the minimal support points of the full module \(R/(g)\), weighted
+by its localized lengths. This sum equals the full endpoint cut length
+\(\ell_S(S/(g))\). For the original polynomial numerator and denominator,
+the signed sums consequently cancel at zero when \(b_x\ne0\), and recover
+the original order at one when both \(a_x\ne0\) and \(b_x\ne0\).
+'''
+proof = '''
+The polynomial projection is smooth of relative dimension one, so its
+actual endpoint section is Cartier. Its stalk kernel therefore has a regular
+generator. The nonzero specialized germ gives regularity on the endpoint
+quotient, and exchanging the regular pair makes the endpoint equation
+regular on the full principal quotient. Native minimal-support associativity
+retains its localized-length weights. Regularity on each minimal prime
+quotient follows from the associated-prime criterion, and the native Koszul
+resolution makes every positive Tor vanish. Transport along the original
+surjective stalk map retains the actual scalar action and full quotient
+length. COL-1218 supplies the signed endpoint values.
+'''
+scope = '''
+All quotients retain their nilpotents and multiplicities. No flatness of an
+integral support over the parameter base is assumed. The regular endpoint
+generator, component regularity and finite full cut length are produced
+from the stated geometric hypotheses. The field and schemes share one
+universe. Native local associativity [@stacks, Tag 02QF] and the Cartier
+stalk-generator theorem in UFDExtension of [@axiom_stacks_5ed82d14] are
+ingredients. Identifying this weighted endpoint stalk Tor with the original
+correspondence graph-incidence modules, their order weights and both
+finite-pushforward residue-degree factors remains a separate comparison.
+This item does not assert a global finite-correspondence endpoint identity.
+'''

@@ -1,13 +1,15 @@
 [entry]
 id = "COL-0565"
-title = "Stable finite cone-loop normalization"
+title = "Stable equivalence of finite cone–loop normalizations"
 kind = "theorem"
-section = "bass-construction"
-order = 1565
+section = "bass-delooping-normalization-and-telescopes"
+order = 50
 statement = '''
-For any category C, square functor Q, zero-preserving Model-valued functor M and finite stage i,
-the canonical map from the strict Bass iterate to its finite cone-loop normalization is a stable
-equivalence at every object of C.
+For a square functor \(Q\), a diagram \(M\) of zero-preserving Waldhausen
+Models and a finite stage \(i\), the comparison from the strict Bass iterate
+to its cone–loop normalization is a stable equivalence at every coefficient object.
+The finite-stage connectivity and basepoint homotopy-extension properties
+needed for this assertion follow from the Model construction.
 '''
 scope = '''
 Native zero-preserving Waldhausen Models at arbitrary stated universes. The point

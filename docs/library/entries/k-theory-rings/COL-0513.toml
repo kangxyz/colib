@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0513"
-title = 'The Original Stable General Linear Map as a Homological Plus Construction'
+title = "The stable general linear map as a homological plus construction"
 kind = "comparison"
 section = "quillen-k-theory-of-rings"
-order = 305
+order = 20
 primary = "ModuleCat.FiniteProjective.StableCompletion.stableZeroMap_isPlusConstruction"
 statement = '''Let \(R\) be an arbitrary ring, let \(G=\operatorname{GL}_{\infty}(R)\), and let \(E\leq G\) be its stable elementary subgroup. Let \(Z_R\) be the specified zero component of the projective group-completion model. The original map \(f_R:BG\to Z_R\), equipped with its original basepoint path, is a homological plus construction with respect to the image of \(E\) under the original isomorphism \(G\cong\pi_1(BG)\).
 

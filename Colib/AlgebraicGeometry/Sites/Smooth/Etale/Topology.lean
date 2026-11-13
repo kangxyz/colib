@@ -52,7 +52,7 @@ theorem mem_etalePrecoverage_iff {X : SmoothSite S} {R : Presieve X} :
       R.map (forgetScheme S) ∈ Scheme.etalePrecoverage X.left := Iff.rfl
 
 /-- Smooth étale covering families are exactly the jointly surjective étale families. -/
-@[colib_tag "COL-1028", stacks 0215
+@[colib_tag "COL-1203", stacks 0215
   "Etale covering families restricted to smooth separated finite-type schemes over a base"]
 theorem ofArrows_mem_etalePrecoverage_iff {X : SmoothSite S} {ι : Type*}
     {Y : ι → SmoothSite S} (f : ∀ i, Y i ⟶ X) :

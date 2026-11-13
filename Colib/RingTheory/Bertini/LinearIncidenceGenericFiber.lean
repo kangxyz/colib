@@ -4,9 +4,9 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.LinearIncidenceBaseChange
 public import Colib.RingTheory.AlgebraicIndependent.FractionImageTrdeg
+public import Colib.RingTheory.AlgebraicIndependent.LinearRelationsTrdeg
 
 /-! # Generic-component bounds for the actual linear evaluation incidence -/
 @[expose] public noncomputable section

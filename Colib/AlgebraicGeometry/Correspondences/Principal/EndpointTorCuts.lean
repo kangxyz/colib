@@ -104,7 +104,7 @@ def weightedEndpointStalkTor (c : k) (x : W) (s : Γ(parameterSpace p, ⊤)) : �
 
 /-- Local weighted actual quotient Tor is the full endpoint cut length.
 The nonzero specialized germ supplies component regularity through the full quotient. -/
-@[colib_tag "COL-1045",
+@[colib_tag "COL-1220",
   colib_ref "axiom_stacks_5ed82d14"
     "StacksFrontier/AlgebraicGeometry/Divisors/EffectiveCartier/UFDExtension.lean:155-164"
     "ingredient" "A regular generator of the actual Cartier endpoint stalk kernel",

@@ -20,8 +20,8 @@ The vanishing is the K₂ case of the classical finite-field calculation, not a
 computation of all higher Quillen K-groups. Milnor (1970), Section 1, Example 1.5
 attributes the symbol calculation to Steinberg; see also Weibel, III,
 Corollary 6.1.1. The identification of classical K₂ with homotopy-defined K₂
-is separate (Weibel, IV, Corollary 1.7.1). This proof uses all-field surjectivity,
-not the characteristic-zero Matsumoto equivalences.
+is separate (Weibel, IV, Corollary 1.7.1). The vanishing follows from the
+surjectivity of the two native comparison maps.
 
 Implementation provenance: this adapts the right-projective and upper finite-module clauses of
 `Quillen/KTheory/Field/FiniteFieldKTwo.lean` at revision

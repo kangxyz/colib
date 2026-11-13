@@ -8,6 +8,7 @@ module
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.NormalizedEndpointCycles
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.ResiduePointEvaluation
 public import Colib.RingTheory.KTheory.MilnorK.Dedekind.AffineEndpointBaseNorm
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenComparisonFinite
 public import StacksFrontier.AlgebraicGeometry.Scheme.FibreResidueField
 public import StacksFrontier.RingTheory.Length.RingEquiv
 
@@ -207,8 +208,6 @@ private theorem endpointLocalResidueFinite (a : k) (x : endpointFiber k S a) :
 
 attribute [local instance] endpointLocalResidueFinite
 
-variable [CharZero k]
-
 private theorem residueValue_eq_branchNorm (a : k) (x : endpointFiber k S a) (n : ℕ)
     (u : Fin n → Sˣ) :
     residueValue (endpointToField k S a) (endpointUnits k S a u) x =
@@ -233,7 +232,7 @@ private theorem residueValue_eq_branchNorm (a : k) (x : endpointFiber k S a) (n 
       residueScalar (endpointToField k S a) x r
     rw [endpointResidueScalar_eval]
     exact endpointBranchResidueEquiv_eval k S a x (algebraMap k S r)
-  have h := milnorKNorm_map_ringEquiv (RingEquiv.refl k) e he n (milnorKTupleSymbol v)
+  have h := milnorKNorm_map_ringEquiv_of_finite (RingEquiv.refl k) e he n (milnorKTupleSymbol v)
   have hid : (RingEquiv.refl k).toRingHom = RingHom.id k := rfl
   rw [hid, milnorKTransport_id_apply, milnorKTransport_tupleSymbol] at h
   have hv : Units.map e.toRingHom.toMonoidHom ∘ v =
@@ -249,7 +248,7 @@ variable (K : Type u) [Field K] [Algebra S K] [IsFractionRing S K]
   [Algebra k[X] K] [IsScalarTower k[X] S K]
   [Algebra (RatFunc k) K] [IsScalarTower k[X] (RatFunc k) K]
 
-omit [CharZero k] [Algebra k S] [IsScalarTower k k[X] S] in
+omit [Algebra k S] [IsScalarTower k k[X] S] in
 private theorem endpointCoefficient_eq_order (a : k) (x : endpointFiber k S a) :
     AlgebraicCycle.fundamentalCycle (endpointFiber k S a) x =
       dvrFracOrd (IsDiscreteValuationRing.exists_irreducible
@@ -320,9 +319,8 @@ private theorem residue_sum_eq_endpoint (a : k) (n : ℕ) (u : Fin n → Sˣ) :
 
 end Branches
 
-variable {k : Type u} [Field k] [CharZero k] {q : ℕ} (Z : Generator k q)
+variable {k : Type u} [Field k] {q : ℕ} (Z : Generator k q)
 
-omit [CharZero k] in
 private theorem normalizedFiberInclusion_coordinate (a : k) (i : Fin q) :
     schemeCoordinateUnit (normalizedFiberInclusion Z a) i =
       Units.map (normalizedFiberScalar Z a).toMonoidHom (normalizedCoordinateUnit Z i) := by

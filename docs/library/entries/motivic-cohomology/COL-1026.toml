@@ -6,44 +6,52 @@ section = "diagonal-motivic-comparison"
 order = 20
 primary = "AlgebraicGeometry.MotivicCohomology.DiagonalMilnorEquivalence.motivicEquiv"
 review = "author_checked"
-source_checked_on = "2026-11-11"
+source_checked_on = "2026-11-12"
 statement = '''
-For a field \(k\) of characteristic zero and every \(q\geq 0\), the rational
+For every field \(k\) and every \(q\geq 0\), the rational
 graph symbol gives an additive isomorphism
 \[
 K_q^M(k)\simeq H^{q,q}(\operatorname{Spec}k,\mathbb Z).
 \]
 It sends the ordered symbol of units \(a_1,\ldots,a_q\) to the class of the
-rational point \((a_1,\ldots,a_q)\) in the reduced torus. The inverse sends
-the class of a closed point \(z\) to the Milnor norm from its residue field
-of the symbol of its coordinate units, and extends by signed additivity.
-The comparison respects extension of scalars. For finite extensions, it
-identifies the Milnor norm with motivic corestriction.
+rational point \((a_1,\ldots,a_q)\) in the reduced torus. If the coordinate
+units of a closed point \(z\) are \(u_i\in\kappa(z)^\times\), the inverse
+sends its class to \(N_{\kappa(z)/k}\{u_1,\ldots,u_q\}\).
+It extends additively to signed cycles.
+
+For each field homomorphism, the isomorphism identifies scalar extension
+on Milnor K-theory with motivic pullback. For every finite extension
+\(L/k\), it identifies \(N_{L/k}\) with finite motivic pushforward.
 '''
 scope = '''
-The characteristic-zero hypothesis is the one in the original all-weight
-comparison. The groups are the homogeneous components of the Stacks
-Milnor ring and the original integral motivic hypercohomology. The
+The source is the degree-\(q\) component of the Stacks Milnor ring.
+The target is the original integral motivic hypercohomology. The
 base-field comparison of COL-0400 and `FieldCycleEvaluation` identify its
-diagonal with the raw signed cycle homology. The scalar and finite pushforward
-squares use field maps in a common Lean universe. The point and boundary
-formulas retain the original multiplicities and the alternating face sign.
+diagonal with the homology of the signed reduced-torus chains. The scalar
+and finite pushforward squares use fields in a common Lean universe.
+The comparison includes weight zero and finite inseparable extensions.
+[@MVW2006, Lecture 5, Theorem 5.1, p. 29]
 '''
 proof = '''
-The cubic boundary in weight two and finite corestriction give the
-Steinberg relation for rational graphs. Coordinate insertion gives
-multilinearity and extends the symbol to the Milnor presentation.
-The inverse candidate evaluates the signed point cycle by its residue
-field norms. The normalized endpoint identity compares the full fibers
-with their original lengths and proves that this evaluation kills
-boundaries. Its value on a rational graph is the corresponding symbol.
+The cubic boundary in weight two and finite pushforward with the original
+local lengths give the Steinberg relation for rational graphs. Coordinate
+insertion gives multilinearity and extends the symbol to the Milnor
+presentation.
 
-Conversely, a prime point is the finite pushforward of its rational graph
-over its own residue field. The chosen finite-extension norm comparison, proved by
-prime-degree and Sylow induction on the original polynomial branches,
-identifies the symbol of its Milnor norm with that pushforward. Hence
-the two maps are inverse on every signed cycle class. Scalar pullback
-preserves rational graph symbols, and the finite norm comparison gives
-the transfer square. Both identities pass through the original
-base-field evaluation.
+Normalize the support of a one-chain over the affine line. The local lengths
+of the normalized endpoint fibers are the orders of the endpoint parameters
+on the branches. The finite DVR norm–residue formula and affine
+specialization give equality of the weighted norm sums at the two endpoints.
+The evaluator therefore kills their alternating difference. On a rational
+graph it recovers the original Milnor symbol.
+[@MVW2006, Lecture 5, Corollary 5.5, pp. 30–31]
+
+A closed point is the finite pushforward of its rational graph over its
+residue field. The finite norm comparison uses the local lengths of the
+polynomial branches, prime-degree descent, and finite norm towers. It
+identifies the pushforward of the rational graph with the symbol of its
+Milnor norm, giving surjectivity and the second inverse identity. Scalar
+pullback preserves rational graphs. The base-field comparison transports
+both inverse identities and the two naturality squares to motivic cohomology.
+[@MVW2006, Lecture 5, Lemmas 5.10 and 5.11, pp. 32–34]
 '''

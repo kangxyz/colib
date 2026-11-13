@@ -87,8 +87,6 @@ theorem corestriction_graphSymbol_algEquiv (ε : E ≃ₐ[k] F) (q : ℕ) (a : F
         (graphSymbol F q (fun i => Units.map ε.toRingHom.toMonoidHom (a i))) := by
   rw [corestriction_graphSymbol, corestriction_graphSymbol, pointPushforward_graph_algEquiv ε]
 
-variable [CharZero E] [CharZero F]
-
 /-- Actual transfer of every Milnor class agrees across algebra presentations. -/
 theorem corestriction_rawSymbol_algEquiv (ε : E ≃ₐ[k] F) (q : ℕ) (x : MilnorKTheory E q) :
     corestriction (k := k) q (rawSymbol E q x) =

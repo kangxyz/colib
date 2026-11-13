@@ -7,7 +7,7 @@ order = 90
 primary = "Stacks.Chow.PrincipalBoundary.componentCorrespondence_cutCoefficient"
 review = "author_checked"
 statement = '''
-Retain the actual principal boundary family of COL-1041 and assume its
+Retain the actual principal boundary family of COL-1216 and assume its
 source-target product is locally noetherian. For each original principal
 support point, retain its integral support \(D\), original map \(r\)
 to that product and signed principal-cycle coefficient. Construct the

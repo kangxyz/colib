@@ -3,7 +3,7 @@ id = "COL-0019"
 title = 'The short-exact-sequence presentation'
 kind = "comparison"
 section = "grothendieck-groups"
-order = 60
+order = 50
 statement = '''
 Let \(\mathcal A\) be an abelian category and let \(\mathcal E_{\mathrm{ab}}\)
 be its standard exact structure. Write \(K_0(\mathcal A)\) for the group presented

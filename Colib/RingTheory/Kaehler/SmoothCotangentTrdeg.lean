@@ -8,6 +8,7 @@ module
 public import Colib.RingTheory.Etale.PolynomialTrdeg
 public import Colib.RingTheory.Etale.ResidueCoordinateCriterion
 public import Colib.RingTheory.Kaehler.ResidueFunctionBasis
+public import Colib.RingTheory.Etale.ResidueCotangentTrdeg
 public import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
 public import Mathlib.LinearAlgebra.Dimension.Constructions
 

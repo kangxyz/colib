@@ -21,14 +21,14 @@ specified full-boundary frame of COL-1054.
 proof = '''
 COL-1054 identifies the actual closed-fibre pullback with the unit module.
 The unit module's native tensor-power isomorphism therefore supplies an
-explicit closed-fibre root. Proper Kummer specialization in COL-1031,
+explicit closed-fibre root. Proper Kummer specialization in COL-1206,
 using native proper base change [@stacks, Tag 095T], reflects divisibility
-and constructs an actual global root. Apply COL-1037 to that root and
+and constructs an actual global root. Apply COL-1212 to that root and
 the original boundary trivialization. Its finite-algebra unit-root
 correction gives the exact equality of boundary isomorphisms.
 '''
 scope = '''
-Unlike COL-1040, no smoothness of the whole compactification, native
+Unlike COL-1215, no smoothness of the whole compactification, native
 IsCurve condition, Jacobian, degree-zero divisibility, normality or
 noetherianity is needed. The caller supplies no Cartier witness, root,
 Picard-divisibility certificate or initial boundary frame. The boundary

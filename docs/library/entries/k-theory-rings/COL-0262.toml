@@ -1,10 +1,39 @@
 [entry]
 id = "COL-0262"
-title = '''Matsumoto's theorem for \(K_{2}\) in characteristic zero'''
+title = '''Matsumoto's theorem for \(K_{2}\)'''
 kind = "theorem"
 section = "matsumoto-theorem"
 order = 10
-statement = '''Matsumoto's theorem in the implemented characteristic-zero case: over such a field, the original maps from native Milnor \(K_{2}\) to right-projective Quillen \(K_{2}\) and upper finite-module Quillen \(K_{2}\) are additive equivalences. They retain their literal forward homomorphisms, commute with the original field-extension maps in both directions, and send ordered symbols to the positive scalar unit product. The negative normalization is minus the positive inverse.'''
-scope = '''The right-projective target is the existing exact-category K 2; the upper target is literally `SmallK.{u+1}` of `FGModuleCat.{u}` F. No fiber-perfectness, generation, detector-law or comparison premise is added. The ordered scalar-product marking holds for every field, including the ZMod 5 regression. Bijectivity retains the pinned source's characteristic-zero hypothesis; no positive-characteristic Milnor equivalence is claimed. Field-change statements retain the original common-universe scope.'''
+primary = "MilnorKTheory.upperModuleKTwoEquiv"
+statement = '''
+For every field \(F\), the canonical homomorphisms from \(K_2^M(F)\) to
+right-projective Quillen \(K_2\) and to finite-module Quillen \(K_2\) are
+additive isomorphisms. Both directions commute with extension of scalars.
+In the finite-module model, the ordered symbol \(\{a,b\}\) maps to the
+scalar action of \(a\) on the positive \(K_1\)-class of \(b\).
+The negative normalization is the negative of the inverse isomorphism.
+'''
+scope = '''
+The source is the degree-two component of the Stacks Milnor ring. The
+right-projective target is the exact-category \(K_2\) of finite projective
+right modules. The finite-module target is `SmallK.{u+1} 2` of the abelian
+exact category `FGModuleCat.{u} F`. The field-change squares use fields in a
+common Lean universe.
+'''
+proof = '''
+Over an infinite field, choose \(q\in F^\times\) with \(q\ne 1\). A
+balanced diagonal scales the relevant lifted roots by \(q\). For a root
+parameter \(a\), comparing the conjugates at \(t=a/(q-1)\) uses
+\(qt=t+a\) to cancel the central difference in the commutator relation.
+The resulting Bruhat action detects each Milnor coefficient in the
+stable Steinberg kernel and gives injectivity. Over a finite field,
+injectivity follows from COL-0279.
+
+The original torus defects generate the stable Steinberg kernel, so
+the map of COL-0255 is also surjective. The stable-fiber comparison
+identifies this kernel with the two Quillen groups using the original
+maps. Scalar extension and the ordered scalar action agree with those
+maps, which gives the naturality and normalization formulas.
+'''
 review = "author_checked"
 provenance = "quillen"

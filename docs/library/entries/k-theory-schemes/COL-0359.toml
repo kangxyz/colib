@@ -1,8 +1,8 @@
 [entry]
 id = "COL-0359"
-title = "Global and Laurent units on actual affine sections"
+title = "Units on affine sections"
 kind = "theorem"
-section = "affine-bass-constructions"
+section = "bass-k-theory-and-geometric-delooping"
 order = 10
 statement = '''Global units act on actual bounded-above-flat affine cocartesian sections by the unique lift
 through fully faithful identity evaluation. Every coefficient-arrow evaluation identifies both

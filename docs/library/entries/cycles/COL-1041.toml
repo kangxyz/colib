@@ -1,48 +1,38 @@
 [entry]
 id = "COL-1041"
-title = "The actual signed principal polynomial correspondence"
-kind = "definition"
-section = "principal-polynomial-families"
-order = 20
-primary = "Stacks.Chow.PrincipalPolynomialFamily.correspondence"
+title = "Principal cut cycles along a closed polynomial face"
+kind = "theorem"
 review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "relative-principal-cuts"
+order = 20
+primary = "AlgebraicGeometry.Cor.graph_comp_closedFiberCycle_endpoint_eq_of_finite"
 statement = '''
-Let \(X\) be affine over \(\operatorname{Spec}R\), let \(q:C\to X\)
-be proper, and let \(V\hookrightarrow C\) be a quasi-affine open smooth
-of relative dimension one over \(X\). Let \(Y\to\operatorname{Spec}R\)
-be separated and locally of finite type, with a compatible morphism
-\(g:V\to Y\). A function \(f\) on a boundary neighborhood restricting
-to \(1\) on the whole nonempty boundary, together with the full boundary
-cover condition, constructs an actual native finite correspondence from
-\(X\times_R\mathbb A^1_R\) to \(Y\). Assume the actual ambient
-parameter product \(C\times_R\mathbb A^1_R\) is integral and Noetherian.
-The correspondence is the signed sum of the principal coefficients of
-\(t f+(1-t)\), pushed from their original integral supports with their
-actual residue-field degrees.
-'''
-proof = '''
-COL-1039 proves finiteness of each nonzero native principal-cycle support.
-The coefficient can be nonzero only at coheight one. Finiteness supplies
-an algebraic residue-field extension, hence a closed point in the actual
-smooth curve fibre. Native local dimension one and preservation of generic
-points by flat morphisms show that the support maps onto a component of the
-source. Thus finiteness and component dominance are produced rather than
-assumed. Lift each whole support into the retained open and use \(g\) to
-form its actual map into the source-target product. Each summand equals
-the native finite pushforward of the original signed coefficient. Sum over
-the finite support set; distinct supports with the same image add their
-weighted coefficients.
+Let \(P\) be a closed noetherian support in \(Y\times_k Z\) over a
+field, with smooth source and target. Let \(X\to Y\) be the Cartesian
+face at a scalar of a flat polynomial parameter on \(Y\). Assume
+the face and cut equations act regularly on the original stalks of
+\(P\), and the original cut is finite with generic image over \(Y\).
+
+Suppose \(\alpha\) is the finite correspondence given by pushing
+forward the fundamental cycle of the cut. Suppose \(\beta\) is
+the finite correspondence obtained by cutting the fundamental
+cycle of the face fibre of \(P\) with the original generic
+multiplicities. Then the graph of \(X\to Y\) followed by
+\(\alpha\) equals \(\beta\) in \(\operatorname{Cor}(X,Z)\).
 '''
 scope = '''
-The carrier is Stacks.Chow.finiteCorrespondences for the original source
-and target structure maps. The cycle is the native principalCycle and every
-pushforward retains its residueDegree. The integralComponentAt support is
-the native reduced integral subscheme supported on the closure of its
-generic point; principal orders remain in the signed coefficients. This does not reduce the input boundary,
-whose normalization remains equality of sections on the full scheme.
-No support flatness, finiteness or dominance certificate is supplied.
-Integrality and Noetherianness of the actual parameter product are explicit.
-Graph-endpoint composition, Tor/local-length comparison, identification
-with the existing affine-cylinder maps and the final homotopy identity are
-not asserted here.
+The two correspondences carry the fundamental-cycle weights of the
+actual schemes and retain the original closed support throughout the
+face calculation. This is a closed polynomial face case of the
+compatibility of relative Cartier cuts with pullback in
+[@Voevodsky2010Cancellation, Proposition 3.1, pp. 676–677].
+'''
+proof = '''
+The Cartesian source projection gives finite length for the double
+cut at the relevant stalks. The generic image of the original cut
+and regularity give proper intersection in both orders. The two
+principal Euler lengths agree by exchanging the two scalars. The
+closed endpoint formula identifies these coefficients with graph
+precomposition before the finite pushforward.
 '''

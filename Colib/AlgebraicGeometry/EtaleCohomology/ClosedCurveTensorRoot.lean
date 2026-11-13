@@ -74,7 +74,7 @@ namespace Stacks.Kummer
 
 /-- On a smooth proper curve over a separably closed field, every degree-zero invertible
 module has an ordinary tensor root for every natural exponent invertible in the field. -/
-@[colib_tag "COL-1034", stacks 03RP
+@[colib_tag "COL-1209", stacks 03RP
   "Degree-zero Picard divisibility on a smooth proper curve, transported to an actual tensor root",
   colib_ref "axiom_stacks_5ed82d14"
     "AlgebraicGeometry/PicardScheme/CurvePicard/JacobianPointGroup.lean:375-381"

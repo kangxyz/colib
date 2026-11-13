@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0609"
+title = "Local-DVR boundary and the original residue coordinate"
+kind = "comparison"
+section = "dedekind-residue-localization"
+order = 40
+statement = 'For a Dedekind domain and a height-one prime, the native local-DVR boundary after the original generic scalar-extension map equals the global residue-coordinate boundary in every positive supported degree.'
+scope = 'The actual finite-module localization square, scalar restriction versus tensor extension, and canonical Serre boundary naturality are retained. The separate geometric principal-closed scheme boundary comparison is COL-0613.'
+review = "author_checked"
+provenance = "quillen"

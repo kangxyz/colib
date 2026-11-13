@@ -1,10 +1,25 @@
 [entry]
 id = "COL-0250"
-title = "Canonical connective Serre localization"
+title = "The Serre localization sequence"
 kind = "theorem"
-section = "quillen-k-theory"
-order = 300
-statement = "The original inclusion and canonical quotient maps form the connective Serre localization long exact sequence. The boundary is the native path-space boundary transported through the inverse of the proved comparison equivalence. All three recurring exactness positions hold, including the K-one to K-zero boundary, and the canonical quotient map is surjective on K-zero."
+section = "resolution-devissage-and-serre-localization"
+order = 80
+statement = '''
+For a Serre subcategory \(\mathcal P\) of a small abelian category \(\mathcal A\),
+the inclusion \(i\) and quotient \(q\) give an exact sequence
+\[
+\cdots\to K_{n+1}(\mathcal A/\mathcal P)\xrightarrow{\partial}
+K_n(\mathcal P)\xrightarrow{i_*}K_n(\mathcal A)
+\xrightarrow{q_*}K_n(\mathcal A/\mathcal P)\to\cdots
+\]
+with terminal tail
+\[
+K_1(\mathcal A/\mathcal P)\xrightarrow{\partial}K_0(\mathcal P)
+\xrightarrow{i_*}K_0(\mathcal A)\xrightarrow{q_*}K_0(\mathcal A/\mathcal P)\to0.
+\]
+The boundary is uniquely determined by transporting the path-space boundary
+through the fiber comparison of COL-0249.
+'''
 scope = '''C : Type u with `Category.{u}` C and Abelian C, and P : `ObjectProperty` C with `P.IsSerreClass`. Inclusion is `Abelian.Devissage.KMap` and quotient is `quotientKMap` on the original Quillen K-groups. The comparison equation uniquely determines `connectingHom`. There are no additional comparison, filtration or transition hypotheses. The terminal K-zero surjection reuses the independent Grothendieck-to-Quillen proof, without supplying the higher fiber comparison. Negative K-theory and an independent comparison of boundary-sign conventions are not asserted.'''
 review = "author_checked"
 provenance = "quillen"

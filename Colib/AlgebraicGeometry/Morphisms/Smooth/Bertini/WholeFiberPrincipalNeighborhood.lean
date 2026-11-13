@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.Morphisms.Smooth.PrincipalNeighborhood
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.WholeFiberSmoothProjection
+public import Colib.RingTheory.Bertini.ClosedPointMovingCoefficients
 
 /-!
 # Whole-fiber principal neighborhoods

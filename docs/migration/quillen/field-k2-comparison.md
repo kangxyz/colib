@@ -1,4 +1,4 @@
-# Matsumoto's theorem for K₂ in characteristic zero
+# Matsumoto's theorem for K₂ over every field
 
 ## Mathematical attribution
 
@@ -6,8 +6,8 @@ The field K₂ isomorphism is **Matsumoto's theorem**. Its original source is
 [Matsumoto (1969), Section 5, Theorem 5.10 and Corollary 5.11, pp. 30–31](https://numdam.org/item/10.24033/asens.1174.pdf#page=31).
 The original statement treats central extensions over infinite fields, with
 separate symplectic and non-symplectic presentations. Here the non-symplectic
-case specializes to stable type A, with the implementation's `[CharZero F]`
-hypothesis. The familiar field K₂ presentation is also stated in
+case specializes to stable type A. The existing Milnor K₂ vanishing supplies
+the finite-field case. The field K₂ presentation is also stated in
 [Weibel, III, Theorem 6.1](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf#page=48).
 
 The further identification with Quillen's homotopy-defined K₂ is a separate
@@ -27,8 +27,8 @@ Original attribution and Apache-2.0 notices are retained in adapted sources.
 Library item COL-0262 records the endpoint in
 `Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence`. The earlier Lean 4.34 candidate passed
 strict endpoint compilation and focused native checks. Those results are
-historical. The Lean 4.35 integration ports consumers to the native finite-support
-simplex and is now published on main at
+historical. The original characteristic-zero Lean 4.35 integration ports
+consumers to the native finite-support simplex and was published at
 [`0fd43f0253d6ff441fbc3e82420a0573ad694310`](https://github.com/kangxyz/colib/commit/0fd43f0253d6ff441fbc3e82420a0573ad694310).
 Its [original candidate CI](https://github.com/kangxyz/colib/actions/runs/42373233801)
 passed the repository-wide build, tests, native lint, axiom audit and Library checks.
@@ -36,12 +36,12 @@ This exact-commit result is separate from the earlier focused checks.
 
 ## Exact hypotheses, objects and maps
 
-For `F : Type u` with `[Field F] [CharZero F]`, the source defines:
+For `F : Type u` with `[Field F]`, the source defines
 
-- `MilnorKTheory.rightProjectiveKTwoEquivCharZero F`, from the unchanged Stacks
+- `MilnorKTheory.rightProjectiveKTwoEquiv F`, from the Stacks
   `MilnorKTheory F 2` to
   `Additive ((ModuleCat.FiniteProjective.exactStructure.{u,u} Fᵐᵒᵖ).K 2)`.
-- `MilnorKTheory.upperModuleKTwoEquivCharZero F`, with the same domain and
+- `MilnorKTheory.upperModuleKTwoEquiv F`, with the same domain and
   literal target
   `Additive ((abelianExactStructure (FGModuleCat.{u} F)).SmallK.{u+1} 2)`.
 
@@ -57,15 +57,13 @@ Q-construction groups, not a presentation chosen to make the comparison hold.
 [native Matsumoto injectivity](matsumoto-native-injectivity.md), and the
 [stable-fiber proof](field-k2-stable-fiber.md) supply the inputs. Fiber
 perfectness is proved for every ring; the original Steinberg-kernel-to-K₂ map's
-injectivity and surjectivity are proved over every field. No perfectness,
-generation, detector-law or comparison-isomorphism premise is added to the
-final theorem. The Milnor equivalences retain the pinned characteristic-zero
-hypothesis. No positive-characteristic bijectivity claim is made.
+injectivity and surjectivity are proved over every field. The Milnor
+equivalences combine these results with the infinite-field Bruhat detector
+and finite-field Milnor K₂ vanishing.
 
 ## Ordered product and negative normalization
 
-For every field, without a characteristic-zero assumption,
-`MilnorKTheory.toUpperModuleKTwo_pair_eq_unitProduct` proves
+For every field, `MilnorKTheory.toUpperModuleKTwo_pair_eq_unitProduct` proves
 
 `toUpperModuleKTwo F (milnorKTupleSymbol ![a, b]) = Additive.ofMul (FGModuleCat.FieldSymbols.unitProduct F a b)`.
 
@@ -77,9 +75,9 @@ defined through the Milnor equivalence. The ordered kernel word remains
 The scalar-cube and connecting-sweep inversions cancel, without swapping `a`
 and `b` or discarding the moving vertex track.
 
-In characteristic zero, `upperModuleKTwoEquivCharZero_pair` gives that same
-ordered product. `upperModuleKTwoNegativeEquivCharZero` is literally
-`(upperModuleKTwoEquivCharZero F).symm.trans (AddEquiv.neg _)`.
+`upperModuleKTwoEquiv_pair` gives that same ordered product.
+`upperModuleKTwoNegativeEquiv` is
+`(upperModuleKTwoEquiv F).symm.trans (AddEquiv.neg _)`.
 It sends the actual positive `unitProduct F a b` to
 `-milnorKTupleSymbol ![a, b]`; its inverse is minus the original forward map.
 
@@ -92,11 +90,9 @@ They are proved for arbitrary fields in
 `Colib.RingTheory.KTheory.MilnorK.QuillenNaturality`. In this common universe, the native
 Milnor map agrees with the existing Stacks transport.
 
-When both fields have characteristic zero, the final comparison proves these
-squares for each equivalence and its inverse, and for the negative
-normalization in both directions. The inverses are those of the same
-positive equivalences, not newly chosen field-change maps. No broader universe
-range is inferred for these Quillen field-change endpoints.
+The comparison proves these squares for each equivalence and its inverse,
+including the negative normalization in both directions. The squares use the
+same native coefficient maps in the common universe.
 
 ## Native coordinate ownership
 
@@ -153,7 +149,6 @@ commit; it does not certify later descendants.
   This is a remote whole-library pass, not a claim that the local resource-limited
   environment completed `scripts/check.sh`.
 
-No separate client build, kernel replay, all-fields Milnor equivalence or
-completion of the entire historical Quillen migration is claimed. The frozen
-historical inventory and earlier slice validation remain records of their
-original scopes.
+The earlier verification records refer to the original comparison. The
+all-field version has in-package examples for the Bruhat detector over
+`RatFunc (ZMod 2)` and the Quillen equivalences over `ZMod 2` and `ZMod 3`.

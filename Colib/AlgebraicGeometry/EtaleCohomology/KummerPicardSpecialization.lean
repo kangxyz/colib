@@ -21,7 +21,7 @@ inverse-image comparison on roots of unity. Proper base change over a strictly h
 local ring then reflects divisibility of Picard classes from the closed fibre.
 
 The general boundary and its naturality allow independent coefficient and Ext universes.
-The proper specialization uses coefficient and Ext universe `u + 1`, as in COL-1030.
+The proper specialization uses coefficient and Ext universe `u + 1`, as in COL-1205.
 -/
 
 @[expose] public noncomputable section
@@ -140,7 +140,7 @@ theorem bijective_rootsOfUnityPullbackMap_closedFibre :
 /-- For a proper scheme over a strictly henselian local ring, a Picard class is divisible
 by an invertible positive integer if and only if its restriction to the closed fibre is.
 No vanishing of second cohomology of the multiplicative sheaf is required. -/
-@[colib_tag "COL-1031", stacks 03PL
+@[colib_tag "COL-1206", stacks 03PL
   "Kummer exactness and proper base change reflect divisibility of Picard classes \
   from the closed fibre",
   colib_ref "axiom_stacks_5ed82d14"
@@ -163,7 +163,7 @@ theorem picard_nsmul_exists_iff_closedFibre (L : Picard.ofScheme X) :
 /-- An actual tensor root of the closed-fibre pullback implies existence of an actual
 global tensor root. This does not assert that the particular fibre root or its chosen
 isomorphism extends. -/
-@[colib_tag "COL-1031"]
+@[colib_tag "COL-1206"]
 theorem exists_schemeTensorPower_iso_of_closedFibre
     (L : X.Modules) (hL : Stacks.SheafOfModules.IsInvertible X.presheaf X.ringCatIsSheaf L)
     (M₀ : (closedFibre R f).Modules)

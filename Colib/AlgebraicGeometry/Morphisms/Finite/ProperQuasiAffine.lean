@@ -12,8 +12,10 @@ public import Mathlib.AlgebraicGeometry.Morphisms.IsIso
 /-!
 # Finite morphisms from proper quasi-affine sources
 
-Adapted from the identically named Motivic/Aglib module in the 2026-10-21
-source checkpoint. The proof retains the actual affinization morphism.
+Adapted from the same-named original module below `Motivic/Aglib`, blob
+`2ea7e5da02b9061fcdf3e85697a8ea53a27f6fa9`, at
+`motivic@a6805c4a87cdfd7717dd7a94039246a167f15380`.
+The proof retains the actual affinization morphism.
 -/
 
 @[expose] public noncomputable section

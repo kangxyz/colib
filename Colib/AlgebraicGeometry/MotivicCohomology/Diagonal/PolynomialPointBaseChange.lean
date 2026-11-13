@@ -14,9 +14,10 @@ import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.TupleFieldChange
 /-!
 # Scalar base change of an actual transferred polynomial point
 
-The scalar extension of the entire transferred graph is a sum of actual
-transferred graphs, one for every irreducible factor of the coefficient image.
-Each factor carries the full tuple through its native polynomial quotient map.
+The scalar extension of the entire transferred graph is a weighted sum of
+actual transferred graphs, one for every irreducible factor of the coefficient
+image. Each factor carries the full tuple through its native polynomial
+quotient map and contributes its original polynomial multiplicity.
 -/
 
 @[expose] public noncomputable section
@@ -122,7 +123,43 @@ private theorem polynomialChangedPoint_branch
   · rw [Category.assoc, polynomialChangedPoint_base, branchMap_projection, finitePointMap_fst]
     simp only [NativeTorusPolynomial.projection, scalarMap, AdjoinRoot.algebraMap_eq]
 
-/-- The native signed cycle of a transferred polynomial graph after scalar extension. -/
+/-- The whole changed graph contributes each actual factor with its multiplicity. -/
+theorem pointPushforward_graph_fieldChange_polynomial_weighted
+    [Fintype {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
+      poly r.2 ∣ (poly p).map (algebraMap k L)}] :
+    pointCycleFieldChange (k := k) (L := L) n
+      (pointPushforward (k := k) n ((Cor.graphFunctor (AdjoinRoot (poly p))).map
+        (rationalTuple _ n a))) =
+      ∑ r : {r : Σ e : ℕ, MonicIrreducibleOfDegree L e //
+          poly r.2 ∣ (poly p).map (algebraMap k L)},
+        (multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) •
+          pointPushforward (k := L) n ((Cor.graphFunctor (AdjoinRoot (poly r.1.2))).map
+            (rationalTuple (AdjoinRoot (poly r.1.2)) n
+              (fun i => Units.map (AdjoinRoot.map (algebraMap k L) (poly p)
+                (poly r.1.2) r.2).toMonoidHom (a i)))) := by
+  classical
+  let e := polynomialPointSupportIso (L := L) p
+  apply Subtype.ext
+  rw [pointPushforward_graph_fieldChange_val, ← finiteCyclePushforward_fundamentalCycle_iso e,
+    finiteCyclePushforward_comp_apply]
+  change finiteCyclePushforward (polynomialChangedPoint (L := L) p a) _ = _
+  rw [fundamentalCycle_eq_weighted_sum_branches _ ((monic p).map _)]
+  change _ = (finiteCorrespondences (SmoothSite.base (Spec (.of L))).hom
+    (DiagonalCycleSymbols.target L n).toSmoothSite.hom).subtype _
+  simp only [map_sum, map_zsmul]
+  apply Finset.sum_congr rfl
+  intro r _
+  rw [AddSubgroup.subtype_apply, finiteCyclePushforward_comp_apply]
+  have hpush {P : Scheme.{u}} (f g : P ⟶ pointAmbient L n)
+      [IsFinite f] [IsFinite g] (h : f = g) (c : AlgebraicCycle P ℤ) :
+      finiteCyclePushforward f c = finiteCyclePushforward g c := by
+    cases h
+    rfl
+  exact congrArg ((multiplicity (poly r.1.2) ((poly p).map (algebraMap k L)) : ℤ) • ·)
+    ((hpush _ _ (polynomialChangedPoint_branch (L := L) p a r) _).trans
+      (pointPushforward_graph_fundamental (k := L) n _).symm)
+
+/-- The native signed cycle of a separable transferred polynomial graph after scalar extension. -/
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/Cohomology/Diagonal/PolynomialPointBaseChange.lean:126-174"
   "adaptation" "Full scalar branch formula for the actual transferred ordered graph"]
@@ -139,25 +176,9 @@ theorem pointPushforward_graph_fieldChange_polynomial
           (rationalTuple (AdjoinRoot (poly r.1.2)) n
             (fun i => Units.map (AdjoinRoot.map (algebraMap k L) (poly p)
               (poly r.1.2) r.2).toMonoidHom (a i)))) := by
-  classical
-  let e := polynomialPointSupportIso (L := L) p
-  apply Subtype.ext
-  rw [pointPushforward_graph_fieldChange_val, ← finiteCyclePushforward_fundamentalCycle_iso e,
-    finiteCyclePushforward_comp_apply]
-  change finiteCyclePushforward (polynomialChangedPoint (L := L) p a) _ = _
-  rw [fundamentalCycle_eq_sum_branches _ ((monic p).map _) hsep.map.squarefree]
-  change _ = (finiteCorrespondences (SmoothSite.base (Spec (.of L))).hom
-    (DiagonalCycleSymbols.target L n).toSmoothSite.hom).subtype _
-  simp only [map_sum]
-  apply Finset.sum_congr rfl
-  intro r _
-  rw [AddSubgroup.subtype_apply, finiteCyclePushforward_comp_apply]
-  have hpush {P : Scheme.{u}} (f g : P ⟶ pointAmbient L n)
-      [IsFinite f] [IsFinite g] (h : f = g) (c : AlgebraicCycle P ℤ) :
-      finiteCyclePushforward f c = finiteCyclePushforward g c := by
-    cases h
-    rfl
-  exact (hpush _ _ (polynomialChangedPoint_branch (L := L) p a r) _).trans
-    (pointPushforward_graph_fundamental (k := L) n _).symm
+  have hzero : (poly p).map (algebraMap k L) ≠ 0 := ((monic p).map _).ne_zero
+  have hsq : Squarefree ((poly p).map (algebraMap k L)) := hsep.map.squarefree
+  simpa only [branch_multiplicity_eq_one_of_squarefree _ hzero hsq, Nat.cast_one, one_zsmul]
+    using pointPushforward_graph_fieldChange_polynomial_weighted (L := L) p a
 
 end AlgebraicGeometry.MotivicCohomology.DiagonalCorestrictionBaseChange

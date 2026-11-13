@@ -1,0 +1,10 @@
+[entry]
+id = "COL-0612"
+title = "Principal closed-open coherent G-localization"
+kind = "theorem"
+section = "coherent-g-theory-localization"
+order = 20
+statement = 'For a commutative noetherian ring R and any f in R, the actual closed direct image from Spec(R/(f)), open restriction to Spec(R[1/f]), and canonical closed boundary give the connective long exact G-theory sequence, including the surjective degree-zero tail.'
+scope = 'The supported category is the actual kernel of geometric pullback. Actual quotient direct image lifts to it, and finite image-filtration devissage proves that lift induces an equivalence. The annihilated subcategory is not identified with all supported objects before devissage. No regularity or non-zero-divisor hypothesis on f is imposed.'
+review = "author_checked"
+provenance = "quillen"

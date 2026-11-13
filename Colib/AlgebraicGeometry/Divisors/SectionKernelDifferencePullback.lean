@@ -70,7 +70,7 @@ theorem isPullbackDefined_sectionKernel (s : S ⟶ X) (hs : s ≫ q = 𝟙 S) :
 
 /-- The actual module comparison for the signed difference of two section kernels.
 The positive section remains first and the negative section remains second. -/
-@[colib_tag "COL-1038", stacks 0C4U
+@[colib_tag "COL-1213", stacks 0C4U
   "Cartier sheaf pullback for actual base-changed section kernels"]
 def sectionKernelDifferencePullbackIso
     (s t : S ⟶ X) (hs : s ≫ q = 𝟙 S) (ht : t ≫ q = 𝟙 S) :

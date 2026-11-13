@@ -3,7 +3,7 @@ id = "COL-0018"
 title = 'The Grothendieck group of an exact category'
 kind = "definition"
 section = "grothendieck-groups"
-order = 50
+order = 40
 statement = '''
 Let \(\mathcal C\) be a preadditive category with finite biproducts, and let
 \(\mathcal E\) be an exact structure on \(\mathcal C\). Write \(e_X\) for the free

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0503"
-title = "The actual supported Laurent seed and support-forgetting square"
+title = "The supported Laurent seed"
 kind = "comparison"
-section = "affine-bass-constructions"
-order = 50
+section = "bass-k-theory-and-geometric-delooping"
+order = 90
 statement = '''
 Let \(R\) be a commutative ring and \(j\colon U\hookrightarrow\operatorname{Spec}R\)
 an open immersion. For each algebra \(a\) over \(R\), let \(F_j(a)\) be the

@@ -39,7 +39,7 @@ namespace AlgebraicGeometry.Scheme.Modules
 
 /-- Every prescribed quotient section lifts after one common Serre bound, for a coherent
 epimorphism on projective space over a noetherian ring. -/
-@[colib_tag "COL-1042", stacks 01YS
+@[colib_tag "COL-1217", stacks 01YS
   "eventual lifting of quotient sections by coherent-kernel Serre vanishing"]
 theorem exists_surjective_twisted_evaluation_of_coherent_epi
     (R : Type u) [CommRing R] [IsNoetherianRing R] (n : ℕ)

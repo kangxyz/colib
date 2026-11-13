@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.MovingPointParameterAvoidance
+public import Colib.RingTheory.Bertini.MovingPointParameterMap
 public import Colib.RingTheory.Bertini.NormalizedIncidenceCover
 
 /-! # Nonvanishing original parameter equations exclude every bad fiber point

@@ -13,7 +13,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.PointPresentati
 # Retraction of the diagonal Milnor symbol by the actual norm
 
 The rational graph evaluates to its original Milnor tuple symbol. Additive
-generation by tuple symbols gives the retraction in characteristic zero.
+generation by tuple symbols gives the retraction over any field.
 The base-field evaluation comparison transports it to integral motivic
 cohomology.
 -/
@@ -34,7 +34,7 @@ open _root_.AlgebraicGeometry.Scheme
 open PresheafWithTransfers DiagonalCycleSymbols
 open DiagonalPointPresentation DiagonalMilnorSymbol DiagonalMilnorBoundaryDescent
 
-variable (k : Type u) [Field k] [CharZero k] (q : ℕ)
+variable (k : Type u) [Field k] (q : ℕ)
 
 /-- The evaluator of the actual rational graph is the native ordered tuple symbol. -/
 @[simp] theorem rawNorm_graphSymbol (a : Fin q → kˣ) :

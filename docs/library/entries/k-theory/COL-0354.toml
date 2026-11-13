@@ -1,14 +1,16 @@
 [entry]
 id = "COL-0354"
-title = '''\(T_1\) separation of actual finite strict Bass towers'''
+title = "\\(T_1\\) separation of finite Bass constructions"
 kind = "theorem"
-section = "bass-construction"
+section = "bass-delooping-diagrams-and-functoriality"
 order = 20
-statement = '''The actual reduced mapping cone of a continuous based map between \(T_1\) spaces and the actual
-reduced double mapping cylinder of two strict loop-prespectrum maps are \(T_1\) at every level.
-Parameter looping preserves \(T_1\) separation. Therefore each finite iterate of the strict Bass
-diagram functor has \(T_1\) levels if the initial diagram does, including level and stage zero.
-The original quotient fibers retain all endpoint-map inverse images of the basepoints.
+statement = '''
+Reduced mapping cones of based maps between \(T_1\) spaces are \(T_1\).
+Reduced double mapping cylinders of loop-prespectrum maps are \(T_1\)
+at each level, and parameter looping preserves this property. Consequently,
+if a prespectrum diagram has \(T_1\) levels, every finite strict Bass
+iterate does as well, including stage zero and level zero. No injectivity
+or Hausdorff hypothesis on the maps is required.
 '''
 scope = '''No injectivity, Hausdorff, point HEP, cofibration, or closed-map hypothesis is imposed.
 Quotient normal forms compute fibers without replacing their topologies. A checked consumer

@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0543"
-title = "Tensor-unit pullback prisms through iterated S-constructions"
+title = "Tensor-unit pullback compatibility"
 kind = "comparison"
-section = "tensor-unit-prisms"
-order = 20
+section = "units-tensor-products-and-localization-boundaries"
+order = 100
 statement = "For a scheme morphism f: X → Y and a global unit on X, the original exact pullback followed by genuine unit tensor has its specified zero-normalized weak transformation. Its original two-parameter tensor prism is a valid second S-construction simplex and commutes with the suspension-row structure operator at every finite stage. Realization gives the stated tensor-unit spectrum homotopy: positive levels are the original iterated-S tracks, and level zero retains the input-loop coordinate independently of unit-action time."
 scope = "All scheme morphisms in the fixed universe, using the original exact pullback, chosen-zero normalization and coefficient crossing. The simplex directions, structure parameter and level-zero loop coordinate remain independent. This does not include the subsequent parameter normalization and global evaluation comparison treated in later items, returned/qualified tensor generator, Bass comparison or TT localization."
 proof_kind = "outline"

@@ -89,7 +89,7 @@ theorem subsingleton_H_closedFibre_toSheaf_of_injective {n : ℕ} (hn : 0 < n)
 
 /-- The canonical restriction to the closed fibre of a proper scheme over a strictly
 henselian local ring is bijective in every degree for sheaves killed by a positive integer. -/
-@[colib_tag "COL-1030", stacks 095T
+@[colib_tag "COL-1205", stacks 095T
   "Strictly henselian base: canonical closed-fibre restriction for bounded-torsion sheaves",
   colib_ref "axiom_stacks_5ed82d14"
   "AlgebraicGeometry/EtaleCohomology/ProperBaseChange/ClosedFibreCohomologyRestriction.lean:130-155"

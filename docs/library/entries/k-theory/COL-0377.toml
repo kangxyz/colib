@@ -1,9 +1,9 @@
 [entry]
 id = "COL-0377"
-title = "Scalar operations and the original Serre boundary"
+title = "Scalar operations and the Serre localization boundary"
 kind = "theorem"
-section = "quillen-k-theory"
-order = 330
+section = "resolution-devissage-and-serre-localization"
+order = 100
 statement = '''
 Let \(R\) be a ring, \(\mathcal C\) and \(\mathcal D\) small abelian \(R\)-linear
 categories, \(\mathcal C_P\) a Serre full subcategory, and

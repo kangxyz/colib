@@ -37,7 +37,7 @@ boundary, including its nilpotents. They do not pass to Picard classes,
 residue fields, a reduction, or a replacement root or trivialization.
 There is no integrality assumption, and no boundary frame is assumed
 in the existence theorem. This closes the convention comparison needed
-between COL-1037 and COL-1101. Unit-power coherence under a further
+between COL-1212 and COL-1101. Unit-power coherence under a further
 pullback, tracking the specific COL-1087 root witness through its
 boundary square, and final common-stage root/frame assembly remain
 separate steps. No strict henselization is asserted to be smooth over

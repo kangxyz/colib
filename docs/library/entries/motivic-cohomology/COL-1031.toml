@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1031"
+title = "Strict A¹-invariance of motivic cohomology sheaves"
+kind = "theorem"
+review = "author_checked"
+source_checked_on = "2026-11-12"
+section = "canonical-motivic-complexes"
+order = 20
+primary = "AlgebraicGeometry.PresheafWithTransfers.motivicSheafComplex_homology_cohomologyPresheaf_isA1Invariant"
+statement = '''
+Let \(k\) be a field, \(q\geq 0\) a weight, and \(i\in\mathbb Z\). The
+transfer cohomology sheaf in degree \(i\) of the integral motivic complex
+\(\mathbb Z(q)\) is \(\mathbb A^1\)-invariant. If \(k\) is perfect, then for every
+smooth separated finite-type \(k\)-scheme \(X\) and \(n\geq 0\), pullback
+along \(X\times_k\mathbb A^1\to X\) induces an isomorphism
+\[
+H^n_{\mathrm{Nis}}(X,\mathcal H^i(\mathbb Z(q)))\longrightarrow
+H^n_{\mathrm{Nis}}(X\times_k\mathbb A^1,\mathcal H^i(\mathbb Z(q))).
+\]
+'''
+scope = '''
+The cohomology sheaves are those of the original integral signed complex
+of COL-0398. The ordinary groups use the existing free representing
+sheaves and `HasExt` in universe \(u+1\) for \(k\) in universe \(u\).
+'''
+proof = '''
+In degree \(i\leq q\), exact Nisnevich sheafification identifies the
+cohomology sheaf with the sheafification of raw Suslin homology in degree
+\(q-i\). In degrees above \(q\), the sheaf is zero. Apply COL-1030 and
+COL-1028 to the raw homology presheaves, then apply COL-1029 over a
+perfect field. The exact underlying-sheaf functor identifies the ordinary
+coefficient sheaf and transports the same projection map.
+'''

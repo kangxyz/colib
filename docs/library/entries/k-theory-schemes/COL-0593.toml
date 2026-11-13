@@ -1,0 +1,32 @@
+[entry]
+id = "COL-0593"
+title = "Cone comparison for the supported telescope"
+kind = "comparison"
+section = "thomason-trobaugh-localization"
+order = 150
+statement = '''
+Let $R$ be a commutative ring object, $f:P\to Q$ an open immersion over $\operatorname{Spec}R$,
+and $a\in\operatorname{Under}R$. Let $S_\infty$, $A_\infty$ and $C_\infty$ denote the original
+supported, ambient and coarse-open coefficient Bass telescopes at $a$, with support-forgetting map
+$i:S_\infty\to A_\infty$ and restriction $c:A_\infty\to C_\infty$. The original whole null of $ci$
+defines a stable equivalence $\operatorname{Cone}(i)\to C_\infty$. The canonical cone-fiber
+comparison for $i$ is also stable. For every $d\in\mathbb{Z}$, the cone connecting map agrees with
+the fiber connecting map through this same-null fiber lift, with the original shift from $d+1$ to
+$d$.
+'''
+scope = '''
+This is the ordinary supported category, with no auxiliary open parameter. No compactness or
+quasi-separatedness is required. The finite supported Model diagrams and the prescribed null
+supply the actual telescope maps; null time and cylinder height remain independent.
+'''
+proof = '''
+Apply finite supported Model excision and the original transition identities. The native finite
+Model realization provides the required T1-space instances. Telescope cone descent and cone-fiber
+comparison preserve stability. Apply the existing mapping-cone connecting identity to the same
+whole null.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.boundedAboveFlatCoefficientSupportedBassTelescopeOpenConeMap_isStableEquivalence"
+provenance = "quillen"
+source_checked_on = "2026-11-11"

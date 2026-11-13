@@ -8,7 +8,7 @@ module
 public import Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.PointNorm
 public import Colib.AlgebraicGeometry.Correspondences.Graph.FiniteSupportPushforward
 public import Colib.AlgebraicGeometry.Chow.IntegralFundamental
-public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerSeparable
+public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTowerFinite
 public import Colib.RingTheory.KTheory.MilnorK.Symbols.Transport
 
 /-!
@@ -203,8 +203,6 @@ theorem residueDegree_eq_image_finrank (x : Spec (.of E)) :
       simpa only [residueDegree_comp, residueDegree_eq_one_of_isPreimmersion, one_mul] using h
     _ = _ := residueDegree_specMap x
 
-variable [Algebra.IsSeparable k E]
-
 /-- A signed prime pushed from the full field evaluates to its full norm, in every weight. -/
 @[colib_ref "motivic_source_a6805c4"
   "Motivic/Cohomology/Diagonal/FinitePointEvaluation.lean:230-256" "adaptation"
@@ -216,7 +214,7 @@ theorem cycleValue_single_image (n : ℤ) :
   rw [cycleValue_single, mul_smul]
   apply congrArg (fun x : MilnorKTheory k q => n • x)
   rw [residueDegree_eq_image_finrank j hj, generatorValue, ← map_zsmul, ← norm_restriction,
-    milnorKNorm_tower_of_isSeparable, milnorKTransport_tupleSymbol]
+    milnorKNorm_tower_of_finite, milnorKTransport_tupleSymbol]
   exact congrArg (fun a : Fin q → Eˣ => milnorKNorm k E q (milnorKTupleSymbol a))
     (funext (imageScalarMap_coordinateUnit j hj))
 

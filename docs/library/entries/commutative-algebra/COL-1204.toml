@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1204"
+title = "Unit roots in finite algebras over a strictly henselian ring"
+kind = "theorem"
+section = "henselian-ramification"
+order = 15
+primary = "StrictlyHenselianLocalRing.surjective_pow_units_of_module_finite"
+review = "author_checked"
+statement = '''
+Let \(R\) be a strictly henselian local ring, let \(B\) be a module-finite
+commutative \(R\)-algebra, and let \(n\) be a natural number whose image in
+\(R\) is a unit. Then the actual power map
+\(B^\times\to B^\times\), \(u\mapsto u^n\), is surjective.
+'''
+proof = '''
+Use the native finite product decomposition of \(B\) into henselian local
+\(R\)-algebras. Each factor has residue field algebraic over the separably
+closed residue field of \(R\), so it is strictly henselian. Hensel lifting
+gives a root of the image of the chosen unit in each factor. The inverse of
+the original algebra isomorphism gives a root in \(B\). Its positive power
+is a unit, so it is itself a unit, giving the claimed root in \(B^\times\).
+'''
+scope = '''
+The universes of \(R\) and \(B\) are independent. The algebra \(B\) may be
+zero, disconnected or nonreduced; locality, flatness, étaleness and domain
+hypotheses are not imposed on it. The invertible exponent is automatically
+positive because the local base is nonzero. This is the unit-root supplier
+for adjusting a frame on a finite boundary, not a Picard specialization or
+Suslin rigidity theorem.
+'''

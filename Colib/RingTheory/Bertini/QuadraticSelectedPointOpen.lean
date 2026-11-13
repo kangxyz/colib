@@ -4,10 +4,10 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: kangxyz
 -/
 module
-
 public import Colib.RingTheory.Bertini.QuadraticParameterTuple
 public import Colib.RingTheory.Polynomial.Avoidance.MultivariateResidue
 public import Colib.RingTheory.Kaehler.SmoothCotangentTrdeg
+public import Colib.RingTheory.Bertini.QuadraticResidueIncidence
 public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 /-! # A selected-point open in the original quadratic coefficient space -/
@@ -127,7 +127,7 @@ theorem exists_ground_open [Algebra k L] {τ : Type u}
 
 /-- A principal open in the original parameters guarantees independent actual
 cotangent vectors at the selected, possibly nonrational, point. -/
-theorem exists_selectedPoint_open [Algebra k L] [Algebra.EssFiniteType k R]
+theorem exists_selectedPoint_open [Algebra k L]
     (g : σ → R) (hg : Algebra.adjoin k (Set.range g) = ⊤) (d : ℕ)
     (hd : Module.finrank L (L ⊗[R] Ω[R⁄k]) = d + 1) :
     ∃ q : MvPolynomial (Fin d × Exponent σ) k, q ≠ 0 ∧
@@ -135,6 +135,9 @@ theorem exists_selectedPoint_open [Algebra k L] [Algebra.EssFiniteType k R]
         LinearIndependent L (fun i => residueGeneratorGradient k R L g
           (fun j => eval (fun l => algebraMap R L (g l))
             (pderiv j (parameterTuple L σ d (algebraMap k L ∘ c) i).val))) := by
+  let : Module.Finite L (L ⊗[R] Ω[R⁄k]) :=
+    Module.Finite.of_surjective (residueGeneratorGradient k R L g)
+      (residueGeneratorGradient_surjective k R L g hg)
   let B := Module.finBasisOfFinrankEq L (L ⊗[R] Ω[R⁄k]) hd
   let J := selectedDerivative (k := k) (L := L) g
   obtain ⟨q, hq, h⟩ := exists_ground_open (k := k) (selectedDeterminant d B J)

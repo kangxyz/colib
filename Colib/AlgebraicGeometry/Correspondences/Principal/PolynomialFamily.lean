@@ -42,7 +42,7 @@ variable {R : Type u} [CommRing R] {C X Y V W B : Scheme.{u}}
 set_option backward.isDefEq.respectTransparency.types false in
 /-- The signed principal family is a constructed native finite correspondence.
 Neither finiteness nor component dominance is supplied as an extra cycle premise. -/
-@[colib_tag "COL-1041",
+@[colib_tag "COL-1216",
   colib_ref "axiom_stacks_5ed82d14"
     "StacksFrontier/AlgebraicGeometry/Picard/SmoothCurveLocalDimension.lean:254-258,300-309"
     "ingredient" "Closed points on the actual smooth curve fibres have stalk dimension one",

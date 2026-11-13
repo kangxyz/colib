@@ -27,7 +27,7 @@ open MonicIrreducibleOfDegree
 attribute [local instance] Classical.decEq Ideal.Quotient.field
 
 universe u
-variable (k S E : Type u) [Field k] [CharZero k]
+variable (k S E : Type u) [Field k]
   [CommRing S] [IsDedekindDomain S] [Algebra k[X] S] [Module.Finite k[X] S]
   [Module.IsTorsionFree k[X] S]
   [Field E] [Algebra S E] [IsFractionRing S E]
@@ -36,12 +36,10 @@ variable (k S E : Type u) [Field k] [CharZero k]
   [FiniteDimensional (RatFunc k) E]
 
 /-- Every actual polynomial-point residue field has the characteristic of the base. -/
-theorem polynomialPointResidueCharZero (p : HeightOneSpectrum k[X]) :
+theorem polynomialPointResidueCharZero [CharZero k] (p : HeightOneSpectrum k[X]) :
     CharZero (ResidueField (Localization.AtPrime p.asIdeal)) :=
   charZero_of_injective_algebraMap
     (algebraMap k (ResidueField (Localization.AtPrime p.asIdeal))).injective
-
-attribute [local instance] polynomialPointResidueCharZero
 
 /-- The native polynomial residue of the norm is the full original branch sum. -/
 theorem residueAt_norm_eq_original_branch_sum (p : MonicIrreduciblePoint k)

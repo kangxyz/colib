@@ -12,8 +12,8 @@ public import Colib.RingTheory.KTheory.MilnorK.Norm.ChosenTower
 /-! # Normed original residue sums under a finite map -/
 
 /-! Adapted from Aglib `Dedekind/ResidueNormPushforward.lean`, revision
-`4f65be4eafa8964bd1f7a83682e99aa8165bd418`. Original models and hypotheses are
-retained; native chosen norms and tame symbols replace the separate Milnor presentation. -/
+`4f65be4eafa8964bd1f7a83682e99aa8165bd418`. The comparison uses the original
+residue fields and scalar maps with the native chosen norms and tame symbols. -/
 
 @[expose] public noncomputable section
 
@@ -65,7 +65,7 @@ theorem totalNorm_comp_residuePushforward (n : ℕ) :
     (L := ResidueField (Localization.AtPrime q.asIdeal)) n x
   simpa only [AddMonoidHom.coe_toIntLinearMap] using ht
 
-variable (F E : Type u) [Field F] [CharZero F] [Algebra A F] [IsFractionRing A F]
+variable (F E : Type u) [Field F] [Algebra A F] [IsFractionRing A F]
   [Field E] [Algebra S E] [IsFractionRing S E]
   [Algebra A E] [IsScalarTower A S E]
   [Algebra F E] [IsScalarTower A F E] [FiniteDimensional F E]
