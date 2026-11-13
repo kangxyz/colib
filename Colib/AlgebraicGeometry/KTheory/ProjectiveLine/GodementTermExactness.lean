@@ -113,6 +113,20 @@ private lemma iterate_preservesZeroMorphisms {C : Type*} [Category C] [HasZeroMo
     let := iterate_preservesZeroMorphisms T n
     exact inferInstanceAs (T.iterate n ⋙ T).PreservesZeroMorphisms
 
+private lemma iterate_additive {C : Type*} [Category C] [Preadditive C]
+    (T : C ⥤ C) [T.Additive] : ∀ n : ℕ, (T.iterate n).Additive
+  | 0 => inferInstanceAs (𝟭 C).Additive
+  | n + 1 => by
+    let := iterate_additive T n
+    exact inferInstanceAs (T.iterate n ⋙ T).Additive
+
+/-- Evaluation of the actual Godement resolution is additive in every degree. -/
+instance godementTerm_additive (X : RingedSpace.{u, u}) (n : ℕ) :
+    (godementComplex X ⋙ HomologicalComplex.eval _ (ComplexShape.up ℕ) n).Additive := by
+  let := iterate_additive (modulePullback (fromDiscrete X) ⋙ modulePushforward (fromDiscrete X))
+    (n + 1)
+  exact Functor.additive_of_iso (godementComplexEvalIso X n).symm
+
 /-- Every term of the actual Godement resolution preserves short exact sequences. -/
 theorem godementTerm_shortExact {S : ShortComplex (SheafOfModules.{u} (structureSheafRing X))}
     (hS : S.ShortExact) (n : ℕ) :
