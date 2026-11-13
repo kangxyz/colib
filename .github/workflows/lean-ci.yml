@@ -69,24 +69,6 @@ env:
   BUILD_TARGETS: ${{ inputs.build-targets }}
   CI_CHECKPOINT_PATH: .lake/ci-checkpoints
 
-# Keep compiler failures inside the scope so the runner can save partial caches.
-defaults:
-  run:
-    shell: >-
-      bash --noprofile --norc -e -o pipefail -c
-      "ci_memory_mb=$(( $(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE) / 1048576 - 2048 ));
-      if test \"$ci_memory_mb\" -gt 13824; then ci_memory_mb=13824; fi;
-      printf \"Native resources: group=%s MiB, Lake threads=4, CPUs=%s\n\" \"$ci_memory_mb\" \"$(nproc)\";
-      scope_dir=\"$RUNNER_TEMP/lean-ci-scopes/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT-$GITHUB_JOB\";
-      scope=\"lean-ci-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT-$GITHUB_JOB-$(printf '%s' \"$0\" | sha256sum | cut -c1-20).scope\";
-      mkdir -p \"$scope_dir\"; printf '%s\n' \"$scope\" > \"$scope_dir/$scope\";
-      exec sudo --preserve-env systemd-run --scope --quiet --collect
-      --unit=\"$scope\"
-      --uid=\"$(id -u)\" --gid=\"$(id -g)\"
-      --property=\"MemoryMax=$ci_memory_mb\"M --property=MemorySwapMax=0
-      /usr/bin/env \"PATH=$PATH\" LEAN_NUM_THREADS=4
-      /bin/bash --noprofile --norc -eo pipefail \"$0\"" "{0}"
-
 jobs:
   build:
     name: Build
@@ -1377,6 +1359,9 @@ jobs:
     needs: [build, test_lint]
     if: ${{ needs.build.result == 'success' && needs.test_lint.result == 'success' && needs.build.outputs.staged == 'true' && github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
     environment:
       name: stacks-cache-publish
       deployment: false
