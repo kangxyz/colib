@@ -1,0 +1,111 @@
+/-
+Copyright (c) 2026 Colib contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: kangxyz
+-/
+module
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RationalIntegralPositivePreimage
+public import Colib.AlgebraicGeometry.Limits.FiniteIntegralChartGround
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.FiniteIntegralChartPreimageBase
+
+/-! # Positive preimages on the original étale coordinate chart
+
+Integration candidate: the rational positive predecessor compiled in 9a86 CI.
+This new theorem keeps its actual integral component and reflects the same
+preimage to the original chart. It does not assert the complete Nat induction.
+-/
+@[expose] public noncomputable section
+open scoped TensorProduct
+open CategoryTheory AlgebraicGeometry IntermediateField Opposite
+open AlgebraicGeometry.Scheme AlgebraicGeometry.Scheme.SmoothSite
+universe u
+namespace QuadraticIncidence.InfinityChart
+local instance nativePositiveAlgebra (E L : Type u) [Field E] [Field L]
+    [Algebra E L] (t : Finset L) : Algebra E (adjoin E (t : Set L)) :=
+  (adjoin E (t : Set L)).toSubalgebra.algebra
+local instance {K : Type u} [Field K] : IsAffine (base (Spec (.of K))).left :=
+  inferInstanceAs (IsAffine (Spec (.of K)))
+
+/-- The actual integral rational component supplies an original representative
+preimage, assuming only polynomial-tail isomorphisms in the lower dimension. -/
+theorem exists_etale_coordinate_original_preimage_of_polynomial_tail_iso
+    (K E B Ω : Type u) [Field K] [Field E] [CommRing B] [Field Ω] [IsAlgClosed Ω]
+    [Algebra K E] [Module.Finite K E] [Algebra.IsSeparable K E]
+    [Algebra E B] [Algebra K B] [IsScalarTower K E B]
+    [Algebra.Smooth E B] [Algebra.Smooth K B]
+    (d : ℕ) (q : MvPolynomial (Fin (d + 1)) E →ₐ[E] B) (hq : q.toRingHom.Etale)
+    (ξ : Spec (.of Ω) ⟶ Spec (.of B))
+    (hs : letI := (fieldToResidue (Spec.map (CommRingCat.ofHom (algebraMap E B)))
+      (ξ (IsLocalRing.closedPoint Ω))).hom.toAlgebra
+      Algebra.IsSeparable E ((Spec (.of B)).residueField (ξ (IsLocalRing.closedPoint Ω))))
+    (P : PresheafWithTransfers.{u + 1} K) (hP : PresheafWithTransfers.IsA1Invariant P)
+    (n : ℕ)
+    (hn : ∀ (V : SmoothSite (Spec (.of K)))
+      (z : PresheafWithTransfers.sections P ((Cor.graphFunctor K).obj V)), (n + 1) • z = 0)
+    (hnK : IsUnit ((n + 1 : ℕ) : K))
+    (hLower : PolynomialTailIsomorphisms K Ω ((PresheafWithTransfers.toPresheaf K).obj P) d)
+    (b : ((PresheafWithTransfers.toPresheaf K).obj P).obj
+      (op (originalAffineTargetSite K B))) :
+    let X := originalAffineTargetSite K B
+    let : IsAffine X.left := inferInstanceAs (IsAffine (Spec (.of B)))
+    let Q := ((PresheafWithTransfers.toPresheaf K).obj P)
+    ∃ z : etaleNeighborhoodValue (base (Spec (.of K))) (ξ ≫ X.hom) Q,
+      etaleNeighborhoodValuePullback
+        (homMk X.hom (by change X.hom ≫ 𝟙 _ = X.hom; simp) :
+          X ⟶ base (Spec (.of K))) (ξ := ξ) rfl Q z =
+        toEtaleNeighborhoodValueFromObject X ξ Q b := by
+  classical
+  obtain ⟨L, hL, hEL, hcl, hinf, hsep, φ, x, hx, hξ, hcharts⟩ :=
+    exists_separable_integral_rational_marked_chart E Ω B q hq ξ hs
+  let := hL
+  let := hEL
+  let := hinf
+  let := hsep
+  let : Algebra K L := ((algebraMap E L).comp (algebraMap K E)).toAlgebra
+  let : IsScalarTower K E L := IsScalarTower.of_algebraMap_eq fun _ => rfl
+  obtain ⟨t, ht, hfin, e, he, hdom, hdomL, hdim, het, x₁, hx₁, hxField, hmark⟩ :=
+    hcharts ∅
+  let F : Type u := adjoin E (t : Set L)
+  let C := Localization.Away e
+  let : Field F := inferInstance
+  let : CommRing C := inferInstance
+  let : Algebra K F := inferInstance
+  let : Algebra K C := inferInstance
+  let : Module.Finite E F := hfin
+  let : Module.Finite K F := Module.Finite.trans E F
+  let : Algebra.IsSeparable K F := Algebra.IsSeparable.trans K E F
+  let : Algebra.IsSeparable F L := inferInstance
+  let : Module F L := Algebra.toModule
+  let scalarTowerL : IsScalarTower K F L := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rw [IsScalarTower.algebraMap_apply K E L,
+      IsScalarTower.algebraMap_apply K E F,
+      ← IsScalarTower.algebraMap_apply E F L]
+  let : Algebra F C := inferInstance
+  let : Algebra.Smooth F C := finiteIntegralChart_smooth_coefficient E L B t e
+  let : Algebra.Smooth K C :=
+    (finiteIntegralChart_smooth_ground_and_square K E L B t e).1
+  let : SMul F C := (inferInstance : Algebra F C).toSMul
+  let : SMul K F := (inferInstance : Algebra K F).toSMul
+  let : SMul K C := (inferInstance : Algebra K C).toSMul
+  let : Module F C := Algebra.toModule
+  let scalarTower : IsScalarTower K F C := by
+    apply IsScalarTower.of_algebraMap_eq
+    intro x
+    rw [IsScalarTower.algebraMap_apply K E C,
+      IsScalarTower.algebraMap_apply K E F,
+      ← IsScalarTower.algebraMap_apply E F C]
+  let : IsDomain (L ⊗[F] C) := hdomL
+  have pointScalar : x₁ ≫ Spec.map (CommRingCat.ofHom (algebraMap F C)) =
+      Spec.map (CommRingCat.ofHom (algebraMap F L)) := hxField
+  have dim : Algebra.trdeg L (L ⊗[F] C) = (d + 1 : ℕ) := hdim
+  have retainedMark : (Spec.map (CommRingCat.ofHom φ) ≫ x₁) ≫
+      finsetLocalizationToBase E L B t e = ξ := hmark
+  let Q := (PresheafWithTransfers.toPresheaf K).obj P
+  let f := finiteIntegralChartToOriginal K E L B t e
+  have hcomponent := exists_rational_integral_original_preimage_of_polynomial_tail_iso
+    K F L C Ω d dim x₁ pointScalar φ P hP n hn hnK hLower (Q.map f.op b)
+  exact finiteIntegralChart_preimage_at_own_base K E L B t e φ x₁ ξ retainedMark Q b hcomponent
+
+end QuadraticIncidence.InfinityChart

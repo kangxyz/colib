@@ -1395,9 +1395,11 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Contraction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ContractionHI
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ContractionInvariance
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.DisjointUnions
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitAlgebraicallyClosedReduction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitPolynomialCondition
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleNeighborhoodRadicial
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleTorsionContract
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.FiniteFlatTransfer
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.GraphRestriction
@@ -1492,6 +1494,7 @@ public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFa
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilySupport
 public import Colib.AlgebraicGeometry.RelativeCurve.PolynomialFamily.PrincipalFamilyUnitOpen
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.FiniteCoordinates
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.ActualPolynomialNeighborhoodPreimage
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.CompactificationAffineBaseChange
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteSeparableRetainedEtaleSmoothSite
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageCoordinates
@@ -1502,10 +1505,12 @@ public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.Finit
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRationalPresentation
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageRetainedNativeChart
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.FiniteStageSelectedNativeChartOverGround
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.IntegralEtalePositivePreimage
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGeometryInstances
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.LocalizedGoodGeometry
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.OriginalChartImageInputs
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.PolynomialTailInduction
+public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.PolynomialTailSimultaneousInduction
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.PolynomialTailToAffineStructural
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RationalIntegralPositivePreimage
 public import Colib.AlgebraicGeometry.RelativeCurve.Presentation.Quadratic.RetainedEtaleChart
@@ -1763,6 +1768,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartLocalizedRest
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangePreimage
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.EtaleChartOpenBaseChangeRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.FiniteIntegralChartPreimage
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.FiniteIntegralChartPreimageBase
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.Neighborhood
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodBaseChange
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodCurveSections
@@ -1777,6 +1783,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSm
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStagePulledRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionStep
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPreimageBaseTransport
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackNaturality
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodRepresentativeSurjective
