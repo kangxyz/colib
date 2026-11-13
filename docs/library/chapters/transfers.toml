@@ -135,6 +135,11 @@ Use the same singular construction on the quotient of the torus-product
 representable and its source unit kernel. Exterior product on the original
 signed correspondences gives the comparison for torus cancellation.
 '''
+COL-1045 = '''
+The principal cuts of COL-1040 and the relative polynomial homotopy of
+COL-1043 apply to the comparison in COL-1039. A common exponent permits
+all the face restrictions of a normalized cycle.
+'''
 
 [[sections]]
 id = "affine-line-invariance"

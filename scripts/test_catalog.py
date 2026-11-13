@@ -653,6 +653,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.Correspondences.Cancellation.PowerCutParameter.Pencil.Weighted",
             "COL-1044":
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
+            "COL-1045":
+                "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Suslin",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -748,7 +750,9 @@ class LibraryTests(unittest.TestCase):
             "transfer-homological-algebra": (
                 "transfers", ["COL-0390", "COL-0381", "COL-0391", "COL-0392"]
             ),
-            "transfer-singular-complexes": ("transfers", ["COL-0397", "COL-1030", "COL-1039"]),
+            "transfer-singular-complexes": (
+                "transfers", ["COL-0397", "COL-1030", "COL-1039", "COL-1045"]
+            ),
             "affine-line-invariance": ("transfers", ["COL-1029"]),
             "reduced-transfer-tori": ("motivic-cohomology", ["COL-0384", "COL-0385"]),
             "exterior-parameters": ("cycles", ["COL-0386", "COL-0388", "COL-0387", "COL-0389"]),
