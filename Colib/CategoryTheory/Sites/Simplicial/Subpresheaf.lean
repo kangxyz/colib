@@ -42,7 +42,6 @@ abbrev toPresheaf (A : Subpresheaf P) : Cᵒᵖ ⥤ SSet.{w} :=
 def inclusion (A : Subpresheaf P) : toPresheaf A ⟶ P :=
   Functor.curry.map A.ι ≫ (Functor.currying.unitIso.app P).inv
 
-@[simp]
 theorem inclusion_app_app (A : Subpresheaf P) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ)
     (s : A.obj (U, n)) :
     ((inclusion A).app U).app n s = s.val := rfl

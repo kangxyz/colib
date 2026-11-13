@@ -27,7 +27,6 @@ namespace CategoryTheory.SimplicialSubpresheaf
 variable {C : Type u} [Category.{v} C] {P : Cᵒᵖ ⥤ SSet.{w}}
   {I : Type t} [Preorder I] (A : I → Subpresheaf P) (hA : Monotone A)
 
-@[simp]
 theorem homOfLE_app_app {B D : Subpresheaf P} (h : B ≤ D) (U : Cᵒᵖ) (n : SimplexCategoryᵒᵖ)
     (s : B.obj (U, n)) : ((homOfLE h).app U).app n s = ⟨s.val, h _ s.property⟩ :=
   rfl
