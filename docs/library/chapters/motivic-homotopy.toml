@@ -2,7 +2,16 @@
 id = "motivic-homotopy"
 title = "Motivic Homotopy Theory"
 order = 57
-introduction = "Pointed simplicial presheaves carry the suspension and coefficient representatives used on the smooth Nisnevich site. Strict \\(\\mathbb A^1\\)-invariance for ordinary cohomology with transfers is proved in COL-1029."
+introduction = '''
+The unstable theory uses pointed simplicial presheaves on the smooth
+Nisnevich site. It develops the pointed \(\mathbb A^1\)-homotopy category,
+space-level Eilenberg–Mac Lane representatives and the Tate suspension
+of a pointed space. Strict \(\mathbb A^1\)-invariance for cohomology with
+transfers is proved in COL-1029.
+
+COL-1115 starts the construction of Tate prespectra in Motivic Stable
+Homotopy Theory by using the space-level suspension at each degree.
+'''
 
 [[sections]]
 id = "pointed-simplicial-presheaves"

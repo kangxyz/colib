@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1116"
+title = "Free prespectrum comparisons and adjoint bonding maps"
+kind = "theorem"
+section = "tate-prespectra-and-omega-spectra"
+order = 20
+primary = "CategoryTheory.SequentialPrespectrum.isOmegaSpectrum_iff_bijective_precomp_freeAtSuccComparison"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(S\dashv U\) be an adjunction of endofunctors of a category with
+an initial object preserved by \(S\). Let \(F_n\) be the free
+\(S\)-prespectrum functor in degree \(n\). For an object \(A\) the map
+\(s_{n,A}\colon F_{n+1}(SA)\to F_n(A)\) corresponds under the free
+adjunction to the bonding map of \(F_n(A)\) on its generator.
+
+For an \(S\)-prespectrum \(Y\), every adjoint bonding map
+\(Y_n\to U(Y_{n+1})\) is an isomorphism if and only if
+\[
+s_{n,A}^*\colon
+\operatorname{Hom}(F_n(A),Y)\longrightarrow
+\operatorname{Hom}(F_{n+1}(SA),Y)
+\]
+is bijective for every \(n\geq 0\) and every \(A\).
+'''
+proof = '''
+The two free adjunctions identify precomposition by \(s_{n,A}\) with
+the map \(f\mapsto b_n\circ S(f)\), where \(b_n\) is the bonding map of \(Y\).
+Transposing along \(S\dashv U\) gives postcomposition with the adjoint
+bonding map. Yoneda detects its invertibility.
+'''
+scope = '''
+The Hom sets are those of sequential prespectra in the given category.
+For motivic spaces the test applies to Tate prespectra in the pointed
+\(\mathbb A^1\)-homotopy category. The derived mapping-space tests used
+in the stable model structure are described in
+[@Hovey2001Spectra, Section 3, Definition 3.3 and Theorem 3.4].
+'''

@@ -111,4 +111,29 @@ def motivicFiniteAffineLineRepresentativeHomEquiv (p : ℤ) (q n : ℕ)
     (bijective_reducedHypercohomology_map_affineLineCylinder Sₖ (motivicFiniteSheafComplex k q n)
       (fun i U ↦ motivicFiniteCohomologyPresheaf_isA1Invariant k i q n U) p) X
 
+/-- The integral representation carries precomposition by any original pointed
+presheaf map to the original reduced cohomology restriction. -/
+theorem motivicAffineLineRepresentativeHomEquiv_precomp (n : ℤ) (q : ℕ)
+    {X Y : PointedSimplicialPresheaf.{u + 1} Cₖ} (f : X ⟶ Y)
+    (a : (toAffineLineHomotopyCategory Sₖ).obj Y ⟶ motivicAffineLineRepresentative k n q) :
+    motivicAffineLineRepresentativeHomEquiv k n q X
+        ((toAffineLineHomotopyCategory Sₖ).map f ≫ a) =
+      (reducedHypercohomology Cₖ Jₖ (motivicSheafComplex k q) n).map f.op
+        (motivicAffineLineRepresentativeHomEquiv k n q Y a) := by
+  unfold motivicAffineLineRepresentativeHomEquiv affineLineCochainRepresentativeHomEquiv
+  exact intervalKInjectiveReplacementHomEquiv_naturality _ _ _ _ _ _ _ f a
+
+/-- The finite representation carries precomposition to restriction on
+the actual finite coefficient cone. -/
+theorem motivicFiniteAffineLineRepresentativeHomEquiv_precomp (n : ℤ) (q m : ℕ)
+    {X Y : PointedSimplicialPresheaf.{u + 1} Cₖ} (f : X ⟶ Y)
+    (a : (toAffineLineHomotopyCategory Sₖ).obj Y ⟶
+      motivicFiniteAffineLineRepresentative k n q m) :
+    motivicFiniteAffineLineRepresentativeHomEquiv k n q m X
+        ((toAffineLineHomotopyCategory Sₖ).map f ≫ a) =
+      (reducedHypercohomology Cₖ Jₖ (motivicFiniteSheafComplex k q m) n).map f.op
+        (motivicFiniteAffineLineRepresentativeHomEquiv k n q m Y a) := by
+  unfold motivicFiniteAffineLineRepresentativeHomEquiv affineLineCochainRepresentativeHomEquiv
+  exact intervalKInjectiveReplacementHomEquiv_naturality _ _ _ _ _ _ _ f a
+
 end AlgebraicGeometry.MotivicHomotopy

@@ -359,6 +359,20 @@ year = 2000
 version = "Documenta Mathematica, volume 5, pages 445–552"
 url = "https://ems.press/journals/dm/articles/8965015"
 
+[sources.Hovey2001Spectra]
+kind = "article"
+title = "Spectra and symmetric spectra in general model categories"
+authors = ["Mark Hovey"]
+year = 2001
+version = "Journal of Pure and Applied Algebra, volume 165, pages 63–127; locators checked in arXiv:math/0004051v3"
+url = "https://doi.org/10.1016/S0022-4049(00)00172-9"
+
+[[sources.Hovey2001Spectra.documents]]
+label = "Author preprint, arXiv version 3"
+locator_prefix = "Section"
+url = "https://arxiv.org/pdf/math/0004051v3"
+sha256 = "aff62c63a8d4cc3ba62886bd66a8ca0cbaae9018feab50b8b5b2759d8e970081"
+
 [sources.Voevodsky2003ReducedPowers]
 kind = "article"
 title = "Reduced power operations in motivic cohomology"

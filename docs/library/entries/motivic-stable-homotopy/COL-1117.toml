@@ -1,0 +1,82 @@
+[entry]
+id = "COL-1117"
+title = "Integral and finite motivic Tate Ω-spectra"
+kind = "theorem"
+section = "motivic-eilenberg-mac-lane-spectra"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.integralMotivicTatePrespectrum_isOmegaSpectrum"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be a perfect field and let \(Q\) be the localization of pointed
+simplicial presheaves on its smooth Nisnevich site to the pointed
+\(\mathbb A^1\)-homotopy category. Write \(T\) for the Tate quotient of
+COL-1017 and \(\Omega_T\) for the right adjoint to Tate suspension in
+this category. For coefficients \(A\), let \(K_A(q)\) denote the integral
+motivic sheaf complex in weight \(q\), or its finite coefficient complex
+with \(A=\mathbb Z/n\). Write
+\[
+\widetilde H^{p,q}(X,A)=
+\widetilde{\mathbb H}^{p}_{\mathrm{Nis}}(X,K_A(q)).
+\]
+
+For each choice of coefficients, the cochain representatives of COL-1016
+in bidegrees \((2q,q)\) are the levels \(E_{A,q}\) of a Tate
+prespectrum. The bonding map \(E_{A,q}\wedge T\to E_{A,q+1}\)
+represents the Tate suspension isomorphism. Its transpose
+\(E_{A,q}\to\Omega_T E_{A,q+1}\) is an isomorphism for every \(q\geq 0\).
+
+Both coefficient prespectra admit strict realizations in pointed
+simplicial presheaves. Their levels are Nisnevich-injective fibrant
+and are \(\mathbb A^1\)-local in Nisnevich homotopy. The strict adjoint
+bonding maps are Nisnevich stalkwise weak equivalences. Levelwise
+localization recovers the prespectrum with its original bonding maps.
+
+Let \(F_q\) be the free Tate prespectrum in degree \(q\) from
+COL-1116. For each pointed simplicial presheaf \(X\) there is a natural
+bijection
+\[
+\operatorname{Hom}(F_q(QX),E_A)\simeq \widetilde H^{2q,q}(X,A).
+\]
+For a freely pointed smooth representable, this identifies the target
+with the ordinary motivic cohomology of the smooth scheme.
+'''
+proof = '''
+In the Hom calculation on reduced derived chains, the affine-line
+contraction makes the pointed affine-line term vanish for these
+coefficients. The connecting map for the Tate quotient shifts
+cohomological degree by one, as in COL-1038. The cancellation comparison
+for the reduced torus in COL-1046 contributes the weight increase and
+the second cohomological shift. For finite coefficients the same
+calculation uses the signed map of the actual multiplication cones.
+
+The cochain representability equivalences turn these suspension maps
+into natural bijections on the corresponding Hom sets. Yoneda gives
+the Tate bonding maps, with the suspension comparison on the source.
+The adjoint bonding criterion of COL-1116 then proves the Ω-spectrum
+condition. Choosing local fibrant models of the levels lets the
+Nisnevich and \(\mathbb A^1\) Hom comparisons lift the bonding maps to
+strict morphisms. The comparison of strict Tate loops with motivic
+Tate loops and detection of equivalences between the local fibrant
+models give the stalkwise claim for the strict adjoint bonds.
+
+The free adjunction evaluates a map in degree \(q\).
+Applying COL-1016 gives its cohomology class and identifies
+precomposition by the free map with cohomology restriction.
+'''
+scope = '''
+The finite coefficient complex is the cochain cone of multiplication
+by the natural number \(n\) on the integral complex, with the sign
+convention of COL-1018. The finite statements use the natural-number
+parameter of that cone. For positive \(n\) it gives \(\mathbb Z/n\)
+coefficients, and the statements impose no primality or characteristic
+restriction on \(n\). The coefficient and transfer derived-category
+universes and the ordinary Nisnevich Ext hypothesis are explicit in Lean.
+
+The displayed Hom calculation is in sequential prespectra formed in
+the pointed \(\mathbb A^1\)-homotopy category. The comparison to
+derived mapping spaces and shifted representability in the stable
+motivic category is a further step.
+The suspension isomorphism is the ingredient from
+[@Voevodsky2003ReducedPowers, Section 2, Theorem 2.4, pp. 5–6].
+'''

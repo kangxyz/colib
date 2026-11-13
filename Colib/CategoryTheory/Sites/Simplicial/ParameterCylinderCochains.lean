@@ -8,8 +8,8 @@ module
 public import Colib.CategoryTheory.Sites.Simplicial.ParameterCylinderReducedChains
 public import Mathlib.Algebra.Homology.Embedding.CochainComplex
 public import Mathlib.Algebra.Homology.Embedding.Extend
-import Colib.Algebra.Homology.Embedding.MapExtend
-import Colib.AlgebraicTopology.DoldKan.NormalizedMooreMap
+public import Colib.Algebra.Homology.Embedding.MapExtend
+public import Colib.AlgebraicTopology.DoldKan.NormalizedMooreMap
 
 /-!
 # Reduced presheaf cochains of a representable parameter cylinder
@@ -94,7 +94,10 @@ private theorem normalizedParameterCoproduct_hom_fold
       simp only [Category.comp_id, ParameterCoproduct.homologicalFold_app_f]
       exact (ParameterCoproduct.fold V _).naturality ((i.app R).f n)
 
-private def reducedChainsParameterCylinderIso (X : PointedSimplicialPresheaf.{max v w} C) :
+/-- The normalized reduced chains of the original cylinder are its
+parameter-indexed coproduct in the presheaf category. -/
+@[no_expose]
+def reducedChainsParameterCylinderIso (X : PointedSimplicialPresheaf.{max v w} C) :
     (reducedChains C).obj (parameterizedCylinder X (liftedRepresentableInterval.{w} V)) ≅
       ((ParameterCoproduct.functor V AddCommGrpCat.{max v w}).mapHomologicalComplex (.down ℕ)).obj
         ((reducedChains C).obj X) :=
@@ -102,6 +105,18 @@ private def reducedChainsParameterCylinderIso (X : PointedSimplicialPresheaf.{ma
   let R := (reducedFreeAbelian C).obj X
   (normalizedMooreComplex _).mapIso (reducedFreeAbelianParameterCylinderIso.{w} V X) ≪≫
     ((normalizedMooreComplexCompMapHomologicalComplexIso Φ).app R).symm
+
+/-- The normalized cylinder comparison is induced by the actual
+simplicial comparison and the native normalization isomorphism. -/
+theorem reducedChainsParameterCylinderIso_hom_eq
+    (X : PointedSimplicialPresheaf.{max v w} C) :
+    let Φ := ParameterCoproduct.functor V AddCommGrpCat.{max v w}
+    (reducedChainsParameterCylinderIso.{w} V X).hom =
+      (normalizedMooreComplex _).map (reducedFreeAbelianParameterCylinderIso.{w} V X).hom ≫
+        (normalizedMooreComplexCompMapHomologicalComplexIso Φ).inv.app
+          ((reducedFreeAbelian C).obj X) := by
+  unfold reducedChainsParameterCylinderIso
+  rfl
 
 private theorem reducedChainsParameterCylinderIso_hom_fold
     (X : PointedSimplicialPresheaf.{max v w} C) :
@@ -175,13 +190,26 @@ are the parameter coproduct of the reduced presheaf cochains. -/
 @[no_expose]
 def reducedPresheafCochainsParameterCylinderIso
     (X : PointedSimplicialPresheaf.{max v w} C) :
-    (reducedPresheafCochains C).obj (parameterizedCylinder X (liftedRepresentableInterval.{w} V)) ≅
+    (reducedPresheafCochains C).obj
+        (parameterizedCylinder X (liftedRepresentableInterval.{w} V)) ≅
       ((ParameterCoproduct.functor V AddCommGrpCat.{max v w}).mapHomologicalComplex (.up ℤ)).obj
         ((reducedPresheafCochains C).obj X) :=
   let e := ComplexShape.embeddingUpIntLE 0
   let Φ := ParameterCoproduct.functor V AddCommGrpCat.{max v w}
   (e.extendFunctor _).mapIso (reducedChainsParameterCylinderIso.{w} V X) ≪≫
     (((reducedChains C).obj X).mapExtendIso Φ e).symm
+
+/-- The cochain comparison is the normalization comparison extended
+using the original extension isomorphism. -/
+theorem reducedPresheafCochainsParameterCylinderIso_hom_eq
+    (X : PointedSimplicialPresheaf.{max v w} C) :
+    let e := ComplexShape.embeddingUpIntLE 0
+    let Φ := ParameterCoproduct.functor V AddCommGrpCat.{max v w}
+    (reducedPresheafCochainsParameterCylinderIso.{w} V X).hom =
+      (e.extendFunctor _).map (reducedChainsParameterCylinderIso.{w} V X).hom ≫
+        (((reducedChains C).obj X).mapExtendIso Φ e).inv := by
+  unfold reducedPresheafCochainsParameterCylinderIso
+  rfl
 
 /-- The literal pointed cylinder projection on reduced presheaf cochains
 is the fold of the original parameter summands. -/

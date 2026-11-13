@@ -54,6 +54,14 @@ def reducedCochainsHomotopyHomEquiv (I : CochainComplex (Sheaf J AddCommGrpCat.{
   exact ((H.mapIso ((reducedCochainsSheafificationIso C J).app X)).homCongr
     (Iso.refl (H.obj I))).trans (a.homEquiv (Q.obj ((reducedPresheafCochains C).obj X)) (H.obj I))
 
+/-- The original homotopy comparison carries the zero map to zero. -/
+theorem reducedCochainsHomotopyHomEquiv_zero
+    (I : CochainComplex (Sheaf J AddCommGrpCat.{w}) ℤ) (X : PointedSimplicialPresheaf.{w} C) :
+    reducedCochainsHomotopyHomEquiv C J I X 0 = 0 := by
+  unfold reducedCochainsHomotopyHomEquiv
+  simp only [Equiv.trans_apply, Iso.homCongr_apply, comp_zero, zero_comp,
+    Adjunction.homEquiv_unit, CategoryTheory.Functor.map_zero]
+
 set_option backward.isDefEq.respectTransparency false in
 /-- The sheafification comparison carries precomposition to the same pointed map. -/
 theorem reducedCochainsHomotopyHomEquiv_precomp

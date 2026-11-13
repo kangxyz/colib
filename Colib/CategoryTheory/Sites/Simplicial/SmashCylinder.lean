@@ -382,6 +382,44 @@ theorem smashCylinderIso_hom_projection (X Y : PointedSimplicialPresheaf.{w} C)
     Under.toSmash_smashMap, Under.id_right, prod.map_map_assoc, Category.id_comp,
     prod.map_fst, reassoc_of% h]
 
+/-- The cylinder comparison retains the section at every original
+global point of the interval. -/
+@[reassoc]
+theorem smashMap_cylinderSection_smashCylinderIso_hom
+    (X Y : PointedSimplicialPresheaf.{w} C) {I : Cᵒᵖ ⥤ SSet.{w}}
+    (i : (⊤_ (Cᵒᵖ ⥤ SSet.{w})) ⟶ I) :
+    Under.smashMap (cylinderSection X i) (𝟙 Y) ≫ (smashCylinderIso X Y I).hom =
+      cylinderSection (Under.smash X Y) i := by
+  let p : X.right ⟶ X.right ⨯ I :=
+    prod.lift (𝟙 _) (terminal.from X.right ≫ i)
+  let q := Under.toSmash X Y
+  let e := (smashCylinderIso X Y I).hom
+  let s : (Under.smash X Y).right ⟶ (Under.smash X Y).right ⨯ I :=
+    prod.lift (𝟙 _) (terminal.from _ ≫ i)
+  have hp : prod.map p (𝟙 Y.right) ≫ (swapSecondThird X.right I Y.right).hom ≫
+      prod.map q (𝟙 I) = q ≫ s := by
+    have hfst : prod.map p (𝟙 Y.right) ≫ (swapSecondThird X.right I Y.right).hom ≫
+        (prod.fst : (X.right ⨯ Y.right) ⨯ I ⟶ X.right ⨯ Y.right) = 𝟙 _ := by
+      apply prod.hom_ext <;> simp [swapSecondThird, p]
+    apply prod.hom_ext
+    · simpa [s, Category.assoc] using congrArg (· ≫ q) hfst
+    · simp [p, q, s, swapSecondThird]
+  have h : smashCylinderProduct X Y I ≫ e.right =
+      (swapSecondThird X.right I Y.right).hom ≫ cylinderSmashProduct X Y I :=
+    (smashCylinderToCylinderSmash X Y I).property
+  apply Under.smash_hom_ext
+  rw [Under.comp_right, ← Category.assoc, Under.toSmash_smashMap]
+  change prod.map (p ≫ cylinderInl X I) (𝟙 Y.right) ≫
+      Under.toSmash (parameterizedCylinder X I) Y ≫ e.right =
+    q ≫ s ≫ cylinderInl (Under.smash X Y) I
+  have hm : prod.map (p ≫ cylinderInl X I) (𝟙 Y.right) =
+      prod.map p (𝟙 Y.right) ≫ prod.map (cylinderInl X I) (𝟙 Y.right) := by
+    rw [prod.map_map, Category.id_comp]
+  rw [hm, Category.assoc]
+  change prod.map p (𝟙 Y.right) ≫ smashCylinderProduct X Y I ≫ e.right = _
+  rw [h]
+  exact (reassoc_of% hp) _
+
 /-- The smash of a cylinder projection passes the same interval-local tests. -/
 theorem intervalWeakEquivalences_smashRightFunctor_map_cylinderProjection
     (J : GrothendieckTopology C) (I : Cᵒᵖ ⥤ SSet.{w})

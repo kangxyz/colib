@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1115"
+title = "Tate prespectra and their Nisnevich localization"
+kind = "definition"
+section = "tate-prespectra-and-omega-spectra"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.TatePrespectrum"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(R\) be a commutative ring and let \(T\) be the pointed Tate quotient
+of COL-1017 on the smooth Nisnevich site of \(\operatorname{Spec} R\), in
+the coefficient universe. A Tate prespectrum is a sequence of pointed
+simplicial presheaves \(X_n\), for \(n\geq 0\), and maps
+\(b_n\colon X_n\wedge T\to X_{n+1}\). A map of prespectra is a sequence
+of pointed maps commuting with the bonding maps.
+
+Write \(Q\) for the stalkwise localization and \(\Sigma_T\) for the
+induced Tate suspension of COL-1035. The localized prespectrum has level
+\(QX_n\) and bonding map
+\[
+\Sigma_T(QX_n)\longrightarrow Q(X_n\wedge T)
+   \xrightarrow{Q(b_n)} QX_{n+1}.
+\]
+The first arrow is the Tate suspension comparison at \(X_n\).
+'''
+scope = '''
+The levels are indexed by the natural numbers and the Tate factor is on
+the right. The localization is the functor on prespectra obtained by
+applying Nisnevich localization to their levels and maps.
+[@Jardine2000MotivicSpectra, Section 2, before Section 2.1, p. 464]
+'''

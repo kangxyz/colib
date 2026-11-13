@@ -58,7 +58,8 @@ instance : (reducedTorusSectionsFunctor k).Additive where
     simp only [reducedTorusSectionsFunctor, Preadditive.add_comp, kernel.lift_ι, Functor.map_add,
       Preadditive.comp_add]
 
-private def reducedInclusion : reducedTorusSectionsFunctor k ⟶ B where
+/-- Include the termwise reduced sections into the original torus sections. -/
+def reducedTorusSectionsInclusion : reducedTorusSectionsFunctor k ⟶ B where
   app F := kernel.ι ((torusSectionsUnitNatTrans k).app F)
   naturality _ _ _ := kernel.lift_ι _ _ _
 
@@ -77,7 +78,7 @@ private def reducedProjection : B ⟶ reducedTorusSectionsFunctor k where
     let g : kernel (u.app F) ⟶ kernel (u.app G) := (reducedTorusSectionsFunctor k).map f
     have h (K : SheafWithTransfers.{u + 1} k) :
         r K ≫ j K = 𝟙 _ - u.app K ≫ s.app K := splitKernelProjection_ι _ _ _
-    have hg : g ≫ j G = j F ≫ (B).map f := (reducedInclusion k).naturality f
+    have hg : g ≫ j G = j F ≫ (B).map f := (reducedTorusSectionsInclusion k).naturality f
     apply (cancel_mono (j G)).1
     change ((B).map f ≫ r G) ≫ j G = (r F ≫ g) ≫ j G
     calc
@@ -94,7 +95,8 @@ private def reducedProjection : B ⟶ reducedTorusSectionsFunctor k where
 
 omit [HasDerivedCategory (SheafWithTransfers.{u + 1} k)] in
 private theorem reducedInclusion_projection :
-    reducedInclusion k ≫ reducedProjection k = 𝟙 (reducedTorusSectionsFunctor k) := by
+    reducedTorusSectionsInclusion k ≫ reducedProjection k =
+      𝟙 (reducedTorusSectionsFunctor k) := by
   apply NatTrans.ext
   funext F
   let u := (torusSectionsUnitNatTrans k).app F
@@ -106,7 +108,7 @@ private theorem reducedInclusion_projection :
     ← Category.assoc, kernel.condition, zero_comp, sub_zero, Category.id_comp]
 
 private abbrev reducedCochainInclusion :=
-  (reducedInclusion k).mapHomologicalComplex c
+  (reducedTorusSectionsInclusion k).mapHomologicalComplex c
 
 private abbrev reducedCochainProjection :=
   (reducedProjection k).mapHomologicalComplex c
@@ -192,6 +194,18 @@ private def reducedDerivedUnit_retract (I : CochainComplex (SheafWithTransfers.{
   · ext
     · exact hJ
     · exact reducedTorusSectionsDerivedInclusion_projection k _
+
+/-- The original derived comparison of reduced sections retains the
+literal termwise kernel inclusion. -/
+theorem reducedTorusSectionsDerivedUnit_inclusion
+    (I : CochainComplex (SheafWithTransfers.{u + 1} k) ℤ) :
+    (reducedTorusSectionsDerivedUnit k).app I ≫
+        (reducedTorusSectionsDerivedInclusion k).app (DerivedCategory.Q.obj I) =
+      DerivedCategory.Q.map
+        (((reducedTorusSectionsInclusion k).mapHomologicalComplex c).app I) ≫
+          (torusSectionsDerivedUnit k).app I := by
+  let a := reducedDerivedUnit_retract k I
+  exact a.i.w.symm
 
 instance : (N).IsRightDerivedFunctor (reducedTorusSectionsDerivedUnit k)
     (HomologicalComplex.quasiIso (SheafWithTransfers.{u + 1} k) c) := by

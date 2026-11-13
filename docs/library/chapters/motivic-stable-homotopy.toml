@@ -1,0 +1,44 @@
+[chapter]
+id = "motivic-stable-homotopy"
+title = "Motivic Stable Homotopy Theory"
+order = 58
+introduction = '''
+Tate prespectra assemble pointed motivic spaces using successive Tate
+bonding maps. The Tate quotient and its suspension on spaces come from
+COL-1017 and COL-1035. The space-level motivic cohomology representatives
+of COL-1016 supply the levels for motivic Eilenberg–Mac Lane spectra.
+
+Stabilization at the Tate sphere uses derived simplicial mapping spaces
+on prespectra. The free prespectrum comparisons give the ordinary Hom
+criterion for the adjoint bonding maps.
+[@Jardine2000MotivicSpectra, Section 2]
+'''
+
+[[sections]]
+id = "tate-prespectra-and-omega-spectra"
+title = "Tate prespectra and the Ω-spectrum condition"
+order = 10
+introduction = '''
+Apply the Tate suspension at each level to form the bonding maps.
+Evaluation in degree \(n\) has a free prespectrum left adjoint \(F_n\).
+Use the comparison from \(F_{n+1}\) on the suspended generator to \(F_n\)
+on the original generator to test the adjoint bonding maps.
+'''
+
+[sections.transitions]
+COL-1116 = '''
+After choosing the suspension adjunction, transpose each original bonding
+map. Precomposition by the comparison of free prespectra then becomes
+postcomposition by that transpose.
+'''
+
+[[sections]]
+id = "motivic-eilenberg-mac-lane-spectra"
+title = "Motivic Eilenberg–Mac Lane Ω-spectra"
+order = 20
+introduction = '''
+The integral and finite motivic complexes give the spaces in bidegree
+\((2q,q)\) through COL-1016. Their Tate suspension isomorphisms
+determine the bonding maps. Evaluation on a free prespectrum recovers
+the represented cohomology and its restriction maps.
+'''

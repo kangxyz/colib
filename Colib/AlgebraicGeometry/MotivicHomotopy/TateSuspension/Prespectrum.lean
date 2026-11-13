@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Stalkwise
 public import Colib.CategoryTheory.Prespectrum.Basic
+import Colib.Util.References
 
 /-!
 # Tate prespectra on the smooth site
@@ -28,15 +29,17 @@ namespace AlgebraicGeometry.MotivicHomotopy
 variable (R : CommRingCat.{u})
 
 /-- Pointed presheaves with successive bonding maps from their Tate suspensions. -/
-@[colib_ref "Jardine2000MotivicSpectra" "Section 2, before Section 2.1, p. 464" "ingredient"
+@[colib_tag "COL-1115",
+  colib_ref "Jardine2000MotivicSpectra" "Section 2, before Section 2.1, p. 464" "adaptation"
   "Sequential bonding maps with the Tate factor on the right in this model"]
 abbrev TatePrespectrum := SequentialPrespectrum (tatePresheafSuspension R)
 
 /-- Tate prespectra in the pointed stalkwise homotopy category. -/
+@[colib_tag "COL-1115"]
 abbrev StalkwiseTatePrespectrum := SequentialPrespectrum (tateStalkwiseSuspension R)
 
 /-- Apply Nisnevich localization to the original levels and bonding maps. -/
-@[no_expose]
+@[no_expose, colib_tag "COL-1115"]
 def toStalkwiseTatePrespectrum : TatePrespectrum R ⥤ StalkwiseTatePrespectrum R :=
   SequentialPrespectrum.mapFunctor
     (toStalkwiseHomotopyCategory (SmoothSite (Spec R)) (SmoothSite.nisnevichTopology (Spec R)))

@@ -493,6 +493,10 @@ class LibraryTests(unittest.TestCase):
             "bicategories": "Colib.CategoryTheory.Bicategory.IsoQuotient",
             "restricted-spans": "Colib.CategoryTheory.QConstruction.Basic",
             "tate-sphere-and-suspension": "Colib.AlgebraicGeometry.MotivicHomotopy.TateSphere",
+            "tate-prespectra-and-omega-spectra":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.Prespectrum",
+            "motivic-eilenberg-mac-lane-spectra":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.IntegralOmegaSpectrum",
             "eilenberg-mac-lane-representatives":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EilenbergMacLane",
             "affine-line-representatives":
@@ -764,6 +768,7 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Suslin",
             "COL-1046":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.TateTwist",
+            "COL-1116": "Colib.CategoryTheory.Prespectrum.StableComparison",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
         }
@@ -1083,13 +1088,16 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(len(matches), 1)
             self.assertEqual(matches[0]["path"], f"tag/{identifier}/")
 
-    def test_motives_chapter_precedes_motivic_homotopy_theory(self):
+    def test_motivic_chapters_keep_distinct_owners_and_reading_order(self):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         motives = chapters["voevodsky-motives"]
         homotopy = chapters["motivic-homotopy"]
+        stable = chapters["motivic-stable-homotopy"]
         self.assertEqual(motives["title"], "Voevodsky’s Motives")
         self.assertEqual(homotopy["title"], "Motivic Homotopy Theory")
+        self.assertEqual(stable["title"], "Motivic Stable Homotopy Theory")
         self.assertLess(motives["order"], homotopy["order"])
+        self.assertLess(homotopy["order"], stable["order"])
         for identifier, section_id in {
             "COL-1042": "effective-motives",
             "COL-1044": "tate-twists-and-cancellation",
@@ -1099,6 +1107,27 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(item["section"], section_id)
             self.assertEqual(self.library["sections"][section_id]["chapter"], motives["id"])
             self.assertEqual(item["path"], f"docs/library/entries/{motives['id']}/{identifier}.toml")
+        for identifier, chapter, section_id in [
+            ("COL-1016", homotopy, "affine-line-representatives"),
+            ("COL-1035", homotopy, "tate-sphere-and-suspension"),
+            ("COL-1115", stable, "tate-prespectra-and-omega-spectra"),
+            ("COL-1116", stable, "tate-prespectra-and-omega-spectra"),
+            ("COL-1117", stable, "motivic-eilenberg-mac-lane-spectra"),
+        ]:
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section_id)
+            self.assertEqual(self.library["sections"][section_id]["chapter"], chapter["id"])
+            self.assertEqual(item["path"], f"docs/library/entries/{chapter['id']}/{identifier}.toml")
+        section_id = "motivic-eilenberg-mac-lane-spectra"
+        self.assertLess(self.library["sections"]["tate-prespectra-and-omega-spectra"]["order"],
+                        self.library["sections"][section_id]["order"])
+        self.assertEqual(self.library["sections"][section_id]["entries"], ["COL-1117"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        item = self.library["entries"]["COL-1117"]
+        self.assertEqual(
+            built["declarations"][item["primary"]]["module"],
+            "Colib.AlgebraicGeometry.MotivicHomotopy.TateSuspension.IntegralOmegaSpectrum",
+        )
 
     def test_weight_one_normalization_registration_and_binding_sources(self):
         # These are metadata fixtures, not evidence of native Lean elaboration.

@@ -60,6 +60,13 @@ private theorem axisCokernelIso_π_hom (X : PointedSimplicialPresheaf.{w} C) :
       cokernel.π ((freeAbelian C).map (parameterizedCylinder X I).hom)
   simp only [cokernel.map, cokernel.π_desc]
 
+/-- The actual product leg surjects onto the original reduced cylinder chains. -/
+theorem epi_freeAbelianParameterCylinderInclusion (X : PointedSimplicialPresheaf.{w} C) :
+    Epi ((freeAbelian C).map (pushout.inl (intervalAxis X I) (terminal.from I)) ≫
+      reduction C (parameterizedCylinder X I)) := by
+  rw [← axisCokernelIso_π_hom I X]
+  infer_instance
+
 end Axis
 
 variable (V : C)
@@ -120,9 +127,11 @@ def reducedFreeAbelianParameterCylinderIso (X : PointedSimplicialPresheaf.{max v
       (freeParameterAxisIso.{w} V) ((freeAbelianParameterProductIso.{w} V).app X.right)
       (freeParameterAxisIso_comm V X) ≪≫ (PreservesCokernel.iso Φ (F.map X.hom)).symm)
 
+/-- The original reduced comparison retains the product map and the point quotient. -/
 @[reassoc]
-private theorem cylinderInclusion_reduction_comp_iso (X : PointedSimplicialPresheaf.{max v w} C) :
-    (freeAbelian C).map (parameterCylinderInclusion (liftedRepresentableInterval.{w} V) X) ≫
+theorem cylinderInclusion_reduction_comp_iso (X : PointedSimplicialPresheaf.{max v w} C) :
+    (freeAbelian C).map (pushout.inl (intervalAxis X (liftedRepresentableInterval.{w} V))
+        (terminal.from (liftedRepresentableInterval.{w} V))) ≫
       reduction C (parameterizedCylinder X (liftedRepresentableInterval.{w} V)) ≫
         (reducedFreeAbelianParameterCylinderIso.{w} V X).hom =
       (freeAbelianParameterProductIso.{w} V).hom.app X.right ≫

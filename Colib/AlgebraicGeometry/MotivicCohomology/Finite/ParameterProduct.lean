@@ -92,6 +92,22 @@ def motivicFiniteParameterTargetIso (q n : ℕ) :
       finiteCoefficients ((R).obj ((motivicSheafComplex k (q + 1))⟦(1 : ℤ)⟧)) n :=
   coefficientMapShiftIso (torusParameterSheafFunctor k) (motivicSheafComplex k (q + 1)) n 1
 
+/-- The original target comparison is the signed cone shift followed by
+the additive comparison for the actual torus reindexing. -/
+theorem motivicFiniteParameterTargetIso_hom_eq (q n : ℕ) :
+    let K := motivicSheafComplex k (q + 1)
+    let L := K⟦(1 : ℤ)⟧
+    ∀ (h : ((n • 𝟙 K)⟦(1 : ℤ)⟧') = n • 𝟙 L)
+      (hF : (R).map (n • 𝟙 L) = n • 𝟙 ((R).obj L)),
+      (motivicFiniteParameterTargetIso k q n).hom =
+        (R).map ((mappingCone.shiftIso (n • 𝟙 K) 1).hom ≫
+          (eqToIso (congrArg (fun f : L ⟶ L => mappingCone f) h)).hom) ≫
+        (mappingCone.mapHomologicalComplexIso (n • 𝟙 L) (torusParameterSheafFunctor k)).hom ≫
+          (eqToIso (congrArg (fun f : (R).obj L ⟶ (R).obj L => mappingCone f) hF)).hom := by
+  intro K L h hF
+  unfold motivicFiniteParameterTargetIso coefficientMapShiftIso
+  rfl
+
 /-- The target comparison identifies the original shifted integral reduction
 with integral reduction on the reindexed integral target. -/
 @[reassoc]

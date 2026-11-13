@@ -73,7 +73,8 @@ private theorem mono_toTateCone_right :
   exact Adhesive.mono_of_isPushout_of_mono_right
     (F.map_isPushout (reducedMappingCofiber_isPushout (pointedLaurentOpen R)))
 
-private theorem mono_pointedLaurentOpen_right :
+/-- The actual Laurent open is monomorphic on the underlying presheaves. -/
+theorem mono_pointedLaurentOpen_right :
     Mono (pointedLaurentOpen R).right := by
   let : Mono (multiplicativeGroupOpen (Spec R)) :=
     (forgetScheme (Spec R)).mono_of_mono_map

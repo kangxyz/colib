@@ -208,6 +208,23 @@ def motivicSheafParameterProduct (q : ℕ) :
     H.map (((shiftFunctorAdd' _ (-((q + 1 : ℕ) : ℤ)) 1 s hs).app (N.extend e)).hom ≫
       (shiftFunctor _ (1 : ℤ)).map (motivicSheafComplexOrdinaryShiftIso k (q + 1)).inv)
 
+/-- The original parameter map has the indicated extension and signed shift comparisons. -/
+theorem motivicSheafParameterProduct_eq (q : ℕ) :
+    let F := torusParameterSheafFunctor k
+    let H := F.mapHomologicalComplex (.up ℤ)
+    let e := ComplexShape.embeddingUpIntLE 0
+    let N := L (q + 1)
+    let s := -(q : ℤ)
+    let t := -((q + 1 : ℕ) : ℤ)
+    let hs : t + 1 = s := by dsimp [s, t]; omega
+    let f := (e.extendFunctor _).map (sheafifiedReducedTorusSingularParameterProduct k q) ≫
+      (Stacks.DerivedIndexing.mapExtendIso F e N).hom
+    motivicSheafParameterProduct k q =
+      (motivicSheafComplexOrdinaryShiftIso k q).hom ≫ (shiftFunctor _ s).map f ≫
+      (H.commShiftIso s).inv.app (N.extend e) ≫
+      H.map ((shiftFunctorAdd' _ t 1 s hs).hom.app (N.extend e) ≫
+        (shiftFunctor _ (1 : ℤ)).map (motivicSheafComplexOrdinaryShiftIso k (q + 1)).inv) := rfl
+
 /-- The signed motivic parameter map has zero composite with the actual unit-section restriction. -/
 @[colib_tag "COL-1037"]
 theorem motivicSheafParameterProduct_unit (q : ℕ) :
