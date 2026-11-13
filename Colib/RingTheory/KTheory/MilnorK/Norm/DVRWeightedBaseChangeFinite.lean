@@ -62,6 +62,36 @@ private theorem finite_norm_through_residue_tower {K Z W : Type u}
       (milnorKNorm_tower_of_finite (M := Z) n _).symm
     _ = _ := (congrArg (milnorKNorm K Z n) h).trans (map_nsmul _ _ _)
 
+private theorem finite_norm_artinian_fiber
+    {K H A W : Type u} [Field K] [Field H] [CommRing A] [Field W]
+    [Algebra K A] [IsArtinianRing A] [Module.Finite K A]
+    [Algebra K W] [FiniteDimensional K W]
+    (f : A →ₐ[K] W) (h : H →+* A) (n : ℕ) (x : MilnorKTheory H n) :
+    milnorKNorm K W n (milnorKTransport (f.toRingHom.comp h) n x) =
+      artinianFiberDegree f •
+        milnorKNorm K (A ⧸ (artinianFiberPoint f).asIdeal) n
+          (milnorKTransport ((Ideal.Quotient.mk (artinianFiberPoint f).asIdeal).comp h) n x) := by
+  let Z := A ⧸ (artinianFiberPoint f).asIdeal
+  let g : Z →ₐ[K] W := artinianFiberEmbedding f
+  let : Algebra Z W := g.toRingHom.toAlgebra
+  have : IsScalarTower K Z W := IsScalarTower.of_algebraMap_eq' g.comp_algebraMap.symm
+  let : FiniteDimensional Z W := FiniteDimensional.right K Z W
+  have hcomp : (algebraMap Z W).comp
+      ((Ideal.Quotient.mk (artinianFiberPoint f).asIdeal).comp h) = f.toRingHom.comp h := by
+    ext y
+    exact artinianFiberEmbedding_mk f (h y)
+  have hx : milnorKTransport (f.toRingHom.comp h) n x =
+      milnorKTransport (algebraMap Z W) n
+        (milnorKTransport ((Ideal.Quotient.mk (artinianFiberPoint f).asIdeal).comp h) n x) := by
+    rw [milnorKTransport_comp_apply, hcomp]
+  calc
+    _ = milnorKNorm K W n
+        (milnorKTransport (algebraMap Z W) n
+          (milnorKTransport ((Ideal.Quotient.mk (artinianFiberPoint f).asIdeal).comp h) n x)) :=
+      congrArg (milnorKNorm K W n) hx
+    _ = _ := finite_norm_through_residue_tower n
+      (milnorKTransport ((Ideal.Quotient.mk (artinianFiberPoint f).asIdeal).comp h) n x)
+
 private theorem sum_fiber_norm_weights {ι J M : Type u} [Fintype ι] [Fintype J]
     [DecidableEq J] [AddCommMonoid M] (q : ι → J) (b d : ι → ℕ) (w : J → ℕ) (t : J → M)
     (h : ∀ r, (∑ i, if q i = r then b i * d i else 0) = w r) :
@@ -160,28 +190,15 @@ theorem milnorKNorm_residue_weighted_baseChange_of_finite
       milnorKNorm K (ResidueField (U i)) n
           (milnorKTransport (ResidueField.map (algebraMap S (U i))) n x) =
         d i • t (q i) := by
-    let Z := A ⧸ (q i).asIdeal
-    let W := ResidueField (U i)
-    let g : Z →ₐ[K] W := artinianFiberEmbedding (f i)
-    let : Algebra Z W := g.toRingHom.toAlgebra
-    have : IsScalarTower K Z W := IsScalarTower.of_algebraMap_eq' g.comp_algebraMap.symm
-    let : FiniteDimensional Z W := FiniteDimensional.right K Z W
-    have hcomp : (algebraMap Z W).comp (tensorNormFactorMap (q i)) =
+    have hmap : (f i).toRingHom.comp
+        (Algebra.TensorProduct.includeRight : H →ₐ[k] A).toRingHom =
         ResidueField.map (algebraMap S (U i)) := by
       ext s
-      change artinianFiberEmbedding (f i) (Ideal.Quotient.mk _ (1 ⊗ₜ[k] s)) =
-        ResidueField.map (algebraMap S (U i)) s
-      rw [artinianFiberEmbedding_mk, residueTensorMap_one_tmul]
-    have hx : milnorKTransport (ResidueField.map (algebraMap S (U i))) n x =
-        milnorKTransport (algebraMap Z W) n (milnorKTransport (tensorNormFactorMap (q i)) n x) := by
-      rw [milnorKTransport_comp_apply, hcomp]
-    calc
-      _ = milnorKNorm K W n
-          (milnorKTransport (algebraMap Z W) n
-            (milnorKTransport (tensorNormFactorMap (q i)) n x)) :=
-        congrArg (milnorKNorm K W n) hx
-      _ = _ := finite_norm_through_residue_tower n
-        (milnorKTransport (tensorNormFactorMap (q i)) n x)
+      exact residueTensorMap_one_tmul R S T (U i) s
+    have ht := finite_norm_artinian_fiber (f i)
+      (Algebra.TensorProduct.includeRight : H →ₐ[k] A).toRingHom n x
+    rw [hmap] at ht
+    exact ht
   have hbase : milnorKTransport (algebraMap k K) n (milnorKNorm k H n x) =
       ∑ r : MaximalSpectrum A, tensorNormFactorLength r • t r := by
     simpa only [milnorKTheoryMap_eq_transport, AddMonoidHom.coe_toIntLinearMap,
