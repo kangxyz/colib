@@ -1862,6 +1862,7 @@ public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Complex
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleNaturality
+public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.FullSmallEtaleComparison
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Hypercohomology
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.ParameterProduct
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.RestrictionInvariance
@@ -2920,6 +2921,7 @@ public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Coun
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CounitNeighborhoods
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.CoverLifting
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestriction
+public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestrictionAtBase
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.NeighborhoodGerms
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.Topology
 public import Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.ExtensionExact

@@ -13,6 +13,9 @@ finite-type etale neighborhood V of X and every integer p, it induces an
 additive map from derived-Hom with the big free source of V to derived-Hom
 with the actual full-small free source, into the restricted coefficient
 complex shifted by p. This map is natural in coefficient chain maps.
+At the identity neighborhood, the source is the original smooth object X and
+the target free source represents the actual terminal object of its full small
+etale site.
 '''
 proof = '''
 Restrict to the separated finite-type basis and apply its actual equivalence
@@ -20,11 +23,15 @@ with the full small etale site. Transport the tautological big free-source
 section through the equivalence unit. The native free-source sections
 equivalence gives a morphism from the small free source to the restricted
 big source. Apply the exact functor's unbounded derived lift and the native
-single-complex, localization and shift comparison isomorphisms.
+single-complex, localization and shift comparison isomorphisms. Specialize to
+the identity neighborhood and transport along toSmallEtaleIdentityIso to obtain
+the terminal-source comparison without replacing X.
 '''
 scope = '''
 The original schemes, topologies and coefficient complex are retained, with
-independent universes for the two derived categories. No isomorphism between
+independent universes for the two derived categories. The AtBase specialization
+uses the same literal restricted complex in every integer degree; its composite
+with the finite motivic comparison is recorded in COL-1228. No isomorphism between
 the restricted big free source and the small free source is asserted. The
 cohomological comparison is a map, not an asserted isomorphism. This result
 alone does not identify a finite motivic complex with Tate coefficients or

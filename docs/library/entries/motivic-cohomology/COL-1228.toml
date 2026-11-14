@@ -13,6 +13,9 @@ sheafification of its finite motivic cone, in every integer cohomological degree
 The free representing source is identified canonically after change of topology.
 The comparison is natural in the actual scheme restriction and coefficient maps,
 and commutes with the original signed Bockstein into the shifted complex.
+Composing with COL-1232 at the identity etale neighborhood gives an additive map
+to derived-Hom from the terminal full-small free source into the literal
+restriction of that same finite motivic cone.
 '''
 proof = '''
 Compose the Nisnevich sheafification adjunction with the ordinary change-of-topology
@@ -21,12 +24,18 @@ sheafification and hence identifies the lifted free representing sources.
 Apply the exact functor's native unbounded derived lift, then its single-complex,
 localization and shift comparison isomorphisms. Package the source and target
 identifications as natural isomorphisms and use functoriality of derived-Hom
-precomposition and postcomposition.
+precomposition and postcomposition. For the full-small target, compose this
+comparison with exact restriction at the original smooth scheme, using its
+canonical identity-neighborhood source transport.
 '''
 scope = '''
 The source is motivicFiniteCohomology itself and the target uses
 motivicFiniteEtaleSheafComplex, not an unspecified isomorphic complex.
-This constructs a comparison, not a proof that it is an isomorphism.
+The full-small composite has source motivicFiniteCohomology and target
+motivicFiniteFullSmallEtaleCohomology; its coefficient complex is exactly
+motivicFiniteFullSmallEtaleComplex. It permits arbitrary integer p and natural
+q and n, including n = 0, with three independent derived-category universes.
+These are comparison maps, not proofs that they are isomorphisms.
 No invertibility or perfectness hypothesis is needed for this map.
 The Bockstein target is the shifted complex; no degree-(p+1) normalization is claimed.
 It does not identify the target with Tate coefficients or ordinary small-etale
