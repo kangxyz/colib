@@ -80,15 +80,16 @@ and requires n invertible in global sections. It holds for schemes, hence
 in particular for spectra of fields.
 It does not assume a primitive root of unity, perfectness or finite
 cohomological dimension. It does not assert surjectivity, a Galois-cocycle
-normalization, field-change naturality, an etale Tate comparison or the
+normalization, field-change naturality, a higher-weight etale Tate comparison or the
 norm-residue theorem. The map retains the actual native
 Kummer boundary, rather than naming a motivic target ordinary cohomology.
 The Milnor quotient is the literal quotient used by COL-1224; its expression is
 kept explicit here to avoid importing the whole integral diagonal proof into
 this degree-one consumer. Agreement with the original motivic comparison is
 proved in degree one after the actual coefficient-forgetting equivalence;
-this does not supply a D(Z/n)-linear Tate identification or higher-weight cup
-compatibility.
+COL-1231 separately supplies a calibrated D(Sheaf(ZMod n))-linear
+weight-one identification recovering that original comparison. This does
+not assert higher-weight cup compatibility.
 The tensor-exactness conclusion is proved for schemes equipped with a map
 to a field in which n is nonzero, not for an arbitrary base scheme.
 It is a property of the actual ordinary small-etale Z/n-module coefficient

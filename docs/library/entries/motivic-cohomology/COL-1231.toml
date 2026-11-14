@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1231"
-title = "Finite weight-one coefficients, units, and etale roots of unity"
+title = "Finite weight-one coefficients and the linear etale roots-of-unity comparison"
 kind = "comparison"
 section = "weight-one-comparison"
 order = 25
@@ -26,6 +26,16 @@ geometric weight-one norm. Consequently, for every class a in K^M_1(k)/n,
 the composite of the original finite diagonal equivalence COL-1224 with this
 comparison equals the original module-valued Kummer symbol of COL-1227,
 transported by rootsOfUnityModuleExtEquiv to ordinary H^1(Spec k, mu_n).
+For every smooth k-scheme X and nonzero n invertible in k, the actual
+full-small etale coefficient quotient has a literal ZMod n-module complex
+model. There is a calibrated isomorphism from this model to the existing
+rootsOfUnityModule mu_n placed in degree zero, in
+D(Sheaf(X_et, ModuleCat(ZMod n))). Forgetting coefficients through the
+specified source and target identifications, and precomposing with the
+original finite-cone-to-quotient map, recovers exactly the original
+weightOneFiniteFullSmallRootsIso (beta_1). Thus this is a coefficient-linear
+realization of the original weight-one comparison, not merely an
+isomorphism between objects with the same cohomology.
 '''
 proof = '''
 The native mapping-cone triangle and two-out-of-three show that taking the
@@ -48,20 +58,39 @@ free-Yoneda change of site and units counits identify the source with the same
 global unit. The terminal-source Ext comparison then recovers the original
 Kummer boundary, with its shift and sign. Apply the geometric norm formula
 and descend the degree-one Milnor representative formula to the quotient.
+For the linear realization, construct the module structure on the actual
+coefficient quotient, transport it through exact change of topology and
+full-small restriction, and prove that the resulting derived object is
+concentrated in degree zero. Lift the original abelian comparison on H^0
+through the fully faithful coefficient-forgetting functor on sheaves.
+Normalized truncation then constructs a module-derived isomorphism with
+that prescribed H^0 map; faithfulness of H^0 between concentrated objects
+proves the required equality after forgetting. Finally remove ULift from
+the scalar ring by its actual module-sheaf equivalence. The derived
+scalar-forgetting square and the original cone-to-quotient
+quasi-isomorphism give weightOneZModBetaCompatibleIso_originalBeta.
 '''
 scope = '''
-All derived isomorphisms here are in D(Ab), not a derived ZMod-linear Tate
-identification. No perfect-field assumption is used. The original Nisnevich
+The units-cone and original roots-of-unity comparisons are in D(Ab).
+The calibrated weight-one comparison weightOneZModBetaCompatibleIso is
+in the derived category of sheaves of literal ZMod n-modules, not merely
+ULift(ZMod n)-modules. No perfect-field assumption is used. The original Nisnevich
 units-cone result does not require invertibility of n; the additional etale
 kernel and mu_n identifications require n nonzero and invertible on Spec k.
 The declarations retain their explicit sheafification, derived-category and,
-for ordinary cohomology, HasExt infrastructure instances. The ordinary target
+for ordinary cohomology, HasExt infrastructure instances. The linear
+realization additionally retains CommRingCat sheafification, the stated
+locally-bijective criteria for ring and abelian sheaves, coefficient-forgetting
+sheaf composition, and derived categories for both lifted and literal
+module coefficients at the declared universes. The ordinary target
 uses natural cohomological degrees. The resulting Nisnevich-to-ordinary-etale
 comparison is an additive map, not an asserted isomorphism. Naturality and
 Bockstein coherence of the entire mu_n identification are not asserted here;
 the degree-one equality with the original Kummer boundary and its Milnor
 quotient specialization are established. The earlier units-cone compatibility
-is unchanged. No all-weight tensor
-comparison, cup compatibility, norm-residue bijectivity, or automatic lift
-from D(Ab) to D(Z/n) is asserted.
+is unchanged. The linear isomorphism is separately calibrated to the
+original beta_1; it is not an unproved identification of an arbitrary
+choice-based isomorphism. Fullness of the forgetful functor on all derived
+objects is neither assumed nor asserted. No all-weight tensor comparison,
+cup compatibility or norm-residue bijectivity is asserted.
 '''

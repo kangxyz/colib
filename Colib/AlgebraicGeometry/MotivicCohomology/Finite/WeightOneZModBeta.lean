@@ -59,6 +59,7 @@ variable [HasDerivedCategory.{u + 2}
   (Sheaf X.left.smallEtaleTopology (ModuleCat.{u + 1} (ZMod n)))]
 
 /-- The calibrated comparison transported to literal finite coefficients. -/
+@[colib_tag "COL-1231"]
 def weightOneZModBetaCompatibleIso (hunit : IsUnit (n : Γ(Spec (.of k), ⊤))) :
     DerivedCategory.Q.obj (weightOneZModComplex k X n) ≅
       (DerivedCategory.singleFunctor _ 0).obj (Stacks.Kummer.rootsOfUnityModule.{u, 0} X.left n) :=

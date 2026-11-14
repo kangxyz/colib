@@ -59,6 +59,7 @@ variable [HasDerivedCategory.{u + 2}
   (Sheaf X.left.smallEtaleTopology (ModuleCat.{u + 1} (ZMod n)))]
 
 /-- Forgetting the literal ZMod comparison recovers exactly the original finite beta1. -/
+@[colib_tag "COL-1231", colib_tag "COL-1227"]
 theorem weightOneZModBetaCompatibleIso_originalBeta
     (hunit : IsUnit (n : Γ(Spec (.of k), ⊤))) :
     DerivedCategory.Q.map (motivicFiniteFullSmallToCoefficientQuotient k X 1 n) ≫
