@@ -42,16 +42,18 @@ instance ambientLift_isClosedImmersion : IsClosedImmersion (ambientLift k U Y) :
 
 /-- The source map is literally unchanged, preserving admissibility. -/
 @[reassoc (attr := simp)]
-theorem ambientLift_fst : ambientLift k U Y ≫ pullback.fst U.hom (B).hom =
+theorem ambientLift_fst :
+    ambientLift k U Y ≫ pullback.fst U.hom (pullback.fst U.hom Y.hom ≫ U.hom) =
     pullback.fst U.hom Y.hom := by
-  simp only [ambientLift, Category.assoc, pullbackSymmetry_hom_comp_fst]
+  simp only [ambientLift, Category.assoc, SmoothSite.product_hom, pullbackSymmetry_hom_comp_fst]
   exact pullback.lift_snd _ _ _
 
 /-- Forgetting the new source coordinate recovers the identical old support. -/
 @[reassoc (attr := simp)]
-theorem ambientLift_snd : ambientLift k U Y ≫ pullback.snd U.hom (B).hom =
+theorem ambientLift_snd :
+    ambientLift k U Y ≫ pullback.snd U.hom (pullback.fst U.hom Y.hom ≫ U.hom) =
     𝟙 (B).left := by
-  simp only [ambientLift, Category.assoc, pullbackSymmetry_hom_comp_snd]
+  simp only [ambientLift, Category.assoc, SmoothSite.product_hom, pullbackSymmetry_hom_comp_snd]
   exact pullback.lift_fst _ _ _
 
 /-- Native finite-map image admissibility, using the unchanged source map. -/
@@ -59,8 +61,8 @@ theorem image_admissible (z : pullback (C := Scheme) U.hom Y.hom)
     (hz : IsFiniteCorrespondencePoint U.hom Y.hom z) :
     IsFiniteCorrespondencePoint U.hom (B).hom (ambientLift k U Y z) := by
   apply isFiniteCorrespondencePoint_finiteMap U.hom (B).hom (ambientLift k U Y) z
-  · simpa only [Category.assoc, ambientLift_fst] using hz.1
-  · simpa only [Category.assoc, ambientLift_fst] using hz.2
+  · simpa only [Category.assoc, SmoothSite.product_hom, ambientLift_fst] using hz.1
+  · simpa only [Category.assoc, SmoothSite.product_hom, ambientLift_fst] using hz.2
 
 /-- Canonical additive lift. Each actual point maps to its closed-immersion
 image, with the same integer coefficient (residue degree is one). -/
