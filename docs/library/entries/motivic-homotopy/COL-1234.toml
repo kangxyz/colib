@@ -9,7 +9,7 @@ review = "author_checked"
 source_checked_on = "2026-11-14"
 statement = '''
 Let \(X,Y\) be pointed simplicial presheaves on a site with abelian
-sheafification in the indicated universe. Write \(N\) for reduced
+sheafification in the coefficient universe specified below. Write \(N\) for reduced
 free abelianization followed by degreewise sheafification and
 normalized Moore chains. The Alexander–Whitney map
 \[
@@ -32,7 +32,11 @@ two comparisons, so the resulting normalized map is a
 quasi-isomorphism.
 '''
 scope = '''
-The tensor here is the ordinary tensor of sheaf complexes. The
+The Lean site category has object universe \(u\) and morphism
+universe \(v+1\). Simplices and abelian coefficients are in universe
+\(v+1\), with \(\operatorname{UnivLE}(\max(u,v+1),v+1)\) and abelian
+sheafification in that universe. The tensor is the ordinary tensor of
+sheaf complexes. The
 coefficient product and its comparison with suspension by the
 standard classes use the additional structure of
 [@Voevodsky2003ReducedPowers, Section 2, Theorems 2.1–2.4].

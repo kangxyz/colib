@@ -8,8 +8,9 @@ primary = "CategoryTheory.SequentialPrespectrum.levelwise_hasFunctorialFactoriza
 review = "author_checked"
 source_checked_on = "2026-11-14"
 statement = '''
-Let \(S\) be an endofunctor that preserves the initial object and the
-specified-size colimits of a locally small category \(\mathcal C\).
+Let \(\mathcal C\) be a locally small category with an initial object
+and colimits of the specified size. Let \(S\) be an endofunctor that
+preserves those colimits and the initial object.
 Let \(I\) be a small family of maps in \(\mathcal C\) with presentable
 domains, and let \(F_n\) be the free \(S\)-prespectrum in degree \(n\).
 The family of maps \(F_n(i)\) for \(n\geq 0\) and \(i\in I\)
