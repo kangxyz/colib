@@ -157,6 +157,14 @@ compatible Colib R2 archives in order, followed by the GitHub Release baseline.
 The restore checks the producer run and archive digest before the existing
 native-stage validation and Lake input rehash.
 
+A repository maintainer can preseed a verified external build by uploading its
+native archive to `colib/v1/objects/<domain>/<sha256>.tar` and setting the
+`COLIB_R2_PRESEED` repository variable. The JSON value records the archive
+`domain`, `sha256`, and `size` in bytes, the producer `revision`, and the
+exact `consumer` commit on the default branch. Build uses it on that commit's
+push after the usual archive and Lake checks. Remove the variable after that
+run. The verified CI archive enters the normal two-generation index.
+
 Failed and timed-out builds save the completed Colib outputs to the branch's
 Actions checkpoint after the compiler stops. The next run can resume with those
 outputs when Lake's input hashes match. A job cancelled before its checkpoint

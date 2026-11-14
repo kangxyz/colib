@@ -471,6 +471,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          COLIB_R2_PRESEED: ${{ vars.COLIB_R2_PRESEED }}
           STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
           STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
           STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}

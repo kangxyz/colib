@@ -12,7 +12,7 @@ import zipfile
 
 from merge_seed import (archive_content, download, download_release, find_published_baseline,
                         find_seed, restore_published_baseline, restore_r2_baseline,
-                        sha, unpack_native, validate_producer)
+                        restore_r2_preseed, sha, unpack_native, validate_producer)
 from stage import MAP_SCHEMA
 
 HEAD = '1' * 40
@@ -299,6 +299,29 @@ class ColibR2Restore(unittest.TestCase):
             restore_published_baseline()
         self.assertEqual(download.call_args.args[:3], (self.repository, 'release', asset))
         self.assertEqual(imported.call_args.args[3], BASE)
+
+    def test_operator_seed_applies_only_to_the_configured_default_branch_push(self):
+        entry = dict(consumer=HEAD, revision=BASE, domain=self.domain, sha256='d' * 64, size=128)
+        mirror = Mock()
+        for ref, event, revision, expected in (
+            ('refs/heads/main', 'push', HEAD, True),
+            ('refs/heads/main', 'push', BRANCH, False),
+            ('refs/heads/work/feature', 'push', HEAD, False),
+            ('refs/heads/main', 'pull_request', HEAD, False),
+        ):
+            with (self.subTest(ref=ref, event=event, revision=revision),
+                  tempfile.TemporaryDirectory() as tmp,
+                  patch.dict('os.environ', {'COLIB_R2_PRESEED': json.dumps(entry),
+                                            'GITHUB_SHA': revision, 'GITHUB_REF': ref,
+                                            'GITHUB_EVENT_NAME': event, 'RUNNER_TEMP': tmp}),
+                  patch('merge_seed.ColibR2.configured', return_value=mirror) as configured,
+                  patch('merge_seed.import_native') as imported,
+                  patch('builtins.print')):
+                self.assertEqual(restore_r2_preseed(self.repository, 'main', self.domain), expected)
+                self.assertEqual(configured.called, expected)
+                self.assertEqual(imported.called, expected)
+                if expected:
+                    self.assertEqual(imported.call_args.args[2:], (self.repository, BASE, self.domain))
 
 
 if __name__ == '__main__':

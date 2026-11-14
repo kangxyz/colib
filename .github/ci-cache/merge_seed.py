@@ -233,6 +233,25 @@ def restore_r2_baseline(api, repository, branch, repository_id, domain):
     return False
 
 
+def restore_r2_preseed(repository, branch, domain):
+    configured = os.environ.get('COLIB_R2_PRESEED')
+    if (not configured or os.environ.get('GITHUB_EVENT_NAME') != 'push'
+            or os.environ.get('GITHUB_REF') != 'refs/heads/' + branch):
+        return False
+    entry = ColibR2.validate_archive(json.loads(configured))
+    if entry.get('consumer') != os.environ['GITHUB_SHA'] or entry['domain'] != domain:
+        return False
+    mirror = ColibR2.configured(repository, branch)
+    if mirror is None:
+        return False
+    with tempfile.TemporaryDirectory(prefix='colib-native-r2-preseed-', dir=os.environ['RUNNER_TEMP']) as tmp:
+        directory = Path(tmp)
+        archive = mirror.download(entry, directory)
+        import_native(archive, directory / 'stage', repository, entry['revision'], domain)
+    print(f'Imported the configured Colib R2 seed ({entry["revision"]}).', flush=True)
+    return True
+
+
 def restore_published_baseline():
     if Path('.lake/ci-cache/root.json').is_file():
         print('Using the verified Colib root checkpoint.', flush=True)
@@ -245,6 +264,11 @@ def restore_published_baseline():
     def api(endpoint, **parameters):
         return github(repository, endpoint, **parameters)
 
+    try:
+        if restore_r2_preseed(repository, branch, domain):
+            return
+    except (OSError, ValueError, KeyError, TypeError, tarfile.TarError, subprocess.CalledProcessError) as error:
+        print(f'::warning::Configured Colib R2 seed unavailable: {error}', flush=True)
     try:
         if restore_r2_baseline(api, repository, branch, repository_id, domain):
             return

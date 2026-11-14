@@ -42,14 +42,21 @@ class ColibR2:
         return entry['run_number'], entry['attempt']
 
     @classmethod
-    def validate_entry(cls, entry):
+    def validate_archive(cls, entry):
         if (not isinstance(entry, dict) or
                 any(not isinstance(entry.get(key), str) or not pattern.fullmatch(entry[key])
-                    for key, pattern in (('domain', DOMAIN), ('revision', COMMIT), ('sha256', DIGEST),
-                                         ('content_sha256', DIGEST))) or
+                    for key, pattern in (('domain', DOMAIN), ('revision', COMMIT), ('sha256', DIGEST))) or
+                type(entry.get('size')) is not int or not 0 < entry['size'] <= MAX_ARCHIVE_BYTES):
+            raise ValueError('invalid Colib R2 archive identity')
+        return entry
+
+    @classmethod
+    def validate_entry(cls, entry):
+        cls.validate_archive(entry)
+        if (not isinstance(entry.get('content_sha256'), str) or
+                not DIGEST.fullmatch(entry['content_sha256']) or
                 any(type(entry.get(key)) is not int or entry[key] <= 0
-                    for key in ('size', 'run_id', 'run_number', 'attempt')) or
-                entry['size'] > MAX_ARCHIVE_BYTES):
+                    for key in ('run_id', 'run_number', 'attempt'))):
             raise ValueError('invalid Colib R2 archive identity')
         return entry
 
