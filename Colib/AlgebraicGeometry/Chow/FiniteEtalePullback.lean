@@ -30,8 +30,9 @@ namespace Stacks.Chow
 
 variable {X Y : Scheme.{u}} {R : Type v} [AddCommMonoid R]
 
-/-- Finite étale pullback copies each coefficient to every point of its fibre. -/
-def finiteEtaleCyclePullback (f : X ⟶ Y) [IsFinite f] [Etale f] :
+/-- Finite étale pullback copies each coefficient to every point of its fibre.
+The étale hypothesis specifies the multiplicity-one specialization. -/
+def finiteEtaleCyclePullback (f : X ⟶ Y) [IsFinite f] [_etale : Etale f] :
     AlgebraicCycle Y R →+ AlgebraicCycle X R where
   toFun c :=
     { toFun := fun x ↦ c (f x)
