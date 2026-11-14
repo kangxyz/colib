@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1229"
+title = "Projective level factorization from presentable generators"
+kind = "theorem"
+section = "tate-prespectra-and-omega-spectra"
+order = 30
+primary = "CategoryTheory.SequentialPrespectrum.levelwise_hasFunctorialFactorization_of_domains_presentable"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+Let \(S\) be an endofunctor that preserves the initial object and the
+specified-size colimits of a locally small category \(\mathcal C\).
+Let \(I\) be a small family of maps in \(\mathcal C\) with presentable
+domains, and let \(F_n\) be the free \(S\)-prespectrum in degree \(n\).
+The family of maps \(F_n(i)\) for \(n\geq 0\) and \(i\in I\)
+admits the small object argument. Its right class consists of maps
+whose component at every degree has the right lifting property
+against \(I\). Every prespectrum map factors functorially as a map
+in the left lifting class followed by a map in this right class.
+'''
+proof = '''
+Form colimits levelwise. The bonding map is induced by applying \(S\)
+to the colimit cocone and taking the colimit of the original bonding
+maps. Evaluation therefore preserves the filtered colimits that test
+presentability. The free adjunction transfers presentability to every
+free generating domain and identifies the lifting problems for each
+free map with the corresponding lifting problems at its level.
+Apply the cardinal small object argument to the resulting family.
+'''
+scope = '''
+The hypotheses give the functorial level factorization associated to the
+chosen family. For a model category whose generating maps are supplied,
+the right class specializes to its level fibrations or level trivial
+fibrations. The comparison is the free-generator step of
+[@Hovey2001Spectra, Section 1, Theorem 1.14, pp. 7–8].
+'''

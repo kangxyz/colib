@@ -1010,7 +1010,8 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": (
-                "cycles", [374, *range(363, 368), 1088, 1091], ["COL-0374", "COL-0366"]
+                "cycles", [374, *range(363, 368), 1088, 1091, 1232],
+                ["COL-0374", "COL-0366", "COL-1232"]
             ),
             "transfers-nisnevich": (
                 "transfers", [*range(368, 374), 1028],
@@ -1318,6 +1319,7 @@ class LibraryTests(unittest.TestCase):
         transfers = (output / "sections/transfers-nisnevich/index.html").read_text()
         self.assertIn('id="cycles-and-composition"', cor)
         self.assertIn('id="category-and-graphs"', cor)
+        self.assertIn('id="finite-etale-descent"', cor)
         self.assertIn('id="sheafification-and-comparison"', transfers)
         self.assertIn('id="sheafification-and-affine-line"', transfers)
         self.assertIn("Stacks.Chow.incidenceTorPairing_assoc", cor)
@@ -1328,7 +1330,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("one neighborhood at each specified source point", transfers)
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
-        self.assertEqual(cor.count('class="section-transition"'), 8)
+        self.assertEqual(cor.count('class="section-transition"'), 9)
         self.assertEqual(transfers.count('class="section-transition"'), 7)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)
