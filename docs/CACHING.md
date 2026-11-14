@@ -59,6 +59,10 @@ native `--rehash` decides applicability. Root and tools restores prefer a
 compatible ref. Dependency and Stacks generations use their content identity.
 The packer checks integrity and coverage, preserves regular generated files,
 and reuses an already validated compressed archive when its content is unchanged.
+With sufficient free disk space, workspace-only checkpoints decompress into a
+temporary directory in one pass. The restore verifies the whole stream before
+installing files. Low space, a separate output filesystem or a checkpoint that
+includes the private native store use the two-pass restore.
 
 GitHub-hosted Test must consume the current Build's complete dependency, Stacks
 and root archive overlays, even if optional checkpoint caches hit. EC2 handoff

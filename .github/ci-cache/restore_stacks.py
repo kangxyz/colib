@@ -477,6 +477,8 @@ def main():
     args = argparse.Namespace(root=root, layer='stacks',
                               native_cache=Path(os.environ.get('LAKE_CACHE_DIR', root / '.lake/native-cache')).absolute(),
                               metadata=None, github_output=None)
+    if state := os.environ.get('STACKS_LOCAL_STATE'):
+        args.local_state = Path(state)
     checkpoint.supported(root)
     if any(vars(command).values()):
         context = checkpoint.contexts(root)['stacks_context']

@@ -352,24 +352,34 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           STACKS_REVISION: ${{ steps.cache-layout.outputs.stacks-revision }}
           STACKS_CONTEXT: ${{ steps.cache-mode.outputs.stacks_context }}
+          LOCAL_HANDOFF: ${{ steps.handoff-mode.outputs.enabled }}
           STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
           STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
           STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}
           STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_READ_SECRET_ACCESS_KEY }}
-        run: python3 -u .github/ci-cache/restore_stacks.py
+        run: |
+          if test "$LOCAL_HANDOFF" = true; then
+            export STACKS_LOCAL_STATE="$PWD/.lake/ci-host-handoff/stacks-state.json"
+          fi
+          python3 -u .github/ci-cache/restore_stacks.py
       - name: Apply optional compilation checkpoints
         if: ${{ steps.cache-mode.outputs.layered == 'true' }}
         working-directory: ${{ inputs.package-directory }}
         env:
           PREPARED_DEPENDENCIES: ${{ inputs.prepared-dependencies }}
+          LOCAL_HANDOFF: ${{ steps.handoff-mode.outputs.enabled }}
         run: |
           layers=(dependencies tools root)
           if test "$PREPARED_DEPENDENCIES" = true; then layers=(root); fi
           for layer in "${layers[@]}"; do
             archive="$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/$layer.tar.zst"
             if test -f "$archive"; then
+              handoff=()
+              if test "$LOCAL_HANDOFF" = true && test "$layer" = root; then
+                handoff+=(--local-state "$PWD/.lake/ci-host-handoff/root-state.json")
+              fi
               if ! python3 .github/ci-cache/checkpoint.py restore --root . --layer "$layer" \
-                  --input "$archive" --native-cache "$LAKE_CACHE_DIR"; then
+                  --input "$archive" --native-cache "$LAKE_CACHE_DIR" "${handoff[@]}"; then
                 echo "::warning::Optional $layer checkpoint could not be restored; current inputs will be rebuilt or verified."
               fi
             fi

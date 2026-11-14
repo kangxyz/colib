@@ -6,6 +6,7 @@ import io
 import json
 import os
 from pathlib import Path
+import shutil
 import stat
 import tarfile
 import tempfile
@@ -47,8 +48,8 @@ class CheckpointTests(unittest.TestCase):
         result = self.invoke('pack', '--layer', layer, '--output', str(archive), *options)
         return archive, result
 
-    def restore(self, layer, archive, code=0):
-        return self.invoke('restore', '--layer', layer, '--input', str(archive), code=code)
+    def restore(self, layer, archive, *options, code=0):
+        return self.invoke('restore', '--layer', layer, '--input', str(archive), *options, code=code)
 
     def test_official_mathlib_is_not_repacked_but_checker_tools_are_kept(self):
         manifest = json.loads((self.root / 'lake-manifest.json').read_text())
@@ -160,6 +161,24 @@ class CheckpointTests(unittest.TestCase):
         artifact.unlink()
         self.restore('root', archive)
         self.assertEqual(artifact.read_text(), 'after!')
+
+    def test_restore_and_build_refresh_same_host_hashes_for_test(self):
+        original = self.write('.lake/build/lib/lean/Root.olean', 'production')
+        archive, _ = self.pack('root')
+        options = ('--local-state', str(self.base / 'same-host.json'))
+        original.unlink()
+        self.restore('root', archive, *options)
+        added = self.write('.lake/build/lib/lean/Next.olean', 'new production')
+        with patch.object(checkpoint, 'file_hash', wraps=checkpoint.file_hash) as hashed:
+            _, build = self.pack('root', *options)
+        self.assertIn(added, [call.args[0] for call in hashed.call_args_list])
+        self.assertNotIn(original, [call.args[0] for call in hashed.call_args_list])
+        with patch.object(checkpoint, 'file_hash', wraps=checkpoint.file_hash) as hashed:
+            _, test = self.pack('root', *options)
+        self.assertEqual(test['generation'], build['generation'])
+        self.assertTrue(test['reused_local_state'])
+        self.assertNotIn(added, [call.args[0] for call in hashed.call_args_list])
+        self.assertNotIn(archive, [call.args[0] for call in hashed.call_args_list])
 
     def test_pack_hashes_snapshot_once_and_exact_tar_copy_once(self):
         artifact = self.write('.lake/build/Root.olean', 'compiled body')
@@ -273,7 +292,7 @@ class CheckpointTests(unittest.TestCase):
         self.restore('root', archive, code=1)
         self.assertEqual(outside.read_text(), 'SOURCE')
 
-    def test_restore_memoizes_parents_per_pass_but_rejects_parent_symlinks(self):
+    def test_restore_memoizes_parents_and_rejects_parent_symlinks(self):
         directory = self.root / '.lake/build/lib/lean/Bundle'
         for i in range(80):
             self.write(f'.lake/build/lib/lean/Bundle/{i}.olean', str(i))
@@ -284,13 +303,62 @@ class CheckpointTests(unittest.TestCase):
             calls.append(path)
             return actual(path)
         with patch.object(Path, 'is_symlink', observed):
-            self.restore('root', archive)
-        self.assertEqual(calls.count(directory), 2)  # Once per integrity/application pass.
+            result = self.restore('root', archive)
+        self.assertEqual(result['method'], 'staged')
+        self.assertEqual(calls.count(directory), 2)  # Once before staging, once before installation.
+
         outside = self.base / 'outside-source-directory'
+        original_install = checkpoint.install_staged
+        def replace_parent(root, staging, entries, targets, identities):
+            directory.rename(outside)
+            directory.symlink_to(outside, target_is_directory=True)
+            return original_install(root, staging, entries, targets, identities)
+        (directory / '0.olean').write_text('keep this output')
+        with patch.object(checkpoint, 'install_staged', side_effect=replace_parent):
+            self.restore('root', archive, code=1)
+        self.assertEqual((outside / '0.olean').read_text(), 'keep this output')
+        directory.unlink()
+        outside.rename(directory)
+        (directory / '0.olean').write_text('0')
         directory.rename(outside)
         directory.symlink_to(outside, target_is_directory=True)
         self.restore('root', archive, code=1)
         self.assertEqual((outside / '0.olean').read_text(), '0')
+
+    def test_restore_uses_two_passes_when_staging_space_is_insufficient(self):
+        artifact = self.write('.lake/build/Root.olean', 'compiled')
+        archive, _ = self.pack('root')
+        artifact.write_text('overwrite')
+        with patch.object(checkpoint, 'STAGING_RESERVE', 1 << 60):
+            result = self.restore('root', archive)
+        self.assertEqual(result['method'], 'two-pass')
+        self.assertEqual(artifact.read_text(), 'compiled')
+        self.assertEqual(list(self.root.glob('.lake/ci-restore-*')), [])
+
+    def test_pack_checks_same_host_changes_against_last_saved_generation(self):
+        self.write('.lake/build/lib/lean/Root.olean', 'production')
+        archive, _ = self.pack('root')
+        options = ('--local-state', str(self.base / 'same-host.json'))
+        self.restore('root', archive, *options)
+        extra = self.write('.lake/build/lib/lean/Next.olean', 'new production')
+        _, added = self.pack('root', *options)
+        extra.unlink()
+        _, removed = self.pack('root', *options)
+        self.assertTrue(added['changed'])
+        self.assertTrue(removed['changed'])
+        self.assertNotEqual(removed['generation'], added['generation'])
+
+    @unittest.skipUnless(shutil.which('zstd'), 'checkpoint compression needs zstd')
+    def test_restore_checks_compressed_tail_before_installing_any_output(self):
+        first = self.write('.lake/build/A.olean', 'compiled A')
+        self.write('.lake/build/Z.olean', 'compiled Z')
+        archive = self.base / 'root.tar.zst'
+        self.invoke('pack', '--layer', 'root', '--output', str(archive))
+        archive.write_bytes(archive.read_bytes() + b'invalid zstd tail')
+        first.write_text('old A')
+        self.restore('root', archive, code=1)
+        self.assertEqual(first.read_text(), 'old A')
+        self.assertEqual(list(self.root.glob('.lake/ci-restore-*')), [])
 
     def rewrite(self, archive, transform):
         with tarfile.open(archive) as source:
