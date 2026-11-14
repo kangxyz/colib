@@ -641,10 +641,16 @@ jobs:
         if: ${{ always() && steps.cache-mode.outputs.layered == 'true' && steps.quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true' && (steps.build.outcome == 'success' || steps.build.outcome == 'failure') && steps.staging-quiesce.outcome == 'success' }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
+        env:
+          LOCAL_HANDOFF: ${{ steps.handoff-mode.outputs.enabled }}
         run: |
+          handoff=()
+          if test "$LOCAL_HANDOFF" = true; then
+            handoff+=(--local-state "$PWD/.lake/ci-host-handoff/root-state.json")
+          fi
           python3 .github/ci-cache/checkpoint.py pack --root . --layer root \
             --output "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/root.tar.zst" --native-cache "$LAKE_CACHE_DIR" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$GITHUB_OUTPUT" "${handoff[@]}"
       - name: Save completed root checkpoint
         if: ${{ always() && steps.quiesce.outcome == 'success' && steps.pack-root.outcome == 'success' && steps.build.outputs.attempted == 'true' && (steps.build.outcome == 'success' || steps.build.outcome == 'failure') && steps.staging-quiesce.outcome == 'success' }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
@@ -679,10 +685,16 @@ jobs:
         if: ${{ !inputs.prepared-dependencies && (always() && steps.quiesce.outcome == 'success' && steps.staging-quiesce.outcome == 'success' && steps.build.outputs.attempted == 'true') }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
+        env:
+          LOCAL_HANDOFF: ${{ steps.handoff-mode.outputs.enabled }}
         run: |
+          handoff=()
+          if test "$LOCAL_HANDOFF" = true; then
+            handoff+=(--local-state "$PWD/.lake/ci-host-handoff/stacks-state.json")
+          fi
           python3 .github/ci-cache/checkpoint.py pack --root . --layer stacks \
             --output "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst" --native-cache "$LAKE_CACHE_DIR" \
-            --metadata "$PWD/.lake/ci-cache/stacks.json" --github-output "$GITHUB_OUTPUT"
+            --metadata "$PWD/.lake/ci-cache/stacks.json" --github-output "$GITHUB_OUTPUT" "${handoff[@]}"
       - name: Save completed Stacks checkpoint
         if: ${{ always() && steps.quiesce.outcome == 'success' && steps.pack-stacks.outcome == 'success' && (steps.pack-stacks.outputs.changed == 'true' || steps.restore-stacks.outputs.cache-matched-key == '') }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
@@ -740,17 +752,8 @@ jobs:
           mv -- "$RUNNER_TEMP/lake-native-cache.tar" "$archive"
           digest=$(sha256sum "$archive")
           printf 'stage-sha=%s\n' "${digest%% *}" >> "$GITHUB_OUTPUT"
-          mv "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst" "$handoff/stacks.tar.zst"
-          python3 - <<'PYMETA'
-          import hashlib, json
-          from pathlib import Path
-          handoff = Path('.lake/ci-host-handoff')
-          path = Path('.lake/ci-cache/stacks.json')
-          metadata = json.loads(path.read_text())
-          with (handoff / 'stacks.tar.zst').open('rb') as stream:
-              metadata['archive_sha256'] = hashlib.file_digest(stream, 'sha256').hexdigest()
-          path.write_text(json.dumps(metadata) + '\n')
-          PYMETA
+          # The runner keeps this checkout between jobs, including the archive inode.
+          test -s "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst"
           dirname "$(command -v lake)" > "$handoff/lean-bin"
           printf '%s\n' "$GITHUB_REPOSITORY" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$HOST_RUNNER" \
             > "$handoff/identity"
@@ -805,6 +808,10 @@ jobs:
     timeout-minutes: ${{ inputs.job-timeout-minutes }}
     env: *native-resource-env
     defaults: *native-resource-defaults
+    outputs:
+      stacks-generation: ${{ steps.pack-stacks.outputs.generation }}
+      stacks-r2-exists: ${{ steps.stacks-publication.outputs.r2_exists }}
+      stacks-release-exists: ${{ steps.stacks-publication.outputs.release_exists }}
     steps:
       - name: Claim the same-host Build workspace
         id: lean-setup-local
@@ -832,9 +839,7 @@ jobs:
           test -x "$lean_bin/lean"
           printf '%s\n' "$lean_bin" >> "$GITHUB_PATH"
           printf 'LAKE_CACHE_DIR=%s\n' "$handoff/native-cache" >> "$GITHUB_ENV"
-          mkdir -p "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH"
-          destination="$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst"
-          ln "$handoff/stacks.tar.zst" "$destination" || cp --reflink=auto -- "$handoff/stacks.tar.zst" "$destination"
+          test -s "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         if: ${{ needs.build.outputs.local-handoff != 'true' }}
         with:
@@ -1176,10 +1181,16 @@ jobs:
         if: ${{ always() && steps.cache-mode.outputs.layered == 'true' && steps.quiesce.outcome == 'success' && steps.compiled.outcome == 'success' }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
+        env:
+          LOCAL_HANDOFF: ${{ needs.build.outputs.local-handoff }}
         run: |
+          handoff=()
+          if test "$LOCAL_HANDOFF" = true; then
+            handoff+=(--local-state "$PWD/.lake/ci-host-handoff/root-state.json")
+          fi
           python3 .github/ci-cache/checkpoint.py pack --root . --layer root \
             --output "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/root.tar.zst" --native-cache "$LAKE_CACHE_DIR" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$GITHUB_OUTPUT" "${handoff[@]}"
       - name: Save completed root checkpoint
         if: ${{ always() && steps.quiesce.outcome == 'success' && steps.pack-root.outcome == 'success' && steps.compiled.outcome == 'success' && (needs.build.outputs.local-handoff != 'true' || steps.pack-root.outputs.generation != needs.build.outputs.root-generation) }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
@@ -1206,10 +1217,16 @@ jobs:
         if: ${{ always() && steps.quiesce.outcome == 'success' && steps.compiled.outcome == 'success' }}
         shell: bash
         working-directory: ${{ inputs.package-directory }}
+        env:
+          LOCAL_HANDOFF: ${{ needs.build.outputs.local-handoff }}
         run: |
+          handoff=()
+          if test "$LOCAL_HANDOFF" = true; then
+            handoff+=(--local-state "$PWD/.lake/ci-host-handoff/stacks-state.json")
+          fi
           python3 .github/ci-cache/checkpoint.py pack --root . --layer stacks \
             --output "$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst" --native-cache "$LAKE_CACHE_DIR" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$GITHUB_OUTPUT" "${handoff[@]}"
       - name: Save completed Stacks checkpoint
         if: ${{ always() && steps.quiesce.outcome == 'success' && steps.pack-stacks.outcome == 'success' && steps.pack-stacks.outputs.changed == 'true' }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
@@ -1271,8 +1288,30 @@ jobs:
             printf '\n'
           } >> "$GITHUB_STEP_SUMMARY"
           test "$COMPILED" = success && test "$TOOLS" = success && test "$IMPORTS" = success && test "$STYLE" = success && test "$TEST" = success && test "$LINT" = success && test "$AXIOMS" = success && test "$LIBRARY" = success
-      - name: Upload the verified independent Stacks checkpoint
+      - name: Check whether Stacks needs publishing
+        id: stacks-publication
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+        timeout-minutes: 2
+        shell: bash
+        working-directory: ${{ inputs.package-directory }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GENERATION: ${{ steps.pack-stacks.outputs.generation }}
+          STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
+          STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
+          STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_READ_ACCESS_KEY_ID }}
+          STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_READ_SECRET_ACCESS_KEY }}
+        run: |
+          archive="$GITHUB_WORKSPACE/$CI_CHECKPOINT_PATH/stacks.tar.zst"
+          if [[ ! "$GENERATION" =~ ^[0-9a-f]{64}$ ]] || ! test -s "$archive"; then
+            echo '::error::The verified Stacks checkpoint is missing.'
+            exit 1
+          fi
+          if ! timeout 75s python3 -u .github/ci-cache/restore_stacks.py --check-published "$GENERATION"; then
+            echo '::warning::Could not check the Stacks destinations. Staging the archive for publication.'
+          fi
+      - name: Upload the verified independent Stacks checkpoint
+        if: ${{ steps.stacks-publication.outcome == 'success' && (steps.stacks-publication.outputs.release_exists != 'true' || (vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' && steps.stacks-publication.outputs.r2_exists != 'true')) }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: stacks-cache-staging
@@ -1388,10 +1427,6 @@ jobs:
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
         with:
           name: cache-staging
-      - name: Download the independent Stacks checkpoint
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
-        with:
-          name: stacks-cache-staging
       - name: Publish staged compilation
         id: publish
         env:
@@ -1434,9 +1469,14 @@ jobs:
             fi
           fi
           printf 'asset=%s\ndomain=%s\n' "$ASSET" "$domain" >> "$GITHUB_OUTPUT"
+      - name: Download the independent Stacks checkpoint
+        if: ${{ steps.publish.outputs.skipped != 'true' && (needs.test_lint.outputs.stacks-release-exists != 'true' || (vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' && needs.test_lint.outputs.stacks-r2-exists != 'true')) }}
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: stacks-cache-staging
       - name: Publish the Stacks baseline to R2
         id: stacks-r2
-        if: ${{ steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
+        if: ${{ steps.publish.outputs.skipped != 'true' && needs.test_lint.outputs.stacks-r2-exists != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}
         continue-on-error: true
         timeout-minutes: 8
         env:
@@ -1447,27 +1487,31 @@ jobs:
         run: python3 -u .github/ci-cache/restore_stacks.py --publish-r2 stacks.tar.zst
       - name: Publish the Stacks baseline to GitHub Release
         id: stacks-release
-        if: ${{ steps.publish.outputs.skipped != 'true' }}
+        if: ${{ steps.publish.outputs.skipped != 'true' && needs.test_lint.outputs.stacks-release-exists != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 -u .github/ci-cache/restore_stacks.py --publish-release stacks.tar.zst
       - name: Retain two published Stacks generations
-        if: ${{ steps.stacks-release.outcome == 'success' }}
+        if: ${{ steps.publish.outputs.skipped != 'true' }}
         continue-on-error: true
         timeout-minutes: 4
         env:
           GH_TOKEN: ${{ github.token }}
-          STACKS_R2_PUBLISHED: ${{ steps.stacks-r2.outcome }}
+          STACKS_R2_PUBLISHED: ${{ steps.stacks-r2.outcome == 'success' || needs.test_lint.outputs.stacks-r2-exists == 'true' }}
+          STACKS_RELEASE_PUBLISHED: ${{ steps.stacks-release.outcome == 'success' || needs.test_lint.outputs.stacks-release-exists == 'true' }}
+          GENERATION: ${{ needs.test_lint.outputs.stacks-generation }}
           STACKS_R2_ENDPOINT: ${{ vars.STACKS_R2_ENDPOINT }}
           STACKS_R2_BUCKET: ${{ vars.STACKS_R2_BUCKET }}
           STACKS_R2_ACCESS_KEY_ID: ${{ secrets.STACKS_R2_WRITE_ACCESS_KEY_ID }}
           STACKS_R2_SECRET_ACCESS_KEY: ${{ secrets.STACKS_R2_WRITE_SECRET_ACCESS_KEY }}
         run: |
-          if test "$STACKS_R2_PUBLISHED" = success; then
+          if test "$STACKS_R2_PUBLISHED" = true; then
             python3 -u .github/ci-cache/restore_stacks.py --prune-r2 ||
               printf '::warning::Could not prune older R2 Stacks generations.\n'
           fi
-          python3 -u .github/ci-cache/restore_stacks.py --prune-release stacks.tar.zst
+          if test "$STACKS_RELEASE_PUBLISHED" = true; then
+            python3 -u .github/ci-cache/restore_stacks.py --prune-release "$GENERATION"
+          fi
       - name: Back up the verified Colib cache to R2
         id: colib-r2
         if: ${{ steps.publish.outcome == 'success' && steps.publish.outputs.skipped != 'true' && vars.STACKS_R2_ENDPOINT != '' && vars.STACKS_R2_BUCKET != '' }}

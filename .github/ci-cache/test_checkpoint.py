@@ -42,9 +42,9 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(actual, code)
         return json.loads(output.getvalue()) if actual == 0 else None
 
-    def pack(self, layer):
+    def pack(self, layer, *options):
         archive = self.base / (layer + '.tar')
-        result = self.invoke('pack', '--layer', layer, '--output', str(archive))
+        result = self.invoke('pack', '--layer', layer, '--output', str(archive), *options)
         return archive, result
 
     def restore(self, layer, archive, code=0):
@@ -117,6 +117,49 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(artifact.stat().st_mtime_ns, 1700000000123456789)
         self.assertEqual(test.read_text(), 'test native')
         self.assertEqual(source.read_text(), 'PROOF SOURCE\n')
+
+    def test_same_host_checkpoint_hashes_only_changed_files_and_keeps_new_outputs(self):
+        keep = self.write('.lake/build/lib/lean/Keep.olean', 'existing')
+        self.write('.lake/build/ir/Root.setup.json', 'disposable')
+        removed = self.write('.lake/build/lib/lean/Remove.olean', 'old')
+        options = ('--local-state', str(self.base / 'same-host.json'))
+        archive, before = self.pack('root', *options)
+        with patch.object(checkpoint, 'file_hash', wraps=checkpoint.file_hash) as hashed:
+            _, reused = self.pack('root', *options)
+        self.assertEqual(reused['generation'], before['generation'])
+        self.assertTrue(reused['reused_local_state'])
+        self.assertNotIn(keep, [call.args[0] for call in hashed.call_args_list])
+        self.assertNotIn(archive, [call.args[0] for call in hashed.call_args_list])
+
+        removed.unlink()
+        new = self.write('.lake/build/lib/lean/New.olean', 'added by Test')
+        with patch.object(checkpoint, 'file_hash', wraps=checkpoint.file_hash) as hashed:
+            _, after = self.pack('root', *options)
+        self.assertNotIn(keep, [call.args[0] for call in hashed.call_args_list])
+        self.assertIn(new, [call.args[0] for call in hashed.call_args_list])
+        self.assertNotEqual(after['generation'], before['generation'])
+        new.unlink()
+        self.restore('root', archive)
+        self.assertEqual(new.read_text(), 'added by Test')
+        self.assertFalse(removed.exists())
+
+    def test_same_host_checkpoint_rejects_stale_file_and_archive_identities(self):
+        artifact = self.write('.lake/build/lib/lean/Root.olean', 'before')
+        options = ('--local-state', str(self.base / 'same-host.json'))
+        archive, before = self.pack('root', *options)
+        stamp = artifact.stat()
+        artifact.write_text('after!')
+        os.utime(artifact, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
+        _, changed = self.pack('root', *options)
+        self.assertNotEqual(changed['generation'], before['generation'])
+
+        archive.write_bytes(b'invalid replacement')
+        _, rebuilt = self.pack('root', *options)
+        self.assertNotIn('reused_local_state', rebuilt)
+        self.assertEqual(rebuilt['generation'], changed['generation'])
+        artifact.unlink()
+        self.restore('root', archive)
+        self.assertEqual(artifact.read_text(), 'after!')
 
     def test_pack_hashes_snapshot_once_and_exact_tar_copy_once(self):
         artifact = self.write('.lake/build/Root.olean', 'compiled body')

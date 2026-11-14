@@ -225,6 +225,57 @@ class StacksRestoreTests(unittest.TestCase):
             restore_stacks.publish_release(self.args, self.warm, 'a' * 40, 'b' * 64)
         self.assertEqual(read.call_count, 1)
 
+    def test_publish_preflight_checks_only_the_matching_small_index_and_both_destinations(self):
+        r2, r2_index = self.r2_baseline()
+        generation = r2_index['generation']
+        archive_digest = r2_index['sha256']
+        identity = [{'sha256': 'a' * 64, 'size': 5}, {'sha256': 'b' * 64, 'size': 6}]
+        data = dict(version=1, generation=generation, sha256=archive_digest, size=11, parts=identity)
+        index = dict(name=f'stacks-checkpoint-{generation}.parts.json', state='uploaded', size=250,
+                     digest='sha256:' + 'a' * 64)
+        unrelated = dict(index, name=f'stacks-checkpoint-{"d" * 64}.parts.json')
+        parts = [dict(name=volumes.volume_name(archive_digest, number), size=part['size'],
+                      digest='sha256:' + part['sha256'], state='uploaded')
+                 for number, part in enumerate(identity, 1)]
+
+        def download(asset, output):
+            self.assertIs(asset, index)
+            output.write_text(json.dumps(data))
+
+        with (patch.object(R2Cache, 'configured', return_value=r2),
+              patch.object(r2, 'current', return_value=(r2_index, '"a"')) as current,
+              patch.object(r2, 'request', return_value=(200, str(r2_index['size']))) as request,
+              patch.object(restore_stacks, 'github_release') as release,
+              patch.object(restore_stacks, 'download_file', side_effect=download) as fetch,
+              redirect_stdout(io.StringIO())):
+            release.return_value = {'assets': [unrelated, index, *parts]}
+            actual = restore_stacks.published_generation('revision', 'context', generation, self.base)
+            self.assertEqual(actual, {'r2_exists': True, 'release_exists': True})
+            fetch.assert_called_once()
+
+            release.return_value = {'assets': [unrelated, index, parts[0]]}
+            actual = restore_stacks.published_generation('revision', 'context', generation, self.base)
+            self.assertEqual(actual, {'r2_exists': True, 'release_exists': False})
+            release.return_value = {'assets': [unrelated, index, *parts]}
+            request.return_value = (404, '')
+            actual = restore_stacks.published_generation('revision', 'context', generation, self.base)
+            self.assertEqual(actual, {'r2_exists': False, 'release_exists': True})
+            current.side_effect = OSError('R2 unavailable')
+            actual = restore_stacks.published_generation('revision', 'context', generation, self.base)
+            self.assertEqual(actual, {'r2_exists': False, 'release_exists': True})
+
+    def test_matching_r2_pointer_with_missing_object_is_repaired(self):
+        r2, index = self.r2_baseline()
+        active = dict(index, previous_generation='f' * 64)
+        with (patch.object(r2, 'current', return_value=(active, '"a"')),
+              patch.object(r2, 'request', return_value=(404, '')),
+              patch.object(r2, 'download', side_effect=AssertionError('missing object must not be downloaded')),
+              patch.object(r2, 'store_archive', return_value=index) as store,
+              patch.object(r2, 'put', return_value=200) as update, redirect_stdout(io.StringIO())):
+            restore_stacks.publish_r2(self.args, self.published, r2)
+        store.assert_called_once_with(index, self.published)
+        self.assertEqual(update.call_args.args[3], 'If-Match: "a"')
+
     def test_release_volumes_restore_and_reject_corrupt_part(self):
         generation = restore_stacks.manifest(self.published, self.args)['generation']
         payloads = {}

@@ -244,32 +244,40 @@ def contexts(root):
             'tools_context': digest({'base': dependency_context, 'tools': tools, 'auditor': AUDITOR_PIN})}
 
 
+def tree_entries(path):
+    def visit(directory, in_ir):
+        with os.scandir(directory) as stream:
+            children = sorted(stream, key=lambda child: child.name)
+        directories = []
+        for child in children:
+            value = child.stat(follow_symlinks=False)
+            if stat.S_ISDIR(value.st_mode):
+                directories.append(child.path)
+            elif stat.S_ISLNK(value.st_mode):
+                raise ValueError('symlinked generated output: ' + child.path)
+            elif not stat.S_ISREG(value.st_mode):
+                raise ValueError('nonregular generated output: ' + child.path)
+            # Lake's compiler setup input is neither an output nor a readiness input.
+            elif not (in_ir and child.name.endswith('.setup.json')):
+                yield Path(child.path), value
+        for child in directories:
+            yield from visit(child, in_ir or child.endswith('/.lake/build/ir'))
+
+    try:
+        value = path.lstat()
+    except FileNotFoundError:
+        return
+    if stat.S_ISDIR(value.st_mode):
+        yield from visit(path, '/.lake/build/ir/' in path.as_posix() + '/')
+    elif stat.S_ISREG(value.st_mode):
+        yield path, value
+    else:
+        raise ValueError('nonregular checkpoint scope: ' + str(path))
+
+
 def tree(path):
-    if not path.exists():
-        return
-    if path.is_symlink():
-        raise ValueError('symlinked checkpoint scope: ' + str(path))
-    if path.is_file():
-        yield path
-        return
-    for current, children, files in os.walk(path, followlinks=False):
-        children.sort()
-        for name in [*children, *sorted(files)]:
-            entry = Path(current) / name
-            if entry.is_symlink():
-                raise ValueError('symlinked generated output: ' + str(entry))
-        for name in sorted(files):
-            entry = Path(current) / name
-            if not stat.S_ISREG(entry.stat().st_mode):
-                raise ValueError('nonregular generated output: ' + str(entry))
-            # Lake generates this input before invoking Lean and passes it to
-            # leanir when needed (Build/Actions.lean).
-            # It is neither an incremental output nor a native readiness input.
-            parts = entry.parts
-            if name.endswith('.setup.json') and any(
-                    parts[i:i + 3] == ('.lake', 'build', 'ir') for i in range(len(parts) - 2)):
-                continue
-            yield entry
+    for entry, _ in tree_entries(path):
+        yield entry
 
 
 def allowed_scopes(root, layer, native):
@@ -314,18 +322,20 @@ def directory_identity(value):
     return value.st_dev, value.st_ino, stat.S_IFMT(value.st_mode)
 
 
-def info(base, path, area, guards=None, directories=None, checked_parents=None):
+def info(base, path, area, guards=None, directories=None, checked_parents=None, previous=None, value_stat=None):
     name = path.relative_to(base).as_posix()
     contained(base, name, checked_parents)
-    before = path.lstat()
+    before = value_stat if value_stat is not None else path.lstat()
+    identity = stat_identity(before)
+    saved = previous.get((area, name)) if previous is not None else None
+    unchanged = saved is not None and saved[0] == identity
     value = {'area': area, 'path': name, 'size': before.st_size,
              'mode': stat.S_IMODE(before.st_mode) & 0o777,
-             'mtime_ns': before.st_mtime_ns, 'sha256': file_hash(path)}
-    after = path.lstat()
-    if stat_identity(before) != stat_identity(after):
+             'mtime_ns': before.st_mtime_ns, 'sha256': saved[1] if unchanged else file_hash(path)}
+    if not unchanged and identity != stat_identity(path.lstat()):
         raise ValueError('generated file changed during checkpoint scan: ' + name)
     if guards is not None:
-        guards[(area, name)] = stat_identity(after)
+        guards[(area, name)] = identity
     if directories is not None:
         current = path.parent
         while current.is_relative_to(base):
@@ -344,7 +354,7 @@ def semantic(entry):
     return {k: v for k, v in entry.items() if k != 'mtime_ns'}
 
 
-def snapshot(root, layer, native, production, guards=None, directories=None):
+def snapshot(root, layer, native, production, guards=None, directories=None, previous=None):
     checked_parents = set()
     baseline = {}
     if layer == 'tools':
@@ -356,9 +366,9 @@ def snapshot(root, layer, native, production, guards=None, directories=None):
     entries = {}
     for area, directory in allowed_scopes(root, layer, native):
         base = root if area == 'workspace' else native
-        for path in tree(directory):
+        for path, value_stat in tree_entries(directory):
             rel = path.relative_to(base).as_posix()
-            entry = info(base, path, area, guards, directories, checked_parents)
+            entry = info(base, path, area, guards, directories, checked_parents, previous, value_stat)
             key = (area, rel)
             if layer == 'tools' and key in baseline and semantic(entry) == baseline[key]:
                 continue
@@ -436,13 +446,41 @@ def check_directories(directories):
             raise ValueError('generated directory changed during checkpoint copy: ' + str(path))
 
 
+def local_checkpoint(args, context, state):
+    # This receipt comes only from the current Build job on the same runner.
+    try:
+        receipt = json.loads(state.read_text())
+        archive = args.output.lstat()
+        if (receipt['schema'] != 1 or receipt['layer'] != args.layer or receipt['context'] != context
+                or receipt['production_roots'] != args.production_root
+                or not stat.S_ISREG(archive.st_mode)
+                or receipt['archive'] != list(stat_identity(archive))):
+            return None, None
+        # ctime detects a write even when a tool restores the old mtime.
+        previous = {(area, name): (tuple(identity), sha)
+                    for area, name, identity, sha in receipt['files']}
+        return receipt, previous
+    except (OSError, ValueError, TypeError, KeyError):
+        return None, None
+
+
 def pack(args):
     root, native = args.root, args.native_cache
     layer = args.layer
-    guards, directories = {}, {}
-    entries = snapshot(root, layer, native, args.production_root, guards, directories)
     context = contexts(root)[layer + '_context']
+    local_state = getattr(args, 'local_state', None)
+    receipt, previous = local_checkpoint(args, context, local_state) if local_state is not None else (None, None)
+    guards, directories = {}, {}
+    entries = snapshot(root, layer, native, args.production_root, guards, directories, previous)
     generation = digest([semantic(e) for e in entries])
+    target = args.output
+    if (receipt is not None and receipt.get('generation') == generation
+            and receipt['archive'] == list(stat_identity(target.lstat()))):
+        emit({'generation': generation, 'context': context, 'changed': False,
+              'bytes': target.stat().st_size, 'files': len(entries), 'archive': str(target),
+              'reused_archive': True, 'reused_local_state': True}, args.github_output)
+        return
+
     metadata = {'schema': SCHEMA, 'layer': layer, 'context': context,
                 'generation': generation, 'production_roots': args.production_root, 'entries': entries}
     restored = root / '.lake/ci-cache' / (layer + '.json')
@@ -450,14 +488,24 @@ def pack(args):
         old = json.loads(restored.read_text())
     except (OSError, ValueError):
         old = {}
-    changed = old.get('context') != context or old.get('generation') != generation
-    target = args.output
+    baseline = receipt if receipt is not None else old
+    changed = baseline.get('context') != context or baseline.get('generation') != generation
     target.parent.mkdir(parents=True, exist_ok=True)
-    if not changed and target.is_file() and old.get('archive_sha256') == file_hash(target):
+
+    def record_local_state():
+        if local_state is not None and receipt is None:
+            write_json(local_state, {'schema': 1, 'layer': layer, 'context': context, 'generation': generation,
+                                    'production_roots': args.production_root, 'archive': stat_identity(target.lstat()),
+                                    'files': [[e['area'], e['path'], guards[(e['area'], e['path'])], e['sha256']]
+                                              for e in entries]})
+
+    if (old.get('context') == context and old.get('generation') == generation
+            and target.is_file() and old.get('archive_sha256') == file_hash(target)):
         # This exact archive was fully validated during restore. Ignore changed
         # mtimes in compatibility; identical content/modes need no recompression.
         retained = {k: v for k, v in old.items() if k != 'archive_sha256'}
         write_json(args.metadata or Path(str(target) + '.json'), retained)
+        record_local_state()
         emit({'generation': generation, 'context': context, 'changed': False,
               'bytes': target.stat().st_size, 'files': len(entries), 'archive': str(target),
               'reused_archive': True}, args.github_output)
@@ -499,6 +547,7 @@ def pack(args):
     finally:
         temporary.unlink(missing_ok=True)
     write_json(args.metadata or Path(str(target) + '.json'), metadata)
+    record_local_state()
     emit({'generation': generation, 'context': context, 'changed': changed,
           'bytes': target.stat().st_size, 'files': len(entries), 'archive': str(target)}, args.github_output)
 
@@ -624,6 +673,7 @@ def main(argv=None):
         if name == 'pack':
             p.add_argument('--output', type=Path, required=True)
             p.add_argument('--production-root', action='append', default=[])
+            p.add_argument('--local-state', type=Path, help='reuse file hashes in the same quiescent checkout')
         if name == 'restore':
             p.add_argument('--input', type=Path, required=True)
     args = parser.parse_args(argv)

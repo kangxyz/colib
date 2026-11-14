@@ -175,8 +175,11 @@ Each `stacks/v2/<Stacks revision>/<context>/current.json` points to an immutable
 archive named by its checkpoint generation and records its SHA-256. Publication
 verifies the archive and advances the pointer when the new checkpoint covers
 the previous baseline. Conditional writes let concurrent publishers share one
-object per generation. After both publication steps succeed, CI prunes older
-R2 checkpoints for the active dependency context. It retains the current archive
+object per generation. Test checks the current R2 object and the GitHub Release
+asset or volume index before uploading the checkpoint for publication. The
+publish job only transfers the archive when a destination needs it. CI prunes
+older R2 checkpoints for the active dependency context after publication is
+confirmed. It retains the current archive
 and the previous generation recorded in the pointer.
 
 GitHub Release checkpoints use the generation to identify the single asset or

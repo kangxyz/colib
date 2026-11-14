@@ -90,6 +90,15 @@ class R2Cache(R2Storage):
     def archive_key(index):
         return f"objects/{index['generation']}.tar.zst"
 
+    def archive_exists(self, index):
+        status, length = self.request('HEAD', self.archive_key(index), Path(os.devnull),
+                                      seconds=15, response_headers=('content-length',))
+        if status == 404:
+            return False
+        if status != 200 or length != str(index['size']):
+            raise OSError('could not confirm the indexed Stacks archive')
+        return True
+
     def download(self, index, output, *, prefix=False):
         length = preview_bytes(index['size']) if prefix else index['size']
         headers = (f'Range: bytes=0-{length - 1}',) if prefix else ()

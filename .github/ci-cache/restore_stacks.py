@@ -47,11 +47,12 @@ def asset_priority(asset):
     return asset['size'], asset['created_at']
 
 
-def release_indexes(release, directory):
+def release_indexes(release, directory, generation=None):
     assets = {asset['name']: asset for asset in (release or {}).get('assets', [])
               if asset['state'] == 'uploaded' and asset['size'] > 0}
     for asset in assets.values():
         if (not volumes.INDEX_NAME.fullmatch(asset['name']) or asset['size'] > volumes.INDEX_LIMIT
+                or (generation is not None and asset['name'] != f'stacks-checkpoint-{generation}.parts.json')
                 or not re.fullmatch(r'sha256:[0-9a-f]{64}', asset.get('digest') or '')):
             continue
         index = directory / 'release-parts.json'
@@ -72,6 +73,27 @@ def published_assets(directory):
     if single_file is not None:
         split.append(single_file)
     yield from sorted(split, key=asset_priority, reverse=True)
+
+
+def published_generation(revision, context, generation, directory):
+    found = {'r2_exists': False, 'release_exists': False}
+    try:
+        r2 = R2Cache.configured(revision, context)
+        if r2 is not None:
+            index, _ = r2.current(directory / 'current.json')
+            found['r2_exists'] = (index is not None and index['generation'] == generation
+                                  and r2.archive_exists(index))
+    except DOWNLOAD_ERRORS as error:
+        print(f'::warning::Could not check the published R2 Stacks generation: {error}', flush=True)
+    try:
+        release = github_release(release_tag(revision, context))
+        name = f'stacks-checkpoint-{generation}.tar.zst'
+        found['release_exists'] = any(
+            asset['name'] == name and re.fullmatch(r'sha256:[0-9a-f]{64}', asset.get('digest') or '')
+            for asset in release_assets(release)) or any(release_indexes(release, directory, generation))
+    except DOWNLOAD_ERRORS as error:
+        print(f'::warning::Could not check the published GitHub Stacks generation: {error}', flush=True)
+    return found
 
 
 def download(asset, output, *, prefix=False):
@@ -320,7 +342,7 @@ def publish_release(args, archive, revision, context):
     repository = os.environ['GITHUB_REPOSITORY']
     with tempfile.TemporaryDirectory(prefix='stacks-release-publish-', dir=archive.parent) as scratch:
         directory = Path(scratch)
-        if any(item['generation'] == generation for item in release_indexes(release, directory)):
+        if any(release_indexes(release, directory, generation)):
             print(f'GitHub Release already has Stacks checkpoint generation {generation[:12]}.')
             return
         if archive.stat().st_size >= volumes.ASSET_LIMIT:
@@ -406,13 +428,14 @@ def publish_r2(args, archive, r2):
         for _ in range(3):
             current, etag = r2.current(current_path)
             if current is not None:
-                if candidate['generation'] == current['generation']:
+                if candidate['generation'] == current['generation'] and r2.archive_exists(current):
                     print('R2 already has this Stacks checkpoint generation.')
                     return
-                (directory / 'baseline.tar.zst').unlink(missing_ok=True)
-                if not covers(candidate, preview(args, current, r2.download, directory)):
-                    print('Keeping the R2 Stacks baseline. The new checkpoint does not cover it.')
-                    return
+                if candidate['generation'] != current['generation']:
+                    (directory / 'baseline.tar.zst').unlink(missing_ok=True)
+                    if not covers(candidate, preview(args, current, r2.download, directory)):
+                        print('Keeping the R2 Stacks baseline. The new checkpoint does not cover it.')
+                        return
             if index is None:
                 args.input = archive
                 if checkpoint.restore(args, verify_only=True) != candidate:
@@ -428,7 +451,10 @@ def publish_r2(args, archive, r2):
                 uploaded = True
             next_pointer = dict(index)
             if current is not None:
-                next_pointer['previous_generation'] = current['generation']
+                previous = (current['generation'] if current['generation'] != index['generation']
+                            else current.get('previous_generation'))
+                if previous is not None:
+                    next_pointer['previous_generation'] = previous
             checkpoint.write_json(pointer, next_pointer)
             condition = f'If-Match: {etag}' if etag else 'If-None-Match: *'
             status = r2.put('current.json', pointer, checkpoint.file_hash(pointer), condition, seconds=20)
@@ -443,23 +469,31 @@ def main():
     publish = parser.add_mutually_exclusive_group()
     publish.add_argument('--publish-r2', type=Path, metavar='ARCHIVE')
     publish.add_argument('--publish-release', type=Path, metavar='ARCHIVE')
+    publish.add_argument('--check-published', metavar='GENERATION')
     publish.add_argument('--prune-r2', action='store_true')
-    publish.add_argument('--prune-release', type=Path, metavar='ARCHIVE')
+    publish.add_argument('--prune-release', metavar='GENERATION')
     command = parser.parse_args()
     root = Path.cwd()
     args = argparse.Namespace(root=root, layer='stacks',
                               native_cache=Path(os.environ.get('LAKE_CACHE_DIR', root / '.lake/native-cache')).absolute(),
                               metadata=None, github_output=None)
     checkpoint.supported(root)
-    if command.publish_r2 is not None or command.publish_release is not None or command.prune_r2 or command.prune_release:
+    if any(vars(command).values()):
         context = checkpoint.contexts(root)['stacks_context']
         packages = json.loads((root / 'lake-manifest.json').read_text())['packages']
         revision = next(package['rev'] for package in packages if package['name'] == 'Stacks')
         try:
+            generation = command.check_published if command.check_published is not None else command.prune_release
+            if generation is not None and not re.fullmatch(r'[0-9a-f]{64}', generation):
+                raise ValueError('invalid Stacks checkpoint generation')
+            if command.check_published is not None:
+                with tempfile.TemporaryDirectory(prefix='stacks-publish-check-') as scratch:
+                    result = published_generation(revision, context, generation, Path(scratch))
+                    checkpoint.emit(result, os.environ.get('GITHUB_OUTPUT'))
+                return
             if command.prune_release is not None:
-                data = manifest(command.prune_release, args)
                 with tempfile.TemporaryDirectory(prefix='stacks-release-prune-') as scratch:
-                    prune_release(release_tag(revision, context), data['generation'], Path(scratch))
+                    prune_release(release_tag(revision, context), generation, Path(scratch))
                 return
             if command.publish_release is not None:
                 publish_release(args, command.publish_release, revision, context)
