@@ -23,6 +23,11 @@ For a field k, the native degree-one Milnor group K^M_1(k) modulo its literal
 subgroup of n-multiples is identified with this global-unit quotient of Spec k.
 Its composite with the same module Kummer map is injective, and forgetting
 module coefficients gives the original unit boundary on each Milnor representative.
+For this same field and invertible nonzero n, the original finite motivic
+comparison, after the finite diagonal equivalence K^M_1(k)/n of COL-1224,
+is equal to this Kummer symbol transported to ordinary H^1 by the native
+rootsOfUnityModuleExtEquiv. This equality identifies the existing maps, not
+just their source and target groups.
 '''
 proof = '''
 Use the native degree-zero cohomology equivalence at the terminal object of
@@ -36,7 +41,11 @@ inverse of the native additive equivalence from roots-of-unity module Ext
 to ordinary roots-of-unity sheaf cohomology. For the field specialization,
 combine the existing degree-one Milnor equivalence with the actual Gamma-Spec
 unit isomorphism, transport the subgroup of multiples, and apply the native
-quotient congruence.
+quotient congruence. The equality with the motivic comparison is the
+weight-one comparison of COL-1231: its original integral reduction and
+cone-kernel identification recover the Kummer extension class, while its
+source coordinates and norm recover the same unit. Apply this formula to
+Milnor representatives and then use quotient induction.
 '''
 scope = '''
 The statement uses the ordinary AddCommGrpCat-valued small-etale sheaf
@@ -54,6 +63,8 @@ comparison or the norm-residue theorem. The map retains the actual native
 Kummer boundary, rather than naming a motivic target ordinary cohomology.
 The Milnor quotient is the literal quotient used by COL-1224; its expression is
 kept explicit here to avoid importing the whole integral diagonal proof into
-this degree-one consumer. Agreement with the separate motivic comparison and
-higher-weight cup compatibility are not asserted.
+this degree-one consumer. Agreement with the original motivic comparison is
+proved in degree one after the actual coefficient-forgetting equivalence;
+this does not supply a D(Z/n)-linear Tate identification or higher-weight cup
+compatibility.
 '''

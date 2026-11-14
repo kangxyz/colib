@@ -20,6 +20,12 @@ full-small etale restriction is isomorphic to the single complex on the
 existing rootsOfUnitySheaf mu_n. For natural p, terminal-source hypercohomology
 of that restricted complex is additively equivalent to ordinary Sheaf.H(mu_n,p),
 and the original finite motivic comparison gives an additive map to this group.
+In degree one over Spec k, this map on the reduction of an integral motivic
+class is the original Kummer class of the global unit determined by the
+geometric weight-one norm. Consequently, for every class a in K^M_1(k)/n,
+the composite of the original finite diagonal equivalence COL-1224 with this
+comparison equals the original module-valued Kummer symbol of COL-1227,
+transported by rootsOfUnityModuleExtEquiv to ordinary H^1(Spec k, mu_n).
 '''
 proof = '''
 The native mapping-cone triangle and two-out-of-three show that taking the
@@ -34,6 +40,14 @@ Identify units first on the separated finite-type basis and transport through
 its genuine sheaf-equivalence counit; preservation of kernels identifies the
 existing small-site mu_n. Native exact derived restriction and the terminal
 cohomology comparison COL-1226 supply the ordinary cohomology target.
+For the degree-one equality, identify the original finite reduction with
+postcomposition, and identify the cone-kernel map with the extension class of
+the actual Kummer short exact sequence. Exact restriction preserves this
+canonical cone-kernel comparison. The original projective source coordinates,
+free-Yoneda change of site and units counits identify the source with the same
+global unit. The terminal-source Ext comparison then recovers the original
+Kummer boundary, with its shift and sign. Apply the geometric norm formula
+and descend the degree-one Milnor representative formula to the quotient.
 '''
 scope = '''
 All derived isomorphisms here are in D(Ab), not a derived ZMod-linear Tate
@@ -44,8 +58,10 @@ The declarations retain their explicit sheafification, derived-category and,
 for ordinary cohomology, HasExt infrastructure instances. The ordinary target
 uses natural cohomological degrees. The resulting Nisnevich-to-ordinary-etale
 comparison is an additive map, not an asserted isomorphism. Naturality and
-Bockstein coherence of the entire new mu_n identification are not yet asserted;
-the earlier units-cone compatibility is unchanged. No all-weight tensor
+Bockstein coherence of the entire mu_n identification are not asserted here;
+the degree-one equality with the original Kummer boundary and its Milnor
+quotient specialization are established. The earlier units-cone compatibility
+is unchanged. No all-weight tensor
 comparison, cup compatibility, norm-residue bijectivity, or automatic lift
 from D(Ab) to D(Z/n) is asserted.
 '''

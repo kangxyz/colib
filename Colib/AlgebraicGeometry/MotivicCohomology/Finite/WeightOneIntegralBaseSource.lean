@@ -34,7 +34,8 @@ variable [HasDerivedCategory.{wE}
   (Sheaf (SmoothSite.etaleTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 variable [hSmall : HasDerivedCategory.{wS}
   (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
-@[reducible] local instance : HasDerivedCategory.{wS}
+/-- Reuse the given small-etale derived category at the definitional base object. -/
+@[reducible] local instance weightOneIntegralBaseSourceSmallDerived : HasDerivedCategory.{wS}
     (Sheaf (base (Spec (.of k))).left.smallEtaleTopology AddCommGrpCat.{u + 1}) := hSmall
 
 /-- The original integral comparison at the base point is its original unit section. -/

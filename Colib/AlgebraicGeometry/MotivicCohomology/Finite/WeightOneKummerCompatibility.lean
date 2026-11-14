@@ -39,7 +39,8 @@ variable [hSmall : HasDerivedCategory.{wS}
   (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
 variable [HasExt.{wH} (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
 
-@[reducible] local instance : HasDerivedCategory.{wS}
+/-- Reuse the given small-etale derived category at the definitional base object. -/
+@[reducible] local instance weightOneKummerCompatibilitySmallDerived : HasDerivedCategory.{wS}
     (Sheaf (base (Spec (.of k))).left.smallEtaleTopology AddCommGrpCat.{u + 1}) := hSmall
 
 local instance : HasExt.{wH}
@@ -50,6 +51,9 @@ local instance : HasExt.{wH}
 set_option maxHeartbeats 1600000 in
 -- The original comparison composes derived functors on three distinct sites.
 /-- The original finite comparison on an integral class is its actual unit Kummer class. -/
+@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
+  "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_integral_unitKummerClass
     (n : ℕ) (hn : n ≠ 0) (hunit : IsUnit (n : Γ(Spec (.of k), ⊤)))
     (x : motivicCohomology k 1 1 (base (Spec (.of k)))) :
@@ -71,6 +75,9 @@ lemma weightOneFiniteEtaleCohomologyMap_integral_unitKummerClass
   convert ht using 1; rfl
 
 /-- The actual finite comparison uses the existing geometric norm and the original Kummer class. -/
+@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
+  "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_integral_norm
     (n : ℕ) (hn : n ≠ 0) (hunit : IsUnit (n : Γ(Spec (.of k), ⊤)))
     (x : motivicCohomology k 1 1 (base (Spec (.of k)))) :

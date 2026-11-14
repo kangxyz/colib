@@ -36,7 +36,8 @@ variable [hSmall : HasDerivedCategory.{wS}
   (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
 variable [HasExt.{u + 1} (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
 
-@[reducible] local instance : HasDerivedCategory.{wS}
+/-- Reuse the given small-etale derived category at the definitional base object. -/
+@[reducible] local instance milnorKummerCompatibilitySmallDerived : HasDerivedCategory.{wS}
     (Sheaf (base (Spec (.of k))).left.smallEtaleTopology AddCommGrpCat.{u + 1}) := hSmall
 
 local instance : HasExt.{u + 1}
@@ -47,6 +48,9 @@ local instance : HasExt.{u + 1}
 set_option maxRecDepth 4096 in
 -- The native Milnor quotient transport crosses the actual coefficient-forgetting Ext equivalence.
 /-- The original motivic comparison and original module Kummer symbol agree in degree one. -/
+@[colib_tag "COL-1231", colib_tag "COL-1227", colib_ref "axiom_stacks_5ed82d14"
+  "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
+  "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_motivicFiniteEquiv
     (n : ℕ) [NeZero n] (hunit : IsUnit (n : Γ(Spec (.of k), ⊤)))
     (a : FiniteMilnorDiagonal.milnorModulo k 1 n) :

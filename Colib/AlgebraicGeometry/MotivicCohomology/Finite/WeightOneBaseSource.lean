@@ -27,7 +27,8 @@ variable [HasDerivedCategory.{wE}
   (Sheaf (SmoothSite.etaleTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 variable [hSmall : HasDerivedCategory.{wS}
   (Sheaf (Spec (.of k)).smallEtaleTopology AddCommGrpCat.{u + 1})]
-@[reducible] local instance : HasDerivedCategory.{wS}
+/-- Reuse the given small-etale derived category at the definitional base object. -/
+@[reducible] local instance weightOneBaseSourceSmallDerived : HasDerivedCategory.{wS}
     (Sheaf (base (Spec (.of k))).left.smallEtaleTopology AddCommGrpCat.{u + 1}) := hSmall
 set_option backward.defeqAttrib.useBackward true
 set_option backward.isDefEq.respectTransparency false
