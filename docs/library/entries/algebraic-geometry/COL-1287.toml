@@ -1,0 +1,29 @@
+[entry]
+id = "COL-1287"
+title = "The canonical bounded-below open base-change mate for the projective line"
+kind = "theorem"
+section = "projective-line-cech"
+order = 50
+primary = "AlgebraicGeometry.projectiveSpaceOver.isIso_projectiveLineOpenBaseChangePlus_app"
+review = "author_checked"
+statement = '''
+Let $g:T\hookrightarrow S$ be an open immersion, and let $p$ and
+$p'$ be the projective-line projections over $S$ and $T$. Write
+$g':\mathbf P^1_T\hookrightarrow\mathbf P^1_S$ for the induced open
+immersion. The canonical map $g^*Rp_*K\to Rp'_*g'^*K$ is an isomorphism
+for every $K\in D^+(\mathbf P^1_S)$, naturally in $K$.
+'''
+proof = '''
+Open pullback is exact and preserves injectives. The underived
+pullback–pushforward mate is already an isomorphism in the actual
+cartesian square, using the restriction comparison. On a bounded-below
+injective resolution its degreewise map is therefore an isomorphism.
+The derived-unit identity for the native derived base-change map
+([@stacks, Tag 0DDE]) fixes the forward map of the natural isomorphism.
+'''
+scope = '''
+The base and the bounded-below input are arbitrary. The projection is
+that of the projective line and the base change is open; the theorem
+does not identify a general flat bounded-below mate with the unbounded
+one of COL-1286.
+'''

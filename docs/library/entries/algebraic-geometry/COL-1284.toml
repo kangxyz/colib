@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1284"
+title = "A finite projective model of the projective-line Čech complex"
+kind = "theorem"
+section = "projective-line-cech"
+order = 20
+primary = "AlgebraicGeometry.projectiveSpaceOver.exists_lineCechFiniteProjectiveModel"
+review = "author_checked"
+statement = '''
+Let $R$ be a commutative ring and $E$ a finite locally free module on
+$\mathbf P^1_R$. Write $U_0$ and $U_1$ for its two standard affine charts.
+The signed complex
+\[
+  \Gamma(U_0,E)\oplus\Gamma(U_1,E)
+  \xrightarrow{\operatorname{res}_0-\operatorname{res}_1}
+  \Gamma(U_0\cap U_1,E)
+\]
+in degrees $0$ and $1$ is chain-homotopy equivalent to a complex of
+finite projective $R$-modules concentrated in the same degrees.
+'''
+proof = '''
+Each term is projective over $R$: the chart rings are polynomial rings
+and the overlap ring is Laurent polynomial, with their usual coefficient
+maps. The signed complex computes $R\Gamma(\mathbf P^1_R,E)$ by affine
+acyclicity. Proper flat direct image makes this derived object perfect
+([@stacks, Tag 0B91]). Its two-term flat representative gives a finite
+projective representative in the same degrees ([@stacks, Tag 0658]).
+Localization is fully faithful on the homotopy category of bounded
+complexes of projectives, so the derived isomorphism gives a chain
+homotopy equivalence.
+'''
+scope = '''
+No noetherianity or nontriviality assumption on the coefficient ring is
+used. This is the complex of sections; a strict perfect complex of
+sheaves on $\operatorname{Spec} R$ is not asserted here.
+'''

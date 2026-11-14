@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1264"
+title = "Basic and auxiliary forms of the signed Bass boundary"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 225
+statement = '''
+Let $j:U\hookrightarrow X$ be a quasi-compact open immersion of a
+quasi-compact, quasi-separated scheme. The intrinsic basic normalized
+connecting homomorphism agrees with the original Bass boundary at every
+negative index, and the two identity-base projections identify the
+integer-parameter formula with the absolute scheme boundary.
+
+With an additional compact open $T\subseteq X$, both the current and the
+normalized-row connecting maps agree with the original auxiliary boundary
+\[
+K_{-i}(U\text{ on }U\setminus j^{-1}T)
+\longrightarrow K_{-i-1}(X\text{ on }X\setminus(U\cup T)),\qquad i\geq 0.
+\]
+'''
+scope = '''
+The support groups use ambient perfect complexes acyclic on the displayed
+open subsets. The auxiliary comparison is over the integral-base parameter
+family and uses the literal inverse-image and union opens. It retains the
+original finite class maps, the cone-to-fiber sign, and the integer-degree
+transport. For the geometric localization statement see
+[@ThomasonTrobaugh1990, Theorem 7.4]; the comparison of the independently
+constructed models is part of this formalization.
+'''
+proof = '''
+The basic result follows by comparing the current and normalized class maps
+and then applying the two identity-base projections. For the auxiliary
+result the three finite classes retain their current-to-fine comparisons.
+Naturality of the signed fiber boundary gives the current square, and the
+actual normalized class comparisons give the second square.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterAuxiliaryNormalizedRowLocalization.normalizedNegativeConnecting_eq_original"
+provenance = "quillen"
+source_checked_on = "2026-11-13"

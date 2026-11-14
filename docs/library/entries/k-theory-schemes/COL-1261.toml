@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1261"
+title = "The projective-line formula for connective K-groups"
+kind = "theorem"
+section = "projective-bundle-formula"
+order = 10
+statement = '''
+Let $X$ be quasi-compact and let $\pi:\mathbf P^1_X\to X$. Write $K_n(X)$ for
+the Waldhausen K-group of native perfect complexes. For every $n\geq 0$ the map
+\[
+\Phi_n:K_n(X)\oplus K_n(X)\xrightarrow{\;\sim\;}K_n(\mathbf P^1_X),
+\qquad (a,b)\longmapsto \pi^*a+[\mathcal O(-1)]\cdot\pi^*b
+\]
+is an isomorphism. Its inverse sends $c$ to
+$\bigl(K_n(R\pi_*)(c),-K_n(R\pi_*\circ(-\otimes\mathcal O(-1)))(c)\bigr)$.
+'''
+scope = '''
+Here $\pi$ is flat, so the indicated pullback is the actual flat pullback.
+The two direct-image operations are the geometric coefficient maps in the
+proof. No affine, noetherian or quasi-separated hypothesis on $X$ is added.
+On the termwise flasque perfect subcategories the actual coefficient functors
+and the actual forward functor satisfy the left inverse identity for quasi-compact
+bases and the right inverse identity for quasi-compact quasi-separated bases.
+The statement concerns connective groups, not arbitrary projective bundles,
+supported K-theory, spectra or negative K-groups.
+'''
+proof = '''
+Compute the two coefficients on each summand. The degree-zero pushforward
+recovers the untwisted input, while the Euler sequence gives the sign of the
+second coefficient; the two off-diagonal coefficients vanish. This gives a
+left inverse. Apply the projection formula and Waldhausen additivity to the
+resolution of the diagonal in $\mathbf P^1_X\times_X\mathbf P^1_X$ to express
+each class as a sum from the two displayed summands. Thus the map is
+surjective and the two coefficients are its inverse. To identify the actual
+functors, compare both composites with the literal inclusion of flasque
+complexes. The Godement augmentation gives the forward comparison and the
+cochain shift $[1]$ realizes inversion on the second K-group coordinate.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.projectiveLineKEquiv"
+provenance = "quillen"
+source_checked_on = "2026-11-13"

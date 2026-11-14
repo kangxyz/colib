@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1263"
+title = "The signed Bass boundary for an open immersion"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 215
+statement = '''
+Let $j:U\hookrightarrow X$ be a quasi-compact open immersion, with $X$
+quasi-compact and quasi-separated, and put $Z=X\setminus U$. For $i\geq 0$,
+write $K_{-i}(X\text{ on }Z)$ for the Bass group of ambient perfect
+complexes acyclic on $U$. The signed connecting homomorphism sits in the
+exact sequence
+\[
+K_{-i}(X\text{ on }Z)\longrightarrow K_{-i}(X)
+\xrightarrow{j^*}K_{-i}(U)\xrightarrow{\partial}
+K_{-i-1}(X\text{ on }Z)\longrightarrow K_{-i-1}(X).
+\]
+'''
+scope = '''
+The coefficient theorem applies over each affine base and after each coefficient
+base change. In the integral-base parameter family, the connecting map of the
+independently defined current telescope agrees with the prescribed signed
+Bass map, including $K_0(U)\to K_{-1}(X\text{ on }Z)$. Neither the support
+group nor the sign is replaced by an abstract isomorphic choice. For the
+localization theorem in the literature see [@ThomasonTrobaugh1990, Theorem 7.4].
+'''
+proof = '''
+Transfer the signed fine-telescope boundary along the actual finite-bottom
+group comparisons. Naturality identifies the neighboring arrows with restriction
+and forgetting support. The double Laurent exchange has sign $-1$ on both the
+ambient and supported quotients. This cancels the loop reversal sign in the
+finite comparison, so the same boundary is obtained from the current telescope.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull.currentNegativeConnecting_eq_original"
+provenance = "quillen"
+source_checked_on = "2026-11-13"

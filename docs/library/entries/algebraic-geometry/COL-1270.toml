@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1270"
+title = "The signed Čech triangle of the projective line"
+kind = "theorem"
+section = "projective-line-cech"
+order = 10
+primary = "AlgebraicGeometry.projectiveSpaceOver.lineDerivedCechConeTriangleIso_connecting"
+review = "author_checked"
+statement = '''
+Let (R) be a commutative ring, (p:\mathbf{P}^1_R\to\operatorname{Spec}R)
+the projection, and (j_0,j_1,j_{01}) the two standard charts and their
+intersection. For a quasi-coherent sheaf (\mathcal F), put
+(A_i=p_*j_{i,*}j_i^*\mathcal F) and
+(A_{01}=p_*j_{01,*}j_{01}^*\mathcal F).
+The distinguished triangle
+(\mathbf{R}p_*\mathcal F\to(A_0\oplus A_1)[0]\xrightarrow{d}
+A_{01}[0]\to\mathbf{R}p_*\mathcal F[1])
+has (d=\operatorname{res}_0-\operatorname{res}_1).
+Its rotation compares to the mapping cone of this very cochain map by
+identities on the first two vertices, carrying its connecting morphism to
+the canonical cone inclusion.
+'''
+proof = '''
+The signed Čech sequence of module sheaves is split exact on each chart and
+hence short exact. Affineness makes the chart terms and the overlap term
+acyclic for the direct image. Apply bounded-below derived direct image to
+the short exact sequence and use the canonical acyclic-unit comparisons.
+The triangulated comparison of two distinguished triangles agrees with
+the identity on the source and target of (d); the second square of the
+rotated triangle is the asserted connecting compatibility. See
+[@stacks, Tag 01XL] for affine Čech cohomology.
+'''
+scope = '''
+The sheaves and open immersions are those of the native projective line.
+There is no noetherianity hypothesis. The theorem is an actual signed
+comparison, not only an isomorphism of cohomology objects.
+'''

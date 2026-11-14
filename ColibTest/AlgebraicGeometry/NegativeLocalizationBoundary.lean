@@ -1,0 +1,25 @@
+/-
+Copyright (c) 2026 OpenAI. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: OpenAI
+-/
+module
+
+import Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterCurrentNegativeBoundarySign
+
+open AlgebraicGeometry.Scheme.Modules
+open AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull
+
+#check boundedAboveFlatCoefficientSupportedKZero_localization_exact
+#check boundedAboveFlatCoefficientSupportedNegativeK_localization_exact
+#check boundedAboveFlatCoefficientNegativeLocalizationConnecting_exact_open
+#check boundedAboveFlatCoefficientNegativeLocalizationConnecting_exact_supported
+#check currentNegativeConnecting_eq_original
+#check currentNegativeConnecting_exact_open
+#check currentNegativeConnecting_exact_supported
+
+#print axioms boundedAboveFlatCoefficientSupportedKZero_localization_exact
+#print axioms boundedAboveFlatCoefficientSupportedNegativeK_localization_exact
+#print axioms currentNegativeConnecting_eq_original
+#print axioms currentNegativeConnecting_exact_open
+#print axioms currentNegativeConnecting_exact_supported

@@ -391,9 +391,11 @@ private theorem supportedNativeJoint_secondEndpoint (a : Under R) :
       (boundedAboveFlatCoefficientSupportedOpenNested f T a)
     (supportedSectionJoint_secondEndpoint (boundedAboveFlatCoefficientSupportOpen Q T a).ι)
 
-private theorem supportedNative_canonicalCone_isStableEquivalence (a : Under R) :
-    IsStableEquivalence
-      (canonicalConePrespectrumMap (boundedAboveFlatCoefficientSupportedOpenNested f T a)) := by
+/-- The actual auxiliary nested model satisfies the original Waldhausen fibration theorem. -/
+theorem boundedAboveFlatCoefficientSupportedOpen_canonicalFiberMap_isWeakHomotopyEquivalence
+    (a : Under R) :
+    IsWeakHomotopyEquivalence
+      (canonicalFiberMap (boundedAboveFlatCoefficientSupportedOpenNested f T a)) := by
   let N := boundedAboveFlatCoefficientSupportedOpenNested f T a
   let W := boundedAboveFlatPerfectSupportedOpenWaldhausen (schemeMap f a)
     (boundedAboveFlatCoefficientSupportOpen Q T a)
@@ -411,8 +413,15 @@ private theorem supportedNative_canonicalCone_isStableEquivalence (a : Under R) 
       (boundedAboveFlatCoefficientSupportedOpenEvaluation_coarse_exact f T a) hw
       (boundedAboveFlatPerfectSupportedOpenWaldhausen_extensionAxiom (schemeMap f a)
         (boundedAboveFlatCoefficientSupportOpen Q T a))
-  exact canonicalConePrespectrumMap_isStableEquivalence_general N he
+  exact canonicalFiberMap_isWeakHomotopyEquivalence_general N he
     (supportedNativeJointData f T a) (supportedNativeJoint_secondEndpoint f T a)
+
+private theorem supportedNative_canonicalCone_isStableEquivalence (a : Under R) :
+    IsStableEquivalence
+      (canonicalConePrespectrumMap (boundedAboveFlatCoefficientSupportedOpenNested f T a)) :=
+  canonicalConePrespectrumMap_isStableEquivalence_of_weak _
+    (boundedAboveFlatCoefficientSupportedOpen_canonicalFiberMap_isWeakHomotopyEquivalence
+      f T a)
 
 private theorem acyclic_evaluation_iff {C D : Type*} [Category* C] [Category* D]
     (V : Structure C) (W : Structure D) (F : C ⥤ D)
@@ -529,7 +538,8 @@ private theorem acyclic_lift_exact {C D : Type*} [Category* C] [Category* D]
   weak p hp := h.weak p hp
   pushout hi hp := IsPushout.of_map_of_faithful (acyclicObjects N).ι (h.pushout hi hp)
 
-private theorem supportedNativeFiberToAcyclic_exact (a : Under R) :
+/-- The actual auxiliary support conversion is exact. -/
+theorem supportedNativeFiberToAcyclic_exact (a : Under R) :
     IsExact (boundedAboveFlatCoefficientSupportedFiberModel f T a).obj.waldhausen.cof
       (boundedAboveFlatCoefficientSupportedFiberModel f T a).obj.waldhausen.weq
       (acyclicStructure (boundedAboveFlatCoefficientSupportedOpenNested f T a)).cof
@@ -676,11 +686,13 @@ private theorem supportedNativeAcyclicToFiber_exact (a : Under R) :
     (boundedAboveFlatCoefficientSupportedAcyclicToFiber f T a)
     (supportedNativeAcyclicToFiber_evaluation_exact f T a)
 
-private def supportedNativeFiberAcyclicSmallEquivalence (a : Under R) :=
+/-- The native support-acyclic equivalence, lifted to the existing model universe. -/
+def supportedNativeFiberAcyclicSmallEquivalence (a : Under R) :=
   (boundedAboveFlatCoefficientSupportedFiberAcyclicEquivalence f T a).trans AsSmall.equiv.{u+1,
     u+1, 0}
 
-private def supportedNativeFiberAcyclicModelMap (a : Under R) :
+/-- The exact auxiliary fiber map into the relative acyclic category. -/
+def supportedNativeFiberAcyclicModelMap (a : Under R) :
     boundedAboveFlatCoefficientSupportedFiberModel f T a ⟶
       asSmallCategory (acyclicStructure (boundedAboveFlatCoefficientSupportedOpenNested f T a)) :=
   ⟨⟨(supportedNativeFiberAcyclicSmallEquivalence f T a).functor,
@@ -688,19 +700,22 @@ private def supportedNativeFiberAcyclicModelMap (a : Under R) :
     (acyclicStructure (boundedAboveFlatCoefficientSupportedOpenNested f T a)).asSmall_up_exact⟩,
       rfl⟩
 
-private def supportedNativeAmbientModelMap (a : Under R) :
+/-- The literal ambient inclusion into the existing small model. -/
+def supportedNativeAmbientModelMap (a : Under R) :
     boundedAboveFlatCoefficientSupportedAmbientModel T a ⟶
       asSmallCategory (boundedAboveFlatCoefficientSupportedAmbientModel T a).obj.waldhausen :=
   ⟨⟨AsSmall.up.{u+1, u+1, 0}, (boundedAboveFlatCoefficientSupportedAmbientModel T
     a).obj.waldhausen.asSmall_up_exact⟩, rfl⟩
 
-private def supportedNativeCoarseModelMap (a : Under R) :
+/-- The literal relative-open inclusion into the existing small model. -/
+def supportedNativeCoarseModelMap (a : Under R) :
     boundedAboveFlatCoefficientSupportedOpenModel f T a ⟶
       asSmallCategory (boundedAboveFlatCoefficientSupportedOpenModel f T a).obj.waldhausen :=
   ⟨⟨AsSmall.up.{u+1, u+1, 0}, (boundedAboveFlatCoefficientSupportedOpenModel f T
     a).obj.waldhausen.asSmall_up_exact⟩, rfl⟩
 
-private theorem supportedNativeEvaluation_inclusion (a : Under R) :
+/-- Native auxiliary conversion commutes with inclusion. -/
+theorem supportedNativeEvaluation_inclusion (a : Under R) :
     boundedAboveFlatCoefficientSupportedFiberForgetModelMap f T a ≫
       supportedNativeAmbientModelMap T a =
     supportedNativeFiberAcyclicModelMap f T a ≫ asSmallCategoryMap _ _
@@ -710,7 +725,8 @@ private theorem supportedNativeEvaluation_inclusion (a : Under R) :
   rfl
 
 omit [IsOpenImmersion f.left] in
-private theorem supportedNativeEvaluation_changeWeak (a : Under R) :
+/-- Native auxiliary conversion commutes with the change of weak equivalences. -/
+theorem supportedNativeEvaluation_changeWeak (a : Under R) :
     boundedAboveFlatCoefficientSupportedOpenChangeWeakModelMap f T a ≫
       supportedNativeCoarseModelMap f T a =
     supportedNativeAmbientModelMap T a ≫ asSmallCategoryMap _ _
@@ -720,7 +736,8 @@ private theorem supportedNativeEvaluation_changeWeak (a : Under R) :
   apply SmallWaldhausenCategory.Hom.ext
   rfl
 
-private def supportedNativeFiberEvaluationSquare (a : Under R) :
+/-- The native auxiliary evaluation square before stabilization. -/
+def supportedNativeFiberEvaluationSquare (a : Under R) :
     Arrow.mk ((boundedAboveFlatCoefficientSupportedFiberForgetPrespectrumTransformation f T).app
       a) ⟶
       Arrow.mk (acyclicInclusionPrespectrumMap
@@ -761,7 +778,8 @@ private theorem nativeAcyclicNull_square {C : Type u} [Category.{u} C]
   have h := prespectrumZeroTransformationHomotopy_naturality F G a c hs η θ hη hθ n
   exact congrArg (fun H ↦ H (unitInterval.symm s, x)) h
 
-private theorem supportedNativeFiberNull_evaluation (a : Under R) (n : ℕ) (s : unitInterval)
+/-- The original auxiliary null agrees with the native geometric null at every point. -/
+theorem supportedNativeFiberNull_evaluation (a : Under R) (n : ℕ) (s : unitInterval)
     (x : ((boundedAboveFlatCoefficientSupportedFiberPrespectrumFunctor f T).obj a).space n) :
     (prespectrumMap (supportedNativeCoarseModelMap f T a)).map n
       (((boundedAboveFlatCoefficientSupportedFiberOpenDiagramNull f T).homotopy a).level n (s, x)) =

@@ -1,0 +1,14 @@
+[entry]
+id = "COL-1276"
+title = "The original connective boundary at the initial coefficient stage"
+kind = "theorem"
+section = "thomason-trobaugh-localization"
+order = 217
+statement = '''
+For the original coefficient section models of an open immersion, the support-to-open nullhomotopy induces a stable equivalence to the homotopy fiber. At degree \(n\geq0\), evaluation of the intrinsic connecting map is the negative of the original connective Waldhausen boundary, including the original degree transport. With an auxiliary support open, the same sign holds for the literal native intersection-support model. For a quasi-compact localization pair with quasi-separated ambient scheme, the stage-zero inclusion commutes with the existing fine Bass connecting map in every integer degree, both ordinarily and with auxiliary support. In the auxiliary case the stage-zero inclusion preserves each value of the chosen null under the coarse-to-full-open restriction.
+'''
+scope = '''
+The connective evaluations and signs use arbitrary open immersions, without compactness assumptions. The comparisons to the fine telescope use quasi-compactness of the open and ambient schemes and quasi-separatedness of the ambient scheme. The auxiliary telescope comparison also requires quasi-compactness of the auxiliary support open. The actual models and their specified nullhomotopies are retained.
+'''
+review = "author_checked"
+provenance = "quillen"

@@ -1,0 +1,28 @@
+[entry]
+id = "COL-1285"
+title = "A strictly perfect sheaf model for projective-line direct image"
+kind = "theorem"
+section = "projective-line-cech"
+order = 30
+primary = "AlgebraicGeometry.projectiveSpaceOver.exists_lineDerivedImageStrictModel"
+review = "author_checked"
+statement = '''
+Let $p:\mathbf P^1_R\to\operatorname{Spec}R$ and let $E$ be a finite
+locally free sheaf on $\mathbf P^1_R$. The actual signed sheaf Čech
+complex is chain-homotopy equivalent to a strictly perfect complex
+$P^\bullet$ in degrees $0$ and $1$. In the derived category on
+$\operatorname{Spec}R$ this model represents $Rp_*E$; in particular,
+$Rp_*E$ is perfect.
+'''
+proof = '''
+On the affine base the two quasi-coherent Čech terms are recovered by
+the affine tilde counit. Naturality of that counit preserves the actual
+signed differential. Applying tilde to the finite projective model of
+COL-1284 preserves chain homotopy, and its terms are direct summands of
+finite free sheaves ([@stacks, Tag 08C4]). The signed cone comparison of
+COL-1270 then identifies the resulting derived object with $Rp_*E$.
+'''
+scope = '''
+The base ring is arbitrary. The input is a vector bundle in degree zero;
+arbitrary perfect input complexes are not covered by this result.
+'''

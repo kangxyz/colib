@@ -535,6 +535,8 @@ class LibraryTests(unittest.TestCase):
 "affine-and-global-section-models": "Colib.AlgebraicGeometry.Modules.BoundedFlatGlobalSections",
 "units-tensor-products-and-localization-boundaries": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorModelUnit",
 "bass-k-theory-and-geometric-delooping": "Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterTensorReturnedCell",
+            "projective-line-cech": "Colib.AlgebraicGeometry.ProjectiveLine.DerivedCechTriangle",
+            "projective-bundle-formula": "Colib.AlgebraicGeometry.KTheory.ProjectiveLine.DiagonalSurjectivity",
 "affine-and-global-section-models": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
 "bass-k-theory-and-geometric-delooping": "Colib.AlgebraicGeometry.KTheory.PerfectRestriction",
             "matsumoto-theorem": "Colib.RingTheory.KTheory.MilnorK.QuillenEquivalence",
@@ -1049,7 +1051,7 @@ class LibraryTests(unittest.TestCase):
                           "perfect-complexes", "nisnevich-sites", "affine-curve-parameters",
                           "normal-curve-compactifications", "projective-section-lifting",
                           "boundary-frames-and-descent", "meromorphic-section-divisors",
-                          "algebraic-simplices"])
+                          "algebraic-simplices", "projective-line-cech"])
         self.assertLess(chapters["algebraic-geometry"]["order"], chapters["cycles"]["order"])
         section = self.library["sections"]["finite-algebra-coefficients"]
         self.assertEqual(section["chapter"], "commutative-algebra")

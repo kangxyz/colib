@@ -1,0 +1,18 @@
+/-
+Copyright (c) 2026 OpenAI. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: OpenAI
+-/
+module
+
+import Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryNormalizedRowBoundary
+import Colib.AlgebraicGeometry.KTheory.NegativeLocalizationVariantTags
+import Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterAuxiliaryNegativeBoundarySign
+
+open AlgebraicGeometry.Scheme.Modules
+
+#check ParameterAuxiliaryCurrentFiber.currentNegativeConnecting_eq_original
+#check ParameterAuxiliaryNormalizedRowLocalization.normalizedNegativeConnecting_eq_original
+
+#print axioms ParameterAuxiliaryCurrentFiber.currentNegativeConnecting_eq_original
+#print axioms ParameterAuxiliaryNormalizedRowLocalization.normalizedNegativeConnecting_eq_original

@@ -1,0 +1,20 @@
+[entry]
+id = "COL-1291"
+title = "Affine Bass middle exactness and the forward Laurent sign"
+kind = "theorem"
+section = "bass-k-theory-and-geometric-delooping"
+order = 15
+statement = '''
+Let \(R\) be a commutative ring. In every connective degree \(n\), including \(n=0\), the image of coefficient pullback
+\[
+K_n(R)\longrightarrow K_n(R[t])\times K_n(R[t])
+\]
+equals the kernel of the difference of restrictions to \(K_n(R[t,t^{-1}])\), with chart maps \(t\mapsto t\) and \(t\mapsto t^{-1}\). Write \(e=[\mathcal O_{\operatorname{Spec}R}]\) and use multiplicative notation for the \(K\)-groups. Under the projective-line coordinates ordered by \(\mathcal O,\mathcal O(-1)\), the boundary of the forward Laurent unit on the rank-one complex is \((e^{-1},e)\); its first coordinate is \(e^{-1}\). The same first coordinate is obtained from the independent forward polynomial scalar class after its actual open restriction.
+
+For an arbitrary perfect complex on the polynomial chart, the forward unit on its actual restriction to the negative Laurent chart has boundary inverse to the supported cone of the polynomial coordinate. For a quasi-compact quasi-separated base, the two projective coordinates of the actual forward and inverse operations on a connective \(K_n\) coefficient \(a\) are \((a^{-1},a)\) and \((a,a^{-1})\), respectively. These identities persist after the actual bounded-above flat inclusion. The forward unit on the additive ambient coefficient quotient is the negative of the inverse geometric boundary.
+'''
+scope = '''
+The groups are the connective \(K\)-groups of the named affine schemes, with the canonical polynomial and Laurent maps. The supported coordinate cone and the independent global-unit \(K_1\)-class retain their actual native perfect complexes. No Noetherian or regularity hypothesis is used; the zero ring is included.
+'''
+review = "author_checked"
+provenance = "quillen"

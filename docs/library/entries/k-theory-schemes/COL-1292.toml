@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1292"
+title = "The connective projective-line formula with support"
+kind = "theorem"
+section = "projective-bundle-formula"
+order = 20
+statement = '''
+Let \(X\) be quasi-compact and quasi-separated, let \(U\subseteq X\) be a
+quasi-compact open, and let \(\pi:\mathbf P^1_X\to X\). Write \(Z=X\setminus U\).
+For each \(n\geq 0\), the map
+\[
+K_n(X\text{ on }Z)^{\oplus 2}\longrightarrow
+K_n(\mathbf P^1_X\text{ on }\pi^{-1}(Z)),\qquad
+(a,b)\longmapsto \pi^*a + [\mathcal O(-1)]\cdot\pi^*b
+\]
+is an isomorphism. It commutes with forgetting support and with the
+connective localization boundary from degree \(n+1\) of the open.
+'''
+scope = '''
+Use native perfect complexes acyclic on the specified open. The maps
+are the actual flat pullback and the same pullback tensored with the
+negative tautological line. The comparison includes \(K_0\); no
+surjectivity assumption on restriction to the full \(K_0\) of the open
+is required. This is a connective group statement, not a spectrum or
+negative-group equivalence.
+'''
+proof = '''
+The two maps on supported complexes and the ordinary map on the open
+commute with the literal restriction, support-forgetting and boundary
+maps. Apply the five lemma to the two connective localization rows
+using the ordinary projective-line formula on the base and on \(U\).
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.projectiveLineSupportedKEquiv"
+provenance = "quillen"
+source_checked_on = "2026-11-14"

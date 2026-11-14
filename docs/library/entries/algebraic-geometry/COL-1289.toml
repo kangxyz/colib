@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1289"
+title = "Perfect complexes and direct image on the projective line"
+kind = "theorem"
+section = "projective-line-cech"
+order = 70
+primary = "AlgebraicGeometry.projectiveSpaceOver.isPerfect_projectiveLinePushforward_of_termwiseFlasque"
+review = "author_checked"
+statement = '''
+For a quasi-compact scheme $X$, localization of the full subcategory
+of perfect complexes factors through $D^+(\mathcal O_X)$. Applied to
+the projective line, this gives the canonical flat and self-base-change
+isomorphisms on the actual complexes. For any scheme $S$, if a perfect
+complex on $\mathbf P^1_S$ is bounded below and termwise flasque, its
+ordinary degreewise direct image along $p:\mathbf P^1_S\to S$ is a
+perfect complex.
+'''
+proof = '''
+Perfect objects on a quasi-compact scheme have bounded cohomology
+([@stacks, Tag 0FEP]); the lift is the usual localization on complexes
+and maps. The base-change isomorphisms are obtained by precomposing
+the derived mate. Flasque terms are $p_*$-acyclic ([@stacks, Tag 09T0]),
+so the ordinary image represents $Rp_*$, which preserves perfection.
+Perfection is independent of the representative ([@stacks, Tag 08CN]).
+'''
+scope = '''
+Only the localization through $D^+$ requires quasi-compactness.
+The flasque direct-image statement concerns the given complex,
+not a chosen strictly perfect representative of its derived image.
+'''

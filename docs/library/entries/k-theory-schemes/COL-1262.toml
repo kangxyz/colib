@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1262"
+title = "Bass negative K-groups in the supported delooping"
+kind = "theorem"
+section = "bass-k-theory-and-geometric-delooping"
+order = 710
+statement = '''
+Let $j:U\hookrightarrow X$ be a quasi-compact open immersion of a
+quasi-compact, quasi-separated scheme, and put $Z=X\setminus U$. For every
+$i\geq 0$, the Bass group $K_{-i}(X\text{ on }Z)$ from COL-1200 identifies
+with the stable group $\pi^{\mathrm{st}}_{-i}$ of the supported Bass telescope.
+In the integral-base parameter family this isomorphism is natural in the
+coefficient algebra and carries Laurent quotient representatives to the
+corresponding stable classes.
+'''
+scope = '''
+The Lean statement uses the literal current-stage parameter telescope and the
+native perfect-complex models. The stage-$i$ inclusion is invertible in every
+stable degree $d\geq-i$. This comparison is not the localization fiber sequence
+or its signed boundary. For the geometric Bass construction see
+[@ThomasonTrobaugh1990, Lemma 6.2 and Definition 6.4].
+'''
+proof = '''
+The genuine Laurent action gives connective invertibility of the initial
+transition. The restriction and support cone sequences give the supported
+transition, using only injectivity of the coarse open comparison at degree
+zero. The Bass short exact row and its vanishing right term at the new bottom
+then propagate invertibility to every finite stage in its stable range. Passing
+to the telescope retains the actual finite-bottom class map; the comparison
+of the independent current inclusions preserves that class map and its
+Laurent quotient formula.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalSupportedParameterCoefficient.currentNegativeKComparison"
+provenance = "quillen"
+source_checked_on = "2026-11-13"

@@ -336,3 +336,13 @@ canonical homology comparison. To use integer cochain degrees, place chain
 degree \(r\) in degree \(q-r\); the specified term isomorphisms carry the original
 differential, without yet identifying this placement with a signed shift.
 '''
+
+[[sections]]
+id = "projective-line-cech"
+title = "Čech cohomology of the projective line"
+order = 65
+introduction = '''
+The two standard affine charts of (\mathbf{P}^1_R) compute derived direct image
+over any commutative ring. The sign of the restriction differential and the
+connecting morphism are part of the comparison.
+'''

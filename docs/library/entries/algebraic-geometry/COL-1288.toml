@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1288"
+title = "Flat and self-base change in the bounded-below derived category"
+kind = "theorem"
+section = "projective-line-cech"
+order = 60
+primary = "AlgebraicGeometry.projectiveSpaceOver.isIso_projectiveLineFlatBaseChangePlus"
+review = "author_checked"
+statement = '''
+For a quasi-compact quasi-separated morphism of schemes and a flat
+cartesian base change, the canonical base-change map is invertible
+at every bounded-below complex with quasi-coherent cohomology. This
+applies to every intrinsic perfect object of $D^+(\mathbf P^1_S)$,
+including the self-square of $\mathbf P^1_R\to\operatorname{Spec}R$.
+On the intrinsic perfect subcategory the natural isomorphism has the
+original mate as its forward map. For an open base change the map is
+invertible for any morphism and any bounded-below input.
+'''
+proof = '''
+The flat comparison is invertible at a quasi-coherent module by
+[@stacks, Tag 02KH]. Truncation and left $t$-exactness pass this to the
+bounded-below category. The two descents of the same ordinary
+pullback–pushforward mate are invertible together, and the
+derived-unit identity fixes the self-square map ([@stacks, Tag 0DDE]).
+For an open immersion the ordinary mate is invertible for all modules
+and open pullback preserves injectives, so no cohomology hypothesis is
+needed in that case.
+'''
+scope = '''
+The flat and self-square maps live in $D^+$ and are not defined by
+choosing an unbounded isomorphism. The self-square uses the two literal
+projections of the fiber product.
+'''
