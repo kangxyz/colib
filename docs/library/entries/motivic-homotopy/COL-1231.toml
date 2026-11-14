@@ -27,7 +27,7 @@ homotopy supplies the contraction onto the augmentation.
 scope = '''
 For the structure map to the base this gives the pointed presheaf
 construction of the reduced Čech cofiber in
-[@Voevodsky2003ModTwo, Section 9, opening construction and Lemma 9.1, pp. 101–102].
+[@Voevodsky2003ModTwo, Section 9, Definition 9.1 and the construction after Lemma 9.2, p. 102].
 The section calculation is a homotopy of the augmented nerve in
 presheaves of sets.
 '''
