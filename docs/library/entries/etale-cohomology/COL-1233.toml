@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1233"
+title = "Actual root extraction and Kummer exactness on the smooth étale site"
+kind = "theorem"
+section = "etale-kummer-symbols"
+order = 5
+primary = "AlgebraicGeometry.Scheme.SmoothSite.Kummer.largeUnitsEtaleSheaf_nsmul_epi"
+review = "author_checked"
+statement = '''
+Let S be any scheme and n a nonzero natural number invertible in its global
+functions. Multiplication by n on the actual large-universe étale sheaf of
+units on SmoothSite S is an epimorphism. The underlying power maps on both
+the original unit presheaf and its universe lift are locally surjective.
+With the existing sheafification infrastructure, the actual kernel sequence
+of this power map is short exact.
+'''
+proof = '''
+For a literal global unit on a smooth-site object X, reuse the finite étale
+algebra obtained by adjoining a root of t^n-u. Pull its spectrum back along
+the canonical X to Spec of its global functions. The resulting finite étale
+surjection is still a smooth separated finite-type object over S and gives
+an actual singleton cover. The transported root unit satisfies the original
+power equation. These local preimages prove the power-map epimorphism;
+Mathlib's native kernel-sequence exactness supplies the short exact sequence.
+'''
+scope = '''
+These are ordinary sheaves on the existing smooth étale site. No perfectness,
+noetherian condition, chosen primitive root, or transfer structure is assumed.
+The short-exact-sequence corollary uses the library's existing HasSheafify
+infrastructure at the large coefficient universe; the epimorphism does not
+require that parameter. This entry does not identify the smooth-site kernel
+with a small-site roots-of-unity sheaf, does not assert a derived Tate or
+Z/n-linear comparison, and does not establish norm-residue bijectivity.
+'''

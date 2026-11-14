@@ -15,6 +15,14 @@ homomorphism
 The source is represented additively by the quotient by the range of
 multiplication by \(n\). Its value on a coset is exactly the original
 Kummer boundary applied to the corresponding degree-zero cohomology class.
+Via the native coefficient-forgetting comparison, the same quotient also
+injects into Ext¹ from the constant ZMod n-module sheaf to rootsOfUnityModule.
+Forgetting module coefficients recovers the displayed Kummer class, both on
+quotient classes and on unit representatives.
+For a field k, the native degree-one Milnor group K^M_1(k) modulo its literal
+subgroup of n-multiples is identified with this global-unit quotient of Spec k.
+Its composite with the same module Kummer map is injective, and forgetting
+module coefficients gives the original unit boundary on each Milnor representative.
 '''
 proof = '''
 Use the native degree-zero cohomology equivalence at the terminal object of
@@ -23,14 +31,29 @@ Compose it with the native Kummer connecting homomorphism. Exactness says
 that the kernel is the image of the power map; the existing cohomological
 power-map formula identifies this with multiplication by \(n\). Descend by
 this exact kernel and apply the native quotient injectivity criterion.
+For the module-valued realization, transport this injection through the
+inverse of the native additive equivalence from roots-of-unity module Ext
+to ordinary roots-of-unity sheaf cohomology. For the field specialization,
+combine the existing degree-one Milnor equivalence with the actual Gamma-Spec
+unit isomorphism, transport the subgroup of multiples, and apply the native
+quotient congruence.
 '''
 scope = '''
 The statement uses the ordinary AddCommGrpCat-valued small-etale sheaf
 cohomology with its explicit HasExt assumption and independent universe
-parameters. It holds for schemes, hence in particular for spectra of fields.
+parameters. Its module-valued realization uses the native rootsOfUnityModule
+over ZMod n, with n nonzero, the standard derived categories and the explicit
+HasExt assumption at universe u + 1. The coefficient-forgetting equivalence
+is defined in every natural degree; the Kummer injection is in degree one
+and requires n invertible in global sections. It holds for schemes, hence
+in particular for spectra of fields.
 It does not assume a primitive root of unity, perfectness or finite
 cohomological dimension. It does not assert surjectivity, a Galois-cocycle
 normalization, field-change naturality, higher cup symbols, an etale Tate
 comparison or the norm-residue theorem. The map retains the actual native
 Kummer boundary, rather than naming a motivic target ordinary cohomology.
+The Milnor quotient is the literal quotient used by COL-1224; its expression is
+kept explicit here to avoid importing the whole integral diagonal proof into
+this degree-one consumer. Agreement with the separate motivic comparison and
+higher-weight cup compatibility are not asserted.
 '''

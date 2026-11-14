@@ -13,7 +13,6 @@ order = 10
 introduction = '''
 Start with ordinary étale sheaves on the original smooth category, then compare the full small étale site with its finite-type basis. Marked affine neighborhoods and strict henselization compute actual geometric values. The native extension–restriction counit is identified on these values without assuming transfers or homotopy invariance. See [@MVW2006, Lecture 6]; the transfer-specific rigidity conclusion is organized separately in COL-1222.
 '''
-legacy_items = ["COL-1111", "COL-1114", "COL-1222"]
 
 [[sections.topics]]
 id = "topologies-and-site-comparison"
@@ -108,7 +107,6 @@ order = 20
 introduction = '''
 Native proper étale base change and Kummer theory reflect Picard divisibility from a closed fibre. Follow the relative-Picard method of [@MVW2006, Lecture 7, Lemma 7.13 and Exercise 7.15 and Corollary 7.19], retaining the actual tensor root and its specified full-boundary frame. Closed-curve divisibility has stronger smooth-proper hypotheses than the same-specialization route; the two are distinct topics, not interchangeable certificates.
 '''
-legacy_items = ["COL-1054", "COL-1087", "COL-1101", "COL-1109", "COL-1110", "COL-1112", "COL-1113", "COL-1207", "COL-1213"]
 
 [[sections.topics]]
 id = "proper-base-change-and-kummer"

@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1224"
+title = "Finite motivic diagonal cohomology and Milnor K-theory modulo n"
+kind = "comparison"
+section = "diagonal-motivic-comparison"
+order = 30
+primary = "AlgebraicGeometry.MotivicCohomology.FiniteMilnorDiagonal.motivicFiniteEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+For every field k and natural numbers q and n, the original integral symbol
+and finite-coefficient reduction induce an additive equivalence from the
+native Milnor group K^M_q(k) modulo its literal subgroup of n-multiples to
+H^{q,q}(k, Z/n), computed by the existing motivic multiplication cone.
+On a Milnor coset the equivalence is exactly the original symbol followed
+by integral reduction. In weight one it agrees with the existing
+weight-one Milnor comparison followed by that same reduction.
+'''
+proof = '''
+Compose the integral diagonal equivalence COL-1026 with the original
+surjective coefficient reduction. Its kernel consists exactly of n-multiples:
+transport the integral reduction kernel through the additive equivalence.
+Apply the native first isomorphism theorem. The coset formula is definitional;
+the weight-one formula uses the existing integral symbol comparison.
+'''
+scope = '''
+This is an additive motivic statement for arbitrary fields and all natural
+levels, including zero, one, composite levels and levels divisible by the
+characteristic. No invertibility or perfection assumption is imposed.
+The existing sheafification and derived-category infrastructure assumptions
+remain explicit. This result does not assert an etale norm-residue map,
+cup-product or field-change compatibility, or a norm-residue isomorphism.
+It reuses the completed integral Milnor comparison rather than reproving it.
+'''

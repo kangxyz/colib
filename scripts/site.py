@@ -463,16 +463,6 @@ def build(library_path, output):
                 + "</ol>"
                 + "".join(render_section_item(section, i) for i in section["entries"])
             )
-        if legacy_items := section.get("legacy_items"):
-            body += '<section class="moved-items"><h2>Moved items</h2>'
-            for identifier in legacy_items:
-                body += (
-                    f'<p class="legacy-item" id="{identifier}">'
-                    + "This item has moved: "
-                    + item_link(identifier)
-                    + ". Its permanent Library link is unchanged.</p>"
-                )
-            body += "</section>"
         render_page(
             "sections/" + section_id + "/index.html",
             section["title"],

@@ -36,24 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   typesetMath(document.querySelector(".layout"));
 });
 
-// Permanent item links survive chapter and section moves. Existing section
-// anchors still scroll normally; moved anchors also have a usable HTML link.
-function redirectMovedLibraryItem() {
-  let fragment;
-  try {
-    fragment = decodeURIComponent(location.hash);
-  } catch {
-    return;
-  }
-  if (!/^#COL-[0-9]{4,}$/.test(fragment)) return;
-  const target = document.getElementById(fragment.slice(1));
-  if (document.body.dataset.home === "true" || !target || target.matches(".legacy-item")) {
-    location.replace(root + "tag/" + fragment.slice(1) + "/");
-  }
+if (document.body.dataset.home === "true" && /^#COL-[0-9]{4,}$/.test(location.hash)) {
+  location.replace(root + "tag/" + location.hash.slice(1) + "/");
 }
-
-redirectMovedLibraryItem();
-window.addEventListener("hashchange", redirectMovedLibraryItem);
 
 function showLinkedDeclaration() {
   let name;

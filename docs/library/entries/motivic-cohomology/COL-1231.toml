@@ -1,6 +1,6 @@
 [entry]
 id = "COL-1231"
-title = "The finite weight-one coefficient model and the actual units cone"
+title = "Finite weight-one coefficients, units, and etale roots of unity"
 kind = "comparison"
 section = "weight-one-comparison"
 order = 25
@@ -13,6 +13,13 @@ derived category of ordinary Nisnevich abelian sheaves to the multiplication
 cone of n on the literal global-units sheaf shifted by -1. For every n,
 including zero, the original finite weight-one comparison is a
 quasi-isomorphism and preserves the original integral map and positive Bockstein.
+If n is nonzero and its image is a unit in the global sections of Spec k,
+the original finite weight-one etale complex is isomorphic in D(Ab) to the
+single complex on the actual smooth-etale units power-map kernel. Its actual
+full-small etale restriction is isomorphic to the single complex on the
+existing rootsOfUnitySheaf mu_n. For natural p, terminal-source hypercohomology
+of that restricted complex is additively equivalent to ordinary Sheaf.H(mu_n,p),
+and the original finite motivic comparison gives an additive map to this group.
 '''
 proof = '''
 The native mapping-cone triangle and two-out-of-three show that taking the
@@ -21,13 +28,24 @@ completed geometric weight-one comparison COL-0403, then compose in the
 derived category with the inverse of the actual coefficient-quotient
 quasi-isomorphism COL-1229. Integral and Bockstein compatibility use the
 original finite-cone naturality equations, without changing their signs.
+For the etale extension, use exact change of topology and the actual smooth
+Kummer epimorphism COL-1233, then the cone-kernel comparison COL-1234.
+Identify units first on the separated finite-type basis and transport through
+its genuine sheaf-equivalence counit; preservation of kernels identifies the
+existing small-site mu_n. Native exact derived restriction and the terminal
+cohomology comparison COL-1226 supply the ordinary cohomology target.
 '''
 scope = '''
-This result is in D(Ab), not a derived ZMod-linear Tate identification.
-No invertibility-of-n or perfect-field assumption is needed here. The units
-cone has not yet been identified with roots of unity on the smooth etale site;
-that requires actual Kummer local surjectivity. No full-weight tensor
-comparison, norm-residue bijectivity, or automatic lift from D(Ab) to D(Z/n)
-is asserted. The companion units leaf supplies literal smooth-etale units
-and their canonical Nisnevich-to-etale sheafification isomorphism only.
+All derived isomorphisms here are in D(Ab), not a derived ZMod-linear Tate
+identification. No perfect-field assumption is used. The original Nisnevich
+units-cone result does not require invertibility of n; the additional etale
+kernel and mu_n identifications require n nonzero and invertible on Spec k.
+The declarations retain their explicit sheafification, derived-category and,
+for ordinary cohomology, HasExt infrastructure instances. The ordinary target
+uses natural cohomological degrees. The resulting Nisnevich-to-ordinary-etale
+comparison is an additive map, not an asserted isomorphism. Naturality and
+Bockstein coherence of the entire new mu_n identification are not yet asserted;
+the earlier units-cone compatibility is unchanged. No all-weight tensor
+comparison, cup compatibility, norm-residue bijectivity, or automatic lift
+from D(Ab) to D(Z/n) is asserted.
 '''

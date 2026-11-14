@@ -218,3 +218,9 @@ calculation shows that closed-point norms kill the boundary, and the
 corestriction of COL-1025 expresses each closed point as a pushforward
 of its rational graph over the residue field.
 '''
+
+COL-1224 = '''
+Pass the original diagonal symbol through integral reduction. Its kernel is
+precisely the subgroup of n-multiples, so the first isomorphism theorem gives
+the finite diagonal comparison without changing the integral or coefficient model.
+'''

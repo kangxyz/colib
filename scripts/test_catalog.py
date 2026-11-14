@@ -753,7 +753,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1112": "Colib.AlgebraicGeometry.Modules.Invertible.LimitBoundaryRoot",
             "COL-1113": "Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteSectionPairs",
             "COL-1114": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction",
-            "COL-1222": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit",
+            "COL-1222": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityTorsion",
             "COL-1223": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology",
             "COL-1225": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Quotient",
             "COL-1226": "Colib.CategoryTheory.Sites.TerminalCohomologyUnivLE",
@@ -832,7 +832,8 @@ class LibraryTests(unittest.TestCase):
             "etale-cohomology": [1055, 1057, 1060, 1061, 1082, 1085, 1093, 1095,
                                  1099, 1102, 1104, 1108, 1203, 1205, 1206, 1208,
                                  1209, 1210, 1212, 1215],
-            "transfers": [1094, 1098, 1103, 1105, 1106, 1111, 1114, 1211, 1222],
+            "transfers": [1094, 1098, 1103, 1105, 1106, 1211],
+            "etale-motivic-theory": [1111, 1114, 1222],
             "algebraic-geometry": [1047, 1048, 1050, 1052, 1054, 1058, 1059, 1063,
                                    1064, 1066, 1067, 1069, 1073, 1075, 1076, 1087,
                                    1101, 1109, 1110, 1112, 1113, 1207, 1213, 1217,
@@ -852,76 +853,31 @@ class LibraryTests(unittest.TestCase):
                 self.assertEqual(item["path"], f"docs/library/entries/{chapter}/{identifier}.toml")
         self.assertEqual(len(self.library["sections"]["principal-polynomial-families"]["topics"]), 5)
 
-    def test_moved_item_aliases_must_target_another_existing_section(self):
-        path = self.root / "docs/library/chapters/transfers.toml"
-        text = path.read_text()
-        path.write_text(text.replace('"COL-1211", "COL-1094"',
-                                     '"COL-0368", "COL-1094"'))
-        # Use a structural replacement independent of the legacy list ordering.
-        import tomllib
-        section = tomllib.loads(text)["sections"][0]
-        first = section["legacy_items"][0]
-        path.write_text(text.replace('legacy_items = ["' + first + '"',
-                                     'legacy_items = ["COL-0368"', 1))
-        with self.assertRaisesRegex(ValueError, "invalid moved item"):
-            catalog.load_library(self.root)
-        path.write_text(text.replace('legacy_items = ["' + first + '"',
-                                     'legacy_items = ["COL-999999"', 1))
-        with self.assertRaisesRegex(ValueError, "invalid moved item"):
-            catalog.load_library(self.root)
-
-    def test_moved_rigidity_items_keep_real_pages_and_fragments(self):
+    def test_suslin_rigidity_has_its_own_chapter_section_and_navigation(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         output = self.render_site_fixture(built)
+        for relative in ["index.html", "chapters/etale-motivic-theory/index.html"]:
+            page = (output / relative).read_text()
+            self.assertIn("sections/etale-rigidity/", page)
+            self.assertIn("Suslin Rigidity", page)
+            self.assertIn("Étale Motivic Theory", page)
+        rigidity = (output / "sections/etale-rigidity/index.html").read_text()
+        self.assertIn("Suslin Rigidity", rigidity)
+        self.assertIn("chapters/etale-motivic-theory/", rigidity)
+        for identifier in ["COL-1111", "COL-1114", "COL-1222"]:
+            self.assertIn(f'id="{identifier}"', rigidity)
+            permanent = (output / f"tag/{identifier}/index.html").read_text()
+            self.assertIn("chapters/etale-motivic-theory/", permanent)
+            self.assertIn("sections/etale-rigidity/", permanent)
         for section in self.library["sections"].values():
             page = (output / f"sections/{section['id']}/index.html").read_text()
-            for identifier in section.get("legacy_items", []):
-                self.assertIn(f'class="legacy-item" id="{identifier}"', page)
-                self.assertIn(f'href="../../tag/{identifier}/"', page)
-                permanent = (output / f"tag/{identifier}/index.html").read_text()
-                destination = self.library["entries"][identifier]["section"]
-                self.assertIn(f'href="../../sections/{destination}/"', permanent)
-        self.assertTrue((output / "sections/smooth-etale-sites/index.html").exists())
-        self.assertTrue((output / "sections/proper-etale-specialization/index.html").exists())
-        self.assertTrue((output / "chapters/algebraic-geometry/index.html").exists())
-        self.assertTrue((output / "chapters/transfers/index.html").exists())
-        self.assertTrue((output / "chapters/etale-cohomology/index.html").exists())
+            self.assertNotIn("Moved items", page)
+            self.assertNotIn('class="legacy-item"', page)
         records = json.loads((output / "search.json").read_text())
         self.assertEqual(next(x for x in records if x.get("id") == "COL-1222")["path"],
                          "tag/COL-1222/")
 
-    def test_item_fragment_redirects_on_old_sections_and_chapters(self):
-        node = shutil.which("node")
-        if node is None:
-            self.skipTest("Node is needed for the browser fragment compatibility test")
-        source = (catalog.ROOT / "docs/site/site.js").read_text()
-        begin = source.index("function redirectMovedLibraryItem()")
-        end = source.index("\nredirectMovedLibraryItem();", begin)
-        function = source[begin:end]
-        cases = [
-            ["./", "#COL-1222", "true", "missing", "./tag/COL-1222/"],
-            ["../../", "#COL-1222", "false", "legacy", "../../tag/COL-1222/"],
-            ["../../", "#COL-1207", "false", "legacy", "../../tag/COL-1207/"],
-            ["../../", "#COL-1105", "false", "legacy", "../../tag/COL-1105/"],
-            ["../../", "#COL-1222", "false", "missing", "../../tag/COL-1222/"],
-            ["../../", "#COL-%31%32%32%32", "false", "legacy", "../../tag/COL-1222/"],
-            ["../../", "#COL-1203", "false", "current", None],
-            ["../../", "#%not-valid", "false", "missing", None],
-            ["../../", "#a-declaration", "false", "missing", None],
-        ]
-        script = "const cases = " + json.dumps(cases) + ";\n"
-        script += """
-for (const [root, hash, home, kind, expected] of cases) {
-  let actual = null;
-  const location = {hash, replace: value => {actual = value;}};
-  const document = {body: {dataset: {home}}, getElementById: () =>
-    kind === "missing" ? null : {matches: () => kind === "legacy"}};
-""" + function + """
-  redirectMovedLibraryItem();
-  if (actual !== expected) throw Error(JSON.stringify({hash, actual, expected}));
-}
-"""
-        subprocess.run([node, "-e", script], check=True, capture_output=True, text=True)
+
 
     def test_etale_comparison_slices_keep_their_actual_mathematical_owners(self):
         expected = {
@@ -950,12 +906,16 @@ for (const [root, hash, home, kind, expected] of cases) {
         self.assertEqual(item["kind"], "theorem")
         self.assertEqual(item["primary"],
                          "AlgebraicGeometry.PresheafWithTransfers."
-                         "isIso_fullSmallEtale_sheafification_counit_of_A1Invariant")
-        self.assertIn("n+1", item["statement"])
+                         "isIso_fullSmallEtale_sheafification_counit_of_primeToCharacteristicTorsion")
+        self.assertIn("no common", item["statement"])
+        self.assertIn("locally constant", item["statement"])
+        self.assertIn("prime-to-characteristic torsion", item["statement"])
         self.assertIn("canonical counit", item["statement"])
         self.assertIn("No perfectness assumption", item["scope"])
         section = self.library["sections"]["etale-rigidity"]
-        self.assertEqual(section["title"], "Suslin rigidity for étale sheaves")
+        self.assertEqual(section["title"], "Suslin Rigidity")
+        self.assertEqual(section["chapter"], "etale-motivic-theory")
+        self.assertEqual(section["entries"], ["COL-1111", "COL-1114", "COL-1222"])
         self.assertGreater(section["entries"].index("COL-1222"),
                            section["entries"].index("COL-1114"))
         self.assertIn("COL-1222", section["transitions"])
@@ -1109,10 +1069,12 @@ for (const [root, hash, home, kind, expected] of cases) {
                           "relative-principal-cuts", "cartier-correspondences",
                           "principal-polynomial-families"])
         self.assertEqual(chapters["transfers"]["title"], "Presheaves and Sheaves with Transfers")
+        self.assertEqual(chapters["etale-motivic-theory"]["title"], "Étale Motivic Theory")
+        self.assertEqual(chapters["etale-motivic-theory"]["sections"], ["etale-rigidity"])
         self.assertEqual(chapters["transfers"]["sections"],
                          ["transfers-nisnevich", "transfer-homological-algebra",
                           "homotopy-invariant-transfer-actions", "radicial-transfer-invariance",
-                          "etale-rigidity", "transfer-singular-complexes", "affine-line-invariance"])
+                          "transfer-singular-complexes", "affine-line-invariance"])
         self.assertLess(chapters["cycles"]["order"], chapters["transfers"]["order"])
         self.assertLess(chapters["transfers"]["order"], chapters["motivic-cohomology"]["order"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
@@ -1192,7 +1154,7 @@ for (const [root, hash, home, kind, expected] of cases) {
                 "COL-0402", "COL-0403", "COL-1231", "COL-0404", "COL-1008", "COL-1007"
             ],
             "milnor-motivic-comparison": ["COL-1023"],
-            "diagonal-motivic-comparison": ["COL-1025", "COL-1026"],
+            "diagonal-motivic-comparison": ["COL-1025", "COL-1026", "COL-1224"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():

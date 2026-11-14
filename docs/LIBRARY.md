@@ -58,13 +58,6 @@ Use topics to group parts of the argument and use transitions where the reader
 needs to carry data from one part to another. When moving an item, check the topic
 boundary and any section transition keyed by its ID.
 
-When moving an item between sections, keep its permanent ID and record it in
-`legacy_items = ["COL-0004"]` on the previous section. Keep the previous section
-slug and URL. The generated page retains a visible fallback link at the old
-fragment; the site also redirects old item fragments to the permanent `tag/`
-page. An item cannot be both current and legacy in the same section. Moving a
-whole section between chapters preserves its `sections/<slug>/` URL.
-
 IDs start with COL- and at least four decimal digits. They are independent of chapter numbers,
 Lean names and file paths. Moving an item preserves its ID. Released IDs are never reused.
 A substantive replacement records the relation to the earlier item explicitly. Reading positions

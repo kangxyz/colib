@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1234"
+title = "The shifted finite coefficient cone of an epimorphic multiplication map"
+kind = "comparison"
+section = "finite-coefficient-composition"
+order = 30
+primary = "CochainComplex.finiteCoefficients.kernelSingleFiniteIso"
+review = "author_checked"
+statement = """
+For an object G of an abelian category C and a natural number n such that
+multiplication by n on G is an epimorphism, the original finite coefficient
+cone of the single complex G shifted by -1 is canonically isomorphic in D(C)
+to the single complex of the actual kernel of multiplication. The comparison
+is natural for the actual induced maps of kernels and finite coefficient cones.
+The underlying canonical short-exact-sequence comparison retains the original
+signed connecting map: after the native [-1][1] cancellation it equals the
+original kernel inclusion with positive sign.
+"""
+proof = """
+Map the actual kernel short exact sequence into single complexes. The native
+SES cone map is a quasi-isomorphism; the native double-cone rotation and a map
+of actual cones produce the canonical rotated quasi-isomorphism. Apply the
+native signed shift, then transport the actual multiplication map through the
+single and shift functors. Coordinate computations prove the connecting-map
+sign and naturality, including the final kernel and equality transports.
+"""
+scope = """
+This is a comparison in the native derived category of an arbitrary abelian
+category, with its HasDerivedCategory instance. The only arithmetic hypothesis
+is Epi(n • id G); no nonzero or invertibility hypothesis is added. The original
+single[-1], finite-coefficient cone, kernel.map and connecting morphism are
+retained. No roots-of-unity identification, derived ZMod-linear comparison,
+weight-one Tate comparison, or higher-weight tensor conclusion is asserted.
+The signed equation and naturality are assembled and proved here; the cited
+pinned Mathlib declarations are ingredients, not claims of an upstream whole theorem.
+"""

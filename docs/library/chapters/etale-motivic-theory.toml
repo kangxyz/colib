@@ -1,0 +1,43 @@
+[chapter]
+id = "etale-motivic-theory"
+title = "Étale Motivic Theory"
+order = 57
+introduction = '''
+Suslin rigidity is the first result organized here: a homotopy-invariant
+prime-to-characteristic torsion presheaf with transfers has locally constant
+étale sheafification (COL-1222). No common annihilating exponent is required.
+The finite-correspondence geometry (COL-1088 and COL-1091) and transfer-action
+foundations (COL-1211 and COL-1105) remain in their own chapters.
+See [@MVW2006, Lecture 7, Theorem 7.20].
+
+The ordinary sites and stalk computations remain in Étale Sites and
+Cohomology. Rigidity alone does not assert an étale Tate identification
+or the norm-residue theorem.
+'''
+
+[[sections]]
+id = "etale-rigidity"
+title = "Suslin Rigidity"
+order = 10
+introduction = '''
+The conclusion of [@MVW2006, Lecture 7, Theorem 7.20] is local constancy of the étale sheafification of a homotopy-invariant, prime-to-characteristic torsion presheaf with transfers. Fixed-exponent rigidity follows from the geometric finite-stage results and polynomial-tail induction. Passing through the actual torsion subpresheaves and original neighborhood germs gives the general sectionwise-torsion form of COL-1222, without a common exponent. This is an ordinary sheaf result, not a derived or motivic comparison.
+'''
+
+[sections.transitions]
+COL-1111 = '''
+Lift the original markings through actual Frobenius base-change equivalences.
+The original transfer inverse and initial neighborhood functor identify the
+actual neighborhood pullback as an isomorphism. The same counit naturality
+square therefore transports invertibility to a closed point with separable
+residue, without changing the presheaf or assuming the stalk comparison.
+'''
+COL-1114 = '''
+Affine closed geometric points already detect the actual smooth-site sheaf.
+Combine this conservativity with the same Frobenius comparison and native
+characteristic-zero residue separability. The global counit question is now
+exactly the original structural-neighborhood restriction at closed separable
+residues. COL-1222 supplies the geometric induction proving that map invertible.
+'''
+COL-1222 = '''
+The relative-curve geometry and principal correspondence endpoints supply the transfer action comparison of COL-1105. Polynomial-tail induction and the ordinary counit computation of COL-1108 first give fixed-exponent rigidity. For the general torsion presheaf, each section lies in some P[m] with m invertible in the base field. The original neighborhood representatives and refinement-zero criterion pass rigidity from these subpresheaves to the whole presheaf, yielding local constancy without a common exponent or a perfectness hypothesis.
+'''

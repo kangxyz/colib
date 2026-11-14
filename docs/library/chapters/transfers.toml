@@ -8,7 +8,8 @@ gives transfers. Graph restriction recovers its ordinary presheaf, where the
 Nisnevich sheaf condition is imposed. Develop sheafification first, then use
 the sheafified representables for Ext and the algebraic simplices for singular
 chains. The affine-line results supply the invariance used in motivic cohomology.
-See [@MVW2006, Lectures 2 and 13].
+See [@MVW2006, Lectures 2 and 13]. Suslin Rigidity has its own section in
+Étale Motivic Theory, culminating in COL-1222; the transfer foundations stay here.
 '''
 
 [[sections]]
@@ -22,7 +23,6 @@ with descent on correspondences. The resulting sheafification preserves
 transfers and agrees with ordinary sheafification along graphs.
 See [@MVW2006, Lecture 13, Theorem 13.1].
 '''
-legacy_items = ["COL-1094", "COL-1098", "COL-1103", "COL-1105", "COL-1106", "COL-1211"]
 
 [[sections.topics]]
 id = "transfer-presheaves-and-sheaves"
@@ -167,33 +167,6 @@ through the literal native iterated Frobenius, to a closed point with
 separable residue field. Its actual marked factorization and the original
 iterated transfer isomorphism are retained. Characteristic-zero closed
 residue fields are already finite separable.
-'''
-
-[[sections]]
-id = "etale-rigidity"
-title = "Suslin rigidity for étale sheaves"
-order = 27
-introduction = '''
-The conclusion of [@MVW2006, Lecture 7, Theorem 7.20] concerns a homotopy-invariant torsion presheaf with transfers. Apply the ordinary stalk/counit comparisons of COL-1108, the geometric finite-stage and action results, and polynomial-tail induction to prove invertibility of its actual étale counit. COL-1222 is the fixed common-exponent statement, not a derived or motivic comparison.
-'''
-
-[sections.transitions]
-COL-1111 = '''
-Lift the original markings through actual Frobenius base-change equivalences.
-The original transfer inverse and initial neighborhood functor identify the
-actual neighborhood pullback as an isomorphism. The same counit naturality
-square therefore transports invertibility to a closed point with separable
-residue, without changing the presheaf or assuming the stalk comparison.
-'''
-COL-1114 = '''
-Affine closed geometric points already detect the actual smooth-site sheaf.
-Combine this conservativity with the same Frobenius comparison and native
-characteristic-zero residue separability. The global counit question is now
-exactly the original structural-neighborhood restriction at closed separable
-residues. COL-1222 supplies the geometric induction proving that map invertible.
-'''
-COL-1222 = '''
-The relative-curve geometry and principal correspondence endpoints supply the same-stage transfer action comparison of COL-1105. Polynomial-tail induction turns this into the exact restriction condition of COL-1114. The ordinary counit computation of COL-1108 then yields the fixed-exponent rigidity theorem without a perfectness hypothesis.
 '''
 
 [[sections]]
