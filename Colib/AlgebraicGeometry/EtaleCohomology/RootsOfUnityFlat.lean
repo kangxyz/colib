@@ -5,6 +5,7 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.Util.References
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.KummerTheory.RootsOfUnityModuleLocallyConstant
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.SmallEtaleFlatTensorExact
 public import StacksFrontier.CategoryTheory.Sites.LocallyConstant.PointFiber
@@ -50,6 +51,7 @@ theorem exists_cyclotomicBaseChange_fiber
 
 include f in
 /-- Actual μ_N fibers are flat, using their explicit rank-one trivialization. -/
+@[colib_tag "COL-1227"]
 theorem flat_sheafFiber_rootsOfUnityModule
     (Φ : X.smallEtaleTopology.Point.{u + 1}) :
     Module.Flat (ZMod N)
@@ -78,6 +80,14 @@ attribute [local instance] Sheaf.monoidalCategory
 
 include f in
 /-- Tensoring with `μ_N` is additive and preserves finite limits and finite colimits. -/
+@[colib_tag "COL-1227",
+  colib_ref "axiom_stacks_5ed82d14"
+    "StacksFrontier/AlgebraicGeometry/EtaleCohomology/\
+      KummerTheory/RootsOfUnityModuleSliceConstant.lean:315"
+    "ingredient" "Explicit rank-one cyclotomic trivialization of roots of unity",
+  colib_ref "axiom_stacks_5ed82d14"
+    "StacksFrontier/CategoryTheory/Sites/Point/FlatFiberTensorExact.lean:105"
+    "ingredient" "Exactness detected by flat module fibers at a conservative family of points"]
 theorem exact_tensorRight_rootsOfUnityModule :
     (MonoidalCategory.tensorRight (rootsOfUnityModule.{u, 0} X N)).Additive ∧
     PreservesFiniteLimits (MonoidalCategory.tensorRight (rootsOfUnityModule.{u, 0} X N)) ∧
