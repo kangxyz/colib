@@ -892,6 +892,7 @@ public import Colib.AlgebraicGeometry.EffectiveCartierDivisor.Smooth.AtPrime
 public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.ClosedCurveTensorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerConeBoundary
+public import Colib.AlgebraicGeometry.EtaleCohomology.KummerCupProduct
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerFiniteBoundaryRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerModuleClass
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPicardSpecialization
@@ -901,6 +902,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerOne
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot
+public import Colib.AlgebraicGeometry.EtaleCohomology.RootsOfUnityFlat
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryFrames
 public import Colib.AlgebraicGeometry.EtaleCohomology.SameFibreCartesianRootAuxiliaryFullBoundary

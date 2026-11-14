@@ -127,7 +127,7 @@ start = "COL-1212"
 id = "etale-kummer-symbols"
 title = "Ordinary Kummer classes and units modulo powers"
 order = 30
-introduction = "The native small-étale Kummer boundary identifies the kernel on global units with the subgroup of powers. This yields an injective quotient class without identifying it with a motivic or norm-residue comparison."
+introduction = "The native small-étale Kummer boundary identifies the kernel on global units with the subgroup of powers. Its injective quotient class agrees with the actual motivic comparison in weight one. Flatness of the roots-of-unity module supplies coefficient exactness for cup products; higher-weight symbol comparisons remain separate."
 
 [sections.transitions]
 COL-1227 = '''

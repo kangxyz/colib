@@ -28,6 +28,14 @@ comparison, after the finite diagonal equivalence K^M_1(k)/n of COL-1224,
 is equal to this Kummer symbol transported to ordinary H^1 by the native
 rootsOfUnityModuleExtEquiv. This equality identifies the existing maps, not
 just their source and target groups.
+For a scheme X over a field k and a positive integer n invertible in k,
+the actual rootsOfUnityModule on X has flat Z/n-module fibers at every
+site point. Consequently, tensoring on the right by this module sheaf is
+additive and preserves finite limits and finite colimits.
+The original module-valued Kummer classes of units modulo nth powers then
+give a biadditive degree-two pairing into Ext²(1, μn ⊗ μn), where 1 is the
+monoidal unit in the small-etale Z/n-module sheaf category. Its value is the
+native Ext cup product of the two original quotient Kummer classes.
 '''
 proof = '''
 Use the native degree-zero cohomology equivalence at the terminal object of
@@ -46,6 +54,20 @@ weight-one comparison of COL-1231: its original integral reduction and
 cone-kernel identification recover the Kummer extension class, while its
 source coordinates and norm recover the same unit. Apply this formula to
 Milnor representatives and then use quotient induction.
+For coefficient exactness, lift each site point through the finite etale
+cyclotomic cover and use the explicit rank-one trivialization of the
+roots-of-unity module on that slice. Its fiber is therefore isomorphic to
+a free rank-one Z/n-module and is flat. A conservative family of points
+then detects the monomorphisms required for tensor exactness; tensoring
+already preserves finite colimits. This uses the pinned Stacks ingredients
+sliceRootSheafIso, sheafFiberIsoOfConstantOver and
+preservesFiniteLimits_tensorRight_of_flat, without choosing a primitive
+root in the original base field.
+For the pairing, use the canonical isomorphism from the monoidal unit to
+the constant coefficient module sheaf to put the original module Kummer
+classes in the source convention of the native Ext cup product. Apply that
+biadditive cup product, using the verified tensor exactness, to both quotient
+classes. The displayed evaluation formula is definitional.
 '''
 scope = '''
 The statement uses the ordinary AddCommGrpCat-valued small-etale sheaf
@@ -58,8 +80,8 @@ and requires n invertible in global sections. It holds for schemes, hence
 in particular for spectra of fields.
 It does not assume a primitive root of unity, perfectness or finite
 cohomological dimension. It does not assert surjectivity, a Galois-cocycle
-normalization, field-change naturality, higher cup symbols, an etale Tate
-comparison or the norm-residue theorem. The map retains the actual native
+normalization, field-change naturality, an etale Tate comparison or the
+norm-residue theorem. The map retains the actual native
 Kummer boundary, rather than naming a motivic target ordinary cohomology.
 The Milnor quotient is the literal quotient used by COL-1224; its expression is
 kept explicit here to avoid importing the whole integral diagonal proof into
@@ -67,4 +89,13 @@ this degree-one consumer. Agreement with the original motivic comparison is
 proved in degree one after the actual coefficient-forgetting equivalence;
 this does not supply a D(Z/n)-linear Tate identification or higher-weight cup
 compatibility.
+The tensor-exactness conclusion is proved for schemes equipped with a map
+to a field in which n is nonzero, not for an arbitrary base scheme.
+It is a property of the actual ordinary small-etale Z/n-module coefficient
+sheaf. A biadditive degree-two Kummer cup pairing is constructed, with the
+explicit global-section invertibility and HasExt assumptions retained. No
+Steinberg relation, factorization through the Milnor K-theory quotient,
+higher norm-residue comparison, or motivic product compatibility is asserted.
+In particular, this does not identify higher motivic complexes with tensor
+powers.
 '''
