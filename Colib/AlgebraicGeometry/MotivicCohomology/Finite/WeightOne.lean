@@ -5,6 +5,7 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Annihilation
 public import Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.IntegralEquivalence
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneClasses
 public import Mathlib.GroupTheory.QuotientGroup.Basic
@@ -125,9 +126,8 @@ theorem integralReduction_eq_zero_iff_norm_power (n : ℕ)
 theorem nsmul_eq_zero (n : ℕ)
     (x : motivicFiniteCohomology k 1 1 n (SmoothSite.base (Spec (.of k)))) :
     n • x = 0 := by
-  obtain ⟨y, rfl⟩ := integralReduction_surjective k n x
-  rw [← map_nsmul]
-  exact (motivicBase_exact_mul_reduction k 1 1 n).apply_apply_eq_zero y
+  exact _root_.CochainComplex.finiteCoefficients.nsmul_shiftedHom_eq_zero
+    (motivicSheafComplex k 1) n x
 
 /-- The multiplicative form of the actual reduction has exactly the power subgroup as kernel. -/
 theorem unitReduction_ker (n : ℕ) :

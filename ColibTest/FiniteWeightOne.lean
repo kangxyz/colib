@@ -31,8 +31,8 @@ run_cmd do
   let env ← getEnv
   let primary := ``MotivicCohomology.WeightOne.weightOneCoefficientQuotientUnitsIso
   unless (Colib.Library.bindings env).any (fun b =>
-      b.id == "COL-1231" && b.declName == primary) do
-    throwError "Missing compiled COL-1231 binding"
+      b.id == "COL-1237" && b.declName == primary) do
+    throwError "Missing compiled COL-1237 binding"
   unless (Colib.Library.citations env).any (fun c =>
       c.declName == primary && c.source == "mathlib_stable_localization_pin" &&
       c.locator == "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean:514-517") do

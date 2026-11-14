@@ -26,7 +26,7 @@ namespace AdjoinRoot
 variable {R : Type*} [CommRing R]
 
 /-- Norm of a linear factor in the actual complete monic polynomial quotient. -/
-@[colib_tag "COL-1230",
+@[colib_tag "COL-1236",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/RingTheory/Norm/Defs.lean:82"
     "ingredient" "Native determinant norm in the actual power basis",

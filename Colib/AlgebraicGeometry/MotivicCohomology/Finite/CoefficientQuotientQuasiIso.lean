@@ -79,7 +79,7 @@ theorem motivicSheafComplex_nsmul_id_mono (q n : ℕ) (hn : n ≠ 0) :
   exact motivicSheafComplex_nsmul_id_X_mono k q n hn i
 
 /-- The original finite cone maps quasi-isomorphically to its actual strict quotient. -/
-@[colib_tag "COL-1229",
+@[colib_tag "COL-1235",
   colib_ref "mathlib_stable_localization_pin"
   "Mathlib/Algebra/Homology/HomotopyCategory/ShortExact.lean:138-154"
   "specialization" "Native cone comparison after proving actual motivic multiplication monic"]

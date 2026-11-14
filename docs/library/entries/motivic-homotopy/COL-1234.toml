@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1234"
+title = "The reduced Alexander–Whitney comparison"
+kind = "comparison"
+section = "pointed-simplicial-presheaves"
+order = 25
+primary = "CategoryTheory.PointedSimplicialPresheaf.quasiIso_reducedSmashAlexanderWhitney"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+Let \(X,Y\) be pointed simplicial presheaves on a site with abelian
+sheafification in the coefficient universe specified below. Write \(N\) for reduced
+free abelianization followed by degreewise sheafification and
+normalized Moore chains. The Alexander–Whitney map
+\[
+N(X\wedge Y)\longrightarrow N(X)\otimes N(Y)
+\]
+to the ordinary signed total tensor complex is a quasi-isomorphism.
+The underlying degreewise tensor comparison sends a pair of
+simplices to the tensor of their reduced generators. It respects
+both original pointed maps.
+'''
+proof = '''
+The tensor of the free abelian groups is free on pairs of simplices.
+Quotient by the two basepoint axes to obtain the reduced tensor and
+apply monoidal sheafification. On alternating face complexes,
+Alexander–Whitney sums the initial and final face restrictions
+over the degree antidiagonal. Degreewise split décalage gives its
+quasi-isomorphism. The native normalization inclusion and
+projection are homotopy equivalences, including after tensoring the
+two comparisons, so the resulting normalized map is a
+quasi-isomorphism.
+'''
+scope = '''
+The Lean site category has object universe \(u\) and morphism
+universe \(v+1\). Simplices and abelian coefficients are in universe
+\(v+1\), with \(\operatorname{UnivLE}(\max(u,v+1),v+1)\) and abelian
+sheafification in that universe. The tensor is the ordinary tensor of
+sheaf complexes. The
+coefficient product and its comparison with suspension by the
+standard classes use the additional structure of
+[@Voevodsky2003ReducedPowers, Section 2, Theorems 2.1–2.4].
+'''

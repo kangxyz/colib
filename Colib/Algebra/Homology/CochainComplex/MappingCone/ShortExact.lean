@@ -104,7 +104,7 @@ lemma fromShortComplexShift_snd (S : ShortComplex (CochainComplex C â„¤)) (i : â
     map, lift_f _ _ _ _ i (i + 1) rfl, descShortComplex,
     Cochain.leftShift_v (n := -1) _ 1 0 _ i i _ (i + 1) (by omega)]
 
-@[colib_tag "COL-1234",
+@[colib_tag "COL-1240",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/Algebra/Homology/HomotopyCategory/Pretriangulated.lean:50-56,280-308"
     "ingredient" "The original negative-first-projection connecting map and native signed shift"]

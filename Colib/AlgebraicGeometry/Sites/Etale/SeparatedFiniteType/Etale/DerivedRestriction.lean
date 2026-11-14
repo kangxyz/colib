@@ -59,7 +59,7 @@ variable [HasDerivedCategory.{w'} (Sheaf X.left.smallEtaleTopology AddCommGrpCat
 
 /-- Exact restriction induces the actual full-small derived-Hom comparison.
 No source isomorphism or cohomological comparison isomorphism is asserted. -/
-@[colib_tag "COL-1232", colib_ref "mathlib_stable_localization_pin"
+@[colib_tag "COL-1238", colib_ref "mathlib_stable_localization_pin"
   "Mathlib/Algebra/Homology/DerivedCategory/ExactFunctor.lean:39-132" "specialization"
   "Exact derived restriction with native single, shift, and localization comparisons"]
 def fullSmallDerivedHomMap (V : EtaleSeparatedFiniteType X.left)
@@ -108,7 +108,7 @@ theorem fullSmallDerivedHomMap_formula (V : EtaleSeparatedFiniteType X.left)
     Functor.whiskerLeft_app, Functor.whiskerRight_app]
 
 /-- Full-small derived restriction commutes with the original coefficient chain maps. -/
-@[colib_tag "COL-1232"]
+@[colib_tag "COL-1238"]
 theorem fullSmallDerivedHomMap_coefficient (V : EtaleSeparatedFiniteType X.left)
     {K L : CochainComplex (Sheaf (SmoothSite.etaleTopology B) AddCommGrpCat.{u + 1}) ℤ}
     (g : K ⟶ L) (p : ℤ)

@@ -2,7 +2,7 @@
 
 Use the committed toolchain and manifest. Colib uses Lean 4.35.0 and Mathlib
 4.35.0 at commit `56a005855ea17e0b0958f73ec801ae140b0a1679`. Stacks commit
-`5ed82d14634e8d9576bb844c7bd4e3da66d450e7` pins the same compiler, Mathlib release, and
+`c496df0d9beea9deaeabcea8492605f9a0a2313b` pins the same compiler, Mathlib release, and
 transitive dependencies.
 
 During proof work build the changed leaf and its required dependencies. Existing completed

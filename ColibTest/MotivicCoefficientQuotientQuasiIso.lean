@@ -37,8 +37,8 @@ run_cmd do
   let env ← getEnv
   let primary := ``motivicFiniteToCoefficientQuotient_quasiIso
   unless (Colib.Library.bindings env).any (fun b =>
-      b.id == "COL-1229" && b.declName == primary) do
-    throwError "Missing compiled COL-1229 binding"
+      b.id == "COL-1235" && b.declName == primary) do
+    throwError "Missing compiled COL-1235 binding"
   unless (Colib.Library.citations env).any (fun c =>
       c.declName == primary && c.source == "mathlib_stable_localization_pin" &&
       c.locator == "Mathlib/Algebra/Homology/HomotopyCategory/ShortExact.lean:138-154") do

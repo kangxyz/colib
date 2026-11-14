@@ -32,8 +32,8 @@ run_cmd do
   for decl in [primary, ``finiteCoefficients.kernelSingleFiniteIso_naturality,
       ``mappingCone.fromShortComplex_bockstein] do
     unless (Colib.Library.bindings env).any (fun b =>
-        b.id == "COL-1234" && b.declName == decl) do
-      throwError "Missing compiled COL-1234 binding for {decl}"
+        b.id == "COL-1240" && b.declName == decl) do
+      throwError "Missing compiled COL-1240 binding for {decl}"
     for ax in ← collectAxioms decl do
       unless ax ∈ [``propext, ``Classical.choice, ``Quot.sound] do
         throwError "Unexpected axiom {ax} in {decl}"

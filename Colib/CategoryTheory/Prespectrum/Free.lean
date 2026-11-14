@@ -7,6 +7,7 @@ module
 
 public import Colib.CategoryTheory.Prespectrum.Suspension
 public import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Terminal
+public import Mathlib.CategoryTheory.MorphismProperty.Composition
 
 /-!
 # Free sequential prespectra in a specified degree
@@ -102,6 +103,24 @@ private theorem prependInitialAdjunction_homEquiv_app (X Y : SequentialPrespectr
 def freeAt : ℕ → C ⥤ SequentialPrespectrum S
   | 0 => suspension S
   | n + 1 => freeAt n ⋙ prependInitial S
+
+/-- If a morphism class contains identities and is preserved by suspension,
+then every level of a free image of a map in that class belongs to the class. -/
+theorem freeAt_map_app_mem (P : MorphismProperty C) [P.IsMultiplicative]
+    (hS : ∀ ⦃X Y : C⦄ (f : X ⟶ Y), P f → P (S.map f))
+    {X Y : C} (f : X ⟶ Y) (hf : P f) (n m : ℕ) :
+    P (((freeAt (S := S) n).map f).app m) := by
+  induction n generalizing m with
+  | zero =>
+    rw [freeAt.eq_1, suspension_map_app]
+    induction m with
+    | zero => exact hf
+    | succ m ih => exact hS _ ih
+  | succ n ih =>
+    rw [freeAt.eq_2]
+    cases m with
+    | zero => exact P.id_mem _
+    | succ m => exact ih m
 
 /-- The free prespectrum is left adjoint to evaluation at the given degree. -/
 @[no_expose]

@@ -68,7 +68,7 @@ theorem largePower_isLocallySurjective (S : Scheme.{u}) (n : ℕ) (hn : n ≠ 0)
   rw [hb]
 
 /-- Multiplication by the invertible degree is epi on the actual large étale units sheaf. -/
-@[colib_tag "COL-1233",
+@[colib_tag "COL-1239",
   colib_ref "axiom_stacks_5ed82d14"
     "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/RootExtraction.lean:54-101"
     "ingredient" "Finite etale root algebra and its actual root unit",
@@ -88,7 +88,7 @@ def kummerSequence (S : Scheme.{u})
   ShortComplex.kernelSequence (n • 𝟙 (largeUnitsEtaleSheaf S))
 
 /-- The actual smooth étale Kummer sequence is short exact. -/
-@[colib_tag "COL-1233",
+@[colib_tag "COL-1239",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/Algebra/Homology/ShortComplex/Exact.lean:881-882"
     "specialization" "Native kernel sequence exactness plus the proved power-map epimorphism"]

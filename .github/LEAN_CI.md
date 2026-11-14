@@ -76,12 +76,20 @@ On EC2, Build seals runner, repository, revision, run and attempt identity in th
 preserved checkout. Test checks that identity, `HEAD` and archive digest. It uses
 the same native store and dependency trees. The upstream `verify-root.sh` native
 archive check remains in place. The compressed Stacks checkpoint also survives
-per-job temporary-directory cleanup and is reused if Test adds no Stacks outputs.
+per-job temporary-directory cleanup. Restore and Build record the file hashes
+of Colib and Stacks outputs in the same checkout. Build and Test reuse those
+hashes while the file identity still matches. New and modified files are hashed
+and a changed generation is packed and saved.
 
 Successful main pushes publish Colib's native archive and the independently named
 `stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish
-cache also publishes the verified Stacks checkpoint to R2. Build restores
-this checkpoint from R2 with GitHub Release fallback. See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks).
+cache also backs up the verified Colib native archive and Stacks checkpoint to
+R2. CI checks the R2 pointer and GitHub Release metadata before transferring the
+Stacks archive and only stages it when a destination needs publication. R2 keeps
+up to two distinct Colib archives and up to two Stacks generations
+per dependency context. Build can restore either baseline from R2 with GitHub
+Release fallback.
+See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks-and-colib).
 
 ## Native checks and Library
 

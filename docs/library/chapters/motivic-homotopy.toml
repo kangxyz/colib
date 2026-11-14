@@ -17,7 +17,27 @@ Homotopy Theory by using the space-level suspension at each degree.
 id = "pointed-simplicial-presheaves"
 title = "Pointed simplicial presheaves"
 order = 10
-introduction = "The reduced cone and the native simplicial circle give two descriptions of suspension. Their comparison retains the quotient map from the cone."
+introduction = '''The reduced cone and the native simplicial circle give two
+descriptions of suspension. The quotient map induces the boundary on
+reduced cochains. The same mapping cofiber also applies to a pointed
+Čech augmentation.'''
+
+[sections.transitions]
+COL-1230 = '''
+Apply reduced cochains to the cone inclusion and its circle quotient.
+The contraction of the middle term turns the connecting map into an
+isomorphism.
+'''
+COL-1234 = '''
+For two pointed presheaves the degreewise reduction kills both
+basepoint axes. Alexander–Whitney then compares the normalized chains
+of the smash with the signed tensor complex.
+'''
+COL-1231 = '''
+For a smooth scheme over the base, freely point its Čech augmentation
+and apply the reduced mapping cofiber. The resulting space is used
+in the operations on norm quadrics.
+'''
 
 [[sections]]
 id = "eilenberg-mac-lane-representatives"

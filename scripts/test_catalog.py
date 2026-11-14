@@ -759,10 +759,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1226": "Colib.CategoryTheory.Sites.TerminalCohomologyUnivLE",
             "COL-1227": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
             "COL-1228": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleDerivedComparison",
-            "COL-1229": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso",
-            "COL-1230": "Colib.RingTheory.AdjoinRoot.LinearFactorNorm",
-            "COL-1231": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneSheafComparison",
-            "COL-1232": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestriction",
+            "COL-1235": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.CoefficientQuotientQuasiIso",
+            "COL-1236": "Colib.RingTheory.AdjoinRoot.LinearFactorNorm",
+            "COL-1237": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.WeightOneSheafComparison",
+            "COL-1238": "Colib.AlgebraicGeometry.Sites.Etale.SeparatedFiniteType.Etale.DerivedRestriction",
             "COL-1083": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteEndpointFiberReindex",
             "COL-1081": "Colib.AlgebraicGeometry.Correspondences.Principal.FiniteDominantEndpointGenericity",
             "COL-1080": "Colib.AlgebraicGeometry.Correspondences.Principal.OriginalPrincipalSupportCuts",
@@ -886,10 +886,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1226": ("homological-algebra", "derived-hom-comparisons"),
             "COL-1227": ("etale-cohomology", "etale-kummer-symbols"),
             "COL-1228": ("motivic-cohomology", "motivic-hypercohomology"),
-            "COL-1229": ("homological-algebra", "finite-coefficient-composition"),
-            "COL-1230": ("commutative-algebra", "charpoly-branches"),
-            "COL-1231": ("motivic-cohomology", "weight-one-comparison"),
-            "COL-1232": ("etale-cohomology", "smooth-etale-sites"),
+            "COL-1235": ("homological-algebra", "finite-coefficient-composition"),
+            "COL-1236": ("commutative-algebra", "charpoly-branches"),
+            "COL-1237": ("motivic-cohomology", "weight-one-comparison"),
+            "COL-1238": ("etale-cohomology", "smooth-etale-sites"),
         }
         for identifier, (chapter, section) in expected.items():
             item = self.library["entries"][identifier]
@@ -1043,7 +1043,8 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": (
-                "cycles", [374, *range(363, 368), 1088, 1091], ["COL-0374", "COL-0366"]
+                "cycles", [374, *range(363, 368), 1088, 1091, 1232],
+                ["COL-0374", "COL-0366", "COL-1232"]
             ),
             "transfers-nisnevich": (
                 "transfers", [*range(368, 374), 1028],
@@ -1151,7 +1152,7 @@ class LibraryTests(unittest.TestCase):
             "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033", "COL-1228"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [
-                "COL-0402", "COL-0403", "COL-1231", "COL-0404", "COL-1008", "COL-1007"
+                "COL-0402", "COL-0403", "COL-1237", "COL-0404", "COL-1008", "COL-1007"
             ],
             "milnor-motivic-comparison": ["COL-1023"],
             "diagonal-motivic-comparison": ["COL-1025", "COL-1026", "COL-1224"],
@@ -1351,6 +1352,7 @@ class LibraryTests(unittest.TestCase):
         transfers = (output / "sections/transfers-nisnevich/index.html").read_text()
         self.assertIn('id="cycles-and-composition"', cor)
         self.assertIn('id="category-and-graphs"', cor)
+        self.assertIn('id="finite-etale-descent"', cor)
         self.assertIn('id="sheafification-and-comparison"', transfers)
         self.assertIn('id="sheafification-and-affine-line"', transfers)
         self.assertIn("Stacks.Chow.incidenceTorPairing_assoc", cor)
@@ -1361,7 +1363,7 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("one neighborhood at each specified source point", transfers)
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
-        self.assertEqual(cor.count('class="section-transition"'), 8)
+        self.assertEqual(cor.count('class="section-transition"'), 9)
         self.assertEqual(transfers.count('class="section-transition"'), 7)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)

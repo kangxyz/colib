@@ -31,7 +31,7 @@ variable [HasDerivedCategory.{w'}
 
 /-- The literal restricted motivic complex, compared with existing small-site μ_n.
 This result is in D(Ab), not in D(Z/n). -/
-@[colib_tag "COL-1231", colib_ref "mathlib_stable_localization_pin"
+@[colib_tag "COL-1237", colib_ref "mathlib_stable_localization_pin"
   "Mathlib/Algebra/Homology/DerivedCategory/ExactFunctor.lean:39-132" "ingredient"
   "Exact full-small restriction of the weight-one kernel comparison to the existing mu_n"]
 def weightOneFiniteFullSmallRootsIso (n : ℕ) (hn : n ≠ 0)

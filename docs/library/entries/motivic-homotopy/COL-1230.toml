@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1230"
+title = "The simplicial circle boundary on reduced cohomology"
+kind = "theorem"
+section = "pointed-simplicial-presheaves"
+order = 20
+primary = "CategoryTheory.PointedSimplicialPresheaf.reducedCircleSuspensionHomEquiv"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+On a site with abelian sheafification, write \(N(X)\) for the
+derived object of the sheafified reduced cochains of a pointed
+simplicial presheaf \(X\). The short exact sequence of reduced
+cochains of the cone and circle quotient of COL-1009 gives a
+natural isomorphism
+\[
+\delta_X\colon N(X\wedge S^1_s) \xrightarrow{\sim} N(X)[1].
+\]
+For every coefficient object \(K\) in the derived category and
+integer \(p\), it induces a bijection from maps \(N(X)\to K[p]\)
+to maps \(N(X\wedge S^1_s)\to K[p+1]\). It sends \(x\) to
+\(\delta_X\) followed by \(x[1]\) and the addition of shifts.
+'''
+proof = '''
+The cone inclusion is a monomorphism, so reduced cochains carry its
+collapse pushout to a short exact sequence. The explicit contraction
+of the reduced cone contracts its normalized chains and extends
+to the cochain placement. The middle term of the derived triangle is
+therefore zero. Naturality of the triangle's connecting map gives the
+compatibility with pointed restriction.
+'''
+scope = '''
+This is the cofiber boundary construction of simplicial suspension.
+The corresponding suspension in
+[@Voevodsky2003ReducedPowers, Section 2, Theorem 2.4 and (2.7), p. 5]
+uses the exterior product with the simplicial circle class.
+'''

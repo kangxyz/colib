@@ -51,7 +51,7 @@ local instance : HasExt.{wH}
 set_option maxHeartbeats 1600000 in
 -- The original comparison composes derived functors on three distinct sites.
 /-- The original finite comparison on an integral class is its actual unit Kummer class. -/
-@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+@[colib_tag "COL-1237", colib_ref "axiom_stacks_5ed82d14"
   "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
   "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_integral_unitKummerClass
@@ -75,7 +75,7 @@ lemma weightOneFiniteEtaleCohomologyMap_integral_unitKummerClass
   convert ht using 1; rfl
 
 /-- The actual finite comparison uses the existing geometric norm and the original Kummer class. -/
-@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+@[colib_tag "COL-1237", colib_ref "axiom_stacks_5ed82d14"
   "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
   "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_integral_norm

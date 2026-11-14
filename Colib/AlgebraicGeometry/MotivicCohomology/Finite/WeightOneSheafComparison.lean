@@ -70,7 +70,7 @@ variable [HasDerivedCategory
   (Sheaf (nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
 /-- The actual strict coefficient quotient and the units cone are derived-isomorphic. -/
-@[colib_tag "COL-1231",
+@[colib_tag "COL-1237",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean:514-517" "specialization"
     "Apply native two-out-of-three to the completed weight-one map of multiplication cones"]

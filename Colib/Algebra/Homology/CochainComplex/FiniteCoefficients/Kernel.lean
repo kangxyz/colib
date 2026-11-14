@@ -48,7 +48,7 @@ lemma kernelSingleSequence_g_shift (G : C) (n : ℕ) :
 
 /-- D(Abelian C) comparison for the actual shifted multiplication cone.
 The native rotation and signed shift are retained. -/
-@[colib_tag "COL-1234",
+@[colib_tag "COL-1240",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/Algebra/Homology/HomotopyCategory/ShortExact.lean:138-169"
     "ingredient"
@@ -163,7 +163,7 @@ lemma quasiIso_fromKernelSingle (G : C) (n : ℕ) [Epi (n • 𝟙 G)] :
   dsimp only [fromKernelSingle]
   infer_instance
 
-@[colib_tag "COL-1234",
+@[colib_tag "COL-1240",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/Algebra/Homology/HomotopyCategory/Pretriangulated.lean:150-177"
     "ingredient"

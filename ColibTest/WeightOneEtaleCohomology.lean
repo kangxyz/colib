@@ -59,8 +59,8 @@ run_cmd do
       ``AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneFullSmallCohomologyEquivH,
       ``AlgebraicGeometry.MotivicCohomology.WeightOne.weightOneFiniteEtaleCohomologyMap] do
     unless (Colib.Library.bindings env).any (fun b =>
-        b.id == "COL-1231" && b.declName == decl) do
-      throwError "Missing COL-1231 binding for {decl}"
+        b.id == "COL-1237" && b.declName == decl) do
+      throwError "Missing COL-1237 binding for {decl}"
     for ax in ← collectAxioms decl do
       unless ax ∈ [``propext, ``Classical.choice, ``Quot.sound] do
         throwError "Unexpected axiom {ax} in {decl}"

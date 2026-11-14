@@ -156,10 +156,10 @@ COL-0403 = '''
 Compose the geometric norm with the units comparison, then carry the
 composite through the signed placement of COL-0398.
 '''
-COL-1231 = '''
+COL-1237 = '''
 Apply the original finite-coefficient cone to COL-0403. Its quasi-isomorphism
 identifies the finite weight-one complex with the shifted units cone, keeping
-the integral map and positive Bockstein. For nonzero coefficients COL-1229
+the integral map and positive Bockstein. For nonzero coefficients COL-1235
 then identifies the actual coefficient quotient with that same cone in D(Ab).
 If n is invertible in the field, Kummer exactness identifies its etale
 realization with roots of unity. A calibrated module-sheaf lift gives the

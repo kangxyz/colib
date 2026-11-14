@@ -31,6 +31,16 @@ After choosing the suspension adjunction, transpose each original bonding
 map. Precomposition by the comparison of free prespectra then becomes
 postcomposition by that transpose.
 '''
+COL-1229 = '''
+When the base generators have presentable domains, their free images
+admit the small object argument. The levelwise colimit calculation
+allows the free adjunction to transfer both smallness and lifting.
+'''
+COL-1233 = '''
+The actual Tate suspension preserves both Nisnevich generating classes.
+Use the two projective factorizations to assemble the Nisnevich level
+model structure.
+'''
 
 [[sections]]
 id = "motivic-eilenberg-mac-lane-spectra"

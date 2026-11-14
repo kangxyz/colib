@@ -47,7 +47,7 @@ theorem oneSubRootUnit_val (n : ℕ) (a : R) (ha : IsUnit (1 - a)) :
       1 - root (X ^ n - C a : R[X]) := IsUnit.unit_spec _
 
 /-- The norm of the actual unit `1-t` is the actual unit `1-a`. -/
-@[colib_tag "COL-1230"]
+@[colib_tag "COL-1236"]
 theorem norm_oneSubRootUnit (n : ℕ) (hn : 0 < n) (a : R) (ha : IsUnit (1 - a)) :
     Units.map (Algebra.norm R) (oneSubRootUnit n a ha) = ha.unit := by
   apply Units.ext

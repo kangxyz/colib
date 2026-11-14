@@ -81,7 +81,7 @@ def weightOneZModTargetForgetIso :
     weightOneModuleTargetForgetIso k X n
 
 /-- The literal coefficient comparison has the specified original abelian square. -/
-@[colib_tag "COL-1231"]
+@[colib_tag "COL-1237"]
 theorem weightOneZModBetaCompatibleIso_square
     (hunit : IsUnit (n : Γ(Spec (.of k), ⊤))) :
     (weightOneZModForgetCoefficients k X n).mapDerivedCategory.map

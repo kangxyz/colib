@@ -46,7 +46,9 @@ this cokernel in degree zero.
 scope = '''
 The class uses the relative source of the actual identity section of the
 native torus. The coefficient sheaf is the large Nisnevich units sheaf,
-and the derived category uses its explicit universe. This gives the
-integral torus class used in
+and the derived category uses its explicit universe. In the original
+singular complex the class is the relative graph of the torus identity
+in simplicial degree zero, transported by the signed weight-one placement.
+This gives the integral torus class used in
 [@Voevodsky2003ReducedPowers, Section 2, before (2.8) and equation (2.9), p. 5].
 '''

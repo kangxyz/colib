@@ -1,0 +1,34 @@
+[entry]
+id = "COL-1232"
+title = "Finite étale descent of finite correspondences"
+kind = "theorem"
+section = "finite-correspondences"
+order = 70
+primary = "Stacks.Chow.existsUnique_finiteEtaleBaseChangeCorrespondences"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+Let \(T\to S\) be a finite étale map and \(X,Y\) smooth,
+separated and of finite type over \(S\). For the actual product map
+\(b\colon X_T\times_TY_T\to X\times_SY\), the rule
+\((b^*c)(z)=c(b(z))\) defines an additive pullback on signed finite
+correspondences. If \(T\to S\) is surjective, a finite correspondence
+on \(X_T\times_TY_T\) descends uniquely if and only if its pullbacks
+along both projections of the fiber square of \(b\) agree.
+'''
+proof = '''
+The ambient product square over \(X_T\to X\) is Cartesian.
+For each point, the finiteness of its integral closure over the source
+and the genericity of its projected point are preserved and reflected
+under this finite flat base change. Étale pullback assigns multiplicity
+one at each point above a given point. Equality on the fiber square
+makes the coefficients constant over each fiber. Surjectivity determines
+the downstairs coefficients, whose support is the image of the upstairs
+support.
+'''
+scope = '''
+This is the integral cycle descent step for the base-changed products in
+[@Riou2012Steenrod, Section 2.1, Definition 2.1.3, maps (2) and (4), p. 15].
+The torsor and its equivariant vector-bundle comparison are separate
+geometric inputs to the operation.
+'''

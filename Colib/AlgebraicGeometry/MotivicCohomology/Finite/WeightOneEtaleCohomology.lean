@@ -41,7 +41,7 @@ set_option maxHeartbeats 800000 in
 -- Elaborating the composed equivalence crosses several universe-lifted sheaf categories.
 /-- Actual full-small finite weight-one hypercohomology is ordinary μ_n cohomology.
 This is target identification; it does not claim the Nisnevich comparison is an iso. -/
-@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+@[colib_tag "COL-1237", colib_ref "axiom_stacks_5ed82d14"
   "StacksFrontier/CategoryTheory/Sites/GlobalSections/CohomologyAtTheTerminalObject.lean"
   "ingredient" "Terminal derived-Hom to ordinary Sheaf.H after the actual mu_n identification"]
 def weightOneFullSmallCohomologyEquivH (p n : ℕ) (hn : n ≠ 0)
@@ -68,7 +68,7 @@ variable [HasDerivedCategory.{wN}
 
 /-- The original finite motivic comparison now lands in ordinary étale μ_n cohomology.
 It remains an additive map, not an asserted comparison isomorphism. -/
-@[colib_tag "COL-1231", colib_ref "axiom_stacks_5ed82d14"
+@[colib_tag "COL-1237", colib_ref "axiom_stacks_5ed82d14"
   "StacksFrontier/CategoryTheory/Sites/GlobalSections/CohomologyAtTheTerminalObject.lean"
   "ingredient" "Terminal derived-Hom to ordinary Sheaf.H after the actual mu_n identification"]
 def weightOneFiniteEtaleCohomologyMap (p n : ℕ) (hn : n ≠ 0)

@@ -5,6 +5,7 @@ Authors: kangxyz
 -/
 module
 
+public import Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Annihilation
 public import Colib.AlgebraicGeometry.MotivicCohomology.Finite.Hypercohomology
 public import Mathlib.GroupTheory.QuotientGroup.Basic
 
@@ -109,9 +110,8 @@ theorem integralReduction_eq_zero_iff (q n : ℕ)
 theorem nsmul_eq_zero (q n : ℕ)
     (x : motivicFiniteCohomology k (q : ℤ) q n (SmoothSite.base (Spec (.of k)))) :
     n • x = 0 := by
-  obtain ⟨y, rfl⟩ := integralReduction_surjective k q n x
-  rw [← map_nsmul]
-  exact (motivicBase_exact_mul_reduction k q q n).apply_apply_eq_zero y
+  exact _root_.CochainComplex.finiteCoefficients.nsmul_shiftedHom_eq_zero
+    (motivicSheafComplex k q) n x
 
 /-- The literal subgroup of `n`-multiples in actual integral top-degree cohomology. -/
 def integralMultiples (q n : ℕ) :

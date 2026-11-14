@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1233"
+title = "The projective Nisnevich level model for Tate prespectra"
+kind = "theorem"
+section = "tate-prespectra-and-omega-spectra"
+order = 40
+primary = "AlgebraicGeometry.MotivicHomotopy.tateLevelModelCategory"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+Let \(R\) be a commutative ring. In the strict Tate prespectra of
+pointed simplicial presheaves on the smooth site of \(\operatorname{Spec}R\),
+take weak equivalences degreewise at Nisnevich stalks. Take
+fibrations degreewise with the right lifting property against
+stalkwise trivial monomorphisms. Take projective cofibrations to
+be maps with the left lifting property against the maps that
+lift degreewise against all monomorphisms. These three classes
+give a model structure.
+'''
+proof = '''
+Limits are levelwise, and Tate suspension preserves colimits
+by its right adjoint. Its preservation of monomorphisms and
+stalkwise trivial monomorphisms propagates from the free generators
+to the two projective left classes by cell attachment and retracts.
+Use COL-1229 with the bounded families on the smooth site for both
+factorizations. The degreewise trivial fibrations are the maps
+that lift degreewise against all monomorphisms. Two-out-of-three
+and the retract argument identify the projective trivial
+cofibrations with the projective cofibrations that are levelwise
+weak equivalences.
+'''
+scope = '''
+The level category uses the original Tate quotient suspension from
+COL-1115. The weak equivalences here use Nisnevich stalks. The
+\(\mathbb A^1\)-local and stable model structures require further
+localization. The projective level construction specializes
+[@Hovey2001Spectra, Section 1, Theorem 1.14, pp. 7–8].
+'''

@@ -48,7 +48,7 @@ local instance : HasExt.{u + 1}
 set_option maxRecDepth 4096 in
 -- The native Milnor quotient transport crosses the actual coefficient-forgetting Ext equivalence.
 /-- The original motivic comparison and original module Kummer symbol agree in degree one. -/
-@[colib_tag "COL-1231", colib_tag "COL-1227", colib_ref "axiom_stacks_5ed82d14"
+@[colib_tag "COL-1237", colib_tag "COL-1227", colib_ref "axiom_stacks_5ed82d14"
   "StacksFrontier/AlgebraicGeometry/EtaleCohomology/KummerTheory/CohomologySequence.lean"
   "ingredient" "The original Kummer boundary and its native coefficient-forgetting comparison"]
 lemma weightOneFiniteEtaleCohomologyMap_motivicFiniteEquiv

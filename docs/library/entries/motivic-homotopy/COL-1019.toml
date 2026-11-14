@@ -18,6 +18,7 @@ ordinary weight-\(q\) motivic complex \(K_q\) and the multiplication cone
 \]
 for every integer \(p\) and every natural \(q,n\).
 Two successive Bocksteins compose to zero.
+The Bockstein commutes with the simplicial circle suspension of COL-1230.
 '''
 proof = '''
 Use the positive connecting map of COL-1018 followed by shifted
@@ -25,6 +26,9 @@ integral insertion. Take its image in the derived category and use
 the native shift isomorphisms to postcompose a reduced derived-Hom
 class with this map. The square-zero identity for cochains passes
 to shifted composition in the derived category.
+Associativity of shifted composition identifies the two orders of
+precomposing with the simplicial circle boundary and postcomposing
+with the Bockstein.
 '''
 scope = '''
 The coefficient notation denotes the original multiplication cone

@@ -59,6 +59,10 @@ native `--rehash` decides applicability. Root and tools restores prefer a
 compatible ref. Dependency and Stacks generations use their content identity.
 The packer checks integrity and coverage, preserves regular generated files,
 and reuses an already validated compressed archive when its content is unchanged.
+With sufficient free disk space, workspace-only checkpoints decompress into a
+temporary directory in one pass. The restore verifies the whole stream before
+installing files. Low space, a separate output filesystem or a checkpoint that
+includes the private native store use the two-pass restore.
 
 GitHub-hosted Test must consume the current Build's complete dependency, Stacks
 and root archive overlays, even if optional checkpoint caches hit. EC2 handoff
@@ -118,7 +122,7 @@ python3 .github/ci-cache/checkpoint.py restore --root . --layer stacks \
 Materialize the pinned dependency sources first. A later native build/verification
 checks applicability; a matching archive alone is not a successful compilation.
 
-### Cloudflare R2 for Stacks
+### Cloudflare R2 for Stacks and Colib
 
 Create a private Standard bucket named `colib-stacks-cache` and two S3 credentials
 scoped to it, one with **Object Read only** and one with **Object Read & Write**.
@@ -145,12 +149,41 @@ Set the same endpoint and bucket variables and run:
 python3 -u .github/ci-cache/restore_stacks.py --publish-r2 /path/to/stacks-checkpoint.tar.zst
 ```
 
+Colib's verified native Release archives also have a private R2 backup under
+`colib/v1/`. The index keeps the two most recently published distinct sets of
+native outputs from default-branch CI. A repeated output set reuses its backup
+even if the CI revision and tar metadata have changed. Publication uploads the
+archive, advances the index, then removes the evicted archive. A later
+publication also cleans up unindexed archives left by an interrupted upload.
+
+When a verified working checkpoint or merge seed is unavailable, Build tries the
+compatible Colib R2 archives in order, followed by the GitHub Release baseline.
+The restore checks the producer run and archive digest before the existing
+native-stage validation and Lake input rehash.
+
+A repository maintainer can preseed a verified external build by uploading its
+native archive to `colib/v1/objects/<domain>/<sha256>.tar` and setting the
+`COLIB_R2_PRESEED` repository variable. The JSON value records the archive
+`domain`, `sha256`, and `size` in bytes, the producer `revision`, and the
+exact `consumer` commit on the default branch. Build uses it on that commit's
+push after the usual archive and Lake checks. Remove the variable after that
+run. The verified CI archive enters the normal two-generation index.
+
+Failed and timed-out builds save the completed Colib outputs to the branch's
+Actions checkpoint after the compiler stops. The next run can resume with those
+outputs when Lake's input hashes match. A job cancelled before its checkpoint
+save finishes resumes from the last saved checkpoint. R2 retains verified
+default-branch archives from builds that passed Test, lint, and the axiom audit.
+
 Each `stacks/v2/<Stacks revision>/<context>/current.json` points to an immutable
 archive named by its checkpoint generation and records its SHA-256. Publication
 verifies the archive and advances the pointer when the new checkpoint covers
 the previous baseline. Conditional writes let concurrent publishers share one
-object per generation. After both publication steps succeed, CI prunes older
-R2 checkpoints for the active dependency context. It retains the current archive
+object per generation. Test checks the current R2 object and the GitHub Release
+asset or volume index before uploading the checkpoint for publication. The
+publish job only transfers the archive when a destination needs it. CI prunes
+older R2 checkpoints for the active dependency context after publication is
+confirmed. It retains the current archive
 and the previous generation recorded in the pointer.
 
 GitHub Release checkpoints use the generation to identify the single asset or

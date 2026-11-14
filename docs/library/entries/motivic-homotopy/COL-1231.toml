@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1231"
+title = "Čech nerves and reduced Čech cofibers"
+kind = "definition"
+section = "pointed-simplicial-presheaves"
+order = 30
+primary = "AlgebraicGeometry.MotivicHomotopy.reducedCechCofiberOverBase"
+review = "author_checked"
+source_checked_on = "2026-11-14"
+statement = '''
+For a map \(X\to Y\) of smooth objects over \(S\), take the
+augmented Čech nerve of its lifted Yoneda map. After adjoining
+disjoint basepoints, its augmentation has a reduced mapping cofiber.
+For \(Y=S\) the augmentation is to the freely pointed terminal
+presheaf. A section of \(X\to Y\) gives a section of the native
+augmentation and a simplicial-object homotopy from the augmentation
+followed by that section to the identity of the nerve.
+'''
+proof = '''
+The degree-\(n\) term of the native augmented nerve is the product
+of \(n+1\) copies of the represented source over the represented
+target. Flipping its variables yields the simplicial presheaf.
+Point the augmentation and take the reduced cone pushout. The
+section gives the extra degeneracy of the native Čech nerve, whose
+homotopy supplies the contraction onto the augmentation.
+'''
+scope = '''
+For the structure map to the base this gives the pointed presheaf
+construction of the reduced Čech cofiber in
+[@Voevodsky2003ModTwo, Section 9, Definition 9.1 and the construction after Lemma 9.2, p. 102].
+The section calculation is a homotopy of the augmented nerve in
+presheaves of sets.
+'''

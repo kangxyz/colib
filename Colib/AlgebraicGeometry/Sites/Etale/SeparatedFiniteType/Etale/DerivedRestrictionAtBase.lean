@@ -33,7 +33,7 @@ variable [HasDerivedCategory.{w}
 variable [HasDerivedCategory.{w'} (Sheaf X.left.smallEtaleTopology AddCommGrpCat.{u + 1})]
 
 /-- Actual full-small derived restriction at `X`, with its genuine terminal small source. -/
-@[colib_tag "COL-1232"]
+@[colib_tag "COL-1238"]
 def fullSmallDerivedHomMapAtBase
     (K : CochainComplex (Sheaf (SmoothSite.etaleTopology B) AddCommGrpCat.{u + 1}) ℤ)
     (p : ℤ) :

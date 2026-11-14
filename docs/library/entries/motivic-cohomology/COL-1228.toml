@@ -15,7 +15,7 @@ The comparison is natural in the actual scheme restriction and coefficient maps,
 and commutes with the original signed Bockstein, including its normalization
 from finite motivic cohomology in degree p to integral motivic cohomology in
 degree p + 1 and the corresponding actual etale derived-Hom groups.
-Composing with COL-1232 at the identity etale neighborhood gives an additive map
+Composing with COL-1238 at the identity etale neighborhood gives an additive map
 to derived-Hom from the terminal full-small free source into the literal
 restriction of that same finite motivic cone.
 '''

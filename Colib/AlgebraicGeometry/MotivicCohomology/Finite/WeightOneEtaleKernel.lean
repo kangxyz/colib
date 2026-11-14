@@ -88,7 +88,7 @@ variable [HasDerivedCategory
 /-- D(Ab) comparison on the smooth étale site. Its codomain is the
 literal multiplication kernel on actual global units. This is not yet the
 small-site rootsOfUnityModule, nor a D(ZMod n) equivalence. -/
-@[colib_tag "COL-1231", colib_ref "mathlib_stable_localization_pin"
+@[colib_tag "COL-1237", colib_ref "mathlib_stable_localization_pin"
   "Mathlib/Algebra/Homology/DerivedCategory/ExactFunctor.lean:39-132" "ingredient"
   "Exact sheafification of weight one, followed by the actual Kummer kernel"]
 def weightOneFiniteEtaleKernelIso (n : ℕ) (hn : n ≠ 0)

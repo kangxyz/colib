@@ -389,6 +389,14 @@ year = 2010
 version = "Documenta Mathematica, Extra Volume Suslin, pages 671–685"
 url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published%20versions/cancellation_published.pdf"
 
+[sources.Riou2012Steenrod]
+kind = "article"
+title = "Opérations de Steenrod motiviques"
+authors = ["Joël Riou"]
+year = 2012
+version = "arXiv:1207.3121v1"
+url = "https://arxiv.org/pdf/1207.3121v1"
+
 [sources.Voevodsky2000TriangulatedMotives]
 kind = "article"
 title = "Triangulated categories of motives over a field"

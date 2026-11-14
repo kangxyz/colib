@@ -48,11 +48,11 @@ run_cmd do
   let auxiliary := ``Kummer.kummerSequence_shortExact
   for decl in [primary, auxiliary] do
     unless (Colib.Library.bindings env).any (fun b =>
-        b.id == "COL-1233" && b.declName == decl) do
-      throwError "Missing compiled COL-1233 binding for {decl}"
+        b.id == "COL-1239" && b.declName == decl) do
+      throwError "Missing compiled COL-1239 binding for {decl}"
   let refs := (Colib.Library.citations env).filter (fun c =>
     c.declName == primary || c.declName == auxiliary)
   unless refs.size == 3 do
-    throwError "Expected three compiled COL-1233 references"
+    throwError "Expected three compiled COL-1239 references"
   for c in refs do
     logInfo m!"COL1233_REF|{c.source}|{c.locator}"

@@ -1,5 +1,5 @@
 [entry]
-id = "COL-1231"
+id = "COL-1237"
 title = "Finite weight-one coefficients and the linear etale roots-of-unity comparison"
 kind = "comparison"
 section = "weight-one-comparison"
@@ -42,10 +42,10 @@ The native mapping-cone triangle and two-out-of-three show that taking the
 original finite coefficients preserves quasi-isomorphisms. Apply this to the
 completed geometric weight-one comparison COL-0403, then compose in the
 derived category with the inverse of the actual coefficient-quotient
-quasi-isomorphism COL-1229. Integral and Bockstein compatibility use the
+quasi-isomorphism COL-1235. Integral and Bockstein compatibility use the
 original finite-cone naturality equations, without changing their signs.
 For the etale extension, use exact change of topology and the actual smooth
-Kummer epimorphism COL-1233, then the cone-kernel comparison COL-1234.
+Kummer epimorphism COL-1239, then the cone-kernel comparison COL-1240.
 Identify units first on the separated finite-type basis and transport through
 its genuine sheaf-equivalence counit; preservation of kernels identifies the
 existing small-site mu_n. Native exact derived restriction and the terminal

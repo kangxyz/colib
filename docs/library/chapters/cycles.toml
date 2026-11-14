@@ -31,6 +31,11 @@ id = "category-and-graphs"
 title = "The category and graph functor"
 start = "COL-0366"
 
+[[sections.topics]]
+id = "finite-etale-descent"
+title = "Finite étale base change and descent"
+start = "COL-1232"
+
 [sections.transitions]
 COL-0374 = '''
 For \(X\) and \(Y\) over a common base, admissibility is a condition on each
@@ -72,6 +77,12 @@ For a universally injective map, finite pushforward is injective because every
 residue-degree weight is nonzero. The graph is therefore mono. Cancel it in
 the already proved graph-transpose identity to obtain the opposite actual
 Tor-composition identity without replacing the self-fiber product by its reduction.
+'''
+COL-1232 = '''
+For finite étale base change, track both projections of the Cartesian
+product. The coefficient at each point upstairs is the coefficient of
+its image. Equality along the two projections of the fiber square then
+characterizes descent with the original admissible supports.
 '''
 
 [[sections]]
