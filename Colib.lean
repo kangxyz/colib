@@ -943,6 +943,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerCompositeOrdinaryTai
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerConeBoundary
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerConstantCorepresentation
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerConstantTerminalValue
+public import Colib.AlgebraicGeometry.EtaleCohomology.KummerCorestrictionSource
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerCupProduct
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerDerivedUnitResolution
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerExactCoefficientHomology
@@ -983,6 +984,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerPushforwardForget
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerResolutionModel
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerResolutionUnitTransport
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerRestrictedResolution
+public import Colib.AlgebraicGeometry.EtaleCohomology.KummerRootsOfUnityTraceCompatibility
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerSourceEquality
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerSourceNormalization
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerSourceSections
