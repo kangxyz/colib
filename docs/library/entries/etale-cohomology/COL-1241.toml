@@ -1,0 +1,59 @@
+[entry]
+id = "COL-1241"
+title = "Steinberg vanishing for the original Kummer cup pairing"
+kind = "theorem"
+section = "etale-kummer-symbols"
+order = 20
+primary = "Stacks.Kummer.kummerCupModuloPowers_steinberg"
+review = "author_checked"
+statement = '''
+Let \(k\) be a field and let \(n>0\) be invertible in \(k\). For a unit
+\(a\in k^\times\) such that \(1-a\) is also a unit, the original
+module-valued Kummer classes satisfy
+\[\kappa_n(a)\smile\kappa_n(1-a)=0
+\quad\text{in }\operatorname{Ext}^2_{\operatorname{Sh}(k_{et},\mathbb Z/n)}
+(\mathbf 1,\mu_n\otimes_{\mathbb Z/n}\mu_n).\]
+Here both units are transported to global sections of \(\operatorname{Spec}k\)
+by the actual Gamma-Spec isomorphism and then taken modulo nth powers.
+The pairing is exactly `kummerCupModuloPowers` from COL-1227, using the
+original module Kummer classes and the native Ext cup product.
+'''
+proof = '''
+Use the full root algebra \(A=k[T]/(T^n-a)\), with root \(t\), rather than
+choosing a field factor. Since \(a\) and \(n\) are units, its structure map
+\(g:\operatorname{Spec}A\to\operatorname{Spec}k\) is finite etale. The unit
+\(a\) becomes \(t^n\), so restriction of its original module Kummer class
+vanishes. This is the actual restriction map, with its original
+roots-of-unity inverse-image comparison.
+
+The element \(1-t\) is a unit and its determinant norm is \(1-a\), by the
+complete-root-algebra norm calculation of COL-1236. Compatibility of the
+original Kummer class with the actual finite etale unit corestriction
+therefore identifies the corestriction of its class with \(\kappa_n(1-a)\).
+This compatibility is proved by comparing the original module-to-abelian
+Ext equivalence with exact forgetting in every degree, identifying the
+actual trace on degree-zero global units, and applying naturality of the
+original Kummer boundary.
+
+Finally, the native projection formula gives
+\[\kappa_n(a)\smile\operatorname{cor}_g\kappa_n(1-t)
+=\operatorname{cor}_g\bigl(g^*\kappa_n(a)\smile\kappa_n(1-t)\bigr)=0.\]
+All coefficient transports in this identity are the native inverse-image,
+roots-of-unity and monoidal-unit maps; no replacement pairing is introduced.
+'''
+scope = '''
+The field has arbitrary characteristic and is not assumed perfect or to
+contain a primitive nth root of unity. The whole finite etale root algebra
+is retained, including reducible polynomials; it need not be a field.
+The Lean theorem keeps the explicit abelian-sheaf `HasExt` assumption at
+universe u+1, uses the standard derived categories and the actual
+ZMod n-module coefficient sheaf, and constructs global-section
+invertibility through Gamma-Spec. The conclusion concerns the original
+module Ext pairing with its tensor-square target, not a chosen
+trivialization of that target.
+
+This proves the degree-two Steinberg relation. It does not yet construct
+factorization through the native Milnor K-theory quotient, identify that
+factorization with a motivic symbol map, prove higher-weight product
+compatibility, or assert a higher norm-residue theorem.
+'''

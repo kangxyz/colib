@@ -106,9 +106,10 @@ The tensor-exactness conclusion is proved for schemes equipped with a map
 to a field in which n is nonzero, not for an arbitrary base scheme.
 It is a property of the actual ordinary small-etale Z/n-module coefficient
 sheaf. A biadditive degree-two Kummer cup pairing is constructed, with the
-explicit global-section invertibility and HasExt assumptions retained. No
-Steinberg relation, factorization through the Milnor K-theory quotient,
-higher norm-residue comparison, or motivic product compatibility is asserted.
+explicit global-section invertibility and HasExt assumptions retained. The
+Steinberg relation for this same pairing over fields is established separately
+in COL-1241. This item does not assert factorization through the Milnor
+K-theory quotient, higher norm-residue comparison, or motivic product compatibility.
 In particular, this does not identify higher motivic complexes with tensor
 powers.
 '''

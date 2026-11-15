@@ -127,7 +127,7 @@ start = "COL-1212"
 id = "etale-kummer-symbols"
 title = "Ordinary Kummer classes and units modulo powers"
 order = 30
-introduction = "The native small-étale Kummer boundary identifies the kernel on global units with the subgroup of powers. Its injective quotient class agrees with the actual motivic comparison in weight one. Flatness of the roots-of-unity module supplies coefficient exactness for cup products; higher-weight symbol comparisons remain separate."
+introduction = "The native small-étale Kummer boundary identifies the kernel on global units with the subgroup of powers. Its injective quotient class agrees with the actual motivic comparison in weight one. Flatness of the roots-of-unity module supplies coefficient exactness for cup products. The original degree-two pairing satisfies the Steinberg relation over fields, by restriction to the full root algebra, its norm identity and the native projection formula; Milnor-quotient factorization and higher-weight symbol comparisons remain separate."
 
 [sections.transitions]
 COL-1227 = '''
@@ -135,3 +135,10 @@ Factor the original Kummer class through global units modulo powers. Exactness
 proves injectivity of this actual quotient map. Its specialization to a field
 uses the ordinary étale coefficient object; no higher-weight symbol map is assumed.
 '''
+COL-1241 = '''
+Apply the original pairing to the units a and 1-a over a field. In the full
+root algebra a becomes an nth power, while 1 minus the root has norm 1-a.
+Actual Kummer restriction and norm compatibility make the native projection
+formula prove the Steinberg relation without choosing a primitive root.
+'''
+

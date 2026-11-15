@@ -8,6 +8,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerRootRestrictionVanis
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerModuleNorm
 public import Colib.AlgebraicGeometry.EtaleCohomology.FiniteEtaleRootsOfUnityCupProjection
 public import Colib.RingTheory.AdjoinRoot.SteinbergUnitNorm
+public import Colib.Util.References
 
 /-! # Steinberg vanishing for the original Kummer cup pairing
 
@@ -36,6 +37,7 @@ set_option maxRecDepth 4096 in
 set_option backward.isDefEq.respectTransparency false in
 /-- The original degree-two Kummer cup pairing kills the Steinberg pair (a,1-a).
 Both units are transported by the actual ΓSpec isomorphism. -/
+@[colib_tag "COL-1241"]
 theorem kummerCupModuloPowers_steinberg
     {k : Type u} [Field k] (n : ℕ) [NeZero n] [NeZero (n : k)]
     (a : kˣ) (ha : IsUnit (1 - (a : k)))
