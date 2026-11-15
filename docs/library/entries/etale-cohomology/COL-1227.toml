@@ -19,6 +19,11 @@ Via the native coefficient-forgetting comparison, the same quotient also
 injects into Ext¹ from the constant ZMod n-module sheaf to rootsOfUnityModule.
 Forgetting module coefficients recovers the displayed Kummer class, both on
 quotient classes and on unit representatives.
+As a supporting comparison, for any commutative coefficient ring Λ, any
+small-etale Λ-module sheaf M on X and every natural degree q, the original
+derived Ext-to-cohomology equivalence equals exact coefficient forgetting
+followed by precomposition with the canonical map ℤ_X → U(Λ_X).
+This identifies the actual existing equivalence, not a replacement map.
 For a field k, the native degree-one Milnor group K^M_1(k) modulo its literal
 subgroup of n-multiples is identified with this global-unit quotient of Spec k.
 Its composite with the same module Kummer map is injective, and forgetting
@@ -54,6 +59,13 @@ weight-one comparison of COL-1237: its original integral reduction and
 cone-kernel identification recover the Kummer extension class, while its
 source coordinates and norm recover the same unit. Apply this formula to
 Milnor representatives and then use quotient induction.
+For the all-degree supporting comparison, compute the original change from
+Λ-modules to integer-module sheaves on the chosen resolutions. In degree
+zero use the augmentation; in positive degrees identify its cocycle and
+cycle maps before passing to homology. The resulting coefficient map is
+exact restriction with its actual constant-source map. Compose with the
+existing integer-to-abelian comparison and identify the canonical source
+map, obtaining kummerOriginalComparison_eq_extForget in every degree.
 For coefficient exactness, lift each site point through the finite etale
 cyclotomic cover and use the explicit rank-one trivialization of the
 roots-of-unity module on that slice. Its fiber is therefore isomorphic to
