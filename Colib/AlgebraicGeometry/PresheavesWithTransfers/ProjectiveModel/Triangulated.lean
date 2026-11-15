@@ -50,7 +50,8 @@ private theorem boundedAboveProjective_of_shift
   refine ⟨b - n, K.isStrictlyLE_shift b n _ (by omega), fun i => ?_⟩
   exact Projective.of_iso (K.shiftFunctorObjXIso n i (i + n) rfl).symm (hproj (i + n))
 
-private theorem boundedAboveProjective_mappingCone
+/-- The actual mapping cone of two bounded-above projective complexes is again a model. -/
+theorem boundedAboveProjective_mappingCone
     {K L : CochainComplex (PresheafWithTransfers.{u + 1} k) ℤ} (f : K ⟶ L)
     (hK : boundedAboveProjectiveCondition k ((HomotopyCategory.quotient _ c).obj K))
     (hL : boundedAboveProjectiveCondition k ((HomotopyCategory.quotient _ c).obj L)) :
@@ -131,6 +132,17 @@ instance projectiveHomotopyMapToDerivedMinusCommShift
     [F.Additive] : (projectiveHomotopyMapToDerivedMinus k F).CommShift ℤ :=
   Functor.CommShift.ofComp (projectiveMinusInclusion k F) ℤ
 
+/-- The ambient comparison preserves the shift of the original projective coefficient functor. -/
+theorem projectiveHomotopyMapToDerivedMinus_comp_ι_commShift
+    (F : PresheafWithTransfers.{u + 1} k ⥤ PresheafWithTransfers.{u + 1} k) [F.Additive] :
+    let e : projectiveHomotopyMapToDerivedMinus k F ⋙ DerivedCategory.Minus.ι ≅
+        (boundedAboveProjectiveCondition k).ι ⋙
+          F.mapHomotopyCategory c ⋙ DerivedCategory.Qh := Iso.refl _
+    NatTrans.CommShift e.hom ℤ := by
+  intro e
+  change NatTrans.CommShift (projectiveMinusInclusion k F).hom ℤ
+  exact Functor.CommShift.ofComp_compatibility (projectiveMinusInclusion k F) ℤ
+
 instance (F : PresheafWithTransfers.{u + 1} k ⥤ PresheafWithTransfers.{u + 1} k)
     [F.Additive] : (projectiveHomotopyMapToDerivedMinus k F).IsTriangulated := by
   let e := projectiveMinusInclusion k F
@@ -146,6 +158,16 @@ instance : ((boundedAboveProjectiveEquivalence k).functor).CommShift ℤ := by
   unfold boundedAboveProjectiveEquivalence
   exact projectiveHomotopyToDerivedMinusCommShift k
 
+/-- The original equivalence into bounded-above derived objects retains the
+homotopy-quotient shift after forgetting the bound. -/
+theorem boundedAboveProjectiveEquivalence_comp_ι_commShift :
+    let e : (boundedAboveProjectiveEquivalence k).functor ⋙ DerivedCategory.Minus.ι ≅
+        (boundedAboveProjectiveCondition k).ι ⋙ DerivedCategory.Qh := Iso.refl _
+    NatTrans.CommShift e.hom ℤ := by
+  intro e
+  change NatTrans.CommShift (projectiveQuotientInclusion k).hom ℤ
+  exact Functor.CommShift.ofComp_compatibility (projectiveQuotientInclusion k) ℤ
+
 instance : ((boundedAboveProjectiveEquivalence k).functor).IsTriangulated := by
   unfold boundedAboveProjectiveEquivalence
   exact projectiveHomotopyToDerivedMinus_isTriangulated k
@@ -154,10 +176,15 @@ instance : ((boundedAboveProjectiveEquivalence k).functor).IsTriangulated := by
 instance : ((boundedAboveProjectiveEquivalence k).inverse).CommShift ℤ :=
   (boundedAboveProjectiveEquivalence k).commShiftInverse ℤ
 
-instance : ((boundedAboveProjectiveEquivalence k).inverse).IsTriangulated := by
+instance boundedAboveProjectiveEquivalenceCommShift :
+    (boundedAboveProjectiveEquivalence k).CommShift ℤ := by
   let e := boundedAboveProjectiveEquivalence k
   let : e.inverse.CommShift ℤ := e.commShiftInverse ℤ
-  let : e.CommShift ℤ := e.commShift_of_functor ℤ
+  exact e.commShift_of_functor ℤ
+
+instance : ((boundedAboveProjectiveEquivalence k).inverse).IsTriangulated := by
+  let e := boundedAboveProjectiveEquivalence k
+  let : e.CommShift ℤ := boundedAboveProjectiveEquivalenceCommShift k
   let : e.IsTriangulated := Equivalence.IsTriangulated.mk' e inferInstance
   infer_instance
 
@@ -165,6 +192,20 @@ instance : ((boundedAboveProjectiveEquivalence k).inverse).IsTriangulated := by
 instance (F : PresheafWithTransfers.{u + 1} k ⥤ PresheafWithTransfers.{u + 1} k)
     [F.Additive] : (projectiveDerivedMinusFunctor k F).CommShift ℤ := by
   unfold projectiveDerivedMinusFunctor
+  infer_instance
+
+/-- The original derived coefficient shift agrees with the composite of the projective
+inverse and the original termwise coefficient shift. -/
+theorem projectiveDerivedMinusFunctor_comp_projective_commShift
+    (F : PresheafWithTransfers.{u + 1} k ⥤ PresheafWithTransfers.{u + 1} k) [F.Additive] :
+    let e : projectiveDerivedMinusFunctor k F ≅
+        (boundedAboveProjectiveEquivalence k).inverse ⋙ projectiveHomotopyMapToDerivedMinus k F :=
+      Iso.refl _
+    NatTrans.CommShift e.hom ℤ := by
+  intro e
+  unfold projectiveDerivedMinusFunctor at e
+  change NatTrans.CommShift (𝟙 ((boundedAboveProjectiveEquivalence k).inverse ⋙
+    projectiveHomotopyMapToDerivedMinus k F)) ℤ
   infer_instance
 
 instance (F : PresheafWithTransfers.{u + 1} k ⥤ PresheafWithTransfers.{u + 1} k)

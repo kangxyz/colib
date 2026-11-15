@@ -47,3 +47,15 @@ representative the adjunction unit is the singular map of COL-1045.
 Uniformly bounded direct sums and projective resolutions extend this
 calculation to every effective motive.
 '''
+
+[[sections]]
+id = "geometric-motives"
+title = "Geometric motives and Tate inversion"
+order = 30
+introduction = '''
+The motives of smooth schemes generate a thick full subcategory of
+the original bounded-above effective category. Its morphisms are
+the ambient morphisms between these effective objects. Cancellation
+allows formal inverse Lefschetz twists to be handled at common finite
+stages.
+'''

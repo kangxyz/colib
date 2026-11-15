@@ -70,6 +70,19 @@ def torusParameterTensorUnit : L₀ ⟶ L₁ :=
 def torusParameterTensorProjection : L₁ ⟶ L₀ :=
   (conjugateEquiv a₀ a₁).symm (torusParameterConstant k)
 
+/-- The unit on the left adjoints uses the mate of the original restriction. -/
+theorem torusParameterTensorUnit_eq_mate :
+    torusParameterTensorUnit k = (conjugateEquiv a₁ a₀).symm (torusParameterRestriction k) := by
+  unfold torusParameterTensorUnit
+  rfl
+
+/-- The projection on the left adjoints uses the mate of the original constant map. -/
+theorem torusParameterTensorProjection_eq_mate :
+    torusParameterTensorProjection k =
+      (conjugateEquiv a₀ a₁).symm (torusParameterConstant k) := by
+  unfold torusParameterTensorProjection
+  rfl
+
 /-- The left tensor unit and projection split on the original maps. -/
 theorem torusParameterTensorUnit_projection :
     torusParameterTensorUnit k ≫ torusParameterTensorProjection k = 𝟙 _ := by

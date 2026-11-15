@@ -1,0 +1,36 @@
+[entry]
+id = "COL-1224"
+title = "The triangulated stabilization of effective geometric motives"
+kind = "definition"
+section = "geometric-motives"
+order = 20
+primary = "AlgebraicGeometry.MotivicHomotopy.GeometricMotives"
+review = "author_checked"
+source_checked_on = "2026-11-13"
+statement = '''
+Let \(k\) be a perfect field and let \(L\) be the Lefschetz twist on the
+effective geometric category. An object of the triangulated stabilization
+is represented by \((A,a)\), with \(a\) a nonnegative integer. For any
+\(m \geq a,b\), the group of morphisms from \((A,a)\) to \((B,b)\)
+identifies with \(\operatorname{Hom}(L^{m-a}A,L^{m-b}B)\).
+'''
+scope = '''
+The coefficient ring is \(\mathbb Z\). The transition is the reduced
+torus tensor followed by the signed shift \([1]\). The stabilized
+category is triangulated and idempotent complete. The inclusion at
+denominator zero is exact and fully faithful. The Lefschetz twist
+extends to an exact autoequivalence. The symmetric tensor is additive
+and exact in each variable. The original smooth motives tensor to the
+motive of the product, compatibly with correspondence maps and symmetry.
+[@Voevodsky2000TriangulatedMotives, Section 2.1, after Proposition 2.1.3]
+'''
+proof = '''
+Use cancellation to identify the Hom groups at larger common stages.
+Composition is computed at a stage bounding the three denominators.
+The signed commutation of the Lefschetz twist with the shift determines
+the shift of a stable object. Lift the data of each triangulated axiom
+to one common stage, including the six vertices of the octahedron.
+An idempotent splits at the stage of its object. Compare the effective
+Lefschetz tensor with the original twist. Its signed shift comparison
+transports exactness to the stabilized tensor.
+'''

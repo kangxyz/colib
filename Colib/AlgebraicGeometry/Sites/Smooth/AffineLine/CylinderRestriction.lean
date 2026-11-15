@@ -23,13 +23,11 @@ namespace AlgebraicGeometry.Scheme.SmoothSite.Contraction
 
 variable {S : Scheme.{u}}
 
-local notation "π" => projection (SmoothSite.additiveGroupObject S)
-
-/-- Changing the base of the actual affine cylinder forms its projection
+/-- Changing the base of any literal smooth cylinder forms its projection
 pullback square. -/
-theorem affineLineCylinder_map_isPullback {U X : SmoothSite S} (j : U ⟶ X) :
-    IsPullback (affineLineCylinder.map j).left ((π).app U).left ((π).app X).left j.left := by
-  let T := SmoothSite.additiveGroupObject S
+theorem parameterProduct_map_isPullback (T : SmoothSite S) {U X : SmoothSite S} (j : U ⟶ X) :
+    IsPullback ((parameterProduct T).map j).left
+      ((projection T).app U).left ((projection T).app X).left j.left := by
   change IsPullback (SmoothSite.productMap j (𝟙 T)).left
     (SmoothSite.productFst U T).left (SmoothSite.productFst X T).left j.left
   apply IsPullback.of_right (h₁₂ := (SmoothSite.productSnd X T).left)
@@ -41,6 +39,18 @@ theorem affineLineCylinder_map_isPullback {U X : SmoothSite S} (j : U ⟶ X) :
     exact (IsPullback.of_hasPullback U.hom T.hom).flip
   · exact congrArg (fun f ↦ f.left) (SmoothSite.productMap_fst j (𝟙 T))
   · exact (IsPullback.of_hasPullback X.hom T.hom).flip
+
+local notation "π" => projection (SmoothSite.additiveGroupObject S)
+
+/-- Changing the base of the actual affine cylinder forms its projection
+pullback square. -/
+theorem affineLineCylinder_map_isPullback {U X : SmoothSite S} (j : U ⟶ X) :
+    IsPullback (affineLineCylinder.map j).left ((π).app U).left ((π).app X).left j.left :=
+  parameterProduct_map_isPullback _ j
+
+instance parameterProduct_map_isOpenImmersion (T : SmoothSite S) {U X : SmoothSite S}
+    (j : U ⟶ X) [IsOpenImmersion j.left] : IsOpenImmersion ((parameterProduct T).map j).left :=
+  MorphismProperty.of_isPullback (parameterProduct_map_isPullback T j).flip inferInstance
 
 variable {U U' T X : SmoothSite S} (l : U' ⟶ U) (e : T ≅ affineLineCylinder.obj U)
   (m : X ⟶ T) (b : X ⟶ U')

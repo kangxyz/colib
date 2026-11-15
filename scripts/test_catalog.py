@@ -516,6 +516,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Basic",
             "tate-twists-and-cancellation":
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
+            "geometric-motives":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.GeometricMotives.Stable",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",

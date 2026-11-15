@@ -93,7 +93,8 @@ theorem torusDoubleInversion_baseMap {X Y : Cor k} (f : X.toSmoothSite ⟶ Y.toS
   rw [← parameterProduct_twice_graph]
   exact (Cor.parameterProductMap (torusInversion Sₖ)).naturality ((F).map (γ f))
 
-private theorem torusUnitProjector_eq_productMap (X : Cor k) :
+/-- The unit projector is the graph of the product with the constant unit map. -/
+theorem torusUnitProjector_eq_productMap (X : Cor k) :
     torusUnitProjector k X = γ (SmoothSite.productMap (𝟙 X.toSmoothSite) uₖ) := by
   rw [torusUnitProjector_eq_graph]
   apply (Cor.graphFunctor k).congr_map
