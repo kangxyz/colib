@@ -517,6 +517,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Basic",
             "tate-twists-and-cancellation":
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
+            "geometric-motives":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.GeometricMotives.Stable",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",
@@ -754,7 +756,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1113": "Colib.AlgebraicGeometry.RelativeCurve.Sections.Limits.FiniteSectionPairs",
             "COL-1114": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction",
             "COL-1222": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityTorsion",
-            "COL-1223": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology",
+            "COL-1243": "Colib.AlgebraicGeometry.MotivicCohomology.Finite.EtaleChangeOfTopology",
             "COL-1225": "Colib.Algebra.Homology.CochainComplex.FiniteCoefficients.Quotient",
             "COL-1226": "Colib.CategoryTheory.Sites.TerminalCohomologyUnivLE",
             "COL-1227": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
@@ -879,9 +881,25 @@ class LibraryTests(unittest.TestCase):
 
 
 
+    def test_main_geometric_ids_and_remapped_comparison_ids_are_distinct(self):
+        expected = {
+            "COL-1223": ("geometric-motives",
+                         "AlgebraicGeometry.MotivicHomotopy.EffectiveGeometricMotives"),
+            "COL-1224": ("geometric-motives",
+                         "AlgebraicGeometry.MotivicHomotopy.GeometricMotives"),
+            "COL-1243": ("canonical-motivic-complexes",
+                         "AlgebraicGeometry.PresheafWithTransfers.motivicFiniteEtaleComparison"),
+            "COL-1244": ("diagonal-motivic-comparison",
+                         "AlgebraicGeometry.MotivicCohomology.FiniteMilnorDiagonal.motivicFiniteEquiv"),
+        }
+        for identifier, (section, primary) in expected.items():
+            item = self.library["entries"][identifier]
+            self.assertEqual(item["section"], section)
+            self.assertEqual(item["primary"], primary)
+
     def test_etale_comparison_slices_keep_their_actual_mathematical_owners(self):
         expected = {
-            "COL-1223": ("motivic-cohomology", "canonical-motivic-complexes"),
+            "COL-1243": ("motivic-cohomology", "canonical-motivic-complexes"),
             "COL-1225": ("homological-algebra", "finite-coefficient-composition"),
             "COL-1226": ("homological-algebra", "derived-hom-comparisons"),
             "COL-1227": ("etale-cohomology", "etale-kummer-symbols"),
@@ -1148,14 +1166,14 @@ class LibraryTests(unittest.TestCase):
         self.assertGreater(chapter["order"], chapters["cycles"]["order"])
         expected = {
             "reduced-transfer-tori": ["COL-0384", "COL-0385"],
-            "canonical-motivic-complexes": ["COL-0398", "COL-1031", "COL-1037", "COL-1223"],
+            "canonical-motivic-complexes": ["COL-0398", "COL-1031", "COL-1037", "COL-1243"],
             "motivic-hypercohomology": ["COL-0399", "COL-0400", "COL-1033", "COL-1228"],
             "weight-one-norm": ["COL-0401"],
             "weight-one-comparison": [
                 "COL-0402", "COL-0403", "COL-1237", "COL-0404", "COL-1008", "COL-1007"
             ],
             "milnor-motivic-comparison": ["COL-1023"],
-            "diagonal-motivic-comparison": ["COL-1025", "COL-1026", "COL-1224"],
+            "diagonal-motivic-comparison": ["COL-1025", "COL-1026", "COL-1244"],
         }
         self.assertEqual(chapter["sections"], list(expected))
         for section_id, identifiers in expected.items():

@@ -59,6 +59,25 @@ lemma coneMapIso_naturality {K L K' L' : CochainComplex C ℤ}
     congr 1
     simp [mappingCone.ext_from_iff _ (n + 1) n rfl]
 
+/-- A comparison of additive coefficient functors induces the original
+map between the two termwise images of a cone. -/
+lemma coneMapIso_naturalTransformation {G : C ⥤ D} [G.Additive] (η : F ⟶ G)
+    {K L : CochainComplex C ℤ} (f : K ⟶ L) :
+    (η.mapHomologicalComplex (.up ℤ)).app (mappingCone f) ≫
+        (mappingCone.mapHomologicalComplexIso f G).hom =
+      (mappingCone.mapHomologicalComplexIso f F).hom ≫
+        mappingCone.map ((F.mapHomologicalComplex (.up ℤ)).map f)
+          ((G.mapHomologicalComplex (.up ℤ)).map f)
+          ((η.mapHomologicalComplex (.up ℤ)).app K)
+          ((η.mapHomologicalComplex (.up ℤ)).app L)
+          (η.mapHomologicalComplex_naturality f) := by
+  ext n
+  rw [mappingCone.ext_to_iff _ n (n + 1) rfl]
+  constructor <;>
+    simp [mappingCone.mapHomologicalComplexIso, mappingCone.mapHomologicalComplexXIso,
+      mappingCone.mapHomologicalComplexXIso', mappingCone.map, Preadditive.comp_add,
+      Preadditive.add_comp, NatTrans.naturality_assoc]
+
 /-- Equality of the original chain map gives its literal mapping-cone comparison. -/
 def coneIsoOfEq {K L : CochainComplex D ℤ} {f g : K ⟶ L} (h : f = g) :
     mappingCone f ≅ mappingCone g := eqToIso (congrArg (fun f : K ⟶ L => mappingCone f) h)

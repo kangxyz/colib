@@ -62,7 +62,7 @@ transfer tori and their Suslin complexes. The resulting map of motivic
 complexes raises the weight by one and uses the signed shift by one.
 '''
 
-COL-1223 = '''
+COL-1243 = '''
 Apply ordinary étale sheafification to the actual finite cone. Its unit defines
 the original chain-level comparison, and the additive cone isomorphism preserves
 integral reduction and the signed Bockstein. No quasi-isomorphism is asserted.
@@ -223,7 +223,7 @@ corestriction of COL-1025 expresses each closed point as a pushforward
 of its rational graph over the residue field.
 '''
 
-COL-1224 = '''
+COL-1244 = '''
 Pass the original diagonal symbol through integral reduction. Its kernel is
 precisely the subgroup of n-multiples, so the first isomorphism theorem gives
 the finite diagonal comparison without changing the integral or coefficient model.

@@ -54,7 +54,7 @@ def motivicFiniteEtaleSheafComplex (q n : ℕ) :
     (.up ℤ)).obj (motivicFiniteSheafComplex k q n)
 
 /-- The actual comparison map is the sheafification unit in every degree. -/
-@[colib_tag "COL-1223",
+@[colib_tag "COL-1243",
   colib_ref "MVW2006" "Lecture 10, Definition 10.1, p. 75" "background"
     "Etale hypercohomology of motivic complexes; only the chain unit is constructed here"]
 def motivicFiniteEtaleComparison (q n : ℕ) :
@@ -78,7 +78,7 @@ theorem motivicFiniteEtaleComparison_f_hom (q n : ℕ) (i : ℤ) :
     (Spec (.of k)) AddCommGrpCat.{u + 1} ((motivicFiniteSheafComplex k q n).X i)
 
 /-- Additive étale sheafification commutes with the actual multiplication cone. -/
-@[colib_tag "COL-1223",
+@[colib_tag "COL-1243",
   colib_ref "mathlib_stable_localization_pin"
     "Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean" "ingredient"
     "Additive mapping-cone comparison; integral and signed connecting morphisms retained"]

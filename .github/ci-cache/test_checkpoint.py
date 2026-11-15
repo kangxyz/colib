@@ -98,6 +98,16 @@ class CheckpointTests(unittest.TestCase):
             names = archive.getnames()
             self.assertFalse(any('/dep/' in name or name.endswith('.lean') for name in names))
 
+    def test_verify_requires_the_checked_generation_without_applying_an_archive(self):
+        artifact = self.write('.lake/build/Root.olean', 'old completed build')
+        archive, saved = self.pack('root')
+        artifact.write_text('current completed build')
+        command = ('verify', '--layer', 'root', '--input', str(archive), '--generation')
+        self.assertTrue(self.invoke(*command, saved['generation'])['verified'])
+        self.invoke(*command, '0' * 64, code=1)
+        self.assertEqual(artifact.read_text(), 'current completed build')
+        self.assertFalse((self.root / '.lake/ci-cache/root.json').exists())
+
     def test_root_is_complete_generated_scope_only_and_restore_breaks_hardlinks(self):
         source = self.write('Root.lean', 'PROOF SOURCE\n')
         artifact = self.write('.lake/build/lib/lean/Root.olean', 'compiled')

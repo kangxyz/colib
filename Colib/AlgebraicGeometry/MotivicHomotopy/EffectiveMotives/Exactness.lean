@@ -6,16 +6,15 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.TorusAdjunction
-public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Triangulated
+public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.ReflectionExactness
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.ReducedTriangulated
 import Mathlib.CategoryTheory.Triangulated.Adjunction
 
 /-!
-# Exactness of the effective localization and the reduced torus adjunction
+# Exactness of the reduced torus adjunction
 
-The effective inclusion and the actual reduced derived torus functor
-give the shift structures on both left adjoints. Their canonical
-adjunctions preserve distinguished triangles.
+The actual reduced derived torus functor gives the shift structure on its
+left adjoint. The canonical adjunction preserves distinguished triangles.
 -/
 
 public noncomputable section
@@ -39,7 +38,6 @@ variable (k : Type u) [Field k] [PerfectField k]
   [HasExt.{u + 1} (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
 
 local notation "NST" => LargeSheaves k
-local notation "I" => effectiveMotivesMinusInclusion k
 local notation "J" => effectiveMotivesMinusToDerived k
 local notation "R" => effectiveReducedTorusSectionsFunctor k
 local notation "L" => effectiveReducedTorusTensorFunctor k
@@ -47,23 +45,6 @@ local notation "L" => effectiveReducedTorusTensorFunctor k
 /-- Use the abelian structure on Nisnevich sheaves with transfers for the derived adjunctions. -/
 local instance : Abelian (SheafWithTransfers.{u + 1} k) :=
   SheafWithTransfers.abelian k
-
-omit [HasDerivedCategory AddCommGrpCat.{u + 1}] in
-instance : (effectiveReflection k).CommShift ℤ :=
-  (effectiveReflectionAdjunction k).leftAdjointCommShift ℤ
-
-omit [HasDerivedCategory AddCommGrpCat.{u + 1}] in
-instance : (effectiveReflectionAdjunction k).CommShift ℤ :=
-  (effectiveReflectionAdjunction k).commShift_of_rightAdjoint ℤ
-
-omit [HasDerivedCategory AddCommGrpCat.{u + 1}] in
-instance : (effectiveReflection k).IsTriangulated := by
-  let G : DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k := effectiveReflection k
-  let F : EffectiveMotivesMinus k ⥤ DerivedCategory.Minus NST := I
-  let h : G ⊣ F := effectiveReflectionAdjunction k
-  let : F.IsTriangulated := inferInstanceAs
-    (((effectiveCohomologyCondition k).ι).IsTriangulated)
-  exact h.isTriangulated_leftAdjoint
 
 omit [HasDerivedCategory (PresheafWithTransfers.{u + 1} k)] in
 instance : (R).CommShift ℤ := by

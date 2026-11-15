@@ -125,6 +125,32 @@ class StacksRestoreTests(unittest.TestCase):
             restore_stacks.restore_stacks(self.args, self.warm, r2)
         self.assertEqual(self.missing.read_text(), 'baseline missing output')
 
+    def test_publication_fallback_recovers_only_the_checked_generation(self):
+        r2, index = self.r2_baseline()
+        expected = index['generation']
+        asset = {'name': f'stacks-checkpoint-{expected}.tar.zst', 'state': 'uploaded',
+                 'size': index['size'], 'digest': 'sha256:' + index['sha256']}
+        def copy(source, output):
+            shutil.copyfile(self.published if source == asset else self.warm, output)
+
+        self.shared.write_text('different generation')
+        self.pack(self.warm)
+        target = self.base / 'transfer' / 'stacks.tar.zst'
+        with (patch.object(R2Cache, 'configured', return_value=r2),
+              patch.object(r2, 'current', return_value=(index, '"a"')),
+              patch.object(r2, 'download', side_effect=copy),
+              patch.object(restore_stacks, 'github_release', return_value={'assets': [asset]}),
+              patch.object(restore_stacks, 'download', side_effect=copy) as release,
+              redirect_stdout(io.StringIO())):
+            restore_stacks.fetch_published_generation(self.args, target, r2.revision, r2.context, expected)
+            release.assert_called_once()
+            self.assertEqual(target.read_bytes(), self.published.read_bytes())
+
+            with self.assertRaisesRegex(ValueError, 'checked Stacks generation is unavailable'):
+                restore_stacks.fetch_published_generation(self.args, target, r2.revision, r2.context, '0' * 64)
+        self.assertEqual(target.read_bytes(), self.published.read_bytes())
+        self.assertEqual(self.shared.read_text(), 'different generation')
+
     def test_r2_bad_digest_falls_back_without_losing_partial_progress(self):
         r2, index = self.r2_baseline()
         self.shared.write_text('newer shared output')

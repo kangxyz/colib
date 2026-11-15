@@ -23,7 +23,7 @@ and the original finite motivic comparison gives an additive map to this group.
 In degree one over Spec k, this map on the reduction of an integral motivic
 class is the original Kummer class of the global unit determined by the
 geometric weight-one norm. Consequently, for every class a in K^M_1(k)/n,
-the composite of the original finite diagonal equivalence COL-1224 with this
+the composite of the original finite diagonal equivalence COL-1244 with this
 comparison equals the original module-valued Kummer symbol of COL-1227,
 transported by rootsOfUnityModuleExtEquiv to ordinary H^1(Spec k, mu_n).
 For every smooth k-scheme X and nonzero n invertible in k, the actual

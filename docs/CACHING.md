@@ -26,9 +26,11 @@ metadata. A mixed `LAKE_CACHE_DIR` content store is never saved as a working
 checkpoint. Native archive validity is checked by Lake against the actual inputs.
 
 The Stacks checkpoint is excluded from both dependencies and tools. Build saves
-it separately, including useful partial compilation. Cross-runner Test receives
-this run's `build-stacks` independently of `build-dependencies`, then saves any
-additional Stacks outputs in the same independent layer. The Stacks
+it separately after the compiler stops, including completed outputs after an
+error or the compiler cutoff. Build and Test look up the exact generation key
+before uploading. Cross-runner Test receives this run's `build-stacks`
+independently of `build-dependencies`, then saves additional Stacks outputs in
+the same independent layer. The Stacks
 acquisition boundary can later fetch an upstream Stacks cache before native
 compilation without changing Colib's root/tool/dependency caches.
 
@@ -180,8 +182,11 @@ archive named by its checkpoint generation and records its SHA-256. Publication
 verifies the archive and advances the pointer when the new checkpoint covers
 the previous baseline. Conditional writes let concurrent publishers share one
 object per generation. Test checks the current R2 object and the GitHub Release
-asset or volume index before uploading the checkpoint for publication. The
-publish job only transfers the archive when a destination needs it. CI prunes
+asset or volume index. When publication is needed, GitHub-hosted Publish cache
+reads the EC2 checkpoint by its exact Actions cache key and verifies its
+manifest and payload before publication. If Actions cache is unavailable, the
+publisher can recover that exact generation from either mirror. Independent
+Build and Test runners continue to use the same-run staging artifact. CI prunes
 older R2 checkpoints for the active dependency context after publication is
 confirmed. It retains the current archive
 and the previous generation recorded in the pointer.

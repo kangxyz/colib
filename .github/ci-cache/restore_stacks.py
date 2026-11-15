@@ -230,6 +230,45 @@ def restore_stacks(args, warm, r2=None):
         apply(args, warm)
 
 
+def fetch_published_generation(args, archive, revision, context, generation):
+    """Recover the exact checked generation from a mirror if Actions cache was evicted."""
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='stacks-mirror-', dir=archive.parent) as tmp:
+        directory = Path(tmp)
+        staged = directory / 'stacks.tar.zst'
+
+        def fetch(asset, download_archive, source):
+            download_archive(asset, staged)
+            args.input = staged
+            checkpoint.verify_generation(args, generation)
+            staged.replace(archive)
+            print(f'Recovered checked Stacks generation {generation[:12]} from {source}.', flush=True)
+
+        try:
+            r2 = R2Cache.configured(revision, context)
+            if r2 is not None:
+                index, _ = r2.current(directory / 'current.json')
+                if index is not None and index['generation'] == generation:
+                    fetch(index, r2.download, 'R2')
+                    return
+        except DOWNLOAD_ERRORS as error:
+            print(f'::warning::Could not recover the checked Stacks generation from R2: {error}', flush=True)
+
+        release = github_release(release_tag(revision, context))
+        name = f'stacks-checkpoint-{generation}.tar.zst'
+        singles = (asset for asset in release_assets(release)
+                   if asset['name'] == name and re.fullmatch(r'sha256:[0-9a-f]{64}', asset.get('digest') or ''))
+        for assets in (singles, release_indexes(release, directory, generation)):
+            for asset in assets:
+                try:
+                    fetch(asset, download, 'GitHub Release')
+                    return
+                except DOWNLOAD_ERRORS as error:
+                    print(f'::warning::Could not recover the checked Stacks generation from GitHub Release: {error}',
+                          flush=True)
+    raise ValueError('the checked Stacks generation is unavailable. Re-run all jobs to save it again')
+
+
 def legacy_release_contains(args, archive, generation, assets):
     if not assets:
         return False
@@ -470,6 +509,7 @@ def main():
     publish.add_argument('--publish-r2', type=Path, metavar='ARCHIVE')
     publish.add_argument('--publish-release', type=Path, metavar='ARCHIVE')
     publish.add_argument('--check-published', metavar='GENERATION')
+    publish.add_argument('--fetch-generation', nargs=2, metavar=('GENERATION', 'ARCHIVE'))
     publish.add_argument('--prune-r2', action='store_true')
     publish.add_argument('--prune-release', metavar='GENERATION')
     command = parser.parse_args()
@@ -485,6 +525,12 @@ def main():
         packages = json.loads((root / 'lake-manifest.json').read_text())['packages']
         revision = next(package['rev'] for package in packages if package['name'] == 'Stacks')
         try:
+            if command.fetch_generation is not None:
+                generation, archive = command.fetch_generation
+                if not re.fullmatch(r'[0-9a-f]{64}', generation):
+                    raise ValueError('invalid Stacks checkpoint generation')
+                fetch_published_generation(args, Path(archive), revision, context, generation)
+                return
             generation = command.check_published if command.check_published is not None else command.prune_release
             if generation is not None and not re.fullmatch(r'[0-9a-f]{64}', generation):
                 raise ValueError('invalid Stacks checkpoint generation')

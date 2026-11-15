@@ -48,6 +48,14 @@ private abbrev nisnevichDerivedMinusInclusion :
 instance : ((nisnevichSheafify k).mapDerivedCategoryMinus).CommShift ℤ :=
   Functor.CommShift.ofComp (nisnevichDerivedMinusInclusion k) ℤ
 
+/-- The original bounded-above sheafification has the same shift after forgetting the bound. -/
+theorem nisnevichDerivedMinusInclusion_commShift :
+    let e : (nisnevichSheafify k).mapDerivedCategoryMinus ⋙ DerivedCategory.Minus.ι ≅
+        DerivedCategory.Minus.ι ⋙ (nisnevichSheafify k).mapDerivedCategory := Iso.refl _
+    NatTrans.CommShift e.hom ℤ := by
+  intro e
+  exact Functor.CommShift.ofComp_compatibility (nisnevichDerivedMinusInclusion k) ℤ
+
 instance nisnevichDerivedMinus_isTriangulated :
     ((nisnevichSheafify k).mapDerivedCategoryMinus).IsTriangulated := by
   let A := PresheafWithTransfers.{u + 1} k
@@ -73,6 +81,14 @@ instance nisnevichDerivedMinus_isTriangulated :
 instance : (projectiveReducedTorusTensorToDerivedMinus k).CommShift ℤ := by
   unfold projectiveReducedTorusTensorToDerivedMinus
   infer_instance
+
+/-- The reduced projective torus model shifts by the composite of its two functor shifts. -/
+theorem projectiveReducedTorusTensorToDerivedMinus_commShiftIso_hom_app
+    (n : ℤ) (K : DerivedCategory.Minus (PresheafWithTransfers.{u + 1} k)) :
+    ((projectiveReducedTorusTensorToDerivedMinus k).commShiftIso n).hom.app K =
+      (((projectiveDerivedMinusFunctor k (reducedParameterTensorFunctor k)) ⋙
+        (nisnevichSheafify k).mapDerivedCategoryMinus).commShiftIso n).hom.app K :=
+  (rfl)
 
 instance : (projectiveReducedTorusTensorToDerivedMinus k).IsTriangulated := by
   let G := projectiveDerivedMinusFunctor k (reducedParameterTensorFunctor k)

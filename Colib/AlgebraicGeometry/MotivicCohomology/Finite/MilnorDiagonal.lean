@@ -72,7 +72,7 @@ theorem symbolReduction_ker (q n : ℕ) :
 
 /-- Finite motivic diagonal cohomology is the native Milnor group modulo multiples.
 No invertibility hypothesis on the coefficient level is needed for this motivic statement. -/
-@[colib_tag "COL-1224",
+@[colib_tag "COL-1244",
   colib_ref "motivic_source_a6805c4"
   "Motivic/Cohomology/Diagonal/MilnorEquivalence.lean:84-99" "ingredient"
   "Historical characteristic-zero integral comparison; reuse its migrated arbitrary-field COL-1026",
@@ -86,14 +86,14 @@ def motivicFiniteEquiv (q n : ℕ) : milnorModulo k q n ≃+
       (symbolReduction k q n) (symbolReduction_surjective k q n))
 
 /-- The finite comparison retains the original integral symbol and reduction on cosets. -/
-@[colib_tag "COL-1224"]
+@[colib_tag "COL-1244"]
 theorem motivicFiniteEquiv_mk (q n : ℕ) (x : MilnorKTheory k q) :
     motivicFiniteEquiv k q n (QuotientAddGroup.mk x) =
       motivicBaseIntegralReduction k (q : ℤ) q n
         (DiagonalMilnorSymbol.motivicSymbol k q x) := rfl
 
 /-- In degree one the comparison consumes the existing weight-one Milnor equivalence. -/
-@[colib_tag "COL-1224"]
+@[colib_tag "COL-1244"]
 theorem motivicFiniteEquiv_one_mk (n : ℕ) (x : MilnorKTheory k 1) :
     motivicFiniteEquiv k 1 n (QuotientAddGroup.mk x) =
       motivicBaseIntegralReduction k 1 1 n (WeightOne.milnorEquiv k x) := by
