@@ -785,10 +785,17 @@ def restore(args, *, verify_only=False):
           'files': len(metadata['entries']), 'restored': True, 'method': method}, args.github_output)
 
 
+def verify_generation(args, generation):
+    metadata = restore(args, verify_only=True)
+    if not metadata['entries'] or metadata['generation'] != generation:
+        raise ValueError('checkpoint is empty or differs from the checked generation')
+    return metadata
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='action', required=True)
-    for name in ('supported', 'context', 'pack', 'restore'):
+    for name in ('supported', 'context', 'pack', 'restore', 'verify'):
         p = sub.add_parser(name)
         p.add_argument('--root', type=Path, default=Path.cwd())
         p.add_argument('--native-cache', type=Path)
@@ -796,15 +803,18 @@ def main(argv=None):
         if name == 'supported':
             p.add_argument('--materialized', action='store_true',
                            help='require every dependency config after source acquisition')
-        if name in ('pack', 'restore'):
+        if name in ('pack', 'restore', 'verify'):
             p.add_argument('--layer', choices=LAYERS, required=True)
+        if name in ('pack', 'restore'):
             p.add_argument('--metadata', type=Path)
             p.add_argument('--local-state', type=Path, help='reuse file hashes in the same quiescent checkout')
         if name == 'pack':
             p.add_argument('--output', type=Path, required=True)
             p.add_argument('--production-root', action='append', default=[])
-        if name == 'restore':
+        if name in ('restore', 'verify'):
             p.add_argument('--input', type=Path, required=True)
+        if name == 'verify':
+            p.add_argument('--generation', required=True)
     args = parser.parse_args(argv)
     args.root = args.root.absolute()
     args.native_cache = (args.native_cache or Path(os.environ.get('LAKE_CACHE_DIR', args.root / '.lake/native-cache'))).absolute()
@@ -816,6 +826,10 @@ def main(argv=None):
             emit(contexts(args.root), args.github_output)
         elif args.action == 'pack':
             pack(args)
+        elif args.action == 'verify':
+            metadata = verify_generation(args, args.generation)
+            emit({'generation': metadata['generation'], 'files': len(metadata['entries']),
+                  'verified': True}, args.github_output)
         else:
             restore(args)
         return 0

@@ -84,9 +84,11 @@ and a changed generation is packed and saved.
 Successful main pushes publish Colib's native archive and the independently named
 `stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish
 cache also backs up the verified Colib native archive and Stacks checkpoint to
-R2. CI checks the R2 pointer and GitHub Release metadata before transferring the
-Stacks archive and only stages it when a destination needs publication. R2 keeps
-up to two distinct Colib archives and up to two Stacks generations
+R2. On EC2, Build and Test save Stacks generations by exact Actions cache key.
+Publish cache reads that same generation on a GitHub-hosted runner when one of
+the destinations needs publication. A hosted job also stages a checked branch's
+Stacks artifact for future merges when main's latest compatible cache differs.
+R2 keeps up to two distinct Colib archives and up to two Stacks generations
 per dependency context. Build can restore either baseline from R2 with GitHub
 Release fallback.
 See [R2 setup and cache operations](../docs/CACHING.md#cloudflare-r2-for-stacks-and-colib).
