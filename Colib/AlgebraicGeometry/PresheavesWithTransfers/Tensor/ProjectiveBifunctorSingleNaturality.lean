@@ -58,7 +58,8 @@ theorem signedTotalHomotopySingleRightIso_naturality {A B : PST(k)} (f : A ⟶ B
 
 variable [HasDerivedCategory.{w} PST(k)]
 
-private theorem projectiveHomotopySingleRightIso_map_hom (A : PST(k)) [Projective A]
+/-- The comparison on a projective model is the original homotopy map in the derived category. -/
+theorem projectiveHomotopySingleRightIso_map_hom (A : PST(k)) [Projective A]
     (K : BoundedAboveProjectiveHomotopy k) :
     DerivedCategory.Minus.ι.map ((projectiveHomotopySingleRightIso F A).hom.app K) =
       DerivedCategory.Qh.map ((signedTotalHomotopySingleRightIso F A).hom.app K.obj) := by

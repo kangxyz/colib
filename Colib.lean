@@ -2332,6 +2332,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedConv
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidal
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidalShift
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidalSingleRight
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidalSingleRightComparison
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidalTensoratorShift
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedMonoidalTransport
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedSingleMonoidal
@@ -3591,6 +3592,7 @@ public import Colib.CategoryTheory.FiberedCategory.SectionChangeIndexZero
 public import Colib.CategoryTheory.FiberedCategory.StrictSections
 public import Colib.CategoryTheory.Functor.ArrowSquareWhiskering
 public import Colib.CategoryTheory.Functor.BoundedTypeValues
+public import Colib.CategoryTheory.Functor.FactorizationComparison
 public import Colib.CategoryTheory.Functor.FullSubcategoryExt
 public import Colib.CategoryTheory.Functor.IdentityAutomorphism
 public import Colib.CategoryTheory.Functor.IdentityAutomorphismEvaluation
@@ -3716,6 +3718,7 @@ public import Colib.CategoryTheory.Limits.UnderExponential
 public import Colib.CategoryTheory.Limits.UnderLifting
 public import Colib.CategoryTheory.Linear.ScalarAutomorphism
 public import Colib.CategoryTheory.Localization.CharacterExtension
+public import Colib.CategoryTheory.Localization.LiftNatIso
 public import Colib.CategoryTheory.Localization.Lifts
 public import Colib.CategoryTheory.Localization.Representability
 public import Colib.CategoryTheory.Localization.RightReachable
@@ -3728,6 +3731,7 @@ public import Colib.CategoryTheory.Monoidal.Action.RightTensorLinear
 public import Colib.CategoryTheory.Monoidal.CoproductFunctor
 public import Colib.CategoryTheory.Monoidal.Core
 public import Colib.CategoryTheory.Monoidal.CoreFunctor
+public import Colib.CategoryTheory.Monoidal.ReseatComparisons
 public import Colib.CategoryTheory.Monoidal.RightIterationTracks
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Associativity
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Factorization
@@ -3756,6 +3760,7 @@ public import Colib.CategoryTheory.Preadditive.AdditiveFunctorAbelian
 public import Colib.CategoryTheory.Preadditive.AdditiveFunctorGrothendieck
 public import Colib.CategoryTheory.Preadditive.AdditiveFunctorLimits
 public import Colib.CategoryTheory.Preadditive.CokernelAdditive
+public import Colib.CategoryTheory.Preadditive.ComplementComparison
 public import Colib.CategoryTheory.Preadditive.LiftedAdditiveYoneda
 public import Colib.CategoryTheory.Preadditive.SplitCokernelKernel
 public import Colib.CategoryTheory.Prespectrum.AdjointBonding
@@ -3798,10 +3803,15 @@ public import Colib.CategoryTheory.RankedChain.Append
 public import Colib.CategoryTheory.RankedChain.Comma
 public import Colib.CategoryTheory.RankedChain.Order
 public import Colib.CategoryTheory.RankedChain.Resolution
+public import Colib.CategoryTheory.Retract.Intertwining
 public import Colib.CategoryTheory.SemisimplexResolution.Append
 public import Colib.CategoryTheory.SemisimplexResolution.Basic
 public import Colib.CategoryTheory.SemisimplexResolution.Contraction
 public import Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithful
+public import Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithfulData
+public import Colib.CategoryTheory.Shift.CommShiftTwoPrecompPostcomp
+public import Colib.CategoryTheory.Shift.WhiskeredUnitCommShift
+public import Colib.CategoryTheory.Shift.WhiskeringComparison
 public import Colib.CategoryTheory.Sites.AbelianCechDescent
 public import Colib.CategoryTheory.Sites.AbelianSquareDescent
 public import Colib.CategoryTheory.Sites.Cohomology.DegreeZero

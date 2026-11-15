@@ -8,8 +8,8 @@ module
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ProjectiveMonoidal
 public import StacksFrontier.CategoryTheory.Monoidal.LaxMonoidalCommShift
 public import StacksFrontier.CategoryTheory.Monoidal.ReseatFunctorBraided
+import Colib.CategoryTheory.Monoidal.ReseatComparisons
 import StacksFrontier.CategoryTheory.Localization.BifunctorCommShiftTwoLiftingIso
-import StacksFrontier.CategoryTheory.Monoidal.ReseatConstraints
 
 /-! # The monoidal homotopy quotient for signed convolution -/
 
@@ -98,13 +98,27 @@ private theorem localizedHomotopyTensorIso_hom_app (K L : Ch) :
   let A' := (B).map₂CochainComplex ⋙ post
   let : Localization.Lifting₂ Q Q W W A (curriedTensor Ho) := convolutionHomotopyTensorLifting
   let : Localization.Lifting₂ Q Q W W A' T := signedTotalHomotopyBifunctorLifting B
-  change (((Localization.lift₂NatTrans Q Q W W A A' (curriedTensor Ho) T
-    (Functor.isoWhiskerRight convolutionCochainTensorIso post).hom).app
-    ((Q).obj K)).app ((Q).obj L)) = _
-  rw [Localization.lift₂NatTrans_app_app]
-  change (localizedHomotopyTensorator K L).hom ≫ (Q).map (𝟙 (K ⊗ L)) ≫ 𝟙 _ =
-    (localizedHomotopyTensorator K L).hom
-  rw [(Q).map_id, Category.comp_id, Category.comp_id]
+  let e := localizedHomotopyTensorIso (k := k)
+  let τ := (Functor.isoWhiskerRight convolutionCochainTensorIso post).hom
+  let t := localizedHomotopyTensorator K L
+  let X := K ⊗ L
+  let a : ((Q).obj K ⊗ (Q).obj L) ⟶ (Q).obj X :=
+    ((Localization.Lifting₂.iso Q Q W W A (curriedTensor Ho)).hom.app K).app L
+  let b : (Q).obj X ⟶ (Q).obj X := (τ.app K).app L
+  let c' : (Q).obj X ⟶ (Q).obj X :=
+    ((Localization.Lifting₂.iso Q Q W W A' T).inv.app K).app L
+  have h : ((e.app ((Q).obj K)).app ((Q).obj L)).hom = a ≫ b ≫ c' :=
+    Localization.lift₂NatTrans_app_app Q Q W W A A' (curriedTensor Ho) T τ K L
+  have ha : a = t.hom := rfl
+  have hb : b = 𝟙 ((Q).obj X) :=
+    (show b = (Q).map (𝟙 X) from rfl).trans ((Q).map_id X)
+  have hc : c' = 𝟙 ((Q).obj X) := rfl
+  have hbc : b ≫ c' = 𝟙 ((Q).obj X) :=
+    ((congrArg (b ≫ ·) hc).trans (Category.comp_id b)).trans hb
+  exact h.trans (((congrArg (a ≫ ·) hbc).trans (Category.comp_id a)).trans ha)
+
+-- The remaining proofs use the components of the comparison through the preceding equation.
+attribute [local irreducible] localizedHomotopyTensorIso
 
 set_option maxHeartbeats 850000 in
 -- Compute the tensorator through the original localization comparison.
@@ -112,40 +126,32 @@ set_option maxHeartbeats 850000 in
 theorem convolutionHomotopyQuotientMonoidal_μ (K L : Ch) :
     letI := convolutionHomotopyQuotientMonoidal (k := k)
     Functor.LaxMonoidal.μ Q K L = 𝟙 _ := by
-  let := convolutionHomotopyQuotientMonoidal (k := k)
-  let A := localizedHomotopyMonoidal (k := k)
-  let A' := convolutionHomotopyMonoidalCategory (k := k)
-  let C := convolutionCochainMonoidalCategory (k := k)
+  let cCh : Category Ch := inferInstance
+  let cHo : Category Ho := inferInstance
+  let A : @MonoidalCategory Ho cHo := localizedHomotopyMonoidal (k := k)
+  let A' : @MonoidalCategory Ho cHo := convolutionHomotopyMonoidalCategory (k := k)
+  let C : @MonoidalCategory Ch cCh := convolutionCochainMonoidalCategory (k := k)
+  let m : @Functor.Monoidal Ch cCh C Ho cHo A Q := localizedHomotopyQuotientMonoidal
+  let m' : @Functor.Monoidal Ch cCh C Ho cHo A' Q := convolutionHomotopyQuotientMonoidal
   let e := localizedHomotopyTensorIso (k := k)
   let ε := Iso.refl U
-  let X := (Q).obj K
-  let Y := (Q).obj L
-  let j : @Functor.Monoidal Ho _ A Ho _ A' (𝟭 Ho) := @reseatInverseMonoidal Ho _ A _ _ e ε
-  let m : @Functor.Monoidal Ch _ C Ho _ A Q := localizedHomotopyQuotientMonoidal
-  let m' := @Functor.Monoidal.instComp Ch _ C Ho _ A Ho _ A' Q (𝟭 Ho) m j
-  let ρ := Functor.rightUnitor Q
-  let μ := @Functor.LaxMonoidal.μ Ho _ A Ho _ A' (𝟭 Ho) j.toLaxMonoidal X Y
-  have hμ : μ = ((e.app X).app Y).inv := rfl
-  have hρ := @Functor.Monoidal.transport_μ Ch _ _ Ho _ _ (Q ⋙ 𝟭 Ho) Q m' ρ K L
-  change Functor.LaxMonoidal.μ Q K L = _ at hρ
-  have hK : ρ.inv.app K = 𝟙 X := rfl
-  have hL : ρ.inv.app L = 𝟙 Y := rfl
-  have hKL : ρ.hom.app (K ⊗ L) = 𝟙 ((Q).obj (K ⊗ L)) := rfl
-  rw [hK, hL, hKL, id_tensorHom_id, Category.id_comp] at hρ
-  let p := @Functor.LaxMonoidal.μ Ch _ C Ho _ A' (Q ⋙ 𝟭 Ho) m'.toLaxMonoidal K L
-  have hp : p = μ ≫ (localizedHomotopyTensorator K L).hom := rfl
-  have hρ' : Functor.LaxMonoidal.μ Q K L = p := hρ.trans (Category.comp_id p)
-  let : MonoidalCategory Ho := A
-  let b : (e.app X).app Y = localizedHomotopyTensorator K L :=
-    Iso.ext (localizedHomotopyTensorIso_hom_app K L)
+  let b := (e.app ((Q).obj K)).app ((Q).obj L)
+  let t := localizedHomotopyTensorator K L
+  let μ := @Functor.LaxMonoidal.μ Ch cCh C Ho cHo A Q m.toLaxMonoidal K L
+  have hp : @Functor.LaxMonoidal.μ Ch cCh C Ho cHo A' Q m'.toLaxMonoidal K L =
+      b.inv ≫ μ := @Functor.Monoidal.transport_reseat_μ Ch Ho cCh cHo C A Q m _ _ e ε K L
+  have hμ : μ = t.hom := rfl
+  have ht : b.hom = t.hom := localizedHomotopyTensorIso_hom_app K L
   calc
-    _ = p := hρ'
-    _ = μ ≫ (localizedHomotopyTensorator K L).hom := hp
-    _ = ((e.app X).app Y).inv ≫ (localizedHomotopyTensorator K L).hom :=
-      congrArg (· ≫ (localizedHomotopyTensorator K L).hom) hμ
-    _ = (localizedHomotopyTensorator K L).inv ≫ (localizedHomotopyTensorator K L).hom :=
-      congrArg (fun z => z.inv ≫ (localizedHomotopyTensorator K L).hom) b
-    _ = _ := (localizedHomotopyTensorator K L).inv_hom_id
+    _ = b.inv ≫ μ := hp
+    _ = b.inv ≫ t.hom := congrArg (b.inv ≫ ·) hμ
+    _ = b.inv ≫ b.hom := congrArg (b.inv ≫ ·) ht.symm
+    _ = _ := b.inv_hom_id
+
+section QuotientShift
+
+-- The shift comparison uses the tensorator component equation for this exact instance.
+attribute [local irreducible] convolutionHomotopyQuotientMonoidal
 
 set_option maxHeartbeats 1000000 in
 -- Use the exact two-variable localized shift data on both readings of the tensorator.
@@ -162,25 +168,25 @@ theorem convolutionHomotopyQuotientMonoidalCommShift :
   let H := signedTotalHomotopyBifunctor B
   let : B₀.CommShift₂Int := Functor.CommShift₂.postcompInt (B).map₂CochainComplex Q
   let : Localization.Lifting₂ Q Q W W B₀ H := signedTotalHomotopyBifunctorLifting B
-  have hl (L : Ch) :
-      Functor.LaxMonoidal.μNatTransFst Q L =
-        ((Localization.Lifting₂.iso Q Q W W B₀.flip H.flip).hom.app L) := by
-    apply NatTrans.ext
-    funext K
-    change Functor.LaxMonoidal.μ Q K L = 𝟙 _
-    exact convolutionHomotopyQuotientMonoidal_μ K L
-  have hr (K : Ch) :
-      Functor.LaxMonoidal.μNatTransSnd Q K =
-        ((Localization.Lifting₂.iso Q Q W W B₀ H).hom.app K) := by
-    apply NatTrans.ext
-    funext L
-    change Functor.LaxMonoidal.μ Q K L = 𝟙 _
-    exact convolutionHomotopyQuotientMonoidal_μ K L
+  let φ := (Localization.Lifting₂.iso Q Q W W B₀ H).hom
+  let hφ := Localization.lifting₂_iso_hom_commShift₂Int Q Q W W B₀ H
   refine ⟨fun L => ?_, fun K => ?_⟩
-  · let := Localization.lifting₂_iso_hom_app_commShift (M := ℤ) Q Q W W B₀.flip H.flip L
-    exact NatTrans.commShift_of_eq (hl L)
-  · let := Localization.lifting₂_iso_hom_app_commShift (M := ℤ) Q Q W W B₀ H K
-    exact NatTrans.commShift_of_eq (hr K)
+  · let := hφ.commShift_flipApp L
+    have h : Functor.LaxMonoidal.μNatTransFst Q L = φ.flipApp L := by
+      apply NatTrans.ext
+      funext K
+      change Functor.LaxMonoidal.μ Q K L = 𝟙 _
+      exact convolutionHomotopyQuotientMonoidal_μ K L
+    exact NatTrans.commShift_of_eq h
+  · let := hφ.commShift_app K
+    have h : Functor.LaxMonoidal.μNatTransSnd Q K = φ.app K := by
+      apply NatTrans.ext
+      funext L
+      change Functor.LaxMonoidal.μ Q K L = 𝟙 _
+      exact convolutionHomotopyQuotientMonoidal_μ K L
+    exact NatTrans.commShift_of_eq h
+
+end QuotientShift
 
 set_option maxHeartbeats 850000 in
 -- The localization and the transported symmetry use the same cochain components.
@@ -188,29 +194,21 @@ set_option maxHeartbeats 850000 in
 Koszul braiding of the actual cochain representatives. -/
 theorem convolutionHomotopy_braiding_on_cochains (K L : Ch) :
     (β_ ((Q).obj K) ((Q).obj L)).hom = (Q).map (β_ K L).hom := by
-  let : MonoidalCategory Ho := localizedHomotopyMonoidal (k := k)
-  let : SymmetricCategory Ho := localizedHomotopySymmetric (k := k)
+  let cHo : Category Ho := inferInstance
+  let A : @MonoidalCategory Ho cHo := localizedHomotopyMonoidal (k := k)
+  let s : @SymmetricCategory Ho cHo A := localizedHomotopySymmetric (k := k)
+  let : MonoidalCategory Ho := A
+  let : SymmetricCategory Ho := s
   let e := localizedHomotopyTensorIso (k := k)
   let ε := Iso.refl U
   let X := (Q).obj K
   let Y := (Q).obj L
   let t := localizedHomotopyTensorator K L
   let t' := localizedHomotopyTensorator L K
-  have he : (e.app X).app Y = t := Iso.ext (localizedHomotopyTensorIso_hom_app K L)
-  have he' : (e.app Y).app X = t' := Iso.ext (localizedHomotopyTensorIso_hom_app L K)
-  have hβ := Localization.Monoidal.β_hom_app Q W ε K L
-  change (β_ X Y).hom = (localizedHomotopyTensorator K L).hom ≫ (Q).map (β_ K L).hom ≫
-    (localizedHomotopyTensorator L K).inv at hβ
-  have h := MonoidalCategory.reseatSymmetric_braiding e ε X Y
-  let b := (β_ X Y).hom
-  let b' := (Q).map (β_ K L).hom
-  change _ = ((e.app X).app Y).inv ≫ b ≫ ((e.app Y).app X).hom at h
-  calc
-    _ = _ := h
-    _ = t.inv ≫ b ≫ t'.hom :=
-      congrArg₂ (fun g g' => g.inv ≫ b ≫ g'.hom) he he'
-    _ = t.inv ≫ (t.hom ≫ b' ≫ t'.inv) ≫ t'.hom :=
-      congrArg (fun g => t.inv ≫ g ≫ t'.hom) hβ
-    _ = b' := by simp only [Category.assoc, Iso.inv_hom_id_assoc, Iso.inv_hom_id, Category.comp_id]
+  let b := (Q).map (β_ K L).hom
+  have hβ : (β_ X Y).hom = t.hom ≫ b ≫ t'.inv :=
+    Localization.Monoidal.β_hom_app Q W ε K L
+  exact @MonoidalCategory.reseatSymmetric_braiding_hom_of_components Ho cHo A s _ _ e ε X Y t t' b
+    (localizedHomotopyTensorIso_hom_app K L) (localizedHomotopyTensorIso_hom_app L K) hβ
 
 end AlgebraicGeometry.PresheafWithTransfers

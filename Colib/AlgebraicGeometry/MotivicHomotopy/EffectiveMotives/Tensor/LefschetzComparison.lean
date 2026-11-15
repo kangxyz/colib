@@ -8,6 +8,9 @@ module
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.IntegralParameterNaturality
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.ReducedTorusComparison
 import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.SignedExactness
+import Colib.CategoryTheory.Localization.LiftNatIso
+import Colib.CategoryTheory.Preadditive.ComplementComparison
+import Colib.CategoryTheory.Retract.Intertwining
 
 /-!
 # Right tensor by the shifted reduced torus
@@ -148,62 +151,18 @@ private theorem effectiveNativeParameterCompIso_projector (K : D) :
   change (Z ◁ (M).map ((γ).map u₀)) ≫ C.hom.app K =
     (effectiveNativeParameterCompIso e B₀ b).hom.app K ≫
       (a ⋙ r).map ((projectiveCoefficientNatTrans k (torusParameterTensorUnit k)).app K) at h₂
-  have hp₀ : H.map t ≫ v = v ≫ (r).map p := by
-    let x := (M).map ((γ).map p₀)
-    let y := (M).map ((γ).map u₀)
-    let v₀ := (effectiveNativeParameterCompIso e B₀ b).hom.app K
-    let pn := (a).map ((projectiveCoefficientNatTrans k (torusParameterTensorProjection k)).app K)
-    let un := (a).map ((projectiveCoefficientNatTrans k (torusParameterTensorUnit k)).app K)
-    have ht : t = x ≫ y :=
-      ((M).congr_map ((γ).map_comp p₀ u₀)).trans ((M).map_comp _ _)
-    have hq : p = pn ≫ un := projectiveTorusProjectorHom_app K
-    have hx : H.map x ≫ v₀ = v ≫ (r).map pn := h₁
-    have hy : H.map y ≫ v = v₀ ≫ (r).map un := h₂
-    calc
-      _ = (H.map x ≫ H.map y) ≫ v :=
-        congrArg (· ≫ v) ((H.congr_map ht).trans (H.map_comp x y))
-      _ = H.map x ≫ (H.map y ≫ v) := Category.assoc _ _ _
-      _ = H.map x ≫ (v₀ ≫ (r).map un) := congrArg (H.map x ≫ ·) hy
-      _ = (H.map x ≫ v₀) ≫ (r).map un := (Category.assoc _ _ _).symm
-      _ = (v ≫ (r).map pn) ≫ (r).map un := congrArg (· ≫ (r).map un) hx
-      _ = v ≫ (r).map p :=
-        (Category.assoc _ _ _).trans
-          (congrArg (v ≫ ·) (((r).map_comp pn un).symm.trans ((r).congr_map hq.symm)))
+  let x := (M).map ((γ).map p₀)
+  let y := (M).map ((γ).map u₀)
+  let v₀ := (effectiveNativeParameterCompIso e B₀ b).hom.app K
+  let pn := (a).map ((projectiveCoefficientNatTrans k (torusParameterTensorProjection k)).app K)
+  let un := (a).map ((projectiveCoefficientNatTrans k (torusParameterTensorUnit k)).app K)
+  have ht : t = x ≫ y :=
+    ((M).congr_map ((γ).map_comp p₀ u₀)).trans ((M).map_comp _ _)
+  have hq : p = pn ≫ un := projectiveTorusProjectorHom_app K
+  have hx : H.map x ≫ v₀ = v ≫ (r).map pn := h₁
+  have hy : H.map y ≫ v = v₀ ≫ (r).map un := h₂
   change H.map (𝟙 R - t) ≫ v = v ≫ (r).map (𝟙 U - p)
-  exact (congrArg (· ≫ v) (H.map_sub (f := 𝟙 R) (g := t))).trans
-    ((Preadditive.sub_comp _ _ _).trans
-      ((congrArg₂ Sub.sub ((congrArg (· ≫ v) (H.map_id R)).trans (Category.id_comp v)) hp₀).trans
-        ((congrArg (· - (v ≫ (r).map p))
-          (((congrArg (v ≫ ·) ((r).map_id U)).trans (Category.comp_id v)).symm)).trans
-          ((Preadditive.comp_sub _ _ _).symm.trans
-            (congrArg (v ≫ ·) ((r).map_sub (f := 𝟙 U) (g := p)).symm)))))
-
-private def isoOfIntertwiningRetracts {C : Type*} [Category* C] {A A' X Y : C}
-    (j : A ⟶ X) (l : X ⟶ A) (i : A' ⟶ Y) (p : Y ⟶ A') (e : X ≅ Y)
-    (hl : j ≫ l = 𝟙 A) (hp : i ≫ p = 𝟙 A')
-    (h : (l ≫ j) ≫ e.hom = e.hom ≫ p ≫ i) : A ≅ A' where
-  hom := j ≫ e.hom ≫ p
-  inv := i ≫ e.inv ≫ l
-  hom_inv_id := by
-    simp only [Category.assoc]
-    have h' : e.hom ≫ p ≫ i ≫ e.inv ≫ l = l ≫ j ≫ l := by
-      rw [← Category.assoc p i, ← Category.assoc e.hom, ← h, Category.assoc,
-        Iso.hom_inv_id_assoc, Category.assoc]
-    rw [h', ← Category.assoc j l, hl, Category.id_comp]
-  inv_hom_id := by
-    simp only [Category.assoc]
-    have h' : l ≫ j ≫ e.hom ≫ p = e.hom ≫ p ≫ i ≫ p := by
-      simpa only [Category.assoc] using congrArg (· ≫ p) h
-    rw [h', e.inv_hom_id_assoc, ← Category.assoc i p, hp, Category.id_comp]
-
-omit [HasDerivedCategory AddCommGrpCat.{u + 1}] in
-private theorem isoOfIntertwiningRetracts_hom {C : Type*} [Category* C] {A A' X Y : C}
-    (j : A ⟶ X) (l : X ⟶ A) (i : A' ⟶ Y) (p : Y ⟶ A') (e : X ≅ Y)
-    (hl : j ≫ l = 𝟙 A) (hp : i ≫ p = 𝟙 A')
-    (h : (l ≫ j) ≫ e.hom = e.hom ≫ p ≫ i) :
-    (isoOfIntertwiningRetracts j l i p e hl hp h).hom = j ≫ e.hom ≫ p := by
-  unfold isoOfIntertwiningRetracts
-  rfl
+  exact Functor.map_complement_comp_of_intertwining H r hx hy ht hq
 
 variable {R₀ : EffectiveMotivesMinus k}
   (s : Retract R₀ ((effectiveMotive k).obj
@@ -220,27 +179,21 @@ def reducedTorusCompIso :
     q ⋙ tensorRight R₀ ≅ N₀ := by
   letI := effectiveSignedConvolutionMonoidalCategory e
   let C := effectiveNativeParameterCompIso e G d
-  let j : q ⋙ tensorRight R₀ ⟶ q ⋙ tensorRight R :=
-    Functor.whiskerLeft q ((curriedTensor E).flip.map s.i)
-  let l : q ⋙ tensorRight R ⟶ q ⋙ tensorRight R₀ :=
-    Functor.whiskerLeft q ((curriedTensor E).flip.map s.r)
-  let P := Functor.whiskerRight quot r
-  let I := Functor.whiskerRight incl r
-  have h₁ (K : D) : j.app K ≫ l.app K = 𝟙 _ := by
-    change ((q).obj K ◁ s.i) ≫ ((q).obj K ◁ s.r) = 𝟙 _
-    rw [← whiskerLeft_comp, s.retract, whiskerLeft_id]
-  have h₂ (K : D) : I.app K ≫ P.app K = 𝟙 _ := by
-    change (r).map ((incl).app K) ≫ (r).map ((quot).app K) = 𝟙 _
-    rw [← (r).map_comp, projectiveReducedTorusTensorSection_quotient, (r).map_id]
-  have h₃ (K : D) : (l.app K ≫ j.app K) ≫ C.hom.app K =
-      C.hom.app K ≫ P.app K ≫ I.app K := by
+  let src : Retract (q ⋙ tensorRight R₀) (q ⋙ tensorRight R) :=
+    s.map ((curriedTensor E).flip ⋙ (Functor.whiskeringLeft D E E).obj q)
+  let projectiveRetract : Retract (projectiveReducedTorusTensorToDerivedMinus k)
+      (projectiveTorusTensorToDerivedMinus k) :=
+    ⟨incl, quot, NatTrans.ext (funext (projectiveReducedTorusTensorSection_quotient (k := k)))⟩
+  let tgt : Retract N₀ (projectiveTorusTensorToDerivedMinus k ⋙ r) :=
+    projectiveRetract.map ((Functor.whiskeringRight D _ E).obj r)
+  have h (K : D) : (src.r.app K ≫ src.i.app K) ≫ C.hom.app K =
+      C.hom.app K ≫ tgt.r.app K ≫ tgt.i.app K := by
     change (((q).obj K ◁ s.r) ≫ ((q).obj K ◁ s.i)) ≫ C.hom.app K =
       C.hom.app K ≫ (r).map ((quot).app K) ≫ (r).map ((incl).app K)
     rw [← whiskerLeft_comp, hs, ← (r).map_comp,
       projectiveReducedTorusTensorQuotient_section]
     exact effectiveNativeParameterCompIso_projector e d b hu hp K
-  exact isoOfIntertwiningRetracts j l I P C
-    (NatTrans.ext (funext h₁)) (NatTrans.ext (funext h₂)) (NatTrans.ext (funext h₃))
+  exact src.isoOfIntertwining tgt C (NatTrans.ext (funext h))
 
 /-- The original reduced comparison is the section, Laurent comparison, and quotient. -/
 theorem reducedTorusCompIso_hom :
@@ -249,7 +202,7 @@ theorem reducedTorusCompIso_hom :
       Functor.whiskerLeft q ((curriedTensor E).flip.map s.i) ≫
         (effectiveNativeParameterCompIso e G d).hom ≫ Functor.whiskerRight quot r := by
   unfold reducedTorusCompIso
-  exact isoOfIntertwiningRetracts_hom _ _ _ _ _ _ _ _
+  exact Retract.isoOfIntertwining_hom _ _ _ _
 
 include hu hp hs in
 /-- Right tensor by the original split reduced torus is its native
@@ -275,10 +228,15 @@ theorem effectiveRightReducedTorusIso_hom_app_localized (K : D) :
         (r).map ((quot).app K) ≫ (projectiveEffectiveTorusNatIso k).hom.app K ≫
           (T).map ((sheafificationEffectiveReflectionIso k).hom.app K) := by
   let := effectiveSignedConvolutionMonoidalCategory e
-  rw [effectiveRightReducedTorusIso, Localization.liftNatIso_hom, Localization.liftNatTrans_app]
-  simp only [reducedTorusCompIso_hom, Iso.refl_hom, Iso.symm_inv,
-    Iso.trans_hom, Functor.isoWhiskerRight_hom, Functor.whiskerRight_app, NatTrans.comp_app,
-    NatTrans.id_app, Category.id_comp, Category.assoc]
+  let c₀ := reducedTorusCompIso e d b hu hp s hs
+  let g := sheafificationEffectiveReflectionIso k
+  let c₁ : N₀ ≅ q ⋙ T := projectiveEffectiveTorusNatIso k ≪≫ Functor.isoWhiskerRight g T
+  have h : (effectiveRightReducedTorusIso e d b hu hp s hs).hom.app ((q).obj K) =
+      c₀.hom.app K ≫ c₁.hom.app K :=
+    Localization.liftNatIso_refl_hom_app q W N₀ c₀ c₁ K
+  rw [h]
+  simp only [c₀, c₁, g, reducedTorusCompIso_hom, Iso.trans_hom, Functor.isoWhiskerRight_hom,
+    Functor.whiskerRight_app, Functor.whiskerLeft_app, NatTrans.comp_app, Category.assoc]
   rfl
 
 /-- The second signed shift comparison, natural in the first effective motive. -/
