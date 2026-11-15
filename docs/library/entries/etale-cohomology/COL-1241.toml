@@ -52,8 +52,8 @@ invertibility through Gamma-Spec. The conclusion concerns the original
 module Ext pairing with its tensor-square target, not a chosen
 trivialization of that target.
 
-This proves the degree-two Steinberg relation. It does not yet construct
-factorization through the native Milnor K-theory quotient, identify that
-factorization with a motivic symbol map, prove higher-weight product
-compatibility, or assert a higher norm-residue theorem.
+This proves the degree-two Steinberg relation. Its factorization through the
+native Milnor quotient modulo n is constructed separately in COL-1242. Neither
+item identifies that factorization with a motivic symbol map, proves
+higher-weight product compatibility, or asserts a norm-residue isomorphism.
 '''
