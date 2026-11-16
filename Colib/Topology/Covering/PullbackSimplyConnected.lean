@@ -39,6 +39,7 @@ private theorem piOne_injective_iff_at_endpoint {x : X} {y : Y} (h : f x = y) :
   cases h
   rfl
 
+include hq in
 /-- The actual pullback is simply connected if the original map is bijective
 on the fundamental group at one specified matching pair. -/
 theorem simplyConnectedSpace
@@ -54,7 +55,7 @@ theorem simplyConnectedSpace
   have hinj₁ := (homotopyGroupMap_injective_iff_of_path f γ 1).mp hinj₀
   have hinj : Function.Injective (HomotopyGroup.piMap 0 f z.property) :=
     (piOne_injective_iff_at_endpoint f z.property).mpr hinj₁
-  haveI : Subsingleton (HomotopyGroup.Pi 1 (Space f q) z) := by
+  have hsub : Subsingleton (HomotopyGroup.Pi 1 (Space f q) z) := by
     refine ⟨fun a b ↦ ?_⟩
     apply (piOneKernelEquiv f q hq z).injective
     apply Subtype.ext
@@ -63,8 +64,8 @@ theorem simplyConnectedSpace
       ((piOneKernelEquiv f q hq z b).property).symm
   apply Path.Homotopic.Quotient.eq.mp
   have h : FundamentalGroup.fromPath (Path.Homotopic.Quotient.mk p) =
-      (1 : FundamentalGroup (Space f q) z) :=
-    HomotopyGroup.pi1MulEquivFundamentalGroup.symm.injective (Subsingleton.elim _ _)
-  simpa only [FundamentalGroup.one_def] using congrArg End.asHom h
+      FundamentalGroup.fromPath (Path.Homotopic.Quotient.mk (Path.refl z)) :=
+    HomotopyGroup.pi1MulEquivFundamentalGroup.symm.injective (hsub.elim _ _)
+  exact congrArg End.asHom h
 
 end Topology.Covering.Pullback
