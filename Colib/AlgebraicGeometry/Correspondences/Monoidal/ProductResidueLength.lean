@@ -184,6 +184,7 @@ theorem length_stalk_product_at_generic_closures
   have H := length_stalk_product_eq_mul_length_reducedClosures f g
     (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι
     z φ hflat hleft hright
+  dsimp only [point] at H
   simp only [hα, hβ] at H
   exact H z rfl hA hB
 
