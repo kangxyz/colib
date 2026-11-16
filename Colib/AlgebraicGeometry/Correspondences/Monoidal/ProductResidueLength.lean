@@ -123,6 +123,25 @@ theorem length_extendExteriorResidueTensor_eq_length_stalk
   change Module.length R₀ M = Module.length L L
   exact Module.length_eq_of_surjective (R := L) (M := M) hρ
 
+omit [IsClosedImmersion i] [IsClosedImmersion j] in
+/-- The full ambient product-stalk length is the product of the input stalk lengths and
+of the reduced-closures product multiplicity. No reducedness or perfectness is assumed. -/
+theorem length_stalk_product_eq_mul_length_reducedClosures
+    [Algebra k A₀] [Algebra k B₀]
+    (φ : A₀ ⊗[k] B₀ →+* R₀) (hflat : φ.Flat)
+    (hleft : φ.comp Algebra.TensorProduct.includeLeftRingHom = ((p).stalkMap w).hom)
+    (hright : φ.comp Algebra.TensorProduct.includeRight.toRingHom = ((q).stalkMap w).hom)
+    (y : genericPoints T) (hy : b y.val = w)
+    (hA : IsFiniteLength A₀ A₀) (hB : IsFiniteLength B₀ B₀) :
+    Module.length R₀ R₀ = Module.length A₀ A₀ * Module.length B₀ B₀ *
+      Module.length ((T).presheaf.stalk y.val) ((T).presheaf.stalk y.val) := by
+  let : Algebra (A₀ ⊗[k] B₀) R₀ := φ.toAlgebra
+  let : Module.Flat (A₀ ⊗[k] B₀) R₀ := RingHom.flat_algebraMap_iff.mp hflat
+  have h := ModuleCat.Tor.length_self_eq_mul_length_extendExteriorResidueTensor
+    (k := k) (S := R₀) hA hB
+  rw [length_extendExteriorResidueTensor_eq_length_stalk f g i j x φ hleft hright y hy] at h
+  exact h
+
 /-- Reducedness of the actual product of point closures suffices for residue tensor length one. -/
 theorem length_extendExteriorResidueTensor_at_genericClosedProduct_of_isReduced
     [IsReduced T] [Algebra k A₀] [Algebra k B₀]
