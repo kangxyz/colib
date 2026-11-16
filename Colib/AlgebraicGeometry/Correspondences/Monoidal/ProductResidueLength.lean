@@ -185,7 +185,7 @@ theorem length_stalk_product_at_generic_closures
     (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι
     z φ hflat hleft hright
   dsimp only [point] at H
-  simp only [hα, hβ] at H
+  rw [hα, hβ] at H
   exact H z rfl hA hB
 
 /-- Reducedness of the actual product of point closures suffices for residue tensor length one. -/
