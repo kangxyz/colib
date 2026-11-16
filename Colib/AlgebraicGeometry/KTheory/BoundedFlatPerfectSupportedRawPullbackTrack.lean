@@ -57,7 +57,7 @@ theorem boundedAboveFlatPerfectSupportedPullbackUnitIso_hom_original (p : A ⟶ 
   simp only [boundedAboveFlatPerfectSupportedPullbackUnitIso,
     Functor.IdentityAutomorphism.onFunctor_hom_app, boundedAboveFlatPerfectSupportedGlobalUnitIso,
     Functor.fullyFaithfulCancelRight_hom_app, Functor.map_preimage,
-    Functor.isoWhiskerLeft_hom, Functor.whiskerLeft_app, ObjectProperty.ι_obj]
+    Functor.isoWhiskerLeft_hom, Functor.whiskerLeft_app, ObjectProperty.ι_obj, Functor.id_obj]
 
 /-- The whole original scalar track before localization, not merely its induced map on K-groups. -/
 @[colib_ref "quillen"
