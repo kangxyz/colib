@@ -56,9 +56,11 @@ theorem stageZeroPointSection_comp :
   have hv (D : WideSubcategory preservesZero.{u}) :
       (SSet.const (X := N) (stageVertex 0 D)).app n z =
         (SSet.yonedaEquiv.symm (stageVertex 0 D)).app n p := by
+    have hp : (SSet.yonedaEquiv.symm (stageVertex 0 D)).app _ p₀ = stageVertex 0 D :=
+      SSet.yonedaEquiv.apply_symm_apply (stageVertex 0 D)
     have hc : (SSet.const (X := N) (stageVertex 0 D)) =
         SSet.const p₀ ≫ SSet.yonedaEquiv.symm (stageVertex 0 D) := by
-      rw [SSet.const_comp, SSet.yonedaEquiv.apply_symm_apply]
+      rw [SSet.const_comp, hp]
     exact congrArg (fun a : N ⟶ (stages 0).obj D ↦ a.app n z) hc
   change φ.app n ((SSet.const (X := N) (stageVertex 0 V)).app n z, ⟨𝟙 n.unop⟩) =
     (SSet.const (X := N) (stageVertex 0 W)).app n z
