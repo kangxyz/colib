@@ -48,7 +48,7 @@ theorem comparison_finiteCarrierLift (B : Y.Subcomplex) [SSet.Finite B]
 theorem exists_compactRightLift (p : C(T, |Y|)) :
     ∃ lift : C(T × |X|, |X ⊗ Y|), ∀ t x, comparison X Y (lift (t, x)) = (x, p t) := by
   obtain ⟨B, hB, g, hg⟩ := realization_continuousMap_factors_finiteSubcomplex p
-  letI : SSet.Finite B := hB
+  let : SSet.Finite B := hB
   refine ⟨(finiteCarrierLift X Y B).comp ((ContinuousMap.snd : C(T × |X|, |X|)).prodMk
     (g.comp ContinuousMap.fst)), ?_⟩
   intro t x
