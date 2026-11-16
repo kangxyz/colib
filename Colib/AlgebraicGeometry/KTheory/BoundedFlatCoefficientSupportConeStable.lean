@@ -32,10 +32,12 @@ attribute [local irreducible] boundedAboveFlatCoefficientOriginalEvaluation
   boundedAboveFlatCoefficientSupportedSectionEquivalence
 variable {R : CommRingCat.{u}} {P Q : Over (Spec R)} (f : P ⟶ Q)
     [IsOpenImmersion f.left]
-private def supportAcyclicSmallEquivalence (a : Under R) :=
+/-- The exact support evaluation equivalence with the native small target. -/
+def supportAcyclicSmallEquivalence (a : Under R) :=
   (boundedAboveFlatCoefficientSupportAcyclicEquivalence f a).trans AsSmall.equiv
 
-private theorem supportAcyclicSmall_exact (a : Under R) :
+/-- Support evaluation preserves the native relative-acyclic exact structure. -/
+theorem supportAcyclicSmall_exact (a : Under R) :
     IsExact (boundedAboveFlatCoefficientSupportedModel f a).obj.waldhausen.cof
       (boundedAboveFlatCoefficientSupportedModel f a).obj.waldhausen.weq
       (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))).asSmall.cof
@@ -44,7 +46,8 @@ private theorem supportAcyclicSmall_exact (a : Under R) :
   (boundedAboveFlatCoefficientSupportAcyclicEvaluation_exact f a).comp
     (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))).asSmall_up_exact
 
-private theorem supportAcyclicSmall_inverse_exact (a : Under R) :
+/-- Inverse support evaluation is exact in the native small category. -/
+theorem supportAcyclicSmall_inverse_exact (a : Under R) :
     IsExact (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))).asSmall.cof
       (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))).asSmall.weq
       (boundedAboveFlatCoefficientSupportedModel f a).obj.waldhausen.cof
@@ -53,16 +56,19 @@ private theorem supportAcyclicSmall_inverse_exact (a : Under R) :
   (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))).asSmall_down_exact.comp
     (boundedAboveFlatCoefficientSupportAcyclicEquivalence_inverse_exact f a)
 
-private def supportAcyclicModelMap (a : Under R) :
+/-- Evaluate supported sections into the native relative-acyclic model. -/
+def supportAcyclicModelMap (a : Under R) :
     boundedAboveFlatCoefficientSupportedModel f a ⟶
       asSmallCategory (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a)))  :=
   ⟨⟨(supportAcyclicSmallEquivalence f a).functor, supportAcyclicSmall_exact f a⟩,
     congrArg AsSmall.up.obj (boundedAboveFlatCoefficientSupportAcyclicEvaluation_zero f a)⟩
 
-private def ambientSmallEquivalence (a : Under R) :=
+/-- The ambient evaluation equivalence with the native small target. -/
+def ambientSmallEquivalence (a : Under R) :=
   (boundedAboveFlatCoefficientSectionEquivalence (op Q, a)).trans AsSmall.equiv
 
-private theorem ambientSmall_exact (a : Under R) :
+/-- Ambient evaluation is exact in the native bounded-flat model. -/
+theorem ambientSmall_exact (a : Under R) :
     IsExact (boundedAboveFlatCoefficientSectionWaldhausen (op Q, a)).cof
       (boundedAboveFlatCoefficientSectionWaldhausen (op Q, a)).weq
       (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace).asSmall.cof
@@ -71,7 +77,8 @@ private theorem ambientSmall_exact (a : Under R) :
   (boundedAboveFlatCoefficientOriginalEvaluation_exact (op Q, a)).comp
     (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace).asSmall_up_exact
 
-private theorem ambientSmall_inverse_exact (a : Under R) :
+/-- Inverse ambient evaluation is exact in the native model. -/
+theorem ambientSmall_inverse_exact (a : Under R) :
     IsExact (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace).asSmall.cof
       (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace).asSmall.weq
       (boundedAboveFlatCoefficientSectionWaldhausen (op Q, a)).cof
@@ -80,13 +87,15 @@ private theorem ambientSmall_inverse_exact (a : Under R) :
   (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace).asSmall_down_exact.comp
     (boundedAboveFlatCoefficientSectionEquivalence_inverse_exact (op Q, a))
 
-private def ambientEvaluationModelMap (a : Under R) :
+/-- Evaluate the actual ambient sections at the original chosen zero. -/
+def ambientEvaluationModelMap (a : Under R) :
     boundedAboveFlatCoefficientSectionModel (op Q, a) ⟶
       asSmallCategory (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace)  :=
   ⟨⟨(ambientSmallEquivalence (Q := Q) a).functor, ambientSmall_exact a⟩,
     congrArg AsSmall.up.obj (boundedAboveFlatCoefficientOriginalEvaluation_sectionZero (op Q, a))⟩
 
-private theorem openSmall_exact (a : Under R) :
+/-- Ambient evaluation is exact for the relative-open weak equivalences. -/
+theorem openSmall_exact (a : Under R) :
     IsExact (boundedAboveFlatCoefficientOpenWaldhausen f a).cof
       (boundedAboveFlatCoefficientOpenWaldhausen f a).weq
       (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a)).asSmall.cof
@@ -95,7 +104,8 @@ private theorem openSmall_exact (a : Under R) :
   (boundedAboveFlatCoefficientOpenEvaluation_coarse_exact f a).comp
     (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a)).asSmall_up_exact
 
-private theorem openSmall_inverse_exact (a : Under R) :
+/-- Inverse evaluation is exact for the relative-open weak equivalences. -/
+theorem openSmall_inverse_exact (a : Under R) :
     IsExact (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a)).asSmall.cof
       (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a)).asSmall.weq
       (boundedAboveFlatCoefficientOpenWaldhausen f a).cof
@@ -104,13 +114,15 @@ private theorem openSmall_inverse_exact (a : Under R) :
   (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a)).asSmall_down_exact.comp
     (boundedAboveFlatCoefficientOpenEquivalence_inverse_exact f a)
 
-private def openEvaluationModelMap (a : Under R) :
+/-- Evaluate the ambient sections with the relative-open weak equivalences. -/
+def openEvaluationModelMap (a : Under R) :
     boundedAboveFlatCoefficientOpenModel f a ⟶
       asSmallCategory (boundedAboveFlatPerfectOpenWaldhausen (schemeMap f a))  :=
   ⟨⟨(ambientSmallEquivalence (Q := Q) a).functor, openSmall_exact f a⟩,
     (ambientEvaluationModelMap (Q := Q) a).property⟩
 
-private theorem evaluation_inclusion (a : Under R) :
+/-- The support evaluation commutes with actual inclusion. -/
+theorem evaluation_inclusion (a : Under R) :
     boundedAboveFlatCoefficientSupportedForgetModelMap f a ≫ ambientEvaluationModelMap a =
       supportAcyclicModelMap f a ≫
         asSmallCategoryMap _ _ (acyclicInclusion_exact
@@ -123,7 +135,8 @@ private theorem evaluation_inclusion (a : Under R) :
     (acyclicInclusion (boundedAboveFlatPerfectOpenNested (schemeMap f a)))
     (boundedAboveFlatCoefficientSupportAcyclicEvaluation_inclusion f a).symm
 
-private theorem evaluation_changeWeak (a : Under R) :
+/-- The original evaluation commutes with changing weak equivalences. -/
+theorem evaluation_changeWeak (a : Under R) :
     boundedAboveFlatCoefficientOpenChangeWeakModelMap f a ≫ openEvaluationModelMap f a =
       ambientEvaluationModelMap a ≫ asSmallCategoryMap _ _
         (changeWeak_exact (boundedAboveFlatPerfectOpenNested (schemeMap f a)))
@@ -134,7 +147,8 @@ private theorem evaluation_changeWeak (a : Under R) :
     (ambientSmallEquivalence (Q := Q) a).functor ⋙ 𝟭 _
   rw [Functor.id_comp, Functor.comp_id]
 
-private def supportEvaluationSquare (a : Under R) :
+/-- The actual evaluation maps commute with the supported inclusion. -/
+def supportEvaluationSquare (a : Under R) :
     Arrow.mk ((boundedAboveFlatCoefficientSupportedForgetPrespectrumTransformation f).app a) ⟶
       Arrow.mk (acyclicInclusionPrespectrumMap (boundedAboveFlatPerfectOpenNested (schemeMap f
         a))) :=
@@ -144,7 +158,8 @@ private def supportEvaluationSquare (a : Under R) :
       ((congrArg prespectrumFunctor.map (evaluation_inclusion f a)).trans
         (prespectrumFunctor.map_comp _ _))).symm
 
-private theorem null_evaluation (a : Under R) (n : ℕ) (s : unitInterval)
+/-- Evaluation preserves every point of the prescribed support nullhomotopy. -/
+theorem null_evaluation (a : Under R) (n : ℕ) (s : unitInterval)
     (x : ((boundedAboveFlatCoefficientSupportedPrespectrumFunctor f).obj a).space n) :
     (prespectrumMap (openEvaluationModelMap f a)).map n
         (((boundedAboveFlatCoefficientSupportedOpenDiagramNull f).homotopy a).level n (s, x)) =
@@ -175,6 +190,15 @@ private theorem null_evaluation (a : Under R) (n : ℕ) (s : unitInterval)
     (boundedAboveFlatCoefficientSupportedZeroToOpen_weak f a) hθ n
   exact congrArg (fun H ↦ H (unitInterval.symm s, x)) h
 
+/-- The literal support evaluation map is invertible in every signed stable degree. -/
+theorem supportAcyclicModelMap_isStableEquivalence (a : Under R) :
+    IsStableEquivalence (prespectrumMap (supportAcyclicModelMap f a)) :=
+  ExactModelEquivalence.isStableEquivalence
+    (V := boundedAboveFlatCoefficientSupportedModel f a)
+    (W := asSmallCategory (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))))
+    (supportAcyclicSmallEquivalence f a) (supportAcyclicSmall_exact f a)
+    (supportAcyclicSmall_inverse_exact f a) (supportAcyclicModelMap f a).property
+
 /-- Genuine geometric fibration proves stability of the exact original native support cone. -/
 @[colib_ref "quillen"
   "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/\
@@ -195,11 +219,7 @@ theorem boundedAboveFlatCoefficientSupportedOpenConeComparison_isStableEquivalen
       ((prespectrumFunctor.map_comp _ _).symm.trans
         ((congrArg prespectrumFunctor.map (evaluation_changeWeak f a)).trans
           (prespectrumFunctor.map_comp _ _))).symm (null_evaluation f a)
-  have hs := ExactModelEquivalence.isStableEquivalence
-    (V := boundedAboveFlatCoefficientSupportedModel f a)
-    (W := asSmallCategory (acyclicStructure (boundedAboveFlatPerfectOpenNested (schemeMap f a))))
-    (supportAcyclicSmallEquivalence f a) (supportAcyclicSmall_exact f a)
-    (supportAcyclicSmall_inverse_exact f a) (supportAcyclicModelMap f a).property
+  have hs := supportAcyclicModelMap_isStableEquivalence f a
   have ha := ExactModelEquivalence.isStableEquivalence
     (V := boundedAboveFlatCoefficientSectionModel (op Q, a))
     (W := asSmallCategory (boundedAboveFlatPerfectWaldhausen (space (op Q, a)).toRingedSpace))
