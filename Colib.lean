@@ -6391,6 +6391,7 @@ public import Colib.Topology.DoubleMappingCylinder.HeightCover
 public import Colib.Topology.DoubleMappingCylinder.HomotopyDescent
 public import Colib.Topology.DoubleMappingCylinder.Invariance
 public import Colib.Topology.DoubleMappingCylinder.LocalComparison
+public import Colib.Topology.DoubleMappingCylinder.PlusGapConnectivity
 public import Colib.Topology.DoubleMappingCylinder.Subdivision
 public import Colib.Topology.DoubleMappingCylinder.WeakCartesian
 public import Colib.Topology.DoubleMappingCylinder.WeakInvariance
@@ -6499,6 +6500,7 @@ public import Colib.Topology.Homotopy.HomotopyGroup.ComponentCriterion
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.Basic
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.EquivalenceSquare
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.HomotopySquare
+public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.PiOneSurjective
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.Vanishing
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.VanishingTransport
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.WeakSquare
@@ -6771,6 +6773,7 @@ public import Colib.Topology.HomotopyPullback.OverlapConnectivity
 public import Colib.Topology.HomotopyPullback.OverlapCubeLifting
 public import Colib.Topology.HomotopyPullback.OverlapPaths
 public import Colib.Topology.HomotopyPullback.Pasting
+public import Colib.Topology.HomotopyPullback.PiOneKernel
 public import Colib.Topology.HomotopyPullback.ProductChart
 public import Colib.Topology.HomotopyPullback.Products
 public import Colib.Topology.HomotopyPullback.Pushout
