@@ -130,7 +130,7 @@ theorem rightTensorBaseChangeEquiv_presentation (f : R →+* S)
           (Matrix.RightModule.imageEquivalence.inverse.obj P)).toLinearMap.comp
         (RightScalarExtension.map f (rightBaseChangePresentationEquiv P).symm.toLinearMap) =
       (rightTensorBaseChangeEquiv f P).toLinearMap := by
-  apply hom_ext f
+  apply RightScalarExtension.hom_ext f
   intro p s
   exact (congrArg
     (Matrix.RightModule.tensorImageEquiv f (Matrix.RightModule.imageEquivalence.inverse.obj P))
