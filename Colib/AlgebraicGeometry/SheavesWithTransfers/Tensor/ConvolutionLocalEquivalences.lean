@@ -65,12 +65,12 @@ theorem isIso_sheafify_convolution_map_left
   let : PreservesColimitsOfSize.{u + 1, u + 1} ((convolutionBifunctor F).obj P) := by
     constructor
     intro J hJ
-    letI : Category.{u + 1} J := hJ
+    let : Category.{u + 1} J := hJ
     exact convolution_preservesColimitsOfShape_right F P J
   let : PreservesColimitsOfSize.{u + 1, u + 1} ((convolutionBifunctor F).obj P') := by
     constructor
     intro J hJ
-    letI : Category.{u + 1} J := hJ
+    let : Category.{u + 1} J := hJ
     exact convolution_preservesColimitsOfShape_right F P' J
   let α := Functor.whiskerRight ((convolutionBifunctor F).map f) (nisnevichSheafify.{u} k)
   exact isIso_app_of_isIso_representable α
