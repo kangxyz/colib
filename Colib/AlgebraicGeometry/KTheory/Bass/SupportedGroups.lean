@@ -48,6 +48,25 @@ def supportedKZeroMultiplicativeFunctor : QuasiCompactOpenPairs.{u}ᵒᵖ ⥤ Co
 def supportedKZeroFunctor : QuasiCompactOpenPairs.{u}ᵒᵖ ⥤ AddCommGrpCat.{u+1} :=
   supportedKZeroMultiplicativeFunctor ⋙ CommGrpCat.toAddCommGrp
 
+/-- The unchanged supported perfect K-groups, in additive notation, in every connective degree. -/
+def supportedKFunctor (n : ℕ) : QuasiCompactOpenPairs.{u}ᵒᵖ ⥤ AddCommGrpCat.{u + 1} where
+  obj A :=
+    letI := CategoryTheory.Waldhausen.Additivity.KCommGroup
+      (perfectSupportedWaldhausen A.unop.obj.hom) n
+    .of (Additive (PerfectSupportedK A.unop.obj.hom n))
+  map {A B} f :=
+    letI := CategoryTheory.Waldhausen.Additivity.KCommGroup
+      (perfectSupportedWaldhausen A.unop.obj.hom) n
+    letI := CategoryTheory.Waldhausen.Additivity.KCommGroup
+      (perfectSupportedWaldhausen B.unop.obj.hom) n
+    AddCommGrpCat.ofHom (perfectSupportedKPullback f.unop n).toAdditive
+  map_id A := by
+    apply AddCommGrpCat.hom_ext
+    exact congrArg MonoidHom.toAdditive (perfectSupportedKPullback_id A.unop n)
+  map_comp f g := by
+    apply AddCommGrpCat.hom_ext
+    exact congrArg MonoidHom.toAdditive (perfectSupportedKPullback_comp g.unop f.unop n)
+
 /-- Bass recursion on actual scheme/open-support pairs. The index n means K_{-n}. -/
 def supportedNegativeKFunctor : ℕ → QuasiCompactOpenPairs.{u}ᵒᵖ ⥤ AddCommGrpCat.{u+1}
   | 0 => supportedKZeroFunctor
