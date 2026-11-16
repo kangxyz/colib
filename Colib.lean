@@ -7285,6 +7285,7 @@ public import Colib.Topology.Realization.FiniteSkeleton
 public import Colib.Topology.Realization.FiniteStrictLifting
 public import Colib.Topology.Realization.FiniteSubcomplex
 public import Colib.Topology.Realization.FiniteSubcomplexCardinal
+public import Colib.Topology.Realization.FiniteSimplexStraightening
 public import Colib.Topology.Realization.FiniteVertexStraightening
 public import Colib.Topology.Realization.GraphAttachmentAnchors
 public import Colib.Topology.Realization.GraphAttachmentFullness
