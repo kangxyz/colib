@@ -38,14 +38,14 @@ theorem isIso_app_of_isIso_representable (α : L ⟶ L')
   have hcover (Q : PresheafWithTransfers.{u + 1} k) :
       IsIso (α.app (representableCover Q)) := by
     let K := Discrete.functor (representableCoverFamily Q)
-    have : ∀ i, IsIso ((whiskerLeft K α).app i) := fun i => hα i.as.1
-    have : IsIso (whiskerLeft K α) := NatIso.isIso_of_isIso_app _
+    have : ∀ i, IsIso ((Functor.whiskerLeft K α).app i) := fun i => hα i.as.1
+    have : IsIso (Functor.whiskerLeft K α) := NatIso.isIso_of_isIso_app _
     exact isIso_app_coconePt_of_preservesColimit K α _ (colimit.isColimit K)
   let K := parallelPair (representablePresentationRelation P) 0
-  have : ∀ i, IsIso ((whiskerLeft K α).app i) := by
+  have : ∀ i, IsIso ((Functor.whiskerLeft K α).app i) := by
     intro i
     cases i <;> exact hcover _
-  have : IsIso (whiskerLeft K α) := NatIso.isIso_of_isIso_app _
+  have : IsIso (Functor.whiskerLeft K α) := NatIso.isIso_of_isIso_app _
   exact isIso_app_coconePt_of_preservesColimit K α _ (representablePresentationIsColimit P)
 
 end AlgebraicGeometry.PresheafWithTransfers

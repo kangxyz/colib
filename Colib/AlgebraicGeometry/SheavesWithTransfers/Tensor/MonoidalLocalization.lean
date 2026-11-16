@@ -49,6 +49,7 @@ local instance : SymmetricCategory PST := convolutionSymmetricCategory
 /-- Nisnevich local equivalences are stable under the actual convolution in both slots. -/
 instance nisnevichSheafificationEquivalences_isMonoidal :
     (nisnevichSheafificationEquivalences k).IsMonoidal where
+  toIsMultiplicative := inferInstance
   whiskerLeft P _ _ f hf := by
     change IsIso ((nisnevichSheafify k).map f) at hf
     letI := hf

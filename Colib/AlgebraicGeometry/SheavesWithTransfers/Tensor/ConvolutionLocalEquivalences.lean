@@ -41,7 +41,7 @@ theorem isIso_sheafify_convolution_map_representable
     {P P' : PST} (f : P ⟶ P') [IsIso ((nisnevichSheafify k).map f)] (X : Cor k) :
     IsIso ((nisnevichSheafify k).map
       (((convolutionBifunctor F).map f).app ((representableLarge k).obj X))) := by
-  let e := isoWhiskerRight (convolutionParameterNatIso F X) (nisnevichSheafify k)
+  let e := Functor.isoWhiskerRight (convolutionParameterNatIso F X) (nisnevichSheafify k)
   apply (NatIso.isIso_map_iff e f).2
   exact isIso_sheafify_parameterPushforward_map
     (Cor.graphFunctorCompTensorRightIso X.toSmoothSite) f
@@ -57,7 +57,7 @@ theorem isIso_sheafify_convolution_map_left
     ⟨fun J _ => convolution_preservesColimitsOfShape_right F P J⟩
   let : PreservesColimitsOfSize.{u + 1, u + 1} ((convolutionBifunctor F).obj P') :=
     ⟨fun J _ => convolution_preservesColimitsOfShape_right F P' J⟩
-  let α := whiskerRight ((convolutionBifunctor F).map f) (nisnevichSheafify k)
+  let α := Functor.whiskerRight ((convolutionBifunctor F).map f) (nisnevichSheafify k)
   exact isIso_app_of_isIso_representable α
     (fun X => isIso_sheafify_convolution_map_representable f X) Q
 
@@ -66,7 +66,7 @@ using the actual convolution symmetry rather than a second presentation proof. -
 theorem isIso_sheafify_convolution_map_right
     (P : PST) {Q Q' : PST} (f : Q ⟶ Q') [IsIso ((nisnevichSheafify k).map f)] :
     IsIso ((nisnevichSheafify k).map (((convolutionBifunctor F).obj P).map f)) := by
-  let e := isoWhiskerRight
+  let e := Functor.isoWhiskerRight
     ((convolutionSwap F (BraidedCategory.curriedBraidingNatIso (Cor k))
       curriedCorrespondenceBraiding_involutive).app P) (nisnevichSheafify k)
   exact (NatIso.isIso_map_iff e f).2 (isIso_sheafify_convolution_map_left f P)
