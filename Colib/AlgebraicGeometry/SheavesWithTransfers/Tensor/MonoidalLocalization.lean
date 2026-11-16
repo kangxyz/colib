@@ -49,7 +49,7 @@ instance : (nisnevichSheafificationEquivalences k).IsMultiplicative :=
     (nisnevichSheafify k)).IsMultiplicative
 
 instance : (nisnevichSheafify k).IsLocalization (nisnevichSheafificationEquivalences k) :=
-  (nisnevichSheafificationAdjunction k).isLocalization'
+  (nisnevichSheafificationAdjunction k).isLocalization
 
 local instance : MonoidalCategory PST := convolutionMonoidalCategory
 local instance : SymmetricCategory PST := convolutionSymmetricCategory
