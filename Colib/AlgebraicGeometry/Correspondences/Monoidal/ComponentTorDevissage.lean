@@ -429,6 +429,35 @@ theorem structureTorCoefficient_eq_sum_weighted_genericPairs :
   exact (Fintype.sum_equiv (Equiv.sigmaFiberEquiv labels).symm F
     (fun t => F t.2.val) (fun _ => rfl)).trans (Fintype.sum_sigma _)
 
+omit α β [PerfectField k] in
+/-- Over an arbitrary field, the whole Tor coefficient is the sum of the native component
+incidence coefficients weighted by both input generic multiplicities. -/
+theorem structureTorCoefficient_eq_sum_weighted_componentIncidences :
+    letI := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+    letI := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+    structureTorCoefficient ρ σ =
+      ∑ α : genericPoints D₁, ∑ β : genericPoints D₂,
+        ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
+          ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+            exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β := by
+  classical
+  let := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+  let := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+  rw [structureTorCoefficient_eq_sum_weighted_genericPairs X Y Z U V W a b c d
+    ha hb hc hd z]
+  rw [← Fintype.sum_prod_type' (fun α β =>
+    ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
+      ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+        exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β)]
+  apply Finset.sum_congr rfl
+  intro t _
+  exact (weighted_componentCoefficient_eq_finsum_support X Y Z U V W a b c d
+    ha hb hc hd z t.1 t.2).symm
+
 omit α β in
 /-- The whole local Tor coefficient is the sum over the actual native component incidences.
 The local product-support multiplicities are one over the perfect field. -/
