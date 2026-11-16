@@ -318,10 +318,12 @@ theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
   let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
   apply pullback.hom_ext
   · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
-      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
+      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, Iso.trans_hom, asIso_hom,
+      pullback.congrHom_hom,
       pullback.map, exteriorLeftComponentMap, reducedClosureComponentInclusion, Category.assoc]
   · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
-      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
+      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, Iso.trans_hom, asIso_hom,
+      pullback.congrHom_hom,
       pullback.map, exteriorRightComponentMap, reducedClosureComponentInclusion, Category.assoc]
 
 /-- The exact comparison of component products retains the full local multiplicity. -/
@@ -649,7 +651,7 @@ theorem length_stalk_exteriorWholeSupport_eq_mul_component
           ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ.val) := by
   let : IsNoetherian D₁ := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
   let : IsNoetherian D₂ := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
-  have finiteGeneric (E : Scheme.{u}) [IsLocallyNoetherian E] (η : genericPoints E) :
+  have finiteGeneric (E : Scheme.{«u»}) [IsLocallyNoetherian E] (η : genericPoints E) :
       IsFiniteLength (E.presheaf.stalk η.val) (E.presheaf.stalk η.val) := by
     have hdim := ringKrullDim_stalk_eq_zero_of_mem_genericPoints (W := E) η
     let : Ring.KrullDimLE 0 (E.presheaf.stalk η.val) := by
