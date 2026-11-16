@@ -25,7 +25,7 @@ GlobalRawBassInputIdentityProjection.lean` at commit
 
 @[expose] public noncomputable section
 
-open CategoryTheory CategoryTheory.Functor
+open AlgebraicGeometry.RingedSpace CategoryTheory CategoryTheory.Functor
 open CategoryTheory.Waldhausen CategoryTheory.Waldhausen.IteratedS
 open scoped Simplicial
 
@@ -38,11 +38,12 @@ open PolynomialLaurent.GlobalIndex
 set_option backward.isDefEq.respectTransparency false
 
 /-- The native small Waldhausen category of bounded-above flat perfect complexes. -/
-abbrev model (X : Scheme.{u}) :=
+abbrev model (X : Scheme.{u}) :
+    WideSubcategory SmallWaldhausenCategory.preservesZero.{u + 1} :=
   asSmallCategory (boundedAboveFlatPerfectWaldhausen X.toRingedSpace)
 
 /-- The actual geometric pullback with its existing chosen-zero normalization. -/
-abbrev map {X Y : Scheme.{u}} (f : X ⟶ Y) : model Y ⟶ model X :=
+abbrev pullbackMap {X Y : Scheme.{u}} (f : X ⟶ Y) : model Y ⟶ model X :=
   asSmallCategoryMap _ _ (boundedAboveFlatPerfectPullback_isExact f).rebase
     (CategoryTheory.rebaseFunctor_obj_base _ _ _ _)
 
@@ -54,7 +55,7 @@ abbrev middle {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) : model Z ⟶ mod
 
 /-- The geometric pullback composition isomorphism, conjugated by the two zero rebases. -/
 def first {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) :
-    (map (f ≫ g)).hom.toFunctor ≅ (middle f g).hom.toFunctor := by
+    (pullbackMap (f ≫ g)).hom.toFunctor ≅ (middle f g).hom.toFunctor := by
   let i := boundedAboveFlatPerfectPullbackCompIso f g
   let h := boundedAboveFlatPerfectPullback_isExact (f ≫ g)
   let k := (boundedAboveFlatPerfectPullback_isExact g).comp
@@ -68,7 +69,7 @@ def first {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) :
 
 /-- The canonical passage from one normalization of a composite to two successive ones. -/
 def second {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) :
-    (middle f g).hom.toFunctor ≅ (map g ≫ map f).hom.toFunctor :=
+    (middle f g).hom.toFunctor ≅ (pullbackMap g ≫ pullbackMap f).hom.toFunctor :=
   modelAsSmallCompositionIso _ _ _ _ _
     (exactNormalizationCompIso (boundedAboveFlatPerfectPullback_isExact g)
       (boundedAboveFlatPerfectPullback_isExact f)) rfl rfl
@@ -76,22 +77,22 @@ def second {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z) :
 variable (X : Scheme.{u})
 
 /-- The reference is pullback along the actual positive-chart projection. -/
-abbrev source := map (plus.app X ≫ projection.app X)
+abbrev source : model X ⟶ model (laurent.obj X) := pullbackMap (plus.app X ≫ projection.app X)
 
 /-- The inverse-chart projection reuses that reference by the literal scheme-map equality. -/
 def sourceIso :
-    (source X).hom.toFunctor ≅ (map (minus.app X ≫ projection.app X)).hom.toFunctor :=
-  eqToIso (congrArg (fun f ↦ (map f).hom.toFunctor) (chart_projection X))
+    (source X).hom.toFunctor ≅ (pullbackMap (minus.app X ≫ projection.app X)).hom.toFunctor :=
+  eqToIso (congrArg (fun f ↦ (pullbackMap f).hom.toFunctor) (chart_projection X))
 
 /-- All five nodes of the two normalization triangles in their common-reference nerve. -/
 def nodes : Fin 5 → CommonReferenceNerve.Node (source X) :=
   ![⟨source X, Iso.refl _⟩,
     ⟨middle (plus.app X) (projection.app X), first (plus.app X) (projection.app X)⟩,
-    ⟨map (projection.app X) ≫ map (plus.app X),
+    ⟨pullbackMap (projection.app X) ≫ pullbackMap (plus.app X),
       first (plus.app X) (projection.app X) ≪≫ second (plus.app X) (projection.app X)⟩,
     ⟨middle (minus.app X) (projection.app X),
       sourceIso X ≪≫ first (minus.app X) (projection.app X)⟩,
-    ⟨map (projection.app X) ≫ map (minus.app X),
+    ⟨pullbackMap (projection.app X) ≫ pullbackMap (minus.app X),
       sourceIso X ≪≫
         (first (minus.app X) (projection.app X) ≪≫ second (minus.app X) (projection.app X))⟩]
 

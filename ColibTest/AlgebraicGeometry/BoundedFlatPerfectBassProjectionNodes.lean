@@ -7,10 +7,10 @@ open AlgebraicGeometry.Scheme.Modules.BassProjectionNodes
 universe u
 
 example (X : Scheme.{u}) :
-    (nodes X (plusFace.toOrderHom 2)).1 = map (projection.app X) ≫ map (plus.app X) := rfl
+    (nodes X (plusFace.toOrderHom 2)).1 = pullbackMap (projection.app X) ≫ pullbackMap (plus.app X) := rfl
 
 example (X : Scheme.{u}) :
-    (nodes X (minusFace.toOrderHom 2)).1 = map (projection.app X) ≫ map (minus.app X) := rfl
+    (nodes X (minusFace.toOrderHom 2)).1 = pullbackMap (projection.app X) ≫ pullbackMap (minus.app X) := rfl
 
 example (X : Scheme.{u}) :
     (nodes X (minusFace.toOrderHom 1)).2 =
