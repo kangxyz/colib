@@ -6815,6 +6815,7 @@ public import Colib.Topology.LocalCoefficients.CoveringChains
 public import Colib.Topology.LocalCoefficients.CoveringHomologyComparison
 public import Colib.Topology.LocalCoefficients.CoveringNaturality
 public import Colib.Topology.LocalCoefficients.DoubleCylinderHomology
+public import Colib.Topology.LocalCoefficients.DoubleCylinderTwistedHomology
 public import Colib.Topology.LocalCoefficients.EmbeddingRelativeChains
 public import Colib.Topology.LocalCoefficients.EmbeddingSquareChains
 public import Colib.Topology.LocalCoefficients.FilteredChains
@@ -6843,6 +6844,7 @@ public import Colib.Topology.LocalCoefficients.HomotopyInvariance
 public import Colib.Topology.LocalCoefficients.HomotopyQuasiIso
 public import Colib.Topology.LocalCoefficients.HomotopySplitting
 public import Colib.Topology.LocalCoefficients.HomotopySquare
+public import Colib.Topology.LocalCoefficients.HomotopySquareChains
 public import Colib.Topology.LocalCoefficients.HomotopyTransportLaws
 public import Colib.Topology.LocalCoefficients.IntegralChainEvaluation
 public import Colib.Topology.LocalCoefficients.IntegralChains
@@ -6897,6 +6899,7 @@ public import Colib.Topology.LocalCoefficients.SphericalRelativeCycle
 public import Colib.Topology.LocalCoefficients.SquareHomology
 public import Colib.Topology.LocalCoefficients.SquareRelative
 public import Colib.Topology.LocalCoefficients.SubdivisionRealization
+public import Colib.Topology.LocalCoefficients.SubspaceAcyclicQuasiIso
 public import Colib.Topology.LocalCoefficients.SubspaceChains
 public import Colib.Topology.LocalCoefficients.SubspaceFunctoriality
 public import Colib.Topology.LocalCoefficients.SubspaceSmallChains
@@ -6914,6 +6917,7 @@ public import Colib.Topology.LocalCoefficients.TrianglePrismComparison
 public import Colib.Topology.LocalCoefficients.TrianglePullback
 public import Colib.Topology.LocalCoefficients.TwoOpenDescent
 public import Colib.Topology.LocalCoefficients.UniverseLift
+public import Colib.Topology.LocalCoefficients.UniverseLiftQuasiIso
 public import Colib.Topology.LocalEquiconnection
 public import Colib.Topology.LocalEquiconnection.LoopConvexCover
 public import Colib.Topology.LocalEquiconnection.Loops
