@@ -5,7 +5,7 @@ kind = "theorem"
 review = "author_checked"
 source_checked_on = "2026-11-12"
 section = "affine-line-invariance"
-order = 10
+order = 20
 primary = "AlgebraicGeometry.SheafWithTransfers.isStrictA1Invariant_of_perfect"
 statement = '''
 Let $k$ be a perfect field and $F$ a homotopy-invariant Nisnevich sheaf

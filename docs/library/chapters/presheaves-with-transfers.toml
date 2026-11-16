@@ -1,0 +1,142 @@
+[chapter]
+id = "presheaves-with-transfers"
+title = "Presheaves with Transfers"
+order = 51
+introduction = '''
+An additive functor on the opposite of the finite correspondence category gives
+transfers; graph restriction recovers its ordinary presheaf. Develop sectionwise
+cokernels and singular complexes first, followed by torus cancellation and the
+transfer actions used in rigidity. None of these constructions imposes a sheaf
+condition. See [@MVW2006, Lectures 2 and 7].
+
+Nisnevich Sheaves with Transfers develops the reflector of COL-0372 and its
+cohomological consequences. The singular-complex comparison of COL-0397 links
+the two chapters. Suslin rigidity in Étale Motivic Theory uses these transfer
+actions and culminates in COL-1222.
+'''
+
+[[sections]]
+id = "transfer-presheaf-foundations"
+title = "Additive transfer presheaves and sectionwise cokernels"
+order = 10
+introduction = '''
+The graph functor of COL-0367 restricts an additive transfer presheaf to the
+ordinary smooth category. Cokernels are computed on sections and retain the
+signed correspondence actions. No sheaf condition is imposed here.
+'''
+
+[sections.transitions]
+COL-0368 = '''
+Additivity sends a signed correspondence to the corresponding integer linear
+combination of homomorphisms. Contravariance reverses the direction of its action.
+'''
+COL-0390 = '''
+Evaluation preserves the cokernel of a morphism of additive presheaves. Its
+quotient map commutes with every correspondence, so the sectionwise quotient
+inherits the prescribed transfers.
+'''
+
+[[sections]]
+id = "transfer-singular-complexes"
+title = "Suslin complexes and homotopy-invariant homology"
+order = 20
+introduction = '''
+For an additive transfer presheaf \(P\), take sections
+\(P(X\times_k\Delta_k^r)\) and the alternating sum of face maps. Graph
+interchange makes the differential natural for correspondences. The
+ordinary comparison identifies these same chains after graph restriction
+and after Nisnevich sheafification. See [@MVW2006, Lecture 2, Definition 2.14 and Corollary 2.19, pp. 16–18].
+'''
+
+[sections.transitions]
+COL-0397 = '''
+Use the graph interchange of COL-0389 for the simplex face maps. The graph
+restriction in COL-0369 gives the ordinary chain terms of COL-0348, and
+COL-0373 compares the two sheafifications degree by degree.
+'''
+COL-1030 = '''
+After graph restriction, the projection on singular homology is the ordinary
+algebraic singular projection. Apply the interval homotopy of COL-0349.
+'''
+[[sections]]
+id = "transfer-torus-cancellation"
+title = "Reduced torus comparison and cancellation"
+order = 30
+introduction = '''
+The reduced torus is obtained by splitting off the unit section. Apply the
+singular construction of COL-0397 to its exterior-product comparison, then
+prove the resulting chain map is a quasi-isomorphism before sheafification.
+This is the presheaf-level assertion of [@Voevodsky2010Cancellation, Corollary 4.9, p. 684], distinct from cancellation after passage to triangulated motives.
+'''
+
+[sections.transitions]
+COL-1039 = '''
+Use the same singular construction on the quotient of the torus-product
+representable and its source unit kernel. Exterior product on the original
+signed correspondences gives the comparison for torus cancellation.
+'''
+COL-1045 = '''
+The principal cuts of COL-1040 and the relative polynomial homotopy of
+COL-1043 apply to the comparison in COL-1039. A common exponent permits
+all the face restrictions of a normalized cycle.
+'''
+
+[[sections]]
+id = "homotopy-invariant-transfer-actions"
+title = "Homotopy-invariant transfer actions"
+order = 40
+introduction = '''
+For a homotopy-invariant presheaf with transfers, the two affine-line endpoints act identically. The principal polynomial correspondences of COL-1100 and the framed divisor relation of COL-1072 turn this into equality of the original finite-pair actions. This is the action-theoretic role of [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17], separate from Nisnevich sheafification.
+'''
+
+[sections.transitions]
+COL-1105 = '''
+The original full-boundary-normalized unit now produces the required
+polynomial homotopy through COL-1100. Applying this to the actual moving
+relation kills its principal correction. Given the original finite pair,
+positive torsion therefore identifies its divisor and section-graph actions
+on general smooth finite-type stages, without a local-ring hypothesis.
+'''
+COL-1211 = '''
+Before imposing a sheaf condition, ordinary homotopy invariance makes the
+actual affine-cylinder sections act identically. Signed correspondence
+composition and torsion cancellation retain the original graph restrictions.
+This is the action-theoretic consumer for rigidity; its geometric moving
+family remains a separate input.
+'''
+
+[[sections]]
+id = "radicial-transfer-invariance"
+title = "Radicial invariance and Frobenius"
+order = 50
+introduction = '''
+Finite flat graph-transpose degree identities give explicit inverses on prime-to-characteristic torsion coefficients. Retain the whole degree, its inseparable factor, and the original presheaf. Native relative Frobenius then transports the geometric marking to separable residue. This supports the arbitrary-field rigidity route; it does not assume homotopy invariance merely to invert a radicial transfer.
+'''
+
+[sections.transitions]
+COL-1094 = '''
+For prime-to-characteristic torsion, the full radicial residue degree is
+coprime to the exponent. Its native Bezout coefficient times the actual
+transpose transfer is an explicit inverse to the original graph pullback.
+No homotopy invariance is needed for this objectwise calculation.
+'''
+COL-1098 = '''
+The original smooth relative Frobenius supplies the finite, flat and
+universally injective map needed above, even over imperfect fields.
+Its native twist stays integral, so the actual prime-to-characteristic
+transfer inverse applies without a caller-supplied geometry certificate.
+'''
+COL-1103 = '''
+Decompose an arbitrary smooth object into its actual finite integral clopen
+components. Original graph and projection correspondences give the complete
+matrix identities, including the empty scheme. Full-degree component
+transfer inverses therefore glue, and original Frobenius naturality gives
+a natural isomorphism on the unchanged underlying presheaf.
+'''
+COL-1106 = '''
+A finite purely inseparable exponent moves each original closed point,
+through the literal native iterated Frobenius, to a closed point with
+separable residue field. Its actual marked factorization and the original
+iterated transfer isomorphism are retained. Characteristic-zero closed
+residue fields are already finite separable.
+'''

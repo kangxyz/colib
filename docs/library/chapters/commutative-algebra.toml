@@ -1,7 +1,7 @@
 [chapter]
 id = "commutative-algebra"
 title = "Commutative Algebra"
-order = 15
+order = 6
 introduction = "Module lengths, determinant norms, supports and localizations provide the local algebra used in multiplicity, transfer and cohomological constructions."
 
 [[sections]]

@@ -1,7 +1,7 @@
 [chapter]
 id = "voevodsky-motives"
 title = "Voevodsky’s Motives"
-order = 56
+order = 54
 introduction = '''
 Voevodsky’s triangulated category of effective motives
 \(DM^{\mathrm{eff}}_-(k)\) is the full subcategory of the bounded-above

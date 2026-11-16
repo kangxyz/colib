@@ -2,8 +2,8 @@
 id = "COL-1045"
 title = "Cancellation for the singular transfer complex"
 kind = "theorem"
-section = "transfer-singular-complexes"
-order = 40
+section = "transfer-torus-cancellation"
+order = 20
 primary = "AlgebraicGeometry.PresheafWithTransfers.torusCancellationChainMap_quasiIso"
 review = "author_checked"
 source_checked_on = "2026-11-13"
