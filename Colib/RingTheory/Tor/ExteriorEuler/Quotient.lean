@@ -94,10 +94,12 @@ theorem length_self_eq_mul_length_extendExteriorResidueTensor {S : Type u} [Comm
   have hB' := (AlgEquiv.quotientBot B B).symm.toLinearEquiv.isFiniteLength hB
   have h := ModuleCat.length_extendScalars_exteriorTensor (k := k) (S := S)
     (ModuleCat.of A (A ⧸ (⊥ : Ideal A))) (ModuleCat.of B (B ⧸ (⊥ : Ideal B))) hA' hB'
-  have he := (extendExteriorTensorObjQuotientIso (k := k) φ
-    (⊥ : Ideal A) (⊥ : Ideal B)).toLinearEquiv.length_eq
-  simp only [productIdeal, Ideal.map_bot, bot_sup_eq] at he
-  rw [(AlgEquiv.quotientBot S S).toLinearEquiv.length_eq] at he
+  have hI : (productIdeal (k := k) (⊥ : Ideal A) (⊥ : Ideal B)).map φ = ⊥ := by
+    simp only [productIdeal, Ideal.map_bot, bot_sup_eq]
+  let e := extendExteriorTensorObjQuotientIso (k := k) φ (⊥ : Ideal A) (⊥ : Ideal B) ≪≫
+    (Ideal.quotientEquivAlgOfEq S hI).toLinearEquiv.toModuleIso ≪≫
+      (AlgEquiv.quotientBot S S).toLinearEquiv.toModuleIso
+  have he := e.toLinearEquiv.length_eq
   rw [he, (AlgEquiv.quotientBot A A).toLinearEquiv.length_eq,
     (AlgEquiv.quotientBot B B).toLinearEquiv.length_eq] at h
   exact h
