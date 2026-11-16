@@ -329,9 +329,9 @@ private theorem componentCoefficient_eq_finsum_support :
     rw [finsum_of_isEmpty, finsum_of_isEmpty]
 
 set_option maxHeartbeats 1400000 in
+omit [PerfectField k] in
 /-- The component coefficient carries both input generic multiplicities. Their product
 converts the component-support weight into the actual whole-support weight. -/
-omit [PerfectField k] in
 private theorem weighted_componentCoefficient_eq_finsum_support :
     ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
       ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
