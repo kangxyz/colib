@@ -79,8 +79,8 @@ theorem fiberEquiv_symm_comp_forget (n : ℕ) :
     (perfectSupportedUnionForgetKMap b Z' n)
     (fiberEquiv_comp_forget j T Z hcover n)
 
-variable [CompactSpace X] [QuasiSeparatedSpace X] [CompactSpace V] [QuasiSeparatedSpace V]
-  [CompactSpace T.toScheme] [CompactSpace (j ⁻¹ᵁ T).toScheme] (hZ : IsCompact (Z : Set X))
+variable [QuasiSeparatedSpace X] [CompactSpace V] [QuasiSeparatedSpace V]
+  [CompactSpace (j ⁻¹ᵁ T).toScheme] (hZ : IsCompact (Z : Set X))
 
 set_option maxHeartbeats 800000 in
 /-- Forgetting auxiliary support commutes with the two-open boundary, including K₁ to K₀. -/
