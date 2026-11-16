@@ -70,7 +70,8 @@ def stageTransformation (r : ℕ) :
 
 /-- At the original stage zero this is the already constructed literal map. -/
 theorem stageTransformation_zero : stageTransformation F 0 = stageZeroTransformation F := by
-  ext n z : 3
+  ext n : 3
+  funext z
   rfl
 
 /-- The whole-nerve evaluation restricts to the unchanged entire finite-simplex family. -/
