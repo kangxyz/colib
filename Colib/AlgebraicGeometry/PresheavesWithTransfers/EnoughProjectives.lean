@@ -99,8 +99,11 @@ def representablePresentationRelation (P : PresheafWithTransfers.{u + 1} k) :
 def representablePresentationIsColimit (P : PresheafWithTransfers.{u + 1} k) :
     IsColimit (CokernelCofork.ofπ (representableCoverπ P)
       (show representablePresentationRelation P ≫ representableCoverπ P = 0 by
-        simp [representablePresentationRelation, Category.assoc])) :=
-  isCokernelEpiComp
+        simp [representablePresentationRelation, Category.assoc])) := by
+  letI : Epi (representableCoverπ P) := representableCoverπ_epi P
+  letI : Epi (representableCoverπ (kernel (representableCoverπ P))) :=
+    representableCoverπ_epi (kernel (representableCoverπ P))
+  exact isCokernelEpiComp
     (Abelian.epiIsCokernelOfKernel _ (kernelIsKernel (representableCoverπ P)))
     (representableCoverπ (kernel (representableCoverπ P))) rfl
 
