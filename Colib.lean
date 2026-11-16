@@ -6137,6 +6137,15 @@ public import Colib.RingTheory.WeilRestriction.FiniteFree.Etale
 public import Colib.RingTheory.WeilRestriction.FiniteFree.EtalePresentation
 public import Colib.RingTheory.WeilRestriction.FiniteFree.Hom
 public import Colib.RingTheory.WeilRestriction.FiniteFree.Presentation
+public import Colib.Topology.CWComplex.CharacteristicPair
+public import Colib.Topology.CWComplex.CharacteristicQuotient
+public import Colib.Topology.CWComplex.CubeDiskPair
+public import Colib.Topology.CWComplex.GlobalLifting
+public import Colib.Topology.CWComplex.HomotopyLifting
+public import Colib.Topology.CWComplex.SkeletonAttachment
+public import Colib.Topology.CWComplex.SkeletonExtension
+public import Colib.Topology.CWComplex.SkeletonLifting
+public import Colib.Topology.CWComplex.Whitehead
 public import Colib.Topology.Category.TopCat.ColimitAcross
 public import Colib.Topology.Category.TopCat.CompactHausdorffPushout
 public import Colib.Topology.Category.TopCat.PushoutInteriors
@@ -6776,6 +6785,8 @@ public import Colib.Topology.HomotopyPullback.OverlapConnectivity
 public import Colib.Topology.HomotopyPullback.OverlapCubeLifting
 public import Colib.Topology.HomotopyPullback.OverlapPaths
 public import Colib.Topology.HomotopyPullback.Pasting
+public import Colib.Topology.HomotopyPullback.PathProjection
+public import Colib.Topology.HomotopyPullback.PathProjectionLifting
 public import Colib.Topology.HomotopyPullback.ProductChart
 public import Colib.Topology.HomotopyPullback.Products
 public import Colib.Topology.HomotopyPullback.Pushout
@@ -7002,6 +7013,7 @@ public import Colib.Topology.PlusConstruction.CommonUniverse
 public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
 public import Colib.Topology.PlusConstruction.DisplayedComparisonCover
 public import Colib.Topology.PlusConstruction.DisplayedComparisonFundamentalGroup
+public import Colib.Topology.PlusConstruction.DisplayedComparisonHomotopyEquivalence
 public import Colib.Topology.PlusConstruction.DisplayedComparisonWeakEquivalence
 public import Colib.Topology.Prespectrum.ConeArrowHomotopy
 public import Colib.Topology.Prespectrum.ConeConeTranspose
