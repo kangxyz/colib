@@ -33,10 +33,10 @@ theorem parameter_square_shift {M N : C} {M' N' : D}
   rw [NatTrans.app_shift]
   simp only [Functor.commShiftIso_comp_hom_app, Functor.commShiftIso_comp_inv_app,
     Functor.comp_obj, Functor.map_comp, Category.assoc]
-  simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app, Functor.map_id,
-    Category.id_comp, Category.comp_id]
-  rw [E.commShiftIso_hom_naturality]
-  rw [← G.commShiftIso_inv_naturality]
+  simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app]
+  simp only [Category.comp_id, CategoryTheory.Functor.map_id, Category.id_comp]
+  rw [E.commShiftIso_hom_naturality_assoc]
+  rw [← G.commShiftIso_inv_naturality_assoc]
   simpa only [Functor.map_comp, Category.assoc] using
     congrArg (fun t => (E.commShiftIso s).hom.app M ≫
       (shiftFunctor D s).map t ≫ (G.commShiftIso s).inv.app N') h

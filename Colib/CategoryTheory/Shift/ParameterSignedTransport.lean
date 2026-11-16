@@ -50,7 +50,7 @@ theorem parameter_square_signed {M N X Y : C} {M' N' : D}
   rw [reassoc_of% hn]
   rw [← Functor.map_comp_assoc, hb, Functor.map_comp]
   have hh := congrArg (fun z => E.map θ.hom ≫ z ≫ G.map w) hshift
-  simpa only [θ', Iso.trans_hom, Functor.mapIso_hom, NatIso.app_hom,
+  simpa only [θ', Iso.trans_hom, Functor.mapIso_hom, Iso.app_hom,
     Functor.map_comp, Category.assoc, u] using hh
 
 end CategoryTheory

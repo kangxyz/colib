@@ -30,11 +30,12 @@ theorem parameter_boundary_transport {X N : C} {N' : D}
   have hc := congrArg (fun z => z.hom.app N) (E.commShiftIso_add' hs)
   simp only [CommShift.isoAdd'_hom_app] at hc
   rw [hc]
-  dsimp only [θ', Iso.trans_inv, Functor.mapIso_inv, NatIso.app_inv]
+  dsimp only [θ', Iso.trans_inv, Functor.mapIso_inv, Iso.app_inv]
   simp only [Functor.map_comp, Category.assoc]
   rw [← NatTrans.naturality_assoc]
-  simp only [Functor.comp_map, Category.assoc, Iso.inv_hom_id_app_assoc]
-  simp only [← Functor.map_comp_assoc, Iso.hom_inv_id, Functor.map_id, Category.id_comp]
-  rw [← E.commShiftIso_hom_naturality]
+  simp only [Functor.comp_map, Iso.inv_hom_id_app_assoc]
+  simp only [← Functor.map_comp_assoc, Iso.hom_inv_id, Iso.hom_inv_id_app, CategoryTheory.Functor.map_id, Category.id_comp]
+  simp only [Functor.map_comp, Category.assoc]
+  rw [E.commShiftIso_hom_naturality]
 
 end CategoryTheory
