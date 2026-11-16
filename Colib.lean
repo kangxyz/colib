@@ -6369,6 +6369,7 @@ public import Colib.Topology.CWComplex.CubeDiskPair
 public import Colib.Topology.CWComplex.GlobalLifting
 public import Colib.Topology.CWComplex.HomotopyLifting
 public import Colib.Topology.CWComplex.RadialCollar
+public import Colib.Topology.CWComplex.SkeletalNeighborhoodContractions
 public import Colib.Topology.CWComplex.SkeletonAttachment
 public import Colib.Topology.CWComplex.SkeletonExtension
 public import Colib.Topology.CWComplex.SkeletonLifting
@@ -6651,6 +6652,7 @@ public import Colib.Topology.Homotopy.SquareEdges
 public import Colib.Topology.Homotopy.ThreeSideSquare
 public import Colib.Topology.Homotopy.ThreeSideSquareLift
 public import Colib.Topology.Homotopy.TimeChange
+public import Colib.Topology.Homotopy.Waiting
 public import Colib.Topology.HomotopyCofiber.ReducedMappingCone
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeCollapse
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeFiberReduction
