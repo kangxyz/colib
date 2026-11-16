@@ -6370,6 +6370,7 @@ public import Colib.Topology.CWComplex.GlobalLifting
 public import Colib.Topology.CWComplex.HomotopyLifting
 public import Colib.Topology.CWComplex.NeighborhoodContraction
 public import Colib.Topology.CWComplex.RadialCollar
+public import Colib.Topology.CWComplex.SimplyConnectedCover
 public import Colib.Topology.CWComplex.SkeletalNeighborhoodContractions
 public import Colib.Topology.CWComplex.SkeletonAttachment
 public import Colib.Topology.CWComplex.SkeletonExtension
@@ -6377,6 +6378,7 @@ public import Colib.Topology.CWComplex.SkeletonLifting
 public import Colib.Topology.CWComplex.SkeletonNeighborhood
 public import Colib.Topology.CWComplex.SkeletonNeighborhoodDeformation
 public import Colib.Topology.CWComplex.SkeletonNeighborhoodExtension
+public import Colib.Topology.CWComplex.ThinNeighborhoods
 public import Colib.Topology.CWComplex.Whitehead
 public import Colib.Topology.DeformationRetract.Basic
 public import Colib.Topology.DeformationRetract.Cofibration
