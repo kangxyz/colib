@@ -35,7 +35,6 @@ open scoped Topology unitInterval
 universe u
 
 namespace FundamentalGroupoid.LocalCoefficients
-open DoubleCylinder
 variable {A B C D : TopCat.{u}} (f : A ⟶ B) (g : A ⟶ C)
 variable {l : A ⊗ TopCat.I ⟶ D} {e : TopCat.of (B ⊕ C) ⟶ D}
 variable (sq : IsPushout (TopCat.intervalEndpoints A) (endMap f g) l e)
