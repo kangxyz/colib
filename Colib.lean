@@ -1745,6 +1745,7 @@ public import Colib.AlgebraicGeometry.KTheory.Regular
 public import Colib.AlgebraicGeometry.KTheory.Restriction
 public import Colib.AlgebraicGeometry.KTheory.SupportedMayerVietoris
 public import Colib.AlgebraicGeometry.KTheory.SupportedMayerVietorisBoundary
+public import Colib.AlgebraicGeometry.KTheory.SupportedMayerVietorisForget
 public import Colib.AlgebraicGeometry.KTheory.SupportedMayerVietorisMaps
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenDerivedImageApproximation
 public import Colib.AlgebraicGeometry.KTheory.SupportedOpenDerivedImageCofinality

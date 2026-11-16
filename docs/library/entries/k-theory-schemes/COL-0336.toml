@@ -11,10 +11,16 @@ connective degree. Over a quasi-compact quasi-separated scheme, compact U and co
 \(j(U)\cup T\) give the actual positive comparison inverse square and fine
 boundary square. Compact U and compact T recover the original two endpoints.
 The \(n=0\) boundary is explicitly \(K_1\) to \(K_0\), with the original sign and support labels.
+For a two-open cover by quasi-compact opens of a quasi-compact quasi-separated
+scheme, take an auxiliary open \(Z\) that is quasi-compact. The map forgetting
+support outside \(Z\) commutes with the actual excision inverse and the resulting
+Mayer–Vietoris boundary in every connective degree.
 '''
 scope = '''The full fixed-pair group-level localization squares use the native perfect complexes,
 actual exact functors and `OpenDerivedImage.relativeKRestrictEquiv`. Compact U is required
 for the ordinary fine comparison even when compactness of the union is supplied separately.
+The Mayer–Vietoris comparison uses the same boundary signs, without additional hypotheses
+on the closed complements.
 No full-target \(K_0\) inverse or surjectivity, whole-prespectrum nullhomotopy coherence,
 arbitrary global-pair naturality or Bass localization is asserted.
 '''
