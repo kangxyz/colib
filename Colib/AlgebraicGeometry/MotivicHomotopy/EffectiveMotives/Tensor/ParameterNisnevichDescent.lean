@@ -101,12 +101,21 @@ theorem isIso_projectiveParameterNisnevichTensor_map_of_isIso
   let C := projectiveParameterNisnevichTensor (k := k) (F := F)
   let L := a(k) ⋙ i(k)
   let Q := C ⋙ i(k)
-  have : IsIso (L.map f) := inferInstance
+  have : IsIso (L.map f) := by
+    change IsIso ((i(k)).map ((a(k)).map f))
+    infer_instance
   apply Functor.isIso_map_of_naturalHomEquiv (L := L) (T := Q) (R(e)).obj
-    (fun P K => (projectiveParameterNisnevichHomEquiv e P K).trans
-      (H.homEquiv P.obj ((R(e)).obj K)).symm) _ f
+    (fun P K => by
+      change ((i(k)).obj ((projectiveParameterNisnevichTensor (k := k) (F := F)).obj P) ⟶ K) ≃
+        ((aD(k)).obj P.obj ⟶ (R(e)).obj K)
+      exact (projectiveParameterNisnevichHomEquiv e P K).trans
+        (H.homEquiv P.obj ((R(e)).obj K)).symm) _ f
   intro P P' g K h
-  dsimp only [Equiv.trans_apply]
+  change (H.homEquiv P.obj ((R(e)).obj K)).symm
+      (projectiveParameterNisnevichHomEquiv e P K
+        ((i(k)).map ((projectiveParameterNisnevichTensor (k := k) (F := F)).map g) ≫ h)) =
+    (aD(k)).map g.hom ≫ (H.homEquiv P'.obj ((R(e)).obj K)).symm
+      (projectiveParameterNisnevichHomEquiv e P' K h)
   rw [projectiveParameterNisnevichHomEquiv_precompose,
     H.homEquiv_naturality_left_symm]
 
