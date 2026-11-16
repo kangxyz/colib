@@ -13,11 +13,13 @@ import Mathlib.Algebra.Category.ModuleCat.Monoidal.Closed
 import Mathlib.CategoryTheory.Monoidal.Closed.Braided
 
 /-!
-# Coproducts of transfer convolutions
+# Colimits of transfer convolutions
 
 With a fixed left coefficient, each term of the native multispan for the
 convolution is an evaluation followed by tensoring with fixed modules.
-The native colimit of this diagram then preserves coproducts.
+The native colimit of this diagram then preserves colimits of every shape
+for which the coefficient categories have colimits. The previous coproduct
+statement is a specialization of the same construction.
 -/
 
 @[expose] public noncomputable section
@@ -27,7 +29,7 @@ set_option backward.isDefEq.respectTransparency false
 open CategoryTheory CategoryTheory.Limits Opposite
 open scoped MonoidalCategory
 
-universe u
+universe u v w
 
 namespace AlgebraicGeometry.PresheafWithTransfers
 
@@ -112,23 +114,25 @@ private def convolutionSectionsFunctorIso [HasColimitsOfShape D(k) MZ(k)] :
     have h := coend.ι_map τ YZ
     exact h.trans (ι_colimMap t (.right YZ)).symm)
 
-private theorem convolutionSections_preservesCoproducts (I : Type (u + 1)) :
-    PreservesColimitsOfShape (Discrete I) (convolutionSectionsFunctor F P X) := by
+private theorem convolutionSections_preservesColimitsOfShape
+    (J : Type v) [Category.{w} J]
+    [HasColimitsOfShape J AddCommGrpCat.{u + 1}] [HasColimitsOfShape J MZ(k)] :
+    PreservesColimitsOfShape J (convolutionSectionsFunctor F P X) := by
   let A := AddCommGrpCat.{u + 1}
   let : HasColimitsOfSize.{u + 1, u + 1} AddCommGrpCat.{u + 1} :=
     AddCommGrpCat.hasColimitsOfSize.{u + 1, u + 1, u + 1}
   let : HasColimitsOfSize.{u + 1, u + 1} MZ(k) := inferInstance
   let G := forget₂ MZ(k) A
   let e : integerModuleFunctor ⋙ G ≅ 𝟭 A := NatIso.ofComponents (fun _ => Iso.refl _)
-  let : PreservesColimitsOfShape (Discrete I) (integerModuleFunctor ⋙ G) :=
+  let : PreservesColimitsOfShape J (integerModuleFunctor ⋙ G) :=
     preservesColimitsOfShape_of_natIso e.symm
-  let : PreservesColimitsOfShape (Discrete I) integerModuleFunctor :=
+  let : PreservesColimitsOfShape J integerModuleFunctor :=
     preservesColimitsOfShape_of_reflects_of_preserves _ G
   let H := convolutionMultispanFunctor F P X
-  let : PreservesColimitsOfShape (Discrete I) H :=
-    preservesColimitsOfShape_of_evaluation H (Discrete I) (fun w => by
+  let : PreservesColimitsOfShape J H :=
+    preservesColimitsOfShape_of_evaluation H J (fun w => by
       let e' := convolutionMultispanEvaluationIso F P X w
-      have : PreservesColimitsOfShape (Discrete I)
+      have : PreservesColimitsOfShape J
           (match w with
           | .left f => tensorEvaluation F P X f.right f.left
           | .right a => tensorEvaluation F P X a a) := by
@@ -136,24 +140,32 @@ private theorem convolutionSections_preservesCoproducts (I : Type (u + 1)) :
       exact preservesColimitsOfShape_of_natIso e'.symm)
   exact preservesColimitsOfShape_of_natIso (convolutionSectionsFunctorIso F P X).symm
 
-/-- Convolution with a fixed first presheaf preserves coproducts in the second presheaf. -/
-theorem convolution_preservesCoproducts_right (I : Type (u + 1)) :
-    PreservesColimitsOfShape (Discrete I) ((convolutionBifunctor F).obj P) := by
+/-- Convolution with a fixed first presheaf preserves colimits in the second presheaf. -/
+theorem convolution_preservesColimitsOfShape_right
+    (J : Type v) [Category.{w} J]
+    [HasColimitsOfShape J AddCommGrpCat.{u + 1}] [HasColimitsOfShape J MZ(k)] :
+    PreservesColimitsOfShape J ((convolutionBifunctor F).obj P) := by
   let A := AddCommGrpCat.{u + 1}
-  let : HasColimitsOfShape (Discrete I) A := AddCommGrpCat.hasColimitsOfShape
   let U : PST(k) ⥤ (Cor k)ᵒᵖ ⥤ A := forget
   let V := forget₂ MZ(k) A
   let e : U.FullyFaithful := ObjectProperty.fullyFaithfulι (additiveFunctor (Cor k)ᵒᵖ A)
   let : U.Full := e.full
   let : U.Faithful := e.faithful
-  let : ReflectsColimitsOfShape (Discrete I) U := inferInstance
+  let : ReflectsColimitsOfShape J U := inferInstance
   let B := (convolutionBifunctor F).obj P
-  have : PreservesColimitsOfShape (Discrete I) (B ⋙ U) :=
-    preservesColimitsOfShape_of_evaluation (B ⋙ U) (Discrete I) (fun Y => by
-      let : PreservesColimitsOfShape (Discrete I) (convolutionSectionsFunctor F P Y.unop) :=
-        convolutionSections_preservesCoproducts F P Y.unop I
-      exact inferInstanceAs (PreservesColimitsOfShape (Discrete I)
+  have : PreservesColimitsOfShape J (B ⋙ U) :=
+    preservesColimitsOfShape_of_evaluation (B ⋙ U) J (fun Y => by
+      let : PreservesColimitsOfShape J (convolutionSectionsFunctor F P Y.unop) :=
+        convolutionSections_preservesColimitsOfShape F P Y.unop J
+      exact inferInstanceAs (PreservesColimitsOfShape J
         (convolutionSectionsFunctor F P Y.unop ⋙ V)))
   exact preservesColimitsOfShape_of_reflects_of_preserves B U
+
+/-- Convolution with a fixed first presheaf preserves coproducts in the second presheaf. -/
+theorem convolution_preservesCoproducts_right (I : Type (u + 1)) :
+    PreservesColimitsOfShape (Discrete I) ((convolutionBifunctor F).obj P) := by
+  let : HasColimitsOfShape (Discrete I) AddCommGrpCat.{u + 1} :=
+    AddCommGrpCat.hasColimitsOfShape
+  exact convolution_preservesColimitsOfShape_right F P (Discrete I)
 
 end AlgebraicGeometry.PresheafWithTransfers
