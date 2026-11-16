@@ -36,12 +36,12 @@ variable {l : A ⊗ TopCat.I ⟶ D} {e : TopCat.of (B ⊕ C) ⟶ D}
 under-source homotopy. The first homotopy uses the full original cylinder. -/
 def comparisonUnderSourceOfLegEquivs
     (sq : IsPushout (TopCat.intervalEndpoints A) (endMap f g) l e)
-    (I : ContinuousMap.HomotopyEquiv B D) (J : ContinuousMap.HomotopyEquiv C D)
-    (hI : I.toFun = gapLeftEndpoint e) (hJ : J.toFun = gapRightEndpoint e) :
-    ((I.trans J.symm).toFun.comp f.hom).Homotopy g.hom := by
+    (leftEquiv : ContinuousMap.HomotopyEquiv B D) (J : ContinuousMap.HomotopyEquiv C D)
+    (hI : leftEquiv.toFun = gapLeftEndpoint e) (hJ : J.toFun = gapRightEndpoint e) :
+    ((leftEquiv.trans J.symm).toFun.comp f.hom).Homotopy g.hom := by
   let H := (ContinuousMap.Homotopy.refl J.invFun).comp (endpointHomotopy f g sq)
   have hs : J.invFun.comp ((gapLeftEndpoint e).comp f.hom) =
-      (I.trans J.symm).toFun.comp f.hom :=
+      (leftEquiv.trans J.symm).toFun.comp f.hom :=
     congrArg (fun m : C(B, D) ↦ J.invFun.comp (m.comp f.hom)) hI.symm
   have ht : J.invFun.comp ((gapRightEndpoint e).comp g.hom) =
       (J.invFun.comp J.toFun).comp g.hom :=
@@ -54,33 +54,33 @@ variable {l₀ : A ⊗ TopCat.I ⟶ D} {e₀ : TopCat.of (B ⊕ B) ⟶ D}
 the actual left inclusion has a homotopy inverse. -/
 def selfEndHomotopyOfLeftLegEquiv
     (sq : IsPushout (TopCat.intervalEndpoints A) (endMap f f) l₀ e₀)
-    (I : ContinuousMap.HomotopyEquiv B D) (hI : I.toFun = gapLeftEndpoint e₀) :
+    (leftEquiv : ContinuousMap.HomotopyEquiv B D) (hI : leftEquiv.toFun = gapLeftEndpoint e₀) :
     (gapLeftEndpoint e₀).Homotopy (gapRightEndpoint e₀) := by
   let q := selfFold f sq
-  have hstart : q.comp (I.toFun.comp I.invFun) = I.invFun := by
+  have hstart : q.comp (leftEquiv.toFun.comp leftEquiv.invFun) = leftEquiv.invFun := by
     apply ContinuousMap.ext
     intro x
     rw [ContinuousMap.comp_apply, ContinuousMap.comp_apply, hI]
-    exact ContinuousMap.congr_fun (selfFold_left f sq) (I.invFun x)
-  let L : I.invFun.Homotopy q :=
-    ((ContinuousMap.Homotopy.refl q).comp I.right_inv.some).cast hstart rfl
-  have hleft : (I.toFun.comp q).comp (gapRightEndpoint e₀) = gapLeftEndpoint e₀ := by
+    exact ContinuousMap.congr_fun (selfFold_left f sq) (leftEquiv.invFun x)
+  let L : leftEquiv.invFun.Homotopy q :=
+    ((ContinuousMap.Homotopy.refl q).comp leftEquiv.right_inv.some).cast hstart rfl
+  have hleft : (leftEquiv.toFun.comp q).comp (gapRightEndpoint e₀) = gapLeftEndpoint e₀ := by
     apply ContinuousMap.ext
     intro x
     rw [ContinuousMap.comp_apply, ContinuousMap.comp_apply, hI]
     exact congrArg (gapLeftEndpoint e₀) (ContinuousMap.congr_fun (selfFold_right f sq) x)
-  let K : (I.toFun.comp q).Homotopy (ContinuousMap.id D) :=
-    ((ContinuousMap.Homotopy.refl I.toFun).comp L.symm).trans I.right_inv.some
+  let K : (leftEquiv.toFun.comp q).Homotopy (ContinuousMap.id D) :=
+    ((ContinuousMap.Homotopy.refl leftEquiv.toFun).comp L.symm).trans leftEquiv.right_inv.some
   exact (K.compContinuousMap (gapRightEndpoint e₀)).cast hleft rfl
 
 /-- A homotopy after precomposition descends to the original maps into any
 same-universe target, using the actual self-cylinder pushout and left leg. -/
 def homotopyCancelOfLeftLegEquiv {Y : Type u} [TopologicalSpace Y]
     (sq : IsPushout (TopCat.intervalEndpoints A) (endMap f f) l₀ e₀)
-    (I : ContinuousMap.HomotopyEquiv B D) (hI : I.toFun = gapLeftEndpoint e₀)
+    (leftEquiv : ContinuousMap.HomotopyEquiv B D) (hI : leftEquiv.toFun = gapLeftEndpoint e₀)
     (h₀ h₁ : C(B, Y)) (H : (h₀.comp f.hom).Homotopy (h₁.comp f.hom)) : h₀.Homotopy h₁ :=
   ((ContinuousMap.Homotopy.refl (homotopyDesc f f sq h₀ h₁ H)).comp
-    (selfEndHomotopyOfLeftLegEquiv f sq I hI)).cast
+    (selfEndHomotopyOfLeftLegEquiv f sq leftEquiv hI)).cast
     (homotopyDesc_left f f sq h₀ h₁ H) (homotopyDesc_right f f sq h₀ h₁ H)
 
 end TopCat.DoubleCylinder
