@@ -52,8 +52,12 @@ theorem chain_attachPostcomp {k : ℕ} (c : Fin (k + 1) ⥤ Codiscrete (Node F))
   refine CategoryTheory.Functor.ext (fun _ ↦ rfl) ?_
   intro i j f
   ext X
-  simp [chain, ModelSimplex.postcomp, diagram, Codiscrete.functorOfFun, attachPostcompNode,
-    NatTrans.comp_app, Functor.map_comp, Category.assoc]
+  simp [chain, ModelSimplex.postcomp, diagram, Codiscrete.functorOfFun, NatTrans.comp_app]
+  let a := J.hom.toFunctor.map ((c.obj i).as.2.inv.app X)
+  let b := J.hom.toFunctor.map ((c.obj j).as.2.hom.app X)
+  calc
+    _ = (a ≫ ε.inv.app X) ≫ (ε.hom.app X ≫ b) := rfl
+    _ = a ≫ b := by rw [Category.assoc, Iso.inv_hom_id_app_assoc]
 
 /-- The exact simplicial square holds at every original stage. -/
 theorem stageTransformation_attachPostcomp (r : ℕ) :
