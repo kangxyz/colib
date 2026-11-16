@@ -39,11 +39,13 @@ def coordinateFace {n : ℕ} (a : Fin n × Bool) :
     Set {x : Fin n → I // x ∈ Cube.boundary (Fin n)} :=
   {x | x.val a.1 = faceEndpoint a.2}
 
-private theorem isClosed_coordinateFace {n : ℕ} (a : Fin n × Bool) :
+/-- Each coordinate face is closed in the cube boundary. -/
+theorem isClosed_coordinateFace {n : ℕ} (a : Fin n × Bool) :
     IsClosed (coordinateFace a) :=
   isClosed_eq ((continuous_apply a.1).comp continuous_subtype_val) continuous_const
 
-private theorem coordinateFace_cover (n : ℕ) :
+/-- The coordinate faces cover the entire cube boundary. -/
+theorem coordinateFace_cover (n : ℕ) :
     ⋃ a : Fin n × Bool, coordinateFace a = Set.univ := by
   apply Set.iUnion_eq_univ_iff.mpr
   intro x
@@ -51,7 +53,7 @@ private theorem coordinateFace_cover (n : ℕ) :
   · exact ⟨(i, false), hi⟩
   · exact ⟨(i, true), hi⟩
 
-variable {Y : Type u} [TopologicalSpace Y] {n : ℕ}
+variable {Y : Type u} {n : ℕ}
 
 /-- Agreement on the intersections of distinct axes, with each pair of axes used once. -/
 def CoordinateFaceCompatible (F : ∀ a : Fin n × Bool, coordinateFace a → Y) : Prop :=
@@ -59,7 +61,8 @@ def CoordinateFaceCompatible (F : ∀ a : Fin n × Bool, coordinateFace a → Y)
     (hi : x ∈ coordinateFace (i, b)) (hj : x ∈ coordinateFace (j, c)),
     F (i, b) ⟨x, hi⟩ = F (j, c) ⟨x, hj⟩
 
-private theorem coordinateFaceCompatible_pairwise
+/-- Agreements between distinct axes give agreements on all intersections of faces. -/
+theorem coordinateFaceCompatible_pairwise
     (F : ∀ a : Fin n × Bool, coordinateFace a → Y) (hF : CoordinateFaceCompatible F)
     (a b : Fin n × Bool) (x : {x : Fin n → I // x ∈ Cube.boundary (Fin n)})
     (ha : x ∈ coordinateFace a) (hb : x ∈ coordinateFace b) :
@@ -75,6 +78,8 @@ private theorem coordinateFaceCompatible_pairwise
     · exact (one_ne_zero (ha.symm.trans hb : (1 : I) = 0)).elim
     · rfl
   · exact (hF j i h b a x hb ha).symm
+
+variable [TopologicalSpace Y]
 
 /-- The continuous intrinsic boundary map defined by whole-face maps agreeing on edges. -/
 def glueCoordinateFaces (F : ∀ a : Fin n × Bool, C(coordinateFace a, Y))
