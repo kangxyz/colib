@@ -51,12 +51,9 @@ theorem chain_attachPostcomp {k : ℕ} (c : Fin (k + 1) ⥤ Codiscrete (Node F))
   apply ModelSimplex.ext_diagram
   refine CategoryTheory.Functor.ext (fun _ ↦ rfl) ?_
   intro i j f
-  change
-    (isoWhiskerRight (c.obj i).as.2 J.hom.toFunctor).inv ≫ ε.inv ≫
-      ε.hom ≫ (isoWhiskerRight (c.obj j).as.2 J.hom.toFunctor).hom ≫ eqToHom rfl =
-    eqToHom rfl ≫ whiskerRight ((c.obj i).as.2.inv ≫ (c.obj j).as.2.hom) J.hom.toFunctor
   ext X
-  simp [NatTrans.comp_app, Category.assoc]
+  simp [chain, ModelSimplex.postcomp, diagram, Codiscrete.functorOfFun, attachPostcompNode,
+    NatTrans.comp_app, Functor.map_comp, Category.assoc]
 
 /-- The exact simplicial square holds at every original stage. -/
 theorem stageTransformation_attachPostcomp (r : ℕ) :
