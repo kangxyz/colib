@@ -6846,6 +6846,7 @@ public import Colib.Topology.LocalCoefficients.GrothendieckTelescope
 public import Colib.Topology.LocalCoefficients.GroupCompletionAbelian
 public import Colib.Topology.LocalCoefficients.H2CapDescent
 public import Colib.Topology.LocalCoefficients.HomeomorphismChains
+public import Colib.Topology.LocalCoefficients.HomologicalWhiteheadCovering
 public import Colib.Topology.LocalCoefficients.HomologicalWhiteheadSimplyConnected
 public import Colib.Topology.LocalCoefficients.Homology
 public import Colib.Topology.LocalCoefficients.HomologyFactorization
