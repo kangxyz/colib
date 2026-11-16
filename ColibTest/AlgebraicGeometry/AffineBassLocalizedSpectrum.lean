@@ -47,7 +47,9 @@ theorem seed_first_stage (R : CommRingCat.{u}) :
   have h := toStableLocalization_map_eq_of_homotopy
     (Homotopy.precomp (boundedAboveFlatAffineEvaluationInversePrespectrumMap R)
       (boundedAboveFlatAffineSectionBassTelescopeInclusionHomotopy R 0))
-  simpa only [boundedAboveFlatAffineSectionBassTransition_zero] using h
+  change toStableLocalization.map (boundedAboveFlatAffineEvaluationInversePrespectrumMap R ≫
+      (boundedAboveFlatAffineSectionBassTelescopeInclusion 0).app R) = _
+  simpa only [boundedAboveFlatAffineSectionBassTransition_zero, Nat.zero_add] using h
 
 /-- The signed initial map goes to the actual stage-zero colimit leg, including negative degrees. -/
 theorem initial_colimit_leg (R : CommRingCat.{u}) (d : ℤ) :
@@ -107,7 +109,7 @@ theorem original_flat_K_naturality {R S : CommRingCat.{u}}
         ((localizedStableHomotopyFunctor (n : ℤ)).map (affinePerfectBassTelescopeInitialMap R)
           (originalKStableEquiv (perfectComplexesWaldhausen (Spec R).toRingedSpace) n
             (Additive.ofMul a))) := by
-  rw [← perfectKPullback_eq_flatPullback]
+  rw [← Scheme.perfectKPullback_eq_flatPullback (Spec.map f) n]
   exact affinePerfectBassTelescopeInitialMap_originalK_naturality f n a
 
 end ColibTest.AlgebraicGeometry.AffineBassLocalizedSpectrum
