@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 OpenAI. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: OpenAI
+-/
+module
+
+import Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterNormalizedBasicOriginalBoundary
+import Colib.AlgebraicGeometry.KTheory.Bass.SupportedLocalizationZeroTail
+import Colib.AlgebraicGeometry.KTheory.BoundedFlatParameterCurrentNegativeRestriction
+
+open AlgebraicGeometry.Scheme.Bass
+open AlgebraicGeometry.Scheme.Modules.ParameterNormalizedBasicLocalization
+
+#check supportedNegativeLocalizationLongExactSequence
+#check supportedLocalization_zeroTail
+#check basicNegativeConnecting_eq_original
+#check basicConnecting_original_negative_square
+
+#print axioms supportedNegativeLocalizationLongExactSequence
+#print axioms supportedLocalization_zeroTail
+#print axioms AlgebraicGeometry.Scheme.Modules.GlobalParameterCoefficient.currentNegativeKComparison_openRestriction
+#print axioms basicNegativeConnecting_eq_original
+#print axioms basicConnecting_original_negative_square
