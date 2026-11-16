@@ -6362,6 +6362,7 @@ public import Colib.Topology.CubicalSubdivision.TwoChartColumnNormalization
 public import Colib.Topology.CubicalSubdivision.TwoChartFaceNormalization
 public import Colib.Topology.CubicalSubdivision.TwoChartGridNormalization
 public import Colib.Topology.CubicalSubdivision.Walls
+public import Colib.Topology.CWComplex.CellNeighborhood
 public import Colib.Topology.CWComplex.CharacteristicPair
 public import Colib.Topology.CWComplex.CharacteristicQuotient
 public import Colib.Topology.CWComplex.CubeDiskPair
