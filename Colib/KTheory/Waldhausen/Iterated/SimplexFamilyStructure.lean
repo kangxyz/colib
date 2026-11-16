@@ -155,7 +155,7 @@ theorem stageSimplexFunction_structure (r : ℕ) {V W : WideSubcategory preserve
 theorem stageTransformationSimplex_structure (r : ℕ)
     {V W : WideSubcategory preservesZero.{u}} {k : ℕ} (S : ModelSimplex V W k) :
     stageCylinder r V ▷ Δ[k] ≫ stageTransformationSimplex (r + 1) S =
-      simplicialSimplexCylinderSwap ((stages r).obj V) k ≫
+      SSet.simplicialSimplexCylinderSwap ((stages r).obj V) k ≫
         stageTransformationSimplex r S ▷ Δ[1] ≫ stageCylinder r W := by
   ext n z : 4
   exact stageSimplexFunction_structure r S n z.1.1 z.1.2 z.2
