@@ -7359,6 +7359,7 @@ public import Colib.Topology.Realization.SimplexBoundary.TriangleRelation
 public import Colib.Topology.Realization.SimplexBoundary.VertexStars
 public import Colib.Topology.Realization.SimplexBoundaryCollar
 public import Colib.Topology.Realization.SimplexBoundaryEndpoints
+public import Colib.Topology.Realization.SimplexBoundaryFilling
 public import Colib.Topology.Realization.SimplexBoundaryHEP
 public import Colib.Topology.Realization.SimplexCharts
 public import Colib.Topology.Realization.SimplexConnectivity
