@@ -328,6 +328,62 @@ private theorem componentCoefficient_eq_finsum_support :
         (η.val.property.mem_closed (w).isClosedEmbedding.isClosed_range hd'))⟩
     rw [finsum_of_isEmpty, finsum_of_isEmpty]
 
+set_option maxHeartbeats 1400000 in
+/-- The component coefficient carries both input generic multiplicities. Their product
+converts the component-support weight into the actual whole-support weight. -/
+omit [PerfectField k] in
+private theorem weighted_componentCoefficient_eq_finsum_support :
+    ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
+      ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+    exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β =
+      ∑ᶠ η : {η : All // labels η = (α, β)},
+        ((Module.length ((P).presheaf.stalk η.val.val.val)
+          ((P).presheaf.stalk η.val.val.val)).toNat : ℤ) * term η.val := by
+  classical
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  by_cases hz : z.val ∈ Set.range m
+  · obtain ⟨z₀, hz₀⟩ := hz
+    let z' : genericPoints L := ⟨z₀, mem_genericPoints_of_isFinite_image m z₀
+      (hz₀.symm ▸ z.property)⟩
+    rw [exteriorComponentTorCoefficientAt, finsum_eq_single _ ⟨z', hz₀⟩]
+    · let e := componentGenericThroughEquiv X Y Z U V W a b c d ha hb hc hd z α β z' hz₀
+      rw [← finsum_comp_equiv e]
+      let sq' := (isPullback_correspondenceAmbientIncidence f g h j₁ j₂).flip
+      let : IsLocallyNoetherian T₀ :=
+        isLocallyNoetherian_correspondenceIntersectionAmbient (S := Spec (.of k)) f g h
+      let : IsLocallyNoetherian P' := LocallyOfFiniteType.isLocallyNoetherian kP'
+      obtain ⟨_, l, hl, hl'⟩ :=
+        exists_correspondenceTripleInclusion_regularList X Y Z U V W (i' z'.val)
+      have hχ := structureTorCoefficient_eq_finsum_cartesianIntersectionComponents sq' z' l hl hl'
+      rw [incidenceCoefficient_eq_stalk f g h j₁ j₂ z', hχ, mul_finsum]
+      refine finsum_congr fun ξ => ?_
+      have hlen := length_stalk_exteriorWholeSupport_eq_mul_component
+        X Y Z U V W a b c d ha hb hc hd α β ξ.val
+      change _ = ((Module.length ((P).presheaf.stalk (w ξ.val.val))
+        ((P).presheaf.stalk (w ξ.val.val))).toNat : ℤ) * term (e ξ).val
+      rw [hlen]
+      simp only [ENat.toNat_mul, Nat.cast_mul]
+      rw [componentTorTerm_eq X Y Z U V W a b c d ha hb hc hd z α β z' hz₀ ξ]
+      ring
+    · intro t ht
+      exfalso
+      exact ht (Subtype.ext (Subtype.ext
+        ((m).isClosedEmbedding.injective (t.property.trans hz₀.symm))))
+  · rw [exteriorComponentTorCoefficientAt]
+    have : IsEmpty {z' : genericPoints L // m z'.val = z.val} :=
+      ⟨fun t => hz ⟨t.val.val, t.property⟩⟩
+    have : IsEmpty {η : All // labels η = (α, β)} := ⟨fun η => by
+      have hd' : η.val.val.val ∈ Set.range w :=
+        (exteriorWholeSupportGeneric_component_iff
+          X Y Z U V W a b c d ha hb hc hd α β η.val.val).2
+            ⟨congrArg Prod.fst η.property, congrArg Prod.snd η.property⟩
+      exact hz ((exists_mem_componentIncidence_iff X Y Z U V W a b c d ha hb hc hd z α β).2
+        (η.val.property.mem_closed (w).isClosedEmbedding.isClosed_range hd'))⟩
+    rw [finsum_of_isEmpty, finsum_of_isEmpty, mul_zero]
+
 omit α β [PerfectField k] in
 /-- Group the whole-incidence dévissage by its actual pair of generic support labels,
 retaining every whole-support generic length. This regrouping holds over an arbitrary field. -/
