@@ -47,7 +47,7 @@ theorem fiberEquiv_comp_forget (n : ℕ) :
   apply KMap_eq_of_iso _ _
   apply Functor.fullyFaithfulCancelRight ((perfectSupported b).ι)
   exact perfectSupportedRestrictCongrCompInclusion j
-    (Z ⊔ i.opensRange) (fiberOpen_eq j T Z)
+    (Z ⊔ (i).opensRange) (fiberOpen_eq j T Z)
 
 private theorem inverseForgetSquare {A B C D : Type*}
     [Monoid A] [Monoid B] [Monoid C] [Monoid D]
@@ -92,7 +92,7 @@ theorem connectingHom_forget (n : ℕ) :
     (perfectSupportedKMap Z.ι n).comp (connectingHom j T Z hcover hZ n) =
       (PerfectMayerVietoris.connectingHom j T hcover n).comp
         (perfectSupportedKMap (b ⁻¹ᵁ Z').ι (n + 1)) := by
-  let hV := (isCompact_range b.continuous).union (j.isCompact_preimage hZ)
+  let hV := (isCompact_range (b).continuous).union (j.isCompact_preimage hZ)
   let δ := perfectSupportedConnectingHomOfUnionCompact b Z' hV n
   let e := (fiberEquiv j T Z hcover n).symm.toMonoidHom
   let e' := (perfectSupportedExcisionKEquiv j T hcover n).symm.toMonoidHom
