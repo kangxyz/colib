@@ -6438,6 +6438,7 @@ public import Colib.Topology.HELP.ContractibleTestFullOverBase
 public import Colib.Topology.HELP.ContractibleTestOverBase
 public import Colib.Topology.HELP.CubeBoundary
 public import Colib.Topology.HELP.CubeBoundaryHomeomorph
+public import Colib.Topology.HELP.CubeFaceFilling
 public import Colib.Topology.HELP.CubicalHorn
 public import Colib.Topology.HELP.CylinderBoundary
 public import Colib.Topology.HELP.FiniteCharacterization
@@ -7094,6 +7095,7 @@ public import Colib.Topology.Prespectrum.PushoutMovingHomotopy
 public import Colib.Topology.Prespectrum.PushoutPointCone
 public import Colib.Topology.Prespectrum.PushoutReduction
 public import Colib.Topology.Prespectrum.PushoutRightInclusionStable
+public import Colib.Topology.Prespectrum.PushoutSquareFilling
 public import Colib.Topology.Prespectrum.PushoutStableEquivalence
 public import Colib.Topology.Prespectrum.PushoutStableGeneration
 public import Colib.Topology.Prespectrum.PushoutVanishing
