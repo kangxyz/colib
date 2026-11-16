@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1242"
+title = "The degree-two Milnor Kummer symbol modulo n"
+kind = "definition"
+section = "etale-kummer-symbols"
+order = 30
+primary = "AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorTwoModuloKummerSymbol"
+review = "author_checked"
+statement = '''
+Let \(k\) be a field and let \(n>0\) be invertible in \(k\). The original
+Kummer cup pairing induces an additive homomorphism
+\[K^M_2(k)/n \longrightarrow
+\operatorname{Ext}^2_{\operatorname{Sh}(k_{et},\mathbb Z/n)}
+(\mathbf 1,\mu_n\otimes_{\mathbb Z/n}\mu_n),\qquad
+\{a,b\}\longmapsto\kappa_n(a)\smile\kappa_n(b).\]
+The source is the native Milnor group modulo the actual range of
+multiplication by n. The target and pairing are the original module Ext
+objects and `kummerCupModuloPowers`, without a chosen trivialization of roots
+of unity. Field units are transported by the actual Gamma-Spec isomorphism.
+'''
+proof = '''
+Lift the biadditive cup pairing on field units to the integral tensor square.
+The Steinberg relation COL-1241 kills the ordered-pair Steinberg submodule.
+Use the existing native pair presentation of COL-0009 to descend to
+\(K^M_2(k)\), preserving each ordered tensor symbol. The field-unit quotient
+is annihilated by n; tensor induction and surjectivity of the native
+presentation therefore show that the descended map kills n multiples.
+The ordinary additive quotient universal property supplies the stated map,
+with the same ordered-pair evaluation formula.
+'''
+scope = '''
+This is the actual degree-two symbol map and its defining formula, not an
+injectivity, surjectivity or isomorphism theorem. No perfectness, primitive
+root or irreducibility hypothesis is added. The Lean construction retains
+the explicit abelian-sheaf HasExt assumption at universe u+1, the standard
+derived categories and native ZMod n-module coefficient sheaf.
+It does not yet identify this map with a motivic degree-two symbol, prove
+higher-weight product compatibility, or assert a norm-residue isomorphism.
+'''

@@ -469,6 +469,7 @@ class LibraryTests(unittest.TestCase):
             "ext-products": "Colib.Algebra.Homology.DerivedCategory.Ext.Bifunctor",
             "nisnevich-sites": "Colib.AlgebraicGeometry.Sites.Nisnevich.Basic",
             "smooth-etale-sites": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
+            "etale-kummer-symbols": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
             "boundary-frames-and-descent":
                 "Colib.AlgebraicGeometry.Modules.Invertible.FiniteBoundaryFrame",
             "homotopy-invariant-transfer-actions":
@@ -670,6 +671,10 @@ class LibraryTests(unittest.TestCase):
             "COL-1024": "Colib.RingTheory.KTheory.MilnorK.Norm.DVRPurePrimeComplete",
             "COL-1026": "Colib.AlgebraicGeometry.MotivicCohomology.Diagonal.MilnorEquivalence",
             "COL-1027": "Colib.RingTheory.KTheory.MilnorK.Norm.AcrossUniversesFinite",
+            "COL-1227": "Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo",
+            "COL-1236": "Colib.RingTheory.AdjoinRoot.LinearFactorNorm",
+            "COL-1241": "Colib.AlgebraicGeometry.EtaleCohomology.KummerSteinberg",
+            "COL-1242": "Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwoModulo",
             "COL-1203": "Colib.AlgebraicGeometry.Sites.Smooth.Etale.Topology",
             "COL-1204": "Colib.RingTheory.Henselian.FiniteAlgebraUnits",
             "COL-1205":
@@ -2592,6 +2597,26 @@ class LibraryTests(unittest.TestCase):
             self.assertEqual(item["path"], f"docs/library/entries/{folder}/{identifier}.toml")
             self.assertEqual(item["primary"], primary)
             self.assertEqual(built["declarations"][primary]["module"], module)
+
+    def test_kummer_steinberg_modulo_keeps_original_scope(self):
+        expected = {
+            "COL-1227": ("etale-kummer-symbols", "KummerUnitsModulo"),
+            "COL-1236": ("charpoly-branches", "LinearFactorNorm"),
+            "COL-1241": ("etale-kummer-symbols", "KummerSteinberg"),
+            "COL-1242": ("etale-kummer-symbols", "MilnorKummerTwoModulo"),
+        }
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        for identifier, (section, module) in expected.items():
+            entry = built["entries"][identifier]
+            self.assertEqual(entry["section"], section)
+            owner = built["declarations"][entry["primary"]]["module"]
+            self.assertTrue(owner.endswith("." + module))
+        for identifier in ("COL-1241", "COL-1242"):
+            self.assertIn("norm-residue isomorphism", self.library["entries"][identifier]["scope"])
+        text = " ".join(str(value) for value in self.library["entries"]["COL-1227"].values())
+        self.assertNotIn("COL-1237", text)
+        self.assertNotIn("COL-1244", text)
+        self.assert_test_in_checks("ColibTest.MilnorKummerTwoModulo", "scripts/check.sh")
 
 if __name__ == "__main__":
     unittest.main()
