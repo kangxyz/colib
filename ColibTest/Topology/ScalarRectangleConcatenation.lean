@@ -19,4 +19,4 @@ example {X : Type u} [TopologicalSpace X]
         (rightAssociated_seam hBM hA h₁ h₂ h₃)
         (secondHalfTime s, secondHalfTime (secondHalfTime t)) =
       M (s, unitInterval.symm t) := by
-  rw [concatFirst_upper, concatSecond_upper, concatSecond_upper] <;> rfl
+  (rw [concatFirst_upper, concatSecond_upper, concatSecond_upper]; rfl)

@@ -128,17 +128,15 @@ theorem mapOfHomotopies_middleQuarter (n : ℕ) (t : unitInterval) (x : A.space 
     (mapOfHomotopies f g f' g' a b c Hf Hg).map n
       (cylinder f g n (secondHalfTime (firstHalfTime t), x)) =
       cylinder f' g' n (t, a.map n x) := by
-  simp only [mapOfHomotopies_cylinder, mapSquareHomotopy, Homotopy.trans_secondHalfTime,
-    Homotopy.trans_firstHalfTime]
-  <;> rfl
+  (simp only [mapOfHomotopies_cylinder, mapSquareHomotopy, Homotopy.trans_secondHalfTime,
+    Homotopy.trans_firstHalfTime]; rfl)
 
 /-- The last quarter evaluates the original second leg square at the reversed clock. -/
 theorem mapOfHomotopies_lastQuarter (n : ℕ) (t : unitInterval) (x : A.space n) :
     (mapOfHomotopies f g f' g' a b c Hf Hg).map n
       (cylinder f g n (secondHalfTime (secondHalfTime t), x)) =
       (inr f' g').map n (Hg.level n (unitInterval.symm t, x)) := by
-  simp only [mapOfHomotopies_cylinder, mapSquareHomotopy, Homotopy.trans_secondHalfTime]
-  <;> rfl
+  (simp only [mapOfHomotopies_cylinder, mapSquareHomotopy, Homotopy.trans_secondHalfTime]; rfl)
 
 end HomotopyPushout
 
