@@ -6,12 +6,13 @@ Authors: kangxyz
 module
 
 public import Mathlib.CategoryTheory.Shift.CommShift
+public import Mathlib.Algebra.Group.Int.Defs
 
 /-! # The native signed parameter boundary under a shift-compatible functor -/
 
 @[expose] public section
 namespace CategoryTheory
-open Functor
+open CategoryTheory.Functor
 variable {C D : Type*} [Category* C] [Category* D]
   [HasShift C ℤ] [HasShift D ℤ] (E : C ⥤ D) [E.CommShift ℤ]
 

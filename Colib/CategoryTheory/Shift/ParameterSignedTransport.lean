@@ -11,7 +11,7 @@ public import Colib.CategoryTheory.Shift.ParameterBoundary
 /-! # Signed parameter transport with the original additive-shift boundary -/
 @[expose] public section
 namespace CategoryTheory
-open Functor
+open CategoryTheory.Functor
 variable {C D : Type*} [Category* C] [Category* D]
   [HasShift C ℤ] [HasShift D ℤ]
   (E : C ⥤ D) (F : C ⥤ C) (G : D ⥤ D)

@@ -95,6 +95,8 @@ theorem parameterSquare_extend
   have hf : E₁.map (X.map f) = aM.inv ≫ Y.map (E₀.map f) ≫ aFN.hom := by
     have hh := congrArg (fun z => z ≫ aFN.hom)
       ((mapExtendNatIso E e).inv.naturality f)
+    change (E₁.map (X.map f) ≫ aFN.inv) ≫ aFN.hom =
+      (aM.inv ≫ Y.map (E₀.map f)) ≫ aFN.hom at hh
     simpa only [Category.assoc, Iso.inv_hom_id, Category.comp_id] using hh
   have hτ : Y.map τ₀ ≫ cN.hom ≫ G₁.map aN.hom =
       aFN.hom ≫ E₁.map bN.hom ≫ τ₁ := by
@@ -103,7 +105,7 @@ theorem parameterSquare_extend
   have hb : Y.map (G₀.map b) ≫ cN'.hom = cN.hom ≫ G₁.map (Y.map b) :=
     (mapExtendNatIso G e).hom.naturality b
   have hcancel : G₁.map aN.hom ≫ G₁.map aN.inv = 𝟙 _ := by
-    rw [← Functor.map_comp, Iso.hom_inv_id, Functor.map_id]
+    rw [← Functor.map_comp, Iso.hom_inv_id, CategoryTheory.Functor.map_id]
   change E₁.map (X.map f ≫ bN.hom) ≫ τ₁ ≫
       G₁.map (aN.inv ≫ Y.map b) =
     (aM.inv ≫ Y.map a) ≫ Y.map g ≫ cN'.hom
@@ -117,10 +119,9 @@ theorem parameterSquare_extend
     _ = aM.inv ≫ Y.map (E₀.map f) ≫ Y.map τ₀ ≫
         cN.hom ≫ G₁.map (Y.map b) := by
       simp only [Functor.map_comp, Category.assoc]
-      rw [reassoc_of% hcancel, Category.id_comp]
+      rw [reassoc_of% hcancel]
     _ = aM.inv ≫ Y.map (E₀.map f) ≫ Y.map τ₀ ≫ Y.map (G₀.map b) ≫ cN'.hom := by
       rw [← hb]
-      simp only [Category.assoc]
     _ = aM.inv ≫ Y.map (E₀.map f ≫ τ₀ ≫ G₀.map b) ≫ cN'.hom := by
       simp only [Functor.map_comp, Category.assoc]
     _ = aM.inv ≫ Y.map (a ≫ g) ≫ cN'.hom := by rw [h]

@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Mathlib.CategoryTheory.Shift.CommShift
+public import Mathlib.Algebra.Group.Int.Defs
 
 /-! # Transport of a parameter square through native shifts
 
@@ -13,7 +14,7 @@ A one-way parameter comparison suffices; it is never inverted.
 -/
 @[expose] public section
 namespace CategoryTheory
-open Functor
+open CategoryTheory.Functor
 variable {C D : Type*} [Category* C] [Category* D]
   [HasShift C ℤ] [HasShift D ℤ]
   (E : C ⥤ D) (F : C ⥤ C) (G : D ⥤ D)
