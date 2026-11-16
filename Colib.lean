@@ -6377,7 +6377,9 @@ public import Colib.Topology.DoubleMappingCylinder.Collapse
 public import Colib.Topology.DoubleMappingCylinder.CollarConnectivity
 public import Colib.Topology.DoubleMappingCylinder.CollarGapConnectivity
 public import Colib.Topology.DoubleMappingCylinder.Collars
+public import Colib.Topology.DoubleMappingCylinder.ComparisonDescent
 public import Colib.Topology.DoubleMappingCylinder.Connectivity
+public import Colib.Topology.DoubleMappingCylinder.EndpointHomotopy
 public import Colib.Topology.DoubleMappingCylinder.Finite.Basic
 public import Colib.Topology.DoubleMappingCylinder.Finite.Cartesian
 public import Colib.Topology.DoubleMappingCylinder.Finite.Comparison
@@ -6386,6 +6388,7 @@ public import Colib.Topology.DoubleMappingCylinder.Gap
 public import Colib.Topology.DoubleMappingCylinder.GapCollarComparison
 public import Colib.Topology.DoubleMappingCylinder.GapConnectivity
 public import Colib.Topology.DoubleMappingCylinder.HeightCover
+public import Colib.Topology.DoubleMappingCylinder.HomotopyDescent
 public import Colib.Topology.DoubleMappingCylinder.Invariance
 public import Colib.Topology.DoubleMappingCylinder.LocalComparison
 public import Colib.Topology.DoubleMappingCylinder.Subdivision
