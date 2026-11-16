@@ -2187,6 +2187,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitPolynom
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleCounitReduction
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleNeighborhoodRadicial
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityTorsion
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleTorsionContract
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.FiniteFlatTransfer
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.FiniteScalarAffineCorrectionRestriction
@@ -2357,6 +2358,9 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Pushforward
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.PushforwardParameterMap
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Representable
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.RepresentedUnit
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorsionNeighborhoodReduction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorsionRigidityReduction
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorsionSubpresheaf
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineParameterSwap
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.AffineTorusPoints
@@ -3272,6 +3276,7 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionPu
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStageAction
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionSmallStagePulledRepresentative
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodInductionStep
+public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodMono
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPoint
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPreimageBaseTransport
 public import Colib.AlgebraicGeometry.Sites.Smooth.Etale.NeighborhoodPullbackFunctor

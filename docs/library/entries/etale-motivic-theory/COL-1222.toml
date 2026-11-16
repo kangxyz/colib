@@ -1,46 +1,56 @@
 [entry]
 id = "COL-1222"
-title = "Étale rigidity of homotopy-invariant torsion transfers"
+title = "Suslin rigidity: local constancy for prime-to-characteristic torsion"
 kind = "theorem"
 section = "etale-rigidity"
 order = 30
-primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_of_A1Invariant"
+primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_fullSmallEtale_sheafification_counit_of_primeToCharacteristicTorsion"
 review = "author_checked"
-source_checked_on = "2026-11-13"
+source_checked_on = "2026-11-14"
 statement = '''
-Let \(k\) be any field and \(P\) an additive presheaf with transfers on
-Colib's original \(\mathrm{Sm}(k)\), valued in abelian groups. Assume that
-\(P\) is \(\mathbb A^1\)-invariant. Fix \(n\in\mathbb N\) such that
-\(n+1\) is invertible in \(k\) and annihilates every section of \(P\)
-on every original smooth object.
+Let \(k\) be a field and \(P\) a homotopy-invariant additive presheaf
+with transfers on \(\mathrm{Sm}(k)\). Suppose that \(P\) is
+prime-to-characteristic torsion: for every smooth \(X/k\) and every
+\(x\in P(X)\), there is a positive integer \(m\), invertible in \(k\),
+with \(mx=0\). The integer may depend on both \(X\) and \(x\); no common
+annihilating exponent is required. Then the étale sheafification
+\(P_{\acute et}\) is locally constant in the sense of
+[@MVW2006, Lecture 6, Definition 6.7, p. 38].
 
-Write \(F=a_{\acute et}(P|_{\mathrm{Sm}(k)})\) for its actual étale
-sheafification. The canonical counit
+Explicitly, let \(R\) be restriction from the smooth étale site to
+\((\operatorname{Spec}k)_{\acute et}\), and \(L\) its left-adjoint extension.
+The canonical counit
 \[
-  \varepsilon_F:L R F\longrightarrow F
+  LR(P_{\acute et})\longrightarrow P_{\acute et}
 \]
-of the actual full-small/smooth étale extension–restriction adjunction is
-an isomorphism. In particular, \(F\) comes from the full small étale site
-through this adjunction, with the comparison given by its counit.
+is an isomorphism. Thus the sheaf is determined by its restriction to the
+small étale site. Here “locally constant” does not impose finite stalks.
 '''
 proof = '''
-Apply the algebraically closed, separable-residue form of COL-1114's
-canonical counit reduction. Simultaneous natural-number induction proves
-polynomial-tail isomorphisms in every dimension, retaining the original
-presheaf and its finite separable coefficient stages. The positive step
-uses the same-stage geometric construction and original transfer action;
-its actual chart preimages and structural monomorphism give the required
-isomorphism. Transport these polynomial-tail maps to the original affine
-structural-neighborhood pullbacks and discharge the counit condition.
+For each positive integer \(m\) invertible in \(k\), the actual transfer
+subpresheaf \(P[m]\) of sections killed by \(m\) is homotopy invariant.
+Apply the fixed-exponent rigidity theorem to \(P[m]\). Every original
+étale-neighborhood germ is represented by a section and hence lifts from
+one such subpresheaf; the inclusion induces an injection on neighborhood
+values by the refinement-zero criterion. These facts give bijectivity of
+the original structural pullback for \(P\). The sheafification comparison
+and affine-closed-point conservativity of COL-1114 then give the counit
+isomorphism. This is the finite-exponent reduction used in
+[@MVW2006, Lecture 7, Theorem 7.20 and Proposition 7.21, pp. 51-52].
+
+The fixed-exponent theorem remains a supporting declaration. Its proof
+uses the same-stage geometric construction, original transfer action and
+polynomial-tail induction to establish the structural pullback condition.
 '''
 scope = '''
-This is the fixed-exponent form of [@MVW2006, Lecture 7, Theorem 7.20, p. 51],
-expressed using Colib's canonical adjunction rather than an unrelated
-isomorphic sheaf. No perfectness assumption on \(k\), finite generation of
-coefficient groups, or presheaf on a substituted ground field is required.
-The exponent may be composite, and \(n=0\) includes the exponent-one case.
+This is the prime-to-characteristic torsion statement of
+[@MVW2006, Lecture 7, Theorem 7.20, p. 51], not only its fixed-exponent
+special case. No perfectness assumption on \(k\), finite generation of
+coefficient groups, or uniform annihilating integer is required.
+In positive characteristic the sectionwise annihilators are prime to that
+characteristic; in characteristic zero this is ordinary torsion.
 The field has universe \(u\) and the abelian-group coefficients have
-universe \(u+1\), as in the existing transfer category. This is an ordinary
-sheaf counit theorem, not a derived or motivic comparison or an assertion
-about torsion presheaves with no common annihilating exponent.
+universe \(u+1\), as in the existing transfer category. The conclusion is
+ordinary étale local constancy, not a derived Tate or norm-residue comparison.
+The retained fixed-exponent theorem writes its positive integer as \(n+1\).
 '''

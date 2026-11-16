@@ -877,8 +877,10 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(item["kind"], "theorem")
         self.assertEqual(item["primary"],
                          "AlgebraicGeometry.PresheafWithTransfers."
-                         "isIso_fullSmallEtale_sheafification_counit_of_A1Invariant")
-        self.assertIn("n+1", item["statement"])
+                         "isIso_fullSmallEtale_sheafification_counit_of_primeToCharacteristicTorsion")
+        self.assertIn("no common", item["statement"])
+        self.assertIn("locally constant", item["statement"])
+        self.assertIn("prime-to-characteristic torsion", item["statement"])
         self.assertIn("canonical counit", item["statement"])
         self.assertIn("No perfectness assumption", item["scope"])
         section = self.library["sections"]["etale-rigidity"]
