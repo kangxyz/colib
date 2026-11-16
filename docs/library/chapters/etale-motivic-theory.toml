@@ -1,7 +1,7 @@
 [chapter]
 id = "etale-motivic-theory"
 title = "Étale Motivic Theory"
-order = 57
+order = 53
 introduction = '''
 Suslin rigidity is the first result organized here: a homotopy-invariant
 prime-to-characteristic torsion presheaf with transfers has locally constant
@@ -22,6 +22,16 @@ order = 10
 introduction = '''
 The conclusion of [@MVW2006, Lecture 7, Theorem 7.20] is local constancy of the étale sheafification of a homotopy-invariant, prime-to-characteristic torsion presheaf with transfers. Fixed-exponent rigidity follows from the geometric finite-stage results and polynomial-tail induction. Passing through the actual torsion subpresheaves and original neighborhood germs gives the general sectionwise-torsion form of COL-1222, without a common exponent. This is an ordinary sheaf result, not a derived or motivic comparison.
 '''
+
+[[sections.topics]]
+id = "rigidity-geometric-reduction"
+title = "Frobenius transport and closed-point reduction"
+start = "COL-1111"
+
+[[sections.topics]]
+id = "rigidity-torsion-conclusion"
+title = "Rigidity for sectionwise torsion coefficients"
+start = "COL-1222"
 
 [sections.transitions]
 COL-1111 = '''

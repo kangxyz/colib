@@ -1,0 +1,143 @@
+[chapter]
+id = "nisnevich-sheaves-with-transfers"
+title = "Nisnevich Sheaves with Transfers"
+order = 52
+introduction = '''
+Start with the additive presheaves of COL-0368 and impose the ordinary
+Nisnevich sheaf condition after graph restriction. Signed Čech descent gives
+transfer-preserving sheafification and its comparison with ordinary
+sheafification. Sheafified representables then identify sections and supply
+Ext presheaves with transfers. See [@MVW2006, Lecture 13].
+
+Homotopy invariance survives this reflector; over a perfect field it becomes
+strict A¹-invariance. Singular complexes and their torus comparison remain in
+Presheaves with Transfers, with the sheafification comparison in COL-0397.
+Étale Motivic Theory separately treats the étale rigidity conclusion COL-1222.
+'''
+
+[[sections]]
+id = "transfers-nisnevich"
+title = "Nisnevich descent and transfer-preserving sheafification"
+order = 10
+introduction = '''
+Graph restriction puts a transfer presheaf on the ordinary smooth Nisnevich
+site of COL-0340. Local signed Čech exactness compares that descent condition
+with descent on correspondences. The resulting sheafification preserves
+transfers and agrees with ordinary sheafification along graphs.
+See [@MVW2006, Lecture 13, Theorem 13.1].
+'''
+
+[[sections.topics]]
+id = "nisnevich-transfer-sheaves"
+title = "Nisnevich sheaves and graph restriction"
+start = "COL-0369"
+
+[[sections.topics]]
+id = "local-exactness-and-descent"
+title = "Signed Čech relations and descent"
+start = "COL-0370"
+
+[[sections.topics]]
+id = "sheafification-and-comparison"
+title = "Sheafification and its underlying sheaf"
+start = "COL-0372"
+
+[sections.transitions]
+COL-0369 = '''
+Restrict along COL-0367 to test ordinary Nisnevich descent. Morphisms of transfer
+sheaves commute with the action of every signed correspondence.
+'''
+COL-0370 = '''
+A signed relation killed by composition with a completely decomposed étale map
+has a common finite image. After lifting that image on a pointed Nisnevich
+neighborhood, write the restricted relation as a difference of Čech projections.
+'''
+COL-0371 = '''
+The signed Čech boundary gives the required compatibility with transfer arrows.
+Together with additivity on finite disjoint unions, it compares the two sheaf
+conditions.
+'''
+COL-0372 = '''
+Use the correspondence-site reflector and the descent comparison of COL-0371.
+The resulting unit and its unique extension property give the adjunction for
+transfer-preserving sheafification.
+'''
+COL-0373 = '''
+The unit of COL-0372, restricted along graphs, is locally bijective and has a
+Nisnevich sheaf as target. Extending it along ordinary sheafification fixes
+both the direction of the comparison and its relation to the units.
+'''
+
+[[sections]]
+id = "transfer-homological-algebra"
+title = "Homological algebra of Nisnevich transfer sheaves"
+order = 20
+introduction = '''
+Apply the Nisnevich reflector to the sectionwise cokernels of COL-0390
+to obtain the abelian category of transfer sheaves. A sheafified
+representable gives evaluation by Yoneda and serves as the first variable for
+Ext in that category.
+'''
+
+[sections.transitions]
+COL-0381 = '''
+The reflector of COL-0372 preserves finite limits. Exact filtered colimits and
+a separator give enough injectives in the resulting abelian sheaf category.
+'''
+COL-0391 = '''
+Sheafify the signed representable in the coefficient universe. Evaluation
+at the full identity cycle identifies maps out of it with sections.
+'''
+COL-0392 = '''
+Apply Ext contravariantly to the sheafified representable of COL-0391. A signed
+correspondence acts through precomposition by its map of representables.
+'''
+
+[[sections]]
+id = "transfer-convolution"
+title = "Convolution and represented parameters"
+order = 25
+introduction = '''
+Over a perfect field, use the actual finite-correspondence tensor to form
+integral convolution. The reflector of COL-0372 descends this tensor to
+ordinary Nisnevich sheaves with transfers. The sheafified representables of
+COL-0391 identify represented factors, including the original torus tensor.
+'''
+
+[sections.transitions]
+COL-1294 = '''
+A represented parameter has the original parameter-sections right adjoint.
+Extend its preservation of sheafification equivalences through the canonical
+representable presentation, then descend the actual symmetric convolution.
+'''
+COL-1295 = '''
+Keep the sheafification counit and tensorator from COL-1294. Their naturality
+identifies a represented right factor with the original parameter coend;
+at the torus, retain the original adjunction and its unit and counit.
+'''
+
+[[sections]]
+id = "affine-line-invariance"
+title = "Homotopy invariance of sheafification and cohomology"
+order = 30
+introduction = '''
+First pass homotopy invariance through the reflector of COL-0372, as in
+[@MVW2006, Lecture 22, Theorem 22.3]. This assertion concerns sections.
+Over a perfect field, homotopy invariance of a Nisnevich sheaf with transfers
+passes to its ordinary Nisnevich cohomology in every degree. Use the projection
+\(X\times_k\mathbb A^1\to X\) on the ordinary smooth site.
+See [@MVW2006, Lecture 24, Theorem 24.1].
+'''
+
+[sections.transitions]
+COL-1028 = '''
+The zero section splits pullback along the affine-line projection. The marked
+representative argument gives injectivity of zero-section restriction after
+sheafification, making it inverse to projection pullback.
+'''
+COL-1029 = '''
+In degree zero the assertion is invariance of sections. The higher-degree
+argument uses restriction on the entire affine cylinder and on the complement
+of a smooth Cartier divisor. For a homotopy-invariant transfer presheaf, first
+apply COL-1028 to obtain the coefficient sheaf required by the theorem.
+'''

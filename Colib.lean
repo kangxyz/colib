@@ -2557,6 +2557,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorusProjec
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RelativeFrobenius
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Representable
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RepresentableLarge
+public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RepresentablePresentation
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RestrictionDifference.Basic
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RestrictionDifference.CartesianComposition
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RestrictionDifference.Composition
@@ -3311,8 +3312,16 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Germs.Tuples.Sheaf
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Germs.Tuples.Transfers
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Limits
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.LocalVanishing.DenseOpen
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.ParameterSections
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Representable
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.ConvolutionLocalEquivalences
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.MonoidalLocalization
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.ParameterAdjunction
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.ParameterLocalEquivalences
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.ParameterTorusComparison
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.RepresentedParameter
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.RepresentedParameterNaturality
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsCoproducts
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSectionsDerived.Acyclic
@@ -3996,6 +4005,7 @@ public import Colib.CategoryTheory.Functor.IdentityAutomorphismSquare
 public import Colib.CategoryTheory.Functor.IsoRouteConjugation
 public import Colib.CategoryTheory.Functor.IsoRouteRectangle
 public import Colib.CategoryTheory.Functor.IsoRouteTargetNormalization
+public import Colib.CategoryTheory.Functor.LocalEquivalenceOfHomEquiv
 public import Colib.CategoryTheory.Functor.PointwiseCoproduct
 public import Colib.CategoryTheory.Functor.Rebase
 public import Colib.CategoryTheory.Functor.Rebase.Composition

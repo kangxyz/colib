@@ -73,11 +73,13 @@ instance nisnevichSheafificationEquivalences_isMonoidal :
 /-- The actual sheaf category has the symmetric convolution tensor obtained by
 localizing integral transfer convolution; its unit is the sheafified represented unit. -/
 @[instance_reducible]
+@[colib_tag "COL-1294"]
 def nisnevichConvolutionMonoidalCategory : MonoidalCategory (SheafWithTransfers.{u + 1} k) :=
   Localization.monoidalCategory (nisnevichSheafify k)
     (nisnevichSheafificationEquivalences k) (Iso.refl _)
 
 /-- Nisnevich sheafification is strong monoidal for the descended convolution. -/
+@[colib_tag "COL-1294"]
 def nisnevichConvolutionSheafificationCoreMonoidal :
     letI := nisnevichConvolutionMonoidalCategory k
     (nisnevichSheafify k).CoreMonoidal :=
@@ -86,6 +88,7 @@ def nisnevichConvolutionSheafificationCoreMonoidal :
 
 /-- The original convolution symmetry descends to actual transfer sheaves. -/
 @[instance_reducible]
+@[colib_tag "COL-1294"]
 def nisnevichConvolutionSymmetricCategory :
     letI := nisnevichConvolutionMonoidalCategory k
     SymmetricCategory (SheafWithTransfers.{u + 1} k) :=
@@ -107,6 +110,7 @@ def nisnevichConvolutionSheafifiedRightIso
 /-- The localized tensor is canonically the sheafification of the convolution
 of the original transfer coefficients. The comparison uses the actual
 sheafification counit and the localization tensorator. -/
+@[colib_tag "COL-1294"]
 def nisnevichConvolutionTensorIso (P Q : (SheafWithTransfers.{u + 1} k)) :
     letI := nisnevichConvolutionMonoidalCategory k
     P ⊗ Q ≅ (nisnevichSheafify k).obj

@@ -1,0 +1,47 @@
+[entry]
+id = "COL-1295"
+title = "Represented parameters and the original torus tensor"
+kind = "comparison"
+section = "transfer-convolution"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers.nisnevichConvolutionTorusNatIso"
+review = "author_checked"
+source_checked_on = "2026-11-17"
+statement = '''
+Let \(k\) be a perfect field, with integral transfer coefficients in
+universe \(u+1\) for \(k\) in universe \(u\). Use the tensor of COL-1294,
+the original sheafification \(a\), and its inclusion \(U\). For a smooth
+correspondence object \(X\), put \(R_X=a\mathbb Z_{\mathrm{tr}}(X)\).
+There is an isomorphism of functors, natural in the sheaf \(H\),
+\[ H\otimes R_X\simeq a\bigl(({-}\times X)_!(UH)\bigr), \]
+where \(({-}\times X)_!\) is the original additive coend pushforward on
+finite correspondences. For \(X=\mathbb G_m\), this identifies
+\({-}\otimes R_{\mathbb G_m}\) naturally with the original torus tensor
+functor \(T_{\mathbb G_m}\). Transport of its original adjunction to torus
+sections along this isomorphism preserves the unit and counit. If
+\(e:{-}\otimes R_{\mathbb G_m}\simeq T_{\mathbb G_m}\), then
+\[ \eta^{\otimes}_H;S(e_H)=\eta^{T}_H,
+\qquad e_{S(H)};\epsilon^{T}_H=\epsilon^{\otimes}_H, \]
+where \(S\) is the original torus-sections functor and a semicolon denotes
+composition in the displayed order.
+'''
+scope = '''
+The tensor comparison is natural in all sheaf coefficient maps. It retains
+the original signed correspondences, coend pushforward, sheafification
+counit and torus adjunction; no replacement coefficient category or
+independently chosen torus adjunction is introduced. The underlying
+ordinary graph-compatible parameter adjunction and its torus specialization
+work over an arbitrary field. Perfectness in this item belongs to the
+native convolution tensor of COL-1294. This is not a derived tensor,
+a cancellation theorem, or an étale comparison. The represented sheaf uses
+the normalization of COL-0391.
+'''
+proof = '''
+Whisker the original sheafification counit with right tensor and compose
+with the natural strong tensorator. For a represented factor, apply the
+existing convolution-to-parameter-coend comparison. At the torus, identify
+the native right tensor on correspondences with the original parameter
+product, and apply the original coend adjunction comparison. Transport the
+original torus adjunction along the resulting natural isomorphism. Its
+unit and counit formulas give the displayed compatibility equations.
+'''

@@ -57,6 +57,7 @@ def nisnevichConvolutionSheafifiedRightNatIso (Q : TransferCoefficients k) :
     Functor.isoWhiskerLeft (forget k) (nisnevichSheafificationTensorRightIso k Q)
 
 /-- The represented smooth parameter comparison respects all coefficient maps. -/
+@[colib_tag "COL-1295"]
 def nisnevichConvolutionRepresentedParameterNatIso (X : Cor k) :
     tensorRight ((transferRepresentable k).obj X) ≅
       forget k ⋙ coendPushforward (tensorRight X) ⋙ nisnevichSheafify k :=
@@ -68,6 +69,7 @@ def nisnevichConvolutionRepresentedParameterNatIso (X : Cor k) :
 local notation "Gₘ" => SmoothSite.multiplicativeGroupObject (Spec (CommRingCat.of k))
 
 /-- The actual descended torus tensor is naturally the original torus tensor. -/
+@[colib_tag "COL-1295"]
 def nisnevichConvolutionTorusNatIso :
     tensorRight ((transferRepresentable k).obj (Cor.mk Gₘ)) ≅ torusTensorFunctor k :=
   nisnevichConvolutionRepresentedParameterNatIso k (Cor.mk Gₘ) ≪≫
@@ -78,6 +80,7 @@ def nisnevichConvolutionTorusNatIso :
     torusCoendSheafIso k
 
 /-- Use the original torus adjunction along the explicit natural tensor comparison. -/
+@[colib_tag "COL-1295"]
 def nisnevichConvolutionTorusAdjunction :
     tensorRight ((transferRepresentable k).obj (Cor.mk Gₘ)) ⊣
       (torusSectionsFunctor k : SheafWithTransfers.{u + 1} k ⥤ _) :=
@@ -85,6 +88,7 @@ def nisnevichConvolutionTorusAdjunction :
 
 /-- The natural tensor comparison carries the transported unit to the original unit. -/
 @[reassoc]
+@[colib_tag "COL-1295"]
 theorem nisnevichConvolutionTorusNatIso_unit (P : SheafWithTransfers.{u + 1} k) :
     (nisnevichConvolutionTorusAdjunction k).unit.app P ≫
       (torusSectionsFunctor k).map ((nisnevichConvolutionTorusNatIso k).hom.app P) =
@@ -93,6 +97,7 @@ theorem nisnevichConvolutionTorusNatIso_unit (P : SheafWithTransfers.{u + 1} k) 
 
 /-- The natural tensor comparison preserves the original torus counit. -/
 @[reassoc]
+@[colib_tag "COL-1295"]
 theorem nisnevichConvolutionTorusNatIso_counit (P : SheafWithTransfers.{u + 1} k) :
     (nisnevichConvolutionTorusNatIso k).hom.app ((torusSectionsFunctor k).obj P) ≫
       (torusTensorAdjunction k).counit.app P =

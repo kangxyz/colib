@@ -2,7 +2,7 @@
 id = "COL-0368"
 title = "Additive presheaves with transfers"
 kind = "definition"
-section = "transfers-nisnevich"
+section = "transfer-presheaf-foundations"
 order = 10
 primary = "AlgebraicGeometry.PresheafWithTransfers"
 statement = '''

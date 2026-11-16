@@ -1,7 +1,7 @@
 [chapter]
 id = "homological-algebra"
 title = "Homological Algebra"
-order = 30
+order = 7
 introduction = "Native resolutions and derived invariants supply the bounds used in cohomological applications. Each result retains its actual objects, coefficients and size assumptions."
 
 [[sections]]
