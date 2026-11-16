@@ -5400,6 +5400,7 @@ public import Colib.KTheory.Waldhausen.Iterated.SelfTrackKOperationNaturality
 public import Colib.KTheory.Waldhausen.Iterated.SelfTrackKOperationPath
 public import Colib.KTheory.Waldhausen.Iterated.Separation
 public import Colib.KTheory.Waldhausen.Iterated.SimplexFamily
+public import Colib.KTheory.Waldhausen.Iterated.SimplexFamilyRealization
 public import Colib.KTheory.Waldhausen.Iterated.SimplexFamilyStructure
 public import Colib.KTheory.Waldhausen.Iterated.SmallModelBridge
 public import Colib.KTheory.Waldhausen.Iterated.SmallModelComparison
