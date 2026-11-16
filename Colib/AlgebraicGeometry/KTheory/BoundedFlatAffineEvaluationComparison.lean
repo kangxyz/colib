@@ -87,6 +87,16 @@ def boundedAboveFlatAffineEvaluationInverseModelMap (R : CommRingCat.{u}) :
     (boundedAboveFlatAffineEvaluationSmallEquivalence R)
     (boundedAboveFlatAffineEvaluationSmall_inverse_exact R)
 
+/-- The actual canonically normalized affine evaluation inverse on prespectra. -/
+@[colib_tag "COL-0358",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/SectionSpectrumEquivalence.lean:27-36"
+    "adaptation" "The original prespectrum map of the actual normalized inverse model functor"]
+def boundedAboveFlatAffineEvaluationInversePrespectrumMap (R : CommRingCat.{u}) :
+    originalPrespectrum (boundedAboveFlatPerfectWaldhausen (Spec R).toRingedSpace) ⟶
+      boundedAboveFlatAffineSectionPrespectrumFunctor.obj R :=
+  prespectrumMap (boundedAboveFlatAffineEvaluationInverseModelMap R)
+
 /-- The full left inverse track for actual lifted evaluation. -/
 def boundedAboveFlatAffineEvaluationLeftHomotopy (R : CommRingCat.{u}) :=
   ExactModelEquivalence.leftHomotopy
