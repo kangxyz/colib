@@ -41,9 +41,9 @@ theorem isIso_app_of_isIso_representable (α : L ⟶ L')
     have : ∀ i, IsIso ((Functor.whiskerLeft K α).app i) := fun i => hα i.as.1
     have : IsIso (Functor.whiskerLeft K α) := NatIso.isIso_of_isIso_app _
     exact isIso_app_coconePt_of_preservesColimit K α _ (colimit.isColimit K)
-  letI : PreservesColimitsOfSize.{0, 0} L :=
+  let : PreservesColimitsOfSize.{0, 0} L :=
     preservesSmallestColimits_of_preservesColimits L
-  letI : PreservesColimitsOfSize.{0, 0} L' :=
+  let : PreservesColimitsOfSize.{0, 0} L' :=
     preservesSmallestColimits_of_preservesColimits L'
   let K := parallelPair (representablePresentationRelation P) 0
   have : ∀ i, IsIso ((Functor.whiskerLeft K α).app i) := by
