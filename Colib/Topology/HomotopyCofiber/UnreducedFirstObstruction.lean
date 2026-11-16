@@ -32,7 +32,6 @@ actual fiber endpoints are retained. -/
 @[expose] public section
 noncomputable section
 
-open TopCat.DoubleCylinder
 open scoped Topology unitInterval
 universe u
 namespace Topology.ReducedMappingCone
@@ -122,11 +121,11 @@ theorem unreducedCone_subsingleton_below_first
     (z : UnreducedSpace f) (k : ℕ) (hk : k < m + 2) :
     Subsingleton (HomotopyGroup.Pi k (UnreducedSpace f) z) := by
   let : PathConnectedSpace (UnreducedSpace f) :=
-    DoubleCylinder.pathConnectedSpace (TopCat.ofHom f)
+    TopCat.DoubleCylinder.pathConnectedSpace (TopCat.ofHom f)
       (TopCat.ofHom (ContinuousMap.const X (PUnit.unit : PUnit.{u + 1})))
       (unreducedSquare f) x
   by_cases hk₂ : k < 2
-  · exact DoubleCylinder.homotopyGroup_subsingleton (TopCat.ofHom f)
+  · exact TopCat.DoubleCylinder.homotopyGroup_subsingleton (TopCat.ofHom f)
       (TopCat.ofHom (ContinuousMap.const X (PUnit.unit : PUnit.{u + 1})))
       (unreducedSquare f) x 0
       (fun a j hj ↦ subsingleton_homotopyGroup_lt_two_of_simplyConnected a j hj)
