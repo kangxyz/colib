@@ -9,6 +9,7 @@ public import Mathlib.Algebra.Homology.TotalComplex
 public import Mathlib.Algebra.Homology.HomologicalComplexAbelian
 public import Mathlib.CategoryTheory.Abelian.GrothendieckAxioms.Colim
 public import Mathlib.CategoryTheory.Abelian.FunctorCategory
+public import StacksFrontier.Algebra.Homology.TotalComplexShortExact
 
 /-! # Exactness of diagonal coproduct totalization
 
@@ -81,15 +82,6 @@ def totalDegreeIso (n : ℤ) :
       exact (ιTotal_map K L f c p q n hpq).trans
         (ι_colimMap ((diagonalFunctor n).map f) (Discrete.mk ⟨(p, q), hpq⟩)).symm
     exact (Category.comp_id _).trans (h.trans (Category.id_comp _).symm))
-
-instance totalFunctor_additive : (totalFunctor C c c c).Additive where
-  map_add {K L f g} := by
-    ext1 n
-    let F := totalFunctor C c c c ⋙ HomologicalComplex.eval C c n
-    let : (colim : (Discrete (DiagonalIndex n) ⥤ C) ⥤ C).Additive :=
-      Functor.additive_of_preservesBinaryBiproducts _
-    let : F.Additive := Functor.additive_of_iso (totalDegreeIso (C := C) n).symm
-    exact F.map_add
 
 /-- A termwise short exact sequence of bicomplexes remains short exact on totalization. -/
 theorem total_shortExact {S : ShortComplex BC}
