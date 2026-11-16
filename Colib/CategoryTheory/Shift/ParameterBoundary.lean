@@ -37,5 +37,6 @@ theorem parameter_boundary_transport {X N : C} {N' : D}
   simp only [← Functor.map_comp_assoc, Iso.hom_inv_id, Iso.hom_inv_id_app, CategoryTheory.Functor.map_id, Category.id_comp]
   simp only [Functor.map_comp, Category.assoc]
   rw [E.commShiftIso_hom_naturality]
+  simp only [Functor.comp_obj, CategoryTheory.Functor.map_id, Category.id_comp]
 
 end CategoryTheory

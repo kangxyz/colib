@@ -34,7 +34,8 @@ theorem parameter_square_shift {M N : C} {M' N' : D}
   simp only [Functor.commShiftIso_comp_hom_app, Functor.commShiftIso_comp_inv_app,
     Functor.comp_obj, Functor.map_comp, Category.assoc]
   simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app]
-  simp only [Category.comp_id, CategoryTheory.Functor.map_id, Category.id_comp]
+  simp only [Functor.comp_obj, Category.comp_id, CategoryTheory.Functor.map_id,
+    Category.id_comp]
   rw [E.commShiftIso_hom_naturality_assoc]
   rw [← G.commShiftIso_inv_naturality_assoc]
   simpa only [Functor.map_comp, Category.assoc] using
