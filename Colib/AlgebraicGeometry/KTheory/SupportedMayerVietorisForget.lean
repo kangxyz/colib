@@ -83,6 +83,7 @@ variable [QuasiSeparatedSpace X] [CompactSpace V] [QuasiSeparatedSpace V]
   [CompactSpace (j ⁻¹ᵁ T).toScheme] (hZ : IsCompact (Z : Set X))
 
 set_option maxHeartbeats 800000 in
+-- Elaborating the signed boundary square reduces both support and derived-category comparisons.
 /-- Forgetting auxiliary support commutes with the two-open boundary, including K₁ to K₀. -/
 @[colib_tag "COL-0336",
   colib_ref "quillen"

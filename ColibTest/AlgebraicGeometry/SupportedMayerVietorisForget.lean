@@ -10,6 +10,7 @@ open scoped AlgebraicGeometry
 universe u
 
 set_option maxHeartbeats 800000 in
+-- Elaborating the instantiated forget square reduces the two geometric boundary constructions.
 example {V X : Scheme.{u}} [QuasiSeparatedSpace X] [CompactSpace V]
     (j : V ⟶ X) [IsOpenImmersion j] (T Z : X.Opens) (hT : IsCompact (T : Set X))
     (hZ : IsCompact (Z : Set X)) (hcover : ∀ x : X, x ∈ Set.range j ∨ x ∈ T) :
@@ -35,6 +36,7 @@ example {V X : Scheme.{u}} (j : V ⟶ X) [IsOpenImmersion j] (T Z : X.Opens)
   DFunLike.congr_fun (SupportedMayerVietoris.fiberEquiv_symm_comp_forget j T Z hcover n) x
 
 set_option maxHeartbeats 800000 in
+-- Elaborating the instantiated forget square reduces the two geometric boundary constructions.
 example {V X : Scheme.{u}} [QuasiSeparatedSpace X] [CompactSpace V]
     [QuasiSeparatedSpace V] (j : V ⟶ X) [IsOpenImmersion j] (T Z : X.Opens)
     [CompactSpace (j ⁻¹ᵁ T).toScheme]
