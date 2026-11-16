@@ -102,8 +102,10 @@ attribute [colib_tag "COL-1262"]
   currentNegativeKComparison_π
 
 attribute [colib_ref "quillen"
-  "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/ParameterSupportedCurrentNegativeComparison.lean:62–79"
-  "adaptation" "The supported Bass groups and the actual current parameter telescope over the integer base"]
+  "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/\
+  ParameterSupportedCurrentNegativeComparison.lean:62–79"
+  "adaptation"
+  "The supported Bass groups and the actual current parameter telescope over the integer base"]
   currentNegativeKComparison
 
 end AlgebraicGeometry.Scheme.Modules.GlobalSupportedParameterCoefficient
