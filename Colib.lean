@@ -6366,6 +6366,7 @@ public import Colib.Topology.CWComplex.CharacteristicPair
 public import Colib.Topology.CWComplex.CharacteristicQuotient
 public import Colib.Topology.CWComplex.CubeDiskPair
 public import Colib.Topology.CWComplex.SkeletonAttachment
+public import Colib.Topology.CWComplex.SkeletonExtension
 public import Colib.Topology.DeformationRetract.Basic
 public import Colib.Topology.DeformationRetract.Cofibration
 public import Colib.Topology.DeformationRetract.Composition
