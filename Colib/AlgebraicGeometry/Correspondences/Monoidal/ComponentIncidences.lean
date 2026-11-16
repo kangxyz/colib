@@ -299,6 +299,42 @@ def exteriorComponentSupportMap : correspondenceSupportProduct f g h x y ⟶ Sup
 local notation "w" =>
   exteriorComponentSupportMap X Y Z U V W a b c d ha hb hc hd α β
 
+set_option quotPrecheck false in
+local notation "ClosureProduct" =>
+  pullback ((integralComponentAt α.val).subschemeι ≫ l ≫ g)
+    ((integralComponentAt β.val).subschemeι ≫ r ≫ g)
+
+/-- The comparison of the native component product with the closure product lies over
+the original whole support product. -/
+theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
+    (exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β).hom ≫
+      Scheme.Hom.productClosedMap (l ≫ g) (r ≫ g)
+        (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι = w := by
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
+  let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  apply pullback.hom_ext
+  · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
+      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
+      pullback.map, exteriorLeftComponentMap, reducedClosureComponentInclusion, Category.assoc]
+  · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
+      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
+      pullback.map, exteriorRightComponentMap, reducedClosureComponentInclusion, Category.assoc]
+
+/-- The exact comparison of component products retains the full local multiplicity. -/
+theorem length_stalk_exteriorComponentSupportReducedClosuresIso
+    (ξ : correspondenceSupportProduct f g h x y) :
+    let e := exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β
+    Module.length ((ClosureProduct).presheaf.stalk (e.hom ξ))
+      ((ClosureProduct).presheaf.stalk (e.hom ξ)) =
+    Module.length ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ)
+      ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ) := by
+  dsimp only
+  exact Module.length_eq_of_ringEquiv
+    (asIso ((exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d
+      ha hb hc hd α β).hom.stalkMap ξ)).commRingCatIsoToRingEquiv
+
 local instance closedImmersionStableUnderComposition :
     MorphismProperty.IsStableUnderComposition (@IsClosedImmersion : MorphismProperty Scheme) :=
   (inferInstance : MorphismProperty.IsMultiplicative @IsClosedImmersion).toIsStableUnderComposition
