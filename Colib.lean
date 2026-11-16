@@ -6321,6 +6321,7 @@ public import Colib.Topology.ContinuousMap
 public import Colib.Topology.Covering.FiberBundlePullback
 public import Colib.Topology.Covering.HomotopyGroups
 public import Colib.Topology.Covering.HomotopyPullbackTransfer
+public import Colib.Topology.Covering.HomotopyThinNeighborhoods
 public import Colib.Topology.Covering.LocalConnectorHypotheses
 public import Colib.Topology.Covering.LocalConnectorTransfer
 public import Colib.Topology.Covering.PathClassEndpoint
@@ -6407,6 +6408,7 @@ public import Colib.Topology.DoubleMappingCylinder.HeightCover
 public import Colib.Topology.DoubleMappingCylinder.Invariance
 public import Colib.Topology.DoubleMappingCylinder.LocalComparison
 public import Colib.Topology.DoubleMappingCylinder.Subdivision
+public import Colib.Topology.DoubleMappingCylinder.ThinNeighborhoods
 public import Colib.Topology.DoubleMappingCylinder.WeakCartesian
 public import Colib.Topology.DoubleMappingCylinder.WeakInvariance
 public import Colib.Topology.FiberwiseBridge.BaseChange
