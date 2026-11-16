@@ -51,6 +51,7 @@ noncomputable def displayedComparisonHomotopyEquivOfCover :
 theorem displayedComparisonHomotopyEquivOfCover_toFun :
     (displayedComparisonHomotopyEquivOfCover C D f g k H γ δ N hf hg q hq e he).toFun = k := rfl
 
+include f g H γ δ N hf hg q hq e he in
 /-- One inverse to the original comparison carries both original-map inverse homotopies. -/
 theorem displayedComparison_exists_inverse_homotopies_of_cover :
     ∃ l : C(D, C),

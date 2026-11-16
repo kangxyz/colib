@@ -26,6 +26,7 @@ example (c : C) :
     (displayedComparisonHomotopyEquivOfCover_toFun C D f g k H γ δ N hf hg q hq e he) c
 
 -- The same inverse has actual tracks between the specified endpoints at all points.
+include f g H γ δ N hf hg q hq e he in
 example :
     ∃ (l : C(D, C)) (hl : (l.comp k).Homotopy (ContinuousMap.id C))
       (hr : (k.comp l).Homotopy (ContinuousMap.id D)),
