@@ -51,7 +51,7 @@ def unitFirst : (pullbackMap (𝟙 X)).hom.toFunctor ≅ (unitMiddle X).hom.toFu
     AsSmall.up)
 
 /-- Cancellation of the chosen-zero normalization of the identity. -/
-def unitSecond : (unitMiddle X).hom.toFunctor ≅ (𝟙 (model X)).hom.toFunctor := by
+def unitSecond : (unitMiddle X).hom.toFunctor ≅ 𝟭 (model X).obj.Obj := by
   let W := boundedAboveFlatPerfectWaldhausen X.toRingedSpace
   let k := IsExact.id W.cof W.weq
   exact modelAsSmallIdentityIso W _
