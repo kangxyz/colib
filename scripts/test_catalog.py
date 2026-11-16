@@ -61,6 +61,25 @@ class LibraryTests(unittest.TestCase):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertEqual(set(built["entries"]), set(self.library["entries"]))
 
+    def test_tensor_base_change_owns_the_actual_right_coefficient_comparison(self):
+        item = self.library["entries"]["COL-1294"]
+        section = self.library["sections"]["projective-base-change"]
+        self.assertEqual(section["chapter"], "k-theory-rings")
+        self.assertEqual(section["entries"], ["COL-1294"])
+        self.assertEqual(item["primary"], "ModuleCat.FiniteProjective.rightTensorBaseChangeExact_KMap")
+        self.assertIn("common ring universe", item["scope"])
+        self.assertIn("no equality in negative degrees", item["scope"])
+        self.assertIn(r"f(x_i)s", item["statement"])
+        self.assertIn(r"p(-,j)\otimes y_j", item["statement"])
+        module = "Colib.RingTheory.KTheory.Quillen.RightBaseChangeTensor"
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        self.assertIn(module, built["sections"]["projective-base-change"]["modules"])
+        source = (catalog.ROOT / (module.replace(".", "/") + ".lean")).read_text()
+        self.assertIn('colib_tag "COL-1294"', source)
+        self.assertIn("Quillen/KTheory/Map/RightBaseChangeTensor.lean:33-36", source)
+        self.assert_test_in_checks("ColibTest.KTheory.BalancedTensorBaseChange", "scripts/check.sh")
+        self.assert_test_in_checks("ColibTest.KTheory.BalancedRightTensor", "scripts/check.sh")
+
     def test_completion_milestone_native_scope_and_ci(self):
         root = catalog.ROOT
         ledger = json.loads((root / "docs/migration/milnor-completion.json").read_text())
@@ -526,6 +545,7 @@ class LibraryTests(unittest.TestCase):
             "homotopy-colimits": "Colib.Topology.Pushout.HomotopyEquivalence",
             "quillen-k-theory": "Colib.KTheory.Quillen.Basic",
             "grothendieck-groups": "Colib.KTheory.GrothendieckGroup.Basic",
+            "projective-base-change": "Colib.RingTheory.KTheory.Quillen.RightBaseChangeTensor",
             "k-zero-of-fields": "Colib.RingTheory.KTheory.GrothendieckGroup.Field",
             "quillen-k-theory-of-rings": "Colib.RingTheory.KTheory.Quillen.Field.FiniteFieldKTwo",
             "g-theory-of-rings": "Colib.RingTheory.KTheory.GTheory.FiniteModules.Localization",

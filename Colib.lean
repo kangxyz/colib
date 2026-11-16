@@ -26,6 +26,7 @@ public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeExtensi
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeFree
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeFreeCoherence
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeMonoidal
+public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeTensor
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveBaseChangeUniversal
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveComplement
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveDeflationEntry
@@ -63,6 +64,7 @@ public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveFixedFiberEquival
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveIdentityExtension
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveInflationAction
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveMonoidal
+public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveTensorBaseChangeExact
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEntry
 public import Colib.Algebra.Category.ModuleCat.FiniteProjectiveZeroFiberEquivalence
 public import Colib.Algebra.Category.ModuleCat.IdempotentMatrix
@@ -72,9 +74,11 @@ public import Colib.Algebra.Category.ModuleCat.MatrixAutomorphisms
 public import Colib.Algebra.Category.ModuleCat.MatrixBaseChange
 public import Colib.Algebra.Category.ModuleCat.MatrixImageFunctor
 public import Colib.Algebra.Category.ModuleCat.MatrixImageScalarExtension
+public import Colib.Algebra.Category.ModuleCat.MatrixImageTensor
 public import Colib.Algebra.Category.ModuleCat.ProjectiveAutomorphismAdditivity
 public import Colib.Algebra.Category.ModuleCat.ProjectiveAutomorphismClass
 public import Colib.Algebra.Category.ModuleCat.QuotientSquare
+public import Colib.Algebra.Category.ModuleCat.RightScalarExtension
 public import Colib.Algebra.Category.ModuleCat.Sheaf.ProjectiveSheafification
 public import Colib.Algebra.Category.ModuleCat.TensorProductChangeOfRings
 public import Colib.Algebra.Category.ModuleCat.Tor.ChangeOfRings
@@ -249,6 +253,7 @@ public import Colib.Algebra.Homology.ShortComplex.ModuleQuasiIsoCriterion
 public import Colib.Algebra.Homology.TensorCoefficients
 public import Colib.Algebra.Module.LocalizedModule.FiniteTorsion
 public import Colib.Algebra.Module.LocalizedModule.IdealQuotient
+public import Colib.Algebra.Module.RightScalarExtension
 public import Colib.AlgebraicGeometry.AffineLine.GenericClosedFiber
 public import Colib.AlgebraicGeometry.AffineLine.Open.AffineLineOpenMonicShrinking
 public import Colib.AlgebraicGeometry.AffineLine.Open.AffineLineZeroNeighborhoodBaseShrink
@@ -5989,6 +5994,7 @@ public import Colib.RingTheory.KTheory.Quillen.ProjectiveCompletionBasepoint
 public import Colib.RingTheory.KTheory.Quillen.ProjectiveCompletionCover
 public import Colib.RingTheory.KTheory.Quillen.ProjectiveCompletionLocalizedContraction
 public import Colib.RingTheory.KTheory.Quillen.ProjectiveCompletionNaturality
+public import Colib.RingTheory.KTheory.Quillen.RightBaseChangeTensor
 public import Colib.RingTheory.KTheory.Quillen.StableFiberPerfectness
 public import Colib.RingTheory.KTheory.Quillen.StableZeroFiberGeometry
 public import Colib.RingTheory.KTheory.Quillen.StableZeroFiberHomology

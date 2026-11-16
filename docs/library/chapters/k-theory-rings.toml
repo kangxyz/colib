@@ -2,7 +2,7 @@
 id = "k-theory-rings"
 title = "Algebraic K-Theory of Rings"
 order = 12
-introduction = "Let $R$ be a ring. Quillen K-theory applies the Q-construction to the exact category $\\mathcal P(R)$ of finite projective modules. Its degree-zero group records virtual projective modules, whereas the stable general linear group describes a different entry point through the plus construction. For a Noetherian ring, the abelian category of finite modules gives G-theory; it must not be confused with projective K-theory without an appropriate comparison theorem.\n\nWe first study projective completion and its zero component, then compute $K_0$ over a field. Matsumoto's theorem identifies $K_2^M(F)$ with Quillen $K_2(F)$; the symbol presentation itself remains in the Milnor K-theory chapter. Finally, localization and dévissage give the connective G-theory sequence for a principal closed/open pair. The product decomposition uses the specified plus-certified completion component and ordinary homotopies; no replacement by an arbitrary plus model or Bass fundamental theorem is asserted."
+introduction = "Let $R$ be a ring. Quillen K-theory applies the Q-construction to the exact category $\\mathcal P(R)$ of finite projective modules. Its degree-zero group records virtual projective modules, whereas the stable general linear group describes a different entry point through the plus construction. For a Noetherian ring, the abelian category of finite modules gives G-theory; it must not be confused with projective K-theory without an appropriate comparison theorem.\n\nWe first study projective completion and its zero component. We then compare tensor extension with matrix-image base change and compute $K_0$ over a field. Matsumoto's theorem identifies $K_2^M(F)$ with Quillen $K_2(F)$; the symbol presentation itself remains in the Milnor K-theory chapter. Finally, localization and dévissage give the connective G-theory sequence for a principal closed/open pair. The product decomposition uses the specified plus-certified completion component and ordinary homotopies; no replacement by an arbitrary plus model or Bass fundamental theorem is asserted."
 
 [[sections]]
 id = "quillen-k-theory-of-rings"
@@ -30,6 +30,18 @@ COL-0602 = "The plus certificate concerns the zero component. The projective-com
 COL-0606 = "The continuous $K_0$ classifier separates the open loop components. Choosing representatives normalized at zero identifies them with translations of the zero component, giving $K_0(R)_{\\mathrm{disc}}\\times C_0(R)\\simeq\\Omega BQ(R)$. Naturality is asserted for the forward maps up to ordinary homotopy, not for a choice of inverse."
 COL-0378 = "Since every short exact sequence of projective modules splits, the direct-sum relations agree with the exact-category Grothendieck relations. The denominator is the first coordinate, explaining the sign $[B]-[A]$; compare [@WeibelKBook, IV, Lemma 4.3.1]."
 COL-0513 = "The component calculation does not determine higher homotopy. To study the zero component, use the stable general linear map. Its surjection on fundamental groups has elementary kernel; the local-coefficient chain comparison then supplies the homological plus certificate."
+
+[[sections]]
+id = "projective-base-change"
+title = "Change of rings"
+order = 15
+introduction = '''
+A ring map \(R\to S\) changes the coefficients of finite projective right modules
+without a flatness hypothesis. Tensoring with \(S\) and applying the ring map
+entrywise to representing idempotents give naturally isomorphic exact functors.
+The comparison identifies their maps on Quillen groups, not merely the
+isomorphism class of each image.
+'''
 
 [[sections]]
 id = "k-zero-of-fields"
