@@ -76,15 +76,20 @@ def stageZeroTransformation :
       (z.2 ⋙ diagram F)
       (fun i ↦ (z.2.obj i).as.1.hom.isExact)
       (fun _ _ f x ↦ diagram_weak F (z.2.map f) x)
-    change ((stages 0).obj W).map α (φ.app n (z.1, ⟨𝟙 n.unop⟩)) = _
-    rw [← ConcreteCategory.congr_hom (φ.naturality α) (z.1, ⟨𝟙 n.unop⟩)]
-    have h := ConcreteCategory.congr_hom (congrArg (fun a ↦ a.app m)
+    let A := (stages 0).obj V ⊗ Δ[n.unop.len]
+    let B := (stages 0).obj W
+    let p : A.obj n := (z.1, ⟨𝟙 n.unop⟩)
+    have hn := congrArg (fun g : A.obj n ⟶ B.obj m ↦ g p) (φ.naturality α)
+    change B.map α (φ.app n p) = _
+    rw [← hn]
+    let A' := (stages 0).obj V ⊗ Δ[m.unop.len]
+    let q : A'.obj m := (((stages 0).obj V).map α z.1, ⟨𝟙 m.unop⟩)
+    have h := congrArg (fun a : A' ⟶ B ↦ a.app m q)
       (weakNaturalTransformationSimplex_face V.obj.waldhausen W.obj.waldhausen
         (z.2 ⋙ diagram F)
         (fun i ↦ (z.2.obj i).as.1.hom.isExact)
-        (fun _ _ f x ↦ diagram_weak F (z.2.map f) x) α.unop))
-      (((stages 0).obj V).map α z.1, ⟨𝟙 m.unop⟩)
-    simpa only [Category.id_comp, Category.comp_id] using h
+        (fun _ _ f x ↦ diagram_weak F (z.2.map f) x) α.unop)
+    simpa only [A, A', B, p, q, φ, Category.id_comp, Category.comp_id] using h
 
 variable {T U : Type v} [TopologicalSpace T] [TopologicalSpace U]
   [CompactSpace T] [CompactSpace U]
