@@ -5322,6 +5322,7 @@ public import Colib.KTheory.Waldhausen.IdentityCylinder
 public import Colib.KTheory.Waldhausen.Iterated.Additivity
 public import Colib.KTheory.Waldhausen.Iterated.ChosenZeroCoherence
 public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactLoopZero
+public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactPrespectrum
 public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactStage
 public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactStageZero
 public import Colib.KTheory.Waldhausen.Iterated.CompositionHomotopyNaturality
