@@ -5321,6 +5321,7 @@ public import Colib.KTheory.Waldhausen.HomotopyMap
 public import Colib.KTheory.Waldhausen.IdentityCylinder
 public import Colib.KTheory.Waldhausen.Iterated.Additivity
 public import Colib.KTheory.Waldhausen.Iterated.ChosenZeroCoherence
+public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactLoopZero
 public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactStageZero
 public import Colib.KTheory.Waldhausen.Iterated.CompositionHomotopyNaturality
 public import Colib.KTheory.Waldhausen.Iterated.ConeFiberExcision
