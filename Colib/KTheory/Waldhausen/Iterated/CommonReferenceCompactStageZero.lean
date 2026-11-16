@@ -72,15 +72,17 @@ def stageZeroTransformation :
   naturality n m α := by
     ext z : 3
     symm
-    change ((stages 0).obj W).map α
-      ((weakNaturalTransformationSimplex V.obj.waldhausen W.obj.waldhausen
-        (z.2 ⋙ diagram F) _ _).app n (z.1, ⟨𝟙 n.unop⟩)) = _
-    rw [← ConcreteCategory.congr_hom
-      ((weakNaturalTransformationSimplex V.obj.waldhausen W.obj.waldhausen
-        (z.2 ⋙ diagram F) _ _).naturality α) (z.1, ⟨𝟙 n.unop⟩)]
+    let φ := weakNaturalTransformationSimplex V.obj.waldhausen W.obj.waldhausen
+      (z.2 ⋙ diagram F)
+      (fun i ↦ (z.2.obj i).as.1.hom.isExact)
+      (fun _ _ f x ↦ diagram_weak F (z.2.map f) x)
+    change ((stages 0).obj W).map α (φ.app n (z.1, ⟨𝟙 n.unop⟩)) = _
+    rw [← ConcreteCategory.congr_hom (φ.naturality α) (z.1, ⟨𝟙 n.unop⟩)]
     have h := ConcreteCategory.congr_hom (congrArg (fun a ↦ a.app m)
       (weakNaturalTransformationSimplex_face V.obj.waldhausen W.obj.waldhausen
-        (z.2 ⋙ diagram F) _ _ α.unop))
+        (z.2 ⋙ diagram F)
+        (fun i ↦ (z.2.obj i).as.1.hom.isExact)
+        (fun _ _ f x ↦ diagram_weak F (z.2.map f) x) α.unop))
       (((stages 0).obj V).map α z.1, ⟨𝟙 m.unop⟩)
     simpa only [Category.id_comp, Category.comp_id] using h
 
