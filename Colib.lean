@@ -6821,6 +6821,7 @@ public import Colib.Topology.LocalCoefficients.FiniteCapEvaluation
 public import Colib.Topology.LocalCoefficients.FiniteCorrections
 public import Colib.Topology.LocalCoefficients.FiniteTelescope
 public import Colib.Topology.LocalCoefficients.FiniteTrackDescent
+public import Colib.Topology.LocalCoefficients.FirstObstruction
 public import Colib.Topology.LocalCoefficients.Functoriality
 public import Colib.Topology.LocalCoefficients.GrothendieckTelescope
 public import Colib.Topology.LocalCoefficients.GroupCompletionAbelian
