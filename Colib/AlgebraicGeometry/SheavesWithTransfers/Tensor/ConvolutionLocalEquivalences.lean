@@ -12,6 +12,8 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Convolution
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionParameter
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Native
 
+import StacksFrontier.CategoryTheory.Sites.AbelianSheafificationExistence
+
 /-!
 # Convolution preserves Nisnevich local equivalences
 
@@ -33,6 +35,12 @@ namespace AlgebraicGeometry.SheafWithTransfers
 open PresheafWithTransfers
 
 variable {k : Type u} [Field k] [PerfectField k]
+
+/-- Fix the coefficient universe using the existing sheafification theorem. -/
+local instance convolutionCorSheafify :
+    HasSheafify (Cor.nisnevichTopology k) AddCommGrpCat.{u + 1} :=
+  GrothendieckTopology.hasSheafify_addCommGrpCat_of_essentiallySmall.{u + 1}
+    (Cor.nisnevichTopology k)
 
 local notation "F" => curriedTensor (Cor k)
 local notation "PST" => TransferCoefficients k

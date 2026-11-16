@@ -9,6 +9,8 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.ConvolutionLoc
 public import Mathlib.CategoryTheory.Localization.Adjunction
 public import StacksFrontier.CategoryTheory.Localization.Monoidal
 
+import StacksFrontier.CategoryTheory.Sites.AbelianSheafificationExistence
+
 /-!
 # Symmetric convolution on actual Nisnevich sheaves with transfers
 
@@ -28,6 +30,12 @@ namespace AlgebraicGeometry.SheafWithTransfers
 open PresheafWithTransfers
 
 variable (k : Type u) [Field k] [PerfectField k]
+
+/-- Fix the coefficient universe using the existing sheafification theorem. -/
+local instance monoidalLocalizationCorSheafify :
+    HasSheafify (Cor.nisnevichTopology k) AddCommGrpCat.{u + 1} :=
+  GrothendieckTopology.hasSheafify_addCommGrpCat_of_essentiallySmall.{u + 1}
+    (Cor.nisnevichTopology k)
 
 local notation "PST" => TransferCoefficients k
 local notation "NST" => LargeSheaves k
