@@ -1,0 +1,92 @@
+[entry]
+id = "COL-1227"
+title = "Global units modulo powers inject into ordinary Kummer cohomology"
+kind = "theorem"
+section = "etale-kummer-symbols"
+order = 10
+primary = "Stacks.Kummer.kummerClassModuloPowers_injective"
+review = "author_checked"
+statement = '''
+Let \(X\) be a scheme and let \(n>0\) be invertible in its ring of global
+sections. The original small-etale Kummer boundary induces an injective
+homomorphism
+\[\Gamma(X,\mathcal O_X)^\times/
+ (\Gamma(X,\mathcal O_X)^\times)^n\longrightarrow H^1(X_{et},\mu_n).\]
+The source is represented additively by the quotient by the range of
+multiplication by \(n\). Its value on a coset is exactly the original
+Kummer boundary applied to the corresponding degree-zero cohomology class.
+Via the native coefficient-forgetting comparison, the same quotient also
+injects into Ext¹ from the constant ZMod n-module sheaf to rootsOfUnityModule.
+Forgetting module coefficients recovers the displayed Kummer class, both on
+quotient classes and on unit representatives.
+As a supporting comparison, for any commutative coefficient ring Λ, any
+small-etale Λ-module sheaf M on X and every natural degree q, the original
+derived Ext-to-cohomology equivalence equals exact coefficient forgetting
+followed by precomposition with the canonical map ℤ_X → U(Λ_X).
+This identifies the actual existing equivalence, not a replacement map.
+For a scheme X over a field k and a positive integer n invertible in k,
+the actual rootsOfUnityModule on X has flat Z/n-module fibers at every
+site point. Consequently, tensoring on the right by this module sheaf is
+additive and preserves finite limits and finite colimits.
+The original module-valued Kummer classes of units modulo nth powers then
+give a biadditive degree-two pairing into Ext²(1, μn ⊗ μn), where 1 is the
+monoidal unit in the small-etale Z/n-module sheaf category. Its value is the
+native Ext cup product of the two original quotient Kummer classes.
+'''
+proof = '''
+Use the native degree-zero cohomology equivalence at the terminal object of
+the small etale site to identify global units with \(H^0(X,\mathbf G_m)\).
+Compose it with the native Kummer connecting homomorphism. Exactness says
+that the kernel is the image of the power map; the existing cohomological
+power-map formula identifies this with multiplication by \(n\). Descend by
+this exact kernel and apply the native quotient injectivity criterion.
+For the module-valued realization, transport this injection through the
+inverse of the native additive equivalence from roots-of-unity module Ext
+to ordinary roots-of-unity sheaf cohomology.
+For the all-degree supporting comparison, compute the original change from
+Λ-modules to integer-module sheaves on the chosen resolutions. In degree
+zero use the augmentation; in positive degrees identify its cocycle and
+cycle maps before passing to homology. The resulting coefficient map is
+exact restriction with its actual constant-source map. Compose with the
+existing integer-to-abelian comparison and identify the canonical source
+map, obtaining kummerOriginalComparison_eq_extForget in every degree.
+For coefficient exactness, lift each site point through the finite etale
+cyclotomic cover and use the explicit rank-one trivialization of the
+roots-of-unity module on that slice. Its fiber is therefore isomorphic to
+a free rank-one Z/n-module and is flat. A conservative family of points
+then detects the monomorphisms required for tensor exactness; tensoring
+already preserves finite colimits. This uses the pinned Stacks ingredients
+sliceRootSheafIso, sheafFiberIsoOfConstantOver and
+preservesFiniteLimits_tensorRight_of_flat, without choosing a primitive
+root in the original base field.
+For the pairing, use the canonical isomorphism from the monoidal unit to
+the constant coefficient module sheaf to put the original module Kummer
+classes in the source convention of the native Ext cup product. Apply that
+biadditive cup product, using the verified tensor exactness, to both quotient
+classes. The displayed evaluation formula is definitional.
+'''
+scope = '''
+The statement uses the ordinary AddCommGrpCat-valued small-etale sheaf
+cohomology with its explicit HasExt assumption and independent universe
+parameters. Its module-valued realization uses the native rootsOfUnityModule
+over ZMod n, with n nonzero, the standard derived categories and the explicit
+HasExt assumption at universe u + 1. The coefficient-forgetting equivalence
+is defined in every natural degree; the Kummer injection is in degree one
+and requires n invertible in global sections. It holds for schemes, hence
+in particular for spectra of fields.
+It does not assume a primitive root of unity, perfectness or finite
+cohomological dimension. It does not assert surjectivity, a Galois-cocycle
+normalization, field-change naturality, a higher-weight etale Tate comparison or the
+norm-residue theorem. The map retains the actual native
+Kummer boundary, rather than naming a motivic target ordinary cohomology.
+The tensor-exactness conclusion is proved for schemes equipped with a map
+to a field in which n is nonzero, not for an arbitrary base scheme.
+It is a property of the actual ordinary small-etale Z/n-module coefficient
+sheaf. A biadditive degree-two Kummer cup pairing is constructed, with the
+explicit global-section invertibility and HasExt assumptions retained. The
+Steinberg relation for this same pairing over fields is established separately
+in COL-1241. This item does not assert factorization through the Milnor
+K-theory quotient, higher norm-residue comparison, or motivic product compatibility.
+In particular, this does not identify higher motivic complexes with tensor
+powers.
+'''
