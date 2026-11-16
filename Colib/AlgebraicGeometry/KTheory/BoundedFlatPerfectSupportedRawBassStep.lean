@@ -19,7 +19,7 @@ The source null uses the positive split track and then contracts the original po
 -/
 @[expose] public noncomputable section
 
-open CategoryTheory
+open CategoryTheory Topology
 open CategoryTheory.Waldhausen.IteratedS Topology.LoopPrespectrum
 open scoped Topology unitInterval
 
@@ -29,10 +29,12 @@ namespace AlgebraicGeometry.Scheme.Modules.SupportedRawBass
 
 open Scheme.Bass
 
-private abbrev rawSpectrum (A : Scheme.OpenPairs.{u}) : LoopPrespectrum.{u+1} :=
+/-- The native original iterated-S prespectrum of a supported open pair. -/
+abbrev rawSpectrum (A : Scheme.OpenPairs.{u}) : LoopPrespectrum.{u+1} :=
   originalPrespectrum (boundedAboveFlatPerfectSupportedWaldhausen A.hom)
 
-private abbrev pullbackMap {A B : Scheme.OpenPairs.{u}} (p : A ⟶ B) :
+/-- The original exact pullback on the native supported prespectrum. -/
+abbrev pullbackMap {A B : Scheme.OpenPairs.{u}} (p : A ⟶ B) :
     rawSpectrum B ⟶ rawSpectrum A :=
   boundedAboveFlatPerfectSupportedPullbackPrespectrumMap p
 
@@ -50,15 +52,21 @@ def pullbackCompositionHomotopy {A B C : Scheme.OpenPairs.{u}} (p : A ⟶ B) (q 
 
 variable (A : Scheme.QuasiCompactOpenPairs.{u})
 
-private abbrev projection := (pairPolynomialProjection.app A).hom
-private abbrev laurentProjection := (pairLaurentProjection.app A).hom
-private abbrev plus := (pairPlus.app A).hom
-private abbrev minus := (pairMinus.app A).hom
+/-- Polynomial projection on the given supported pair. -/
+abbrev projection := (pairPolynomialProjection.app A).hom
+/-- Laurent projection on the given supported pair. -/
+abbrev laurentProjection := (pairLaurentProjection.app A).hom
+/-- Positive polynomial chart of the Laurent product of the supported pair. -/
+abbrev plus := (pairPlus.app A).hom
+/-- Inverse polynomial chart of the Laurent product of the supported pair. -/
+abbrev minus := (pairMinus.app A).hom
 
-private theorem plus_projection : plus A ≫ projection A = laurentProjection A :=
+/-- The positive chart projection triangle on the actual open-pair morphisms. -/
+theorem plus_projection : plus A ≫ projection A = laurentProjection A :=
   congrArg (fun f ↦ f.hom) (pairPlus_projection A)
 
-private theorem minus_projection : minus A ≫ projection A = laurentProjection A :=
+/-- The inverse chart projection triangle on the actual open-pair morphisms. -/
+theorem minus_projection : minus A ≫ projection A = laurentProjection A :=
   congrArg (fun f ↦ f.hom) (pairMinus_projection A)
 
 /-- The actual positive composition track, not a strict cone path. -/
