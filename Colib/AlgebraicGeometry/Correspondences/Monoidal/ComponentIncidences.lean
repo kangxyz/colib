@@ -6,6 +6,7 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Components
+public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductResidueLength
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.KoszulDevissage
 public import Colib.AlgebraicGeometry.Chow.WholePolynomialEndpointPushforward
 import Colib.AlgebraicGeometry.Sites.Smooth.NormalComponents
@@ -633,6 +634,52 @@ theorem exteriorComponentSupportMap_closureIso
         (integralComponentAt t.val).subschemeι ≫ w := by
   let := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion w t.val
   exact ⟨asIso (integralComponentMap w t.val), integralComponentMap_subschemeι w t.val⟩
+
+omit [PerfectField k] in
+/-- At an actual generic component-product point, the whole-support multiplicity is
+the product of the two input multiplicities and the full component-product multiplicity. -/
+theorem length_stalk_exteriorWholeSupport_eq_mul_component
+    (ξ : genericPoints (correspondenceSupportProduct f g h x y)) :
+    Module.length ((SupportProduct).presheaf.stalk (w ξ.val))
+      ((SupportProduct).presheaf.stalk (w ξ.val)) =
+    Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val) *
+      Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val) *
+        Module.length ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ.val)
+          ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ.val) := by
+  let : IsNoetherian D₁ := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+  let : IsNoetherian D₂ := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+  have finiteGeneric (E : Scheme.{u}) [IsLocallyNoetherian E] (η : genericPoints E) :
+      IsFiniteLength (E.presheaf.stalk η.val) (E.presheaf.stalk η.val) := by
+    have hdim := ringKrullDim_stalk_eq_zero_of_mem_genericPoints (W := E) η
+    let : Ring.KrullDimLE 0 (E.presheaf.stalk η.val) := by
+      rw [Ring.krullDimLE_iff, hdim]
+      rfl
+    let : IsArtinianRing (E.presheaf.stalk η.val) :=
+      isArtinianRing_iff_isNoetherianRing_krullDimLE_zero.mpr ⟨inferInstance, inferInstance⟩
+    exact Module.length_ne_top_iff.mp (Module.length_ne_top (R := E.presheaf.stalk η.val))
+  let η : genericPoints SupportProduct :=
+    ⟨w ξ.val, exteriorComponentSupportMap_generic X Y Z U V W a b c d ha hb hc hd α β ξ⟩
+  have hlabels := (exteriorWholeSupportGeneric_component_iff
+    X Y Z U V W a b c d ha hb hc hd α β η).1 (Set.mem_range_self _)
+  have hα : pullback.fst (l ≫ g) (r ≫ g) (w ξ.val) = α.val :=
+    congrArg Subtype.val hlabels.1
+  have hβ : pullback.snd (l ≫ g) (r ≫ g) (w ξ.val) = β.val :=
+    congrArg Subtype.val hlabels.2
+  let e := exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β
+  let ζ : genericPoints ClosureProduct :=
+    ⟨e.hom ξ.val, mem_genericPoints_of_flat e.hom ξ.property⟩
+  have he : Scheme.Hom.productClosedMap (l ≫ g) (r ≫ g)
+      (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι ζ.val =
+        w ξ.val := by
+    exact congrArg (fun t => t ξ.val)
+      (exteriorComponentSupportReducedClosuresIso_hom_productClosedMap
+        X Y Z U V W a b c d ha hb hc hd α β)
+  have H := length_stalk_product_at_generic_closures (l ≫ g) (r ≫ g) α β ζ
+    (by rw [he]; exact hα) (by rw [he]; exact hβ) (finiteGeneric D₁ α) (finiteGeneric D₂ β)
+  dsimp only at H
+  rw [he, length_stalk_exteriorComponentSupportReducedClosuresIso
+    X Y Z U V W a b c d ha hb hc hd α β ξ.val] at H
+  exact H
 
 end SupportComponents
 
