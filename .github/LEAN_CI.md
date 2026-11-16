@@ -78,8 +78,9 @@ the same native store and dependency trees. The upstream `verify-root.sh` native
 archive check remains in place. The compressed Stacks checkpoint also survives
 per-job temporary-directory cleanup. Restore and Build record the file hashes
 of Colib and Stacks outputs in the same checkout. Build and Test reuse those
-hashes while the file identity still matches. New and modified files are hashed
-and a changed generation is packed and saved.
+hashes while a stable file identity still matches. Recent timestamps can
+hide a rewrite in the same clock tick, so those files are hashed again.
+A changed generation is packed and saved.
 
 Successful main pushes publish Colib's native archive and the independently named
 `stacks-checkpoint-<Stacks revision>-<context>` release. When configured, Publish

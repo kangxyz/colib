@@ -21,8 +21,12 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+from time import time_ns
 
 SCHEMA = 2
+LOCAL_STATE_SCHEMA = 2
+# Linux can report the same ctime for writes in one coarse clock tick.
+RECENT_CTIME_NS = 2_000_000_000
 LAYERS = ('root', 'dependencies', 'stacks', 'tools')
 SUPPORTED_TOOLCHAIN = 'leanprover/lean4:v4.35.0'
 SUPPORTED_TOOLCHAINS = (SUPPORTED_TOOLCHAIN, 'leanprover/lean4:v4.34.1', 'leanprover/lean4:v4.34.0-rc2')
@@ -462,24 +466,40 @@ def local_checkpoint(args, context, state):
     # This receipt is created inside the current run on the same runner.
     try:
         receipt = json.loads(state.read_text())
+        recorded = receipt['recorded_ns']
         archive = args.output.lstat()
-        if (receipt['schema'] != 1 or receipt['layer'] != args.layer or receipt['context'] != context
+        archive_identity = list(stat_identity(archive))
+        if (receipt['schema'] != LOCAL_STATE_SCHEMA or receipt['layer'] != args.layer
+                or receipt['context'] != context
                 or receipt['production_roots'] != args.production_root
                 or not stat.S_ISREG(archive.st_mode)
-                or receipt['archive'] != list(stat_identity(archive))):
+                or receipt['archive'] != archive_identity
+                or type(recorded) is not int or not 0 < recorded <= time_ns()):
             return None, None
-        # ctime detects a write even when a tool restores the old mtime.
+        older_than = recorded - RECENT_CTIME_NS
+        # A rapid rewrite can keep size, mtime and ctime equal. Hash files
+        # from the receipt's clock window again before trusting their bytes.
+        if archive_identity[-1] >= older_than and (
+                file_hash(args.output) != receipt['archive_sha256']
+                or list(stat_identity(args.output.lstat())) != archive_identity):
+            return None, None
         previous = {(area, name): (tuple(identity), sha)
-                    for area, name, identity, sha in receipt['files']}
+                    for area, name, identity, sha in receipt['files'] if identity[-1] < older_than}
         return receipt, previous
-    except (OSError, ValueError, TypeError, KeyError):
+    except (OSError, ValueError, TypeError, KeyError, IndexError):
         return None, None
 
 
-def write_local_state(path, metadata, archive, identities):
+def write_local_state(path, metadata, archive, identities, archive_sha256=None):
+    identity = stat_identity(archive.lstat())
+    if archive_sha256 is None:
+        archive_sha256 = file_hash(archive)
+        if stat_identity(archive.lstat()) != identity:
+            raise ValueError('checkpoint archive changed while hashing local state')
     receipt = {name: metadata[name] for name in ('layer', 'context', 'generation')}
     receipt['production_roots'] = metadata.get('production_roots', [])
-    receipt.update(schema=1, archive=stat_identity(archive.lstat()),
+    receipt.update(schema=LOCAL_STATE_SCHEMA, archive=identity,
+                   archive_sha256=archive_sha256, recorded_ns=time_ns(),
                    files=[[e['area'], e['path'], identities[(e['area'], e['path'])], e['sha256']]
                           for e in metadata['entries']])
     write_json(path, receipt)
@@ -517,9 +537,9 @@ def pack(args):
     changed = baseline.get('context') != context or baseline.get('generation') != generation
     target.parent.mkdir(parents=True, exist_ok=True)
 
-    def record_local_state():
+    def record_local_state(archive_sha256=None):
         if local_state is not None:
-            write_local_state(local_state, metadata, target, guards)
+            write_local_state(local_state, metadata, target, guards, archive_sha256)
 
     if (old.get('context') == context and old.get('generation') == generation
             and target.is_file() and old.get('archive_sha256') == file_hash(target)):
@@ -527,7 +547,7 @@ def pack(args):
         # mtimes in compatibility; identical content/modes need no recompression.
         retained = {k: v for k, v in old.items() if k != 'archive_sha256'}
         write_json(args.metadata or Path(str(target) + '.json'), retained)
-        record_local_state()
+        record_local_state(old['archive_sha256'])
         emit({'generation': generation, 'context': context, 'changed': False,
               'bytes': target.stat().st_size, 'files': len(entries), 'archive': str(target),
               'reused_archive': True, 'reused_file_hashes': reused_hashes}, args.github_output)
@@ -780,7 +800,7 @@ def restore(args, *, verify_only=False):
     if args.metadata:
         write_json(args.metadata, metadata)
     if local_state is not None:
-        write_local_state(local_state, metadata, args.input, identities)
+        write_local_state(local_state, metadata, args.input, identities, archive_sha256)
     emit({'layer': args.layer, 'generation': metadata['generation'],
           'files': len(metadata['entries']), 'restored': True, 'method': method}, args.github_output)
 

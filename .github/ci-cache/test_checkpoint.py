@@ -10,6 +10,7 @@ import shutil
 import stat
 import tarfile
 import tempfile
+from time import time_ns
 import unittest
 from unittest.mock import patch
 
@@ -130,6 +131,9 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(source.read_text(), 'PROOF SOURCE\n')
 
     def test_same_host_checkpoint_hashes_only_changed_files_and_keeps_new_outputs(self):
+        clock = patch.object(checkpoint, 'time_ns', side_effect=lambda: time_ns() + 3_000_000_000)
+        self.addCleanup(clock.stop)
+        clock.start()
         keep = self.write('.lake/build/lib/lean/Keep.olean', 'existing')
         self.write('.lake/build/ir/Root.setup.json', 'disposable')
         removed = self.write('.lake/build/lib/lean/Remove.olean', 'old')
@@ -155,16 +159,30 @@ class CheckpointTests(unittest.TestCase):
         self.assertFalse(removed.exists())
 
     def test_same_host_checkpoint_rejects_stale_file_and_archive_identities(self):
+        same_tick = time_ns()
+        identity = checkpoint.stat_identity
+        stat_clock = patch.object(checkpoint, 'stat_identity',
+                                  side_effect=lambda st: (*identity(st)[:-1], same_tick))
+        receipt_clock = patch.object(checkpoint, 'time_ns', return_value=same_tick)
+        self.addCleanup(stat_clock.stop)
+        self.addCleanup(receipt_clock.stop)
+        stat_clock.start()
+        receipt_clock.start()
         artifact = self.write('.lake/build/lib/lean/Root.olean', 'before')
         options = ('--local-state', str(self.base / 'same-host.json'))
         archive, before = self.pack('root', *options)
         stamp = artifact.stat()
         artifact.write_text('after!')
         os.utime(artifact, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
+        self.assertEqual(checkpoint.stat_identity(stamp), checkpoint.stat_identity(artifact.stat()))
         _, changed = self.pack('root', *options)
         self.assertNotEqual(changed['generation'], before['generation'])
 
-        archive.write_bytes(b'invalid replacement')
+        original = archive.read_bytes()
+        stamp = archive.stat()
+        archive.write_bytes(bytes([original[0] ^ 1]) + original[1:])
+        os.utime(archive, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
+        self.assertEqual(checkpoint.stat_identity(stamp), checkpoint.stat_identity(archive.stat()))
         _, rebuilt = self.pack('root', *options)
         self.assertNotIn('reused_local_state', rebuilt)
         self.assertEqual(rebuilt['generation'], changed['generation'])
@@ -173,6 +191,9 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(artifact.read_text(), 'after!')
 
     def test_restore_and_build_refresh_same_host_hashes_for_test(self):
+        clock = patch.object(checkpoint, 'time_ns', side_effect=lambda: time_ns() + 3_000_000_000)
+        self.addCleanup(clock.stop)
+        clock.start()
         original = self.write('.lake/build/lib/lean/Root.olean', 'production')
         archive, _ = self.pack('root')
         options = ('--local-state', str(self.base / 'same-host.json'))
