@@ -87,8 +87,7 @@ def nisnevichConvolutionTorusAdjunction :
   (torusTensorAdjunction k).ofNatIsoLeft (nisnevichConvolutionTorusNatIso k).symm
 
 /-- The natural tensor comparison carries the transported unit to the original unit. -/
-@[reassoc]
-@[colib_tag "COL-1295"]
+@[reassoc, colib_tag "COL-1295"]
 theorem nisnevichConvolutionTorusNatIso_unit (P : SheafWithTransfers.{u + 1} k) :
     (nisnevichConvolutionTorusAdjunction k).unit.app P ≫
       (torusSectionsFunctor k).map ((nisnevichConvolutionTorusNatIso k).hom.app P) =
@@ -96,8 +95,7 @@ theorem nisnevichConvolutionTorusNatIso_unit (P : SheafWithTransfers.{u + 1} k) 
   simp [nisnevichConvolutionTorusAdjunction, Adjunction.ofNatIsoLeft, ← Functor.map_comp]
 
 /-- The natural tensor comparison preserves the original torus counit. -/
-@[reassoc]
-@[colib_tag "COL-1295"]
+@[reassoc, colib_tag "COL-1295"]
 theorem nisnevichConvolutionTorusNatIso_counit (P : SheafWithTransfers.{u + 1} k) :
     (nisnevichConvolutionTorusNatIso k).hom.app ((torusSectionsFunctor k).obj P) ≫
       (torusTensorAdjunction k).counit.app P =
