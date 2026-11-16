@@ -6330,6 +6330,8 @@ public import Colib.Topology.Covering.PathClassSimplyConnected
 public import Colib.Topology.Covering.PathClasses
 public import Colib.Topology.Covering.Pullback
 public import Colib.Topology.Covering.PullbackFiber
+public import Colib.Topology.Covering.PullbackSimplyConnected
+public import Colib.Topology.Covering.PullbackWeakEquivalence
 public import Colib.Topology.Covering.SingularSimplices
 public import Colib.Topology.Cube.SimplexPair
 public import Colib.Topology.CubicalSubdivision.BoundaryLifting
@@ -6998,7 +7000,9 @@ public import Colib.Topology.PathSubdivision.TimePaths
 public import Colib.Topology.PlusConstruction.Basic
 public import Colib.Topology.PlusConstruction.CommonUniverse
 public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
+public import Colib.Topology.PlusConstruction.DisplayedComparisonCover
 public import Colib.Topology.PlusConstruction.DisplayedComparisonFundamentalGroup
+public import Colib.Topology.PlusConstruction.DisplayedComparisonWeakEquivalence
 public import Colib.Topology.Prespectrum.ConeArrowHomotopy
 public import Colib.Topology.Prespectrum.ConeConeTranspose
 public import Colib.Topology.Prespectrum.ConeContraction
