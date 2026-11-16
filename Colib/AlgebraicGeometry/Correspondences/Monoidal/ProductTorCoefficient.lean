@@ -9,6 +9,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Monoidal.KoszulDevissage
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductResidueLength
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductStalkLocalization
 public import Colib.RingTheory.Tor.ExteriorEuler.TorEuler
+public import StacksFrontier.AlgebraicGeometry.Chow.FibreCycles.FibreDimension
 
 /-!
 # Tor Euler coefficients of products of closed intersections
@@ -166,6 +167,7 @@ local notation "I" => integralComponentAt (pullback.fst f g w)
 local notation "J" => integralComponentAt (pullback.snd f g w)
 set_option quotPrecheck false in
 local notation "T" => pullback (C := Scheme) ((I).subschemeι ≫ f) ((J).subschemeι ≫ g)
+set_option quotPrecheck false in
 local notation "b₀" => Scheme.Hom.productClosedMap f g (I).subschemeι (J).subschemeι
 
 omit [PerfectField k] in
@@ -311,7 +313,8 @@ theorem structureTorCoefficient_product_weighted_of_isLocallyNoetherian
   let : IsArtinianRing ((T).presheaf.stalk η.val) :=
     isArtinianRing_iff_isNoetherianRing_krullDimLE_zero.mpr ⟨inferInstance, inferInstance⟩
   exact structureTorCoefficient_product_weighted f g a b c d p q u v u' v'
-    hu hv hu' hv' z η hη (Module.length_ne_top (R := (T).presheaf.stalk η.val))
+    hu hv hu' hv' z η hη (show Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤ from
+      Module.length_ne_top)
     hfin₁ hfin₂ hsupp₁ hsupp₂
 
 /-- The genuine signed Tor coefficient of the product is the product of the two
