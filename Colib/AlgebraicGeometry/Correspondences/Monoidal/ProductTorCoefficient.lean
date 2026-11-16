@@ -291,6 +291,29 @@ theorem structureTorCoefficient_product_weighted
     η hη hfinite (productClosedMap_fst_apply f g p q z) (productClosedMap_snd_apply f g p q z)
     hfin₁ hfin₂ hsupp₁ hsupp₂
 
+omit [PerfectField k] in
+/-- On a locally Noetherian product of point closures, generic stalks have finite
+length automatically. This geometric form has no separate multiplicity finiteness assumption. -/
+theorem structureTorCoefficient_product_weighted_of_isLocallyNoetherian
+    [IsLocallyNoetherian T]
+    (η : genericPoints T) (hη : b₀ η.val = w)
+    (hfin₁ : ∀ n, IsFiniteLength P₀ (((Tor (ModuleCat P₀) n).obj M).obj M'))
+    (hfin₂ : ∀ n, IsFiniteLength Q₀ (((Tor (ModuleCat Q₀) n).obj N).obj N'))
+    (hsupp₁ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat P₀) n).obj M).obj M')}.Finite)
+    (hsupp₂ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat Q₀) n).obj N).obj N')}.Finite) :
+    structureTorCoefficient α₀ β₀ =
+      structureTorCoefficient α α' * structureTorCoefficient β β' *
+        ((Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val)).toNat : ℤ) := by
+  have hdim := ringKrullDim_stalk_eq_zero_of_mem_genericPoints (W := T) η
+  let : Ring.KrullDimLE 0 ((T).presheaf.stalk η.val) := by
+    rw [Ring.krullDimLE_iff, hdim]
+    rfl
+  let : IsArtinianRing ((T).presheaf.stalk η.val) :=
+    isArtinianRing_iff_isNoetherianRing_krullDimLE_zero.mpr ⟨inferInstance, inferInstance⟩
+  exact structureTorCoefficient_product_weighted f g a b c d p q u v u' v'
+    hu hv hu' hv' z η hη (Module.length_ne_top (R := (T).presheaf.stalk η.val))
+    hfin₁ hfin₂ hsupp₁ hsupp₂
+
 /-- The genuine signed Tor coefficient of the product is the product of the two
 original signed Tor coefficients at the projected points. -/
 theorem structureTorCoefficient_product
