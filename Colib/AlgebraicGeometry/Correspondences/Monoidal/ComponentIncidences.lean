@@ -11,6 +11,7 @@ public import Colib.AlgebraicGeometry.Correspondences.Monoidal.KoszulDevissage
 public import Colib.AlgebraicGeometry.Chow.WholePolynomialEndpointPushforward
 import Colib.AlgebraicGeometry.Sites.Smooth.NormalComponents
 public import StacksFrontier.AlgebraicGeometry.Variety.Geometrically.ReducedProduct
+public import StacksFrontier.AlgebraicGeometry.Chow.FibreCycles.FibreDimension
 
 /-!
 # Incidences of the original product-support components
