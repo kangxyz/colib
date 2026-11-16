@@ -9,6 +9,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.Ni
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.ParameterDerivedForget
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.ParameterDerivedHom
 import StacksFrontier.CategoryTheory.Triangulated.LocalizingQuotient
+import Colib.CategoryTheory.Functor.LocalEquivalenceOfHomEquiv
 
 /-!
 # Nisnevich descent of tensoring with a represented parameter
@@ -96,27 +97,18 @@ theorem isIso_projectiveParameterNisnevichTensor_map_of_isIso
     IsIso ((projectiveParameterNisnevichTensor (k := k) (F := F)).map f) := by
   let _ := hf
   apply (isIso_iff_of_reflects_iso _ (i(k))).1
-  apply isIso_of_coyoneda_map_bijective
-  intro K
-  let C := projectiveParameterNisnevichTensor (k := k) (F := F)
   let H := nisnevichDerivedAdjunction k
-  let K' := (R(e)).obj K
-  let b := H.homEquiv P.obj K'
-  let b' := H.homEquiv P'.obj K'
-  let x := projectiveParameterNisnevichHomEquiv e P K
-  let x' := projectiveParameterNisnevichHomEquiv e P' K
-  let h := (asIso ((i(k)).map ((a(k)).map f))).symm
-  have hcomp : x ∘ (fun g : (i(k)).obj (C.obj P') ⟶ K => (i(k)).map (C.map f) ≫ g) =
-      b ∘ h.homFromEquiv ∘ b'.symm ∘ x' := by
-    funext g
-    change x ((i(k)).map (C.map f) ≫ g) = b (h.inv ≫ b'.symm (x' g))
-    rw [projectiveParameterNisnevichHomEquiv_precompose]
-    change f.hom ≫ x' g = H.homEquiv P.obj K' ((aD(k)).map f.hom ≫ b'.symm (x' g))
-    rw [H.homEquiv_naturality_left, show H.homEquiv P'.obj K' = b' from rfl,
-      b'.apply_symm_apply]
-  apply (Function.Bijective.of_comp_iff' x.bijective _).1
-  rw [hcomp]
-  exact b.bijective.comp (h.homFromEquiv.bijective.comp (b'.symm.bijective.comp x'.bijective))
+  let C := projectiveParameterNisnevichTensor (k := k) (F := F)
+  let L := a(k) ⋙ i(k)
+  let Q := C ⋙ i(k)
+  have : IsIso (L.map f) := inferInstance
+  apply Functor.isIso_map_of_naturalHomEquiv (L := L) (T := Q) (R(e)).obj
+    (fun P K => (projectiveParameterNisnevichHomEquiv e P K).trans
+      (H.homEquiv P.obj ((R(e)).obj K)).symm) _ f
+  intro P P' g K h
+  dsimp only [Equiv.trans_apply]
+  rw [projectiveParameterNisnevichHomEquiv_precompose,
+    H.homEquiv_naturality_left_symm]
 
 include e in
 /-- The sheafified projective tensor inverts the bounded Nisnevich equivalences. -/
