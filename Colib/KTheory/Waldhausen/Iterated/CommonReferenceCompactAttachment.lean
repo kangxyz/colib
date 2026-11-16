@@ -52,7 +52,7 @@ theorem chain_attachPostcomp {k : ℕ} (c : Fin (k + 1) ⥤ Codiscrete (Node F))
   refine CategoryTheory.Functor.ext (fun _ ↦ rfl) ?_
   intro i j f
   ext X
-  simp [chain, ModelSimplex.postcomp, diagram, Codiscrete.functorOfFun, NatTrans.comp_app]
+  simp only [eqToHom_refl, Category.comp_id, Category.id_comp]
   let a := J.hom.toFunctor.map ((c.obj i).as.2.inv.app X)
   let b := J.hom.toFunctor.map ((c.obj j).as.2.hom.app X)
   calc
