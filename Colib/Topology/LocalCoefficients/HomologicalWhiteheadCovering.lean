@@ -36,13 +36,13 @@ universe u
 namespace Topology.LocalCoefficients
 
 /-- Relate the based map to the same original map at its literal image point. -/
-private theorem piMap_bijective_at_image_of_endpoint
+private theorem piMap_bijective_iff_at_endpoint
     {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
-    (f : C(X, Y)) {x : X} {y : Y} (h : f x = y) (n : ℕ)
-    (hπ : Function.Bijective (HomotopyGroup.piMap n f h)) :
-    Function.Bijective (HomotopyGroup.piMap n f (x := x) rfl) := by
+    (f : C(X, Y)) {x : X} {y : Y} (h : f x = y) (n : ℕ) :
+    Function.Bijective (HomotopyGroup.piMap n f h) ↔
+      Function.Bijective (HomotopyGroup.piMap n f (x := x) rfl) := by
   cases h
-  exact hπ
+  rfl
 
 /-- Twisted homology recognizes the actual map using a single supplied
 simply connected target cover and one matching pair. -/
@@ -57,16 +57,17 @@ theorem isWeakHomotopyEquivalence_of_twisted_quasiIso_of_cover
     IsWeakHomotopyEquivalence f := by
   let z₀ : Covering.Pullback.Space f q := ⟨(x, e), h⟩
   let : SimplyConnectedSpace (Covering.Pullback.Space f q) :=
-    Covering.Pullback.simplyConnectedSpace f q hq z₀ hπ
+    Covering.Pullback.simplyConnectedSpace f q hq z₀
+      ((piMap_bijective_iff_at_endpoint f h 0).mpr hπ)
   have hsing := pullback_singular_quasiIso_of_all_localCoefficients hq f hH
   have hweak : IsWeakHomotopyEquivalence (Covering.Pullback.lift f q) :=
-    isWeakHomotopyEquivalence_of_singular_quasiIso _ hsing
+    FundamentalGroupoid.LocalCoefficients.isWeakHomotopyEquivalence_of_singular_quasiIso _ hsing
   apply isWeakHomotopyEquivalence_of_connected f x
   intro n
   cases n with
   | zero => exact hπ
   | succ m =>
-    exact piMap_bijective_at_image_of_endpoint f h (m + 1)
+    exact (piMap_bijective_iff_at_endpoint f h (m + 1)).mp
       (Covering.Pullback.piMap_base_bijective_of_lift f q hq z₀ m
         (hweak.homotopy_bijective z₀ (m + 2)))
 
