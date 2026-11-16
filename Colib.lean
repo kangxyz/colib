@@ -6368,6 +6368,7 @@ public import Colib.Topology.CWComplex.CharacteristicQuotient
 public import Colib.Topology.CWComplex.CubeDiskPair
 public import Colib.Topology.CWComplex.GlobalLifting
 public import Colib.Topology.CWComplex.HomotopyLifting
+public import Colib.Topology.CWComplex.NeighborhoodContraction
 public import Colib.Topology.CWComplex.RadialCollar
 public import Colib.Topology.CWComplex.SkeletalNeighborhoodContractions
 public import Colib.Topology.CWComplex.SkeletonAttachment
