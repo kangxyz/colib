@@ -2613,6 +2613,10 @@ class LibraryTests(unittest.TestCase):
             self.assertTrue(owner.endswith("." + module))
         for identifier in ("COL-1241", "COL-1242"):
             self.assertIn("norm-residue isomorphism", self.library["entries"][identifier]["scope"])
+            module = built["declarations"][built["entries"][identifier]["primary"]]["module"]
+            source = (catalog.ROOT / (module.replace(".", "/") + ".lean")).read_text()
+            self.assertIn('colib_ref "WeibelKBook" "III, Proposition 6.10.3,', source)
+            self.assertIn('"adaptation"', source)
         text = " ".join(str(value) for value in self.library["entries"]["COL-1227"].values())
         self.assertNotIn("COL-1237", text)
         self.assertNotIn("COL-1244", text)

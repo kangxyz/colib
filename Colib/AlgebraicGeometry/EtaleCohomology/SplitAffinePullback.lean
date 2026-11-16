@@ -23,8 +23,10 @@ universe u
 variable {k R A : Type u} [CommRing k] [CommRing R] [CommRing A]
   [Algebra k R] [Algebra k A] {I : Type u} [Finite I]
 
+/-- The structure morphism of the base affine scheme induced by its `k`-algebra structure. -/
 abbrev baseMap : Spec (.of R) ⟶ Spec (.of k) :=
   Spec.map (CommRingCat.ofHom (algebraMap k R))
+/-- The structure morphism of the source affine scheme induced by its `k`-algebra structure. -/
 abbrev sourceMap : Spec (.of A) ⟶ Spec (.of k) :=
   Spec.map (CommRingCat.ofHom (algebraMap k A))
 

@@ -37,7 +37,9 @@ set_option maxRecDepth 4096 in
 set_option backward.isDefEq.respectTransparency false in
 /-- The original degree-two Kummer cup pairing kills the Steinberg pair (a,1-a).
 Both units are transported by the actual ΓSpec isomorphism. -/
-@[colib_tag "COL-1241"]
+@[colib_tag "COL-1241",
+  colib_ref "WeibelKBook" "III, Proposition 6.10.3, proof, p. 59" "adaptation"
+    "Full root-algebra adaptation in module Ext, rather than field factors in Galois cohomology"]
 theorem kummerCupModuloPowers_steinberg
     {k : Type u} [Field k] (n : ℕ) [NeZero n] [NeZero (n : k)]
     (a : kˣ) (ha : IsUnit (1 - (a : k)))

@@ -61,7 +61,9 @@ theorem nsmul_milnorTwoKummerSymbol (x : MilnorKTheory k 2) :
   exact nsmul_kummerTensorSquare k n t
 
 /-- The actual cup symbol on the native Milnor quotient by multiples. -/
-@[colib_tag "COL-1242"]
+@[colib_tag "COL-1242",
+  colib_ref "WeibelKBook" "III, Proposition 6.10.3, p. 59" "adaptation"
+    "Milnor K2/n factorization with the module Ext target, without an isomorphism claim"]
 def milnorTwoModuloKummerSymbol :
     (MilnorKTheory k 2 ⧸ (n • AddMonoidHom.id (MilnorKTheory k 2)).range) →+
       kummerTwoTarget k n :=
