@@ -90,6 +90,7 @@ local notation "B₀" => (Y).presheaf.stalk (q w)
 set_option quotPrecheck false in
 local notation "R₀" => (pullback f g).presheaf.stalk w
 
+omit [IsClosedImmersion i] [IsClosedImmersion j] in
 /-- Over any field, the localized exterior residue tensor has the length of the actual
 local ring of the product of the reduced point closures. Nonreduced multiplicities are retained. -/
 theorem length_extendExteriorResidueTensor_eq_length_stalk
