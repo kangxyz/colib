@@ -6366,9 +6366,11 @@ public import Colib.Topology.CWComplex.CharacteristicPair
 public import Colib.Topology.CWComplex.CharacteristicQuotient
 public import Colib.Topology.CWComplex.CubeDiskPair
 public import Colib.Topology.CWComplex.GlobalLifting
+public import Colib.Topology.CWComplex.HomotopyLifting
 public import Colib.Topology.CWComplex.SkeletonAttachment
 public import Colib.Topology.CWComplex.SkeletonExtension
 public import Colib.Topology.CWComplex.SkeletonLifting
+public import Colib.Topology.CWComplex.Whitehead
 public import Colib.Topology.DeformationRetract.Basic
 public import Colib.Topology.DeformationRetract.Cofibration
 public import Colib.Topology.DeformationRetract.Composition
@@ -6775,6 +6777,8 @@ public import Colib.Topology.HomotopyPullback.OverlapConnectivity
 public import Colib.Topology.HomotopyPullback.OverlapCubeLifting
 public import Colib.Topology.HomotopyPullback.OverlapPaths
 public import Colib.Topology.HomotopyPullback.Pasting
+public import Colib.Topology.HomotopyPullback.PathProjection
+public import Colib.Topology.HomotopyPullback.PathProjectionLifting
 public import Colib.Topology.HomotopyPullback.ProductChart
 public import Colib.Topology.HomotopyPullback.Products
 public import Colib.Topology.HomotopyPullback.Pushout
