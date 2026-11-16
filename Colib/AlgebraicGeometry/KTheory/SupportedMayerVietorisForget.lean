@@ -99,7 +99,11 @@ theorem connectingHom_forget (n : ℕ) :
   let forgetX := perfectSupportedUnionForgetKMap i Z n
   let forgetV := perfectSupportedUnionForgetKMap b Z' n
   let forgetI := perfectSupportedKMap (b ⁻¹ᵁ Z').ι (n + 1)
+  letI : HasDerivedCategory (I₀).toScheme.Modules := HasDerivedCategory.standard _
   let δ' := perfectQcqsConnectingHom b n
+  let δFine :=
+    letI := Scheme.Modules.hasDerivedCategory (I₀).toScheme
+    perfectQcqsConnectingHom b n
   let incl := perfectSupportedKMap i n
   have h₁ :
       (perfectSupportedKMap Z.ι n).comp (perfectSupportedUnionKMap i Z n) =
@@ -107,8 +111,14 @@ theorem connectingHom_forget (n : ℕ) :
     perfectSupportedUnionKMap_comp_forget i Z n
   have h₂ : forgetX.comp e = e'.comp forgetV :=
     fiberEquiv_symm_comp_forget j T Z hcover n
-  have h₃ : forgetV.comp δ = δ'.comp forgetI :=
-    perfectSupportedConnectingHomOfUnionCompact_forget b Z' hV n
+  have hδ : δFine = δ' := by
+    refine perfectQcqsConnectingHom_unique b n δFine ?_
+    letI := Scheme.Modules.hasDerivedCategory (I₀).toScheme
+    exact perfectQcqsConnectingHom_comp_relative b n
+  have h₃ : forgetV.comp δ = δ'.comp forgetI := by
+    rw [← hδ]
+    letI := Scheme.Modules.hasDerivedCategory (I₀).toScheme
+    exact perfectSupportedConnectingHomOfUnionCompact_forget b Z' hV n
   change (perfectSupportedKMap Z.ι n).comp ((perfectSupportedUnionKMap i Z n).comp
     (e.comp δ)) = (incl.comp (e'.comp δ')).comp forgetI
   calc
