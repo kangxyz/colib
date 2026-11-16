@@ -328,6 +328,51 @@ private theorem componentCoefficient_eq_finsum_support :
         (η.val.property.mem_closed (w).isClosedEmbedding.isClosed_range hd'))⟩
     rw [finsum_of_isEmpty, finsum_of_isEmpty]
 
+omit α β [PerfectField k] in
+/-- Group the whole-incidence dévissage by its actual pair of generic support labels,
+retaining every whole-support generic length. This regrouping holds over an arbitrary field. -/
+theorem structureTorCoefficient_eq_sum_weighted_genericPairs :
+    letI := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+    letI := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+    structureTorCoefficient ρ σ =
+      ∑ t : genericPoints D₁ × genericPoints D₂,
+        ∑ᶠ η : {η : All // labels η = t},
+          ((Module.length ((P).presheaf.stalk η.val.val.val)
+            ((P).presheaf.stalk η.val.val.val)).toNat : ℤ) * term η.val := by
+  classical
+  let := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+  let := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+  rw [structureTorCoefficient_exteriorWhole_eq_finsum_genericComponents X Y Z U V W a b c d
+    ha hb hc hd z]
+  let l := correspondenceExteriorTarget X Y U V (integralComponentAt a) (integralComponentAt c)
+  let r := correspondenceExteriorSource Y Z V W (integralComponentAt b) (integralComponentAt d)
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  let : IsFinite r := correspondenceExteriorSource_isFinite Y Z V W
+    (integralComponentAt b) (integralComponentAt d)
+  let : LocallyOfFiniteType (r ≫ g) :=
+    MorphismProperty.comp_mem _ _ _ inferInstance inferInstance
+  let : IsNoetherian P :=
+    Scheme.isNoetherian_of_finiteType_of_isNoetherian
+      (pullback.fst (l ≫ g) (r ≫ g))
+  let : Fintype (genericPoints P) :=
+    (AlgebraicCycle.fundamentalCycle_genericPoints_finite P).fintype
+  let : Fintype All := Fintype.ofFinite All
+  let : ∀ t : genericPoints D₁ × genericPoints D₂, Fintype {η : All // labels η = t} :=
+    fun _ => Fintype.ofFinite _
+  let F : All → ℤ := fun η =>
+    ((Module.length ((P).presheaf.stalk η.val.val)
+      ((P).presheaf.stalk η.val.val)).toNat : ℤ) * term η
+  change (∑ᶠ η : All, F η) =
+    ∑ t : genericPoints D₁ × genericPoints D₂, ∑ᶠ η : {η : All // labels η = t}, F η.val
+  simp only [finsum_eq_sum_of_fintype]
+  exact (Fintype.sum_equiv (Equiv.sigmaFiberEquiv labels).symm F
+    (fun t => F t.2.val) (fun _ => rfl)).trans (Fintype.sum_sigma _)
+
 omit α β in
 /-- The whole local Tor coefficient is the sum over the actual native component incidences.
 The local product-support multiplicities are one over the perfect field. -/
