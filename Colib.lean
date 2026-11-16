@@ -6495,7 +6495,9 @@ public import Colib.Topology.Homotopy.HomotopyGroup.CompactLifting
 public import Colib.Topology.Homotopy.HomotopyGroup.ComponentCriterion
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.Basic
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.EquivalenceSquare
+public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.FiberObstructionStep
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.HomotopySquare
+public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.SimplyConnected
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.Vanishing
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.VanishingTransport
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.WeakSquare
