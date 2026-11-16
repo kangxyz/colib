@@ -100,6 +100,7 @@ theorem length_self_eq_mul_length_extendExteriorResidueTensor {S : Type u} [Comm
     (Ideal.quotientEquivAlgOfEq S hI).toLinearEquiv.toModuleIso ≪≫
       (AlgEquiv.quotientBot S S).toLinearEquiv.toModuleIso
   have he := e.toLinearEquiv.length_eq
+  dsimp only at h
   rw [he, (AlgEquiv.quotientBot A A).toLinearEquiv.length_eq,
     (AlgEquiv.quotientBot B B).toLinearEquiv.length_eq] at h
   exact h
