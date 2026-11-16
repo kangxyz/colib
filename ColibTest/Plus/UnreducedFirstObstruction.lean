@@ -20,7 +20,7 @@ example (y : Y) (z : HomotopyFiber f y) (t : unitInterval) :
   ⟨unreducedFirstObstructionMap_outerPath f y z, unreducedFirstObstructionMap_innerPath f y z t⟩
 
 -- In the lowest range the actual fiber fundamental group is the second cone homotopy group.
-example [SimplyConnectedSpace X] (x : X) (hf : IsHomotopyConnectedMap f 1) :
+noncomputable example [SimplyConnectedSpace X] (x : X) (hf : IsHomotopyConnectedMap f 1) :
     HomotopyGroup.Pi 1 (HomotopyFiber f (f x)) (HomotopyFiber.basepoint f (f x) x rfl) ≃
       HomotopyGroup.Pi 2 (UnreducedSpace f) (unreducedVertex f) :=
   firstObstructionEquivCone f x 0 hf
