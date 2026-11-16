@@ -65,7 +65,8 @@ theorem boundedAboveFlatAffineSectionEvaluationLocalizedIso_inv (R : CommRingCat
   rw [Iso.inv_hom_id]
   change 𝟙 _ = toStableLocalization.map (boundedAboveFlatAffineEvaluationInversePrespectrumMap R) ≫
     toStableLocalization.map (boundedAboveFlatAffineEvaluationPrespectrumMap R)
-  rw [← Functor.map_comp, toStableLocalization_map_eq_of_homotopy h, Functor.map_id]
+  rw [← Functor.map_comp, toStableLocalization_map_eq_of_homotopy h]
+  exact (toStableLocalization.map_id _).symm
 
 /-- The actual evaluation square commutes in the localization by the whole coefficient track. -/
 @[reassoc]
