@@ -4786,6 +4786,7 @@ public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveCylinderInterch
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveCylinderIsomorphism
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveCylinderNaturality
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveCylinderZero
+public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveSimplexFamily
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveSquare
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveSquareNaturality
 public import Colib.CategoryTheory.Waldhausen.SConstruction.NerveTriangle
@@ -5320,6 +5321,7 @@ public import Colib.KTheory.Waldhausen.HomotopyMap
 public import Colib.KTheory.Waldhausen.IdentityCylinder
 public import Colib.KTheory.Waldhausen.Iterated.Additivity
 public import Colib.KTheory.Waldhausen.Iterated.ChosenZeroCoherence
+public import Colib.KTheory.Waldhausen.Iterated.CommonReferenceCompactStageZero
 public import Colib.KTheory.Waldhausen.Iterated.CompositionHomotopyNaturality
 public import Colib.KTheory.Waldhausen.Iterated.ConeFiberExcision
 public import Colib.KTheory.Waldhausen.Iterated.ConeParameterLooping
@@ -7319,6 +7321,7 @@ public import Colib.Topology.Realization.PrescribedFiniteVertexStraightening
 public import Colib.Topology.Realization.Prism
 public import Colib.Topology.Realization.PrismCoordinates
 public import Colib.Topology.Realization.PrismGluing
+public import Colib.Topology.Realization.ProductCompactEvaluation
 public import Colib.Topology.Realization.ProductCompactHELP
 public import Colib.Topology.Realization.ProductComparison
 public import Colib.Topology.Realization.ProductFiber
