@@ -38,8 +38,9 @@ theorem parameter_square_signed {M N X Y : C} {M' N' : D}
   let u := (E.commShiftIso s).hom.app N ≫ b.hom⟦s⟧'
   let v := (shiftFunctorAdd' C t 1 s hs).hom.app N ≫ ψ.inv⟦(1 : ℤ)⟧'
   let w := (shiftFunctorAdd' D t 1 s hs).hom.app N' ≫ ψ'.inv⟦(1 : ℤ)⟧'
-  have hb : E.map v ≫ (E.commShiftIso (1 : ℤ)).hom.app Y = u ≫ w :=
-    parameter_boundary_transport E t s hs ψ b
+  have hb : E.map v ≫ (E.commShiftIso (1 : ℤ)).hom.app Y = u ≫ w := by
+    simpa only [u, w, ψ', Category.assoc] using
+      parameter_boundary_transport E t s hs ψ b
   have hn : E.map (F.map v) ≫ τ.app (Y⟦(1 : ℤ)⟧) = τ.app (N⟦s⟧) ≫ G.map (E.map v) :=
     τ.naturality v
   have hshift := parameter_square_shift E F G τ f g a.hom b.hom h s
@@ -48,7 +49,7 @@ theorem parameter_square_signed {M N X Y : C} {M' N' : D}
     θ'.hom ≫ g⟦s⟧' ≫ (G.commShiftIso s).inv.app N' ≫ G.map w
   simp only [Functor.map_comp, Category.assoc]
   rw [reassoc_of% hn]
-  rw [← Functor.map_comp_assoc, hb, Functor.map_comp]
+  rw [← G.map_comp, hb, G.map_comp]
   have hh := congrArg (fun z => E.map θ.hom ≫ z ≫ G.map w) hshift
   simpa only [θ', Iso.trans_hom, Functor.mapIso_hom, Iso.app_hom,
     Functor.map_comp, Category.assoc, u] using hh
