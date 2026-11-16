@@ -4,8 +4,8 @@ title = "Homotopy invariance of transfer sheafification"
 kind = "theorem"
 review = "author_checked"
 source_checked_on = "2026-11-12"
-section = "transfers-nisnevich"
-order = 70
+section = "affine-line-invariance"
+order = 10
 primary = "AlgebraicGeometry.PresheafWithTransfers.nisnevichSheafify_isA1Invariant"
 statement = '''
 Let $k$ be a field and $P$ an additive presheaf with transfers over $k$.

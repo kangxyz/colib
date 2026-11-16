@@ -2,8 +2,8 @@
 id = "COL-0390"
 title = "Sections of transfer-presheaf cokernels"
 kind = "comparison"
-section = "transfer-homological-algebra"
-order = 10
+section = "transfer-presheaf-foundations"
+order = 20
 primary = "AlgebraicGeometry.PresheafWithTransfers.cokernelSectionsIsoQuotient"
 statement = '''
 Let \(k\) be a field, let \(\eta:P\to Q\) be a morphism of additive presheaves with transfers, and let \(X\in\operatorname{Cor}(k)\). Evaluation of the categorical cokernel gives the canonical isomorphism
