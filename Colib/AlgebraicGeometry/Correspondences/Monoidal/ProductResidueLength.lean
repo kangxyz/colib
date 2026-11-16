@@ -16,7 +16,8 @@ The exterior tensor of the two ambient residue fields, localized at the
 actual product point, is the local ring of the literal product of the two
 reduced point closures. Over a perfect field this product is reduced.
 At a generic point of the original product of closed subschemes its
-selected local ring is therefore a field.
+selected local ring is therefore a field. The general comparison retains its full
+module length before imposing reducedness.
 -/
 
 @[expose] public noncomputable section
@@ -62,7 +63,8 @@ private theorem range_reducedClosures_subset :
     coe_support_integralComponentAt, coe_support_integralComponentAt]
   exact Set.inter_subset_inter (Set.preimage_mono hi) (Set.preimage_mono hj)
 
-private theorem exists_generic_reducedClosures :
+/-- A generic product point lies on the product of its two reduced point closures. -/
+theorem exists_generic_reducedClosures :
     ∃ y : genericPoints T, b y.val = w := by
   have hw : w ∈ Set.range b := by
     unfold Scheme.Hom.productClosedMap
@@ -88,16 +90,18 @@ local notation "B₀" => (Y).presheaf.stalk (q w)
 set_option quotPrecheck false in
 local notation "R₀" => (pullback f g).presheaf.stalk w
 
-/-- The actual scalar-extended exterior tensor of the residue fields has length one. -/
-theorem length_extendExteriorResidueTensor_at_genericClosedProduct
-    [PerfectField k] [Algebra k A₀] [Algebra k B₀]
+/-- Over any field, the localized exterior residue tensor has the length of the actual
+local ring of the product of the reduced point closures. Nonreduced multiplicities are retained. -/
+theorem length_extendExteriorResidueTensor_eq_length_stalk
+    [Algebra k A₀] [Algebra k B₀]
     (φ : A₀ ⊗[k] B₀ →+* R₀)
     (hleft : φ.comp Algebra.TensorProduct.includeLeftRingHom = ((p).stalkMap w).hom)
-    (hright : φ.comp Algebra.TensorProduct.includeRight.toRingHom = ((q).stalkMap w).hom) :
+    (hright : φ.comp Algebra.TensorProduct.includeRight.toRingHom = ((q).stalkMap w).hom)
+    (y : genericPoints T) (hy : b y.val = w) :
     Module.length R₀ ((ModuleCat.extendScalars φ).obj
       (ModuleCat.exteriorTensorObj k (ModuleCat.of A₀ (IsLocalRing.ResidueField A₀))
-        (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀)))) = 1 := by
-  obtain ⟨y, hy⟩ := exists_generic_reducedClosures f g i j x
+        (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀)))) =
+      Module.length ((T).presheaf.stalk y.val) ((T).presheaf.stalk y.val) := by
   let e := exteriorQuotientsIsoTransportedClosedMapProductStalk f g
     (I).subschemeι (J).subschemeι w φ hleft hright y.val hy.symm
   rw [IdealSheafData.ker_subschemeι, IdealSheafData.ker_subschemeι,
@@ -115,13 +119,38 @@ theorem length_extendExteriorResidueTensor_at_genericClosedProduct
     ((b).stalkMap_surjective y.val).comp <|
       ConcreteCategory.bijective_of_isIso
         (((pullback f g).presheaf.stalkCongr (.of_eq hy.symm)).hom) |>.surjective
-  change Module.length R₀ M = 1
-  rw [Module.length_eq_of_surjective (R := L) (M := M) hρ]
+  change Module.length R₀ M = Module.length L L
+  exact Module.length_eq_of_surjective (R := L) (M := M) hρ
+
+/-- Reducedness of the actual product of point closures suffices for residue tensor length one. -/
+theorem length_extendExteriorResidueTensor_at_genericClosedProduct_of_isReduced
+    [IsReduced T] [Algebra k A₀] [Algebra k B₀]
+    (φ : A₀ ⊗[k] B₀ →+* R₀)
+    (hleft : φ.comp Algebra.TensorProduct.includeLeftRingHom = ((p).stalkMap w).hom)
+    (hright : φ.comp Algebra.TensorProduct.includeRight.toRingHom = ((q).stalkMap w).hom) :
+    Module.length R₀ ((ModuleCat.extendScalars φ).obj
+      (ModuleCat.exteriorTensorObj k (ModuleCat.of A₀ (IsLocalRing.ResidueField A₀))
+        (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀)))) = 1 := by
+  obtain ⟨y, hy⟩ := exists_generic_reducedClosures f g i j x
+  rw [length_extendExteriorResidueTensor_eq_length_stalk f g i j x φ hleft hright y hy]
+  let L := (T).presheaf.stalk y.val
+  let : Field L := (isField_stalk_of_closure_mem_irreducibleComponents T y.val y.property).toField
+  exact Module.length_eq_one_iff.mpr (inferInstance : IsSimpleModule L L)
+
+/-- The perfect-field specialization of the general residue tensor length comparison. -/
+theorem length_extendExteriorResidueTensor_at_genericClosedProduct
+    [PerfectField k] [Algebra k A₀] [Algebra k B₀]
+    (φ : A₀ ⊗[k] B₀ →+* R₀)
+    (hleft : φ.comp Algebra.TensorProduct.includeLeftRingHom = ((p).stalkMap w).hom)
+    (hright : φ.comp Algebra.TensorProduct.includeRight.toRingHom = ((q).stalkMap w).hom) :
+    Module.length R₀ ((ModuleCat.extendScalars φ).obj
+      (ModuleCat.exteriorTensorObj k (ModuleCat.of A₀ (IsLocalRing.ResidueField A₀))
+        (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀)))) = 1 := by
   let : IsIntegral (I).subscheme := isIntegral_integralComponentAt (p w)
   let : IsIntegral (J).subscheme := isIntegral_integralComponentAt (q w)
   let : IsReduced T := isReduced_pullback_over_perfectField ((I).subschemeι ≫ f)
     ((J).subschemeι ≫ g)
-  let : Field L := (isField_stalk_of_closure_mem_irreducibleComponents T y.val y.property).toField
-  exact Module.length_eq_one_iff.mpr (inferInstance : IsSimpleModule L L)
+  exact length_extendExteriorResidueTensor_at_genericClosedProduct_of_isReduced
+    f g i j x φ hleft hright
 
 end Stacks.Chow
