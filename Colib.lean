@@ -6693,6 +6693,7 @@ public import Colib.Topology.HomotopyFiber.H2Perfectness
 public import Colib.Topology.HomotopyFiber.Homeomorph
 public import Colib.Topology.HomotopyFiber.HomotopyPiOneNaturality
 public import Colib.Topology.HomotopyFiber.InjectiveH2Perfectness
+public import Colib.Topology.HomotopyFiber.IteratedFiberPath
 public import Colib.Topology.HomotopyFiber.LES
 public import Colib.Topology.HomotopyFiber.LESNaturality
 public import Colib.Topology.HomotopyFiber.LESTail
@@ -6732,6 +6733,7 @@ public import Colib.Topology.HomotopyFiber.WeakFibers
 public import Colib.Topology.HomotopyFiber.WeakInvariance
 public import Colib.Topology.HomotopyFiber.WeakPullback
 public import Colib.Topology.HomotopyFiber.WeakSourceEquivalence
+public import Colib.Topology.HomotopyFiber.WeakSourcePositive
 public import Colib.Topology.HomotopyFiber.WeakSquareTransport
 public import Colib.Topology.HomotopyLifting.Basic
 public import Colib.Topology.HomotopyLifting.Closure
