@@ -6,7 +6,7 @@ Authors: Colib contributors
 module
 
 public import Colib.Algebra.Category.ModuleCat.Tor.ExteriorQuotient
-public import Colib.RingTheory.Tor.ExteriorEuler.ExteriorTensor
+public import Colib.RingTheory.Tor.ExteriorEuler.Length
 public import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
 public import Mathlib.RingTheory.Length
 public import Mathlib.RingTheory.LocalRing.ResidueField.Basic
@@ -78,6 +78,29 @@ def extendExteriorTensorObjQuotientIso {S : Type u} [CommRing S]
       ModuleCat.of S (S ⧸ (productIdeal (k := k) I J).map φ) :=
   (ModuleCat.extendScalars φ).mapIso (exteriorTensorObjQuotientActionIso (k := k) I J) ≪≫
     extendProductQuotientIso φ I J
+
+/-- The self-length after flat base change of a tensor algebra retains the residue-tensor
+multiplicity. The two local input algebras need only have finite self-length. -/
+theorem length_self_eq_mul_length_extendExteriorResidueTensor {S : Type u} [CommRing S]
+    [IsLocalRing A] [IsLocalRing B] [Algebra (A ⊗[k] B) S]
+    [Module.Flat (A ⊗[k] B) S]
+    (hA : IsFiniteLength A A) (hB : IsFiniteLength B B) :
+    Module.length S S = Module.length A A * Module.length B B *
+      Module.length S ((ModuleCat.extendScalars (algebraMap (A ⊗[k] B) S)).obj
+        (ModuleCat.exteriorTensorObj k (ModuleCat.of A (IsLocalRing.ResidueField A))
+          (ModuleCat.of B (IsLocalRing.ResidueField B)))) := by
+  let φ := algebraMap (A ⊗[k] B) S
+  have hA' := (AlgEquiv.quotientBot A A).symm.toLinearEquiv.isFiniteLength hA
+  have hB' := (AlgEquiv.quotientBot B B).symm.toLinearEquiv.isFiniteLength hB
+  have h := ModuleCat.length_extendScalars_exteriorTensor (k := k) (S := S)
+    (ModuleCat.of A (A ⧸ (⊥ : Ideal A))) (ModuleCat.of B (B ⧸ (⊥ : Ideal B))) hA' hB'
+  have he := (extendExteriorTensorObjQuotientIso (k := k) φ
+    (⊥ : Ideal A) (⊥ : Ideal B)).toLinearEquiv.length_eq
+  simp only [productIdeal, Ideal.map_bot, bot_sup_eq] at he
+  rw [(AlgEquiv.quotientBot S S).toLinearEquiv.length_eq] at he
+  rw [he, (AlgEquiv.quotientBot A A).toLinearEquiv.length_eq,
+    (AlgEquiv.quotientBot B B).toLinearEquiv.length_eq] at h
+  exact h
 
 /-- The extended residue tensor has finite length if its defining ideal has the maximal ideal
 as a minimal prime. -/
