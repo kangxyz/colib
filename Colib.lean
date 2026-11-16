@@ -6391,6 +6391,7 @@ public import Colib.Topology.DoubleMappingCylinder.HeightCover
 public import Colib.Topology.DoubleMappingCylinder.HomotopyDescent
 public import Colib.Topology.DoubleMappingCylinder.Invariance
 public import Colib.Topology.DoubleMappingCylinder.LocalComparison
+public import Colib.Topology.DoubleMappingCylinder.PiOneLegs
 public import Colib.Topology.DoubleMappingCylinder.PlusGapConnectivity
 public import Colib.Topology.DoubleMappingCylinder.Subdivision
 public import Colib.Topology.DoubleMappingCylinder.WeakCartesian
