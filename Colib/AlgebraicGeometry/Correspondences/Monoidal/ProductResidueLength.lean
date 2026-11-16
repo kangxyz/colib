@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.Chow.FlatComponentCoefficient
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Stalks
+public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductStalkLocalization
 public import StacksFrontier.AlgebraicGeometry.Variety.Geometrically.ReducedProduct
 
 /-!
@@ -141,6 +142,49 @@ theorem length_stalk_product_eq_mul_length_reducedClosures
     (k := k) (S := R₀) hA hB
   rw [length_extendExteriorResidueTensor_eq_length_stalk f g i j x φ hleft hright y hy] at h
   exact h
+
+/-- For generic labels in the two factors, the product's stalk length is the two
+input multiplicities times the stalk length of their actual reduced-closure product.
+The projection equations ensure that the same labels and points occur in all three factors. -/
+theorem length_stalk_product_at_generic_closures
+    (α : genericPoints X) (β : genericPoints Y)
+    (z : genericPoints (pullback ((integralComponentAt α.val).subschemeι ≫ f)
+      ((integralComponentAt β.val).subschemeι ≫ g)))
+    (hα : pullback.fst f g
+      (Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
+        (integralComponentAt β.val).subschemeι z.val) = α.val)
+    (hβ : pullback.snd f g
+      (Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
+        (integralComponentAt β.val).subschemeι z.val) = β.val)
+    (hA : IsFiniteLength (X.presheaf.stalk α.val) (X.presheaf.stalk α.val))
+    (hB : IsFiniteLength (Y.presheaf.stalk β.val) (Y.presheaf.stalk β.val)) :
+    let C := pullback ((integralComponentAt α.val).subschemeι ≫ f)
+      ((integralComponentAt β.val).subschemeι ≫ g)
+    let point := Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
+      (integralComponentAt β.val).subschemeι z.val
+    Module.length ((pullback f g).presheaf.stalk point) ((pullback f g).presheaf.stalk point) =
+      Module.length (X.presheaf.stalk α.val) (X.presheaf.stalk α.val) *
+        Module.length (Y.presheaf.stalk β.val) (Y.presheaf.stalk β.val) *
+          Module.length (C.presheaf.stalk z.val) (C.presheaf.stalk z.val) := by
+  dsimp only
+  let point := Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
+    (integralComponentAt β.val).subschemeι z.val
+  let A := X.presheaf.stalk (pullback.fst f g point)
+  let B := Y.presheaf.stalk (pullback.snd f g point)
+  let R := (pullback f g).presheaf.stalk point
+  let : Algebra k A := BaseChangeStalk.stalkAlgebraOfField f (pullback.fst f g point)
+  let : Algebra k B := BaseChangeStalk.stalkAlgebraOfField g (pullback.snd f g point)
+  obtain ⟨φ, hleft, hright, S, hS⟩ :=
+    BaseChangeStalk.pullback_stalk_isLocalization_overField f g point
+  let : Algebra (A ⊗[k] B) R := φ.toAlgebra
+  let : IsLocalization S R := hS
+  let : Module.Flat (A ⊗[k] B) R := IsLocalization.flat R S
+  have hflat : φ.Flat := RingHom.flat_algebraMap_iff.mpr inferInstance
+  have H := length_stalk_product_eq_mul_length_reducedClosures f g
+    (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι
+    z φ hflat hleft hright
+  simp only [hα, hβ] at H
+  exact H z rfl hA hB
 
 /-- Reducedness of the actual product of point closures suffices for residue tensor length one. -/
 theorem length_extendExteriorResidueTensor_at_genericClosedProduct_of_isReduced
