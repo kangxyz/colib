@@ -38,14 +38,13 @@ local instance monoidalLocalizationCorSheafify :
     (Cor.nisnevichTopology k)
 
 local notation "PST" => TransferCoefficients k
-local notation "NST" => LargeSheaves k
 
 /-- The morphisms inverted by the actual Nisnevich sheafification with transfers. -/
 def nisnevichSheafificationEquivalences : MorphismProperty PST :=
-  (MorphismProperty.isomorphisms NST).inverseImage (nisnevichSheafify k)
+  (MorphismProperty.isomorphisms (SheafWithTransfers.{u + 1} k)).inverseImage (nisnevichSheafify k)
 
 instance : (nisnevichSheafificationEquivalences k).IsMultiplicative :=
-  inferInstanceAs ((MorphismProperty.isomorphisms NST).inverseImage
+  inferInstanceAs ((MorphismProperty.isomorphisms (SheafWithTransfers.{u + 1} k)).inverseImage
     (nisnevichSheafify k)).IsMultiplicative
 
 instance : (nisnevichSheafify k).IsLocalization (nisnevichSheafificationEquivalences k) :=
@@ -74,7 +73,7 @@ instance nisnevichSheafificationEquivalences_isMonoidal :
 /-- The actual sheaf category has the symmetric convolution tensor obtained by
 localizing integral transfer convolution; its unit is the sheafified represented unit. -/
 @[instance_reducible]
-def nisnevichConvolutionMonoidalCategory : MonoidalCategory NST :=
+def nisnevichConvolutionMonoidalCategory : MonoidalCategory (SheafWithTransfers.{u + 1} k) :=
   Localization.monoidalCategory (nisnevichSheafify k)
     (nisnevichSheafificationEquivalences k) (Iso.refl _)
 
@@ -89,14 +88,26 @@ def nisnevichConvolutionSheafificationCoreMonoidal :
 @[instance_reducible]
 def nisnevichConvolutionSymmetricCategory :
     letI := nisnevichConvolutionMonoidalCategory k
-    SymmetricCategory NST :=
+    SymmetricCategory (SheafWithTransfers.{u + 1} k) :=
   Localization.symmetricCategory (nisnevichSheafify k)
     (nisnevichSheafificationEquivalences k) (Iso.refl _)
+
+/-- Tensoring with a sheafified coefficient uses only the original counit
+and the strong monoidal tensorator, without a second localization argument. -/
+def nisnevichConvolutionSheafifiedRightIso
+    (P : SheafWithTransfers.{u + 1} k) (Q : PST) :
+    letI := nisnevichConvolutionMonoidalCategory k
+    P ⊗ (nisnevichSheafify k).obj Q ≅ (nisnevichSheafify k).obj
+      (convolutionPresheaf (curriedTensor (Cor k)) ((forget k).obj P) Q) := by
+  letI := nisnevichConvolutionMonoidalCategory k
+  let a := nisnevichSheafificationAdjunction k
+  exact tensorIso (asIso (a.counit.app P)).symm (Iso.refl _) ≪≫
+    (nisnevichConvolutionSheafificationCoreMonoidal k).μIso ((forget k).obj P) Q
 
 /-- The localized tensor is canonically the sheafification of the convolution
 of the original transfer coefficients. The comparison uses the actual
 sheafification counit and the localization tensorator. -/
-def nisnevichConvolutionTensorIso (P Q : NST) :
+def nisnevichConvolutionTensorIso (P Q : (SheafWithTransfers.{u + 1} k)) :
     letI := nisnevichConvolutionMonoidalCategory k
     P ⊗ Q ≅ (nisnevichSheafify k).obj
       (convolutionPresheaf (curriedTensor (Cor k)) ((forget k).obj P) ((forget k).obj Q)) := by

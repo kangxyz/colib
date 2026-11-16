@@ -6,16 +6,17 @@ Authors: Colib contributors
 module
 
 public import Colib.CategoryTheory.Functor.LocalEquivalenceOfHomEquiv
-public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.ParameterSections
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.ParameterSections
+
+import StacksFrontier.CategoryTheory.Sites.AbelianSheafificationExistence
 
 /-!
 # Represented parameter tensor preserves Nisnevich local equivalences
 
 The proof uses the actual additive parameter adjunction and the fact that its
 right adjoint preserves Nisnevich sheaves. There is no homotopy-invariance,
-perfectness or flatness assumption. The temporary high import owns the existing
-ordinary `parameterSectionsOfGraphIso`; move that block to its lower owner before
-final integration rather than duplicate it here.
+perfectness or flatness assumption. The ordinary parameter-sections construction
+is imported from its lower owner, without derived-category or Ext machinery.
 -/
 
 @[expose] public noncomputable section
@@ -33,6 +34,11 @@ variable {k : Type u} [Field k]
   {T : SmoothSite (Spec (.of k))} {F : Cor k ⥤ Cor k} [F.Additive]
   (e : Cor.graphFunctor k ⋙ F ≅
     SmoothSite.Contraction.parameterProduct T ⋙ Cor.graphFunctor k)
+
+local instance parameterLocalEquivalencesCorSheafify :
+    HasSheafify (Cor.nisnevichTopology k) AddCommGrpCat.{u + 1} :=
+  GrothendieckTopology.hasSheafify_addCommGrpCat_of_essentiallySmall.{u + 1}
+    (Cor.nisnevichTopology k)
 
 /-- Reindexing the original transfer coefficients commutes with inclusion. -/
 def parameterSectionsUnderlyingIso :
