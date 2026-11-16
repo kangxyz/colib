@@ -6639,6 +6639,7 @@ public import Colib.Topology.Homotopy.SquareEdges
 public import Colib.Topology.Homotopy.ThreeSideSquare
 public import Colib.Topology.Homotopy.ThreeSideSquareLift
 public import Colib.Topology.Homotopy.TimeChange
+public import Colib.Topology.HomotopyCofiber.HomologicalFirstObstruction
 public import Colib.Topology.HomotopyCofiber.ReducedMappingCone
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeCollapse
 public import Colib.Topology.HomotopyCofiber.ReducedMappingConeFiberReduction
@@ -6826,11 +6827,13 @@ public import Colib.Topology.LocalCoefficients.FiniteCapEvaluation
 public import Colib.Topology.LocalCoefficients.FiniteCorrections
 public import Colib.Topology.LocalCoefficients.FiniteTelescope
 public import Colib.Topology.LocalCoefficients.FiniteTrackDescent
+public import Colib.Topology.LocalCoefficients.FirstObstruction
 public import Colib.Topology.LocalCoefficients.Functoriality
 public import Colib.Topology.LocalCoefficients.GrothendieckTelescope
 public import Colib.Topology.LocalCoefficients.GroupCompletionAbelian
 public import Colib.Topology.LocalCoefficients.H2CapDescent
 public import Colib.Topology.LocalCoefficients.HomeomorphismChains
+public import Colib.Topology.LocalCoefficients.HomologicalWhiteheadSimplyConnected
 public import Colib.Topology.LocalCoefficients.Homology
 public import Colib.Topology.LocalCoefficients.HomologyFactorization
 public import Colib.Topology.LocalCoefficients.HomologySupport
@@ -7286,6 +7289,7 @@ public import Colib.Topology.Realization.FiniteNerveCharts
 public import Colib.Topology.Realization.FiniteNullhomotopy
 public import Colib.Topology.Realization.FinitePosetSupport
 public import Colib.Topology.Realization.FiniteSimplexFamily
+public import Colib.Topology.Realization.FiniteSimplexStraightening
 public import Colib.Topology.Realization.FiniteSkeleton
 public import Colib.Topology.Realization.FiniteStrictLifting
 public import Colib.Topology.Realization.FiniteSubcomplex
@@ -7331,6 +7335,7 @@ public import Colib.Topology.Realization.ProductFiberHELP
 public import Colib.Topology.Realization.ProductSimplex
 public import Colib.Topology.Realization.ProductSupport
 public import Colib.Topology.Realization.ProductWeakEquivalence
+public import Colib.Topology.Realization.RelativeSphericalStraightening
 public import Colib.Topology.Realization.RestrictedDeformation
 public import Colib.Topology.Realization.SequentialWeakEquivalence
 public import Colib.Topology.Realization.Simplex
@@ -7364,6 +7369,7 @@ public import Colib.Topology.Realization.SimplexBoundary.TriangleRelation
 public import Colib.Topology.Realization.SimplexBoundary.VertexStars
 public import Colib.Topology.Realization.SimplexBoundaryCollar
 public import Colib.Topology.Realization.SimplexBoundaryEndpoints
+public import Colib.Topology.Realization.SimplexBoundaryFilling
 public import Colib.Topology.Realization.SimplexBoundaryHEP
 public import Colib.Topology.Realization.SimplexCharts
 public import Colib.Topology.Realization.SimplexConnectivity
