@@ -7327,6 +7327,7 @@ public import Colib.Topology.Realization.ProductFiberHELP
 public import Colib.Topology.Realization.ProductSimplex
 public import Colib.Topology.Realization.ProductSupport
 public import Colib.Topology.Realization.ProductWeakEquivalence
+public import Colib.Topology.Realization.RelativeSphericalStraightening
 public import Colib.Topology.Realization.RestrictedDeformation
 public import Colib.Topology.Realization.SequentialWeakEquivalence
 public import Colib.Topology.Realization.Simplex
