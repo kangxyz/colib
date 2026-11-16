@@ -16,7 +16,8 @@ public import Colib.RingTheory.Tor.ExteriorEuler.TorEuler
 At a generic point of the product of two closed intersections, the product
 stalk ambient is a flat localization of the two ambient stalks. The two
 actual structure modules are scalar extensions of the corresponding exterior
-tensors, and the local residue factor has length one over a perfect field.
+tensors. Over an arbitrary field the full residue tensor length is retained;
+over a perfect field the reduced-product specialization makes this factor one.
 -/
 
 @[expose] public noncomputable section
@@ -161,14 +162,24 @@ private theorem isZero_iff_length_eq_zero {Ring : Type u} [CommRing Ring] (L : M
     IsZero L ↔ Module.length Ring L = 0 :=
   ModuleCat.isZero_iff_subsingleton.trans Module.length_eq_zero_iff.symm
 
-private theorem structureTorCoefficient_congr_product
+local notation "I" => integralComponentAt (pullback.fst f g w)
+local notation "J" => integralComponentAt (pullback.snd f g w)
+set_option quotPrecheck false in
+local notation "T" => pullback (C := Scheme) ((I).subschemeι ≫ f) ((J).subschemeι ≫ g)
+local notation "b₀" => Scheme.Hom.productClosedMap f g (I).subschemeι (J).subschemeι
+
+omit [PerfectField k] in
+private theorem structureTorCoefficient_congr_product_weighted
+    (η : genericPoints T) (hη : b₀ η.val = w)
+    (hfinite : Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤)
     (h₁ : pullback.fst f g w = p x) (h₂ : pullback.snd f g w = q y)
     (hfin₁ : ∀ n, IsFiniteLength P₀ (((Tor (ModuleCat P₀) n).obj M).obj M'))
     (hfin₂ : ∀ n, IsFiniteLength Q₀ (((Tor (ModuleCat Q₀) n).obj N).obj N'))
     (hsupp₁ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat P₀) n).obj M).obj M')}.Finite)
     (hsupp₂ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat Q₀) n).obj N).obj N')}.Finite) :
     structureTorCoefficient α₀ β₀ =
-      structureTorCoefficient α α' * structureTorCoefficient β β' := by
+      structureTorCoefficient α α' * structureTorCoefficient β β' *
+        ((Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val)).toNat : ℤ) := by
   let x₀ := pullback.fst f g w
   let y₀ := pullback.snd f g w
   have hx : x₀ = p x := h₁
@@ -220,14 +231,11 @@ private theorem structureTorCoefficient_congr_product
     refine hsupp₂.subset fun n hn hz => hn ?_
     exact (isZero_iff_length_eq_zero _).mpr
       ((hlenB n).trans ((isZero_iff_length_eq_zero _).mp hz))
-  have hres := length_extendExteriorResidueTensor_at_genericClosedProduct
-    f g p q z φ hleft hright
+  have hres := length_extendExteriorResidueTensor_eq_length_stalk
+    f g p q z φ hleft hright η hη
   obtain ⟨_, _, h⟩ := ModuleCat.Tor.finsum_length_extendScalars_exteriorTensor
     (k := k) (S := R₀) M₁ M₂ N₁ N₂ hfinA hfinB hsuppA hsuppB (by
-      exact hres.trans_ne (by simp))
-  have hres' : Module.length R₀ (F.obj (ModuleCat.exteriorTensorObj k
-      (ModuleCat.of A₀ (IsLocalRing.ResidueField A₀))
-      (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀)))) = 1 := hres
+      exact hres.trans_ne hfinite)
   change (∑ᶠ n : ℕ, (-1 : ℤ) ^ n * ((Module.length R₀
       (((Tor (ModuleCat R₀) n).obj (F.obj (ModuleCat.exteriorTensorObj k M₁ N₁))).obj
         (F.obj (ModuleCat.exteriorTensorObj k M₂ N₂)))).toNat : ℤ)) =
@@ -238,7 +246,7 @@ private theorem structureTorCoefficient_congr_product
     ((Module.length R₀ (F.obj (ModuleCat.exteriorTensorObj k
       (ModuleCat.of A₀ (IsLocalRing.ResidueField A₀))
       (ModuleCat.of B₀ (IsLocalRing.ResidueField B₀))))).toNat : ℤ) at h
-  rw [hres', ENat.toNat_one, Nat.cast_one, mul_one] at h
+  rw [hres] at h
   let e₁ := exteriorQuotientsIsoTransportedClosedMapProductStalk f g a b w φ hleft hright
     (r z.val) (productIntersectionMap_point_eq f g a b p q u v hu hv z)
   let e₂ := exteriorQuotientsIsoTransportedClosedMapProductStalk f g c d w φ hleft hright
@@ -266,6 +274,23 @@ private theorem structureTorCoefficient_congr_product
   rw [h₀', hA', hB'] at h
   exact h
 
+omit [PerfectField k] in
+/-- Over an arbitrary field, the product Tor coefficient retains the full generic
+multiplicity of the product of the reduced point closures. -/
+theorem structureTorCoefficient_product_weighted
+    (η : genericPoints T) (hη : b₀ η.val = w)
+    (hfinite : Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤)
+    (hfin₁ : ∀ n, IsFiniteLength P₀ (((Tor (ModuleCat P₀) n).obj M).obj M'))
+    (hfin₂ : ∀ n, IsFiniteLength Q₀ (((Tor (ModuleCat Q₀) n).obj N).obj N'))
+    (hsupp₁ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat P₀) n).obj M).obj M')}.Finite)
+    (hsupp₂ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat Q₀) n).obj N).obj N')}.Finite) :
+    structureTorCoefficient α₀ β₀ =
+      structureTorCoefficient α α' * structureTorCoefficient β β' *
+        ((Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val)).toNat : ℤ) :=
+  structureTorCoefficient_congr_product_weighted f g a b c d p q u v u' v' hu hv hu' hv' z
+    η hη hfinite (productClosedMap_fst_apply f g p q z) (productClosedMap_snd_apply f g p q z)
+    hfin₁ hfin₂ hsupp₁ hsupp₂
+
 /-- The genuine signed Tor coefficient of the product is the product of the two
 original signed Tor coefficients at the projected points. -/
 theorem structureTorCoefficient_product
@@ -274,9 +299,22 @@ theorem structureTorCoefficient_product
     (hsupp₁ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat P₀) n).obj M).obj M')}.Finite)
     (hsupp₂ : {n : ℕ | ¬ IsZero (((Tor (ModuleCat Q₀) n).obj N).obj N')}.Finite) :
     structureTorCoefficient α₀ β₀ =
-      structureTorCoefficient α α' * structureTorCoefficient β β' :=
-  structureTorCoefficient_congr_product f g a b c d p q u v u' v' hu hv hu' hv' z
-    (productClosedMap_fst_apply f g p q z) (productClosedMap_snd_apply f g p q z)
-    hfin₁ hfin₂ hsupp₁ hsupp₂
+      structureTorCoefficient α α' * structureTorCoefficient β β' := by
+  obtain ⟨η, hη⟩ := exists_generic_reducedClosures f g p q z
+  let : IsIntegral (I).subscheme := isIntegral_integralComponentAt (pullback.fst f g w)
+  let : IsIntegral (J).subscheme := isIntegral_integralComponentAt (pullback.snd f g w)
+  let : IsReduced T := isReduced_pullback_over_perfectField ((I).subschemeι ≫ f)
+    ((J).subschemeι ≫ g)
+  let L := (T).presheaf.stalk η.val
+  let : Field L := (isField_stalk_of_closure_mem_irreducibleComponents T η.val η.property).toField
+  have hlen : Module.length L L = 1 :=
+    Module.length_eq_one_iff.mpr (inferInstance : IsSimpleModule L L)
+  have hfinite : Module.length L L ≠ ⊤ := hlen.trans_ne (by simp)
+  have h := structureTorCoefficient_product_weighted f g a b c d p q u v u' v'
+    hu hv hu' hv' z η hη hfinite hfin₁ hfin₂ hsupp₁ hsupp₂
+  change structureTorCoefficient α₀ β₀ =
+    structureTorCoefficient α α' * structureTorCoefficient β β' *
+      ((Module.length L L).toNat : ℤ) at h
+  simpa only [hlen, ENat.toNat_one, Nat.cast_one, mul_one] using h
 
 end Stacks.Chow
