@@ -81,7 +81,7 @@ def stageZeroTransformation :
     let p : A.obj n := (z.1, ⟨𝟙 n.unop⟩)
     have hn := congrArg (fun g : A.obj n ⟶ B.obj m ↦ g p) (φ.naturality α)
     change B.map α (φ.app n p) = _
-    rw [← hn]
+    refine (show B.map α (φ.app n p) = φ.app m (A.map α p) from hn.symm).trans ?_
     let A' := (stages 0).obj V ⊗ Δ[m.unop.len]
     let q : A'.obj m := (((stages 0).obj V).map α z.1, ⟨𝟙 m.unop⟩)
     have h := congrArg (fun a : A' ⟶ B ↦ a.app m q)
@@ -89,7 +89,12 @@ def stageZeroTransformation :
         (z.2 ⋙ diagram F)
         (fun i ↦ (z.2.obj i).as.1.hom.isExact)
         (fun _ _ f x ↦ diagram_weak F (z.2.map f) x) α.unop)
-    simpa only [A, A', B, p, q, φ, Category.id_comp, Category.comp_id] using h
+    have hstd : (SSet.stdSimplex.map α.unop).app m (ULift.up (𝟙 m.unop)) =
+        (SSet.stdSimplex.obj n.unop).map α (ULift.up (𝟙 n.unop)) := by
+      change ULift.up (𝟙 m.unop ≫ α.unop) = ULift.up (α.unop ≫ 𝟙 n.unop)
+      simp
+    have he := congrArg (fun t ↦ φ.app m (((stages 0).obj V).map α z.1, t)) hstd.symm
+    exact he.trans h
 
 variable {T U : Type v} [TopologicalSpace T] [TopologicalSpace U]
   [CompactSpace T] [CompactSpace U]
