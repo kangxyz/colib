@@ -39,6 +39,21 @@ def imageUnit (P : ProjectiveMatrices R) :
 theorem imageUnit_apply (P : ProjectiveMatrices R) (x : (linearMap P.p).range)
     (i : Fin P.X.rank) : (imageUnit f P x).val i = f (x.val i) := rfl
 
+-- The identity and composition formulas are from the pinned Quillen
+-- FiniteProjectiveBaseChangeUnitCoherence.lean, lines 32–43.
+/-- Entrywise scalar extension along the identity fixes the original image. -/
+theorem imageUnit_id (P : ProjectiveMatrices R) (x : (linearMap P.p).range) :
+    imageUnit (RingHom.id R) P x = x := by
+  apply Subtype.ext
+  rfl
+
+/-- Successive image units apply the two ring homomorphisms in their original order. -/
+theorem imageUnit_comp {T : Type w} [Ring T] (f : R →+* S) (g : S →+* T)
+    (P : ProjectiveMatrices R) (x : (linearMap P.p).range) :
+    imageUnit g ((baseChange f).obj P) (imageUnit f P x) = imageUnit (g.comp f) P x := by
+  apply Subtype.ext
+  rfl
+
 /-- The unit commutes with the actual idempotent retractions. -/
 theorem imageUnit_rangeRestrict (P : ProjectiveMatrices R) (x : Fin P.X.rank → R) :
     imageUnit f P ((linearMap P.p).rangeRestrict x) =

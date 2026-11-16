@@ -138,6 +138,42 @@ theorem rightBaseChangeUnit_naturality (f : R →+* S)
     (RightModule.imageEquivalence.counitIso.inv.naturality g)
   exact he.symm
 
+-- The actual unit comparisons use the pinned Quillen
+-- FiniteProjectiveBaseChangeUnitCoherence.lean, lines 55–87.
+/-- The unchanged identity comparison sends the original scalar-extension unit to identity. -/
+theorem rightBaseChangeId_hom_unit (P : Category.{u, u} Rᵐᵒᵖ) (x : P.obj) :
+    (rightBaseChangeId.hom.app P).hom.hom (rightBaseChangeUnit (RingHom.id R) P x) = x := by
+  change rightBaseChangePresentationEquiv P
+    (RightModule.imageUnit (RingHom.id R) _ ((rightBaseChangePresentationEquiv P).symm x)) = x
+  rw [RightModule.imageUnit_id, LinearEquiv.apply_symm_apply]
+
+/-- The unchanged composition comparison preserves successive original scalar-extension units. -/
+theorem rightBaseChangeComp_hom_unit {T : Type w} [Ring T] (f : R →+* S) (g : S →+* T)
+    (P : Category.{u, u} Rᵐᵒᵖ) (x : P.obj) :
+    ((rightBaseChangeComp f g).hom.app P).hom.hom
+        (rightBaseChangeUnit g ((rightBaseChange f).obj P) (rightBaseChangeUnit f P x)) =
+      rightBaseChangeUnit (g.comp f) P x := by
+  let A := (RightModule.baseChange f).obj (RightModule.imageEquivalence.inverse.obj P)
+  have he : RightModule.imageMap ((RightModule.imageEquivalence (R := S)).unitIso.inv.app A) =
+      (rightBaseChangePresentationEquiv ((rightBaseChange f).obj P)).toLinearMap := by
+    exact congrArg
+      (fun k : RightModule.imageFunctor.obj
+          (RightModule.imageEquivalence.inverse.obj (RightModule.imageFunctor.obj A)) ⟶
+          RightModule.imageFunctor.obj A ↦ k.hom.hom)
+      ((RightModule.imageEquivalence (R := S)).counit_app_functor A).symm
+  change RightModule.imageMap
+      ((RightModule.baseChange g).map ((RightModule.imageEquivalence (R := S)).unitIso.inv.app A))
+      (RightModule.imageUnit g _
+        ((rightBaseChangePresentationEquiv ((rightBaseChange f).obj P)).symm
+          (rightBaseChangeUnit f P x))) = _
+  rw [← RightModule.imageUnit_naturality, he]
+  change RightModule.imageUnit g A
+    (rightBaseChangePresentationEquiv ((rightBaseChange f).obj P)
+      ((rightBaseChangePresentationEquiv ((rightBaseChange f).obj P)).symm
+        (rightBaseChangeUnit f P x))) = _
+  rw [LinearEquiv.apply_symm_apply]
+  exact RightModule.imageUnit_comp f g _ _
+
 /-- The Hom bijection is contravariantly natural in the original projective module. -/
 theorem rightBaseChangeHomEquiv_naturality_source (f : R →+* S)
     {P Q : Category.{u, u} Rᵐᵒᵖ} (g : P ⟶ Q) (N : ModuleCat.{w} Sᵐᵒᵖ)
