@@ -38,7 +38,8 @@ def stageZeroPointSection :
 /-- All the original nerve simplices fix the chosen stage-zero vertex, as a whole map. -/
 theorem stageZeroPointSection_comp :
     stageZeroPointSection F ≫ stageZeroTransformation F = SSet.const (stageVertex 0 W) := by
-  ext n z : 3
+  ext n : 3
+  funext z
   let N := nerve (Codiscrete (Node F))
   let p₀ : (Δ[0] : SSet.{u}) _⦋0⦌ := SSet.stdSimplex.objEquiv.symm (𝟙 ⦋0⦌)
   let p : (Δ[0] : SSet.{u}).obj n := (SSet.const (X := N) p₀).app n z
@@ -73,7 +74,7 @@ theorem stageZeroPointSection_comparison (y : |nerve (Codiscrete (Node F))|) :
   apply _root_.Prod.ext
   · change (SSet.toTop.map (stageZeroPointSection F) ≫ SSet.toTop.map (fst _ _)) y = _
     rw [← CategoryTheory.Functor.map_comp]
-    simpa only [stageZeroPointSection, lift_fst] using
+    simpa only [stageZeroPointSection, lift_fst, stagePoint] using
       (SSet.realization_const_apply (stageVertex 0 V) y)
   · change (SSet.toTop.map (stageZeroPointSection F) ≫ SSet.toTop.map (snd _ _)) y = y
     rw [← CategoryTheory.Functor.map_comp, stageZeroPointSection, lift_snd,
@@ -102,7 +103,8 @@ theorem compactStageZeroFamily_point
   "Quillen/Waldhausen/SConstruction/Iterated/CommonReferenceNerveCompactFamily.lean:57-69"
   "adaptation" "Compact evaluation on the actual original loop K-space."]
 def compactLoopZeroFamily (p : C(T, |nerve (Codiscrete (Node F))|)) :
-    C(T × (prespectrum V).space 0, (prespectrum W).space 0) where
+    C(T × Path (stagePoint 0 V) (stagePoint 0 V),
+      Path (stagePoint 0 W) (stagePoint 0 W)) where
   toFun z :=
     { toFun s := compactStageZeroFamily F p (z.1, z.2 s)
       continuous_toFun := by fun_prop
@@ -117,7 +119,7 @@ def compactLoopZeroFamily (p : C(T, |nerve (Codiscrete (Node F))|)) :
 /-- The original independent loop clock is not moved by the compact carrier. -/
 theorem compactLoopZeroFamily_apply (p : C(T, |nerve (Codiscrete (Node F))|)) (t : T)
     (γ : Path (stagePoint 0 V) (stagePoint 0 V)) (s : unitInterval) :
-    (show Path (stagePoint 0 W) (stagePoint 0 W) from compactLoopZeroFamily F p (t, γ)) s =
+    (compactLoopZeroFamily F p (t, γ)) s =
       compactStageZeroFamily F p (t, γ s) := rfl
 
 /-- Different compact carriers agreeing at one point preserve the entire same loop. -/
