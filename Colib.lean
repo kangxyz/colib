@@ -6978,6 +6978,7 @@ public import Colib.Topology.Path.Homotopy.ThetaWord
 public import Colib.Topology.Path.Homotopy.ThreeRoutes
 public import Colib.Topology.Path.InSubset
 public import Colib.Topology.Path.PointHEP
+public import Colib.Topology.Path.ScalarRectangleConcatenation
 public import Colib.Topology.Path.Separation
 public import Colib.Topology.PathSpace.Metric
 public import Colib.Topology.PathSubdivision.FiniteIteration
@@ -7083,6 +7084,7 @@ public import Colib.Topology.Prespectrum.PushoutConeRebracketing
 public import Colib.Topology.Prespectrum.PushoutFiniteStructureRange
 public import Colib.Topology.Prespectrum.PushoutHomotopy
 public import Colib.Topology.Prespectrum.PushoutHomotopySquare
+public import Colib.Topology.Prespectrum.PushoutHomotopySquareCells
 public import Colib.Topology.Prespectrum.PushoutHomotopySquareEquivalence
 public import Colib.Topology.Prespectrum.PushoutInterchange
 public import Colib.Topology.Prespectrum.PushoutInterchangeIso
