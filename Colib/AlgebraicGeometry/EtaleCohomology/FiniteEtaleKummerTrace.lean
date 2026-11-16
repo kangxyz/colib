@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 public import Colib.AlgebraicGeometry.EtaleCohomology.FiniteEtaleTraceNaturality
 public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.KummerTheory.Sequence
+public import StacksFrontier.AlgebraicGeometry.EtaleCohomology.TorsionSheavesCurves.ConstantPrimeToCharacteristicCurve
 
 /-!
 # The native trace on the restricted Kummer complex
@@ -20,14 +21,6 @@ universe u
 namespace Stacks.EtaleCohomology
 open Stacks.Kummer
 variable {S Y : Scheme.{u}} (g : Y ⟶ S) [Etale g]
-
-/-- Étale restriction does not change the global-function units on each object.
-Both sides evaluate to units of global functions on the same scheme. -/
-def etaleRestrictionMultiplicativeSheafIso :
-    (etaleRestriction.{u, 0} g).obj (multiplicativeSheaf.{u, 0} S) ≅
-      multiplicativeSheaf.{u, 0} Y :=
-  (fullyFaithfulSheafToPresheaf _ _).preimageIso
-    (NatIso.ofComponents (fun _ => Iso.refl _) (fun _ => rfl))
 
 /-- Actual native additive-sheaf trace transported to Gm_Y. On split charts this
 should be product of pullbacks because Gm is represented additively.
