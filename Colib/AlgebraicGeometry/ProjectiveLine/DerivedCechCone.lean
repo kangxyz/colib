@@ -80,7 +80,10 @@ def lineDerivedCechConeIso :
       (Triangle.π₃.mapIso (lineDerivedCechConeTriangleIso R M)) ≪≫
     ((DerivedCategory.Q.commShiftIso (-1 : ℤ)).app _).symm
 
-attribute [colib_tag "COL-1270"]
+attribute [colib_tag "COL-1270",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/Scheme/ProjectiveLine/DerivedCechCone.lean:35-76"
+    "adaptation" "Actual signed Čech cone comparison with the same connecting square"]
   lineDerivedCechConeTriangleIso_connecting
   lineDerivedCechConeTriangleIso
   lineDerivedCechConeTriangleIso_hom_hom₁

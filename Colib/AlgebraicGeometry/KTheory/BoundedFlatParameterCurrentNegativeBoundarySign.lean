@@ -55,8 +55,13 @@ theorem currentNegativeConnecting_exact_supported (i : ℕ)
   rw [currentNegativeConnecting_eq_original]
   exact boundedAboveFlatCoefficientNegativeLocalizationConnecting_exact_supported f i a
 
-attribute [colib_tag "COL-1263"] currentNegativeConnecting_eq_original
-attribute [colib_tag "COL-1263"] currentNegativeConnecting_exact_open
-attribute [colib_tag "COL-1263"] currentNegativeConnecting_exact_supported
+attribute [colib_tag "COL-1263",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/\
+      ParameterCurrentNegativeBoundarySign.lean:32-57"
+    "adaptation" "Original sign comparison and exactness at the two adjacent positions"]
+  currentNegativeConnecting_eq_original
+  currentNegativeConnecting_exact_open
+  currentNegativeConnecting_exact_supported
 
 end AlgebraicGeometry.Scheme.Modules.ParameterFullCurrentNull

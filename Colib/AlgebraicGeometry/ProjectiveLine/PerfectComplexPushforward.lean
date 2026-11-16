@@ -120,9 +120,15 @@ theorem isPerfect_projectiveLinePushforward_of_termwiseFlasque (S : Scheme.{u})
   exact RingedSpace.isPerfectComplex_of_isPerfect_representation hd
     ⟨DerivedCategory.Plus.ι.mapIso e⟩
 
-attribute [colib_tag "COL-1289"]
+attribute [colib_tag "COL-1289",
+  stacks 09T0 "Flasque acyclicity identifies the degreewise and derived direct images"]
   isPerfect_projectiveLinePushforward_of_termwiseFlasque
+
+attribute [colib_tag "COL-1289",
+  stacks 08CM "Local strictly perfect models give the boundedness on a finite open cover"]
   perfectComplexToDerivedPlusFactors
+
+attribute [colib_tag "COL-1289"]
   projectiveLinePerfectComplexFlatBaseChangeIso
   linePerfectComplexSelfBaseChangeIso
 

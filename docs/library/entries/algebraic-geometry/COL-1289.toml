@@ -16,9 +16,10 @@ ordinary degreewise direct image along $p:\mathbf P^1_S\to S$ is a
 perfect complex.
 '''
 proof = '''
-Perfect objects on a quasi-compact scheme have bounded cohomology
-([@stacks, Tag 0FEP]); the lift is the usual localization on complexes
-and maps. The base-change isomorphisms are obtained by precomposing
+The local strictly perfect models ([@stacks, Tag 08CM]) bound the
+cohomology on a finite open cover of the quasi-compact scheme. The
+lift is the usual localization on complexes and maps. The base-change
+isomorphisms are obtained by precomposing
 the derived mate. Flasque terms are $p_*$-acyclic ([@stacks, Tag 09T0]),
 so the ordinary image represents $Rp_*$, which preserves perfection.
 Perfection is independent of the representative ([@stacks, Tag 08CN]).

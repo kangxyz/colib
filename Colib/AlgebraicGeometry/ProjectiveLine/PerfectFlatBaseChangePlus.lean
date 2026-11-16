@@ -145,8 +145,14 @@ theorem lineSelfPerfectBaseChangePlusIso_hom_app (R : CommRingCat.{u})
     (lineSelfPerfectBaseChangePlusIso R).hom.app K =
       (lineSelfBaseChangePlus R).app K.obj := rfl
 
-attribute [colib_tag "COL-1288"]
+attribute [colib_tag "COL-1288",
+  stacks 02KH "Sheaf-level comparison used in the passage to bounded-below complexes"]
   isIso_flatSquareBaseChangePlus_of_quasicoherent
+
+attribute [colib_tag "COL-1288",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/Scheme/ProjectiveLine/DerivedSelfBaseChangePerfect.lean:40-135"
+    "adaptation" "Intrinsic perfect bounded-below flat comparison and literal self-square"]
   isIso_projectiveLineFlatBaseChangePlus
   isIso_lineSelfBaseChangePlus
   projectiveLinePerfectFlatBaseChangePlusIso_hom_app

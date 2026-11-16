@@ -76,7 +76,8 @@ theorem projectiveLineOpenBaseChangePlusIso_unit {S T : Scheme.{u}}
         (isPullback_projectiveSpaceOverMap 1 g).w)).app K := by
   exact Scheme.Modules.openSquareBaseChangePlusIso_unit (isPullback_projectiveSpaceOverMap 1 g) K
 
-attribute [colib_tag "COL-1287"]
+attribute [colib_tag "COL-1287",
+  stacks 02N7 "Canonical bounded-below base-change map; invertibility here is the open case"]
   isIso_projectiveLineOpenBaseChangePlus_app
   projectiveLineOpenBaseChangePlusIso
   projectiveLineOpenBaseChangePlusIso_unit

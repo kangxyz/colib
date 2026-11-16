@@ -55,7 +55,8 @@ theorem isPerfect_projectiveLineDerivedPushforwardPlus (S : Scheme.{u})
   exact Stacks.Cohomology.PerfectComplexTriangles.isPerfect_of_iso
     (X := S.toRingedSpace) e h
 
-attribute [colib_tag "COL-1286"]
+attribute [colib_tag "COL-1286",
+  stacks 0B91 "Proper flat direct image on bounded-below perfect objects"]
   isPerfect_projectiveLineDerivedPushforwardPlus
 
 end AlgebraicGeometry.projectiveSpaceOver

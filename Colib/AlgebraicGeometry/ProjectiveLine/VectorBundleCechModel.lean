@@ -89,7 +89,10 @@ theorem exists_lineCechFiniteProjectiveModel :
   exact exists_lineCechFiniteProjectiveModel_of_projective R M h₂
     (projective_standardOverlapSections R M)
 
-attribute [colib_tag "COL-1284"]
+attribute [colib_tag "COL-1284",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/Scheme/ProjectiveLine/VectorBundleCech.lean:126-135"
+    "adaptation" "Finite projective homotopy model of the actual two-chart complex"]
   exists_lineCechFiniteProjectiveModel
 
 end AlgebraicGeometry.projectiveSpaceOver

@@ -18,8 +18,9 @@ Open pullback is exact and preserves injectives. The underived
 pullback–pushforward mate is already an isomorphism in the actual
 cartesian square, using the restriction comparison. On a bounded-below
 injective resolution its degreewise map is therefore an isomorphism.
-The derived-unit identity for the native derived base-change map
-([@stacks, Tag 0DDE]) fixes the forward map of the natural isomorphism.
+The derived-unit identity fixes the forward map of the natural
+isomorphism. See [@stacks, Tag 02N7] for construction of the canonical
+bounded-below base-change map.
 '''
 scope = '''
 The base and the bounded-below input are arbitrary. The projection is

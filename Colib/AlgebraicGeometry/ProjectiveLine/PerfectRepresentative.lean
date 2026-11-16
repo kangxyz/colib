@@ -47,7 +47,8 @@ theorem exists_projectiveLinePerfectRepresentative (R : CommRingCat.{u})
   exact ⟨E, hE, ⟨DerivedCategory.Plus.ι.preimageIso
     ((DerivedCategory.Plus.QCompιIso X.Modules).app ⟨E, hE.1.1⟩ ≪≫ e)⟩⟩
 
-attribute [colib_tag "COL-1286"]
+attribute [colib_tag "COL-1286",
+  stacks 0F8F "Resolution property gives the finite locally free representative"]
   exists_projectiveLinePerfectRepresentative
 
 end AlgebraicGeometry.projectiveSpaceOver

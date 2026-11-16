@@ -45,7 +45,8 @@ theorem isIso_projectiveLinePerfectBaseChange {S T : Scheme.{u}} (g : T ⟶ S)
     f hf inferInstance inferInstance E hE).2 g (projectiveSpaceOver 1 T ↘ T)
       (projectiveSpaceOverMap 1 g) (isPullback_projectiveSpaceOverMap 1 g)
 
-attribute [colib_tag "COL-1286"]
+attribute [colib_tag "COL-1286",
+  stacks 0B91 "Canonical base change for the proper flat projective-line projection"]
   isIso_projectiveLinePerfectBaseChange
 
 end AlgebraicGeometry.projectiveSpaceOver

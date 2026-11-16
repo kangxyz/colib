@@ -181,8 +181,17 @@ theorem isPerfect_lineVectorBundleDerivedImage [SheafOfModules.IsFiniteLocallyFr
     RingedSpace.isPerfect_Q_obj_of_isStrictlyPerfect (X := (Spec R).toRingedSpace) hP
   exact isPerfect_of_iso_scheme (S := Spec R) e.symm hQ
 
-attribute [colib_tag "COL-1285"]
+attribute [colib_tag "COL-1285",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/PerfectComplexes/ProjectiveLine/CechModel.lean:38-48"
+    "adaptation" "Strictly perfect homotopy model of the original sheaf Čech complex"]
   exists_lineStrictSheafCechModel
+
+attribute [colib_tag "COL-1285",
+  colib_ref "quillen"
+    "Quillen/AlgebraicGeometry/PerfectComplexes/ProjectiveLine/\
+      DerivedPushforwardVectorBundle.lean:35-63"
+    "adaptation" "Derived comparison, strict model, and perfectness of vector bundle direct image"]
   lineDerivedImageIsoOfSheafCechModel
   exists_lineDerivedImageStrictModel
   isPerfect_lineVectorBundleDerivedImage

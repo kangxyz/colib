@@ -54,7 +54,7 @@ theorem isIso_flasquePushforwardUnit_app (K : CochainComplex X.Modules ℤ)
     (fun n => pushforward_rightAcyclic_of_flasque f (K.X n) (hfl n))
 
 /-- The canonical comparison identifies the actual bounded-below direct-image complex. -/
-def flasquePushforwardIso [QuasiCompact f] [QuasiSeparated f]
+def flasquePushforwardIso
     (K : CochainComplex X.Modules ℤ) (hK : CochainComplex.plus X.Modules K)
     (hfl : ∀ n, TopCat.Sheaf.IsFlasque
       ((_root_.SheafOfModules.toSheaf X.ringCatSheaf).obj (K.X n))) :

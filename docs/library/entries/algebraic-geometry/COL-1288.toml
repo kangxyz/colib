@@ -21,7 +21,8 @@ The flat comparison is invertible at a quasi-coherent module by
 [@stacks, Tag 02KH]. Truncation and left $t$-exactness pass this to the
 bounded-below category. The two descents of the same ordinary
 pullback–pushforward mate are invertible together, and the
-derived-unit identity fixes the self-square map ([@stacks, Tag 0DDE]).
+derived-unit identity fixes the self-square map. See
+[@stacks, Tag 02N7] for the canonical bounded-below base-change map.
 For an open immersion the ordinary mate is invertible for all modules
 and open pullback preserves injectives, so no cohomology hypothesis is
 needed in that case.
