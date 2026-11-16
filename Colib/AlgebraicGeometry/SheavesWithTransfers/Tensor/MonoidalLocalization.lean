@@ -27,10 +27,10 @@ namespace AlgebraicGeometry.SheafWithTransfers
 
 open PresheafWithTransfers
 
-variable (k : Type u) [Field k]
+variable (k : Type u) [Field k] [PerfectField k]
 
-local notation "PST" => PresheafWithTransfers.{u + 1} k
-local notation "NST" => SheafWithTransfers.{u + 1} k
+local notation "PST" => TransferCoefficients k
+local notation "NST" => LargeSheaves k
 
 /-- The morphisms inverted by the actual Nisnevich sheafification with transfers. -/
 def nisnevichSheafificationEquivalences : MorphismProperty PST :=
@@ -52,13 +52,13 @@ instance nisnevichSheafificationEquivalences_isMonoidal :
   toIsMultiplicative := inferInstance
   whiskerLeft P _ _ f hf := by
     change IsIso ((nisnevichSheafify k).map f) at hf
-    letI := hf
+    let := hf
     change IsIso ((nisnevichSheafify k).map
       (((convolutionBifunctor (curriedTensor (Cor k))).obj P).map f))
     exact isIso_sheafify_convolution_map_right P f
   whiskerRight f hf Q := by
     change IsIso ((nisnevichSheafify k).map f) at hf
-    letI := hf
+    let := hf
     change IsIso ((nisnevichSheafify k).map
       (((convolutionBifunctor (curriedTensor (Cor k))).map f).app Q))
     exact isIso_sheafify_convolution_map_left f Q

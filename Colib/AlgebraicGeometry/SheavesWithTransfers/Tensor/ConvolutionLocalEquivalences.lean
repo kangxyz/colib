@@ -17,8 +17,9 @@ public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Native
 
 For a represented right coefficient, the actual parameter-sections adjunction
 proves stability. Colimit preservation and the canonical two-step presentation
-extend it to every transfer presheaf. No flatness, perfectness, geometric
-integrality or homotopy-invariance assumption is used.
+extend it to every transfer presheaf. The native correspondence monoidal
+structure currently requires a perfect field. No flatness, geometric integrality
+or homotopy-invariance assumption on the coefficients is used.
 -/
 
 @[expose] public noncomputable section
@@ -31,10 +32,10 @@ namespace AlgebraicGeometry.SheafWithTransfers
 
 open PresheafWithTransfers
 
-variable {k : Type u} [Field k]
+variable {k : Type u} [Field k] [PerfectField k]
 
 local notation "F" => curriedTensor (Cor k)
-local notation "PST" => PresheafWithTransfers.{u + 1} k
+local notation "PST" => TransferCoefficients k
 
 /-- Convolution with an actual representable preserves Nisnevich local equivalences. -/
 theorem isIso_sheafify_convolution_map_representable
