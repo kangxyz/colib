@@ -5,7 +5,7 @@ Authors: kangxyz
 -/
 module
 
-public import Colib.AlgebraicGeometry.Scheme.IntegerBaseProducts
+public import Colib.AlgebraicGeometry.Scheme.IntegerBaseProductInterchange
 public import Colib.AlgebraicGeometry.Scheme.QuasiCompactCategory
 
 /-!
@@ -50,6 +50,26 @@ def qcBaseProductTransformation {S T : AlgebraicGeometry.Scheme.{u}}
   naturality {X Y} g := by
     apply ObjectProperty.hom_ext
     exact (baseProductTransformation p q f hf).naturality g.hom
+
+
+/-- The native interchange on the full subcategory of quasi-compact schemes. -/
+def qcBaseProductSwapIso {S T : AlgebraicGeometry.Scheme.{u}}
+    (p : S ⟶ Spec (.of (ULift.{u} ℤ))) (q : T ⟶ Spec (.of (ULift.{u} ℤ)))
+    [QuasiCompact p] [QuasiCompact q] :
+    qcBaseProductFunctor p ⋙ qcBaseProductFunctor q ≅
+      qcBaseProductFunctor q ⋙ qcBaseProductFunctor p :=
+  NatIso.ofComponents (fun X =>
+    { hom := ⟨(baseProductSwapIso p q).hom.app X.obj⟩
+      inv := ⟨(baseProductSwapIso p q).inv.app X.obj⟩
+      hom_inv_id := by
+        apply ObjectProperty.hom_ext
+        exact ((baseProductSwapIso p q).app X.obj).hom_inv_id
+      inv_hom_id := by
+        apply ObjectProperty.hom_ext
+        exact ((baseProductSwapIso p q).app X.obj).inv_hom_id })
+    (fun f => by
+      apply ObjectProperty.hom_ext
+      exact (baseProductSwapIso p q).hom.naturality f.hom)
 
 
 end AlgebraicGeometry.Scheme.Products
