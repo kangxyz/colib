@@ -1,0 +1,33 @@
+[entry]
+id = "COL-1286"
+title = "Perfect direct images, representatives, and base change on the projective line"
+kind = "theorem"
+section = "projective-line-cech"
+order = 40
+primary = "AlgebraicGeometry.projectiveSpaceOver.isPerfect_projectiveLineDerivedPushforwardPlus"
+review = "author_checked"
+statement = '''
+Let $p:\mathbf P^1_S\to S$. The derived direct image of any intrinsic
+perfect object in $D^+(\mathbf P^1_S)$ is perfect. For an arbitrary
+morphism $g:T\to S$ and a perfect object of $D(\mathbf P^1_S)$, the
+canonical derived base-change map is an isomorphism. If
+$S=\operatorname{Spec}R$, every intrinsic perfect object in
+$D^+(\mathbf P^1_R)$ has a global bounded finite locally free
+representative, with its comparison in $D^+$.
+'''
+proof = '''
+The projection is proper, flat, and finitely presented. Proper flat
+direct image and canonical derived base change follow from [@stacks, Tag 0B91]. On a bounded-below object the native bounded-below direct
+image agrees with the unbounded direct image, by the injective
+resolution comparison. Over an affine base the native $\mathcal O(1)$
+is ample, so [@stacks, Tag 0F8F] gives the bounded finite locally free
+representative; full faithfulness of $D^+\hookrightarrow D$ puts the
+comparison in $D^+$.
+'''
+scope = '''
+No quasi-compactness condition on $S$ is needed for direct image or
+base change, and the base change need not be flat. The representative
+claim uses an affine base and imposes neither noetherianity nor
+nontriviality on its ring. This does not identify a separate
+bounded-below open base-change mate or assert its naturality.
+'''

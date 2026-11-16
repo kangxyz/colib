@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1293"
+title = "Connective Mayer–Vietoris and projective-line gluing"
+kind = "theorem"
+section = "projective-bundle-formula"
+order = 30
+statement = '''
+Let \(X=U\cup V\) be a quasi-compact, quasi-separated scheme covered by
+two quasi-compact opens, and set \(W=U\cap V\). In every \(n\geq 0\) the row
+\[
+ K_{n+1}(U)\oplus K_{n+1}(V)\longrightarrow K_{n+1}(W)
+ \xrightarrow{\partial} K_n(X)\longrightarrow
+ K_n(U)\oplus K_n(V)\longrightarrow K_n(W)
+\]
+is exact at its three interior terms. The same holds with support in
+\(Z\) and its inverse images if \(Z\) is the complement of a
+quasi-compact open. The two-summand projective-line map commutes with
+restriction to the two opens, the difference on the overlap, and the
+connecting map, giving gluing of the formula from the two opens and
+their intersection.
+'''
+scope = '''
+The first and last arrows are the difference of the two literal
+restrictions, in the displayed order. The connecting map uses the
+actual connective localization boundary and excision. Exactness
+includes the pair of local \(K_0\) groups, but this does not assert
+surjectivity onto \(K_0(W)\), nor a spectrum-level comparison.
+'''
+proof = '''
+Use the localization rows on \(X\) and one covering open; excision
+identifies their support terms. At the pair of local \(K_0\)-groups,
+use reflection of restriction classes by derived gluing. For the
+projective line use the actual inverse-image cover: the restriction,
+overlap-difference and connecting squares identify the two exact rows.
+The comparison lemma then gives bijectivity on the base.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.Modules.PerfectMayerVietoris.fiveTerm_exact"
+provenance = "quillen"
+source_checked_on = "2026-11-14"

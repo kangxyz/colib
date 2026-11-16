@@ -1,0 +1,28 @@
+[entry]
+id = "COL-1290"
+title = "The unit and negative twist for perfect coefficients on the projective line"
+kind = "theorem"
+section = "projective-line-cech"
+order = 80
+primary = "AlgebraicGeometry.projectiveSpaceOver.isIso_projectiveLineDerivedUnitPlus"
+review = "author_checked"
+statement = '''
+Let $p:\mathbf P^1_S\to S$ be the projection and let $K$ be a perfect
+object of $D^+(\mathcal O_S)$. The canonical derived adjunction unit
+$K\to Rp_*p^*K$ is an isomorphism, and
+$Rp_*(\mathcal O(-1)\otimes p^*K)$ is zero.
+'''
+proof = '''
+Use the projection formula for the perfect coefficient, the computation
+$Rp_*\mathcal O\simeq\mathcal O_S$, and the vanishing of
+$Rp_*\mathcal O(-1)$ ([@stacks, Tag 01XW]). The bounded-below and
+unbounded adjunction units both factor through the same degreewise
+unit ([@stacks, Tag 079W]); the left tensor by the negative twisting
+sheaf and the flat pullback are exact.
+'''
+scope = '''
+The unit is the actual adjunction unit, not an independently chosen
+isomorphism. The negative twist is left tensor by the native twisting
+sheaf, composed with the ordinary pullback before passing to $D^+$.
+No quasi-compactness or strict representative is assumed.
+'''
