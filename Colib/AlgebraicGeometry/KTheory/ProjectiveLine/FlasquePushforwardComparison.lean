@@ -42,8 +42,12 @@ theorem pushforward_rightAcyclic_of_flasque (M : X.Modules)
   exact Stacks.Cohomology.FlasquePushforward.isZero_rightDerivedPlus_modulePushforward_of_isFlasque
     f.toLRSHom.toShHom M i hi
 
-/-- The derived-unit component is invertible on a bounded-below flasque representative. -/
-theorem isIso_flasquePushforwardUnit_app (K : CochainComplex X.Modules ℤ) (hK : CochainComplex.plus X.Modules K)
+/-- The derived-unit component is invertible on a bounded-below flasque representative.
+The quasi-compactness and quasi-separatedness instances are required by the Stacks
+derived pushforward and its comparison map, even though unfolding erases them. -/
+@[nolint unusedArguments]
+theorem isIso_flasquePushforwardUnit_app [QuasiCompact f] [QuasiSeparated f]
+    (K : CochainComplex X.Modules ℤ) (hK : CochainComplex.plus X.Modules K)
     (hfl : ∀ n, TopCat.Sheaf.IsFlasque
       ((_root_.SheafOfModules.toSheaf X.ringCatSheaf).obj (K.X n))) :
     IsIso ((derivedPushforwardModulesUnit f).app
