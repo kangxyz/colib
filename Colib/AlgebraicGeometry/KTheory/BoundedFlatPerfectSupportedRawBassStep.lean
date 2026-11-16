@@ -7,8 +7,9 @@ module
 
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatPerfectSupportedRawPullbackTrack
 public import Colib.KTheory.Waldhausen.Iterated.ExactCoherence
-public import Colib.Topology.Prespectrum.HomotopyPushout
 public import Colib.Topology.Prespectrum.HomotopyLoop
+public import Colib.Topology.Prespectrum.HomotopyPushout
+public import Colib.Topology.Prespectrum.HomotopyTransport
 public import Colib.Topology.Prespectrum.MappingCone
 
 /-!
@@ -100,7 +101,10 @@ def sourceLeg : rawSpectrum A.obj ⟶ span A :=
 /-- The actual source leg reaches the geometric positive composite. -/
 theorem sourceLeg_comparison :
     sourceLeg A ≫ comparison A = pullbackMap (projection A) ≫ pullbackMap (plus A) := by
-  simp only [sourceLeg, comparison, Category.assoc, HomotopyPushout.inl_desc]
+  apply Topology.LoopPrespectrum.Hom.ext
+  funext n
+  ext x
+  rfl
 
 /-- Keep the positive split track and literal cone contraction on their original halves. -/
 @[colib_ref "quillen"
