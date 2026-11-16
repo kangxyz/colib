@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.Topology.Homotopy.HomotopyGroup.Connectivity.Basic
+public import Colib.Topology.Homotopy.HomotopyGroup.ZeroDetection
 public import Colib.Topology.HomotopyFiber.BasepointTransport
 public import Colib.Topology.HomotopyFiber.WeakContractibility
 
