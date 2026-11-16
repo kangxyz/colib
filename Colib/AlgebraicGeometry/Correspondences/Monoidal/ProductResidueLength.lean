@@ -140,6 +140,7 @@ theorem length_stalk_product_eq_mul_length_reducedClosures
   let : Module.Flat (A₀ ⊗[k] B₀) R₀ := RingHom.flat_algebraMap_iff.mp hflat
   have h := ModuleCat.Tor.length_self_eq_mul_length_extendExteriorResidueTensor
     (k := k) (S := R₀) hA hB
+  simp only [RingHom.algebraMap_toAlgebra] at h
   rw [length_extendExteriorResidueTensor_eq_length_stalk f g i j x φ hleft hright y hy] at h
   exact h
 
@@ -148,7 +149,7 @@ input multiplicities times the stalk length of their actual reduced-closure prod
 The projection equations ensure that the same labels and points occur in all three factors. -/
 theorem length_stalk_product_at_generic_closures
     (α : genericPoints X) (β : genericPoints Y)
-    (z : genericPoints (pullback ((integralComponentAt α.val).subschemeι ≫ f)
+    (z : genericPoints (pullback (C := Scheme) ((integralComponentAt α.val).subschemeι ≫ f)
       ((integralComponentAt β.val).subschemeι ≫ g)))
     (hα : pullback.fst f g
       (Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
@@ -158,7 +159,7 @@ theorem length_stalk_product_at_generic_closures
         (integralComponentAt β.val).subschemeι z.val) = β.val)
     (hA : IsFiniteLength (X.presheaf.stalk α.val) (X.presheaf.stalk α.val))
     (hB : IsFiniteLength (Y.presheaf.stalk β.val) (Y.presheaf.stalk β.val)) :
-    let C := pullback ((integralComponentAt α.val).subschemeι ≫ f)
+    let C := pullback (C := Scheme) ((integralComponentAt α.val).subschemeι ≫ f)
       ((integralComponentAt β.val).subschemeι ≫ g)
     let point := Scheme.Hom.productClosedMap f g (integralComponentAt α.val).subschemeι
       (integralComponentAt β.val).subschemeι z.val
