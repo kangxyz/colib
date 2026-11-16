@@ -18,7 +18,7 @@ independent parameters unchanged.
 @[expose] public noncomputable section
 
 open CategoryTheory Topology Topology.LoopPrespectrum
-open CategoryTheory.Waldhausen.IteratedS
+open CategoryTheory.Waldhausen CategoryTheory.Waldhausen.IteratedS
 open scoped Topology unitInterval
 
 universe u
