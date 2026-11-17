@@ -111,8 +111,17 @@ remain visible and Colib retains `warningAsError=true`.
 The structured Library export and website are additional Colib checks. The final
 Verification table requires every outcome, including that export, to succeed.
 
-For editorial Library changes, use **Colib CI → Run workflow → library-only**
-to check the selected revision and build its site on a GitHub-hosted runner.
+Add `[library revision]` to the final commit message of a Library-only branch
+push, including the merge commit when pushing to `main`. **Check Library** runs
+on a GitHub-hosted runner. The push may change `docs/library/`, `docs/site/`,
+`docs/LIBRARY.md`, and `docs/references.toml`. CI checks the full diff from the
+previous branch tip, or from the merge base with `main` for a new branch. If
+any other path changed, run full CI for that revision. GitHub suppresses the
+push workflow if the commit also uses `[skip ci]`. Pull request events run
+full CI on the merge result.
+
+The manual **Colib CI → Run workflow → library-only** entry checks and builds
+the selected revision on the same hosted runner.
 The Library job reuses the declaration export from a successful full CI run on
 an ancestor of the selected revision on `main`. It checks the Lean files,
 exporter source, toolchain, and dependency pins before using that export. A
@@ -122,9 +131,9 @@ runs the same Library validation and site renderer as full CI.
 **Publish Library → Run workflow** on `main` rebuilds the site for the selected
 `main` revision through the Library job, including after a `[skip ci]` commit.
 The site records both the published revision and the checked declaration
-revision. Automatic publication downloads `colib-site` from the successful main
-CI run that triggered it. Publication verifies the site's revision and skips
-deployment when `main` has already advanced.
+revision. A successful CI push on `main` triggers **Publish Library**. The
+publisher downloads `colib-site` from that run, verifies the site's revision,
+and skips deployment when `main` has already advanced.
 
 ```bash
 # Validate a Library work branch.

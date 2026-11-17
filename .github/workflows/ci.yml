@@ -27,8 +27,11 @@ concurrency:
 
 jobs:
   library:
-    name: Library only
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'library-only'
+    name: Check Library
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'library-only') ||
+      (github.event_name == 'push' && github.ref_type == 'branch' &&
+       contains(github.event.head_commit.message, '[library revision]'))
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -40,6 +43,28 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
+      - name: Verify the pushed paths
+        if: github.event_name == 'push'
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          base="$BEFORE_SHA"
+          if test "$base" = 0000000000000000000000000000000000000000; then
+            base=$(git merge-base refs/remotes/origin/main HEAD)
+          fi
+          if ! outside=$(git diff --name-only --no-renames --no-ext-diff "$base" HEAD -- \
+            ':(top,exclude,literal)docs/LIBRARY.md' \
+            ':(top,exclude,glob)docs/library/**' \
+            ':(top,exclude,literal)docs/references.toml' \
+            ':(top,exclude,glob)docs/site/**'); then
+            echo '::error::Could not verify the pushed paths. Run Colib CI in full mode for this revision.'
+            exit 1
+          fi
+          if test -n "$outside"; then
+            echo '::error::[library revision] requires a Library-only push. Run Colib CI in full mode for this revision.'
+            printf '%s\n' "$outside" | sed 's/^/ - /'
+            exit 1
+          fi
       - uses: ./.github/actions/build-library
         env:
           GH_TOKEN: ${{ github.token }}
@@ -51,7 +76,12 @@ jobs:
           overwrite: true
 
   lean:
-    if: github.event_name != 'workflow_dispatch' || inputs.mode != 'library-only'
+    if: >-
+      ${{
+        !((github.event_name == 'workflow_dispatch' && inputs.mode == 'library-only') ||
+          (github.event_name == 'push' && github.ref_type == 'branch' &&
+           contains(github.event.head_commit.message, '[library revision]')))
+      }}
     permissions:
       contents: write
       actions: read
