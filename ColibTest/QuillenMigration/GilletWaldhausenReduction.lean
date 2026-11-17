@@ -19,7 +19,7 @@ open CategoryTheory.Waldhausen.GilletWaldhausen CochainComplex
 noncomputable section
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-open CategoryTheory CategoryTheory.Limits
+open AlgebraicGeometry CategoryTheory CategoryTheory.Limits
 universe u v
 namespace ColibTest.QuillenMigration.GilletWaldhausenReduction
 attribute [local instance] Abelian.hasFiniteBiproducts
@@ -67,7 +67,7 @@ private abbrev schemeFiniteLocallyFree (X : AlgebraicGeometry.Scheme.{u}) :
     ObjectProperty X.Modules :=
   fun M ↦ SheafOfModules.IsFiniteLocallyFree.{u, u, u} M
 
-theorem actual_scheme_global_reduction (X : AlgebraicGeometry.Scheme.{u}) (k : ℕ)
+private theorem actual_scheme_global_reduction (X : AlgebraicGeometry.Scheme.{u}) (k : ℕ)
     (x : (ofExactCategory (boundedTermsExactStructure
       (schemeFiniteLocallyFree X))).K k) :
     ∃! p : (ofExactCategory (boundedAcyclicExactStructure
