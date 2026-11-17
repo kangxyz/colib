@@ -58,6 +58,11 @@ theorem chain_attachPostcomp {k : ℕ} (c : Fin (k + 1) ⥤ Codiscrete (Node F))
   calc
     _ = (a ≫ ε.inv.app X) ≫ (ε.hom.app X ≫ b) := rfl
     _ = a ≫ b := by rw [Category.assoc, Iso.inv_hom_id_app_assoc]
+    _ = (((chain F c).postcomp J).diagram.map f).app X := by
+      change a ≫ b = J.hom.toFunctor.map
+        (((c.obj i).as.2.inv.app X) ≫ ((c.obj j).as.2.hom.app X))
+      exact (J.hom.toFunctor.map_comp
+        ((c.obj i).as.2.inv.app X) ((c.obj j).as.2.hom.app X)).symm
 
 /-- The exact simplicial square holds at every original stage. -/
 theorem stageTransformation_attachPostcomp (r : ℕ) :
