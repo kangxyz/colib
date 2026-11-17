@@ -86,4 +86,11 @@ theorem classicalCWPlusUnique
   exact ⟨h, H, fun k Hk ↦
     homotopic_classicalCWComparisons A B f a b γ N hf g.hom k h.toFun Hk H⟩
 
+attribute [colib_tag "COL-1304"] classicalCWPlusUnique
+
+attribute [colib_ref "quillen"
+  "Quillen/Topology/PlusConstruction/ClassicalCWUniqueness.lean:124-137"
+  "adaptation" "Comparison and ordinary uniqueness for the original same-universe CW plus maps"]
+  classicalCWPlusUnique
+
 end Topology.IsPlusConstruction

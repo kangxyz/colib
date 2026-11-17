@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1304"
+title = "Uniqueness of the plus construction on CW complexes"
+kind = "theorem"
+section = "cw-plus-constructions"
+order = 10
+primary = "Topology.IsPlusConstruction.classicalCWPlusUnique_commonUniverse"
+statement = '''
+Let \(A,B,C\) be CW complexes, and let \(f:A\to B\) and \(g:A\to C\) be homological
+plus constructions for the same subgroup \(N\leq\pi_1(A,a)\), with specified paths
+from \(f(a)\) and \(g(a)\) to the chosen target basepoints. There is a homotopy
+equivalence \(h:B\simeq C\) with \(h\circ f\simeq g\). If \(k:B\to C\) also
+satisfies \(k\circ f\simeq g\), then \(k\simeq h\).
+'''
+scope = '''
+The formal statement uses classical CW subtypes of Hausdorff spaces. For space
+universes \(u,v,w\), both plus certificates quantify over local systems in a common
+coefficient universe \(\max(u,v,w,z)\). Uniqueness is ordinary homotopy between the
+original maps, not uniqueness relative to a prescribed homotopy under \(A\).
+No covering space or comparison map is an additional input. This does not construct
+a plus space for an arbitrary subgroup or enlarge the coefficient quantifier.
+'''
+proof_kind = "outline"
+proof = '''
+The path-class cover of the double mapping cylinder and the local-coefficient
+certificates show that both endpoint inclusions are weak homotopy equivalences.
+Whitehead's theorem gives homotopy equivalences whose composite comparison
+commutes under the source up to homotopy. For uniqueness, the left leg of the
+self-cylinder gives homotopy cancellation after precomposition by \(f\)
+[@quillen, Quillen/Topology/PlusConstruction/ClassicalCWUniqueness.lean:45-137].
+
+For independent space universes, transport the actual CW structures and the
+certificates along the canonical lift and whole-space subtype homeomorphisms
+(COL-0518), then transport the comparison and homotopies back. Unlike COL-0515,
+the comparison here is an output. Compare [@WeibelKBook, IV, Theorem 1.5(2)–(3)]
+and [@quillen, Quillen/Topology/PlusConstruction/ClassicalCWUniquenessUniverseLift.lean:46-174].
+'''
+review = "author_checked"
+provenance = "quillen"
