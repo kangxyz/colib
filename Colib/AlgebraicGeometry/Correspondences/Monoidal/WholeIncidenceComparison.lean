@@ -569,7 +569,7 @@ theorem structureTorCoefficient_wholeIncidence_weighted
         U.hom V.hom W.hom c d x₂ n).symm ▸
           isZero_correspondenceIncidenceTor_of_lt k U.hom V.hom W.hom c d x₂ n hlt)
   let : IsLocallyNoetherian (correspondenceIntersectionAmbient f g h) :=
-    isLocallyNoetherian_correspondenceIntersectionAmbient f g h
+    isLocallyNoetherian_correspondenceIntersectionAmbient (S := Spec (.of k)) f g h
   let : IsLocallyNoetherian (pullback F G) :=
     LocallyOfFiniteType.isLocallyNoetherian (ambientIso).hom
   let : IsLocallyNoetherian ResidualProduct :=
