@@ -68,7 +68,7 @@ private theorem degreeZeroMap_bijective (X : Scheme.{u})
   let e : F ≅ boundedTermsSingleFunctor.{u, u + 1} P 0 :=
     ((boundedTerms P).fullyFaithfulι.whiskeringRight _).preimageIso (eqToIso hf)
   rw [KMap_eq_of_iso hF (boundedTermsSingle_coarseExact.{u, u + 1} P 0) e n]
-  exact boundedTermsSingle_coarse_KMap_bijective_general.{u, u + 1} P n
+  exact boundedTermsSingle_coarse_KMap_bijective_general.{u + 1, u} P n
 
 /-- The canonical degree-zero vector-bundle S-map is bijective, including in degree zero. -/
 theorem vectorBundleToBoundedFiniteLocallyFreeKMap_bijective (X : Scheme.{u}) (n : ℕ) :
