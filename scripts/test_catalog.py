@@ -95,9 +95,9 @@ class LibraryTests(unittest.TestCase):
     def test_transfer_chapter_split_preserves_items_and_rendered_navigation(self):
         expected = {
             "presheaves-with-transfers": [368, 390, 397, 1030, 1039, 1045,
-                                         1094, 1098, 1103, 1105, 1106, 1211],
+                                         1094, 1098, 1103, 1105, 1106, 1211, 1302],
             "nisnevich-sheaves-with-transfers": [369, 370, 371, 372, 373, 381,
-                                               391, 392, 1028, 1029],
+                                               391, 392, 1028, 1029, 1294, 1295],
         }
         for chapter, numbers in expected.items():
             actual = {identifier for identifier, entry in self.library["entries"].items()
@@ -134,6 +134,26 @@ class LibraryTests(unittest.TestCase):
             for number in numbers:
                 page = (output / f"tag/COL-{number:04d}/index.html").read_text()
                 self.assertIn(f'href="../../chapters/{chapter}/"', page)
+
+    def test_nisnevich_tensor_comparisons_keep_scope_and_native_adjunction(self):
+        section = self.library["sections"]["transfer-convolution"]
+        self.assertEqual(section["chapter"], "nisnevich-sheaves-with-transfers")
+        self.assertEqual(section["entries"], ["COL-1294", "COL-1295"])
+        tensor = self.library["entries"]["COL-1294"]
+        comparison = self.library["entries"]["COL-1295"]
+        self.assertIn("arbitrary field", tensor["statement"])
+        self.assertIn("not a derived", tensor["scope"])
+        self.assertIn("arbitrary field", comparison["scope"])
+        self.assertIn("unit and counit", comparison["statement"])
+        self.assertEqual(tensor["primary"],
+                         "AlgebraicGeometry.SheafWithTransfers.nisnevichConvolutionSymmetricCategory")
+        self.assertEqual(comparison["primary"],
+                         "AlgebraicGeometry.SheafWithTransfers.nisnevichConvolutionTorusNatIso")
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        page = (output / "sections/transfer-convolution/index.html").read_text()
+        self.assertIn("Represented parameters and the original torus tensor", page)
+        self.assertIn("unit and counit", page)
 
     def test_completion_milestone_native_scope_and_ci(self):
         root = catalog.ROOT
@@ -516,10 +536,14 @@ class LibraryTests(unittest.TestCase):
             "bass-delooping-diagrams-and-functoriality":
                 "Colib.RingTheory.KTheory.Bass.StrictLaurentSeedContraction",
             "finite-correspondences": "Colib.AlgebraicGeometry.Correspondences.Category",
+            "finite-degree-and-descent": "Colib.AlgebraicGeometry.Correspondences.Category",
+            "transfer-presheaf-tensor": "Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionMonoidal",
             "transfers-nisnevich": "Colib.AlgebraicGeometry.SheavesWithTransfers.Sheafification",
             "transfer-presheaf-foundations": "Colib.AlgebraicGeometry.PresheavesWithTransfers.Basic",
             "transfer-torus-cancellation": "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Suslin",
             "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
+            "transfer-convolution":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.Tensor.MonoidalLocalization",
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
             "symmetric-correspondences": "Colib.AlgebraicGeometry.Correspondences.Monoidal.Native",
@@ -553,6 +577,7 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.Endpoints",
             "radicial-transfer-invariance":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.RadicialTorsion",
+            "etale-local-constancy": "Colib.AlgebraicGeometry.Sites.Etale.LocallyConstant",
             "etale-rigidity": "Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit",
             "proper-etale-specialization":
                 "Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction",
@@ -931,6 +956,21 @@ class LibraryTests(unittest.TestCase):
                 self.assertEqual(item["path"], f"docs/library/entries/{chapter}/{identifier}.toml")
         self.assertEqual(len(self.library["sections"]["principal-polynomial-families"]["topics"]), 5)
 
+    def test_local_constancy_is_defined_before_suslin_rigidity(self):
+        chapter = next(c for c in self.library["chapters"] if c["id"] == "etale-motivic-theory")
+        self.assertLess(chapter["sections"].index("etale-local-constancy"),
+                        chapter["sections"].index("etale-rigidity"))
+        definition = self.library["entries"]["COL-1303"]
+        self.assertEqual(definition["kind"], "definition")
+        self.assertEqual(definition["section"], "etale-local-constancy")
+        self.assertIn("COL-1303", self.library["entries"]["COL-1222"]["statement"])
+        built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
+        output = self.render_site_fixture(built)
+        page = (output / "sections/etale-local-constancy/index.html").read_text()
+        self.assertIn('id="COL-1303"', page)
+        self.assertIn("counit", page)
+        self.assert_test_in_checks("ColibTest.EtaleLocalConstancy", "scripts/check.sh")
+
     def test_suslin_rigidity_has_its_own_chapter_section_and_navigation(self):
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         output = self.render_site_fixture(built)
@@ -1100,8 +1140,12 @@ class LibraryTests(unittest.TestCase):
     def test_cor_transfer_reading_routes_keep_new_items(self):
         expected = {
             "finite-correspondences": (
-                "cycles", [374, *range(363, 368), 1088, 1091, 1232],
-                ["COL-0374", "COL-0366", "COL-1232"]
+                "cycles", [374, *range(363, 368)],
+                ["COL-0374", "COL-0366"]
+            ),
+            "finite-degree-and-descent": (
+                "cycles", [1088, 1091, 1232],
+                ["COL-1088", "COL-1232"]
             ),
             "transfers-nisnevich": (
                 "nisnevich-sheaves-with-transfers", [*range(369, 374)],
@@ -1123,22 +1167,23 @@ class LibraryTests(unittest.TestCase):
     def test_cycle_algebra_and_scheme_chapters_keep_distinct_owners(self):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
-                         ["finite-correspondences", "exterior-parameters",
-                          "symmetric-correspondences", "relative-principal-cuts", "cartier-correspondences",
+                         ["finite-correspondences", "symmetric-correspondences", "exterior-parameters",
+                          "finite-degree-and-descent", "relative-principal-cuts", "cartier-correspondences",
                           "principal-polynomial-families"])
         self.assertEqual(chapters["presheaves-with-transfers"]["title"], "Presheaves with Transfers")
         self.assertEqual(chapters["nisnevich-sheaves-with-transfers"]["title"],
                          "Nisnevich Sheaves with Transfers")
         self.assertNotIn("transfers", chapters)
         self.assertEqual(chapters["etale-motivic-theory"]["title"], "Étale Motivic Theory")
-        self.assertEqual(chapters["etale-motivic-theory"]["sections"], ["etale-rigidity"])
+        self.assertEqual(chapters["etale-motivic-theory"]["sections"],
+                         ["etale-local-constancy", "etale-rigidity"])
         self.assertEqual(chapters["presheaves-with-transfers"]["sections"],
-                         ["transfer-presheaf-foundations", "transfer-singular-complexes",
-                          "transfer-torus-cancellation", "homotopy-invariant-transfer-actions",
-                          "radicial-transfer-invariance"])
+                         ["transfer-presheaf-foundations", "transfer-presheaf-tensor",
+                          "transfer-singular-complexes", "transfer-torus-cancellation",
+                          "radicial-transfer-invariance", "homotopy-invariant-transfer-actions"])
         self.assertEqual(chapters["nisnevich-sheaves-with-transfers"]["sections"],
                          ["transfers-nisnevich", "transfer-homological-algebra",
-                          "affine-line-invariance"])
+                          "transfer-convolution", "affine-line-invariance"])
         order = [chapter["id"] for chapter in self.library["chapters"]]
         start = order.index("cycles")
         self.assertEqual(order[start:start + 6], ["cycles", "presheaves-with-transfers",
@@ -1423,7 +1468,8 @@ class LibraryTests(unittest.TestCase):
         transfers = (output / "sections/transfers-nisnevich/index.html").read_text()
         self.assertIn('id="cycles-and-composition"', cor)
         self.assertIn('id="category-and-graphs"', cor)
-        self.assertIn('id="finite-etale-descent"', cor)
+        descent = (output / "sections/finite-degree-and-descent/index.html").read_text()
+        self.assertIn('id="finite-etale-descent"', descent)
         self.assertIn('id="sheafification-and-comparison"', transfers)
         self.assertNotIn('id="sheafification-and-affine-line"', transfers)
         self.assertIn("Stacks.Chow.incidenceTorPairing_assoc", cor)
@@ -1434,7 +1480,8 @@ class LibraryTests(unittest.TestCase):
         self.assertIn("one neighborhood at each specified source point", transfers)
         self.assertIn('<details class="scope-details"><summary>Scope and conventions</summary>',
                       transfers)
-        self.assertEqual(cor.count('class="section-transition"'), 9)
+        self.assertEqual(cor.count('class="section-transition"'), 6)
+        self.assertEqual(descent.count('class="section-transition"'), 3)
         self.assertEqual(transfers.count('class="section-transition"'), 5)
         coefficients = (output / "sections/finite-algebra-coefficients/index.html").read_text()
         self.assertIn('href="../../chapters/cycles/">Cycles and Correspondences</a>', cor)

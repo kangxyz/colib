@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ParameterTensor
+public import Colib.CategoryTheory.Preadditive.IntegralConvolutionPresheaf
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Coefficients
 public import Mathlib.CategoryTheory.Functor.Currying
 public import StacksFrontier.Algebra.Category.ModuleCat.Monoidal.LargeUniverse
@@ -44,20 +45,15 @@ variable (F : Cor k ⥤ Cor k ⥤ Cor k)
 
 /-- The external tensor of the two original coefficient functors. -/
 def convolutionCoefficientModule (P Q : PST(k)) : (CC(k))ᵒᵖ ⥤ MZ(k) :=
-  (prodOpEquiv (D := Cor k) (Cor k)).functor ⋙
-    ((P.obj ⋙ integerModuleFunctor).prod (Q.obj ⋙ integerModuleFunctor)) ⋙
-      MonoidalCategory.tensor MZ(k)
+  CategoryTheory.Preadditive.Convolution.coefficientModule.{u + 1, u, 0} P.obj Q.obj
 
 /-- Correspondences to the image of a pair, retaining their integral coefficients. -/
 def convolutionCorrespondenceModule (X : Cor k) : CC(k) ⥤ MZ(k) :=
-  Functor.uncurry.obj F ⋙ preadditiveCoyoneda.obj (op X) ⋙
-    AddCommGrpCat.uliftFunctor.{u + 1, u} ⋙ integerModuleFunctor
+  CategoryTheory.Preadditive.Convolution.homModule.{u + 1, u, 0} F X
 
 /-- The two coefficient groups are tensored with the actual signed correspondence group. -/
 def convolutionDiagram (P Q : PST(k)) (X : Cor k) : (CC(k))ᵒᵖ ⥤ CC(k) ⥤ MZ(k) :=
-  Functor.curry.obj
-    (((convolutionCoefficientModule P Q).prod (convolutionCorrespondenceModule F X)) ⋙
-      MonoidalCategory.tensor MZ(k))
+  CategoryTheory.Preadditive.Convolution.diagram.{u + 1, u, 0} F P.obj Q.obj X
 
 instance (P Q : PST(k)) (X : Cor k) : HasCoend (convolutionDiagram F P Q X) := by
   let : HasColimitsOfSize.{u + 1, u + 1} AddCommGrpCat.{u + 1} :=
@@ -67,13 +63,13 @@ instance (P Q : PST(k)) (X : Cor k) : HasCoend (convolutionDiagram F P Q X) := b
 
 /-- The section module of the integral convolution coend. -/
 def convolutionSections (P Q : PST(k)) (X : Cor k) : MZ(k) :=
-  coend (convolutionDiagram F P Q X)
+  CategoryTheory.Preadditive.Convolution.sections.{u + 1, u, 0} F P.obj Q.obj X
 
 /-- The coend inclusion, typed using the three original modules. -/
 def convolutionInclusion (P Q : PST(k)) (X Y Z : Cor k) :
     ModuleCat.of ℤ ((sections P Y ⊗[ℤ] sections Q Z) ⊗[ℤ]
       ULift.{u + 1} (X ⟶ (F.obj Y).obj Z)) ⟶ convolutionSections F P Q X :=
-  coend.ι (convolutionDiagram F P Q X) (Y, Z)
+  CategoryTheory.Preadditive.Convolution.inclusion.{u + 1, u, 0} F P.obj Q.obj X Y Z
 
 /-- A pair of sections and a signed correspondence give a pure coend generator. -/
 def convolutionGenerator (P Q : PST(k)) (X Y Z : Cor k)
@@ -92,29 +88,8 @@ theorem convolutionGenerator_transfer (P Q : PST(k)) {X Y Y' Z Z' : Cor k}
     (a : X ⟶ (F.obj Y).obj Z) :
     convolutionGenerator F P Q X Y Z (transfer P f s) (transfer Q g t) a =
       convolutionGenerator F P Q X Y' Z' s t
-        (a ≫ convolutionCorrespondenceMap F f g) := by
-  let A := convolutionCoefficientModule P Q
-  let B := convolutionCorrespondenceModule F X
-  let f' : (Y, Z) ⟶ (Y', Z') := (f, g)
-  let j := convolutionInclusion F P Q X Y Z
-  let j' := convolutionInclusion F P Q X Y' Z'
-  let C := ModuleCat.of ℤ ((sections P Y' ⊗[ℤ] sections Q Z') ⊗[ℤ]
-      ULift.{u + 1} (X ⟶ (F.obj Y).obj Z))
-  let x : C := (s ⊗ₜ[ℤ] t) ⊗ₜ[ℤ] ULift.up a
-  let l : C ⟶ ModuleCat.of ℤ ((sections P Y ⊗[ℤ] sections Q Z) ⊗[ℤ]
-      ULift.{u + 1} (X ⟶ (F.obj Y).obj Z)) := A.map f'.op ⊗ₘ 𝟙 (B.obj (Y, Z))
-  let r : C ⟶ ModuleCat.of ℤ ((sections P Y' ⊗[ℤ] sections Q Z') ⊗[ℤ]
-      ULift.{u + 1} (X ⟶ (F.obj Y').obj Z')) := 𝟙 (A.obj (op (Y', Z'))) ⊗ₘ B.map f'
-  have h₀ := coend.condition (convolutionDiagram F P Q X) f'
-  change (A.map f'.op ⊗ₘ B.map (𝟙 (Y, Z))) ≫ j =
-    (A.map (𝟙 (op (Y', Z'))) ⊗ₘ B.map f') ≫ j' at h₀
-  rw [B.map_id, A.map_id] at h₀
-  have h₁ : l ≫ j = r ≫ j' := h₀
-  have h₂ : j (l x) = j' (r x) :=
-    ConcreteCategory.congr_hom h₁ x
-  change j (((transfer P f s) ⊗ₜ[ℤ] (transfer Q g t)) ⊗ₜ[ℤ] ULift.up a) =
-    j' ((s ⊗ₜ[ℤ] t) ⊗ₜ[ℤ] ULift.up (a ≫ convolutionCorrespondenceMap F f g)) at h₂
-  exact h₂
+        (a ≫ convolutionCorrespondenceMap F f g) :=
+  CategoryTheory.Preadditive.Convolution.generator_transfer.{u + 1, u, 0} F P.obj Q.obj f g s t a
 
 /-- Maps from the coend are determined by its actual pure generators. -/
 theorem convolutionSections_hom_ext (P Q : PST(k)) (X : Cor k)
@@ -122,27 +97,8 @@ theorem convolutionSections_hom_ext (P Q : PST(k)) (X : Cor k)
     (h : ∀ (Y Z : Cor k) (s : sections P Y) (t : sections Q Z)
       (a : X ⟶ (F.obj Y).obj Z),
       f (convolutionGenerator F P Q X Y Z s t a) =
-        g (convolutionGenerator F P Q X Y Z s t a)) : f = g := by
-  apply coend.hom_ext
-  rintro ⟨Y, Z⟩
-  let j := convolutionInclusion F P Q X Y Z
-  change j ≫ f = j ≫ g
-  apply ModuleCat.hom_ext
-  apply TensorProduct.ext'
-  rintro st ⟨a⟩
-  refine TensorProduct.inductionOn st (fun s t => h Y Z s t a) ?_
-  intro s t hs ht
-  let W := ModuleCat.of ℤ ((sections P Y ⊗[ℤ] sections Q Z) ⊗[ℤ]
-    ULift.{u + 1} (X ⟶ (F.obj Y).obj Z))
-  let a₁ : W := s ⊗ₜ[ℤ] ULift.up a
-  let a₂ : W := t ⊗ₜ[ℤ] ULift.up a
-  have hsum : (s + t) ⊗ₜ[ℤ] ULift.up a = (a₁ + a₂ : W) := TensorProduct.add_tmul _ _ _
-  calc
-    (j ≫ f).hom ((s + t) ⊗ₜ[ℤ] ULift.up a) = (j ≫ f).hom (a₁ + a₂) := congrArg _ hsum
-    _ = (j ≫ f).hom a₁ + (j ≫ f).hom a₂ := (j ≫ f).hom.map_add a₁ a₂
-    _ = (j ≫ g).hom a₁ + (j ≫ g).hom a₂ := congrArg₂ (· + ·) hs ht
-    _ = (j ≫ g).hom (a₁ + a₂) := ((j ≫ g).hom.map_add a₁ a₂).symm
-    _ = (j ≫ g).hom ((s + t) ⊗ₜ[ℤ] ULift.up a) := congrArg _ hsum.symm
+        g (convolutionGenerator F P Q X Y Z s t a)) : f = g :=
+  CategoryTheory.Preadditive.Convolution.sections_hom_ext.{u + 1, u, 0} F P.obj Q.obj X h
 
 /-- Precompose the original correspondence component in the coend diagram. -/
 def convolutionTransferDiagram (P Q : PST(k)) {X X' : Cor k} (β : X' ⟶ X) :
@@ -198,40 +154,8 @@ theorem convolutionGenerator_add_right (P Q : PST(k)) {X Y Z : Cor k}
   rw [TensorProduct.tmul_add, TensorProduct.add_tmul, map_add]
 
 /-- The integral tensor coend with its original additive transfer action. -/
-def convolutionPresheaf (P Q : PST(k)) : PST(k) := by
-  let U := forget₂ MZ(k) AddCommGrpCat.{u + 1}
-  let L : (Cor k)ᵒᵖ ⥤ AddCommGrpCat.{u + 1} :=
-    { obj X := U.obj (convolutionSections F P Q X.unop)
-      map α := U.map (convolutionTransfer F P Q α.unop)
-      map_id X := by
-        rw [← U.map_id]
-        apply congrArg U.map
-        apply convolutionSections_hom_ext
-        intro Y Z s t a
-        simp only [unop_id, convolutionTransfer_generator, Category.id_comp,
-          ModuleCat.id_apply]
-      map_comp α β := by
-        rw [← U.map_comp]
-        apply congrArg U.map
-        apply convolutionSections_hom_ext
-        intro Y Z s t a
-        simp only [unop_comp, ModuleCat.comp_apply, convolutionTransfer_generator,
-          Category.assoc] }
-  refine ⟨L, ⟨?_⟩⟩
-  intro X Y α β
-  change U.map (convolutionTransfer F P Q (α + β).unop) =
-    U.map (convolutionTransfer F P Q α.unop) + U.map (convolutionTransfer F P Q β.unop)
-  rw [← U.map_add]
-  apply congrArg U.map
-  apply convolutionSections_hom_ext
-  intro Z W s t a
-  change convolutionTransfer F P Q (α + β).unop (convolutionGenerator F P Q X.unop Z W s t a) =
-    convolutionTransfer F P Q α.unop (convolutionGenerator F P Q X.unop Z W s t a) +
-      convolutionTransfer F P Q β.unop (convolutionGenerator F P Q X.unop Z W s t a)
-  simp only [convolutionTransfer_generator]
-  change convolutionGenerator F P Q Y.unop Z W s t ((α.unop + β.unop) ≫ a) = _
-  rw [Preadditive.add_comp, convolutionGenerator_add]
-
+def convolutionPresheaf (P Q : PST(k)) : PST(k) :=
+  CategoryTheory.Preadditive.Convolution.presheaf.{u + 1, u, 0} F P.obj Q.obj
 
 /-- Transfer in the convolution presheaf precomposes the correspondence label. -/
 theorem convolutionPresheaf_transfer_generator (P Q : PST(k)) {X X' : Cor k} (f : X' ⟶ X)

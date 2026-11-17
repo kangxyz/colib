@@ -6,6 +6,7 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Convolution
+public import Colib.CategoryTheory.Preadditive.ConvolutionLinearity
 import Colib.AlgebraicGeometry.Correspondences.Coproducts.Binary
 
 /-!
@@ -42,47 +43,7 @@ theorem convolutionPairing_add_correspondence
         e Y' Z' (a ≫ convolutionCorrespondenceMap F f g) s t)
     (Y Z : Cor k) (a b : X ⟶ (F.obj Y).obj Z) (s : sections P Y) (t : sections Q Z) :
     e Y Z (a + b) s t = e Y Z a s t + e Y Z b s t := by
-  let G := F.flip.obj Z
-  let p₁ : (Y ⊞ Y) ⟶ Y := biprod.fst
-  let p₂ : (Y ⊞ Y) ⟶ Y := biprod.snd
-  let i₁ : Y ⟶ (Y ⊞ Y) := biprod.inl
-  let i₂ : Y ⟶ (Y ⊞ Y) := biprod.inr
-  let d : X ⟶ G.obj (Y ⊞ Y) := a ≫ G.map i₁ + b ≫ G.map i₂
-  let : G.Additive :=
-    { map_add := by
-        intro A B f g
-        change (F.map (f + g)).app Z = (F.map f).app Z + (F.map g).app Z
-        exact NatTrans.congr_app (F.map_add (f := f) (g := g)) Z }
-  have hp₁ : d ≫ G.map p₁ = a := by
-    dsimp only [d]
-    rw [Preadditive.add_comp, Category.assoc, Category.assoc, ← G.map_comp, ← G.map_comp]
-    simp only [i₁, i₂, p₁, biprod.inl_fst, biprod.inr_fst, G.map_id, G.map_zero,
-      comp_zero, add_zero]
-    exact Category.comp_id a
-  have hp₂ : d ≫ G.map p₂ = b := by
-    dsimp only [d]
-    rw [Preadditive.add_comp, Category.assoc, Category.assoc, ← G.map_comp, ← G.map_comp]
-    simp only [i₁, i₂, p₂, biprod.inl_snd, biprod.inr_snd, G.map_id, G.map_zero,
-      comp_zero, zero_add]
-    exact Category.comp_id b
-  have hp : d ≫ G.map (p₁ + p₂) = a + b := by
-    rw [G.map_add, Preadditive.comp_add, hp₁, hp₂]
-  have h (f : (Y ⊞ Y) ⟶ Y) :
-      e (Y ⊞ Y) Z d (transfer P f s) t = e Y Z (d ≫ G.map f) s t := by
-    have hf := he f (𝟙 Z) s t d
-    change e (Y ⊞ Y) Z d (transfer P f s) (transfer Q (𝟙 Z) t) =
-      e Y Z (d ≫ ((F.map f).app Z ≫ (F.obj Y).map (𝟙 Z))) s t at hf
-    have hmap : (F.obj Y).map (𝟙 Z) = 𝟙 ((F.obj Y).obj Z) := (F.obj Y).map_id Z
-    rw [hmap, Category.comp_id] at hf
-    have ht : transfer Q (𝟙 Z) t = t := (ConcreteCategory.congr_hom (transfer_id Q Z) t)
-    have h' := congrArg (fun z : sections Q Z => e (Y ⊞ Y) Z d (transfer P f s) z) ht
-    change e (Y ⊞ Y) Z d (transfer P f s) t =
-      e Y Z (d ≫ (F.map f).app Z) s t
-    exact h'.symm.trans hf
-  rw [← hp, ← h, transfer_add]
-  change e (Y ⊞ Y) Z d (transfer P p₁ s + transfer P p₂ s) t = _
-  rw [map_add]
-  change e (Y ⊞ Y) Z d (transfer P p₁ s) t + e (Y ⊞ Y) Z d (transfer P p₂ s) t = _
-  rw [h p₁, h p₂, hp₁, hp₂]
+  exact CategoryTheory.Preadditive.Convolution.pairing_add_hom F (P := P.obj) (Q := Q.obj)
+    e he Y Z a b s t
 
 end AlgebraicGeometry.PresheafWithTransfers

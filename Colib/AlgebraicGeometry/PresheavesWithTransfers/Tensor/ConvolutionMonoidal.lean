@@ -5,6 +5,7 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.CategoryTheory.Preadditive.IntegralConvolutionMonoidal
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionAssociator
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionSwap
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionDayBraiding
@@ -160,30 +161,15 @@ theorem convolution_triangle (P Q : PST) :
 
 /-- The actual convolution, its represented unit and its constraint maps. -/
 @[instance_reducible]
-def convolutionMonoidalStruct : MonoidalCategoryStruct PST where
-  tensorObj := convolutionPresheaf F
-  tensorHom := convolutionMap F
-  whiskerLeft P _ _ f := convolutionMap F (𝟙 P) f
-  whiskerRight f Q := convolutionMap F f (𝟙 Q)
-  tensorUnit := 𝟙ₚ
-  associator := convolutionAssociator
-  leftUnitor := (convolutionLeftUnitor).app
-  rightUnitor := (rP).app
+def convolutionMonoidalStruct : MonoidalCategoryStruct PST :=
+  CategoryTheory.Preadditive.ConvolutionRepresented.convolutionMonoidalStruct.{u + 1, u, 0}
+
 
 /-- The integral coend with its represented unit and Day associator. -/
-@[instance_reducible]
+@[colib_tag "COL-1302", instance_reducible]
 def convolutionMonoidalCategory : MonoidalCategory PST :=
-  letI : MonoidalCategoryStruct PST := convolutionMonoidalStruct
-  MonoidalCategory.ofTensorHom
-    (id_tensorHom_id := convolutionMap_id F)
-    (id_tensorHom := fun _ {_ _} _ => rfl)
-    (tensorHom_id := fun {_ _} _ _ => rfl)
-    (tensorHom_comp_tensorHom := fun f g f' g' => (convolutionMap_comp F f f' g g').symm)
-    (associator_naturality := convolutionAssociator_naturality)
-    (leftUnitor_naturality := fun f => (convolutionLeftUnitor).hom.naturality f)
-    (rightUnitor_naturality := fun f => (rP).hom.naturality f)
-    (pentagon := convolutionAssociator_pentagon)
-    (triangle := convolution_triangle)
+  CategoryTheory.Preadditive.ConvolutionRepresented.convolutionMonoidalCategory.{u + 1, u, 0}
+
 
 /-- For the convolution monoidal structure the curried tensor is the original coend bifunctor. -/
 def convolutionCurriedTensorIso :
@@ -202,21 +188,8 @@ def convolutionCurriedTensorIso :
 /-- The original convolution is additive in both variables. -/
 theorem convolutionMonoidalPreadditive :
     letI := convolutionMonoidalCategory (k := k)
-    MonoidalPreadditive PST := by
-  let := convolutionMonoidalCategory (k := k)
-  let h (P : PST) : ((convolutionBifunctor F).flip.obj P).Additive :=
-    { map_add := by
-        intro X Y f g
-        exact NatTrans.congr_app ((convolutionBifunctor F).map_add (f := f) (g := g)) P }
-  exact
-    { whiskerLeft_zero := fun {P Q Q'} => ((convolutionBifunctor F).obj P).map_zero Q Q'
-      zero_whiskerRight := fun {P Q R} => by
-        let := h P
-        exact ((convolutionBifunctor F).flip.obj P).map_zero Q R
-      whiskerLeft_add := fun f g => ((convolutionBifunctor F).obj _).map_add (f := f) (g := g)
-      add_whiskerRight := fun {P Q R} f g => by
-        let := h P
-        exact ((convolutionBifunctor F).flip.obj P).map_add (f := f) (g := g) }
+    MonoidalPreadditive PST :=
+  CategoryTheory.Preadditive.ConvolutionRepresented.convolutionMonoidalPreadditive.{u + 1, u, 0}
 
 
 /-- The actual coend associator and swap satisfy the forward hexagon. -/
@@ -252,38 +225,10 @@ theorem convolutionSwap_symm (P Q : PST) :
 
 /-- The symmetry of the coend swaps the coefficients and composes its correspondence label
 with the switch of factors. -/
-@[instance_reducible]
+@[colib_tag "COL-1302", instance_reducible]
 def convolutionSymmetricCategory :
     letI := convolutionMonoidalCategory (k := k)
-    SymmetricCategory PST := by
-  letI := convolutionMonoidalCategory (k := k)
-  let β := convolutionSwap F S curriedCorrespondenceBraiding_involutive
-  let braiding (P Q : PST) := (β.app P).app Q
-  have forward (P Q U₀ : PST) :
-      (α_ P Q U₀).hom ≫ (braiding P (Q ⊗ U₀)).hom ≫ (α_ Q U₀ P).hom =
-        (braiding P Q).hom ▷ U₀ ≫ (α_ Q P U₀).hom ≫ Q ◁ (braiding P U₀).hom :=
-    convolution_hexagon_forward P Q U₀
-  refine
-    { braiding := braiding
-      braiding_naturality_left := fun f Q => NatTrans.congr_app (β.hom.naturality f) Q
-      braiding_naturality_right := fun P {_ _} f => (β.hom.app P).naturality f
-      hexagon_forward := forward
-      hexagon_reverse := fun P Q U₀ => ?_
-      symmetry := fun P Q => by
-        have h := convolutionSwap_symm (k := k) P Q
-        change (braiding P Q).symm = braiding Q P at h
-        rw [← h, Iso.symm_hom, Iso.hom_inv_id] }
-  have h :
-      (α_ U₀ P Q) ≪≫ braiding U₀ (P ⊗ Q) ≪≫ (α_ P Q U₀) =
-        whiskerRightIso (braiding U₀ P) Q ≪≫ (α_ P U₀ Q) ≪≫
-          whiskerLeftIso P (braiding U₀ Q) :=
-    Iso.ext (forward U₀ P Q)
-  have h' := congrArg (fun e => e.inv) h
-  simp only [Iso.trans_inv, whiskerLeftIso_inv, whiskerRightIso_inv, Category.assoc] at h'
-  have hs (A B : PST) : (braiding A B).inv = (braiding B A).hom := by
-    have he := convolutionSwap_symm (k := k) A B
-    exact congrArg Iso.hom he
-  rw [hs, hs, hs] at h'
-  exact h'
+    SymmetricCategory PST :=
+  CategoryTheory.Preadditive.ConvolutionRepresented.convolutionSymmetricCategory.{u + 1, u, 0}
 
 end AlgebraicGeometry.PresheafWithTransfers

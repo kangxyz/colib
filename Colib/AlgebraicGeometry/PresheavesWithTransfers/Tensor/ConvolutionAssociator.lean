@@ -6,6 +6,7 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionDay
+public import Colib.CategoryTheory.Preadditive.IntegralConvolutionDayComparison
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ConvolutionFunctor
 public import Mathlib.CategoryTheory.Monoidal.DayConvolution
 public import Mathlib.CategoryTheory.Monoidal.Opposite
@@ -13,6 +14,8 @@ import Mathlib.Algebra.Category.Grp.ZModuleEquivalence
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Closed
 import Mathlib.CategoryTheory.Monoidal.Closed.Braided
 public import Mathlib.CategoryTheory.Monoidal.Preadditive
+
+public import Colib.AlgebraicGeometry.Correspondences.Coproducts.Binary
 
 /-!
 # Associator of the signed convolution
@@ -62,53 +65,23 @@ local notation "F(" K ")" => curriedTensor (Cor K)
 def convolutionOppositeTensorIso :
     (prodOpEquiv (D := Cor k) (Cor k)).inverse ⋙
         (Functor.uncurry.obj (F(k))).op ≅ tensor (Cor k)ᵒᵖ :=
-  NatIso.ofComponents (fun _ => Iso.refl _) (fun {X Y} f => by
-    change (convolutionCorrespondenceMap (F(k)) f.1.unop f.2.unop).op ≫ 𝟙 _ =
-      𝟙 _ ≫ (tensor (Cor k)ᵒᵖ).map f
-    rw [Category.comp_id, Category.id_comp]
-    apply Quiver.Hom.unop_inj
-    change (f.1.unop ▷ Y.2.unop) ≫ (X.1.unop ◁ f.2.unop) = (f.1.unop ⊗ₘ f.2.unop)
-    exact (MonoidalCategory.tensorHom_def _ _).symm)
+  CategoryTheory.Preadditive.Convolution.oppositeTensorIso.{u + 1, u} (C := Cor k)
 
 /-- The pointwise extension unit along the product on opposite correspondences. -/
 def convolutionDayUnit (P Q : PST(k)) :
     convolutionExternalProduct P Q ⟶
       tensor (Cor k)ᵒᵖ ⋙ (convolutionForget (k := k)).obj (convolutionPresheaf (F(k)) P Q) :=
-  convolutionKanExtensionUnit (F(k)) P Q ≫
-    Functor.whiskerRight convolutionOppositeTensorIso.hom
-      ((convolutionForget (k := k)).obj (convolutionPresheaf (F(k)) P Q))
-
-private theorem isPointwiseLeftKanExtension_transport
-    {C D A : Type*} [Category* C] [Category* D] [Category* A]
-    {L L' : C ⥤ D} {F : C ⥤ A} {G : D ⥤ A}
-    (T : L ≅ L') (η : F ⟶ L ⋙ G) (X : D)
-    (h : (Functor.LeftExtension.mk G η).IsPointwiseLeftKanExtensionAt X) :
-    Nonempty ((Functor.LeftExtension.mk G
-      (η ≫ Functor.whiskerRight T.hom G)).IsPointwiseLeftKanExtensionAt X) := by
-  let H := CostructuredArrow.mapNatIso (T := X) T
-  let d := (Functor.LeftExtension.mk G (η ≫ Functor.whiskerRight T.hom G)).coconeAt X
-  have h' : IsColimit (d.whisker H.functor) := by
-    apply h.ofIsoColimit
-    refine Cocone.ext (Iso.refl _) (fun i => ?_)
-    change (η.app i.left ≫ G.map i.hom) ≫ 𝟙 _ =
-      (η.app i.left ≫ G.map (T.hom.app i.left)) ≫ G.map (T.inv.app i.left ≫ i.hom)
-    rw [Category.comp_id, Category.assoc]
-    have hmap := G.map_comp (T.hom.app i.left) (T.inv.app i.left ≫ i.hom)
-    have ht : T.hom.app i.left ≫ T.inv.app i.left ≫ i.hom = i.hom :=
-      Iso.hom_inv_id_app_assoc T i.left i.hom
-    exact congrArg (η.app i.left ≫ ·) ((G.congr_map ht).symm.trans hmap)
-  exact ⟨(IsColimit.whiskerEquivalenceEquiv H).symm h'⟩
+  CategoryTheory.Preadditive.Convolution.dayUnit.{u + 1, u, 0} P.obj Q.obj
 
 /-- The original integral coend has the pointwise extension property for the opposite product. -/
 theorem convolutionDayUnit_isPointwiseLeftKanExtension (P Q : PST(k)) (X : (Cor k)ᵒᵖ) :
     Nonempty ((Functor.LeftExtension.mk _
       (convolutionDayUnit P Q)).IsPointwiseLeftKanExtensionAt X) :=
-  isPointwiseLeftKanExtension_transport (convolutionOppositeTensorIso (k := k))
-    (convolutionKanExtensionUnit (F(k)) P Q) X
-    (convolutionIsPointwiseLeftKanExtension (F(k)) P Q X)
+  CategoryTheory.Preadditive.Convolution.dayUnit_isPointwiseLeftKanExtension.{u + 1, u, 0}
+    P.obj Q.obj X
 
 /-- The original convolution is a pointwise Day extension of the coefficient tensor. -/
-@[instance_reducible]
+@[colib_tag "COL-1302", instance_reducible]
 def convolutionDayComparison (P Q : PST(k)) :
     DayConvolution ((convolutionForget (k := k)).obj P) (convolutionForget.obj Q) where
   convolution := (convolutionForget (k := k)).obj (convolutionPresheaf (F(k)) P Q)

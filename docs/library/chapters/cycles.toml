@@ -3,11 +3,18 @@ id = "cycles"
 title = "Cycles and Correspondences"
 order = 50
 introduction = '''
-A finite correspondence is a signed cycle on a product whose integral supports
-are finite and surjective over components of the source. Composition and graph
-cycles turn these groups into the category used by COL-0368. Exterior extension
-then describes what happens to a correspondence and its graphs when a parameter
-is added or changed. See [@MVW2006, Lecture 1].
+Construct finite correspondences and their category, then the symmetric
+additive tensor over an arbitrary field. This is the common geometric input
+for integral presheaves with transfers, before any topology or localization.
+The fixed geometrically integral parameter construction is treated afterwards
+as a comparison, not as the definition of the general tensor.
+
+Two further routes are independent of this tensor construction: finite-flat
+degree identities and descent support radicial transfer invariance; principal
+cuts and polynomial families support cancellation and rigidity. Their local
+coefficient calculations retain multiplicities and residue degrees. Readers
+seeking the tensor may proceed from COL-1297 to COL-1302 without traversing
+the moving-family proofs. See [@MVW2006, Lecture 1, Definition 1.9, p. 6].
 '''
 
 [[sections]]
@@ -30,11 +37,6 @@ start = "COL-0374"
 id = "category-and-graphs"
 title = "The category and graph functor"
 start = "COL-0366"
-
-[[sections.topics]]
-id = "finite-etale-descent"
-title = "Finite étale base change and descent"
-start = "COL-1232"
 
 [sections.transitions]
 COL-0374 = '''
@@ -67,31 +69,38 @@ already used by COL-0366. The Tor composition calculation for two such graphs
 gives the graph of their composite.
 '''
 
-COL-1088 = '''
-Reverse the original graph of a finite flat morphism using the whole fundamental
-cycle. Its full finite pushforward gives the actual transfer degree. Retain
-this entire degree, including its inseparable factor.
-'''
-COL-1091 = '''
-For a universally injective map, finite pushforward is injective because every
-residue-degree weight is nonzero. The graph is therefore mono. Cancel it in
-the already proved graph-transpose identity to obtain the opposite actual
-Tor-composition identity without replacing the self-fiber product by its reduction.
-'''
-COL-1232 = '''
-For finite étale base change, track both projections of the Cartesian
-product. The coefficient at each point upstairs is the coefficient of
-its image. Equality along the two projections of the fiber square then
-characterizes descent with the original admissible supports.
+[[sections]]
+id = "symmetric-correspondences"
+title = "Exterior interchange and the symmetric tensor"
+order = 20
+introduction = '''
+For two arbitrary signed correspondences, exterior product must retain the
+associated-cycle multiplicities of products of integral supports. Over a
+non-perfect field these products need not be reduced. The weighted local
+Tor comparison yields interchange and hence the native symmetric additive
+tensor, without replacing these coefficients by one.
 '''
 
+[sections.transitions]
+COL-1296 = '''
+Bilinearity reduces interchange to integral supports, but their exterior
+products carry associated-cycle lengths, not uniformly coefficient one.
+The weighted Tor comparison proves equality of the original signed cycles.
+'''
+COL-1297 = '''
+Use this interchange for tensor functoriality. Graphs of scheme product
+constraints give coherence, and bilinearity gives monoidal preadditivity.
+COL-1302 extends this tensor to integral additive presheaves; passing to
+Nisnevich or étale sheaves requires separate localization arguments.
+'''
 [[sections]]
 id = "exterior-parameters"
 title = "Exterior extension and graph interchange"
-order = 20
+order = 30
 introduction = '''
 Extend a correspondence along a geometrically integral smooth parameter by
-using the same parameter on its source and target. The comparison with full
+using the same parameter on its source and target. Unlike the general tensor of COL-1297, this chosen prime-support model
+requires geometric integrality of the parameter. The comparison with full
 graph cycles handles a fixed parameter. The incidence calculation handles a
 morphism between parameters, as needed for the simplex operators in COL-0397.
 '''
@@ -130,9 +139,50 @@ forward the same cycle with the same residue-field degrees.
 '''
 
 [[sections]]
+id = "finite-degree-and-descent"
+title = "Finite flat degrees, radicial maps and étale descent"
+order = 40
+introduction = '''
+Graph transposes and finite pushforward control transfer degrees independently
+of tensor coherence. Keep inseparable degrees and the full fundamental cycle.
+These identities feed radicial invariance in Presheaves with Transfers;
+finite étale descent is a separate descent statement for correspondence groups,
+not a sheafification or a monoidal localization theorem.
+'''
+
+[[sections.topics]]
+id = "finite-flat-degree-identities"
+title = "Finite flat and radicial degrees"
+start = "COL-1088"
+
+[[sections.topics]]
+id = "finite-etale-descent"
+title = "Finite étale base change and descent"
+start = "COL-1232"
+
+[sections.transitions]
+COL-1088 = '''
+Reverse the original graph of a finite flat morphism using the whole fundamental
+cycle. Its full finite pushforward gives the actual transfer degree. Retain
+this entire degree, including its inseparable factor.
+'''
+COL-1091 = '''
+For a universally injective map, finite pushforward is injective because every
+residue-degree weight is nonzero. The graph is therefore mono. Cancel it in
+the already proved graph-transpose identity to obtain the opposite actual
+Tor-composition identity without replacing the self-fiber product by its reduction.
+'''
+COL-1232 = '''
+For finite étale base change, track both projections of the Cartesian
+product. The coefficient at each point upstairs is the coefficient of
+its image. Equality along the two projections of the fiber square then
+characterizes descent with the original admissible supports.
+'''
+
+[[sections]]
 id = "relative-principal-cuts"
 title = "Relative principal cuts"
-order = 30
+order = 50
 introduction = '''
 A principal equation on an integral support defines a zero scheme with its
 original multiplicities. Finiteness over the source gives the support for a
@@ -159,7 +209,7 @@ finite on the original signed correspondence.
 [[sections]]
 id = "cartier-correspondences"
 title = "Cartier divisor correspondences"
-order = 55
+order = 60
 introduction = '''
 The original Cartier stalk quotients determine the fundamental cycles of
 whole closed zero schemes, including their nilpotent multiplicities. Under
@@ -168,7 +218,7 @@ native finite correspondences. Cycle transport retains every residue degree
 and adds coefficients of coincident images; the ambient map need not be finite.
 
 
-These are cycle and correspondence identities before applying a coefficient presheaf. COL-1211 and COL-1105 in Presheaves and Sheaves with Transfers supply their homotopy-invariant action-theoretic consequences, as in [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17].
+These are cycle and correspondence identities before applying a coefficient presheaf. COL-1211 and COL-1105 in Presheaves with Transfers supply their homotopy-invariant action-theoretic consequences, as in [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17].
 '''
 
 [sections.transitions]
@@ -187,7 +237,7 @@ and the separate polynomial endpoint comparison to be supplied.
 [[sections]]
 id = "principal-polynomial-families"
 title = "Principal polynomial families"
-order = 60
+order = 70
 introduction = '''
 The literal polynomial \(t f+(1-t)\) preserves normalization on the full
 boundary. Its actual unit open excludes nonzero principal-cycle supports
@@ -371,16 +421,4 @@ in curve codimension one. The source-cycle identities now hold globally.
 Canonical pullback and outer-map comparisons carry them to the original
 finite correspondence: zero at zero, and the original principal pushforward
 at one, without taking a rational-equivalence quotient.
-'''
-
-[[sections]]
-id = "symmetric-correspondences"
-title = "Exterior interchange and the symmetric tensor"
-order = 25
-introduction = '''
-For two arbitrary signed correspondences, exterior product must retain the
-associated-cycle multiplicities of products of integral supports. Over a
-non-perfect field these products need not be reduced. The weighted local
-Tor comparison yields interchange and hence the native symmetric additive
-tensor, without replacing these coefficients by one.
 '''

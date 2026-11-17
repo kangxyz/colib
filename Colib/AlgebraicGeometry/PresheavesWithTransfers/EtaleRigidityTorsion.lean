@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.EtaleRigidityCounit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.TorsionRigidityReduction
+public import Colib.AlgebraicGeometry.Sites.Etale.LocallyConstant
 
 /-! # Suslin rigidity for prime-to-characteristic torsion
 
@@ -37,5 +38,15 @@ theorem isIso_fullSmallEtale_sheafification_counit_of_primeToCharacteristicTorsi
     IsIso ((fullSmallEtaleAdjunction (SmoothSite.base (Spec (.of k)))).counit.app F) :=
   isIso_counit_of_sectionwiseTorsion_of_fixedExponentRigidity P hA hT
     (isIso_fullSmallEtale_sheafification_counit_of_A1Invariant k)
+
+/-- Suslin rigidity expressed using the preceding definition of local constancy.
+The hypotheses and counit are exactly those of the original theorem. -/
+@[colib_tag "COL-1222"]
+theorem isLocallyConstant_sheafification_of_primeToCharacteristicTorsion
+    (P : PresheafWithTransfers.{u + 1} k) (hA : IsA1Invariant P)
+    (hT : IsPrimeToCharacteristicTorsion P) :
+    IsLocallyConstant k ((presheafToSheaf (SmoothSite.etaleTopology (Spec (.of k)))
+      AddCommGrpCat.{u + 1}).obj ((toPresheaf k).obj P)) :=
+  isIso_fullSmallEtale_sheafification_counit_of_primeToCharacteristicTorsion P hA hT
 
 end AlgebraicGeometry.PresheafWithTransfers

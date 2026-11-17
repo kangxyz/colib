@@ -94,6 +94,37 @@ correspondence acts through precomposition by its map of representables.
 '''
 
 [[sections]]
+id = "transfer-convolution"
+title = "Convolution and represented parameters"
+order = 25
+introduction = '''
+The dependency order is the native finite-correspondence tensor of COL-1296
+and COL-1297, its integral convolution on presheaves with transfers, and
+finally monoidal descent through the reflector of COL-0372. Thus NST uses
+the PST tensor rather than a second independently defined tensor model.
+The sheafified representables of COL-0391 identify represented factors,
+including the original torus tensor. All these ordinary tensor statements
+hold over an arbitrary field.
+
+This descent concerns ordinary sheaves. It does not remove the hypotheses
+of strict A¹-invariance or cancellation below, and it is not a substitute
+for deriving convolution before motivic localization. The étale theory
+shares the presheaf construction but needs its own descent argument.
+'''
+
+[sections.transitions]
+COL-1294 = '''
+A represented parameter has the original parameter-sections right adjoint.
+Extend its preservation of sheafification equivalences through the canonical
+representable presentation, then descend the actual symmetric convolution.
+'''
+COL-1295 = '''
+Keep the sheafification counit and tensorator from COL-1294. Their naturality
+identifies a represented right factor with the original parameter coend;
+at the torus, retain the original adjunction and its unit and counit.
+'''
+
+[[sections]]
 id = "affine-line-invariance"
 title = "Homotopy invariance of sheafification and cohomology"
 order = 30

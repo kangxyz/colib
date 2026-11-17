@@ -1,0 +1,30 @@
+[entry]
+id = "COL-1303"
+title = "Local constancy on the smooth étale site"
+kind = "definition"
+section = "etale-local-constancy"
+order = 10
+primary = "AlgebraicGeometry.Scheme.EtaleSeparatedFiniteType.IsLocallyConstant"
+review = "author_checked"
+source_checked_on = "2026-11-17"
+statement = '''
+Let \(k\) be a field and \(F\) an abelian-group sheaf on
+\(\mathrm{Sm}(k)_{\acute et}\). Write \(R\) for restriction to the base
+field's small étale site and \(L\dashv R\) for the extension adjunction
+(COL-1061). We call \(F\) locally constant if its canonical counit
+\[
+  \varepsilon_F : LR(F)\longrightarrow F
+\]
+is an isomorphism. This is [@MVW2006, Lecture 6, Definition 6.7, p. 38].
+No transfers, homotopy invariance, torsion, or finite-stalk hypothesis belongs
+to the definition. These must not be imported from later applications.
+'''
+scope = '''
+The implementation uses abelian groups in universe \(u+1\) over a field in
+universe \(u\). MVW uses the finite-type étale basis; COL-1061 implements
+its adjunction through the equivalent full small étale site. The predicate
+unfolds exactly to the existing counit-isomorphism condition of COL-1222.
+It is not defined as trivialization over a finite cover or as a finite local
+system. Suslin rigidity below supplies this property for a sheafification;
+it does not define the property.
+'''
