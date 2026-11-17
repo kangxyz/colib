@@ -4190,6 +4190,7 @@ public import Colib.CategoryTheory.Monoidal.ProjectionMapLeftAdjointComparison
 public import Colib.CategoryTheory.Monoidal.ProjectionMapUnitTensorator
 public import Colib.CategoryTheory.Monoidal.ReseatComparisons
 public import Colib.CategoryTheory.Monoidal.RightIterationTracks
+public import Colib.CategoryTheory.Monoidal.SubcategoryCommShift
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Associativity
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Factorization
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Iteration
@@ -4200,6 +4201,7 @@ public import Colib.CategoryTheory.Monoidal.TranslationTelescopeFactorization
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeShift
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeStages
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeTransitions
+public import Colib.CategoryTheory.Monoidal.TransportCommShift
 public import Colib.CategoryTheory.Monoidal.TrivialAction
 public import Colib.CategoryTheory.NaturalTransformation.HExt
 public import Colib.CategoryTheory.NaturalTransformation.Transport
