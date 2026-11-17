@@ -131,15 +131,14 @@ private theorem underlyingHomologyIso_naturality
   exact congr_app (Stacks.Homology.exactHomologyIso_hom_naturality
     (evaluationPresheafRestriction k a) p) L
 
-variable [PerfectField k]
-  [HasExt.{u + 1}
+variable [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 omit [HasDerivedCategory PST] in
 private theorem isA1Invariant_homology_forget_of_isKInjective
     (I : CochainComplex NST ℤ) [I.IsKInjective] (b : ℤ) (hb : (DerivedCategory.Q.obj I).IsLE b)
     (h : ∀ p, ((DerivedCategory.homologyFunctor NST p).obj
-      (DerivedCategory.Q.obj I)).obj.IsA1Invariant)
+      (DerivedCategory.Q.obj I)).IsStrictA1Invariant)
     (p : ℤ) : ((((U).mapHomologicalComplex c).obj I).homology p).IsA1Invariant := by
   intro X
   let Y := affineLineCylinder.obj X
@@ -155,7 +154,7 @@ private theorem isA1Invariant_homology_forget_of_isKInjective
     have hc : eY ∘ g = H.map a.op ∘ eX :=
       funext (evaluationDerivedHomEquiv_naturality k a I p)
     have hR := (ConcreteCategory.isIso_iff_bijective _).1
-      (isIso_transferDerivedHomPresheaf_projection k X (DerivedCategory.Q.obj I) b hb h p)
+      (isIso_transferDerivedHomPresheaf_projection_of_strict k X (DerivedCategory.Q.obj I) b hb h p)
     apply (Function.Bijective.of_comp_iff' eY.bijective g).1
     rw [hc]
     exact hR.comp eX.bijective)
@@ -168,9 +167,9 @@ private theorem isA1Invariant_homology_forget_of_isKInjective
 
 /-- The original total right-derived underlying presheaf of a bounded-above
 effective transfer complex has A¹-invariant cohomology in every degree. -/
-theorem isA1Invariant_homology_forgetDerived
+theorem isA1Invariant_homology_forgetDerived_of_strict
     (K : DerivedCategory NST) (b : ℤ) (hb : K.IsLE b)
-    (h : ∀ p, ((DerivedCategory.homologyFunctor NST p).obj K).obj.IsA1Invariant) (p : ℤ) :
+    (h : ∀ p, ((DerivedCategory.homologyFunctor NST p).obj K).IsStrictA1Invariant) (p : ℤ) :
     ((DerivedCategory.homologyFunctor PST p).obj
       ((forgetDerivedFunctor k).obj K)).IsA1Invariant := by
   let J := (DerivedCategory.Q (C := NST)).objPreimage K
@@ -183,8 +182,13 @@ theorem isA1Invariant_homology_forgetDerived
   let : K.IsLE b := hb
   have hb' : (DerivedCategory.Q.obj I).IsLE b := DerivedCategory.TStructure.t.isLE_of_iso e.symm b
   have h' (q : ℤ) :
-      ((DerivedCategory.homologyFunctor NST q).obj (DerivedCategory.Q.obj I)).obj.IsA1Invariant :=
-    (h q).of_iso ((U).mapIso ((DerivedCategory.homologyFunctor NST q).mapIso e.symm))
+      ((DerivedCategory.homologyFunctor NST q).obj (DerivedCategory.Q.obj I)).IsStrictA1Invariant := by
+    intro n X
+    let d := (cohomologyPresheafFunctor.{u + 1, u + 1}
+      (SmoothSite.nisnevichTopology S) n).mapIso
+      ((toSheaf k).mapIso ((DerivedCategory.homologyFunctor NST q).mapIso e))
+    exact (NatIso.isIso_map_iff d
+      (((projection (SmoothSite.additiveGroupObject S)).app X).op)).mp (h q n X)
   let : IsIso ((forgetDerivedUnit k).app I) :=
     isIso_app_of_isKInjective (DerivedCategory.Q (C := NST)) _ _
       (invertsQuasiIso_mapHomologicalComplex_comp_Q (U)) I hI
@@ -193,5 +197,15 @@ theorem isA1Invariant_homology_forgetDerived
     (((U).mapHomologicalComplex c).obj I)).symm ≪≫
       H.mapIso (asIso ((forgetDerivedUnit k).app I) ≪≫ (forgetDerivedFunctor k).mapIso e)
   exact (isA1Invariant_homology_forget_of_isKInjective k I b hb' h' p).of_iso d
+
+
+/-- Perfect-field A¹-invariant homology supplies the strict hypothesis. -/
+theorem isA1Invariant_homology_forgetDerived [PerfectField k]
+    (K : DerivedCategory NST) (b : ℤ) (hb : K.IsLE b)
+    (h : ∀ p, ((DerivedCategory.homologyFunctor NST p).obj K).obj.IsA1Invariant) (p : ℤ) :
+    ((DerivedCategory.homologyFunctor PST p).obj
+      ((forgetDerivedFunctor k).obj K)).IsA1Invariant :=
+  isA1Invariant_homology_forgetDerived_of_strict k K b hb
+    (fun q => isStrictA1Invariant_of_perfect _ (h q)) p
 
 end AlgebraicGeometry.SheafWithTransfers
