@@ -110,7 +110,28 @@ remain visible and Colib retains `warningAsError=true`.
 
 The structured Library export and website are additional Colib checks. The final
 Verification table requires every outcome, including that export, to succeed.
-Pages consumes the resulting `colib-site` artifact from a trusted main push.
+
+For editorial Library changes, use **Colib CI → Run workflow → library-only**
+to check the selected revision and build its site on a GitHub-hosted runner.
+The Library job reuses the declaration export from a successful full CI run on
+an ancestor of the selected revision on `main`. It checks the Lean files,
+exporter source, toolchain, and dependency pins before using that export. A
+changed Lean input or missing compatible artifact requires full CI. The mode
+runs the same Library validation and site renderer as full CI.
+
+**Publish Library → Run workflow** on `main` rebuilds the site for the selected
+`main` revision through the Library job, including after a `[skip ci]` commit.
+The site records both the published revision and the checked declaration
+revision. Automatic publication downloads `colib-site` from the successful main
+CI run that triggered it. Publication verifies the site's revision and skips
+deployment when `main` has already advanced.
+
+```bash
+# Validate a Library work branch.
+gh workflow run ci.yml --ref work/library-topic -f mode=library-only
+# Render and deploy the current main revision.
+gh workflow run pages.yml --ref main
+```
 
 ## Pin-specific adaptations
 

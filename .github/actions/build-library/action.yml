@@ -1,0 +1,14 @@
+name: Build the Library with checked declarations
+description: Render the checked-out Library on a runner with Python and GitHub CLI
+
+runs:
+  using: composite
+  steps:
+    - name: Reuse a checked declaration export
+      shell: bash
+      run: python3 .github/ci-library/checked_export.py "$RUNNER_TEMP/colib-declarations.json"
+    - name: Validate and render the Library
+      shell: bash
+      run: |
+        python3 scripts/catalog.py build --declarations "$RUNNER_TEMP/colib-declarations.json"
+        python3 scripts/site.py

@@ -7,59 +7,100 @@ on:
     types: [completed]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  actions: read
-  pages: write
-  id-token: write
+permissions: {}
+
+env:
+  LIBRARY_REVISION: ${{ github.event.workflow_run.head_sha || github.sha }}
 
 concurrency:
   group: colib-pages
   cancel-in-progress: false
+  queue: max
 
 jobs:
-  deploy:
+  prepare:
+    name: Prepare Library
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.event == 'push' &&
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch') &&
+       github.event.workflow_run.head_branch == 'main' &&
        github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact-name: ${{ steps.artifact.outputs.name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/build-library
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Download the checked Library
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name colib-site --dir build/site
+      - name: Verify the site revision
+        id: artifact
+        run: |
+          test -s build/site/index.html
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          expected = os.environ["LIBRARY_REVISION"]
+          observed = json.loads(Path("build/site/library.json").read_bytes())["revision"]
+          if observed != expected:
+              raise SystemExit(f"Expected Library revision {expected}, found {observed}")
+          print(f"Verified Library revision {observed}")
+          PY
+          echo "name=github-pages-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          name: ${{ steps.artifact.outputs.name }}
+          path: build/site
+
+  deploy:
+    name: Deploy Library
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Select the successful native CI run
-        id: source
+      - name: Check the current main revision
+        id: current
         env:
           GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          EVENT_RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
-          if test -n "$EVENT_RUN_ID"; then
-            run_id="$EVENT_RUN_ID"
+          main=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')
+          if test "$main" = "$LIBRARY_REVISION"; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
           else
-            run_id=$(gh run list --repo "$REPOSITORY" --workflow ci.yml --branch main \
-              --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+            printf 'Publication skipped. Main advanced from `%s` to `%s`.\n' \
+              "$LIBRARY_REVISION" "$main" >> "$GITHUB_STEP_SUMMARY"
           fi
-          test -n "$run_id" && test "$run_id" != null
-          echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
-      - name: Download the checked Library
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          RUN_ID: ${{ steps.source.outputs.run-id }}
-        run: |
-          gh run download "$RUN_ID" --repo "$REPOSITORY" --name colib-site \
-            --dir "$RUNNER_TEMP/colib-site"
-          test -s "$RUNNER_TEMP/colib-site/index.html"
-          test -s "$RUNNER_TEMP/colib-site/library.json"
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
-        with:
-          name: github-pages-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/colib-site
       - name: Deploy Library
+        if: steps.current.outputs.deploy == 'true'
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
         with:
-          artifact_name: github-pages-${{ github.run_attempt }}
+          artifact_name: ${{ needs.prepare.outputs.artifact-name }}

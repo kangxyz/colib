@@ -569,17 +569,29 @@ def render_markdown(library):
     return "\n".join(lines)
 
 
-def build_catalog(root=ROOT):
+def build_catalog(root=ROOT, *, declarations=None):
     editorial = load_library(root)
     check_sources(root)
-    result = subprocess.run(
-        ["lake", "env", "lean", "scripts/export_catalog.lean"],
-        cwd=root,
-        check=True,
-        text=True,
-        capture_output=True,
-    )
-    native = json.loads(result.stdout)
+    hashes = source_hashes(root)
+    if declarations is None:
+        result = subprocess.run(
+            ["lake", "env", "lean", "scripts/export_catalog.lean"],
+            cwd=root,
+            check=True,
+            text=True,
+            capture_output=True,
+        )
+        native = json.loads(result.stdout)
+        compiler = subprocess.check_output(
+            ["lake", "env", "lean", "--version"], cwd=root, text=True
+        ).strip()
+    else:
+        native = json.loads(declarations.read_bytes())
+        if native.get("source_hashes") != hashes:
+            raise ValueError("Checked declarations do not match the current Lean sources and pins")
+        if not re.fullmatch(r"[0-9a-f]{40}", native["revision"]):
+            raise ValueError("Checked declarations need the full CI revision")
+        compiler = native["compiler"]
     pins = {
         row["name"]: row
         for row in json.loads((root / "lake-manifest.json").read_text())["packages"]
@@ -592,10 +604,10 @@ def build_catalog(root=ROOT):
     )
     revision = os.environ.get("GITHUB_SHA", observed.stdout.strip() or "main")
     library = compile_library(editorial, native, pins, revision)
-    library["compiler"] = subprocess.check_output(
-        ["lake", "env", "lean", "--version"], cwd=root, text=True
-    ).strip()
-    library["source_hashes"] = source_hashes(root)
+    library["compiler"] = compiler
+    library["source_hashes"] = hashes
+    if declarations is not None:
+        library["declaration_revision"] = native["revision"]
     output = root / "build/library"
     output.mkdir(parents=True, exist_ok=True)
     (output / "index.md").write_text(render_markdown(library))
@@ -606,7 +618,7 @@ def build_catalog(root=ROOT):
         json.dumps(
             dict(
                 native,
-                revision=revision,
+                revision=library.get("declaration_revision", revision),
                 compiler=library["compiler"],
                 source_hashes=library["source_hashes"],
             ),
@@ -629,9 +641,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("check", "build", "show"))
     parser.add_argument("identifier", nargs="?")
+    parser.add_argument("--declarations", type=Path, help="reuse the declaration export from checked CI")
     args = parser.parse_args()
+    if args.declarations is not None and args.command != "build":
+        parser.error("--declarations requires build")
     if args.command == "build":
-        build_catalog()
+        build_catalog(declarations=args.declarations)
     elif args.command == "show":
         library = load_library()
         if args.identifier in library["retired"]:
@@ -669,6 +684,7 @@ if __name__ == "__main__":
     except (
         ValueError,
         KeyError,
+        OSError,
         tomllib.TOMLDecodeError,
         subprocess.CalledProcessError,
     ) as error:

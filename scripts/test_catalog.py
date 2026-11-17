@@ -5,11 +5,13 @@ from pathlib import Path
 import shutil
 import json
 import importlib.util
+import os
 import re
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import catalog
 import lean_code
@@ -60,6 +62,35 @@ class LibraryTests(unittest.TestCase):
                          ["COL-0262", "COL-0280"])
         built = catalog.compile_library(self.library, self.native_fixture(), {}, "main")
         self.assertEqual(set(built["entries"]), set(self.library["entries"]))
+
+    def test_checked_declarations_render_current_metadata_and_reject_stale_inputs(self):
+        for name in ("Colib.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
+            shutil.copyfile(catalog.ROOT / name, self.root / name)
+        declaration_revision = "a" * 40
+        library_revision = "b" * 40
+        declarations = self.root / "checked-declarations.json"
+        declarations.write_text(json.dumps(dict(
+            self.native_fixture(), revision=declaration_revision, compiler="Lean",
+            source_hashes=catalog.source_hashes(self.root),
+        )))
+        chapter = self.root / "docs/library/chapters/k-theory-schemes.toml"
+        chapter.write_text(chapter.read_text().replace(
+            'title = "Algebraic K-Theory of Schemes"',
+            'title = "Scheme K-Theory"',
+            1,
+        ))
+
+        with patch.dict(os.environ, {"GITHUB_SHA": library_revision}):
+            catalog.build_catalog(self.root, declarations=declarations)
+        output = json.loads((self.root / "build/library/library.json").read_text())
+        self.assertEqual(output["revision"], library_revision)
+        self.assertEqual(output["declaration_revision"], declaration_revision)
+        chapters = {item["id"]: item["title"] for item in output["chapters"]}
+        self.assertEqual(chapters["k-theory-schemes"], "Scheme K-Theory")
+
+        (self.root / "lean-toolchain").write_text("different toolchain\n")
+        with self.assertRaisesRegex(ValueError, "do not match"):
+            catalog.build_catalog(self.root, declarations=declarations)
 
     def test_transfer_chapter_split_preserves_items_and_rendered_navigation(self):
         expected = {

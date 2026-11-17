@@ -5,8 +5,13 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
+      mode:
+        description: Full native checks or Library export only
+        type: choice
+        options: [full, library-only]
+        default: full
       runner-profile:
-        description: Runner profile for this CI run
+        description: Runner profile for full CI
         type: choice
         options: [ec2, hosted]
         default: ec2
@@ -21,7 +26,32 @@ concurrency:
   queue: max
 
 jobs:
+  library:
+    name: Library only
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'library-only'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/build-library
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: colib-site
+          path: build/site/
+          if-no-files-found: error
+          overwrite: true
+
   lean:
+    if: github.event_name != 'workflow_dispatch' || inputs.mode != 'library-only'
     permissions:
       contents: write
       actions: read
