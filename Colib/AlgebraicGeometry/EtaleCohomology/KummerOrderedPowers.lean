@@ -70,5 +70,24 @@ theorem orderedKummerCup_eq_zero_of_last (q : ℕ)
     orderedKummerCup f n hX (q + 1) a = 0 := by
   rw [orderedKummerCup_succ, ha, map_zero, map_zero]
 
+/-- The actual unit quotient, hence its Kummer class, is killed by n. -/
+theorem nsmul_kummerModuleUnitClass (a : unitsModuloPowers X n) :
+    n • kummerModuleUnitClass n hX a = 0 := by
+  rw [← map_nsmul]
+  have ha : n • a = 0 := by
+    induction a using QuotientAddGroup.induction_on with
+    | H a =>
+      change n • (QuotientAddGroup.mk' (unitMultiples X n)) a = 0
+      rw [← map_nsmul]
+      apply (QuotientAddGroup.eq_zero_iff _).mpr
+      exact ⟨a, rfl⟩
+  rw [ha, map_zero]
+
+/-- Every positive-degree ordered Kummer cup is killed by n. -/
+theorem nsmul_orderedKummerCup (q : ℕ)
+    (a : Fin (q + 1) → unitsModuloPowers X n) :
+    n • orderedKummerCup f n hX (q + 1) a = 0 := by
+  rw [orderedKummerCup_succ, ← map_nsmul, nsmul_kummerModuleUnitClass, map_zero]
+
 end Stacks.Kummer
 end
