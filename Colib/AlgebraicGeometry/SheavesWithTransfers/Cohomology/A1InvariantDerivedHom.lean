@@ -111,7 +111,8 @@ private theorem isIso_projection_single (X : SmoothSite S) (F : SheafWithTransfe
     let : HasExt.{u + 1} (SheafWithTransfers.{u + 1} k) := hasExt_of_enoughInjectives _
     exact (ConcreteCategory.isIso_iff_bijective _).2
       (bijective_derivedPrecomp_of_ext (F := F) ((R).map a) n
-        ((ConcreteCategory.isIso_iff_bijective _).1 (isIso_transferExt_projection_of_strict k X F hF n)))
+        ((ConcreteCategory.isIso_iff_bijective _).1
+          (isIso_transferExt_projection_of_strict k X F hF n)))
   · let E := (D₀).obj F
     let : (E⟦p⟧).IsGE (-p) :=
       DerivedCategory.TStructure.t.isGE_shift E 0 p (-p) (by omega)
@@ -126,7 +127,8 @@ private theorem isIso_projection_of_bounded (X : SmoothSite S)
     (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (a : ℤ) (n : ℕ)
     (hGE : K.IsGE a) (hLE : K.IsLE (a + (n : ℤ)))
     (h : ∀ q, a ≤ q → q ≤ a + (n : ℤ) →
-      ((DerivedCategory.homologyFunctor (SheafWithTransfers.{u + 1} k) q).obj K).IsStrictA1Invariant)
+      ((DerivedCategory.homologyFunctor
+        (SheafWithTransfers.{u + 1} k) q).obj K).IsStrictA1Invariant)
     (p : ℤ) :
     IsIso (((transferDerivedHomPresheaf k p).obj K).map
       ((Cor.graphFunctor k).map ((π).app X)).op) := by
