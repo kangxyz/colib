@@ -2,7 +2,7 @@
 id = "COL-1232"
 title = "Finite étale descent of finite correspondences"
 kind = "theorem"
-section = "finite-correspondences"
+section = "finite-degree-and-descent"
 order = 70
 primary = "Stacks.Chow.existsUnique_finiteEtaleBaseChangeCorrespondences"
 review = "author_checked"

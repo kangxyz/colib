@@ -2,7 +2,7 @@
 id = "COL-1091"
 title = "Both radicial graph-transfer degree identities"
 kind = "theorem"
-section = "finite-correspondences"
+section = "finite-degree-and-descent"
 order = 66
 primary = "AlgebraicGeometry.Cor.graph_comp_finiteFlatTranspose_of_universallyInjective"
 review = "author_checked"

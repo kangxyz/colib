@@ -14,8 +14,8 @@ prime-to-characteristic torsion: for every smooth \(X/k\) and every
 \(x\in P(X)\), there is a positive integer \(m\), invertible in \(k\),
 with \(mx=0\). The integer may depend on both \(X\) and \(x\); no common
 annihilating exponent is required. Then the étale sheafification
-\(P_{\acute et}\) is locally constant in the sense of
-[@MVW2006, Lecture 6, Definition 6.7, p. 38].
+\(P_{\acute et}\) is locally constant as defined in COL-1303
+([@MVW2006, Lecture 6, Definition 6.7, p. 38]).
 
 Explicitly, let \(R\) be restriction from the smooth étale site to
 \((\operatorname{Spec}k)_{\acute et}\), and \(L\) its left-adjoint extension.

@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1294"
+title = "Symmetric convolution of Nisnevich sheaves with transfers"
+kind = "definition"
+section = "transfer-convolution"
+order = 10
+primary = "AlgebraicGeometry.SheafWithTransfers.nisnevichConvolutionSymmetricCategory"
+review = "author_checked"
+source_checked_on = "2026-11-17"
+statement = '''
+Let \(k\) be an arbitrary field in universe \(u\). Write
+\(\operatorname{PST}(k)\) and \(\operatorname{NST}(k)\) for the original
+categories of integral presheaves and Nisnevich sheaves with transfers,
+with coefficient groups in universe \(u+1\). Let
+\(a:\operatorname{PST}(k)\to\operatorname{NST}(k)\) be transfer-preserving
+sheafification and \(U\) its fully faithful right adjoint. The integral
+convolution \(\star\) descends to a symmetric monoidal structure on
+\(\operatorname{NST}(k)\), for which \(a\) is strong monoidal and
+\[ H\otimes K\simeq a(UH\star UK). \]
+The unit is the sheafification of the signed representable of the
+correspondence tensor unit. Both convolution variables preserve the
+morphisms inverted by \(a\).
+'''
+scope = '''
+This is an ordinary sheaf tensor on the original category, not a derived
+tensor or an A¹-localized construction. No flatness or homotopy-invariance
+hypothesis is imposed on the coefficients. The finite-correspondence tensor
+is the arbitrary-field native symmetric monoidal structure of COL-1296 and
+COL-1297. No perfectness hypothesis is required. NST reuses the original
+PST convolution and its coherence maps through the reflector; it does not
+introduce a second presheaf tensor. The sheafification input is COL-0372,
+using the transfer-preserving sheafification of [@MVW2006, Lecture 13, Theorem 13.1].
+'''
+proof = '''
+For a represented parameter, use the actual graph-compatible parameter
+sections as the right adjoint of the sheafified coend. This proves that
+parameter pushforward preserves sheafification equivalences. Present an
+arbitrary transfer presheaf by a coproduct of signed representables and
+relations from the cover of its kernel. Convolution preserves the required
+colimits, so the represented case extends to arbitrary coefficients.
+Symmetry gives the second variable. Apply symmetric monoidal localization
+to the original sheafification adjunction. The tensor comparison uses its
+counit and the strong monoidal tensorator.
+'''
