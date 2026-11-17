@@ -81,7 +81,7 @@ theorem milnorKummerSymbol_one_unitKummerClass (x : MilnorKTheory k 1) :
     ((Stacks.Sheaves.UniverseLift.extPrecompIsoAddEquiv _ _).symm
       ((Stacks.Sheaves.UniverseLift.extPrecompIsoAddEquiv _ _)
         (Stacks.Kummer.kummerModuleClassModuloPowers _ _ _ _))) = _
-  rw [AddEquiv.symm_apply_apply]
+  erw [AddEquiv.symm_apply_apply]
   exact Stacks.Kummer.rootsOfUnityModuleExtEquiv_kummerModuleClass_mk _ _ _ _
 
 end AlgebraicGeometry.EtaleCohomology.MilnorKummer
