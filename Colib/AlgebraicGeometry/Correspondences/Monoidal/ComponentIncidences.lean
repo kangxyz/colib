@@ -78,7 +78,7 @@ theorem reducedClosureComponentProductIso_hom_productClosedMap {A B C D S : Sche
 theorem length_stalk_reducedClosureComponentProductIso {A B C D S : Scheme.{u}}
     (i : A ⟶ B) (j : C ⟶ D) [IsClosedImmersion i] [IsClosedImmersion j]
     (f : A ⟶ S) (g : C ⟶ S) (a : A) (c : C)
-    (x : pullback (reducedClosureComponentInclusion i a ≫ f)
+    (x : pullback (C := Scheme) (reducedClosureComponentInclusion i a ≫ f)
       (reducedClosureComponentInclusion j c ≫ g)) :
     let e := reducedClosureComponentProductIso i j f g a c
     Module.length ((pullback ((integralComponentAt a).subschemeι ≫ f)
@@ -316,8 +316,8 @@ theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
   let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
   let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
   let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
-  dsimp only [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
-    Iso.trans_hom, asIso_hom]
+  simp only [exteriorComponentSupportReducedClosuresIso, Iso.trans_hom, Category.assoc]
+  rw [reducedClosureComponentProductIso_hom_productClosedMap]
   apply pullback.hom_ext
   · simp [Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
       pullback.map, exteriorLeftComponentMap, reducedClosureComponentInclusion, Category.assoc]
@@ -675,12 +675,12 @@ theorem length_stalk_exteriorWholeSupport_eq_mul_component
     exact congrArg (fun t => t ξ.val)
       (exteriorComponentSupportReducedClosuresIso_hom_productClosedMap
         X Y Z U V W a b c d ha hb hc hd α β)
-  have H := length_stalk_product_at_generic_closures (l ≫ g) (r ≫ g) α β ζ
+  have hlength := length_stalk_product_at_generic_closures (l ≫ g) (r ≫ g) α β ζ
     (by rw [he]; exact hα) (by rw [he]; exact hβ) (finiteGeneric D₁ α) (finiteGeneric D₂ β)
-  dsimp only at H
+  dsimp only at hlength
   rw [he, length_stalk_exteriorComponentSupportReducedClosuresIso
-    X Y Z U V W a b c d ha hb hc hd α β ξ.val] at H
-  exact H
+    X Y Z U V W a b c d ha hb hc hd α β ξ.val] at hlength
+  exact hlength
 
 end SupportComponents
 
