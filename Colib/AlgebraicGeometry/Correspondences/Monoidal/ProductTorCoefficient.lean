@@ -276,7 +276,7 @@ private theorem structureTorCoefficient_congr_product_weighted
   rw [h₀', hA', hB'] at h
   exact h
 
-omit [PerfectField k] in
+omit [PerfectField k] [IsClosedImmersion p] [IsClosedImmersion q] in
 /-- Over an arbitrary field, the product Tor coefficient retains the full generic
 multiplicity of the product of the reduced point closures. -/
 theorem structureTorCoefficient_product_weighted

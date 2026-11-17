@@ -90,9 +90,8 @@ theorem length_stalk_reducedClosureComponentProductIso {A B C D S : Scheme.{u}}
       ((pullback (reducedClosureComponentInclusion i a ≫ f)
         (reducedClosureComponentInclusion j c ≫ g)).presheaf.stalk x) := by
   dsimp only
-  exact Module.length_eq_of_ringEquiv
-    ((asIso ((reducedClosureComponentProductIso i j f g a c).hom.stalkMap x))
-      .commRingCatIsoToRingEquiv)
+  let e := asIso ((reducedClosureComponentProductIso i j f g a c).hom.stalkMap x)
+  exact Module.length_eq_of_ringEquiv e.commRingCatIsoToRingEquiv
 
 private theorem reducedClosureComponentInclusion_comp {A B : Scheme.{u}} (i : A ⟶ B)
     [IsClosedImmersion i] (a : A) :
@@ -307,6 +306,8 @@ local notation "ClosureProduct" =>
   pullback ((integralComponentAt α.val).subschemeι ≫ l ≫ g)
     ((integralComponentAt β.val).subschemeι ≫ r ≫ g)
 
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.isDefEq.respectTransparency.types false in
 /-- The comparison of the native component product with the closure product lies over
 the original whole support product. -/
 theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
