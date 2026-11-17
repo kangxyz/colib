@@ -1017,6 +1017,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwo
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwoModulo
 public import Colib.AlgebraicGeometry.EtaleCohomology.ModuleRestrictionMonoidalComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.NonemptyAffineSplitChart
+public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedFieldKummer
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.RootsOfUnityFlat

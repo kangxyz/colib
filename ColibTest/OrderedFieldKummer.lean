@@ -1,0 +1,6 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.OrderedFieldKummer
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.orderedFieldKummerCup_update_mul
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.orderedFieldKummerCup_initial_steinberg
