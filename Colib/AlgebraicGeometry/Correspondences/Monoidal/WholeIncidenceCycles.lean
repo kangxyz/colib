@@ -457,6 +457,7 @@ private theorem exteriorWholeIncidenceTorCycle_eq_push_product :
   rw [φ.apply_symm_apply] at h₀
   change single t.val _ = single (φ (φ.symm t)).val _
   rw [φ.apply_symm_apply, h₀]
+  rfl
 
 local notation "aI" => p ≫ F
 local notation "aJ" => q ≫ G
@@ -576,7 +577,7 @@ private theorem exteriorWholeIncidenceTorCycle_eq_sum_exteriorPointCycle :
     intro t
     simp only [Function.locallyFinsuppWithin.coe_sum, Finset.sum_apply,
       Function.locallyFinsuppWithin.coe_zsmul, Pi.smul_apply, smul_eq_mul]
-    conv_rhs => simp_rw [exteriorPointCycle_apply_genericProduct X Y Z U V W a b c d]
+    conv_rhs => simp only [exteriorPointCycle_apply_genericProduct X Y Z U V W a b c d]
     by_cases ht : t ∈ genericPoints IncidenceProduct
     · let t₀ : genericPoints IncidenceProduct := ⟨t, ht⟩
       rw [Finset.sum_eq_single t₀]
