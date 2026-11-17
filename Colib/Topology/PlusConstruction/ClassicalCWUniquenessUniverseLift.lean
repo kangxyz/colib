@@ -179,7 +179,8 @@ theorem classicalCWPlusUnique_successor
         ∀ k : C(B, C), (k.comp f).Homotopic g → k.Homotopic h.toFun :=
   classicalCWPlusUnique_commonUniverse.{u, u + 1, u + 1, 0} A B C f g a b c γ δ N hf hg
 
-attribute [colib_tag "COL-1304"] classicalCWPlusUnique_commonUniverse classicalCWPlusUnique_successor
+attribute [colib_tag "COL-1304"]
+  classicalCWPlusUnique_commonUniverse classicalCWPlusUnique_successor
 
 attribute [colib_ref "WeibelKBook" "IV, Theorem 1.5(2)–(3)" "adaptation"
   "Comparison and ordinary uniqueness of two certified CW plus constructions"]
