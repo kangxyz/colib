@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1301"
+title = "Multiplicativity of the ordinary Milnor Kummer symbol"
+kind = "theorem"
+section = "etale-kummer-symbols"
+order = 60
+primary = "AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol_gmul"
+review = "author_checked"
+statement = '''
+Let k be a field and let n be positive and invertible in k. Retain the
+explicit HasExt hypothesis for ordinary small-etale abelian sheaves.
+For every p,q ≥ 0 and native homogeneous Milnor classes x in K_p^M(k)
+and y in K_q^M(k), the ordinary symbol of COL-1300 satisfies
+s_(p+q)(xy) = s_p(x) cup s_q(y).
+Here xy is the native graded Milnor product, not a replacement operation.
+The right-hand cup is the original Ext cup followed by the coefficient
+map tensorPow(μ_n,p) tensor tensorPow(μ_n,q) → tensorPow(μ_n,p+q).
+This coefficient map is built recursively from the original right unitor
+and associator, retaining the native left-associated tensor powers.
+The formula includes degree-zero inputs and retains the ordered classes
+without interchanging factors or inserting a spurious sign.
+'''
+proof = '''
+Exact right tensoring by μ_n propagates to all its native tensor powers
+through the right-unitor isomorphism and the tensor-right associator
+isomorphism. Form the native biadditive Ext cup with the displayed
+coefficient map. Its compatibility with appending a final degree-one
+class follows from the original Ext cup associativity and coefficient
+naturality. The right unit is proved on the original Ext representatives.
+Induction on the right tuple, written as an empty tuple or a snoc tuple,
+then identifies cup products with ordered tuple concatenation.
+The native Milnor tuple product is exactly concatenation (COL-0022).
+Apply the native tuple-symbol extensionality theorem (COL-0030) in each
+variable to extend the identity from tuples to all homogeneous classes.
+'''
+scope = '''
+This is a cross-degree product compatibility statement for the ordinary
+small-etale module Ext-valued symbol in COL-1300. It does not compare
+that symbol with the separate motivic beta construction or identify its
+coefficients with higher Tate objects. It does not assert a norm-residue
+isomorphism, injectivity or surjectivity. No new Milnor product, tensor
+power model or replacement cohomology target is introduced. The theorem
+is stated on native unreduced Milnor groups, including degree zero;
+COL-1300 separately provides positive-degree factorization modulo n.
+'''

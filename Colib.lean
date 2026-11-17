@@ -1013,11 +1013,13 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerTermwiseExtendedAsse
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerTermwiseSourceNormalization
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitCorestrictionComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo
+public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerProduct
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwo
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwoModulo
 public import Colib.AlgebraicGeometry.EtaleCohomology.ModuleRestrictionMonoidalComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.NonemptyAffineSplitChart
 public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedFieldKummer
+public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedKummerProduct
 public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedKummerSteinberg
 public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedMilnorKummer
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
@@ -3828,6 +3830,8 @@ public import Colib.CategoryTheory.Abelian.Ext.ResolutionSteps
 public import Colib.CategoryTheory.Abelian.ExtAdjunctionLinear
 public import Colib.CategoryTheory.Abelian.ExtCupAssociativity
 public import Colib.CategoryTheory.Abelian.ExtCupMonoidalAdjunction
+public import Colib.CategoryTheory.Abelian.ExtCupProductPairing
+public import Colib.CategoryTheory.Abelian.ExtCupUnit
 public import Colib.CategoryTheory.Abelian.Injective.ExtZero
 public import Colib.CategoryTheory.Abelian.Projective.CochainComparison
 public import Colib.CategoryTheory.Abelian.Projective.Connecting
@@ -4139,6 +4143,7 @@ public import Colib.CategoryTheory.Monoidal.RightIterationTracks
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Associativity
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Factorization
 public import Colib.CategoryTheory.Monoidal.TensorFunctor.Iteration
+public import Colib.CategoryTheory.Monoidal.TensorPowProduct
 public import Colib.CategoryTheory.Monoidal.TranslationTelescope
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeAction
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeCoherence

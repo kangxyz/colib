@@ -155,3 +155,10 @@ pairs. The resulting tuple map now satisfies the full native Milnor
 symbol conditions and descends through the existing homogeneous
 quotient; this is the construction of the map, not an isomorphism theorem.
 '''
+COL-1301 = '''
+Keep the ordinary symbol of COL-1300 and compare its values on the native
+Milnor product. Original unitors and associators concatenate the tensor
+coefficients, while native cup associativity identifies the ordered tuple
+values. Tuple generation extends that identity to arbitrary homogeneous
+classes, without any Tate or motivic comparison.
+'''

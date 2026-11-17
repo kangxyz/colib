@@ -1,0 +1,6 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerProduct
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.orderedFieldKummerCup_append
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol_gmul
