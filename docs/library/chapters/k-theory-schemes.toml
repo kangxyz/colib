@@ -3,7 +3,7 @@ id = "k-theory-schemes"
 title = "Algebraic K-Theory of Schemes"
 order = 13
 introduction = '''
-The main object is the connective Waldhausen K-theory of perfect complexes on a scheme \(X\). We write \(K(X\text{ on }Z)\) for the theory of perfect complexes on \(X\) acyclic on \(X\setminus Z\), and \(K^B\) for the Bass construction in this library. Vector-bundle Quillen K-theory and coherent G-theory are separate constructions; the comparison with G-theory uses the hypotheses of COL-0286.
+Apply the general Waldhausen construction of COL-0155 to perfect complexes on a scheme \(X\), with quasi-isomorphisms as weak equivalences, to obtain its connective K-theory. For comparison, COL-0602 describes ring K-theory via finite projective modules. In this chapter write \(K(X\text{ on }Z)\) for the theory of perfect complexes on \(X\) acyclic on \(X\setminus Z\), and \(K^B\) for the Bass construction in this library. Vector-bundle Quillen K-theory and coherent G-theory are separate constructions; the comparison with G-theory uses the hypotheses of COL-0286.
 
 The chapter proceeds from perfect complexes and pullback to connective localization, the projective-line formula, Bass delooping, and Thomason–Trobaugh localization. The latter has the full open term \(K^B(U)\), whereas connective localization sees the image of restriction at degree zero. The final sections collect section models, unit actions, and the separate coherent G-theory results.
 '''
