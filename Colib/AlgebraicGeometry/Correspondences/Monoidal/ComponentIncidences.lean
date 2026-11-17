@@ -91,8 +91,8 @@ theorem length_stalk_reducedClosureComponentProductIso {A B C D S : Scheme.{u}}
         (reducedClosureComponentInclusion j c ≫ g)).presheaf.stalk x) := by
   dsimp only
   exact Module.length_eq_of_ringEquiv
-    (asIso ((reducedClosureComponentProductIso i j f g a c).hom.stalkMap x))
-      .commRingCatIsoToRingEquiv
+    ((asIso ((reducedClosureComponentProductIso i j f g a c).hom.stalkMap x))
+      .commRingCatIsoToRingEquiv)
 
 private theorem reducedClosureComponentInclusion_comp {A B : Scheme.{u}} (i : A ⟶ B)
     [IsClosedImmersion i] (a : A) :
@@ -321,11 +321,10 @@ theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
     exteriorLeftComponentMap, exteriorRightComponentMap]
   simp only [Iso.trans_hom, Category.assoc]
   rw [reducedClosureComponentProductIso_hom_productClosedMap]
+  dsimp only [exteriorComponentSupportMap, exteriorLeftComponentMap, exteriorRightComponentMap]
   apply pullback.hom_ext
-  · simp [Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
-      pullback.map, exteriorLeftComponentMap, reducedClosureComponentInclusion, Category.assoc]
-  · simp [Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
-      pullback.map, exteriorRightComponentMap, reducedClosureComponentInclusion, Category.assoc]
+  · simp [Scheme.Hom.productClosedMap, pullback.congrHom_hom, pullback.map, Category.assoc]
+  · simp [Scheme.Hom.productClosedMap, pullback.congrHom_hom, pullback.map, Category.assoc]
 
 /-- The exact comparison of component products retains the full local multiplicity. -/
 theorem length_stalk_exteriorComponentSupportReducedClosuresIso
