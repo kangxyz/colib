@@ -25,7 +25,7 @@ universe u
 
 namespace AlgebraicGeometry.Cor
 
-variable {k : Type u} [Field k] [PerfectField k]
+variable {k : Type u} [Field k]
 
 /-- Tensoring on the right is the original fixed-parameter functor with identity components. -/
 def tensorRightIsoParameterProduct (T : SmoothSite (Spec (.of k)))

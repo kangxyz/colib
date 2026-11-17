@@ -38,9 +38,7 @@ namespace AlgebraicGeometry.Cor
 
 variable {k : Type u} [Field k]
 
-variable [PerfectField k]
-
-/-- The native signed finite correspondences form a monoidal category over a perfect field. -/
+/-- The native signed finite correspondences form a monoidal category over an arbitrary field. -/
 instance monoidalCategory : MonoidalCategory (Cor k) :=
   exteriorMonoidalCategory exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality

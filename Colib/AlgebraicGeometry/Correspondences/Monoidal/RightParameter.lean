@@ -30,8 +30,6 @@ variable {k : Type u} [Field k]
 theorem exteriorGraphProduct : ExteriorGraphProduct k :=
   fun f g => exteriorProduct_graph f g
 
-variable [PerfectField k]
-
 /-- Adjoin a smooth parameter on the right of each signed finite correspondence. -/
 def rightExteriorParameterFunctor (T : SmoothSite (Spec (.of k))) : Cor k ⥤ Cor k where
   obj X := tensorObj X (Cor.mk T)
