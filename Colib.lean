@@ -1018,6 +1018,8 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwoModulo
 public import Colib.AlgebraicGeometry.EtaleCohomology.ModuleRestrictionMonoidalComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.NonemptyAffineSplitChart
 public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedFieldKummer
+public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedKummerSteinberg
+public import Colib.AlgebraicGeometry.EtaleCohomology.OrderedMilnorKummer
 public import Colib.AlgebraicGeometry.EtaleCohomology.ProperStrictlyHenselianRestriction
 public import Colib.AlgebraicGeometry.EtaleCohomology.RelativeSectionDivisorRoot
 public import Colib.AlgebraicGeometry.EtaleCohomology.RootsOfUnityFlat
@@ -3824,6 +3826,7 @@ public import Colib.CategoryTheory.Abelian.Devissage.QInclusion
 public import Colib.CategoryTheory.Abelian.Devissage.SpanLayers
 public import Colib.CategoryTheory.Abelian.Ext.ResolutionSteps
 public import Colib.CategoryTheory.Abelian.ExtAdjunctionLinear
+public import Colib.CategoryTheory.Abelian.ExtCupAssociativity
 public import Colib.CategoryTheory.Abelian.ExtCupMonoidalAdjunction
 public import Colib.CategoryTheory.Abelian.Injective.ExtZero
 public import Colib.CategoryTheory.Abelian.Projective.CochainComparison

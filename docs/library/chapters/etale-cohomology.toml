@@ -148,3 +148,10 @@ degree and recovers the same degree-one and degree-two maps through the
 actual unitors. This construction does not yet supply the adjacent
 Steinberg relations or the all-degree Milnor quotient descent.
 '''
+COL-1300 = '''
+Use the native associator to bring a final Steinberg pair into the
+original degree-two Kummer pairing. Induction handles earlier adjacent
+pairs. The resulting tuple map now satisfies the full native Milnor
+symbol conditions and descends through the existing homogeneous
+quotient; this is the construction of the map, not an isomorphism theorem.
+'''

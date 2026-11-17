@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1300"
+title = "The ordinary ordered Milnor Kummer symbol in every degree"
+kind = "definition"
+section = "etale-kummer-symbols"
+order = 50
+primary = "AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol"
+review = "author_checked"
+statement = '''
+Let k be a field and n a positive integer invertible in k. Retain the
+explicit HasExt hypothesis for ordinary small-etale abelian sheaves.
+The original ordered Kummer cup on q field units satisfies every adjacent
+Steinberg relation and hence defines an integer-linear map
+K_q^M(k) → Ext^q(1,tensorPow(μ_n,q)) for every q ≥ 0.
+On each native tuple symbol its value is exactly the original ordered
+cup of the corresponding Kummer classes, using the actual global-unit
+quotient map and the native tensor powers of the roots-of-unity module.
+For q > 0 the map is killed by n and factors through the actual quotient
+K_q^M(k)/n, without changing its ordered tuple values.
+'''
+proof = '''
+Coordinate additivity is COL-1299 transported along the original field-unit
+map. For a Steinberg pair in the last two positions, the native Ext cup
+associativity formula displays the coefficient associator and regroups
+those two classes. Their inner cup vanishes by the original degree-two
+Steinberg relation COL-1241. Composing with the inverse associator gives
+zero before transport. All earlier adjacent pairs vanish inductively in
+the prefix, since the last cup is additive. Apply the existing homogeneous
+Milnor symbol universal property COL-0042; it descends through the whole
+native two-sided Steinberg ideal, not only a new tuple presentation.
+In positive degrees, n kills every ordered tuple value by COL-1299.
+Native tuple-symbol extensionality COL-0030 then shows n kills the entire
+map. The ordinary quotient universal property yields the modulo-n map.
+'''
+scope = '''
+This constructs an ordinary small-etale module Ext-valued Milnor symbol,
+not a norm-residue isomorphism. The coefficients, Kummer classes and
+Milnor groups are the existing native models. No primitive root of unity,
+perfectness or cohomological-dimension hypothesis is added. The unreduced
+map exists in all nonnegative degrees; the modulo-n factorization stated
+here is in positive degrees. It does not prove field-change naturality,
+product compatibility across degrees, a higher Tate comparison, or
+identification with a separately constructed motivic symbol.
+'''

@@ -1,0 +1,7 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.OrderedKummerSteinberg
+
+#print axioms Stacks.Kummer.orderedKummerCup_eq_zero_of_last_pair
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.orderedFieldKummerCup_steinberg

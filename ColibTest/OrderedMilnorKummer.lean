@@ -1,0 +1,10 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.OrderedMilnorKummer
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.orderedFieldKummerCup_isSymbolMap
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol_tuple
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.nsmul_milnorKummerSymbol
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorModuloKummerSymbol
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorModuloKummerSymbol_tuple
