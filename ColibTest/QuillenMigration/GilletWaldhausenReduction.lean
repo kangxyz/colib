@@ -84,10 +84,10 @@ private theorem actual_scheme_global_reduction (X : AlgebraicGeometry.Scheme.{u}
           (abelianExactStructure X.Modules) (schemeFiniteLocallyFree X))).K k,
       KMap (boundedAcyclicTermsExactInclusion (schemeFiniteLocallyFree X)).waldhausenExact k
         p.1 *
-        KMap (boundedTermsSingleExactFunctor
+        KMap (boundedTermsSingleExactFunctor.{u, u + 1}
           (schemeFiniteLocallyFree X)
           0).waldhausenExact k p.2 = x :=
-  boundedTerms_existsUnique_acyclic_single_zero
+  boundedTerms_existsUnique_acyclic_single_zero.{u, u + 1}
     (schemeFiniteLocallyFree X) k x
 
 end ColibTest.QuillenMigration.GilletWaldhausenReduction
