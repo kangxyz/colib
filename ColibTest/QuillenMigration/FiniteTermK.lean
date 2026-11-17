@@ -57,6 +57,11 @@ theorem actual_empty_term_K_zero (a : ℤ) (k : ℕ)
   simpa using h
 end
 
+local instance schemeExtensionClosed (X : Scheme.{u}) :
+    (abelianExactStructure X.Modules).IsExtensionClosed
+      (fun M : X.Modules ↦ SheafOfModules.IsFiniteLocallyFree.{u, u, u} M) :=
+  Scheme.Modules.finiteLocallyFree_isExtensionClosed X
+
 /-- No regularity, noetherianity, or resolution property is used for this
 isomorphism-weak finite strict-perfect stratum. -/
 def actualSchemeFiniteTermK (X : AlgebraicGeometry.Scheme.{u}) (a : ℤ) (m k : ℕ) :=

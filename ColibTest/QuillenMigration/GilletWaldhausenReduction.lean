@@ -67,6 +67,14 @@ private abbrev schemeFiniteLocallyFree (X : AlgebraicGeometry.Scheme.{u}) :
     ObjectProperty X.Modules :=
   fun M ↦ SheafOfModules.IsFiniteLocallyFree.{u, u, u} M
 
+local instance schemeExtensionClosed (X : Scheme.{u}) :
+    (abelianExactStructure X.Modules).IsExtensionClosed (schemeFiniteLocallyFree X) :=
+  Scheme.Modules.finiteLocallyFree_isExtensionClosed X
+
+local instance schemeKernelClosed (X : Scheme.{u}) :
+    (abelianExactStructure X.Modules).IsKernelClosed (schemeFiniteLocallyFree X) :=
+  Scheme.Modules.finiteLocallyFree_isKernelClosed X
+
 private theorem actual_scheme_global_reduction (X : AlgebraicGeometry.Scheme.{u}) (k : ℕ)
     (x : (ofExactCategory (boundedTermsExactStructure
       (schemeFiniteLocallyFree X))).K k) :
