@@ -41,6 +41,7 @@ private theorem eq_of_prime {X Y : Cor k} {A : Type u} [AddCommGroup A]
   DFunLike.congr_fun
     (finiteCorrespondences.addHom_ext_one X.toSmoothSite.hom Y.toSmoothSite.hom F G h) a
 
+omit [PerfectField k] in
 /-- Tensoring arbitrary signed correspondences preserves the actual Serre Tor composition. -/
 theorem exteriorInterchange : ExteriorInterchange k := by
   intro X Y Z U V W a c b d
