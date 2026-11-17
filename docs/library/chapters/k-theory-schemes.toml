@@ -5,7 +5,12 @@ order = 13
 introduction = '''
 Apply the general Waldhausen construction of COL-0155 to perfect complexes on a scheme \(X\), with quasi-isomorphisms as weak equivalences, to obtain its connective K-theory. For comparison, COL-0602 describes ring K-theory via finite projective modules. In this chapter write \(K(X\text{ on }Z)\) for the theory of perfect complexes on \(X\) acyclic on \(X\setminus Z\), and \(K^B\) for the Bass construction in this library. Vector-bundle Quillen K-theory and coherent G-theory are separate constructions; the comparison with G-theory uses the hypotheses of COL-0286.
 
-The chapter proceeds from perfect complexes and pullback to connective localization, the projective-line formula, Bass delooping, and Thomason–Trobaugh localization. The latter has the full open term \(K^B(U)\), whereas connective localization sees the image of restriction at degree zero. The final sections collect section models, unit actions, and the separate coherent G-theory results.
+The main line starts with perfect complexes and derived pullback. After connective localization
+with support and the projective-line formula, the action of the Laurent unit supplies the
+transition maps for the Bass construction. Thomason–Trobaugh localization then has the full open
+term \(K^B(U)\), whereas connective localization sees only the image of restriction in degree zero.
+The affine and global section models are a reference for the comparisons used in this argument.
+The last two sections develop the separate vector-bundle and coherent G-theory results.
 '''
 
 [[sections]]
@@ -27,23 +32,16 @@ COL-0351 = "The same inclusion has a canonically zero-normalized\nprespectrum ma
 COL-0352 = "The composition and unit isomorphisms of termwise\npullback satisfy the pseudofunctor coherence equations.\nRestricting this pseudofunctor along \\(\\operatorname{Spec}\\)\ngives the affine coefficient diagram, with its identity\nand composition transports.\n"
 
 [[sections]]
-id = "vector-bundles-coherent-sheaves-and-comparison"
-title = "Vector bundles and comparison with G-theory"
-order = 20
-introduction = '''
-Write \(K^{\mathrm{vb}}(X)\) for Quillen K-theory of vector bundles and \(G(X)\) for coherent-sheaf G-theory. On a locally Noetherian scheme, inclusion gives \(K^{\mathrm{vb}}(X)\to G(X)\). COL-0286 proves it is an equivalence for a quasi-compact regular scheme with the resolution property. It does not identify \(K^{\mathrm{vb}}(X)\) with perfect-complex K-theory for arbitrary \(X\).
-'''
-
-
-[sections.transitions]
-COL-0286 = "On a quasi-compact regular scheme with the resolution\nproperty, a coherent sheaf has a finite resolution by\nfinite locally free sheaves. Resolution applies to\nthe exact inclusion in COL-0285, so the comparison\nuses that inclusion on \\(K\\)-groups.\n"
-
-[[sections]]
 id = "support-and-connective-localization"
 title = "K-theory with support and connective localization"
 order = 30
 introduction = '''
 Let \(j:U\hookrightarrow X\) be a quasi-compact open immersion with \(X\) quasi-compact and quasi-separated. Set \(Z=X\setminus U\). Support on \(Z\) means acyclicity after restriction to \(U\); it does not mean K-theory of a closed subscheme. The connective fiber sequence uses the cover of \(K(U)\) determined by the image of \(K_0(X)\to K_0(U)\). It retains all positive-degree K-groups of \(U\), but does not assert surjectivity on \(K_0(U)\). COL-0330 gives the basic sequence, and COL-0335 gives the version with auxiliary support. See [@ThomasonTrobaugh1990, 5.1.1–5.1.2].
+
+For a scalar on \(X\) that restricts to a unit on \(U\), its cone is acyclic on
+\(U\). With the connecting map of COL-0300, the degree-one scalar class has the
+positive signed cone as its boundary (COL-0304); the higher connective comparison
+is COL-0329. The Bass boundary in negative degrees is treated separately.
 '''
 
 
@@ -72,6 +70,11 @@ id = "flat-models-and-supported-naturality"
 title = "Flat models and supported naturality"
 start = "COL-0382"
 
+[[sections.topics]]
+id = "scalar-operations-and-the-boundary"
+title = "Scalar action and the signed connective boundary"
+start = "COL-0303"
+
 [sections.transitions]
 COL-0230 = "For perfect complexes, an open immersion\n\\(j\\colon U\\hookrightarrow X\\) gives ordinary restriction\n\\(j^*\\) on actual cochain complexes. Exactness for the\nfine Waldhausen structures gives its canonical \\(K\\)-map.\n"
 COL-0298 = "Write \\(w_j\\) for the weak class detected by quasi-isomorphisms\nafter \\(j^*\\). An object is acyclic for \\(w_j\\) exactly when\nits restriction is acyclic. The corresponding support\ncategory thus identifies with the acyclic category for\nthe change from the fine weak class to \\(w_j\\).\n"
@@ -94,6 +97,14 @@ COL-0505 = "Keep acyclicity on an auxiliary open \\(T\\), but test weak equivale
 COL-0506 = "The relative-acyclic objects are precisely the bounded-flat perfect complexes\nsupported outside the union of the two opens. Their exact equivalence preserves\nthe original admissible quotient. The canonical coarse-fiber comparison then\nretains the original K-theory boundary and the whole null path, with chosen-zero\nnormalization made explicit at the spectrum level and no compactness hypothesis.\n"
 COL-0507 = "Arbitrary commuting open squares pull back the original supported bounded-flat\ncomplexes, their same admissible quotients and restricted weak equivalences.\nThe resulting supported and coarse K-maps preserve restriction and the boundary.\nA single canonical normalization retains the entire fiber path; the original\nunion-supported comparison is transported by explicit coherent homotopies.\n"
 COL-0508 = "Without a support condition on its objects, the bounded-flat relative model has\nweak equivalences detected on the specified open. Arbitrary commuting open squares\ninduce its original K-pullback, with identity, composition and change-of-weak\nnaturality. On a compact ambient scheme, the literal inclusion into the relative\nperfect model is a K-equivalence with its original forward map.\n"
+COL-0303 = "Let a global scalar \\(r\\) act on a perfect complex \\(P\\)\nand suppose it restricts to a unit on \\(U\\). Its signed cone\nrestricts to an acyclic complex. The scalar cylinder presents\nthat cone as an actual cofiber, so additivity applies to the\nmap from the identity sequence to the scalar sequence.\n"
+COL-0304 = "In degree one, take the independently defined forward scalar\nloop. Its canonical fiber comparison gives the object class\nof the signed cone. With the boundary of COL-0300, the cone\nenters with positive sign.\n"
+COL-0305 = "On \\(U\\) the scalar acts by the given global-unit\nautomorphism. The forward scalar class restricts to its\nfine \\(K_1\\) class. The rank-one comparison identifies\nthe unit coordinate for structure sheaves and in the\naffine and relative Laurent cases.\n"
+COL-0316 = "Passing to positive-dimensional generalized loops carries\nthe full additivity square to a square of cubes with two\nindependent times. The fine identity and scalar cofiber\npaths give its coarse edges, which identify the boundary\nroutes with the stipulated orientation.\n"
+COL-0317 = "The coproduct in the sum comparison is ordered with\nthe quotient first. The normalized endpoint and the reversed\nnull path of the supported cone supply the two coordinates\nof a cube in the canonical homotopy fiber.\n"
+COL-0320 = "On an original subdivision cube, the return path uses\nthe prescribed inverse inclusion and projection class.\nThe coordinate-zero connecting map compares its normalized\ncube with the canonical fiber cube of the actual acyclic cone.\n"
+COL-0324 = "The complete scalar tracks give raw and zero-normalized\nself-track operations. Transport of the stored paths compares\nthese operations with the prescribed return on every\nsubdivision cube, preserving the positive cone image.\n"
+COL-0329 = "The subdivision inputs represent every connective\n\\(K\\)-class. Thus the cube calculation and injectivity of\nthe supported-to-fiber comparison identify the relative\nboundary of the two scalar operations as homomorphisms\nin each connective degree.\n"
 
 [[sections]]
 id = "projective-bundle-formula"
@@ -108,6 +119,47 @@ COL-1292 = "Apply the ordinary formula to the ambient scheme and its open. Compa
 COL-1293 = "Compare the formula on two opens and their intersection. The relative boundary becomes the connecting map in the five-term Mayer–Vietoris sequence."
 
 [[sections]]
+id = "units-tensor-products-and-localization-boundaries"
+title = "Unit actions on perfect complexes"
+order = 38
+introduction = '''
+A global unit \(u\in\Gamma(X,\mathcal O_X)^\times\) acts on the tensor unit by
+multiplication. The tensor unitor identifies the induced automorphism of a perfect
+complex with scalar multiplication by \(u\) (COL-0542). This identifies the action
+used below for the Laurent coordinate \(t\) on \(\mathbf G_m\), including its
+compatibility with pullback, restriction, and support (COL-0556, COL-0560).
+The signed connective boundary for a scalar that becomes a unit on an open is treated
+in COL-0304. These results do not assert a multiplicative structure on \(K^B\).
+'''
+
+
+[[sections.topics]]
+id = "tensoring-by-the-unit"
+title = "Tensoring by the unit"
+start = "COL-0542"
+
+[[sections.topics]]
+id = "tensor-units-with-support"
+title = "Tensor units with support"
+start = "COL-0560"
+
+[sections.transitions]
+COL-0542 = "Retain the actual structure-module tensor before passing to its unitor. The scalar comparison identifies its components with the global unit action already used on sections, so the later prisms can keep the original tensor edge."
+COL-0543 = "Normalize the chosen zero of the actual tensor-pullback map without changing its original coefficient crossing. The categorical two-time interchange lets the prism pass through each S-construction stage, with the structure interval and tensor interval still separate."
+COL-0544 = "Insert the tensor coefficient as a genuine first row rather than replacing that row by an identity model. The row isomorphism transports exactness and compares the complete scalar automorphism; those are the data needed for the two-dimensional coefficient prism."
+COL-0545 = "Use the first-row scalar comparison to identify the coefficient prism while preserving its endpoints. Reindexing the two grid directions and the nerve-cylinder direction separately gives the simultaneous naturality equation, before any later parameter normalization."
+COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
+COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
+COL-0556 = "COL-0544 and COL-0546 retain the actual coefficient row and its zero normalization. Specialize that construction to the degree-zero structure complex. Identifying the whole weak-object square, before taking a homotopy class, fixes the forward Laurent-unit orientation needed by returned-tensor recognition."
+COL-0560 = "Support preservation allows the actual tensor unit and its parameter tracks to restrict to the supported categories."
+COL-0561 = "With those supported units fixed, the coefficient rows retain their exactness and the input maps carry the corresponding normalization."
+COL-0562 = "The normalized coefficient rows then give whole coefficient cylinders, whose two time coordinates survive realization and native AsSmall transport."
+COL-0563 = "Finally, the raw evaluation-forget square passes through the specified zero-object rebases and native Model maps to the parameter forget rectangle."
+
+
+COL-1202 = "Pull back the two factor units along the actual product projections. Their whole-track factorization reduces the geometric product-swap calculation to the interchange of two scalar operations. This proves anticommutation already on K-zero input, before any claim concerning a negative iterated cokernel."
+
+[[sections]]
 id = "bass-k-theory-and-geometric-delooping"
 title = "The Bass construction and negative K-groups"
 order = 40
@@ -115,6 +167,12 @@ introduction = '''
 The Bass construction starts with connective perfect-complex K-theory. It uses the maps from the two affine-line charts to their intersection \(\mathbf G_m\) to form a homotopy cofiber. The transition to its loop spectrum is induced by multiplication by the Laurent unit \(t\) on the tensor unit over \(\mathbf G_m\). Iterating and taking the homotopy colimit gives the Bass delooping \(K^B\). See [@ThomasonTrobaugh1990, 6.3–6.4].
 
 COL-0558 verifies the finite-stage transitions and the associated boundary comparisons. Separately, COL-1200 defines the Bass negative groups by Laurent cokernels, and COL-1262 compares them with the stable homotopy groups of the supported telescope in its stated coefficient family. The localization fiber sequence and its signed boundary are proved in the next section.
+
+For the diagrams in this proof, one uses the section models obtained from the
+bounded-above flat perfect-complex fibers. Evaluation at the identity identifies
+a section model with its original fiber (COL-0355, COL-0533); the evaluation comparison
+retains the pullback of the unit automorphism (COL-0548). The section
+**Affine and global section models** records these comparisons in detail.
 '''
 
 
@@ -250,7 +308,12 @@ id = "affine-and-global-section-models"
 title = "Affine and global section models"
 order = 60
 introduction = '''
-These models are used to compare pullback, restriction and the Laurent transition at the level of the actual maps. On affine schemes the evaluation theorems identify the specified section and coefficient models. For general schemes the results construct global, supported and relative diagrams and their restriction maps; they do not assert an exact equivalence given by global sections on arbitrary schemes.
+This section is a reference for the functorial models used in the Bass construction.
+Evaluation at the identity identifies the section category with the corresponding
+bounded-above flat perfect-complex fiber. For general schemes the section categories
+organize pullback, support, and restriction. The comparison is with the fiber, not an
+assertion that global sections give an exact equivalence for perfect complexes on
+an arbitrary scheme.
 '''
 
 
@@ -281,52 +344,16 @@ COL-0541 = "Carry the track of COL-0540 through the weak-class change in COL-053
 COL-0548 = "Global sections retain the original geometric fibers while making reindexing strict. Their identity evaluation now has its actual exact inverse. The whole comparison with geometric pullback retains both chosen zeros and the forward scalar action, so the later tensor cell can be returned to the same section category."
 
 [[sections]]
-id = "units-tensor-products-and-localization-boundaries"
-title = "Unit actions and connecting maps"
-order = 70
+id = "vector-bundles-coherent-sheaves-and-comparison"
+title = "Vector bundles and comparison with G-theory"
+order = 75
 introduction = '''
-A global unit gives an automorphism of the tensor unit and hence a degree-one K-class. Its action on a perfect complex can be described either as scalar multiplication or by tensoring with that automorphism. The comparisons identify those two descriptions, including their behavior under restriction and support. The signed cone calculation identifies the class carried by the connective boundary. These are assertions about the specified operations, not an assertion of a full multiplicative structure on the Bass spectrum.
+Write \(K^{\mathrm{vb}}(X)\) for Quillen K-theory of vector bundles and \(G(X)\) for coherent-sheaf G-theory. On a locally Noetherian scheme, inclusion gives \(K^{\mathrm{vb}}(X)\to G(X)\). COL-0286 proves it is an equivalence for a quasi-compact regular scheme with the resolution property. It does not identify \(K^{\mathrm{vb}}(X)\) with perfect-complex K-theory for arbitrary \(X\).
 '''
 
 
-[[sections.topics]]
-id = "scalar-operations-and-the-boundary"
-title = "Scalar operations and the boundary"
-start = "COL-0303"
-
-[[sections.topics]]
-id = "tensoring-by-the-unit"
-title = "Tensoring by the unit"
-start = "COL-0542"
-
-[[sections.topics]]
-id = "tensor-units-with-support"
-title = "Tensor units with support"
-start = "COL-0560"
-
 [sections.transitions]
-COL-0303 = "Let a global scalar \\(r\\) act on a perfect complex \\(P\\)\nand suppose it restricts to a unit on \\(U\\). Its signed cone\nrestricts to an acyclic complex. The scalar cylinder presents\nthat cone as an actual cofiber, so additivity applies to the\nmap from the identity sequence to the scalar sequence.\n"
-COL-0304 = "In degree one, take the independently defined forward scalar\nloop. Its canonical fiber comparison gives the object class\nof the signed cone. With the boundary of COL-0300, the cone\nenters with positive sign.\n"
-COL-0305 = "On \\(U\\) the scalar acts by the given global-unit\nautomorphism. The forward scalar class restricts to its\nfine \\(K_1\\) class. The rank-one comparison identifies\nthe unit coordinate for structure sheaves and in the\naffine and relative Laurent cases.\n"
-COL-0316 = "Passing to positive-dimensional generalized loops carries\nthe full additivity square to a square of cubes with two\nindependent times. The fine identity and scalar cofiber\npaths give its coarse edges, which identify the boundary\nroutes with the stipulated orientation.\n"
-COL-0317 = "The coproduct in the sum comparison is ordered with\nthe quotient first. The normalized endpoint and the reversed\nnull path of the supported cone supply the two coordinates\nof a cube in the canonical homotopy fiber.\n"
-COL-0320 = "On an original subdivision cube, the return path uses\nthe prescribed inverse inclusion and projection class.\nThe coordinate-zero connecting map compares its normalized\ncube with the canonical fiber cube of the actual acyclic cone.\n"
-COL-0324 = "The complete scalar tracks give raw and zero-normalized\nself-track operations. Transport of the stored paths compares\nthese operations with the prescribed return on every\nsubdivision cube, preserving the positive cone image.\n"
-COL-0329 = "The subdivision inputs represent every connective\n\\(K\\)-class. Thus the cube calculation and injectivity of\nthe supported-to-fiber comparison identify the relative\nboundary of the two scalar operations as homomorphisms\nin each connective degree.\n"
-COL-0542 = "Retain the actual structure-module tensor before passing to its unitor. The scalar comparison identifies its components with the global unit action already used on sections, so the later prisms can keep the original tensor edge."
-COL-0543 = "Normalize the chosen zero of the actual tensor-pullback map without changing its original coefficient crossing. The categorical two-time interchange lets the prism pass through each S-construction stage, with the structure interval and tensor interval still separate."
-COL-0544 = "Insert the tensor coefficient as a genuine first row rather than replacing that row by an identity model. The row isomorphism transports exactness and compares the complete scalar automorphism; those are the data needed for the two-dimensional coefficient prism."
-COL-0545 = "Use the first-row scalar comparison to identify the coefficient prism while preserving its endpoints. Reindexing the two grid directions and the nerve-cylinder direction separately gives the simultaneous naturality equation, before any later parameter normalization."
-COL-0546 = "After the coefficient-row and prism comparisons, normalize the chosen zero of the same tensor-pullback functor. Whiskering by actual parameter evaluation retains the prism formula. No change of parameter or coefficient coordinates is hidden in this normalization."
-COL-0547 = "Use global identity evaluation with its chosen-zero normalization to compare the internal coefficient route and the evaluated tensor route at a parameter. The original tensor unitor and scalar formula then show that this particular isomorphism preserves the model-unit action. Its naturality as the external parameter varies is a separate next step."
-COL-0556 = "COL-0544 and COL-0546 retain the actual coefficient row and its zero normalization. Specialize that construction to the degree-zero structure complex. Identifying the whole weak-object square, before taking a homotopy class, fixes the forward Laurent-unit orientation needed by returned-tensor recognition."
-COL-0560 = "Support preservation allows the actual tensor unit and its parameter tracks to restrict to the supported categories."
-COL-0561 = "With those supported units fixed, the coefficient rows retain their exactness and the input maps carry the corresponding normalization."
-COL-0562 = "The normalized coefficient rows then give whole coefficient cylinders, whose two time coordinates survive realization and native AsSmall transport."
-COL-0563 = "Finally, the raw evaluation-forget square passes through the specified zero-object rebases and native Model maps to the parameter forget rectangle."
-
-
-COL-1202 = "Pull back the two factor units along the actual product projections. Their whole-track factorization reduces the geometric product-swap calculation to the interchange of two scalar operations. This proves anticommutation already on K-zero input, before any claim concerning a negative iterated cokernel."
+COL-0286 = "On a quasi-compact regular scheme with the resolution\nproperty, a coherent sheaf has a finite resolution by\nfinite locally free sheaves. Resolution applies to\nthe exact inclusion in COL-0285, so the comparison\nuses that inclusion on \\(K\\)-groups.\n"
 
 [[sections]]
 id = "coherent-g-theory-localization"
