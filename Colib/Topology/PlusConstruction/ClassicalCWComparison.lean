@@ -54,18 +54,18 @@ theorem plus_legs_isWeakHomotopyEquivalence_of_cw
     (hg : Topology.IsPlusConstruction.{u, u, u} g.hom δ N) :
     IsWeakHomotopyEquivalence (gapLeftEndpoint (B := TopCat.of B) (C := TopCat.of C) e) ∧
       IsWeakHomotopyEquivalence (gapRightEndpoint (B := TopCat.of B) (C := TopCat.of C) e) := by
-  letI := CWComplex.locallyPathConnectedSpace A
-  letI := CWComplex.locallyPathConnectedSpace B
-  letI := CWComplex.locallyPathConnectedSpace C
-  letI := hf.targetPathConnected
-  letI := hg.targetPathConnected
-  letI := pathConnectedSpace f g sq a
-  letI := locallyPathConnectedSpace f g sq
+  let := CWComplex.locallyPathConnectedSpace A
+  let := CWComplex.locallyPathConnectedSpace B
+  let := CWComplex.locallyPathConnectedSpace C
+  let := hf.targetPathConnected
+  let := hg.targetPathConnected
+  let := pathConnectedSpace f g sq a
+  let := locallyPathConnectedSpace f g sq
   let neighborhoods := pathThinNeighborhoods f g sq
     (CWComplex.pathThinNeighborhoods B) (CWComplex.pathThinNeighborhoods C)
   let d₀ : D := gapLeftEndpoint (B := TopCat.of B) (C := TopCat.of C) e b
-  letI := (neighborhoods.prebundle d₀).totalSpaceTopology
-  letI := neighborhoods.total_simplyConnectedSpace d₀
+  let := (neighborhoods.prebundle d₀).totalSpaceTopology
+  let := neighborhoods.total_simplyConnectedSpace d₀
   let lo : unitInterval := ⟨1 / 3, by norm_num⟩
   let hi : unitInterval := ⟨2 / 3, by norm_num⟩
   let mid : Band lo hi := ⟨⟨1 / 2, by norm_num⟩, by
