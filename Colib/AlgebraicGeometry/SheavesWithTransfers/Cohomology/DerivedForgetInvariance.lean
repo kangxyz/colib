@@ -190,7 +190,7 @@ theorem isA1Invariant_homology_forgetDerived_of_strict
       (SmoothSite.nisnevichTopology S) n).mapIso
       ((toSheaf k).mapIso ((DerivedCategory.homologyFunctor NST q).mapIso e))
     exact (NatIso.isIso_map_iff d
-      (((projection (SmoothSite.additiveGroupObject S)).app X).op)).mp (h q n X)
+      (((projection (SmoothSite.additiveGroupObject S)).app X).op)).mpr (h q n X)
   let : IsIso ((forgetDerivedUnit k).app I) :=
     isIso_app_of_isKInjective (DerivedCategory.Q (C := NST)) _ _
       (invertsQuasiIso_mapHomologicalComplex_comp_Q (U)) I hI
