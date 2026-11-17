@@ -594,6 +594,8 @@ theorem structureTorCoefficient_wholeIncidence_weighted
     rw [transportedIncidenceTor_eq]
     rfl
 
+set_option maxHeartbeats 1200000 in
+-- Identifying native coefficients elaborates the dependent product stalk diagrams.
 omit [PerfectField k] in
 include ha hb hc hd in
 /-- The residual length is exactly the coefficient of the original exterior point cycle.
