@@ -68,6 +68,6 @@ theorem isIso_transferExt_projection [PerfectField k]
       hasExt_of_enoughInjectives _
     IsIso ((@transferExtPresheaf.{u + 1, u} k _ transferExt F n).map
       ((Cor.graphFunctor k).map ((π).app X)).op) :=
-  isIso_transferExt_projection_of_strict k X F (isStrictA1Invariant_of_perfect k F hF) n
+  isIso_transferExt_projection_of_strict k X F (isStrictA1Invariant_of_perfect (k := k) F hF) n
 
 end AlgebraicGeometry.SheafWithTransfers
