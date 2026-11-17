@@ -227,7 +227,6 @@ theorem exteriorWholeIncidenceTorCycle_eq_weighted_sum :
         ha hb hc hd α β ⟨ξ, support_incidenceTorCycle_subset f g h
           (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
           (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β) hξ⟩)
-
     rw [hzero, mul_zero]
 
 /-- The actual cycle of the whole incidence is the sum of the pushed native component cycles. -/
