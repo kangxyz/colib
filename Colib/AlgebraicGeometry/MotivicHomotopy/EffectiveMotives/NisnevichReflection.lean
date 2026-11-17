@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.NisnevichLift
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.SingularPresheafReflection
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.ObjectProperty
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance
