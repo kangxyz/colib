@@ -22,7 +22,7 @@ The additional source-seed formula requires two specified scalar self-tracks and
 the explicit all-time intertwining equation for those tracks; it is not asserted
 without this hypothesis. Null time, moving-track time and output-loop time remain
 independent. No zero diagram is identified with a separately chosen point object.
-This gives natural cone transport for the later tensor-generated recipe, not a
+This gives natural cone transport for the later construction of the Bass transition maps, not a
 constructed tensor unit, a complete generated trace, an external raw-tower comparison,
 or Thomason--Trobaugh 7.4.
 """

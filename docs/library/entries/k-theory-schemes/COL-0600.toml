@@ -1,13 +1,13 @@
 [entry]
 id = "COL-0600"
-title = "Tensor ordinary-presentation auxiliary localization"
+title = "Localization with auxiliary support for the ordinary-colimit Bass presentation"
 kind = "theorem"
 section = "thomason-trobaugh-localization"
 order = 270
 statement = '''
 Let $f:P\to Q$ be an open immersion, with $P,Q$ quasi-compact and $Q$ quasi-separated,
-and let $T$ be a quasi-compact open of $Q$. Evaluate the tensor-normalized ordinary-colimit
-presentations at $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The original enlargement
+and let $T$ be a quasi-compact open of $Q$. Evaluate the ordinary-colimit presentations of the Bass construction
+at $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$. The original enlargement
 from union support to $T$ support and restriction to the inverse-image support, with their
 selected whole nullhomotopy, induce a stable equivalence to the homotopy fiber of restriction.
 Its fiber projection is precisely the original enlargement map.
@@ -15,7 +15,7 @@ Its fiber projection is precisely the original enlargement map.
 scope = '''
 The three actual support presentations and their same-time null square are retained. In
 particular the induced maps on stable homotopy groups are isomorphisms in every integer degree,
-including all negative degrees. This is a statement about the constructed tensor presentation,
+including all negative degrees. This is a statement about this presentation of the Bass construction,
 not an additional comparison with a classical K-theory model.
 '''
 proof = '''
