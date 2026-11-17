@@ -495,7 +495,7 @@ omit [PerfectField k] in
 include ha hb hc hd in
 /-- Over arbitrary fields the whole Tor coefficient retains the residual product length. -/
 theorem structureTorCoefficient_wholeIncidence_weighted
-    (η : genericPoints ResidualProduct) (hη : residualMap η.val = mp x.val) :
+    (rpoint : genericPoints ResidualProduct) (hrpoint : residualMap rpoint.val = mp x.val) :
     let x' := correspondenceWholeIncidenceGeneric X Y Z U V W a b c d x
     structureTorCoefficient (cartesianIntersectionGenericStalkMap sq x')
       ((t).stalkMap (j x'.val)).hom =
@@ -503,8 +503,8 @@ theorem structureTorCoefficient_wholeIncidence_weighted
         (correspondenceWholeIncidenceFirstGeneric X Y Z U V W a b c d x) *
       correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d
         (correspondenceWholeIncidenceSecondGeneric X Y Z U V W a b c d x) *
-      ((Module.length ((ResidualProduct).presheaf.stalk η.val)
-        ((ResidualProduct).presheaf.stalk η.val)).toNat : ℤ) := by
+      ((Module.length ((ResidualProduct).presheaf.stalk rpoint.val)
+        ((ResidualProduct).presheaf.stalk rpoint.val)).toNat : ℤ) := by
   let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
   let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
   let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
@@ -575,7 +575,7 @@ theorem structureTorCoefficient_wholeIncidence_weighted
   let : IsLocallyNoetherian ResidualProduct :=
     LocallyOfFiniteType.isLocallyNoetherian residualMap
   refine (structureTorCoefficient_product_weighted_of_isLocallyNoetherian
-    F G r s δ ε p q uS vS u' v' hs hs' rfl rfl x η hη
+    F G r s δ ε p q uS vS u' v' hs hs' rfl rfl x rpoint hrpoint
     hfin₁ hfin₂ hsupp₁ hsupp₂).trans ?_
   apply congrArg (fun n : ℤ => n * _)
   refine congrArg₂ (· * ·) ?_ ?_
