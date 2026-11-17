@@ -329,6 +329,7 @@ private theorem componentCoefficient_eq_finsum_support :
     rw [finsum_of_isEmpty, finsum_of_isEmpty]
 
 set_option maxHeartbeats 1400000 in
+-- Weighted stalk transport traverses the component and whole pullback diagrams.
 set_option backward.isDefEq.respectTransparency false in
 set_option backward.isDefEq.respectTransparency.types false in
 omit [PerfectField k] in

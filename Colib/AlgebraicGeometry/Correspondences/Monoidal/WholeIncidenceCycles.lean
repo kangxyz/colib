@@ -270,6 +270,7 @@ theorem exteriorWholeIncidenceTorCycle_eq_sum :
         (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
         (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β) hξ⟩)
 
+omit [PerfectField k] in
 /-- Actual composition of the two exterior primes is the finite outer pushforward of the
 whole exterior incidence's genuine Tor cycle. -/
 theorem incidenceTorPairing_exteriorPrimes_val :
@@ -285,15 +286,20 @@ theorem incidenceTorPairing_exteriorPrimes_val :
   let := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
-  rw [incidenceTorPairing_exteriorPrimes_eq_sum, exteriorWholeIncidenceTorCycle_eq_sum, map_sum]
+  rw [incidenceTorPairing_exteriorPrimes_eq_sum, exteriorWholeIncidenceTorCycle_eq_weighted_sum,
+    map_sum]
   change (finiteCorrespondences f h).subtype
     (∑ α : genericPoints D₁, ∑ β : genericPoints D₂, _) = _
   rw [map_sum]
   refine Finset.sum_congr rfl fun α _ => ?_
   rw [map_sum, map_sum]
   refine Finset.sum_congr rfl fun β _ => ?_
-  rw [correspondenceExteriorComponentWeight_eq_one X Y U V a c ha hc α,
-    correspondenceExteriorComponentWeight_eq_one Y Z V W b d hb hd β, one_mul, one_smul]
+  simp only [map_zsmul]
+  change (correspondenceExteriorComponentWeight X Y U V a c α *
+    correspondenceExteriorComponentWeight Y Z V W b d β) • _ =
+    (correspondenceExteriorComponentWeight X Y U V a c α *
+      correspondenceExteriorComponentWeight Y Z V W b d β) • _
+  congr 1
   let x₀ := leftComponentPoint X Y U V a c α
   let y₀ := rightComponentPoint Y Z V W b d β
   let hα := correspondenceExteriorComponentPoint_admissible X Y U V a c ha hc α
