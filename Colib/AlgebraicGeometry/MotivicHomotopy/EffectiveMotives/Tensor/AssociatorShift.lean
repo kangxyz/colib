@@ -100,12 +100,24 @@ variable [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
 
 attribute [local instance] derivedConvolutionMonoidalCategory derivedConvolutionCommShift₂Int
 
+section Transport
+
+attribute [local instance] projectiveEquivalenceFunctorAdditive
+
 /-- The actual derived associator preserves the signed shift in the middle variable. -/
-theorem derivedConvolution_middleAssociatorCommShift : MiddleAssociatorCommShift D := by
-  let I := (boundedAboveProjectiveEquivalence k).inverse
-  let := derivedConvolutionInverseMonoidal (k := k)
-  let := derivedConvolutionInverseMonoidalCommShift (k := k)
-  exact middleAssociatorCommShift_of_faithful I convolutionProjective_middleAssociatorCommShift
+theorem derivedConvolution_middleAssociatorCommShift :
+    Monoidal.TransportedMiddleAssociatorCommShift
+      (C := BoundedAboveProjectiveHomotopy k)
+      (sourceShift := convolutionProjectiveCommShift₂Int (k := k))
+      (boundedAboveProjectiveEquivalence k) :=
+  Monoidal.middleAssociatorCommShift_transport
+    (C := BoundedAboveProjectiveHomotopy k)
+    (sourceShift := convolutionProjectiveCommShift₂Int (k := k))
+    (boundedAboveProjectiveEquivalence k)
+    (shiftEquivalence := boundedAboveProjectiveEquivalenceCommShift k)
+    convolutionProjective_middleAssociatorCommShift
+
+end Transport
 
 variable [PerfectField k] [HasDerivedCategory.{w'} (SheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w''} AddCommGrpCat.{u + 1}]

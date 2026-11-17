@@ -5,6 +5,7 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.CategoryTheory.Monoidal.TransportCommShift
 public import Mathlib.CategoryTheory.Monoidal.Braided.Basic
 public import Mathlib.CategoryTheory.Shift.CommShiftTwo
 import Mathlib.CategoryTheory.EssentialImage
@@ -304,3 +305,31 @@ theorem middleAssociatorCommShift_of_faithful
   infer_instance
 
 end CategoryTheory.MonoidalCategory
+
+namespace CategoryTheory.Monoidal
+
+variable {C D : Type*} [Category* C] [Category* D] [MonoidalCategory C]
+  [Preadditive C] [Preadditive D] [HasShift C ℤ] [HasShift D ℤ]
+  [∀ n : ℤ, (shiftFunctor C n).Additive] [∀ n : ℤ, (shiftFunctor D n).Additive]
+  (e : C ≌ D) [e.functor.CommShift ℤ] [e.inverse.CommShift ℤ] [e.functor.Additive]
+  [sourceShift : (curriedTensor C).CommShift₂Int]
+
+/-- Compatibility of the middle associator with the shifts transported along the equivalence. -/
+abbrev TransportedMiddleAssociatorCommShift : Prop :=
+  letI := transport e
+  letI := Functor.CommShift₂.monoidalTransportInt e
+  MiddleAssociatorCommShift D
+
+variable [shiftEquivalence : e.CommShift ℤ]
+
+include shiftEquivalence in
+/-- The transported associator preserves middle shifts through the actual monoidal equivalence. -/
+theorem middleAssociatorCommShift_transport
+    (h : MiddleAssociatorCommShift C) : TransportedMiddleAssociatorCommShift e := by
+  let := transport e
+  let := Functor.CommShift₂.monoidalTransportInt e
+  let : e.inverse.Monoidal := inferInstanceAs ((equivalenceTransported e).inverse.Monoidal)
+  let := equivalenceTransported_inverse_monoidalCommShift e
+  exact middleAssociatorCommShift_of_faithful e.inverse h
+
+end CategoryTheory.Monoidal
