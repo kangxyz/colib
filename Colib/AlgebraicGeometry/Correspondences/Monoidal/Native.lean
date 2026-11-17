@@ -39,7 +39,8 @@ namespace AlgebraicGeometry.Cor
 variable {k : Type u} [Field k]
 
 /-- The native signed finite correspondences form a monoidal category over an arbitrary field. -/
-@[colib_tag "COL-1297"]
+@[colib_tag "COL-1297", colib_ref "MVW2006" "Lecture 1, Definition 1.9, p. 6"
+  "background" "Tensor-product convention for finite correspondences; the arbitrary-field symmetric monoidal structure is constructed here."]
 instance monoidalCategory : MonoidalCategory (Cor k) :=
   exteriorMonoidalCategory exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality
