@@ -1,12 +1,12 @@
 [entry]
 id = "COL-0599"
-title = "Tensor ordinary-presentation basic localization"
+title = "Localization for the ordinary-colimit Bass presentation"
 kind = "theorem"
 section = "thomason-trobaugh-localization"
 order = 260
 statement = '''
 Let $f:P\to Q$ be an open immersion, where $P,Q$ are quasi-compact and $Q$ is quasi-separated.
-For the actual tensor-normalized ordinary-colimit presentations evaluated at
+For the ordinary-colimit presentations of the Bass construction evaluated at
 $\operatorname{Spec}(\operatorname{ULift}\mathbb{Z})$, the support-forgetting map and full-open
 restriction, together with their original selected nullhomotopy, induce a stable equivalence
 from the supported presentation to the homotopy fiber of restriction.

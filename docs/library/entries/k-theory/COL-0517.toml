@@ -20,7 +20,7 @@ Its two-structure exchange equation is an explicit initial hypothesis; no all-st
 exchange law, generated trace or involutivity is assumed in the iteration theorem.
 The old loop coordinate, quotient-cylinder height and both structure times remain
 independent. Separate involutivity lemmas retain their explicit involutivity hypothesis.
-This is the finite row-interchange ingredient for the tensor-generated construction,
+This is the finite row-interchange ingredient for the construction of the Bass transition maps,
 not the construction of its tensor unit, complete generated trace, stable equivalence,
 negative K-theory localization, or Thomason--Trobaugh 7.4.
 """
