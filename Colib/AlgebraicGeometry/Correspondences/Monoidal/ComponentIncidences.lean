@@ -316,14 +316,12 @@ theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
   let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
   let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
   let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  dsimp only [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
+    Iso.trans_hom, asIso_hom]
   apply pullback.hom_ext
-  · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
-      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, Iso.trans_hom, asIso_hom,
-      pullback.congrHom_hom,
+  · simp [Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
       pullback.map, exteriorLeftComponentMap, reducedClosureComponentInclusion, Category.assoc]
-  · simp [exteriorComponentSupportReducedClosuresIso, reducedClosureComponentProductIso,
-      Scheme.Hom.productClosedMap, exteriorComponentSupportMap, Iso.trans_hom, asIso_hom,
-      pullback.congrHom_hom,
+  · simp [Scheme.Hom.productClosedMap, exteriorComponentSupportMap, pullback.congrHom_hom,
       pullback.map, exteriorRightComponentMap, reducedClosureComponentInclusion, Category.assoc]
 
 /-- The exact comparison of component products retains the full local multiplicity. -/
@@ -669,7 +667,7 @@ theorem length_stalk_exteriorWholeSupport_eq_mul_component
   have hβ : pullback.snd (l ≫ g) (r ≫ g) (w ξ.val) = β.val :=
     congrArg Subtype.val hlabels.2
   let e := exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β
-  let ζ : genericPoints ClosureProduct :=
+  let ζ : genericPoints (show Scheme from ClosureProduct) :=
     ⟨e.hom ξ.val, mem_genericPoints_of_flat e.hom ξ.property⟩
   have he : Scheme.Hom.productClosedMap (l ≫ g) (r ≫ g)
       (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι ζ.val =
