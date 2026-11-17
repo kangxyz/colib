@@ -63,7 +63,7 @@ theorem actual_global_K0_joint_kernel
   boundedTerms_acyclic_single_zero_eq_one P 0 d c h
 end
 
-private abbrev schemeFiniteLocallyFree (X : AlgebraicGeometry.Scheme.{u}) :
+abbrev schemeFiniteLocallyFree (X : AlgebraicGeometry.Scheme.{u}) :
     ObjectProperty X.Modules :=
   fun M ↦ SheafOfModules.IsFiniteLocallyFree.{u, u, u} M
 
