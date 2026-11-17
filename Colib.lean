@@ -7010,6 +7010,7 @@ public import Colib.Topology.PathSubdivision.SlabCover
 public import Colib.Topology.PathSubdivision.TailMaps
 public import Colib.Topology.PathSubdivision.TimePaths
 public import Colib.Topology.PlusConstruction.Basic
+public import Colib.Topology.PlusConstruction.ClassicalCWUniquenessAssembly
 public import Colib.Topology.PlusConstruction.CommonUniverse
 public import Colib.Topology.PlusConstruction.DisplayedComparisonChains
 public import Colib.Topology.PlusConstruction.DisplayedComparisonCover
