@@ -283,6 +283,7 @@ attribute [local irreducible] Cor.graphFunctor SheafWithTransfers.transferRepres
 set_option backward.isDefEq.respectTransparency true
 
 set_option maxHeartbeats 750000 in
+-- Match the transported first corner with the specified augmentation.
 /-- The overlap component of the derived row is the original augmentation comparison. -/
 theorem pairCoverRowIso_hom₁ (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₁ = (derivedProductPairEndIso k j sq.X₁).hom := by
@@ -300,6 +301,7 @@ theorem pairCoverRowIso_hom₁ (sq : Square Sm(k)) :
     ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₁)))
 
 set_option maxHeartbeats 750000 in
+-- Match the transported fourth corner with the specified augmentation.
 /-- The union component of the derived row is the original augmentation comparison. -/
 theorem pairCoverRowIso_hom₃ (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₃ = (derivedProductPairEndIso k j sq.X₄).hom := by
@@ -317,6 +319,7 @@ theorem pairCoverRowIso_hom₃ (sq : Square Sm(k)) :
     ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₄)))
 
 set_option maxHeartbeats 750000 in
+-- Identify the coefficient map on the first chart through the mapped biproduct.
 /-- The first projection of the product row is the original pair comparison on that chart. -/
 theorem pairCoverRowIso_hom₂_fst (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₂ ≫
@@ -338,6 +341,7 @@ theorem pairCoverRowIso_hom₂_fst (sq : Square Sm(k)) :
     ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₂))))
 
 set_option maxHeartbeats 750000 in
+-- Identify the coefficient map on the second chart through the mapped biproduct.
 /-- The second projection of the product row is the original pair comparison on that chart. -/
 theorem pairCoverRowIso_hom₂_snd (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₂ ≫
