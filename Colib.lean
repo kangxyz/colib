@@ -4282,6 +4282,7 @@ public import Colib.CategoryTheory.SemisimplexResolution.Contraction
 public import Colib.CategoryTheory.Shift.CommShiftTwoComparison
 public import Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithful
 public import Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithfulData
+public import Colib.CategoryTheory.Shift.CommShiftTwoMonoidal
 public import Colib.CategoryTheory.Shift.CommShiftTwoPrecompPostcomp
 public import Colib.CategoryTheory.Shift.WhiskeredUnitCommShift
 public import Colib.CategoryTheory.Shift.WhiskeringComparison
