@@ -4202,6 +4202,7 @@ public import Colib.CategoryTheory.Monoidal.TranslationTelescopeShift
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeStages
 public import Colib.CategoryTheory.Monoidal.TranslationTelescopeTransitions
 public import Colib.CategoryTheory.Monoidal.TransportCommShift
+public import Colib.CategoryTheory.Monoidal.TransportedTensorComparison
 public import Colib.CategoryTheory.Monoidal.TransportedTensorRightCommShift
 public import Colib.CategoryTheory.Monoidal.TrivialAction
 public import Colib.CategoryTheory.NaturalTransformation.HExt

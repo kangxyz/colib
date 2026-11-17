@@ -7,6 +7,7 @@ module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.ProjectiveMonoidal
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.DerivedConvolution
+public import Colib.CategoryTheory.Monoidal.TransportedTensorComparison
 public import Mathlib.CategoryTheory.Monoidal.Braided.Transport
 public import Mathlib.CategoryTheory.Monoidal.Subcategory
 
@@ -63,18 +64,15 @@ set_option maxHeartbeats 1000000 in
 -- Identify both whiskerings after applying the actual derived quotient.
 /-- The transported tensor is the bifunctor defined by the original projective resolutions. -/
 def derivedConvolutionTensorIso : curriedTensor D ≅ derivedConvolution F := by
-  refine NatIso.ofComponents (fun K => NatIso.ofComponents
-    (fun L => Iso.refl ((E).functor.obj ((E).inverse.obj K ⊗ (E).inverse.obj L))) (fun g => ?_))
-    (fun f => ?_)
+  let V := (E).functor
+  let I := (E).inverse
+  let T := derivedConvolution F
+  refine Monoidal.transportTensorIso (E) T (fun K L => Iso.refl (V.obj (I.obj K ⊗ I.obj L)))
+    (fun {_ _} f L => ?_) (fun K {_ _} g => ?_)
+  · exact (Category.comp_id _).trans (Category.id_comp _).symm
   · apply ObjectProperty.hom_ext
-    change DerivedCategory.Qh.map (((E).inverse.obj K).obj ◁ ((E).inverse.map g).hom) ≫ 𝟙 _ =
-      𝟙 _ ≫ DerivedCategory.Qh.map (((E).inverse.obj K).obj ◁ ((E).inverse.map g).hom)
-    rw [Category.comp_id, Category.id_comp]
-  · apply NatTrans.ext
-    funext L
-    apply ObjectProperty.hom_ext
-    change DerivedCategory.Qh.map (((E).inverse.map f).hom ▷ ((E).inverse.obj L).obj) ≫ 𝟙 _ =
-      𝟙 _ ≫ DerivedCategory.Qh.map (((E).inverse.map f).hom ▷ ((E).inverse.obj L).obj)
+    change DerivedCategory.Qh.map ((I.obj K).obj ◁ (I.map g).hom) ≫ 𝟙 _ =
+      𝟙 _ ≫ DerivedCategory.Qh.map ((I.obj K).obj ◁ (I.map g).hom)
     rw [Category.comp_id, Category.id_comp]
 
 /-- The unit is the representable of the correspondence unit in degree zero. -/
