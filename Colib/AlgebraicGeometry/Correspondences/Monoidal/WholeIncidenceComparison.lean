@@ -489,8 +489,8 @@ set_option quotPrecheck false in
 local notation "residualMap" =>
   Scheme.Hom.productClosedMap F G (ResidualLeft).subschemeι (ResidualRight).subschemeι
 
-set_option maxHeartbeats 1200000 in
--- The scalar actions are checked at the original points of all three ambient diagrams.
+set_option maxHeartbeats 2400000 in
+-- Weighted transport checks three ambient diagrams and derives residual stalk finiteness.
 omit [PerfectField k] in
 include ha hb hc hd in
 /-- Over arbitrary fields the whole Tor coefficient retains the residual product length. -/
