@@ -29,14 +29,13 @@ variable (k : Type u) [Field k]
 local notation "S" => Spec (CommRingCat.of k)
 local notation "π" => projection (SmoothSite.additiveGroupObject S)
 
-variable [PerfectField k]
-  [ordinaryExt : HasExt.{u + 1}
+variable [ordinaryExt : HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 set_option maxSynthPendingDepth 4 in
 /-- The original signed transfer Ext restriction along the affine projection is invertible. -/
-theorem isIso_transferExt_projection (X : SmoothSite S) (F : SheafWithTransfers.{u + 1} k)
-    (hF : F.obj.IsA1Invariant) (n : ℕ) :
+theorem isIso_transferExt_projection_of_strict (X : SmoothSite S) (F : SheafWithTransfers.{u + 1} k)
+    (hF : F.IsStrictA1Invariant) (n : ℕ) :
     let transferExt : HasExt.{u + 1} (SheafWithTransfers.{u + 1} k) :=
       hasExt_of_enoughInjectives _
     IsIso ((@transferExtPresheaf.{u + 1, u} k _ transferExt F n).map
@@ -49,7 +48,7 @@ theorem isIso_transferExt_projection (X : SmoothSite S) (F : SheafWithTransfers.
   let g := (PresheafWithTransfers.toPresheaf k).obj W
   have hW : W.IsA1Invariant :=
     (@SheafCohomology.withTransfers_isA1Invariant_iff.{u + 1, u} k _ ordinaryExt F n).2
-      ((@isStrictA1Invariant_of_perfect k _ _ ordinaryExt F hF) n)
+      (hF n)
   have hg : IsIso (g.map f) := hW X
   let d : H ≅ g := NatIso.ofComponents
     (fun V => (@transferExtEquiv.{u + 1, u + 1, u}
@@ -59,5 +58,16 @@ theorem isIso_transferExt_projection (X : SmoothSite S) (F : SheafWithTransfers.
     exact (@ordinaryCohomologyTransfers_apply.{u + 1, u + 1, u}
       k _ transferExt ordinaryExt F n _ _ ((Cor.graphFunctor k).map b.unop) x).symm)
   exact (NatIso.isIso_map_iff d f).2 hg
+
+/-- Over a perfect field ordinary A¹-invariance supplies the existing strict
+invariance property used by the general transfer Ext comparison. -/
+theorem isIso_transferExt_projection [PerfectField k]
+    (X : SmoothSite S) (F : SheafWithTransfers.{u + 1} k)
+    (hF : F.obj.IsA1Invariant) (n : ℕ) :
+    let transferExt : HasExt.{u + 1} (SheafWithTransfers.{u + 1} k) :=
+      hasExt_of_enoughInjectives _
+    IsIso ((@transferExtPresheaf.{u + 1, u} k _ transferExt F n).map
+      ((Cor.graphFunctor k).map ((π).app X)).op) :=
+  isIso_transferExt_projection_of_strict k X F (isStrictA1Invariant_of_perfect k F hF) n
 
 end AlgebraicGeometry.SheafWithTransfers
