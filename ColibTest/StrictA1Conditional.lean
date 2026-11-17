@@ -24,3 +24,6 @@ example (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) (hb : K.I
 #print axioms SheafWithTransfers.isA1Invariant_homology_forgetDerived_of_strict
 #print axioms MotivicHomotopy.isA1Invariant_homology_parameterSectionsDerived_of_strict
 #check @MotivicHomotopy.isA1Invariant_homology_parameterSectionsDerived_of_strict
+
+#print axioms MotivicHomotopy.bijective_precomp_singularUnit_to_parameterSections_of_strict
+#check @MotivicHomotopy.bijective_precomp_singularUnit_to_parameterSections_of_strict

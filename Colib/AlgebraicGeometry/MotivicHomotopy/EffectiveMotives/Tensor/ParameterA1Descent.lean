@@ -136,6 +136,19 @@ private theorem bijective_precomp_singularUnit_to_local
   rw [he]
   exact (hcomp P hP).comp (bijective_precomp_singularPresheafDerivedUnit k P X hX)
 
+omit [PerfectField k] in
+/-- The original singular augmentation is universal for maps into parameter
+sections of a bounded-above complex with strictly A¹-invariant homology. -/
+theorem bijective_precomp_singularUnit_to_parameterSections_of_strict
+    (P : DerivedCategory.Minus PST(k)) (K : DerivedCategory NST(k))
+    (b : ℤ) (hb : K.IsLE b)
+    (hK : ∀ q, ((DerivedCategory.homologyFunctor NST(k) q).obj K).IsStrictA1Invariant) :
+    Function.Bijective (fun f :
+      ((Sing(k)).obj P).obj ⟶ (U(k)).obj ((R(e)).obj K) =>
+        ((singη(k)).app P).hom ≫ f) :=
+  bijective_precomp_singularUnit_to_local P _
+    (isA1Invariant_homology_parameterSectionsDerived_of_strict e K b hb hK)
+
 private def effectiveParameterHomEquiv
     (P : DerivedCategory.Minus PST(k)) (K : EffectiveMotivesMinus k) :
     (((L(F) ⋙ q(k)).obj P) ⟶ K) ≃ (P.obj ⟶ (U(k)).obj ((R(e)).obj ((j(k)).obj K))) :=
