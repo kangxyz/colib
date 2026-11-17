@@ -2,7 +2,7 @@
 id = "COL-1088"
 title = "Finite flat transposes and transfer degree"
 kind = "theorem"
-section = "finite-correspondences"
+section = "finite-degree-and-descent"
 order = 65
 primary = "AlgebraicGeometry.Cor.finiteFlatTranspose_comp_graph_of_isIntegral"
 review = "author_checked"

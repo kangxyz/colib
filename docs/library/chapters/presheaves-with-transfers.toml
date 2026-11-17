@@ -3,16 +3,23 @@ id = "presheaves-with-transfers"
 title = "Presheaves with Transfers"
 order = 51
 introduction = '''
-An additive functor on the opposite of the finite correspondence category gives
-transfers; graph restriction recovers its ordinary presheaf. Develop sectionwise
-cokernels and singular complexes first, followed by torus cancellation and the
-transfer actions used in rigidity. None of these constructions imposes a sheaf
-condition. See [@MVW2006, Lectures 2 and 7].
+Start with additive presheaves on the original finite correspondence category.
+The integral Day tensor extends the symmetric additive tensor of COL-1297;
+it is not the objectwise tensor of underlying presheaves. Suslin complexes,
+reduced-torus cancellation and transfer actions then develop distinct uses
+of this common correspondence category.
 
-Nisnevich Sheaves with Transfers develops the reflector of COL-0372 and its
-cohomological consequences. The singular-complex comparison of COL-0397 links
-the two chapters. Suslin rigidity in Étale Motivic Theory uses these transfer
-actions and culminates in COL-1222.
+No sheaf condition is imposed in this chapter. Nisnevich and étale theory
+must separately justify sheafification and tensor-compatible localization;
+ordinary tensor, derived tensor and affine-line localization are different
+steps. The common integral construction is developed for preadditive symmetric
+monoidal categories with binary biproducts and monoidal preadditivity;
+PST is its specialization to Cor k, not a second tensor model.
+See [@MVW2006, Lecture 2, Definition 2.1, p. 13; Lecture 8, Lemma 8.3, p. 56].
+
+The radicial route uses prime-to-characteristic torsion, not homotopy
+invariance. The final action-theoretic route uses homotopy invariance and
+geometric moving relations, and feeds Suslin rigidity in Étale Motivic Theory.
 '''
 
 [[sections]]
@@ -37,9 +44,31 @@ inherits the prescribed transfers.
 '''
 
 [[sections]]
+id = "transfer-presheaf-tensor"
+title = "Integral tensor and Day convolution"
+order = 20
+introduction = '''
+The general integral coend uses the actual Hom groups of a preadditive
+category. For the symmetric structure, assume binary biproducts and a
+symmetric monoidal preadditive tensor. Specializing to Cor k gives the same
+signed correspondence generators and transfer maps. The unit is the additive
+representable, not a free-Hom ordinary Day unit. No perfectness or sheaf
+hypothesis enters the PST construction.
+'''
+
+[sections.transitions]
+COL-1302 = '''
+Carry the native Cor tensor of COL-1297 into additive presheaves. Transfer
+relations enforce additivity in correspondence labels; forgetting these
+relations would change the construction. The result is the common PST
+input for the separate Nisnevich and étale developments, not yet either
+sheaf tensor or its derived version.
+'''
+
+[[sections]]
 id = "transfer-singular-complexes"
 title = "Suslin complexes and homotopy-invariant homology"
-order = 20
+order = 30
 introduction = '''
 For an additive transfer presheaf \(P\), take sections
 \(P(X\times_k\Delta_k^r)\) and the alternating sum of face maps. Graph
@@ -61,7 +90,7 @@ algebraic singular projection. Apply the interval homotopy of COL-0349.
 [[sections]]
 id = "transfer-torus-cancellation"
 title = "Reduced torus comparison and cancellation"
-order = 30
+order = 40
 introduction = '''
 The reduced torus is obtained by splitting off the unit section. Apply the
 singular construction of COL-0397 to its exterior-product comparison, then
@@ -79,30 +108,6 @@ COL-1045 = '''
 The principal cuts of COL-1040 and the relative polynomial homotopy of
 COL-1043 apply to the comparison in COL-1039. A common exponent permits
 all the face restrictions of a normalized cycle.
-'''
-
-[[sections]]
-id = "homotopy-invariant-transfer-actions"
-title = "Homotopy-invariant transfer actions"
-order = 40
-introduction = '''
-For a homotopy-invariant presheaf with transfers, the two affine-line endpoints act identically. The principal polynomial correspondences of COL-1100 and the framed divisor relation of COL-1072 turn this into equality of the original finite-pair actions. This is the action-theoretic role of [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17], separate from Nisnevich sheafification.
-'''
-
-[sections.transitions]
-COL-1105 = '''
-The original full-boundary-normalized unit now produces the required
-polynomial homotopy through COL-1100. Applying this to the actual moving
-relation kills its principal correction. Given the original finite pair,
-positive torsion therefore identifies its divisor and section-graph actions
-on general smooth finite-type stages, without a local-ring hypothesis.
-'''
-COL-1211 = '''
-Before imposing a sheaf condition, ordinary homotopy invariance makes the
-actual affine-cylinder sections act identically. Signed correspondence
-composition and torsion cancellation retain the original graph restrictions.
-This is the action-theoretic consumer for rigidity; its geometric moving
-family remains a separate input.
 '''
 
 [[sections]]
@@ -139,4 +144,27 @@ through the literal native iterated Frobenius, to a closed point with
 separable residue field. Its actual marked factorization and the original
 iterated transfer isomorphism are retained. Characteristic-zero closed
 residue fields are already finite separable.
+'''
+[[sections]]
+id = "homotopy-invariant-transfer-actions"
+title = "Homotopy-invariant transfer actions"
+order = 60
+introduction = '''
+For a homotopy-invariant presheaf with transfers, the two affine-line endpoints act identically. The principal polynomial correspondences of COL-1100 and the framed divisor relation of COL-1072 turn this into equality of the original finite-pair actions. This is the action-theoretic role of [@MVW2006, Lecture 7, Lemma 7.5 and Corollary 7.17], separate from Nisnevich sheafification.
+'''
+
+[sections.transitions]
+COL-1105 = '''
+The original full-boundary-normalized unit now produces the required
+polynomial homotopy through COL-1100. Applying this to the actual moving
+relation kills its principal correction. Given the original finite pair,
+positive torsion therefore identifies its divisor and section-graph actions
+on general smooth finite-type stages, without a local-ring hypothesis.
+'''
+COL-1211 = '''
+Before imposing a sheaf condition, ordinary homotopy invariance makes the
+actual affine-cylinder sections act identically. Signed correspondence
+composition and torsion cancellation retain the original graph restrictions.
+This is the action-theoretic consumer for rigidity; its geometric moving
+family remains a separate input.
 '''
