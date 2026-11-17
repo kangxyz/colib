@@ -626,6 +626,7 @@ class LibraryTests(unittest.TestCase):
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",
             "homotopy-groups": "Colib.Topology.Homotopy.HomotopyGroup.Map",
             "homotopy-colimits": "Colib.Topology.Pushout.HomotopyEquivalence",
+            "cw-plus-constructions": "Colib.Topology.PlusConstruction.ClassicalCWUniquenessUniverseLift",
             "quillen-k-theory": "Colib.KTheory.Quillen.Basic",
             "grothendieck-groups": "Colib.KTheory.GrothendieckGroup.Basic",
             "k-zero-of-fields": "Colib.RingTheory.KTheory.GrothendieckGroup.Field",
