@@ -368,8 +368,9 @@ private theorem weighted_componentCoefficient_eq_finsum_support :
         ((P).presheaf.stalk (w ξ.val.val))).toNat : ℤ) * term (e ξ).val
       rw [hlen]
       simp only [ENat.toNat_mul, Nat.cast_mul]
-      rw [componentTorTerm_eq X Y Z U V W a b c d ha hb hc hd z α β z' hz₀ ξ]
-      ring
+      exact (mul_assoc _ _ _).symm.trans
+        (congrArg (fun n : ℤ => _ * n)
+          (componentTorTerm_eq X Y Z U V W a b c d ha hb hc hd z α β z' hz₀ ξ).symm)
     · intro t ht
       exfalso
       exact ht (Subtype.ext (Subtype.ext
