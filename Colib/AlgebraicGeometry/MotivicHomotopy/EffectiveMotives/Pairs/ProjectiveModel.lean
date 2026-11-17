@@ -11,8 +11,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Nisnevich
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.ReducedProjective
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.RepresentableUnit
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.ProjectiveModel.Triangulated
-public import Colib.Algebra.Homology.MappingCone.ShortExact
-import Colib.Algebra.Homology.CochainComplex.SplitFactorization.AdditiveMap
+public import Colib.Algebra.Homology.MappingCone.NaturalIso
 public import Mathlib.Algebra.Homology.HomotopyCategory.ShortExact
 
 /-!
@@ -75,6 +74,12 @@ def projectivePairModel : Arrow Sm(k) ⥤ BoundedAboveProjectiveHomotopy k :=
 local notation "a(" K ")" => nisnevichSheafify K
 local notation "s(" K ")" => CochainComplex.singleFunctor NST(K) 0
 
+/-- The graph map between the transfer representables, placed in degree zero. -/
+def cochainTransferPairArrow :
+    Arrow.leftFunc ⋙ (smoothTransferRepresentable k ⋙ s(k)) ⟶
+      Arrow.rightFunc ⋙ (smoothTransferRepresentable k ⋙ s(k)) :=
+  Functor.whiskerRight (Arrow.leftToRight (C := Sm(k))) (smoothTransferRepresentable k ⋙ s(k))
+
 /-- The transfer quotient sequence of a pair, put in degree zero. -/
 abbrev cochainTransferPair (j : Arrow Sm(k)) : ShortComplex (CochainComplex NST(k) ℤ) :=
   (transferPairSequence k j).map (s(k))
@@ -86,10 +91,10 @@ abbrev cochainTransferPairCone (j : Arrow Sm(k)) :=
 /-- A map of relative pairs acts on the original sheaf graph cones term by term. -/
 def cochainTransferPairConeMap {i j : Arrow Sm(k)} (φ : i ⟶ j) :
     cochainTransferPairCone k i ⟶ cochainTransferPairCone k j :=
-  (CochainComplex.mappingConeNatTransFunctor
-    (Arrow.leftToRight (C := CochainComplex NST(k) ℤ))).map
-    (ShortComplex.fFunctor.map ((s(k)).mapShortComplex.map (transferPairSequenceMap k φ)))
+  (CochainComplex.mappingConeNatTransFunctor (cochainTransferPairArrow k)).map φ
 
+set_option maxHeartbeats 800000 in
+-- Identify the functorial cone map with the map of the quotient sequence.
 /-- The cone augmentation commutes with the literal map of quotients. -/
 theorem cochainTransferPairConeMap_desc {i j : Arrow Sm(k)} (φ : i ⟶ j) :
     cochainTransferPairConeMap k φ ≫ CochainComplex.mappingCone.descShortComplex
@@ -114,58 +119,39 @@ theorem sheafifiedPairEndpoints_naturality {X Y : Sm(k)} (f : X ⟶ Y) :
   (HomologicalComplex.singleMapHomologicalComplex (a(k)) c (0 : ℤ)).hom.naturality
     ((representableLarge k).map ((Cor.graphFunctor k).map f))
 
+/-- Sheafification of the original graph cone is computed by applying the
+termwise comparison and the isomorphisms of its two endpoint complexes. -/
+def sheafifiedPairConeNatIso :
+    projectivePairCochain k ⋙ (a(k)).mapHomologicalComplex c ≅
+      CochainComplex.mappingConeNatTransFunctor (cochainTransferPairArrow k) := by
+  let A := (a(k)).mapHomologicalComplex c
+  let e : projectiveSmoothSingle k ⋙ A ≅ smoothTransferRepresentable k ⋙ s(k) :=
+    NatIso.ofComponents (sheafifiedPairEndpoints k)
+      (fun f => sheafifiedPairEndpoints_naturality k f)
+  let i := Functor.isoWhiskerLeft Arrow.leftFunc e
+  let j := Functor.isoWhiskerLeft Arrow.rightFunc e
+  let α := Functor.whiskerRight (projectivePairArrow k) A
+  have h : α ≫ j.hom = i.hom ≫ cochainTransferPairArrow k := by
+    apply NatTrans.ext
+    funext K
+    exact sheafifiedPairEndpoints_naturality k K.hom
+  exact CochainComplex.mappingConeNatTransFunctorMapIso (projectivePairArrow k) (a(k)) ≪≫
+    CochainComplex.mappingConeNatTransFunctorIso α (cochainTransferPairArrow k) i j h
+
 /-- The termwise sheafification comparison for the chosen literal cone. -/
 def sheafifiedPairConeIso (j : Arrow Sm(k)) :
     ((a(k)).mapHomologicalComplex c).obj ((projectivePairCochain k).obj j) ≅
-      CochainComplex.mappingCone (cochainTransferPair k j).f := by
-  let f := (projectivePairArrow k).app j
-  let g := ((a(k)).mapHomologicalComplex c).map f
-  let h := (cochainTransferPair k j).f
-  let e₁ := sheafifiedPairEndpoints k j.left
-  let e₂ := sheafifiedPairEndpoints k j.right
-  have he : e₁.hom ≫ h = g ≫ e₂.hom :=
-    (sheafifiedPairEndpoints_naturality k j.hom).symm
-  let e : Arrow.mk g ≅ Arrow.mk h := Arrow.isoMk e₁ e₂ he
-  let F := CochainComplex.mappingConeNatTransFunctor
-    (Arrow.leftToRight (C := CochainComplex NST(k) ℤ))
-  exact CochainComplex.mappingCone.mapHomologicalComplexIso f (a(k)) ≪≫ F.mapIso e
+      CochainComplex.mappingCone (cochainTransferPair k j).f :=
+  (sheafifiedPairConeNatIso k).app j
 
 set_option maxHeartbeats 1200000 in
--- Pin the two sources of functoriality before comparing the actual cone maps.
+-- Identify the component of the natural isomorphism on the chosen cochain model.
 /-- Sheafification takes the original pair cone map to the literal transfer cone map. -/
 theorem sheafifiedPairConeIso_naturality {i j : Arrow Sm(k)} (φ : i ⟶ j) :
     ((a(k)).mapHomologicalComplex c).map ((projectivePairCochain k).map φ) ≫
         (sheafifiedPairConeIso k j).hom =
-      (sheafifiedPairConeIso k i).hom ≫ cochainTransferPairConeMap k φ := by
-  let A := (a(k)).mapHomologicalComplex c
-  let F := CochainComplex.mappingConeNatTransFunctor
-    (Arrow.leftToRight (C := CochainComplex NST(k) ℤ))
-  let e (b : Arrow Sm(k)) :
-      Arrow.mk (A.map ((projectivePairArrow k).app b)) ≅ Arrow.mk (cochainTransferPair k b).f :=
-    Arrow.isoMk (sheafifiedPairEndpoints k b.left) (sheafifiedPairEndpoints k b.right)
-      (sheafifiedPairEndpoints_naturality k b.hom).symm
-  let u := Arrow.homMk' ((projectiveSmoothSingle k).map φ.left)
-    ((projectiveSmoothSingle k).map φ.right) ((projectivePairArrow k).naturality φ)
-  let v := ShortComplex.fFunctor.map
-    ((s(k)).mapShortComplex.map (transferPairSequenceMap k φ))
-  have h : A.mapArrow.map u ≫ (e j).hom = (e i).hom ≫ v := by
-    apply Arrow.hom_ext
-    · exact sheafifiedPairEndpoints_naturality k φ.left
-    · exact sheafifiedPairEndpoints_naturality k φ.right
-  change A.map ((projectivePairCochain k).map φ) ≫
-      (CochainComplex.mappingCone.mapHomologicalComplexIso _ (a(k))).hom ≫ F.map (e j).hom =
-    ((CochainComplex.mappingCone.mapHomologicalComplexIso _ (a(k))).hom ≫ F.map (e i).hom) ≫
-      F.map v
-  have ha := CochainComplex.SplitFactorization.coneMapIso_naturality (a(k))
-    ((projectivePairArrow k).app i) ((projectivePairArrow k).app j)
-    ((projectiveSmoothSingle k).map φ.left) ((projectiveSmoothSingle k).map φ.right)
-    ((projectivePairArrow k).naturality φ).symm
-  change A.map ((projectivePairCochain k).map φ) ≫
-      (CochainComplex.mappingCone.mapHomologicalComplexIso _ (a(k))).hom =
-    (CochainComplex.mappingCone.mapHomologicalComplexIso _ (a(k))).hom ≫
-      F.map (A.mapArrow.map u) at ha
-  rw [← Category.assoc, ha, Category.assoc, Category.assoc, ← F.map_comp, ← F.map_comp, h]
-  rfl
+      (sheafifiedPairConeIso k i).hom ≫ cochainTransferPairConeMap k φ :=
+  (sheafifiedPairConeNatIso k).hom.naturality φ
 
 variable [HasDerivedCategory.{w} PST(k)] [HasDerivedCategory.{w'} NST(k)]
 
