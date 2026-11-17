@@ -11,6 +11,7 @@ import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.Excision
 public import Colib.AlgebraicGeometry.MotivicHomotopy.Purity.NormalBundleChartCover
 import Colib.AlgebraicGeometry.Correspondences.Coproducts.Zero
 import Colib.Algebra.Homology.DerivedCategory.MapTriangleCommShift
+import Colib.CategoryTheory.Triangulated.ThirdObjectIso
 import StacksFrontier.CategoryTheory.Sites.AbelianSheafificationExistence
 
 /-! # Invertibility of the supported Thom map by open-cover descent -/
@@ -49,16 +50,6 @@ private theorem biprod_map_comp_comparison {C D : Type*} [Category* C] [Category
   apply biprod.hom_ext
   · simp only [Category.assoc, biprod.map_fst, biprod.map_fst_assoc]
   · simp only [Category.assoc, biprod.map_snd, biprod.map_snd_assoc]
-
-private theorem isIso_triangle_comp_hom₃ {C : Type*} [Category* C] [HasZeroObject C]
-    [HasShift C ℤ] [Preadditive C] [∀ n : ℤ, (shiftFunctor C n).Additive] [Pretriangulated C]
-    {S P T U : Triangle C} (s : S ⟶ P) (e : T ≅ P) (c : T ⟶ U)
-    (hs : S ∈ distTriang C) (hu : U ∈ distTriang C)
-    {B : C} (d : U.obj₂ ≅ B) (b : S.obj₂ ≅ B)
-    (h₁ : IsIso (s.hom₁ ≫ e.inv.hom₁ ≫ c.hom₁))
-    (h₂ : (s.hom₂ ≫ e.inv.hom₂ ≫ c.hom₂) ≫ d.hom = b.hom) :
-    IsIso (s.hom₃ ≫ e.inv.hom₃ ≫ c.hom₃) :=
-  isIso₃_of_isIso₁₂ (s ≫ e.inv ≫ c) hs hu h₁ (IsIso.of_isIso_fac_right h₂)
 
 variable (k : Type u) [Field k] [PerfectField k]
 
@@ -192,20 +183,10 @@ private theorem isIso_Thom_sup (W W' : Z.left.Opens)
   have hs₃ : s.hom₃ = a₄ := effectivePairOpenCoverTriangleMap_hom₃ k ac bc hc ha hb
   let : IsIso (Thom(W)) := hW
   let : IsIso (Thom(W')) := hW'
-  have hf₁ : s.hom₁ ≫ e.inv.hom₁ ≫ cT.hom₁ = Thom(W ⊓ W') := by
-    have hv : e.hom.hom₁ = b₁.hom := effectivePairProductOpenCoverTriangleIso_hom₁ k j sq h hb
-    have he : Triangle.π₁.mapIso e = b₁ := Iso.ext hv
-    have hv' : e.inv.hom₁ = b₁.inv := congrArg Iso.inv he
-    change s.hom₁ ≫ e.inv.hom₁ ≫ c.app ((M).obj sq.X₁) =
-      a₁ ≫ b₁.inv ≫ c.app ((M).obj sq.X₁)
-    exact congrArg₂ (fun u v => u ≫ v ≫ c.app ((M).obj sq.X₁)) hs₁ hv'
-  have hf₃ : s.hom₃ ≫ e.inv.hom₃ ≫ cT.hom₃ = Thom(W ⊔ W') := by
-    have hv : e.hom.hom₃ = b₄.hom := effectivePairProductOpenCoverTriangleIso_hom₃ k j sq h hb
-    have he : Triangle.π₃.mapIso e = b₄ := Iso.ext hv
-    have hv' : e.inv.hom₃ = b₄.inv := congrArg Iso.inv he
-    change s.hom₃ ≫ e.inv.hom₃ ≫ c.app ((M).obj sq.X₄) =
-      a₄ ≫ b₄.inv ≫ c.app ((M).obj sq.X₄)
-    exact congrArg₂ (fun u v => u ≫ v ≫ c.app ((M).obj sq.X₄)) hs₃ hv'
+  have he₁ : e.hom.hom₁ = b₁.hom :=
+    effectivePairProductOpenCoverTriangleIso_hom₁ k j sq h hb
+  have he₃ : e.hom.hom₃ = b₄.hom :=
+    effectivePairProductOpenCoverTriangleIso_hom₃ k j sq h hb
   let d := G.mapBiprod X₂ X₃
   let b := biprod.mapIso (asIso (Thom(W))) (asIso (Thom(W')))
   have hh : (s.hom₂ ≫ e.inv.hom₂ ≫ cT.hom₂) ≫ d.hom = b.hom := by
@@ -220,9 +201,11 @@ private theorem isIso_Thom_sup (W W' : Z.left.Opens)
   let : G.IsTriangulated := effectiveSignedTensorLeft_isTriangulated θ K
   have hdist : T ∈ distTriang E(k) :=
     effectiveMotiveOpenCoverTriangle_distinguished k sq hsq hcover
-  exact (congrArg IsIso hf₃).mp
-    (isIso_triangle_comp_hom₃ s e cT (effectivePairOpenCoverTriangle_distinguished k ha)
-      (G.map_distinguished _ hdist) d b ((congrArg IsIso hf₁).mpr hI) hh)
+  change IsIso (a₁ ≫ b₁.inv ≫ cT.hom₁) at hI
+  change IsIso (a₄ ≫ b₄.inv ≫ cT.hom₃)
+  exact Triangle.isIso_comp_inv_hom₃_of_components s e cT
+    (effectivePairOpenCoverTriangle_distinguished k ha) (G.map_distinguished _ hdist)
+    d b hs₁ he₁ hs₃ he₃ hI hh
 
 end BinaryCover
 

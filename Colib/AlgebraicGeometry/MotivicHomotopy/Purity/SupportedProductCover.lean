@@ -6,7 +6,6 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.Purity.SupportedProductCoverMiddle
-import Colib.Algebra.Homology.CochainComplex.SplitFactorization.ArrowMap
 import Colib.CategoryTheory.Limits.BiproductComparison
 
 /-! # The biproduct component of the product-pair cover comparison -/
@@ -77,31 +76,6 @@ private theorem effectivePairCoverIso_hom₂_mapBiprod {S T : Square Sm(k)} (i :
       ((effectiveTransferSheaf k).mapBiprod (transferPairOpenCoverSquare k i).X₂
         (transferPairOpenCoverSquare k i).X₃).hom := (rfl)
 
-set_option maxHeartbeats 650000 in
--- Paste the projection, functoriality and reflection squares at their typed endpoints.
-private theorem reflectedPairCoverChartProjection (sq : Square Sm(k)) (Y : Sm(k))
-    {W : DerivedCategory.Minus NST} (f : representedCoverBiprod k sq ⟶ (R₀).obj Y)
-    (g : (s).obj (Qₚ(sq).X₂ ⊞ Qₚ(sq).X₃) ⟶ W) (d : (F).obj ((R₀).obj Y) ⟶ W)
-    (p : (tensorLeft (effectivePairMotive k j)).obj ((M).obj Y) ⟶ (r).obj W)
-    (hg : (pairCoverRowIso k j sq).hom.τ₂ ≫ g = (F).map f ≫ d)
-    (hp : (pairCoverToEffectiveCompIso k j).hom.app ((R₀).obj Y) ≫ (r).map d =
-      (tensorLeft (effectivePairMotive k j)).map (localizedRepresentableIso (Cor.mk Y)).hom ≫ p) :
-    ((pairCoverToEffectiveCompIso k j).hom.app (representedCoverBiprod k sq) ≫
-        (r).map (pairCoverRowIso k j sq).hom.τ₂) ≫ (r).map g =
-      (tensorLeft (effectivePairMotive k j)).map
-        ((q).map f ≫ (localizedRepresentableIso (Cor.mk Y)).hom) ≫
-        p := by
-  let H := tensorLeft (effectivePairMotive k j)
-  let b := (pairCoverToEffectiveCompIso k j).hom
-  let x := b.app (representedCoverBiprod k sq)
-  let y := b.app ((R₀).obj Y)
-  let z := (pairCoverRowIso k j sq).hom.τ₂
-  let a := H.map ((q).map f)
-  have hn : a ≫ y = x ≫ (r).map ((F).map f) := b.naturality f
-  have hf : a ≫ (y ≫ (r).map d) = (x ≫ (r).map z) ≫ (r).map g :=
-    CochainComplex.SplitFactorization.comp_map_of_commSq r ((F).map f) g z d a x y hg.symm hn
-  exact hf.symm.trans ((congrArg (a ≫ ·) hp).trans (H.map_comp_assoc _ _ _).symm)
-
 set_option maxHeartbeats 950000 in
 -- Read the actual middle component before applying the chart projection equations.
 private theorem pairCoverProjection_hom₂_comp_biprod (sq : Square Sm(k))
@@ -132,46 +106,6 @@ attribute [local irreducible] SmoothSite.product SmoothSite.productMap
 
 set_option backward.isDefEq.respectTransparency true in
 set_option linter.defProp false in
-set_option maxHeartbeats 1200000 in
--- Apply the reflection calculation at the literal chart quotient.
-private def reflectedPairCoverChartProjection_fst (sq : Square Sm(k)) :=
-  let H := tensorLeft (effectivePairMotive k j)
-  let Q := Qₚ(sq)
-  let f : representedCoverBiprod k sq ⟶ (R₀).obj sq.X₂ := biprod.fst
-  let g := (s).map (biprod.fst : Q.X₂ ⊞ Q.X₃ ⟶ Q.X₂)
-  let d : (F).obj ((R₀).obj sq.X₂) ⟶ (s).obj Q.X₂ :=
-    (derivedProductPairEndIso k j sq.X₂).hom
-  let l := (localizedRepresentableIso (Cor.mk sq.X₂)).hom
-  let p : H.obj ((M).obj sq.X₂) ⟶ (r).obj ((s).obj Q.X₂) :=
-    (effectivePairProductRightIso k j sq.X₂).hom
-  have hg : (pairCoverRowIso k j sq).hom.τ₂ ≫ g = (F).map f ≫ d :=
-    pairCoverRowIso_hom₂_fst k j sq
-  let y := (pairCoverToEffectiveCompIso k j).hom.app ((R₀).obj sq.X₂)
-  have hp : y ≫ (r).map d = H.map l ≫ p := reflectedDerivedProductPairEndIso k j sq.X₂
-  reflectedPairCoverChartProjection k j sq sq.X₂ f g d p hg hp
-
-set_option backward.isDefEq.respectTransparency true in
-set_option linter.defProp false in
-set_option maxHeartbeats 1200000 in
--- Apply the reflection calculation at the literal chart quotient.
-private def reflectedPairCoverChartProjection_snd (sq : Square Sm(k)) :=
-  let H := tensorLeft (effectivePairMotive k j)
-  let Q := Qₚ(sq)
-  let f : representedCoverBiprod k sq ⟶ (R₀).obj sq.X₃ := biprod.snd
-  let g := (s).map (biprod.snd : Q.X₂ ⊞ Q.X₃ ⟶ Q.X₃)
-  let d : (F).obj ((R₀).obj sq.X₃) ⟶ (s).obj Q.X₃ :=
-    (derivedProductPairEndIso k j sq.X₃).hom
-  let l := (localizedRepresentableIso (Cor.mk sq.X₃)).hom
-  let p : H.obj ((M).obj sq.X₃) ⟶ (r).obj ((s).obj Q.X₃) :=
-    (effectivePairProductRightIso k j sq.X₃).hom
-  have hg : (pairCoverRowIso k j sq).hom.τ₂ ≫ g = (F).map f ≫ d :=
-    pairCoverRowIso_hom₂_snd k j sq
-  let y := (pairCoverToEffectiveCompIso k j).hom.app ((R₀).obj sq.X₃)
-  have hp : y ≫ (r).map d = H.map l ≫ p := reflectedDerivedProductPairEndIso k j sq.X₃
-  reflectedPairCoverChartProjection k j sq sq.X₃ f g d p hg hp
-
-set_option backward.isDefEq.respectTransparency true in
-set_option linter.defProp false in
 set_option maxHeartbeats 2700000 in
 -- Paste the two reflected chart projections at their original biproducts.
 private def reflectedPairCoverBiprodComparison (sq : Square Sm(k)) :=
@@ -182,15 +116,21 @@ private def reflectedPairCoverBiprodComparison (sq : Square Sm(k)) :=
   let l₃ : (q).obj ((R₀).obj sq.X₃) ≅ (M).obj sq.X₃ := localizedRepresentableIso (Cor.mk sq.X₃)
   let v₂ : H.obj ((M).obj sq.X₂) ≅ B.obj Q.X₂ := effectivePairProductRightIso k j sq.X₂
   let v₃ : H.obj ((M).obj sq.X₃) ≅ B.obj Q.X₃ := effectivePairProductRightIso k j sq.X₃
-  let b := (pairCoverToEffectiveCompIso k j).hom.app (representedCoverBiprod k sq)
-  let m := (r).map (pairCoverRowIso k j sq).hom.τ₂
-  biprod.comp_mapBiprod_hom_eq_of_projections
+  let a : q ⋙ H ⟶ F ⋙ r := (pairCoverToEffectiveCompIso k j).hom
+  let m : (F).obj (representedCoverBiprod k sq) ⟶ (s).obj (Q.X₂ ⊞ Q.X₃) :=
+    (pairCoverRowIso k j sq).hom.τ₂
+  let d₂ : (F).obj ((R₀).obj sq.X₂) ⟶ (s).obj Q.X₂ :=
+    (derivedProductPairEndIso k j sq.X₂).hom
+  let d₃ : (F).obj ((R₀).obj sq.X₃) ⟶ (s).obj Q.X₃ :=
+    (derivedProductPairEndIso k j sq.X₃).hom
+  biprod.comp_mapBiprod_hom_eq_of_map_projections
     (C := DerivedCategory.Minus (LargePresheaves k)) (N := NST)
-    (D := DerivedCategory.Minus NST) (E := EffectiveMotivesMinus k) q H s r
+    (D := DerivedCategory.Minus NST) (E := EffectiveMotivesMinus k) q H F s r a
     (X₂ := (R₀).obj sq.X₂) (X₃ := (R₀).obj sq.X₃)
     (Q₂ := Q.X₂) (Q₃ := Q.X₃) (Y₂ := (M).obj sq.X₂) (Y₃ := (M).obj sq.X₃)
-    l₂ l₃ v₂ v₃ (b ≫ m) (reflectedPairCoverChartProjection_fst k j sq)
-    (reflectedPairCoverChartProjection_snd k j sq)
+    l₂ l₃ v₂ v₃ m d₂ d₃
+    (pairCoverRowIso_hom₂_fst k j sq) (pairCoverRowIso_hom₂_snd k j sq)
+    (reflectedDerivedProductPairEndIso k j sq.X₂) (reflectedDerivedProductPairEndIso k j sq.X₃)
 
 set_option backward.isDefEq.respectTransparency true in
 set_option maxHeartbeats 2700000 in
