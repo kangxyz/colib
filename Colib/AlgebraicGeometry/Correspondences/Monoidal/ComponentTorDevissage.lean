@@ -333,8 +333,8 @@ omit [PerfectField k] in
 /-- The component coefficient carries both input generic multiplicities. Their product
 converts the component-support weight into the actual whole-support weight. -/
 private theorem weighted_componentCoefficient_eq_finsum_support :
-    ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
-      ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+    ((Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val)).toNat : ℤ) *
+      ((Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val)).toNat : ℤ) *
     exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β =
       ∑ᶠ η : {η : All // labels η = (α, β)},
         ((Module.length ((P).presheaf.stalk η.val.val.val)
@@ -439,8 +439,8 @@ theorem structureTorCoefficient_eq_sum_weighted_componentIncidences :
     letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
     structureTorCoefficient ρ σ =
       ∑ α : genericPoints D₁, ∑ β : genericPoints D₂,
-        ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
-          ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+        ((Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val)).toNat : ℤ) *
+          ((Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val)).toNat : ℤ) *
             exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β := by
   classical
   let := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
@@ -450,8 +450,8 @@ theorem structureTorCoefficient_eq_sum_weighted_componentIncidences :
   rw [structureTorCoefficient_eq_sum_weighted_genericPairs X Y Z U V W a b c d
     ha hb hc hd z]
   rw [← Fintype.sum_prod_type' (fun α β =>
-    ((Module.length (D₁.presheaf.stalk α.val) (D₁.presheaf.stalk α.val)).toNat : ℤ) *
-      ((Module.length (D₂.presheaf.stalk β.val) (D₂.presheaf.stalk β.val)).toNat : ℤ) *
+    ((Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val)).toNat : ℤ) *
+      ((Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val)).toNat : ℤ) *
         exteriorComponentTorCoefficientAt X Y Z U V W a b c d ha hb hc hd z α β)]
   apply Finset.sum_congr rfl
   intro t _
