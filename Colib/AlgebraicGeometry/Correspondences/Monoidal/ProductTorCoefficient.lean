@@ -293,7 +293,7 @@ theorem structureTorCoefficient_product_weighted
     η hη hfinite (productClosedMap_fst_apply f g p q z) (productClosedMap_snd_apply f g p q z)
     hfin₁ hfin₂ hsupp₁ hsupp₂
 
-omit [PerfectField k] in
+omit [PerfectField k] [IsClosedImmersion p] [IsClosedImmersion q] in
 /-- On a locally Noetherian product of point closures, generic stalks have finite
 length automatically. This geometric form has no separate multiplicity finiteness assumption. -/
 theorem structureTorCoefficient_product_weighted_of_isLocallyNoetherian
