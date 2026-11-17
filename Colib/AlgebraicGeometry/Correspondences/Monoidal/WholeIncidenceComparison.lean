@@ -594,6 +594,31 @@ theorem structureTorCoefficient_wholeIncidence_weighted
     rw [transportedIncidenceTor_eq]
     rfl
 
+omit [PerfectField k] in
+include ha hb hc hd in
+/-- The residual length is exactly the coefficient of the original exterior point cycle.
+No reducedness or perfectness assumption is imposed on the incidence product. -/
+theorem structureTorCoefficient_wholeIncidence_native :
+    let x' := correspondenceWholeIncidenceGeneric X Y Z U V W a b c d x
+    structureTorCoefficient (cartesianIntersectionGenericStalkMap sq x')
+      ((t).stalkMap (j x'.val)).hom =
+      correspondenceIncidenceTorCoefficient k X.hom Y.hom Z.hom a b
+        (correspondenceWholeIncidenceFirstGeneric X Y Z U V W a b c d x) *
+      correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d
+        (correspondenceWholeIncidenceSecondGeneric X Y Z U V W a b c d x) *
+      exteriorPointCycle (p ≫ F) (q ≫ G) x₁ x₂ x.val := by
+  obtain ⟨rpoint, hrpoint⟩ := exists_generic_reducedClosures F G p q x
+  have hweighted := structureTorCoefficient_wholeIncidence_weighted
+    X Y Z U V W a b c d ha hb hc hd x rpoint hrpoint
+  have hlength := exteriorPointCycle_apply_generic F G
+    (pullback.fst F G (mp x.val)) (pullback.snd F G (mp x.val)) rpoint
+  rw [hrpoint] at hlength
+  rw [← hlength, productClosedMap_fst_apply F G p q x,
+    productClosedMap_snd_apply F G p q x] at hweighted
+  have hcycle := exteriorPointCycle_apply_closedProduct (p ≫ F) (q ≫ G) F G
+    p q rfl rfl x₁ x₂ x.val
+  exact hweighted.trans (congrArg (fun n : ℤ => _ * n) hcycle.symm)
+
 end Coefficients
 
 end Stacks.Chow
