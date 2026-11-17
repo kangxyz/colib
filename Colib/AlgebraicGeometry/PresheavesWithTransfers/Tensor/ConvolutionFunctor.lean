@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.Tensor.Convolution
+public import Colib.CategoryTheory.Preadditive.IntegralConvolutionFunctor
 import Mathlib.Algebra.Category.Grp.ZModuleEquivalence
 
 /-!
@@ -62,17 +63,12 @@ variable {P P' P'' Q Q' Q'' : PST(k)}
 /-- Apply the two coefficient maps in the external tensor. -/
 def convolutionCoefficientMap (f : P ⟶ P') (g : Q ⟶ Q') :
     convolutionCoefficientModule P Q ⟶ convolutionCoefficientModule P' Q' :=
-  Functor.whiskerLeft (prodOpEquiv (D := Cor k) (Cor k)).functor
-    (Functor.whiskerRight
-      (NatTrans.prod (Functor.whiskerRight f.hom integerModuleFunctor)
-        (Functor.whiskerRight g.hom integerModuleFunctor)) (MonoidalCategory.tensor MZ(k)))
+  CategoryTheory.Preadditive.Convolution.coefficientMap.{u + 1, u, 0} f g
 
 /-- The map of coend diagrams induced by the actual coefficient maps. -/
 def convolutionMapDiagram (f : P ⟶ P') (g : Q ⟶ Q') (X : Cor k) :
     convolutionDiagram F P Q X ⟶ convolutionDiagram F P' Q' X :=
-  Functor.curry.map (Functor.whiskerRight
-    (NatTrans.prod (convolutionCoefficientMap f g) (𝟙 (convolutionCorrespondenceModule F X)))
-    (MonoidalCategory.tensor MZ(k)))
+  CategoryTheory.Preadditive.Convolution.mapDiagram.{u + 1, u, 0} F f g X
 
 /-- The induced map of the original coend modules. -/
 def convolutionMapApp (f : P ⟶ P') (g : Q ⟶ Q') (X : Cor k) :
