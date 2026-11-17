@@ -477,6 +477,123 @@ theorem structureTorCoefficient_wholeIncidence :
     rw [transportedIncidenceTor_eq]
     rfl
 
+
+set_option quotPrecheck false in
+local notation "ResidualLeft" => integralComponentAt (pullback.fst F G (mp x.val))
+set_option quotPrecheck false in
+local notation "ResidualRight" => integralComponentAt (pullback.snd F G (mp x.val))
+set_option quotPrecheck false in
+local notation "ResidualProduct" => pullback (C := Scheme)
+  ((ResidualLeft).subschemeι ≫ F) ((ResidualRight).subschemeι ≫ G)
+set_option quotPrecheck false in
+local notation "residualMap" =>
+  Scheme.Hom.productClosedMap F G (ResidualLeft).subschemeι (ResidualRight).subschemeι
+
+set_option maxHeartbeats 1200000 in
+-- The scalar actions are checked at the original points of all three ambient diagrams.
+omit [PerfectField k] in
+include ha hb hc hd in
+/-- Over arbitrary fields the whole Tor coefficient retains the residual product length. -/
+theorem structureTorCoefficient_wholeIncidence_weighted
+    (η : genericPoints ResidualProduct) (hη : residualMap η.val = mp x.val) :
+    let x' := correspondenceWholeIncidenceGeneric X Y Z U V W a b c d x
+    structureTorCoefficient (cartesianIntersectionGenericStalkMap sq x')
+      ((t).stalkMap (j x'.val)).hom =
+      correspondenceIncidenceTorCoefficient k X.hom Y.hom Z.hom a b
+        (correspondenceWholeIncidenceFirstGeneric X Y Z U V W a b c d x) *
+      correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d
+        (correspondenceWholeIncidenceSecondGeneric X Y Z U V W a b c d x) *
+      ((Module.length ((ResidualProduct).presheaf.stalk η.val)
+        ((ResidualProduct).presheaf.stalk η.val)).toNat : ℤ) := by
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  let x' := correspondenceWholeIncidenceGeneric X Y Z U V W a b c d x
+  let Hx := t (j x'.val)
+  let Gx := mp x.val
+  let ξ := correspondenceWholeIncidenceFirstGeneric X Y Z U V W a b c d x
+  let ζ := correspondenceWholeIncidenceSecondGeneric X Y Z U V W a b c d x
+  have h₁ : Hx = (ambientIso).hom Gx :=
+    (congrArg (fun m' : P ⟶ correspondenceIntersectionAmbient f g h => m' x.val)
+      (correspondenceWholeIncidenceIso_ambient X Y Z U V W a b c d)).symm
+  have h₂ : i x'.val = (eS).hom (ps x.val) :=
+    (congrArg (fun m' : P ⟶ H => m' x.val)
+      (supportMap_iso X Y Z U V W a b c d)).symm
+  have h₃ : j x'.val = (eT).hom (pt x.val) :=
+    (congrArg (fun m' : P ⟶ correspondenceTripleProduct f g h => m' x.val)
+      (tripleMap_iso X Y Z U V W a b c d)).symm
+  let hS := productIntersectionMap_point_eq F G r s p q uS vS hs hs' x
+  let hT := productIntersectionMap_point_eq F G δ ε p q u' v' rfl rfl x
+  let αP := transportedClosedStalkMap ms (ps x.val) Gx hS
+  let βP := transportedClosedStalkMap mt (pt x.val) Gx hT
+  let wholeSupportScalar := cartesianIntersectionGenericStalkMap sq x'
+  let wholeTripleScalar := ((t).stalkMap (j x'.val)).hom
+  have hα : (isoStalkOverPoint eS (ps x.val) (i x'.val) h₂).hom.hom.comp wholeSupportScalar =
+      αP.comp (isoStalkOverPoint ambientIso Gx Hx h₁).hom.hom :=
+    transportedClosedStalkMap_congr ms m ambientIso eS
+      (correspondenceWholeSupportIso_ambient X Y Z U V W a b c d)
+      _ _ _ _ hS (cartesianIntersection_genericPoint_eq sq x') h₁ h₂
+  have hβ : (isoStalkOverPoint eT (pt x.val) (j x'.val) h₃).hom.hom.comp wholeTripleScalar =
+      βP.comp (isoStalkOverPoint ambientIso Gx Hx h₁).hom.hom := by
+    have h₀ : transportedClosedStalkMap t (j x'.val) Hx rfl = wholeTripleScalar :=
+      transportedClosedStalkMap_refl t (j x'.val)
+    exact (congrArg ((isoStalkOverPoint eT (pt x.val) (j x'.val) h₃).hom.hom.comp ·)
+      h₀.symm).trans (transportedClosedStalkMap_congr mt t ambientIso eT
+        (correspondenceWholeTripleIso_ambient X Y Z U V W) _ _ _ _ hT rfl h₁ h₃)
+  change structureTorCoefficient wholeSupportScalar wholeTripleScalar = _
+  rw [structureTorCoefficient_eq_of_ringEquiv wholeSupportScalar wholeTripleScalar αP βP
+    (isoStalkOverPoint ambientIso Gx Hx h₁).commRingCatIsoToRingEquiv
+    (isoStalkOverPoint eS (ps x.val) (i x'.val) h₂).commRingCatIsoToRingEquiv
+    (isoStalkOverPoint eT (pt x.val) (j x'.val) h₃).commRingCatIsoToRingEquiv hα hβ]
+  have hfin₁ (n : ℕ) :
+      IsFiniteLength (correspondenceIncidenceAmbientStalk X.hom Y.hom Z.hom a b x₁)
+        (transportedIncidenceTor X.hom Y.hom Z.hom a b x₁ n) := by
+    rw [transportedIncidenceTor_eq]
+    exact Module.length_ne_top_iff.mp
+      (correspondenceIncidenceTor_length_ne_top (S := Spec (.of k)) X.hom Y.hom Z.hom a b ξ n)
+  have hfin₂ (n : ℕ) :
+      IsFiniteLength (correspondenceIncidenceAmbientStalk U.hom V.hom W.hom c d x₂)
+        (transportedIncidenceTor U.hom V.hom W.hom c d x₂ n) := by
+    rw [transportedIncidenceTor_eq]
+    exact Module.length_ne_top_iff.mp
+      (correspondenceIncidenceTor_length_ne_top (S := Spec (.of k)) U.hom V.hom W.hom c d ζ n)
+  have hsupp₁ : {n : ℕ | ¬ IsZero (transportedIncidenceTor X.hom Y.hom Z.hom a b x₁ n)}.Finite :=
+    (Set.finite_Iic (correspondenceIncidenceTorDegreeBound k X.hom Y.hom Z.hom a b x₁)).subset
+      fun n hn => le_of_not_gt fun hlt => hn ((transportedIncidenceTor_eq
+        X.hom Y.hom Z.hom a b x₁ n).symm ▸
+          isZero_correspondenceIncidenceTor_of_lt k X.hom Y.hom Z.hom a b x₁ n hlt)
+  have hsupp₂ : {n : ℕ | ¬ IsZero (transportedIncidenceTor U.hom V.hom W.hom c d x₂ n)}.Finite :=
+    (Set.finite_Iic (correspondenceIncidenceTorDegreeBound k U.hom V.hom W.hom c d x₂)).subset
+      fun n hn => le_of_not_gt fun hlt => hn ((transportedIncidenceTor_eq
+        U.hom V.hom W.hom c d x₂ n).symm ▸
+          isZero_correspondenceIncidenceTor_of_lt k U.hom V.hom W.hom c d x₂ n hlt)
+  let : IsLocallyNoetherian (correspondenceIntersectionAmbient f g h) :=
+    isLocallyNoetherian_correspondenceIntersectionAmbient f g h
+  let : IsLocallyNoetherian (pullback F G) :=
+    LocallyOfFiniteType.isLocallyNoetherian (ambientIso).hom
+  let : IsLocallyNoetherian ResidualProduct :=
+    LocallyOfFiniteType.isLocallyNoetherian residualMap
+  refine (structureTorCoefficient_product_weighted_of_isLocallyNoetherian
+    F G r s δ ε p q uS vS u' v' hs hs' rfl rfl x η hη
+    hfin₁ hfin₂ hsupp₁ hsupp₂).trans ?_
+  apply congrArg (fun n : ℤ => n * _)
+  refine congrArg₂ (· * ·) ?_ ?_
+  · unfold structureTorCoefficient correspondenceIncidenceTorCoefficient
+    refine finsum_congr fun n => ?_
+    change (-1 : ℤ) ^ n * (Module.length
+      (correspondenceIncidenceAmbientStalk X.hom Y.hom Z.hom a b x₁)
+      (transportedIncidenceTor X.hom Y.hom Z.hom a b x₁ n)).toNat = _
+    rw [transportedIncidenceTor_eq]
+    rfl
+  · unfold structureTorCoefficient correspondenceIncidenceTorCoefficient
+    refine finsum_congr fun n => ?_
+    change (-1 : ℤ) ^ n * (Module.length
+      (correspondenceIncidenceAmbientStalk U.hom V.hom W.hom c d x₂)
+      (transportedIncidenceTor U.hom V.hom W.hom c d x₂ n)).toNat = _
+    rw [transportedIncidenceTor_eq]
+    rfl
+
 end Coefficients
 
 end Stacks.Chow
