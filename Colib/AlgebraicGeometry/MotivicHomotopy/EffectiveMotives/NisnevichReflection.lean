@@ -98,11 +98,11 @@ private theorem exists_common_bound (X : DerivedCategory.Minus PST) :
   exact ⟨max x y, t.isLE_of_le X.obj x _ (le_max_left _ _),
     t.isLE_of_le ((Sing).obj X).obj y _ (le_max_right _ _)⟩
 
-variable [PerfectField k]
-  [HasExt.{u + 1}
+variable [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant)
     (b i : ℤ) : ((DerivedCategory.homologyFunctor PST i).obj
       (boundedTruncation k ((U).obj K.obj.obj) b).obj).IsA1Invariant := by
   let R := (U).obj K.obj.obj
@@ -113,13 +113,15 @@ private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
     let f := (DerivedCategory.TStructure.t.truncLEι b).app R
     let : IsIso (H.map f) := Stacks.TruncationLevel.isIso_homologyMap_truncLEι_app b i hi R
     exact IsA1Invariant.of_iso
-      (SheafWithTransfers.isA1Invariant_homology_forgetDerived k K.obj.obj d hd K.property i)
+      (SheafWithTransfers.isA1Invariant_homology_forgetDerived_of_strict
+        k K.obj.obj d hd hStrict i)
       (asIso (H.map f)).symm
   · exact isA1Invariant_of_isZero
       ((DerivedCategory.isLE_iff P.obj b).1 (inferInstanceAs (P.obj.IsLE b)) i (by omega))
 
 private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategory.Minus PST)
-    (K : EffectiveMotivesMinus k) :
+    (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant) :
     Function.Bijective (fun f : ((Sing).obj P).obj ⟶ (U).obj K.obj.obj =>
       ((η).app P).hom ≫ f) := by
   obtain ⟨b, hP, hC⟩ := exists_common_bound k P
@@ -133,7 +135,7 @@ private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategor
   have hx : Function.Bijective x := bijective_comp_truncation k P R b hP
   have hy : Function.Bijective y := bijective_comp_truncation k ((Sing).obj P) R b hC
   have hv : Function.Bijective v := bijective_precomp_singularPresheafDerivedUnit k P Y
-    (isA1Invariant_truncated_forget k K b)
+    (isA1Invariant_truncated_forget k K hStrict b)
   have h : z ∘ y = x ∘ v := funext fun f => (Category.assoc _ _ _).symm
   apply (Function.Bijective.of_comp_iff z hy).1
   rw [h]
@@ -141,8 +143,9 @@ private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategor
 
 /-- Precomposition with the original Nisnevich singular augmentation is
 bijective for every effective target. -/
-theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.Minus PST)
-    (K : EffectiveMotivesMinus k) :
+theorem bijective_precomp_singularPresheafToEffectiveUnit_of_strict (P : DerivedCategory.Minus PST)
+    (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant) :
     Function.Bijective (fun f : (singularPresheafToEffective k).obj P ⟶ K =>
       (singularPresheafToEffectiveUnit k).app P ≫ (Ieff).map f) := by
   let I := effectiveMotivesMinusToDerived k
@@ -170,7 +173,18 @@ theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.M
     exact adj.homEquiv_naturality_left ((η).app P).hom (I.map α)
   apply (Function.Bijective.of_comp_iff' e'.bijective f).1
   rw [h]
-  exact (bijective_precomp_singularUnit_derivedForget k P K).comp e.bijective
+  exact (bijective_precomp_singularUnit_derivedForget k P K hStrict).comp e.bijective
+
+variable [PerfectField k]
+
+/-- Perfect-field strict invariance supplies the target condition in the
+general sheafified singular augmentation universal property. -/
+theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.Minus PST)
+    (K : EffectiveMotivesMinus k) :
+    Function.Bijective (fun f : (singularPresheafToEffective k).obj P ⟶ K =>
+      (singularPresheafToEffectiveUnit k).app P ≫ (Ieff).map f) :=
+  bijective_precomp_singularPresheafToEffectiveUnit_of_strict k P K
+    (fun q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (K.property q))
 
 private abbrev reflectionObject (K : DerivedCategory.Minus NST) : EffectiveMotivesMinus k :=
   (singularPresheafToEffective k).obj (presheafLift k K)

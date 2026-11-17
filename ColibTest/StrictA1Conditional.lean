@@ -27,3 +27,6 @@ example (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) (hb : K.I
 
 #print axioms MotivicHomotopy.bijective_precomp_singularUnit_to_parameterSections_of_strict
 #check @MotivicHomotopy.bijective_precomp_singularUnit_to_parameterSections_of_strict
+
+#print axioms MotivicHomotopy.bijective_precomp_singularPresheafToEffectiveUnit_of_strict
+#check @MotivicHomotopy.bijective_precomp_singularPresheafToEffectiveUnit_of_strict
