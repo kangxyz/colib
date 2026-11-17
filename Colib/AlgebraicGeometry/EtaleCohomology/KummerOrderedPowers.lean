@@ -19,6 +19,7 @@ Kummer class. This is an ordered cup construction, not yet a descent to Milnor K
 @[expose] public noncomputable section
 open CategoryTheory CategoryTheory.Abelian AlgebraicGeometry MonoidalCategory
 universe u
+set_option maxRecDepth 4096
 attribute [local instance] HasDerivedCategory.standard Sheaf.monoidalCategory
   Stacks.EtaleCohomology.isMonoidal_W_etaleModules
 namespace Stacks.Kummer
