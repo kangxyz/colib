@@ -329,6 +329,8 @@ private theorem componentCoefficient_eq_finsum_support :
     rw [finsum_of_isEmpty, finsum_of_isEmpty]
 
 set_option maxHeartbeats 1400000 in
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.isDefEq.respectTransparency.types false in
 omit [PerfectField k] in
 /-- The component coefficient carries both input generic multiplicities. Their product
 converts the component-support weight into the actual whole-support weight. -/
