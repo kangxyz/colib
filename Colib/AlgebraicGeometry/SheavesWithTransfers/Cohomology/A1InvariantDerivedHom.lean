@@ -94,12 +94,11 @@ private theorem bijective_derivedPrecomp_of_ext {Z : Type*} [Category* Z] [Abeli
   rw [hc]
   exact eX.bijective.comp h
 
-variable [PerfectField k]
-  [HasExt.{u + 1}
+variable [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 private theorem isIso_projection_single (X : SmoothSite S) (F : SheafWithTransfers.{u + 1} k)
-    (hF : F.obj.IsA1Invariant) (p : ℤ) :
+    (hF : F.IsStrictA1Invariant) (p : ℤ) :
     IsIso (((transferDerivedHomPresheaf k p).obj ((D₀).obj F)).map
       ((Cor.graphFunctor k).map ((π).app X)).op) := by
   let Y := affineLineCylinder.obj X
@@ -112,7 +111,8 @@ private theorem isIso_projection_single (X : SmoothSite S) (F : SheafWithTransfe
     let : HasExt.{u + 1} (SheafWithTransfers.{u + 1} k) := hasExt_of_enoughInjectives _
     exact (ConcreteCategory.isIso_iff_bijective _).2
       (bijective_derivedPrecomp_of_ext (F := F) ((R).map a) n
-        ((ConcreteCategory.isIso_iff_bijective _).1 (isIso_transferExt_projection k X F hF n)))
+        ((ConcreteCategory.isIso_iff_bijective _).1
+          (isIso_transferExt_projection_of_strict k X F hF n)))
   · let E := (D₀).obj F
     let : (E⟦p⟧).IsGE (-p) :=
       DerivedCategory.TStructure.t.isGE_shift E 0 p (-p) (by omega)
@@ -127,7 +127,8 @@ private theorem isIso_projection_of_bounded (X : SmoothSite S)
     (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (a : ℤ) (n : ℕ)
     (hGE : K.IsGE a) (hLE : K.IsLE (a + (n : ℤ)))
     (h : ∀ q, a ≤ q → q ≤ a + (n : ℤ) →
-      ((DerivedCategory.homologyFunctor (SheafWithTransfers.{u + 1} k) q).obj K).obj.IsA1Invariant)
+      ((DerivedCategory.homologyFunctor
+        (SheafWithTransfers.{u + 1} k) q).obj K).IsStrictA1Invariant)
     (p : ℤ) :
     IsIso (((transferDerivedHomPresheaf k p).obj K).map
       ((Cor.graphFunctor k).map ((π).app X)).op) := by
@@ -142,10 +143,10 @@ private theorem isIso_projection_of_bounded (X : SmoothSite S)
 
 /-- On a bounded-above object with A¹-invariant cohomology sheaves, the
 original affine projection acts invertibly on shifted transfer Hom. -/
-theorem isIso_transferDerivedHomPresheaf_projection (X : SmoothSite S)
+theorem isIso_transferDerivedHomPresheaf_projection_of_strict (X : SmoothSite S)
     (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) (hK : K.IsLE b)
     (h : ∀ q, ((DerivedCategory.homologyFunctor
-      (SheafWithTransfers.{u + 1} k) q).obj K).obj.IsA1Invariant) (p : ℤ) :
+      (SheafWithTransfers.{u + 1} k) q).obj K).IsStrictA1Invariant) (p : ℤ) :
     IsIso (((transferDerivedHomPresheaf k p).obj K).map
       ((Cor.graphFunctor k).map ((π).app X)).op) := by
   let Y := affineLineCylinder.obj X
@@ -178,8 +179,13 @@ theorem isIso_transferDerivedHomPresheaf_projection (X : SmoothSite S)
       (by simpa only [hB] using hLE) (fun q hq _ => by
         let : IsIso ((DerivedCategory.homologyFunctor (SheafWithTransfers.{u + 1} k) q).map r) :=
           DerivedCategory.isIso_homologyMap_truncGEπ_app a q hq K
-        exact PresheafWithTransfers.IsA1Invariant.of_iso (h q) ((forget k).mapIso
-          (asIso ((DerivedCategory.homologyFunctor (SheafWithTransfers.{u + 1} k) q).map r)))) p
+        intro n V
+        let e := (cohomologyPresheafFunctor.{u + 1, u + 1}
+          (SmoothSite.nisnevichTopology S) n).mapIso
+          ((toSheaf k).mapIso
+            (asIso ((DerivedCategory.homologyFunctor (SheafWithTransfers.{u + 1} k) q).map r)))
+        exact (NatIso.isIso_map_iff e
+          (((projection (SmoothSite.additiveGroupObject S)).app V).op)).mp (h q n V)) p
   let η : F.obj K ⟶ F.obj L := F.map r
   let : IsIso (η.app (op (Cor.mk X))) := (ConcreteCategory.isIso_iff_bijective _).mpr
     (DerivedCategory.bijective_comp_truncGEπ_of_hasProjectiveDimensionLE
@@ -191,5 +197,17 @@ theorem isIso_transferDerivedHomPresheaf_projection (X : SmoothSite S)
     rw [η.naturality f.op]
     infer_instance
   exact IsIso.of_isIso_comp_right _ (η.app (op (Cor.mk Y)))
+
+
+/-- Over a perfect field, A¹-invariant homology sheaves satisfy the strict
+hypothesis of the bounded-above projection theorem. -/
+theorem isIso_transferDerivedHomPresheaf_projection [PerfectField k] (X : SmoothSite S)
+    (K : DerivedCategory (SheafWithTransfers.{u + 1} k)) (b : ℤ) (hK : K.IsLE b)
+    (h : ∀ q, ((DerivedCategory.homologyFunctor
+      (SheafWithTransfers.{u + 1} k) q).obj K).obj.IsA1Invariant) (p : ℤ) :
+    IsIso (((transferDerivedHomPresheaf k p).obj K).map
+      ((Cor.graphFunctor k).map ((π).app X)).op) :=
+  isIso_transferDerivedHomPresheaf_projection_of_strict k X K b hK
+    (fun q => isStrictA1Invariant_of_perfect _ (h q)) p
 
 end AlgebraicGeometry.SheafWithTransfers

@@ -6,10 +6,12 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Components
+public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductResidueLength
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.KoszulDevissage
 public import Colib.AlgebraicGeometry.Chow.WholePolynomialEndpointPushforward
 import Colib.AlgebraicGeometry.Sites.Smooth.NormalComponents
 public import StacksFrontier.AlgebraicGeometry.Variety.Geometrically.ReducedProduct
+public import StacksFrontier.AlgebraicGeometry.Chow.FibreCycles.FibreDimension
 
 /-!
 # Incidences of the original product-support components
@@ -36,6 +38,60 @@ def reducedClosureComponentInclusion {A B : Scheme.{u}} (i : A ⟶ B)
     [IsClosedImmersion i] (a : A) : (integralComponentAt (i a)).subscheme ⟶ A :=
   letI := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion i a
   inv (integralComponentMap i a) ≫ (integralComponentAt a).subschemeι
+
+/-- Taking the two reduced point closures before or after closed immersions gives
+isomorphic actual products. The map is induced by the native integral-component maps. -/
+def reducedClosureComponentProductIso {A B C D S : Scheme.{u}}
+    (i : A ⟶ B) (j : C ⟶ D) [IsClosedImmersion i] [IsClosedImmersion j]
+    (f : A ⟶ S) (g : C ⟶ S) (a : A) (c : C) :
+    pullback (reducedClosureComponentInclusion i a ≫ f)
+      (reducedClosureComponentInclusion j c ≫ g) ≅
+    pullback ((integralComponentAt a).subschemeι ≫ f)
+      ((integralComponentAt c).subschemeι ≫ g) := by
+  letI := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion i a
+  letI := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion j c
+  exact asIso (pullback.map
+    (reducedClosureComponentInclusion i a ≫ f) (reducedClosureComponentInclusion j c ≫ g)
+    ((integralComponentAt a).subschemeι ≫ f) ((integralComponentAt c).subschemeι ≫ g)
+    (inv (integralComponentMap i a)) (inv (integralComponentMap j c)) (𝟙 S)
+    (by simp only [reducedClosureComponentInclusion, Category.assoc, Category.comp_id])
+    (by simp only [reducedClosureComponentInclusion, Category.assoc, Category.comp_id]))
+
+/-- The product comparison commutes with its map to the whole product. -/
+theorem reducedClosureComponentProductIso_hom_productClosedMap {A B C D S : Scheme.{u}}
+    (i : A ⟶ B) (j : C ⟶ D) [IsClosedImmersion i] [IsClosedImmersion j]
+    (f : A ⟶ S) (g : C ⟶ S) (a : A) (c : C) :
+    (reducedClosureComponentProductIso i j f g a c).hom ≫
+      Scheme.Hom.productClosedMap f g (integralComponentAt a).subschemeι
+        (integralComponentAt c).subschemeι =
+    Scheme.Hom.productClosedMap f g (reducedClosureComponentInclusion i a)
+      (reducedClosureComponentInclusion j c) := by
+  let := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion i a
+  let := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion j c
+  apply pullback.hom_ext
+  · simp [reducedClosureComponentProductIso, Scheme.Hom.productClosedMap,
+      reducedClosureComponentInclusion, pullback.map, Category.assoc]
+  · simp [reducedClosureComponentProductIso, Scheme.Hom.productClosedMap,
+      reducedClosureComponentInclusion, pullback.map, Category.assoc]
+
+/-- The actual product comparison preserves local multiplicity, including nonreduced length. -/
+theorem length_stalk_reducedClosureComponentProductIso {A B C D S : Scheme.{u}}
+    (i : A ⟶ B) (j : C ⟶ D) [IsClosedImmersion i] [IsClosedImmersion j]
+    (f : A ⟶ S) (g : C ⟶ S) (a : A) (c : C)
+    (x : pullback (C := Scheme) (reducedClosureComponentInclusion i a ≫ f)
+      (reducedClosureComponentInclusion j c ≫ g)) :
+    let e := reducedClosureComponentProductIso i j f g a c
+    Module.length ((pullback ((integralComponentAt a).subschemeι ≫ f)
+      ((integralComponentAt c).subschemeι ≫ g)).presheaf.stalk (e.hom x))
+      ((pullback ((integralComponentAt a).subschemeι ≫ f)
+        ((integralComponentAt c).subschemeι ≫ g)).presheaf.stalk (e.hom x)) =
+    Module.length ((pullback (reducedClosureComponentInclusion i a ≫ f)
+      (reducedClosureComponentInclusion j c ≫ g)).presheaf.stalk x)
+      ((pullback (reducedClosureComponentInclusion i a ≫ f)
+        (reducedClosureComponentInclusion j c ≫ g)).presheaf.stalk x) := by
+  dsimp only
+  let e := asIso ((reducedClosureComponentProductIso i j f g a c).hom.stalkMap x)
+  exact Module.length_eq_of_ringEquiv e.commRingCatIsoToRingEquiv
 
 private theorem reducedClosureComponentInclusion_comp {A B : Scheme.{u}} (i : A ⟶ B)
     [IsClosedImmersion i] (a : A) :
@@ -204,6 +260,25 @@ theorem exteriorLeftComponentMap_target : u ≫ l = l' := by
 theorem exteriorRightComponentMap_source : v ≫ r = r' := by
   rw [← correspondenceExteriorInclusion_fst, exteriorRightComponentMap_inclusion_assoc]
 
+/-- The native component-support product is the actual product of the two reduced
+closures inside the whole exterior supports, not merely a scheme with the same support. -/
+def exteriorComponentSupportReducedClosuresIso :
+    correspondenceSupportProduct f g h x y ≅
+      pullback ((integralComponentAt α.val).subschemeι ≫ l ≫ g)
+        ((integralComponentAt β.val).subschemeι ≫ r ≫ g) := by
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
+  let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  have hu : u ≫ l ≫ g = s₁ := by
+    rw [← Category.assoc, exteriorLeftComponentMap_target]
+    rfl
+  have hv : v ≫ r ≫ g = s₂ := by
+    rw [← Category.assoc, exteriorRightComponentMap_source]
+    rfl
+  exact pullback.congrHom hu.symm hv.symm ≪≫
+    reducedClosureComponentProductIso e₁ e₂ (l ≫ g) (r ≫ g) α.val β.val
+
 /-- The incidence of the two selected components maps to the whole incidence. -/
 def exteriorComponentIncidenceMap : L ⟶ H :=
   pullback.map l' r' l r u v (𝟙 _)
@@ -225,6 +300,45 @@ def exteriorComponentSupportMap : correspondenceSupportProduct f g h x y ⟶ Sup
 
 local notation "w" =>
   exteriorComponentSupportMap X Y Z U V W a b c d ha hb hc hd α β
+
+set_option quotPrecheck false in
+local notation "ClosureProduct" =>
+  pullback ((integralComponentAt α.val).subschemeι ≫ l ≫ g)
+    ((integralComponentAt β.val).subschemeι ≫ r ≫ g)
+
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.isDefEq.respectTransparency.types false in
+/-- The comparison of the native component product with the closure product lies over
+the original whole support product. -/
+theorem exteriorComponentSupportReducedClosuresIso_hom_productClosedMap :
+    (exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β).hom ≫
+      Scheme.Hom.productClosedMap (l ≫ g) (r ≫ g)
+        (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι = w := by
+  let : IsFinite (exteriorSupportSourceProjection X Y (integralComponentAt a)) := ha.1
+  let : IsFinite (exteriorSupportSourceProjection U V (integralComponentAt c)) := hc.1
+  let : IsFinite (exteriorSupportSourceProjection Y Z (integralComponentAt b)) := hb.1
+  let : IsFinite (exteriorSupportSourceProjection V W (integralComponentAt d)) := hd.1
+  dsimp only [exteriorComponentSupportReducedClosuresIso,
+    exteriorLeftComponentMap, exteriorRightComponentMap]
+  simp only [Iso.trans_hom, Category.assoc]
+  rw [reducedClosureComponentProductIso_hom_productClosedMap]
+  dsimp only [exteriorComponentSupportMap, exteriorLeftComponentMap, exteriorRightComponentMap]
+  apply pullback.hom_ext
+  · simp [Scheme.Hom.productClosedMap, pullback.congrHom_hom, pullback.map, Category.assoc]
+  · simp [Scheme.Hom.productClosedMap, pullback.congrHom_hom, pullback.map, Category.assoc]
+
+/-- The exact comparison of component products retains the full local multiplicity. -/
+theorem length_stalk_exteriorComponentSupportReducedClosuresIso
+    (ξ : correspondenceSupportProduct f g h x y) :
+    let e := exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β
+    Module.length ((ClosureProduct).presheaf.stalk (e.hom ξ))
+      ((ClosureProduct).presheaf.stalk (e.hom ξ)) =
+    Module.length ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ)
+      ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ) := by
+  dsimp only
+  exact Module.length_eq_of_ringEquiv
+    (asIso ((exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d
+      ha hb hc hd α β).hom.stalkMap ξ)).commRingCatIsoToRingEquiv
 
 local instance closedImmersionStableUnderComposition :
     MorphismProperty.IsStableUnderComposition (@IsClosedImmersion : MorphismProperty Scheme) :=
@@ -524,6 +638,52 @@ theorem exteriorComponentSupportMap_closureIso
         (integralComponentAt t.val).subschemeι ≫ w := by
   let := AlgebraicCycle.integralComponentMap_isIso_of_isClosedImmersion w t.val
   exact ⟨asIso (integralComponentMap w t.val), integralComponentMap_subschemeι w t.val⟩
+
+omit [PerfectField k] in
+/-- At an actual generic component-product point, the whole-support multiplicity is
+the product of the two input multiplicities and the full component-product multiplicity. -/
+theorem length_stalk_exteriorWholeSupport_eq_mul_component
+    (ξ : genericPoints (correspondenceSupportProduct f g h x y)) :
+    Module.length ((SupportProduct).presheaf.stalk (w ξ.val))
+      ((SupportProduct).presheaf.stalk (w ξ.val)) =
+    Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val) *
+      Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val) *
+        Module.length ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ.val)
+          ((correspondenceSupportProduct f g h x y).presheaf.stalk ξ.val) := by
+  let : IsNoetherian D₁ := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+  let : IsNoetherian D₂ := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+  have finiteGeneric (E : Scheme.{«u»}) [IsLocallyNoetherian E] (η : genericPoints E) :
+      IsFiniteLength (E.presheaf.stalk η.val) (E.presheaf.stalk η.val) := by
+    have hdim := ringKrullDim_stalk_eq_zero_of_mem_genericPoints (W := E) η
+    let : Ring.KrullDimLE 0 (E.presheaf.stalk η.val) := by
+      rw [Ring.krullDimLE_iff, hdim]
+      rfl
+    let : IsArtinianRing (E.presheaf.stalk η.val) :=
+      isArtinianRing_iff_isNoetherianRing_krullDimLE_zero.mpr ⟨inferInstance, inferInstance⟩
+    exact Module.length_ne_top_iff.mp (Module.length_ne_top (R := E.presheaf.stalk η.val))
+  let η : genericPoints SupportProduct :=
+    ⟨w ξ.val, exteriorComponentSupportMap_generic X Y Z U V W a b c d ha hb hc hd α β ξ⟩
+  have hlabels := (exteriorWholeSupportGeneric_component_iff
+    X Y Z U V W a b c d ha hb hc hd α β η).1 (Set.mem_range_self _)
+  have hα : pullback.fst (l ≫ g) (r ≫ g) (w ξ.val) = α.val :=
+    congrArg Subtype.val hlabels.1
+  have hβ : pullback.snd (l ≫ g) (r ≫ g) (w ξ.val) = β.val :=
+    congrArg Subtype.val hlabels.2
+  let e := exteriorComponentSupportReducedClosuresIso X Y Z U V W a b c d ha hb hc hd α β
+  let ζ : genericPoints (show Scheme from ClosureProduct) :=
+    ⟨e.hom ξ.val, mem_genericPoints_of_flat e.hom ξ.property⟩
+  have he : Scheme.Hom.productClosedMap (l ≫ g) (r ≫ g)
+      (integralComponentAt α.val).subschemeι (integralComponentAt β.val).subschemeι ζ.val =
+        w ξ.val := by
+    exact congrArg (fun t => t ξ.val)
+      (exteriorComponentSupportReducedClosuresIso_hom_productClosedMap
+        X Y Z U V W a b c d ha hb hc hd α β)
+  have hlength := length_stalk_product_at_generic_closures (l ≫ g) (r ≫ g) α β ζ
+    (by rw [he]; exact hα) (by rw [he]; exact hβ) (finiteGeneric D₁ α) (finiteGeneric D₂ β)
+  dsimp only at hlength
+  rw [he, length_stalk_exteriorComponentSupportReducedClosuresIso
+    X Y Z U V W a b c d ha hb hc hd α β ξ.val] at hlength
+  exact hlength
 
 end SupportComponents
 

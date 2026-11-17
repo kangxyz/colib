@@ -177,6 +177,59 @@ private theorem componentIncidenceTorCycle_push_apply (z : genericPoints H) :
 
 end Components
 
+omit [PerfectField k] in
+/-- Over an arbitrary field, preserve both input generic multiplicities in the native
+component-cycle decomposition of the whole incidence. -/
+theorem exteriorWholeIncidenceTorCycle_eq_weighted_sum :
+    letI := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+    letI := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+    letI := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+    exteriorWholeIncidenceTorCycle X Y Z U V W a b c d ha hb hc hd =
+      ∑ α : genericPoints D₁, ∑ β : genericPoints D₂,
+        (((Module.length ((D₁).presheaf.stalk α.val) ((D₁).presheaf.stalk α.val)).toNat : ℤ) *
+          ((Module.length ((D₂).presheaf.stalk β.val) ((D₂).presheaf.stalk β.val)).toNat : ℤ)) •
+        finiteCyclePushforward
+          (exteriorComponentIncidenceMap X Y Z U V W a b c d ha hb hc hd α β)
+          (incidenceTorCycle f g h
+            (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
+            (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β)) := by
+  classical
+  let := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
+  let := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
+  let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
+  apply Function.locallyFinsuppWithin.ext
+  intro z
+  simp only [Function.locallyFinsuppWithin.coe_sum, Finset.sum_apply,
+    Function.locallyFinsuppWithin.coe_zsmul, Pi.smul_apply, smul_eq_mul]
+  by_cases hz : z ∈ genericPoints H
+  · let z₀ : genericPoints H := ⟨z, hz⟩
+    change AlgebraicCycle.ofGenericCoefficients _ _ z₀.val = _
+    rw [AlgebraicCycle.ofGenericCoefficients_apply_generic,
+      structureTorCoefficient_eq_sum_weighted_componentIncidences X Y Z U V W a b c d
+        ha hb hc hd z₀]
+    exact Finset.sum_congr rfl fun α _ => Finset.sum_congr rfl fun β _ =>
+      congrArg (fun n : ℤ => _ * n)
+        (componentIncidenceTorCycle_push_apply X Y Z U V W a b c d ha hb hc hd α β z₀).symm
+  · change AlgebraicCycle.ofGenericCoefficients _ _ z = _
+    rw [AlgebraicCycle.ofGenericCoefficients_apply_of_notMem _ _ _ hz]
+    symm
+    refine Finset.sum_eq_zero fun α _ => Finset.sum_eq_zero fun β _ => ?_
+    have hzero : finiteCyclePushforward
+        (exteriorComponentIncidenceMap X Y Z U V W a b c d ha hb hc hd α β)
+        (incidenceTorCycle f g h
+          (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
+          (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β)) z = 0 := by
+      by_contra hn
+      obtain ⟨ξ, hξ, rfl⟩ := finiteCyclePushforward_support_subset
+        (exteriorComponentIncidenceMap X Y Z U V W a b c d ha hb hc hd α β) _ hn
+      exact hz (exteriorComponentIncidenceMap_mem_genericPoints X Y Z U V W a b c d
+        ha hb hc hd α β ⟨ξ, support_incidenceTorCycle_subset f g h
+          (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
+          (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β) hξ⟩)
+    rw [hzero, mul_zero]
+
 /-- The actual cycle of the whole incidence is the sum of the pushed native component cycles. -/
 theorem exteriorWholeIncidenceTorCycle_eq_sum :
     letI := correspondenceExteriorSupport_isNoetherian X Y U V a c ha hc
@@ -217,6 +270,7 @@ theorem exteriorWholeIncidenceTorCycle_eq_sum :
         (leftComponentPoint X Y U V a c α) (rightComponentPoint Y Z V W b d β)
         (correspondenceExteriorComponentPoint_admissible Y Z V W b d hb hd β) hξ⟩)
 
+omit [PerfectField k] in
 /-- Actual composition of the two exterior primes is the finite outer pushforward of the
 whole exterior incidence's genuine Tor cycle. -/
 theorem incidenceTorPairing_exteriorPrimes_val :
@@ -232,15 +286,20 @@ theorem incidenceTorPairing_exteriorPrimes_val :
   let := correspondenceExteriorSupport_isNoetherian Y Z V W b d hb hd
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₁).fintype
   let := (AlgebraicCycle.fundamentalCycle_genericPoints_finite D₂).fintype
-  rw [incidenceTorPairing_exteriorPrimes_eq_sum, exteriorWholeIncidenceTorCycle_eq_sum, map_sum]
+  rw [incidenceTorPairing_exteriorPrimes_eq_sum, exteriorWholeIncidenceTorCycle_eq_weighted_sum,
+    map_sum]
   change (finiteCorrespondences f h).subtype
     (∑ α : genericPoints D₁, ∑ β : genericPoints D₂, _) = _
   rw [map_sum]
   refine Finset.sum_congr rfl fun α _ => ?_
   rw [map_sum, map_sum]
   refine Finset.sum_congr rfl fun β _ => ?_
-  rw [correspondenceExteriorComponentWeight_eq_one X Y U V a c ha hc α,
-    correspondenceExteriorComponentWeight_eq_one Y Z V W b d hb hd β, one_mul, one_smul]
+  simp only [map_zsmul]
+  change (correspondenceExteriorComponentWeight X Y U V a c α *
+    correspondenceExteriorComponentWeight Y Z V W b d β) • _ =
+    (correspondenceExteriorComponentWeight X Y U V a c α *
+      correspondenceExteriorComponentWeight Y Z V W b d β) • _
+  congr 1
   let x₀ := leftComponentPoint X Y U V a c α
   let y₀ := rightComponentPoint Y Z V W b d β
   let hα := correspondenceExteriorComponentPoint_admissible X Y U V a c ha hc α
@@ -358,6 +417,7 @@ private theorem isNoetherian_correspondenceIncidenceOverAmbient : IsNoetherian I
    Scheme.isNoetherian_of_finiteType_of_isNoetherian (Y := Spec (.of k))
     (pullback.fst (p ≫ F) (q ≫ G) ≫ p ≫ F)
 
+omit [PerfectField k] in
 include ha hb hc hd in
 private theorem exteriorWholeIncidenceTorCycle_eq_push_product :
     letI : DecidableEq H := Classical.decEq H
@@ -368,7 +428,8 @@ private theorem exteriorWholeIncidenceTorCycle_eq_push_product :
       ∑ t : genericPoints IncidenceProduct,
         single ((e).hom t.val)
           (correspondenceIncidenceTorCoefficient k X.hom Y.hom Z.hom a b (η₁ t) *
-            correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d (η₂ t)) := by
+            correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d (η₂ t) *
+            exteriorPointCycle (p ≫ F) (q ≫ G) (η₁ t).val (η₂ t).val t.val) := by
   classical
   let : IsNoetherian IncidenceProduct :=
     isNoetherian_correspondenceIncidenceOverAmbient X Y Z U V W a b c d
@@ -389,26 +450,30 @@ private theorem exteriorWholeIncidenceTorCycle_eq_push_product :
         rfl) }
   simp only [exteriorWholeIncidenceTorCycle, AlgebraicCycle.ofGenericCoefficients_eq_sum]
   refine Fintype.sum_equiv φ.symm _ _ fun t => ?_
-  have h₀ := structureTorCoefficient_wholeIncidence X Y Z U V W a b c d
+  have h₀ := structureTorCoefficient_wholeIncidence_native X Y Z U V W a b c d
     ha hb hc hd (φ.symm t)
   change structureTorCoefficient (cartesianIntersectionGenericStalkMap sq (φ (φ.symm t)))
     ((δ).stalkMap (i (φ (φ.symm t)).val)).hom = _ at h₀
   rw [φ.apply_symm_apply] at h₀
   change single t.val _ = single (φ (φ.symm t)).val _
   rw [φ.apply_symm_apply, h₀]
+  rfl
 
 local notation "aI" => p ≫ F
 local notation "aJ" => q ≫ G
 local notation "c₁" => correspondenceIncidenceTorCoefficient k X.hom Y.hom Z.hom a b
 local notation "c₂" => correspondenceIncidenceTorCoefficient k U.hom V.hom W.hom c d
 
+omit [PerfectField k] in
 private theorem exteriorPointCycle_apply_genericProduct
     (ξ : genericPoints I) (ζ : genericPoints J) (t : IncidenceProduct) :
     letI := Classical.propDecidable
     exteriorPointCycle aI aJ ξ.val ζ.val t =
       if pullback.fst aI aJ t = ξ.val then
         if pullback.snd aI aJ t = ζ.val then
-          if t ∈ genericPoints IncidenceProduct then 1 else 0
+          if t ∈ genericPoints IncidenceProduct then
+            exteriorPointCycle aI aJ (pullback.fst aI aJ t) (pullback.snd aI aJ t) t
+          else 0
         else 0
       else 0 := by
   classical
@@ -418,8 +483,6 @@ private theorem exteriorPointCycle_apply_genericProduct
   let j₀ := Scheme.Hom.productClosedMap aI aJ K.subschemeι K'.subschemeι
   let : IsIntegral K.subscheme := isIntegral_integralComponentAt ξ.val
   let : IsIntegral K'.subscheme := isIntegral_integralComponentAt ζ.val
-  let : IsReduced A := isReduced_pullback_over_perfectField
-    (K.subschemeι ≫ aI) (K'.subschemeι ≫ aJ)
   let : IsNoetherian A :=
     Scheme.isNoetherian_of_finiteType_of_isNoetherian
       (pullback.fst (K.subschemeι ≫ aI) (K'.subschemeι ≫ aJ) ≫ K.subschemeι ≫ aI)
@@ -471,14 +534,8 @@ private theorem exteriorPointCycle_apply_genericProduct
   by_cases h₁ : pullback.fst aI aJ t = ξ.val
   · by_cases h₂ : pullback.snd aI aJ t = ζ.val
     · by_cases ht : t ∈ genericPoints IncidenceProduct
-      · obtain ⟨s, rfl⟩ : t ∈ Set.range j₀ := by
-          rw [hj]
-          exact ⟨h₁ ▸ subset_closure (Set.mem_singleton _), h₂ ▸ subset_closure
-            (Set.mem_singleton _)⟩
-        rw [finiteCyclePushforward_apply_of_isClosedImmersion,
-          AlgebraicCycle.fundamentalCycle_apply_generic_of_isReduced A
-            ⟨s, mem_genericPoints_of_isFinite_image j₀ s ht⟩]
-        simp only [h₁, h₂, ht, ite_true]
+      · simp only [h₁, h₂, ht, ite_true]
+        rfl
       · simp only [h₁, h₂, ht, ite_true, ite_false]
         by_contra hn
         obtain ⟨s, hs, rfl⟩ := finiteCyclePushforward_support_subset j₀ _ hn
@@ -492,6 +549,7 @@ private theorem exteriorPointCycle_apply_genericProduct
     obtain ⟨s, hs, rfl⟩ := finiteCyclePushforward_support_subset j₀ _ hn
     exact h₁ (hp ⟨s, AlgebraicCycle.support_fundamentalCycle_subset A hs⟩).1
 
+omit [PerfectField k] in
 include ha hb hc hd in
 private theorem exteriorWholeIncidenceTorCycle_eq_sum_exteriorPointCycle :
     letI : IsNoetherian IncidenceProduct :=
@@ -511,14 +569,15 @@ private theorem exteriorWholeIncidenceTorCycle_eq_sum_exteriorPointCycle :
   let := (finite_genericPoints_correspondenceIncidence_of_smooth U.hom V.hom W.hom c d hd).fintype
   rw [exteriorWholeIncidenceTorCycle_eq_push_product]
   have hcycle :
-      (∑ t : genericPoints IncidenceProduct, single t.val (c₁ (η₁ t) * c₂ (η₂ t))) =
+      (∑ t : genericPoints IncidenceProduct, single t.val
+        (c₁ (η₁ t) * c₂ (η₂ t) * exteriorPointCycle aI aJ (η₁ t).val (η₂ t).val t.val)) =
       ∑ ξ : genericPoints I, ∑ ζ : genericPoints J,
         (c₁ ξ * c₂ ζ) • exteriorPointCycle aI aJ ξ.val ζ.val := by
     apply Function.locallyFinsuppWithin.ext
     intro t
     simp only [Function.locallyFinsuppWithin.coe_sum, Finset.sum_apply,
       Function.locallyFinsuppWithin.coe_zsmul, Pi.smul_apply, smul_eq_mul]
-    simp_rw [exteriorPointCycle_apply_genericProduct X Y Z U V W a b c d]
+    conv_rhs => simp only [exteriorPointCycle_apply_genericProduct X Y Z U V W a b c d]
     by_cases ht : t ∈ genericPoints IncidenceProduct
     · let t₀ : genericPoints IncidenceProduct := ⟨t, ht⟩
       rw [Finset.sum_eq_single t₀]
@@ -546,6 +605,7 @@ private theorem exteriorWholeIncidenceTorCycle_eq_sum_exteriorPointCycle :
   intro t _
   exact (finiteCyclePushforward_single_of_isClosedImmersion (e).hom t.val _).symm
 
+omit [PerfectField k] in
 /-- Interchange on the four actual prime cycles uses the full signed Tor coefficients and the
 full degrees of the two finite incidence maps. -/
 theorem incidenceTorPairing_exteriorPrimes :

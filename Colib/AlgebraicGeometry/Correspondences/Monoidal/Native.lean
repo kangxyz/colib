@@ -38,24 +38,26 @@ namespace AlgebraicGeometry.Cor
 
 variable {k : Type u} [Field k]
 
-variable [PerfectField k]
-
-/-- The native signed finite correspondences form a monoidal category over a perfect field. -/
+/-- The native signed finite correspondences form a monoidal category over an arbitrary field. -/
+@[colib_tag "COL-1297"]
 instance monoidalCategory : MonoidalCategory (Cor k) :=
   exteriorMonoidalCategory exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality
 
 /-- Switching the two source and target factors is the symmetry of finite correspondences. -/
+@[colib_tag "COL-1297"]
 instance symmetricCategory : SymmetricCategory (Cor k) :=
   exteriorSymmetricCategory exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality
 
 /-- Each whiskering is additive on signed finite correspondences. -/
+@[colib_tag "COL-1297"]
 instance monoidalPreadditive : MonoidalPreadditive (Cor k) :=
   exteriorMonoidalPreadditive exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality
 
 /-- The ordinary graph functor is strong braided for the literal product. -/
+@[colib_tag "COL-1297"]
 instance graphFunctorBraided : (graphFunctor k).Braided :=
   exteriorGraphBraided exteriorInterchange exteriorGraphProduct exteriorAssociatorNaturality
     exteriorRightUnitorNaturality exteriorBraidingNaturality

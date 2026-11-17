@@ -491,6 +491,7 @@ class LibraryTests(unittest.TestCase):
             "transfer-homological-algebra": "Colib.AlgebraicGeometry.SheavesWithTransfers.EnoughInjectives",
             "reduced-transfer-tori": "Colib.AlgebraicGeometry.PresheavesWithTransfers.ReducedTorus",
             "exterior-parameters": "Colib.AlgebraicGeometry.Correspondences.Exterior.MixedIncidenceIso",
+            "symmetric-correspondences": "Colib.AlgebraicGeometry.Correspondences.Monoidal.Native",
             "relative-principal-cuts":
                 "Colib.AlgebraicGeometry.Correspondences.Cancellation.FiniteSupport.QuasiCompact",
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
@@ -602,6 +603,9 @@ class LibraryTests(unittest.TestCase):
             "finite-algebra-coefficients": "Colib.RingTheory.Length.FiniteAlgebra",
         }
         item_modules = {
+            "COL-1296": "Colib.AlgebraicGeometry.Correspondences.Monoidal.Interchange",
+            "COL-1297": "Colib.AlgebraicGeometry.Correspondences.Monoidal.Native",
+            "COL-1298": "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.NisnevichReflection",
             "COL-0603": "Colib.RingTheory.KTheory.GTheory.Dedekind.ResidueFieldAssembly",
             "COL-0604": "Colib.RingTheory.KTheory.GTheory.Dedekind.Localization",
             "COL-0605": "Colib.RingTheory.KTheory.GTheory.Dedekind.FiniteResidue",
@@ -1090,7 +1094,7 @@ class LibraryTests(unittest.TestCase):
         chapters = {chapter["id"]: chapter for chapter in self.library["chapters"]}
         self.assertEqual(chapters["cycles"]["sections"],
                          ["finite-correspondences", "exterior-parameters",
-                          "relative-principal-cuts", "cartier-correspondences",
+                          "symmetric-correspondences", "relative-principal-cuts", "cartier-correspondences",
                           "principal-polynomial-families"])
         self.assertEqual(chapters["presheaves-with-transfers"]["title"], "Presheaves with Transfers")
         self.assertEqual(chapters["nisnevich-sheaves-with-transfers"]["title"],

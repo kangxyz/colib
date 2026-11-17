@@ -6,6 +6,8 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.NisnevichLift
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.Basic
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.SingularPresheafReflection
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.A1Invariant.ObjectProperty
 import Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance
@@ -98,11 +100,12 @@ private theorem exists_common_bound (X : DerivedCategory.Minus PST) :
   exact ⟨max x y, t.isLE_of_le X.obj x _ (le_max_left _ _),
     t.isLE_of_le ((Sing).obj X).obj y _ (le_max_right _ _)⟩
 
-variable [PerfectField k]
-  [HasExt.{u + 1}
+variable [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj))
     (b i : ℤ) : ((DerivedCategory.homologyFunctor PST i).obj
       (boundedTruncation k ((U).obj K.obj.obj) b).obj).IsA1Invariant := by
   let R := (U).obj K.obj.obj
@@ -113,13 +116,16 @@ private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
     let f := (DerivedCategory.TStructure.t.truncLEι b).app R
     let : IsIso (H.map f) := Stacks.TruncationLevel.isIso_homologyMap_truncLEι_app b i hi R
     exact IsA1Invariant.of_iso
-      (SheafWithTransfers.isA1Invariant_homology_forgetDerived k K.obj.obj d hd K.property i)
+      (SheafWithTransfers.isA1Invariant_homology_forgetDerived_of_strict
+        k K.obj.obj d hd hStrict i)
       (asIso (H.map f)).symm
   · exact isA1Invariant_of_isZero
       ((DerivedCategory.isLE_iff P.obj b).1 (inferInstanceAs (P.obj.IsLE b)) i (by omega))
 
 private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategory.Minus PST)
-    (K : EffectiveMotivesMinus k) :
+    (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj)) :
     Function.Bijective (fun f : ((Sing).obj P).obj ⟶ (U).obj K.obj.obj =>
       ((η).app P).hom ≫ f) := by
   obtain ⟨b, hP, hC⟩ := exists_common_bound k P
@@ -133,7 +139,7 @@ private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategor
   have hx : Function.Bijective x := bijective_comp_truncation k P R b hP
   have hy : Function.Bijective y := bijective_comp_truncation k ((Sing).obj P) R b hC
   have hv : Function.Bijective v := bijective_precomp_singularPresheafDerivedUnit k P Y
-    (isA1Invariant_truncated_forget k K b)
+    (isA1Invariant_truncated_forget k K hStrict b)
   have h : z ∘ y = x ∘ v := funext fun f => (Category.assoc _ _ _).symm
   apply (Function.Bijective.of_comp_iff z hy).1
   rw [h]
@@ -141,8 +147,10 @@ private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategor
 
 /-- Precomposition with the original Nisnevich singular augmentation is
 bijective for every effective target. -/
-theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.Minus PST)
-    (K : EffectiveMotivesMinus k) :
+theorem bijective_precomp_singularPresheafToEffectiveUnit_of_strict (P : DerivedCategory.Minus PST)
+    (K : EffectiveMotivesMinus k)
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj)) :
     Function.Bijective (fun f : (singularPresheafToEffective k).obj P ⟶ K =>
       (singularPresheafToEffectiveUnit k).app P ≫ (Ieff).map f) := by
   let I := effectiveMotivesMinusToDerived k
@@ -170,7 +178,18 @@ theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.M
     exact adj.homEquiv_naturality_left ((η).app P).hom (I.map α)
   apply (Function.Bijective.of_comp_iff' e'.bijective f).1
   rw [h]
-  exact (bijective_precomp_singularUnit_derivedForget k P K).comp e.bijective
+  exact (bijective_precomp_singularUnit_derivedForget k P K hStrict).comp e.bijective
+
+variable [PerfectField k]
+
+/-- Perfect-field strict invariance supplies the target condition in the
+general sheafified singular augmentation universal property. -/
+theorem bijective_precomp_singularPresheafToEffectiveUnit (P : DerivedCategory.Minus PST)
+    (K : EffectiveMotivesMinus k) :
+    Function.Bijective (fun f : (singularPresheafToEffective k).obj P ⟶ K =>
+      (singularPresheafToEffectiveUnit k).app P ≫ (Ieff).map f) :=
+  bijective_precomp_singularPresheafToEffectiveUnit_of_strict k P K
+    (fun q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (K.property q))
 
 private abbrev reflectionObject (K : DerivedCategory.Minus NST) : EffectiveMotivesMinus k :=
   (singularPresheafToEffective k).obj (presheafLift k K)
@@ -180,35 +199,69 @@ private def reflectionUnit (K : DerivedCategory.Minus NST) :
   (sheafificationPresheafLiftIso k K).inv ≫
     (singularPresheafToEffectiveUnit k).app (presheafLift k K)
 
-private def reflectionHomEquiv (K : DerivedCategory.Minus NST) (E : EffectiveMotivesMinus k) :
+omit [PerfectField k] in
+private def reflectionHomEquiv
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj))
+    (K : DerivedCategory.Minus NST) (E : EffectiveMotivesMinus k) :
     (reflectionObject k K ⟶ E) ≃ (K ⟶ (Ieff).obj E) :=
   Equiv.ofBijective (fun f => reflectionUnit k K ≫ (Ieff).map f) (by
     let e := sheafificationPresheafLiftIso k K
-    have h := bijective_precomp_singularPresheafToEffectiveUnit k (presheafLift k K) E
+    have h := bijective_precomp_singularPresheafToEffectiveUnit_of_strict
+      k (presheafLift k K) E (hStrict E)
     let f (g : reflectionObject k K ⟶ E) :=
       (singularPresheafToEffectiveUnit k).app (presheafLift k K) ≫ (Ieff).map g
     have hc : (fun g : reflectionObject k K ⟶ E => reflectionUnit k K ≫ (Ieff).map g) =
         e.homFromEquiv ∘ f := funext fun g => Category.assoc _ _ _
     exact hc.symm ▸ e.homFromEquiv.bijective.comp h)
 
-private theorem reflectionHomEquiv_naturality (K : DerivedCategory.Minus NST)
+omit [PerfectField k] in
+private theorem reflectionHomEquiv_naturality
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj))
+    (K : DerivedCategory.Minus NST)
     {E E' : EffectiveMotivesMinus k} (g : E ⟶ E') (f : reflectionObject k K ⟶ E) :
-    reflectionHomEquiv k K E' (f ≫ g) =
-      reflectionHomEquiv k K E f ≫ (Ieff).map g := by
+    reflectionHomEquiv k hStrict K E' (f ≫ g) =
+      reflectionHomEquiv k hStrict K E f ≫ (Ieff).map g := by
   change reflectionUnit k K ≫ (Ieff).map (f ≫ g) =
     (reflectionUnit k K ≫ (Ieff).map f) ≫ (Ieff).map g
   rw [Functor.map_comp, Category.assoc]
 
-/-- The bounded-above Nisnevich A¹-localization, computed by the original
-singular total complex of a derived presheaf representative. -/
-def effectiveReflection : DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
-  Adjunction.leftAdjointOfEquiv (reflectionHomEquiv k) (fun _ _ _ =>
-    reflectionHomEquiv_naturality k _)
+omit [PerfectField k] in
+/-- The bounded-above Nisnevich reflection under explicit strictness of all targets. -/
+@[colib_tag "COL-1298"]
+def effectiveReflectionOfStrict
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj)) :
+    DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
+  Adjunction.leftAdjointOfEquiv (reflectionHomEquiv k hStrict) (fun _ _ _ =>
+    reflectionHomEquiv_naturality k hStrict _)
 
-/-- Effective motives are reflective in the actual bounded-above derived category. -/
-def effectiveReflectionAdjunction : effectiveReflection k ⊣ Ieff :=
-  Adjunction.adjunctionOfEquivLeft (reflectionHomEquiv k) (fun _ _ _ =>
-    reflectionHomEquiv_naturality k _)
+omit [PerfectField k] in
+/-- Strictness of every effective target supplies the native reflection adjunction. -/
+@[colib_tag "COL-1298"]
+def effectiveReflectionAdjunctionOfStrict
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj)) :
+    effectiveReflectionOfStrict k hStrict ⊣ Ieff :=
+  Adjunction.adjunctionOfEquivLeft (reflectionHomEquiv k hStrict) (fun _ _ _ =>
+    reflectionHomEquiv_naturality k hStrict _)
+
+
+/-- The original perfect-field reflection specializes the explicit strict-target
+construction without changing its objects or unit. -/
+abbrev effectiveReflection : DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
+  effectiveReflectionOfStrict k
+    (fun E q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (E.property q))
+
+/-- The original perfect-field adjunction is the strict-target adjunction. -/
+abbrev effectiveReflectionAdjunction : effectiveReflection k ⊣ Ieff :=
+  effectiveReflectionAdjunctionOfStrict k
+    (fun E q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (E.property q))
 
 /-- Reflection after exact sheafification is the original sheafified
 singular construction. The component is the unique isomorphism under

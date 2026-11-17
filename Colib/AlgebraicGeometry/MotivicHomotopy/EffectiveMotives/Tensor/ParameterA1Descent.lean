@@ -73,16 +73,27 @@ set_option quotPrecheck false in
 local notation "B(" K "," F ")" => projectiveParameterNisnevichTensor (k := K) (F := F)
 local notation "N(" comparison ")" => nisnevichParameterTensor comparison
 
+omit [PerfectField k] in
+/-- Parameter sections preserve derived underlying A¹-invariance when the
+bounded-above input has strictly A¹-invariant homology sheaves. -/
+theorem isA1Invariant_homology_parameterSectionsDerived_of_strict
+    (K : DerivedCategory NST(k)) (b : ℤ) (hb : K.IsLE b)
+    (hK : ∀ q, ((DerivedCategory.homologyFunctor NST(k) q).obj K).IsStrictA1Invariant)
+    (i : ℤ) : ((DerivedCategory.homologyFunctor PST(k) i).obj
+      ((U(k)).obj ((R(e)).obj K))).IsA1Invariant := by
+  let V := additivePrecompose F
+  let H := DerivedCategory.homologyFunctor PST(k) i
+  let e₀ := (parameterSectionsDerivedForgetIso e).app K
+  let e₁ := (V.mapDerivedCategoryHomologyIso i).app ((U(k)).obj K)
+  have h := isA1Invariant_homology_forgetDerived_of_strict k K b hb hK i
+  exact (additivePrecompose_isA1Invariant e _ h).of_iso ((H.mapIso e₀ ≪≫ e₁).symm)
+
 private theorem isA1Invariant_homology_parameterSectionsDerived (K : EffectiveMotivesMinus k)
     (i : ℤ) : ((DerivedCategory.homologyFunctor PST(k) i).obj
       ((U(k)).obj ((R(e)).obj ((j(k)).obj K)))).IsA1Invariant := by
   obtain ⟨b, hb⟩ := K.obj.property
-  let V := additivePrecompose F
-  let H := DerivedCategory.homologyFunctor PST(k) i
-  let e₀ := (parameterSectionsDerivedForgetIso e).app ((j(k)).obj K)
-  let e₁ := (V.mapDerivedCategoryHomologyIso i).app ((U(k)).obj ((j(k)).obj K))
-  have hK := isA1Invariant_homology_forgetDerived k ((j(k)).obj K) b hb K.property i
-  exact (additivePrecompose_isA1Invariant e _ hK).of_iso ((H.mapIso e₀ ≪≫ e₁).symm)
+  exact isA1Invariant_homology_parameterSectionsDerived_of_strict e ((j(k)).obj K) b hb
+    (fun q => isStrictA1Invariant_of_perfect _ (K.property q)) i
 
 omit [PerfectField k] [HasDerivedCategory NST(k)] [HasDerivedCategory AddCommGrpCat.{u + 1}]
   [HasExt.{u + 1}
@@ -124,6 +135,19 @@ private theorem bijective_precomp_singularUnit_to_local
   apply (Function.Bijective.of_comp_iff f (hcomp ((Sing(k)).obj P) hC)).1
   rw [he]
   exact (hcomp P hP).comp (bijective_precomp_singularPresheafDerivedUnit k P X hX)
+
+omit [PerfectField k] in
+/-- The original singular augmentation is universal for maps into parameter
+sections of a bounded-above complex with strictly A¹-invariant homology. -/
+theorem bijective_precomp_singularUnit_to_parameterSections_of_strict
+    (P : DerivedCategory.Minus PST(k)) (K : DerivedCategory NST(k))
+    (b : ℤ) (hb : K.IsLE b)
+    (hK : ∀ q, ((DerivedCategory.homologyFunctor NST(k) q).obj K).IsStrictA1Invariant) :
+    Function.Bijective (fun f :
+      ((Sing(k)).obj P).obj ⟶ (U(k)).obj ((R(e)).obj K) =>
+        ((singη(k)).app P).hom ≫ f) :=
+  bijective_precomp_singularUnit_to_local P _
+    (isA1Invariant_homology_parameterSectionsDerived_of_strict e K b hb hK)
 
 private def effectiveParameterHomEquiv
     (P : DerivedCategory.Minus PST(k)) (K : EffectiveMotivesMinus k) :

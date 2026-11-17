@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1298"
+title = "Effective reflection under strictness of all targets"
+kind = "theorem"
+section = "effective-motives"
+order = 20
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveReflectionAdjunctionOfStrict"
+statement = '''
+Let \(k\) be a field, and let \(DM^{\mathrm{eff}}_-(k)\) denote the existing
+full category of bounded-above complexes of Nisnevich sheaves with transfers
+whose cohomology is homotopy invariant. Assume explicitly that every
+cohomology sheaf of every object of this category is strictly
+\(\mathbb A^1\)-invariant. The original sheafified singular construction then
+supplies a left adjoint to the inclusion
+\[
+DM^{\mathrm{eff}}_-(k)\longrightarrow D^-(\operatorname{NST}(k)).
+\]
+The construction preserves the original objects and singular unit. Over a
+perfect field the existing strict-invariance theorem supplies the hypothesis,
+recovering the original reflection adjunction.
+'''
+scope = '''
+The all-target hypothesis is essential to this conditional statement: strictness
+of a single complex does not construct an adjunction on the whole effective
+category. The proof uses the existing IsStrictA1Invariant property and standard
+derived-category and Ext instances, without a new coefficient model or class.
+It does not establish unconditional strict homotopy invariance over arbitrary
+fields. In particular no perfect-field geometric presentation hypothesis has
+been silently discarded.
+'''
+proof_kind = "outline"
+proof = '''
+Strict invariance gives the transfer Ext projection isomorphisms. The existing
+finite-window argument and finite projective dimension give the bounded-above
+derived Hom version. Singular augmentation is therefore a Hom equivalence into
+each strict target, also after the original sheafification comparison. Use the
+same reflection objects and unit with these natural Hom equivalences to form
+the adjunction. Specialize the strictness supplier for the perfect-field case.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-17"

@@ -21,7 +21,8 @@ Use the standard t-structure on the derived category of Nisnevich sheaves
 with transfers. Exact sheafification of the signed singular complex gives
 the effective motive of each smooth transfer representable. Over a perfect
 field the total singular construction gives the left adjoint to the
-effective inclusion.
+effective inclusion. COL-1298 isolates the explicit all-target strictness
+hypothesis used by this reflection over a general field.
 '''
 
 [[sections]]
