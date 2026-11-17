@@ -28,7 +28,8 @@ public noncomputable section
 
 open CategoryTheory CategoryTheory.Limits Opposite
 open AlgebraicGeometry.Scheme SmoothSite.Contraction
-open Stacks.Cohomology.Corepresented Stacks.Injectives.KInjectiveResolution
+open Stacks.Cohomology.Corepresented Stacks.Cohomology.FreeYonedaUnivLE
+open Stacks.Injectives.KInjectiveResolution
 
 universe u w w'
 
@@ -182,7 +183,8 @@ theorem isA1Invariant_homology_forgetDerived_of_strict
   let : K.IsLE b := hb
   have hb' : (DerivedCategory.Q.obj I).IsLE b := DerivedCategory.TStructure.t.isLE_of_iso e.symm b
   have h' (q : ℤ) :
-      ((DerivedCategory.homologyFunctor NST q).obj (DerivedCategory.Q.obj I)).IsStrictA1Invariant := by
+      ((DerivedCategory.homologyFunctor NST q).obj
+        (DerivedCategory.Q.obj I)).IsStrictA1Invariant := by
     intro n X
     let d := (cohomologyPresheafFunctor.{u + 1, u + 1}
       (SmoothSite.nisnevichTopology S) n).mapIso
