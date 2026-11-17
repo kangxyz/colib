@@ -207,7 +207,8 @@ theorem exteriorWholeIncidenceTorCycle_eq_weighted_sum :
   · let z₀ : genericPoints H := ⟨z, hz⟩
     change AlgebraicCycle.ofGenericCoefficients _ _ z₀.val = _
     rw [AlgebraicCycle.ofGenericCoefficients_apply_generic,
-      structureTorCoefficient_eq_sum_weighted_componentIncidences X Y Z U V W a b c d ha hb hc hd z₀]
+      structureTorCoefficient_eq_sum_weighted_componentIncidences X Y Z U V W a b c d
+        ha hb hc hd z₀]
     exact Finset.sum_congr rfl fun α _ => Finset.sum_congr rfl fun β _ =>
       congrArg (fun n : ℤ => _ * n)
         (componentIncidenceTorCycle_push_apply X Y Z U V W a b c d ha hb hc hd α β z₀).symm
