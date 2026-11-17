@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1302"
+title = "Integral additive Day convolution and transfer-presheaf specialization"
+kind = "definition"
+section = "transfer-presheaf-tensor"
+order = 10
+primary = "CategoryTheory.Preadditive.ConvolutionRepresented.convolutionMonoidalCategory"
+statement = '''
+Let \(C\) be a preadditive symmetric monoidal category with binary biproducts
+and a monoidal preadditive tensor. Integral additive presheaves on \(C\)
+carry symmetric monoidal convolution with value at \(U\) given by
+\(\int^{Y,Z} P(Y)\otimes_{\mathbf Z}Q(Z)\otimes_{\mathbf Z}C(U,Y\otimes Z)\).
+The unit is the additive represented presheaf \(C(-,\mathbf 1)\), with its
+actual Hom-group addition, not the free abelian group on the Hom set.
+The pointwise Kan comparison supplies the Day associator; the represented
+unit and the symmetry of \(C\) give the remaining coherence.
+For \(C=\operatorname{Cor}_k\), COL-1297 supplies the symmetric additive
+tensor over every field. The original PST structures are thin instances of
+this construction, with the same integral generators and transfer maps.
+'''
+scope = '''
+For objects of universe \(u\), Hom groups of universe \(v\), and a coefficient
+parameter \(w\), coefficients lie in AddCommGrpCat of universe
+\(\max(u,v,w)\). This is an integral construction, not an arbitrary-ring API.
+The full symmetric structure here uses binary biproducts and symmetry;
+this is not asserted to be the weakest hypothesis for nonsymmetric convolution.
+The lower coend and represented-unit constructions require fewer hypotheses.
+PST uses the existing `TransferCoefficients k` and native correspondence category.
+No field or topology enters the generic construction, and no perfectness is
+required for its PST specialization. Sheaf tensor and derived tensor remain
+separate constructions, with their own localization and homological arguments.
+See [@MVW2006, Lecture 8, Definition 8.2 and Lemma 8.3, p. 56].
+'''
+proof_kind = "outline"
+proof = '''
+Construct the integral coend with both transfer relations. Its pointwise
+left Kan extension property identifies it with Mathlib Day convolution.
+Transport the Day associator and verify the represented unit constraints on
+generators; the symmetry of the input category supplies the braiding.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-17"
