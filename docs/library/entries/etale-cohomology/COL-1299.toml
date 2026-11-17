@@ -1,0 +1,40 @@
+[entry]
+id = "COL-1299"
+title = "Ordered multilinear Kummer cups in native tensor powers"
+kind = "definition"
+section = "etale-kummer-symbols"
+order = 40
+primary = "Stacks.Kummer.orderedKummerMultilinear"
+review = "author_checked"
+statement = '''
+Let X be a scheme over a field k and let n be positive and invertible in k.
+Retain the explicit invertibility hypothesis on global sections and HasExt
+for ordinary small-etale sheaves. Put U = Γ(X,O_X)ˣ/(Γ(X,O_X)ˣ)ⁿ and let μ_n
+be the native roots-of-unity Z/n-module sheaf. The original Kummer classes
+define an integer-multilinear map from q ordered copies of U to
+Ext^q(1,tensorPow(μ_n,q)). The empty tuple has value the identity class.
+The successor is the native Ext cup of the preceding tuple and its last
+Kummer class. Every positive-degree value is killed by n.
+In degree one, composition with the native left unitor gives the original
+Kummer class. In degree two, composition with that unitor tensored with μ_n
+gives the existing biadditive Kummer pairing, without changing either class.
+'''
+proof = '''
+Use exactness of right tensoring by μ_n from COL-1227 at each successor.
+Induct on the number of inputs and split a coordinate into the last input
+or a coordinate of the preceding tuple. Biadditivity of the original Ext
+cup gives coordinate additivity; additive homomorphisms supply integer
+linearity. Multiplication by n kills each original quotient Kummer class,
+so it kills every positive-degree ordered cup through its last coordinate.
+The low-degree identifications follow from the definition of the native
+Ext cup, the unitor identities and naturality in its first coefficient.
+'''
+scope = '''
+The target uses ordinary small-etale module sheaves and the upstream native
+tensorPow, with its actual parenthesization and monoidal unit. No primitive
+root, perfectness or finite cohomological dimension is assumed. This item
+asserts neither the adjacent Steinberg relations nor descent to Milnor
+K-theory in all degrees. It does not identify these tensor powers with
+motivic Tate complexes or prove a norm-residue isomorphism. The separately
+established degree-two Milnor descent remains COL-1242.
+'''

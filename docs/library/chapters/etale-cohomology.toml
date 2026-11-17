@@ -141,3 +141,10 @@ Milnor K₂. Its Steinberg relations vanish by COL-1241, and its n multiples
 vanish because the original Kummer classes factor through units modulo
 nth powers. The resulting map retains each original ordered cup symbol.
 '''
+COL-1299 = '''
+Keep the original quotient Kummer classes and iterate their cup product in
+native tensor powers. This gives ordered multilinear classes in every
+degree and recovers the same degree-one and degree-two maps through the
+actual unitors. This construction does not yet supply the adjacent
+Steinberg relations or the all-degree Milnor quotient descent.
+'''
