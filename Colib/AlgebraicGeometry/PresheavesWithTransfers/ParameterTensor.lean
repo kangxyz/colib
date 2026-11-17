@@ -6,6 +6,8 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.PresheavesWithTransfers.RepresentableLarge
+public import Colib.CategoryTheory.Preadditive.IntegralConvolution
+public import Colib.CategoryTheory.Preadditive.ParameterCoend
 public import Mathlib.Algebra.Category.ModuleCat.Colimits
 public import Mathlib.Algebra.Category.ModuleCat.Monoidal.Basic
 public import Mathlib.CategoryTheory.Limits.Shapes.End
@@ -32,24 +34,18 @@ namespace AlgebraicGeometry.PresheafWithTransfers
 variable {k : Type u} [Field k]
 
 /-- Regard the original abelian groups and maps as modules over the integers. -/
-def integerModuleFunctor : AddCommGrpCat.{u + 1} ⥤ ModuleCat.{u + 1} ℤ where
-  obj A := ModuleCat.of ℤ A
-  map f := ModuleCat.ofHom f.hom.toIntLinearMap
-  map_id A := by ext x; rfl
-  map_comp f g := by ext x; rfl
+abbrev integerModuleFunctor : AddCommGrpCat.{u + 1} ⥤ ModuleCat.{u + 1} ℤ :=
+  CategoryTheory.Preadditive.Convolution.integerModuleFunctor
 
 /-- The covariant correspondence groups in the second tensor factor. -/
 def parameterCorrespondenceModule (F : Cor k ⥤ Cor k) (X : Cor k) :
     Cor k ⥤ ModuleCat.{u + 1} ℤ :=
-  F ⋙ preadditiveCoyoneda.obj (op X) ⋙ AddCommGrpCat.uliftFunctor.{u + 1, u} ⋙
-    integerModuleFunctor
+  CategoryTheory.Preadditive.ParameterCoend.homModule.{u + 1, u, 0} F X
 
 /-- The two-variable diagram whose coend extends the original parameter product. -/
 def parameterTensorDiagram (F : Cor k ⥤ Cor k) (P : PresheafWithTransfers.{u + 1} k)
     (X : Cor k) : (Cor k)ᵒᵖ ⥤ Cor k ⥤ ModuleCat.{u + 1} ℤ :=
-  Functor.curry.obj
-    (((P.obj ⋙ integerModuleFunctor).prod (parameterCorrespondenceModule F X)) ⋙
-      MonoidalCategory.tensor (ModuleCat.{u + 1} ℤ))
+  CategoryTheory.Preadditive.ParameterCoend.diagram.{u + 1, u, 0} F P X
 
 local instance (F : Cor k ⥤ Cor k) (P : PresheafWithTransfers.{u + 1} k) (X : Cor k) :
     HasCoend (parameterTensorDiagram F P X) := by
@@ -61,7 +57,7 @@ local instance (F : Cor k ⥤ Cor k) (P : PresheafWithTransfers.{u + 1} k) (X : 
 /-- The native tensor coend of the coefficient and the actual correspondence groups. -/
 def parameterTensorSections (F : Cor k ⥤ Cor k) (P : PresheafWithTransfers.{u + 1} k)
     (X : Cor k) : ModuleCat.{u + 1} ℤ :=
-  coend (parameterTensorDiagram F P X)
+  CategoryTheory.Preadditive.ParameterCoend.sections.{u + 1, u, 0} F P X
 
 /-- A pure tensor from a section and a signed correspondence gives a coend element. -/
 def parameterTensorGenerator (F : Cor k ⥤ Cor k) (P : PresheafWithTransfers.{u + 1} k)
