@@ -37,6 +37,11 @@ values on the original rational graph classes. Native tuple-symbol
 extensionality and the existing motivic diagonal equivalence COL-1026
 prove the criterion and uniqueness; the same criterion gives annihilation
 by n and quotient descent in positive degrees.
+In degree one, the native left unitor identifies the new all-degree map
+with the original module Kummer boundary on the actual units supplied by
+the native first Milnor equivalence. Undoing the source-unit isomorphism
+and forgetting module coefficients recovers the original unit Kummer
+class. This statement does not identify an unverified motivic realization.
 '''
 scope = '''
 This constructs an ordinary small-etale module Ext-valued Milnor symbol,

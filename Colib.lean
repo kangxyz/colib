@@ -1013,6 +1013,7 @@ public import Colib.AlgebraicGeometry.EtaleCohomology.KummerTermwiseExtendedAsse
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerTermwiseSourceNormalization
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitCorestrictionComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.KummerUnitsModulo
+public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerDegreeOneComparison
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerProduct
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwo
 public import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerTwoModulo

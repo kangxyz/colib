@@ -1,0 +1,8 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.MilnorKummerDegreeOneComparison
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKTupleSymbol_one_eq
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol_one
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorModuloKummerSymbol_one_mk
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.milnorKummerSymbol_one_unitKummerClass
