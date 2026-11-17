@@ -13,7 +13,7 @@ variable {X₀ X₁ : Type u} [TopologicalSpace X₀] [TopologicalSpace X₁]
   [T2Space X₀] [T2Space X₁]
 variable (A : Set X₀) (B : Set X₁) [CWComplex A] [CWComplex B]
 
-example
+noncomputable example
     (f : TopCat.of A ⟶ TopCat.of B)
     (a : A) (b : B) (γ : Path (f a) b) (N : Subgroup (HomotopyGroup.Pi 1 A a))
     (hf : IsPlusConstruction.{u, u, u} f.hom γ N)
