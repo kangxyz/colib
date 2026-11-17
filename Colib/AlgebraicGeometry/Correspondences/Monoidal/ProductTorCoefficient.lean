@@ -170,7 +170,7 @@ local notation "T" => pullback (C := Scheme) ((I).subschemeι ≫ f) ((J).subsch
 set_option quotPrecheck false in
 local notation "b₀" => Scheme.Hom.productClosedMap f g (I).subschemeι (J).subschemeι
 
-omit [PerfectField k] in
+omit [PerfectField k] [IsClosedImmersion p] [IsClosedImmersion q] in
 private theorem structureTorCoefficient_congr_product_weighted
     (η : genericPoints T) (hη : b₀ η.val = w)
     (hfinite : Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤)
@@ -313,7 +313,8 @@ theorem structureTorCoefficient_product_weighted_of_isLocallyNoetherian
   let : IsArtinianRing ((T).presheaf.stalk η.val) :=
     isArtinianRing_iff_isNoetherianRing_krullDimLE_zero.mpr ⟨inferInstance, inferInstance⟩
   exact structureTorCoefficient_product_weighted f g a b c d p q u v u' v'
-    hu hv hu' hv' z η hη (show Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤ from
+    hu hv hu' hv' z η hη
+    (show Module.length ((T).presheaf.stalk η.val) ((T).presheaf.stalk η.val) ≠ ⊤ from
       Module.length_ne_top)
     hfin₁ hfin₂ hsupp₁ hsupp₂
 
