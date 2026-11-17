@@ -108,4 +108,39 @@ theorem comp_mapBiprod_hom_eq_of_map_projections {C N D E : Type*}
     (hp (biprod.fst : X₂ ⊞ X₃ ⟶ X₂) (biprod.fst : Q₂ ⊞ Q₃ ⟶ Q₂) d₂ l₂.hom v₂.hom hm₂ hd₂)
     (hp (biprod.snd : X₂ ⊞ X₃ ⟶ X₃) (biprod.snd : Q₂ ⊞ Q₃ ⟶ Q₃) d₃ l₃.hom v₃.hom hm₃ hd₃)
 
+/-- A biproduct comparison after reflection is determined by the two row projections
+and the given comparisons of each reflected summand. -/
+theorem mapBiprod_hom_eq_of_reflected_projections {C N D E : Type*}
+    [Category* C] [Category* N] [Category* D] [Category* E]
+    [HasZeroMorphisms C] [HasZeroMorphisms N] [HasZeroMorphisms E]
+    [HasBinaryBiproducts C] [HasBinaryBiproducts N] [HasBinaryBiproducts E]
+    (q : C ⥤ E) (F : C ⥤ D) (s : N ⥤ D) (r : D ⥤ E)
+    [q.PreservesZeroMorphisms] [(s ⋙ r).PreservesZeroMorphisms]
+    [PreservesBinaryBiproducts q] [PreservesBinaryBiproducts (s ⋙ r)]
+    (a : q ⟶ F ⋙ r) {X₂ X₃ : C} {Q₂ Q₃ : N} {Y₂ Y₃ : E}
+    (m : F.obj (X₂ ⊞ X₃) ⟶ s.obj (Q₂ ⊞ Q₃))
+    (d₂ : F.obj X₂ ⟶ s.obj Q₂) (d₃ : F.obj X₃ ⟶ s.obj Q₃)
+    (b₂ : r.obj (s.obj Q₂) ⟶ Y₂) (b₃ : r.obj (s.obj Q₃) ⟶ Y₃)
+    (l₂ : q.obj X₂ ⟶ Y₂) (l₃ : q.obj X₃ ⟶ Y₃)
+    (hm₂ : m ≫ s.map (biprod.fst : Q₂ ⊞ Q₃ ⟶ Q₂) =
+      F.map (biprod.fst : X₂ ⊞ X₃ ⟶ X₂) ≫ d₂)
+    (hm₃ : m ≫ s.map (biprod.snd : Q₂ ⊞ Q₃ ⟶ Q₃) =
+      F.map (biprod.snd : X₂ ⊞ X₃ ⟶ X₃) ≫ d₃)
+    (hb₂ : a.app X₂ ≫ r.map d₂ ≫ b₂ = l₂)
+    (hb₃ : a.app X₃ ≫ r.map d₃ ≫ b₃ = l₃) :
+    a.app (X₂ ⊞ X₃) ≫ 𝟙 _ ≫ r.map m ≫
+        ((s ⋙ r).mapBiprod Q₂ Q₃).hom ≫ biprod.map b₂ b₃ =
+      (q.mapBiprod X₂ X₃).hom ≫ biprod.map l₂ l₃ := by
+  have hp {X : C} {Q : N} {Y : E} (f : X₂ ⊞ X₃ ⟶ X) (g : Q₂ ⊞ Q₃ ⟶ Q)
+      (d : F.obj X ⟶ s.obj Q) (b : r.obj (s.obj Q) ⟶ Y) (l : q.obj X ⟶ Y)
+      (hm : m ≫ s.map g = F.map f ≫ d) (hb : a.app X ≫ r.map d ≫ b = l) :
+      a.app (X₂ ⊞ X₃) ≫ 𝟙 _ ≫ r.map m ≫ r.map (s.map g) ≫ b = q.map f ≫ l := by
+    have hn : q.map f ≫ a.app X = a.app (X₂ ⊞ X₃) ≫ r.map (F.map f) := a.naturality f
+    rw [Category.id_comp, ← r.map_comp_assoc, hm, r.map_comp_assoc, ← reassoc_of% hn, hb]
+  apply biprod.hom_ext
+  · simpa only [Category.assoc, Functor.mapBiprod_hom, biprod.map_fst,
+      biprod.lift_fst_assoc, Functor.comp_map] using hp biprod.fst biprod.fst d₂ b₂ l₂ hm₂ hb₂
+  · simpa only [Category.assoc, Functor.mapBiprod_hom, biprod.map_snd,
+      biprod.lift_snd_assoc, Functor.comp_map] using hp biprod.snd biprod.snd d₃ b₃ l₃ hm₃ hb₃
+
 end CategoryTheory.Limits.biprod

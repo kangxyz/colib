@@ -11,6 +11,8 @@ import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.OpenImmers
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.TransferExcision
 public import Colib.AlgebraicGeometry.MotivicHomotopy.Purity.PairOpenCoverGeometry
 import Colib.AlgebraicGeometry.Sites.Smooth.Cartier.PunctureComparison
+import Colib.CategoryTheory.Square.ShortComplex
+public import Colib.CategoryTheory.Triangulated.SignedSquare
 import Mathlib.Algebra.Homology.ShortComplex.SnakeLemma
 import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Biproducts
 import Mathlib.Data.Finset.Lattice.Fold
@@ -41,23 +43,6 @@ universe u v w w'
 section Abelian
 
 variable {C : Type u} [Category.{v} C] [Abelian C]
-
-/-- The signed difference and sum construction takes a map of squares to a map of rows. -/
-private def coverSequenceMap {A B : Square C} (f : A ⟶ B) :
-    A.commSq.shortComplex ⟶ B.commSq.shortComplex :=
-  ShortComplex.homMk f.τ₁ (biprod.map f.τ₂ f.τ₃) f.τ₄ (by
-    change f.τ₁ ≫ biprod.lift B.f₁₂ (-B.f₁₃) =
-      biprod.lift A.f₁₂ (-A.f₁₃) ≫ biprod.map f.τ₂ f.τ₃
-    apply biprod.hom_ext
-    · simp
-    · simpa only [Category.assoc, biprod.lift_snd_assoc, biprod.lift_snd, biprod.map_snd,
-        Preadditive.comp_neg, Preadditive.neg_comp] using congrArg Neg.neg f.comm₁₃.symm)
-    (by
-      change biprod.map f.τ₂ f.τ₃ ≫ biprod.desc B.f₂₄ B.f₃₄ =
-        biprod.desc A.f₂₄ A.f₃₄ ≫ f.τ₄
-      apply biprod.hom_ext'
-      · simp
-      · simp)
 
 /-- The biproduct of the two cokernel projections is a cokernel of the biproduct map. -/
 private def biprodCokernelIsColimit {A B A' B' : C} (a : A ⟶ B) (b : A' ⟶ B') :
@@ -168,9 +153,9 @@ private theorem quotientCoverSequence_shortExact (F : C ⥤ D) {U X : Square C} 
     (hX : (X.map F).commSq.shortComplex.ShortExact)
     [Mono (F.map j.τ₁)] [Mono (F.map j.τ₂)] [Mono (F.map j.τ₃)] [Mono (F.map j.τ₄)] :
     ((arrowSquare j).map (F.mapArrow ⋙ coker D)).commSq.shortComplex.ShortExact := by
-  let J := coverSequenceMap ((F.mapSquare).map j)
+  let J := (Square.shortComplexFunctor D).map ((F.mapSquare).map j)
   let P := Functor.whiskerLeft F.mapArrow (coker.π D)
-  let π := coverSequenceMap (P.mapSquare.app (arrowSquare j))
+  let π := (Square.shortComplexFunctor D).map (P.mapSquare.app (arrowSquare j))
   have w : J ≫ π = 0 := by
     apply ShortComplex.hom_ext
     · exact cokernel.condition (F.map j.τ₁)
@@ -237,17 +222,19 @@ theorem transferPairOpenCoverSequence_shortExact {U X : Square Sm(k)} (j : U ⟶
       (transferSquare_isPushout_of_openCover k X hX cX))
 
 set_option maxHeartbeats 2400000 in
--- Pin the two source and target corners of the cofiber quotient row.
+-- Identify the source and target of the functor on the four arrow quotients.
+private def transferPairOpenCoverSquareMap {U X U' X' : Square Sm(k)} {j : U ⟶ X} {j' : U' ⟶ X'}
+    (a : U ⟶ U') (b : X ⟶ X') (h : j ≫ b = a ≫ j') :
+    transferPairOpenCoverSquare k j ⟶ transferPairOpenCoverSquare k j' :=
+  (transferPairCokernelFunctor k).mapSquare.map (arrowSquareMap a b h)
+
+set_option maxHeartbeats 2400000 in
+-- Identify the terms of the signed row with those of the quotient square.
 /-- Compatible maps of cover squares induce the actual maps on the four relative quotients. -/
 def transferPairOpenCoverSequenceMap {U X U' X' : Square Sm(k)} {j : U ⟶ X} {j' : U' ⟶ X'}
     (a : U ⟶ U') (b : X ⟶ X') (h : j ≫ b = a ≫ j') :
-    transferPairOpenCoverSequence k j ⟶ transferPairOpenCoverSequence k j' := by
-  change (transferPairOpenCoverSquare k j).commSq.shortComplex ⟶
-    (transferPairOpenCoverSquare k j').commSq.shortComplex
-  let Q := transferPairCokernelFunctor k
-  let u : transferPairOpenCoverSquare k j ⟶ transferPairOpenCoverSquare k j' :=
-    (Q.mapSquare).map (arrowSquareMap a b h)
-  exact coverSequenceMap u
+    transferPairOpenCoverSequence k j ⟶ transferPairOpenCoverSequence k j' :=
+  (Square.shortComplexFunctor NST(k)).map (transferPairOpenCoverSquareMap k a b h)
 
 variable [PerfectField k]
   [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
@@ -261,34 +248,23 @@ local instance instPairOpenCoverPreservesBinaryBiproducts :
   preservesBinaryBiproducts_of_preservesBiproducts (F)
 
 set_option maxHeartbeats 2400000 in
--- Elaborate the four represented quotient coefficients of the cover simultaneously.
+-- Identify the four reflected corners of the cover and the endpoints of the boundary.
 /-- The relative Mayer–Vietoris triangle on the actual motives of the four pairs.
 Use `transferPairOpenCoverSequence_shortExact` for two covering opens. -/
 @[expose] def effectivePairOpenCoverTriangle {U X : Square Sm(k)} {j : U ⟶ X}
     (h : (transferPairOpenCoverSequence k j).ShortExact) :
     Triangle (EffectiveMotivesMinus k) :=
-  let Q := transferPairOpenCoverSquare k j
-  Triangle.mk (biprod.lift ((F).map Q.f₁₂) (-((F).map Q.f₁₃)))
-    (biprod.desc ((F).map Q.f₂₄) ((F).map Q.f₃₄))
-    (effectiveTransferSheafTriangle k h).mor₃
+  ((transferPairOpenCoverSquare k j).map (F)).shortComplexTriangle
+    (effectiveTransferSheafConnecting k h)
 
 set_option maxHeartbeats 2400000 in
--- Relate the two shift boundaries and the original middle biproduct.
+-- Identify the reflected transfer row with the image of the quotient square.
 /-- The original reflected transfer row identifies the relative cover triangle. -/
 @[expose] def effectivePairOpenCoverTriangleIso {U X : Square Sm(k)} {j : U ⟶ X}
     (h : (transferPairOpenCoverSequence k j).ShortExact) :
-    effectiveTransferSheafTriangle k h ≅ effectivePairOpenCoverTriangle k h := by
-  let Q := transferPairOpenCoverSquare k j
-  refine Triangle.isoMk _ _ (Iso.refl _) ((F).mapBiprod Q.X₂ Q.X₃) (Iso.refl _) ?_ ?_ ?_
-  · change (F).map (biprod.lift Q.f₁₂ (-Q.f₁₃)) ≫ ((F).mapBiprod Q.X₂ Q.X₃).hom =
-      𝟙 _ ≫ biprod.lift ((F).map Q.f₁₂) (-((F).map Q.f₁₃))
-    rw [biprod.map_lift_mapBiprod (F), (F).map_neg, Category.id_comp]
-  · change (F).map (biprod.desc Q.f₂₄ Q.f₃₄) ≫ 𝟙 _ =
-      ((F).mapBiprod Q.X₂ Q.X₃).hom ≫ biprod.desc ((F).map Q.f₂₄) ((F).map Q.f₃₄)
-    rw [Category.comp_id, biprod.mapBiprod_hom_desc]
-  · let δ := (effectiveTransferSheafTriangle k h).mor₃
-    change δ ≫ (shiftFunctor _ (1 : ℤ)).map (𝟙 _) = 𝟙 _ ≫ δ
-    simp
+    effectiveTransferSheafTriangle k h ≅ effectivePairOpenCoverTriangle k h :=
+  Square.mapShortComplexTriangleIso (F) (transferPairOpenCoverSquare k j)
+    (effectiveTransferSheafConnecting k h)
 
 /-- The relative Mayer–Vietoris triangle is distinguished. -/
 theorem effectivePairOpenCoverTriangle_distinguished {U X : Square Sm(k)} {j : U ⟶ X}
@@ -298,16 +274,18 @@ theorem effectivePairOpenCoverTriangle_distinguished {U X : Square Sm(k)} {j : U
     (effectivePairOpenCoverTriangleIso k h).symm
 
 set_option maxHeartbeats 2400000 in
--- Identify the uncompressed pair maps before comparing the three triangle vertices.
+-- Identify the connecting-map square with that of the native transfer triangle.
 /-- Compatible maps of two covers induce a morphism of the relative triangles. -/
 def effectivePairOpenCoverTriangleMap {U X U' X' : Square Sm(k)} {j : U ⟶ X} {j' : U' ⟶ X'}
     (a : U ⟶ U') (b : X ⟶ X') (h : j ≫ b = a ≫ j')
     (h₁ : (transferPairOpenCoverSequence k j).ShortExact)
     (h₂ : (transferPairOpenCoverSequence k j').ShortExact) :
-    effectivePairOpenCoverTriangle k h₁ ⟶ effectivePairOpenCoverTriangle k h₂ :=
-  (effectivePairOpenCoverTriangleIso k h₁).inv ≫
-    effectiveTransferSheafTriangleMap k h₁ h₂ (transferPairOpenCoverSequenceMap k a b h) ≫
-    (effectivePairOpenCoverTriangleIso k h₂).hom
+    effectivePairOpenCoverTriangle k h₁ ⟶ effectivePairOpenCoverTriangle k h₂ := by
+  let m := (F).mapSquare.map (transferPairOpenCoverSquareMap k a b h)
+  let p := effectiveTransferSheafTriangleMap k h₁ h₂ (transferPairOpenCoverSequenceMap k a b h)
+  exact Square.shortComplexTriangleMap m
+    (δ := effectiveTransferSheafConnecting k h₁) (ε := effectiveTransferSheafConnecting k h₂)
+    p.comm₃
 
 section Comparison
 
@@ -319,42 +297,26 @@ variable {U X U' X' : Square Sm(k)} {j : U ⟶ X} {j' : U' ⟶ X'}
 local notation "M" => effectivePairMotiveFunctor k
 
 set_option maxHeartbeats 2400000 in
--- Read the original corner map through both signed triangle comparisons.
+-- Read the reflected quotient at the overlap.
 /-- The comparison is the original pair map on the overlap. -/
 theorem effectivePairOpenCoverTriangleMap_hom₁ :
     (effectivePairOpenCoverTriangleMap k a b h h₁ h₂).hom₁ =
-      (M).map (Arrow.homMk' a.τ₁ b.τ₁ (congrArg Square.Hom.τ₁ h.symm)) := by
-  change 𝟙 _ ≫ (M).map (Arrow.homMk' a.τ₁ b.τ₁ (congrArg Square.Hom.τ₁ h.symm)) ≫
-    𝟙 _ = _
-  simp only [Category.id_comp, Category.comp_id]
+      (M).map (Arrow.homMk' a.τ₁ b.τ₁ (congrArg Square.Hom.τ₁ h.symm)) := (rfl)
 
 set_option maxHeartbeats 2400000 in
--- Read the original corner maps through both signed triangle comparisons.
+-- Read the reflected quotients at both cover charts.
 /-- The comparison is the biproduct of the original pair maps on the charts. -/
 theorem effectivePairOpenCoverTriangleMap_hom₂ :
     (effectivePairOpenCoverTriangleMap k a b h h₁ h₂).hom₂ =
       biprod.map ((M).map (Arrow.homMk' a.τ₂ b.τ₂ (congrArg Square.Hom.τ₂ h.symm)))
-        ((M).map (Arrow.homMk' a.τ₃ b.τ₃ (congrArg Square.Hom.τ₃ h.symm))) := by
-  let m := (transferPairCokernelFunctor k).mapSquare.map (arrowSquareMap a b h)
-  change ((F).mapBiprod _ _).inv ≫ (F).map (biprod.map m.τ₂ m.τ₃) ≫
-    ((F).mapBiprod _ _).hom = biprod.map ((F).map m.τ₂) ((F).map m.τ₃)
-  apply (cancel_epi ((F).mapBiprod _ _).hom).1
-  rw [Iso.hom_inv_id_assoc]
-  apply biprod.hom_ext
-  · simp only [Functor.mapBiprod_hom, Category.assoc, biprod.lift_fst, biprod.lift_fst_assoc,
-      biprod.map_fst, ← (F).map_comp]
-  · simp only [Functor.mapBiprod_hom, Category.assoc, biprod.lift_snd, biprod.lift_snd_assoc,
-      biprod.map_snd, ← (F).map_comp]
+        ((M).map (Arrow.homMk' a.τ₃ b.τ₃ (congrArg Square.Hom.τ₃ h.symm))) := (rfl)
 
 set_option maxHeartbeats 2400000 in
--- Read the original corner map through both signed triangle comparisons.
+-- Read the reflected quotient at the union.
 /-- The comparison is the original pair map on the total pair. -/
 theorem effectivePairOpenCoverTriangleMap_hom₃ :
     (effectivePairOpenCoverTriangleMap k a b h h₁ h₂).hom₃ =
-      (M).map (Arrow.homMk' a.τ₄ b.τ₄ (congrArg Square.Hom.τ₄ h.symm)) := by
-  change 𝟙 _ ≫ (M).map (Arrow.homMk' a.τ₄ b.τ₄ (congrArg Square.Hom.τ₄ h.symm)) ≫
-    𝟙 _ = _
-  simp only [Category.id_comp, Category.comp_id]
+      (M).map (Arrow.homMk' a.τ₄ b.τ₄ (congrArg Square.Hom.τ₄ h.symm)) := (rfl)
 
 include h₁ h₂ in
 /-- An isomorphism on the two charts and their overlap gives an isomorphism

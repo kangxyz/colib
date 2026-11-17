@@ -4440,6 +4440,7 @@ public import Colib.CategoryTheory.SmallModel.Exact
 public import Colib.CategoryTheory.SmallModel.Functoriality
 public import Colib.CategoryTheory.SmallModel.Localization
 public import Colib.CategoryTheory.SmallObject.Accessible
+public import Colib.CategoryTheory.Square.ShortComplex
 public import Colib.CategoryTheory.Subdivision.Action
 public import Colib.CategoryTheory.Subdivision.Basic
 public import Colib.CategoryTheory.Subdivision.Functor
@@ -4550,8 +4551,11 @@ public import Colib.CategoryTheory.TheoremB.WeakComparison
 public import Colib.CategoryTheory.TheoremB.WeakTransitionComparison
 public import Colib.CategoryTheory.TheoremB.WeakVertexComparison
 public import Colib.CategoryTheory.Triangulated.FiniteEdge
+public import Colib.CategoryTheory.Triangulated.MapTriangleComparison
 public import Colib.CategoryTheory.Triangulated.ShiftMapWindow
+public import Colib.CategoryTheory.Triangulated.ShortComplexComparison
 public import Colib.CategoryTheory.Triangulated.SignedShift
+public import Colib.CategoryTheory.Triangulated.SignedSquare
 public import Colib.CategoryTheory.Triangulated.SpecifiedCompletion
 public import Colib.CategoryTheory.Triangulated.SplitProjectionBoundary
 public import Colib.CategoryTheory.Triangulated.Stabilization

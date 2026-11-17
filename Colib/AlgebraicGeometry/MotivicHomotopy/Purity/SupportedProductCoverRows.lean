@@ -9,6 +9,7 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.Purity.SupportedProductCov
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.CoverComparison
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.TransferExcision
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.SignedExactness
+public import Colib.CategoryTheory.Square.ShortComplex
 
 /-! # Signed coefficient rows on the actual cover and product-pair squares -/
 
@@ -41,53 +42,74 @@ def signedSquareRowCompositeIso (Q : Square N) (h : sq.map K = Q) :
   h ▸ (mapSignedSquareRowIso F a sq ≪≫
     (mapSignedSquareRowIso G (Iso.refl (K ⋙ G)) sq).symm)
 
-private theorem signedSquareRowCompositeIso_hom₁ (Q : Square N) (h : sq.map K = Q) :
-    (signedSquareRowCompositeIso F G a sq Q h).hom.τ₁ =
-      a.hom.app sq.X₁ ≫ eqToHom (congrArg (fun Q' : Square N => G.obj Q'.X₁) h) := by
-  subst Q
-  rfl
-
-private theorem signedSquareRowCompositeIso_hom₃ (Q : Square N) (h : sq.map K = Q) :
-    (signedSquareRowCompositeIso F G a sq Q h).hom.τ₃ =
-      a.hom.app sq.X₄ ≫ eqToHom (congrArg (fun Q' : Square N => G.obj Q'.X₄) h) := by
-  subst Q
-  rfl
-
-private theorem signedSquareRowCompositeIso_fst (Q : Square N) (h : sq.map K = Q) :
-    (signedSquareRowCompositeIso F G a sq Q h).hom.τ₂ ≫
-        G.map (biprod.fst : Q.X₂ ⊞ Q.X₃ ⟶ Q.X₂) =
-      F.map (biprod.fst : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ J.obj sq.X₂) ≫
-        a.hom.app sq.X₂ ≫ eqToHom (congrArg (fun Q' : Square N => G.obj Q'.X₂) h) := by
-  subst Q
-  simp [signedSquareRowCompositeIso, mapSignedSquareRowIso, Category.assoc, ← Functor.map_comp]
-
-private theorem signedSquareRowCompositeIso_snd (Q : Square N) (h : sq.map K = Q) :
-    (signedSquareRowCompositeIso F G a sq Q h).hom.τ₂ ≫
-        G.map (biprod.snd : Q.X₂ ⊞ Q.X₃ ⟶ Q.X₃) =
-      F.map (biprod.snd : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ J.obj sq.X₃) ≫
-        a.hom.app sq.X₃ ≫ eqToHom (congrArg (fun Q' : Square N => G.obj Q'.X₃) h) := by
-  subst Q
-  simp [signedSquareRowCompositeIso, mapSignedSquareRowIso, Category.assoc, ← Functor.map_comp]
-
 private theorem signedSquareRowProjection_fst :
     (mapSignedSquareRowIso F a sq ≪≫
         (mapSignedSquareRowIso G (Iso.refl (K ⋙ G)) sq).symm).hom.τ₂ ≫
         G.map (biprod.fst : K.obj sq.X₂ ⊞ K.obj sq.X₃ ⟶ _) =
       F.map (biprod.fst : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ _) ≫ a.hom.app sq.X₂ := by
-  have h := signedSquareRowCompositeIso_fst F G a sq (sq.map K) rfl
-  let m := F.map (biprod.fst : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ _)
-  exact h.trans (congrArg (m ≫ ·) (Category.comp_id (a.hom.app sq.X₂)))
+  simp [mapSignedSquareRowIso, Category.assoc, ← Functor.map_comp]
 
 private theorem signedSquareRowProjection_snd :
     (mapSignedSquareRowIso F a sq ≪≫
         (mapSignedSquareRowIso G (Iso.refl (K ⋙ G)) sq).symm).hom.τ₂ ≫
         G.map (biprod.snd : K.obj sq.X₂ ⊞ K.obj sq.X₃ ⟶ _) =
       F.map (biprod.snd : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ _) ≫ a.hom.app sq.X₃ := by
-  have h := signedSquareRowCompositeIso_snd F G a sq (sq.map K) rfl
-  let m := F.map (biprod.snd : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ _)
-  exact h.trans (congrArg (m ≫ ·) (Category.comp_id (a.hom.app sq.X₃)))
+  simp [mapSignedSquareRowIso, Category.assoc, ← Functor.map_comp]
 
 end SignedRows
+
+section MappedSignedRows
+
+variable {S C B N D : Type*} [Category* S] [Category* C] [Category* B] [Category* N] [Category* D]
+  [Preadditive C] [Preadditive N] [Preadditive D]
+  [HasBinaryBiproducts C] [HasBinaryBiproducts N] [HasBinaryBiproducts D]
+  (F : C ⥤ D) (G : N ⥤ D) [F.Additive] [G.Additive]
+  [PreservesBinaryBiproducts F] [PreservesBinaryBiproducts G]
+  (Q : B ⥤ N) {J : S ⥤ C} {K : S ⥤ B} (a : J ⋙ F ≅ (K ⋙ Q) ⋙ G) (sq : Square S)
+  {A : Square B} (h : sq.map K = A)
+
+set_option quotPrecheck false in
+local notation "baseRowIso" =>
+  (mapSignedSquareRowIso F a sq ≪≫ (mapSignedSquareRowIso G (Iso.refl ((K ⋙ Q) ⋙ G)) sq).symm)
+
+/-- Compare the coefficient rows along an equality of their underlying squares. -/
+def signedSquareRowIsoOfMappedSquareEq :
+    (sq.map J).commSq.shortComplex.map F ≅ (A.map Q).commSq.shortComplex.map G :=
+  Square.compMapShortComplexIso (A := sq.map K) Q G baseRowIso h
+
+private theorem signedSquareRowIsoOfMappedSquareEq_hom₁ :
+    (signedSquareRowIsoOfMappedSquareEq F G Q a sq h).hom.τ₁ =
+      a.hom.app sq.X₁ ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₁) h)) :=
+  (Square.compMapShortComplexIso_hom₁ (A := sq.map K) Q G baseRowIso h).trans
+    (congrArg (· ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₁) h)))
+      (Category.comp_id (a.hom.app sq.X₁)))
+
+private theorem signedSquareRowIsoOfMappedSquareEq_hom₃ :
+    (signedSquareRowIsoOfMappedSquareEq F G Q a sq h).hom.τ₃ =
+      a.hom.app sq.X₄ ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₄) h)) :=
+  (Square.compMapShortComplexIso_hom₃ (A := sq.map K) Q G baseRowIso h).trans
+    (congrArg (· ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₄) h)))
+      (Category.comp_id (a.hom.app sq.X₄)))
+
+private theorem signedSquareRowIsoOfMappedSquareEq_fst :
+    (signedSquareRowIsoOfMappedSquareEq F G Q a sq h).hom.τ₂ ≫
+        G.map (biprod.fst : Q.obj A.X₂ ⊞ Q.obj A.X₃ ⟶ Q.obj A.X₂) =
+      F.map (biprod.fst : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ J.obj sq.X₂) ≫
+        a.hom.app sq.X₂ ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₂) h)) :=
+  (Square.compMapShortComplexIso_fst (A := sq.map K) Q G baseRowIso h).trans
+    ((congrArg (· ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₂) h)))
+      (signedSquareRowProjection_fst (K := K ⋙ Q) F G a sq)).trans (Category.assoc _ _ _))
+
+private theorem signedSquareRowIsoOfMappedSquareEq_snd :
+    (signedSquareRowIsoOfMappedSquareEq F G Q a sq h).hom.τ₂ ≫
+        G.map (biprod.snd : Q.obj A.X₂ ⊞ Q.obj A.X₃ ⟶ Q.obj A.X₃) =
+      F.map (biprod.snd : J.obj sq.X₂ ⊞ J.obj sq.X₃ ⟶ J.obj sq.X₃) ≫
+        a.hom.app sq.X₃ ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₃) h)) :=
+  (Square.compMapShortComplexIso_snd (A := sq.map K) Q G baseRowIso h).trans
+    ((congrArg (· ≫ (Q ⋙ G).map (eqToHom (congrArg (fun A : Square B => A.X₃) h)))
+      (signedSquareRowProjection_snd (K := K ⋙ Q) F G a sq)).trans (Category.assoc _ _ _))
+
+end MappedSignedRows
 
 private theorem squareMap_comp {C D E : Type*} [Category* C] [Category* D] [Category* E]
     (sq : Square C) (F : C ⥤ D) (G : D ⥤ E) :
@@ -214,7 +236,8 @@ theorem ordinaryCoverRowIso_hom₂_snd (sq : Square Sm(k)) :
 
 omit [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (SheafWithTransfers.{u + 1} k)] [IsOpenImmersion j.left] in
-private theorem pairProductParameter_square (sq : Square Sm(k)) :
+/-- The four product pairs and their comparison maps form the image of the cover square. -/
+theorem pairProductParameter_square (sq : Square Sm(k)) :
     sq.map (pairProductParameter k j) = arrowSquare (smoothPairProductCoverMap j sq) := (rfl)
 
 set_option maxHeartbeats 750000 in
@@ -245,99 +268,94 @@ local notation "QF" => pairProductParameter k j ⋙ transferPairCokernelFunctor 
 abbrev pairCoverCoefficientComparison : R₀ ⋙ F ≅ QF ⋙ s :=
   derivedProductPairEndNatIso k j
 
-attribute [local irreducible] signedSquareRowCompositeIso
+attribute [local irreducible] signedSquareRowIsoOfMappedSquareEq
 
 set_option maxHeartbeats 950000 in
--- Form the signed rows from an explicit equality of the quotient squares.
+-- The parameter squares are compared before taking transfer quotients.
 /-- The derived tensor row identifies with the degree-zero row of literal product-pair quotients. -/
 abbrev pairCoverRowIso (sq : Square Sm(k)) :
     (representedCoverRow k sq).map F ≅ (productCoverRow k j sq).map s :=
-  signedSquareRowCompositeIso (J := R₀) (K := QF) F s
-    (pairCoverCoefficientComparison k j) sq Qₚ(sq) (pairProductQuotientSquare_eq k j sq)
+  signedSquareRowIsoOfMappedSquareEq (J := R₀) (K := pairProductParameter k j)
+    F s (transferPairCokernelFunctor k) (pairCoverCoefficientComparison k j) sq
+    (pairProductParameter_square k j sq)
 
 attribute [local irreducible] Cor.graphFunctor SheafWithTransfers.transferRepresentable
 set_option backward.isDefEq.respectTransparency true
 
 set_option maxHeartbeats 750000 in
--- Read the corner map using the proved square and parameter projections.
 /-- The overlap component of the derived row is the original augmentation comparison. -/
 theorem pairCoverRowIso_hom₁ (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₁ = (derivedProductPairEndIso k j sq.X₁).hom := by
-  let h := pairProductQuotientSquare_eq k j sq
+  let Q := transferPairCokernelFunctor k
+  let e := pairProductParameter_square k j sq
   let a := pairCoverCoefficientComparison k j
   let v := a.hom.app sq.X₁
-  let c := eqToHom (congrArg (fun Q : Square NST => (s).obj Q.X₁) h)
-  have e : c = 𝟙 _ := (rfl)
-  have p : (pairCoverRowIso k j sq).hom.τ₁ = v ≫ c :=
-    signedSquareRowCompositeIso_hom₁ (J := R₀) (K := QF) F s a sq Qₚ(sq) h
-  have hc : v ≫ c = v ≫ 𝟙 _ := congrArg (v ≫ ·) e
-  have hi : v ≫ 𝟙 _ = v := Category.comp_id v
-  have hv : v = (derivedProductPairEndIso k j sq.X₁).hom :=
-    derivedProductPairEndNatIso_hom_app k j sq.X₁
-  exact p.trans (hc.trans (hi.trans hv))
+  let c := eqToHom (congrArg (fun T : Square (Arrow Sm(k)) => T.X₁) e)
+  have hc : c = 𝟙 ((pairProductParameter k j).obj sq.X₁) := (rfl)
+  have h := signedSquareRowIsoOfMappedSquareEq_hom₁
+    (J := R₀) (K := pairProductParameter k j) F s Q a sq e
+  have hId : (Q ⋙ s).map c = 𝟙 _ :=
+    ((Q ⋙ s).congr_map hc).trans ((Q ⋙ s).map_id _)
+  exact h.trans ((congrArg (v ≫ ·) hId).trans
+    ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₁)))
 
 set_option maxHeartbeats 750000 in
--- Read the corner map using the proved square and parameter projections.
 /-- The union component of the derived row is the original augmentation comparison. -/
 theorem pairCoverRowIso_hom₃ (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₃ = (derivedProductPairEndIso k j sq.X₄).hom := by
-  let h := pairProductQuotientSquare_eq k j sq
+  let Q := transferPairCokernelFunctor k
+  let e := pairProductParameter_square k j sq
   let a := pairCoverCoefficientComparison k j
   let v := a.hom.app sq.X₄
-  let c := eqToHom (congrArg (fun Q : Square NST => (s).obj Q.X₄) h)
-  have e : c = 𝟙 _ := (rfl)
-  have p : (pairCoverRowIso k j sq).hom.τ₃ = v ≫ c :=
-    signedSquareRowCompositeIso_hom₃ (J := R₀) (K := QF) F s a sq Qₚ(sq) h
-  have hc : v ≫ c = v ≫ 𝟙 _ := congrArg (v ≫ ·) e
-  have hi : v ≫ 𝟙 _ = v := Category.comp_id v
-  have hv : v = (derivedProductPairEndIso k j sq.X₄).hom :=
-    derivedProductPairEndNatIso_hom_app k j sq.X₄
-  exact p.trans (hc.trans (hi.trans hv))
+  let c := eqToHom (congrArg (fun T : Square (Arrow Sm(k)) => T.X₄) e)
+  have hc : c = 𝟙 ((pairProductParameter k j).obj sq.X₄) := (rfl)
+  have h := signedSquareRowIsoOfMappedSquareEq_hom₃
+    (J := R₀) (K := pairProductParameter k j) F s Q a sq e
+  have hId : (Q ⋙ s).map c = 𝟙 _ :=
+    ((Q ⋙ s).congr_map hc).trans ((Q ⋙ s).map_id _)
+  exact h.trans ((congrArg (v ≫ ·) hId).trans
+    ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₄)))
 
 set_option maxHeartbeats 750000 in
--- Read the corner map using the proved square and parameter projections.
 /-- The first projection of the product row is the original pair comparison on that chart. -/
 theorem pairCoverRowIso_hom₂_fst (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₂ ≫
         (s).map (biprod.fst : Qₚ(sq).X₂ ⊞ Qₚ(sq).X₃ ⟶ _) =
       (F).map (biprod.fst : (R₀).obj sq.X₂ ⊞ (R₀).obj sq.X₃ ⟶ _) ≫
         (derivedProductPairEndIso k j sq.X₂).hom := by
-  let h := pairProductQuotientSquare_eq k j sq
+  let Q := transferPairCokernelFunctor k
+  let e := pairProductParameter_square k j sq
   let a := pairCoverCoefficientComparison k j
   let v := a.hom.app sq.X₂
-  let c := eqToHom (congrArg (fun Q : Square NST => (s).obj Q.X₂) h)
   let m := (F).map (biprod.fst : (R₀).obj sq.X₂ ⊞ (R₀).obj sq.X₃ ⟶ _)
-  let f := (s).map (biprod.fst : Qₚ(sq).X₂ ⊞ Qₚ(sq).X₃ ⟶ _)
-  have e : c = 𝟙 _ := (rfl)
-  have p : (pairCoverRowIso k j sq).hom.τ₂ ≫ f = m ≫ v ≫ c :=
-    signedSquareRowCompositeIso_fst (J := R₀) (K := QF) F s a sq Qₚ(sq) h
-  have hc : v ≫ c = v ≫ 𝟙 _ := congrArg (v ≫ ·) e
-  have hi : v ≫ 𝟙 _ = v := Category.comp_id v
-  have hv : v = (derivedProductPairEndIso k j sq.X₂).hom :=
-    derivedProductPairEndNatIso_hom_app k j sq.X₂
-  exact p.trans (congrArg (m ≫ ·) (hc.trans (hi.trans hv)))
+  let c := eqToHom (congrArg (fun T : Square (Arrow Sm(k)) => T.X₂) e)
+  have hc : c = 𝟙 ((pairProductParameter k j).obj sq.X₂) := (rfl)
+  have h := signedSquareRowIsoOfMappedSquareEq_fst
+    (J := R₀) (K := pairProductParameter k j) F s Q a sq e
+  have hId : (Q ⋙ s).map c = 𝟙 _ :=
+    ((Q ⋙ s).congr_map hc).trans ((Q ⋙ s).map_id _)
+  exact h.trans (congrArg (m ≫ ·) ((congrArg (v ≫ ·) hId).trans
+    ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₂))))
 
 set_option maxHeartbeats 750000 in
--- Read the corner map using the proved square and parameter projections.
 /-- The second projection of the product row is the original pair comparison on that chart. -/
 theorem pairCoverRowIso_hom₂_snd (sq : Square Sm(k)) :
     (pairCoverRowIso k j sq).hom.τ₂ ≫
         (s).map (biprod.snd : Qₚ(sq).X₂ ⊞ Qₚ(sq).X₃ ⟶ _) =
       (F).map (biprod.snd : (R₀).obj sq.X₂ ⊞ (R₀).obj sq.X₃ ⟶ _) ≫
         (derivedProductPairEndIso k j sq.X₃).hom := by
-  let h := pairProductQuotientSquare_eq k j sq
+  let Q := transferPairCokernelFunctor k
+  let e := pairProductParameter_square k j sq
   let a := pairCoverCoefficientComparison k j
   let v := a.hom.app sq.X₃
-  let c := eqToHom (congrArg (fun Q : Square NST => (s).obj Q.X₃) h)
   let m := (F).map (biprod.snd : (R₀).obj sq.X₂ ⊞ (R₀).obj sq.X₃ ⟶ _)
-  let f := (s).map (biprod.snd : Qₚ(sq).X₂ ⊞ Qₚ(sq).X₃ ⟶ _)
-  have e : c = 𝟙 _ := (rfl)
-  have p : (pairCoverRowIso k j sq).hom.τ₂ ≫ f = m ≫ v ≫ c :=
-    signedSquareRowCompositeIso_snd (J := R₀) (K := QF) F s a sq Qₚ(sq) h
-  have hc : v ≫ c = v ≫ 𝟙 _ := congrArg (v ≫ ·) e
-  have hi : v ≫ 𝟙 _ = v := Category.comp_id v
-  have hv : v = (derivedProductPairEndIso k j sq.X₃).hom :=
-    derivedProductPairEndNatIso_hom_app k j sq.X₃
-  exact p.trans (congrArg (m ≫ ·) (hc.trans (hi.trans hv)))
+  let c := eqToHom (congrArg (fun T : Square (Arrow Sm(k)) => T.X₃) e)
+  have hc : c = 𝟙 ((pairProductParameter k j).obj sq.X₃) := (rfl)
+  have h := signedSquareRowIsoOfMappedSquareEq_snd
+    (J := R₀) (K := pairProductParameter k j) F s Q a sq e
+  have hId : (Q ⋙ s).map c = 𝟙 _ :=
+    ((Q ⋙ s).congr_map hc).trans ((Q ⋙ s).map_id _)
+  exact h.trans (congrArg (m ≫ ·) ((congrArg (v ≫ ·) hId).trans
+    ((Category.comp_id v).trans (derivedProductPairEndNatIso_hom_app k j sq.X₃))))
 
 end AlgebraicGeometry.MotivicHomotopy

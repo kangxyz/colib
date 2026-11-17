@@ -11,6 +11,8 @@ public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.Smo
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Tensor.SignedExactness
 import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.CoverComparison
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.Excision
+import Colib.CategoryTheory.Limits.BiproductComparison
+import Colib.CategoryTheory.Triangulated.MapTriangleComparison
 import StacksFrontier.CategoryTheory.Sites.AbelianSheafificationExistence
 
 /-! # The signed triangles of the represented cover and its product pairs -/
@@ -30,25 +32,10 @@ namespace AlgebraicGeometry.MotivicHomotopy
 
 open PresheafWithTransfers SheafWithTransfers
 
-private theorem map_inv_comp_of_comp_hom {C D : Type*} [Category* C] [Category* D]
-    (G : C ⥤ D) {X Y : C} (e : X ≅ Y) {Z : D}
-    (g : G.obj Y ⟶ Z) (f : G.obj X ⟶ Z) (h : f = G.map e.hom ≫ g) :
-    G.map e.inv ≫ 𝟙 (G.obj X) ≫ f = g :=
-  (congrArg (G.map e.inv ≫ ·) (Category.id_comp f)).trans ((G.mapIso e).inv_comp_eq.2 h)
-
 private theorem map_with_identity_components {C D : Type*} [Category* C] [Category* D]
     (G : C ⥤ D) {X Y : C} {U V : D} (u : U ⟶ G.obj X) (f : X ⟶ Y)
     (v : G.obj Y ⟶ V) : u ≫ 𝟙 _ ≫ G.map (f ≫ 𝟙 _) ≫ v = u ≫ G.map f ≫ v := by
   rw [Category.id_comp, Category.comp_id]
-
-private theorem map_projection_of_commSq {C D : Type*} [Category* C] [Category* D]
-    (G : C ⥤ D) {X Y Z W : C} {A B V : D}
-    (x : A ⟶ G.obj X) (y : B ⟶ G.obj Z) (f : A ⟶ B)
-    (u : X ⟶ Y) (v : Y ⟶ W) (a : X ⟶ Z) (b : Z ⟶ W)
-    (g : G.obj W ⟶ V) (h : B ⟶ V) (hc : u ≫ v = a ≫ b)
-    (hn : f ≫ y = x ≫ G.map a) (hp : y ≫ G.map b ≫ g = h) :
-    x ≫ 𝟙 _ ≫ G.map u ≫ G.map v ≫ g = f ≫ h := by
-  rw [Category.id_comp, ← G.map_comp_assoc, hc, G.map_comp_assoc, ← reassoc_of% hn, hp]
 
 variable (k : Type u) [Field k] [PerfectField k]
 
@@ -137,9 +124,8 @@ def ordinaryCoverProjection (sq : Square Sm(k))
   let D₀ := representedCoverTriangleObj k sq
   let d₀ := signedRowTriangleToTransferIso k (representedCoverTriangle k sq) A h
     (ordinaryCoverRowIso k sq)
-  exact (Functor.mapTriangleIso e.symm).app D₀ ≪≫
-    (Functor.mapTriangleCompIso A r).app D₀ ≪≫
-    (r).mapTriangle.mapIso d₀ ≪≫ effectiveMayerVietorisTriangleOfPushoutIso k sq h
+  exact Functor.mapTriangleComparisonIso A r e.symm D₀ d₀
+    (effectiveMayerVietorisTriangleOfPushoutIso k sq h)
 
 /-- The pair tensor and reflection identify the signed triangle with the relative cover. -/
 def pairCoverProjection (sq : Square Sm(k)) (h' : (productCoverRow k j sq).ShortExact) :
@@ -153,8 +139,7 @@ def pairCoverProjection (sq : Square Sm(k)) (h' : (productCoverRow k j sq).Short
   let : NatTrans.CommShift b.hom ℤ := pairCoverToEffectiveCompIso_commShift k j
   let d₁ := signedRowTriangleToTransferIso k (representedCoverTriangle k sq) F h'
     (pairCoverRowIso k j sq)
-  exact (Functor.mapTriangleIso b).app D₀ ≪≫ (Functor.mapTriangleCompIso F r).app D₀ ≪≫
-    (r).mapTriangle.mapIso d₁ ≪≫ effectivePairOpenCoverTriangleIso k h'
+  exact Functor.mapTriangleComparisonIso F r b D₀ d₁ (effectivePairOpenCoverTriangleIso k h')
 
 /-- Effective reflection of transfer singles preserves the binary sums of the cover. -/
 local instance representedTransferReflection_preservesBinaryBiproducts :
@@ -170,9 +155,8 @@ private theorem ordinaryCoverProjection_hom₁ (sq : Square Sm(k))
       (localizedRepresentableIso (Cor.mk sq.X₁)).hom := by
   let L := localizedRepresentableIso (Cor.mk sq.X₁)
   dsimp only [ordinaryCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₁, Functor.mapTriangleIso_hom_app_hom₁,
-    Functor.mapTriangleCompIso_hom_app_hom₁, Functor.mapIso_hom, Functor.mapTriangle_map_hom₁,
-    signedRowTriangleToTransferIso_hom₁, effectiveMayerVietorisTriangleOfPushoutIso_hom₁]
+  simp only [Functor.mapTriangleComparisonIso_hom₁, signedRowTriangleToTransferIso_hom₁,
+    effectiveMayerVietorisTriangleOfPushoutIso_hom₁]
   let e := (sheafificationEffectiveReflectionIso k).inv.app ((R₀).obj sq.X₁)
   let a := (derivedMotiveRepresentableIso k).hom.app sq.X₁
   let b := (smoothTransferRepresentableEffectiveIso k).hom.app sq.X₁
@@ -192,10 +176,8 @@ private theorem ordinaryCoverProjection_hom₃ (sq : Square Sm(k))
   let f := T.augmentation
   let L := localizedRepresentableIso (Cor.mk sq.X₄)
   dsimp only [ordinaryCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₃, Functor.mapTriangleIso_hom_app_hom₃,
-    Functor.mapTriangleCompIso_hom_app_hom₃, Functor.mapIso_hom, Functor.mapTriangle_map_hom₃,
-    signedRowTriangleToTransferIso_hom₃, effectiveMayerVietorisTriangleOfPushoutIso_hom₃,
-    Functor.map_comp, Category.assoc]
+  simp only [Functor.mapTriangleComparisonIso_hom₃, signedRowTriangleToTransferIso_hom₃,
+    effectiveMayerVietorisTriangleOfPushoutIso_hom₃, Functor.map_comp, Category.assoc]
   let e := (sheafificationEffectiveReflectionIso k).inv
   let a := (derivedMotiveRepresentableIso k).hom.app sq.X₄
   let b := (smoothTransferRepresentableEffectiveIso k).hom.app sq.X₄
@@ -221,9 +203,8 @@ private theorem pairCoverProjection_hom₁ (sq : Square Sm(k))
   let c := (pairCoverToEffectiveCompIso k j).hom.app ((R₀).obj sq.X₁)
   let p := (derivedProductPairEndIso k j sq.X₁).hom
   dsimp only [pairCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₁, Functor.mapTriangleIso_hom_app_hom₁,
-    Functor.mapTriangleCompIso_hom_app_hom₁, Functor.mapIso_hom, Functor.mapTriangle_map_hom₁,
-    signedRowTriangleToTransferIso_hom₁, pairCoverRowIso_hom₁]
+  simp only [Functor.mapTriangleComparisonIso_hom₁, signedRowTriangleToTransferIso_hom₁,
+    pairCoverRowIso_hom₁]
   change c ≫ 𝟙 _ ≫ (r).map p ≫ 𝟙 _ = c ≫ (r).map p
   exact (congrArg (c ≫ ·) (Category.id_comp _)).trans
     (congrArg (c ≫ ·) (Category.comp_id _))
@@ -241,9 +222,8 @@ private theorem pairCoverProjection_hom₃ (sq : Square Sm(k))
   let m := (F).map T.augmentation
   let p := (derivedProductPairEndIso k j sq.X₄).hom
   dsimp only [pairCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₃, Functor.mapTriangleIso_hom_app_hom₃,
-    Functor.mapTriangleCompIso_hom_app_hom₃, Functor.mapIso_hom, Functor.mapTriangle_map_hom₃,
-    signedRowTriangleToTransferIso_hom₃, pairCoverRowIso_hom₃]
+  simp only [Functor.mapTriangleComparisonIso_hom₃, signedRowTriangleToTransferIso_hom₃,
+    pairCoverRowIso_hom₃]
   change x ≫ 𝟙 _ ≫ (r).map (m ≫ p) ≫ 𝟙 _ = x ≫ (r).map m ≫ (r).map p
   calc
     _ = x ≫ (r).map (m ≫ p) ≫ 𝟙 _ := congrArg (x ≫ ·) (Category.id_comp _)
@@ -259,9 +239,8 @@ def effectivePairProductOpenCoverTriangleIso (sq : Square Sm(k))
         (effectiveMayerVietorisTriangleOfPushout k sq h) ≅
       effectivePairOpenCoverTriangle k h' := by
   let R := tensorLeft (effectivePairMotive k j)
-  exact R.mapTriangle.mapIso (ordinaryCoverProjection k sq h).symm ≪≫
-    (Functor.mapTriangleCompIso q R).symm.app (representedCoverTriangleObj k sq) ≪≫
-    pairCoverProjection k j sq h'
+  exact Functor.mapTriangleComparisonIsoOfComp q R
+    (ordinaryCoverProjection k sq h) (pairCoverProjection k j sq h')
 
 /-- The singular localization preserves the binary sums of the cover. -/
 local instance effectiveLocalization_preservesBinaryBiproducts :
@@ -295,45 +274,32 @@ omit [HasDerivedCategory.{w''} AddCommGrpCat.{u + 1}] in
 theorem ordinaryCoverProjection_hom₂ (sq : Square Sm(k))
     (h : (transferMayerVietorisSequence k sq).ShortExact) :
     (ordinaryCoverProjection k sq h).hom.hom₂ = (ordinaryCoverProjectiveBiprodIso k sq).hom := by
-  let e := (sheafificationEffectiveReflectionIso k).inv
-  let δ (Y : Sm(k)) : (A).obj ((R₀).obj Y) ⟶ (s).obj ((R₁).obj Y) :=
-    (derivedMotiveRepresentableIso k).hom.app Y
-  let b (Y : Sm(k)) : (r).obj ((s).obj ((R₁).obj Y)) ⟶ (M).obj Y :=
-    (smoothTransferRepresentableEffectiveIso k).hom.app Y
-  let X := ((R₁).obj sq.X₂ ⊞ (R₁).obj sq.X₃)
-  let X₀ := representedCoverBiprod k sq
-  let z : (A).obj X₀ ⟶ (s).obj X := (ordinaryCoverRowIso k sq).hom.τ₂
+  let X₂ := (R₀).obj sq.X₂
+  let X₃ := (R₀).obj sq.X₃
+  let Q₂ := (R₁).obj sq.X₂
+  let Q₃ := (R₁).obj sq.X₃
+  let a : q ⟶ A ⋙ r := (sheafificationEffectiveReflectionIso k).inv
+  let m : (A).obj (X₂ ⊞ X₃) ⟶ (s).obj (Q₂ ⊞ Q₃) := (ordinaryCoverRowIso k sq).hom.τ₂
+  let d₂ : (A).obj X₂ ⟶ (s).obj Q₂ := (derivedMotiveRepresentableIso k).hom.app sq.X₂
+  let d₃ : (A).obj X₃ ⟶ (s).obj Q₃ := (derivedMotiveRepresentableIso k).hom.app sq.X₃
+  let b₂ : (r).obj ((s).obj Q₂) ⟶ (M).obj sq.X₂ :=
+    (smoothTransferRepresentableEffectiveIso k).hom.app sq.X₂
+  let b₃ : (r).obj ((s).obj Q₃) ⟶ (M).obj sq.X₃ :=
+    (smoothTransferRepresentableEffectiveIso k).hom.app sq.X₃
+  let l₂ : (q).obj X₂ ⟶ (M).obj sq.X₂ := (localizedRepresentableIso (Cor.mk sq.X₂)).hom
+  let l₃ : (q).obj X₃ ⟶ (M).obj sq.X₃ := (localizedRepresentableIso (Cor.mk sq.X₃)).hom
+  have hm₂ : m ≫ (s).map (biprod.fst : Q₂ ⊞ Q₃ ⟶ Q₂) =
+      (A).map (biprod.fst : X₂ ⊞ X₃ ⟶ X₂) ≫ d₂ := ordinaryCoverRowIso_hom₂_fst k sq
+  have hm₃ : m ≫ (s).map (biprod.snd : Q₂ ⊞ Q₃ ⟶ Q₃) =
+      (A).map (biprod.snd : X₂ ⊞ X₃ ⟶ X₃) ≫ d₃ := ordinaryCoverRowIso_hom₂_snd k sq
+  have hb₂ : a.app X₂ ≫ (r).map d₂ ≫ b₂ = l₂ := reflectedDerivedMotiveRepresentableIso k sq.X₂
+  have hb₃ : a.app X₃ ≫ (r).map d₃ ≫ b₃ = l₃ := reflectedDerivedMotiveRepresentableIso k sq.X₃
+  have hm := biprod.mapBiprod_hom_eq_of_reflected_projections
+    q A s r a m d₂ d₃ b₂ b₃ l₂ l₃ hm₂ hm₃ hb₂ hb₃
   dsimp only [ordinaryCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₂, Functor.mapTriangleIso_hom_app_hom₂,
-    Functor.mapTriangleCompIso_hom_app_hom₂, Functor.mapIso_hom, Functor.mapTriangle_map_hom₂,
-    signedRowTriangleToTransferIso_hom₂, effectiveMayerVietorisTriangleOfPushoutIso_hom₂]
-  apply biprod.hom_ext
-  · simp only [biprod.mapIso_hom, Functor.mapBiprod_hom, Category.assoc,
-      biprod.map_fst, biprod.lift_fst_assoc]
-    let f := (biprod.fst : X₀ ⟶ (R₀).obj sq.X₂)
-    let g := (biprod.fst : X ⟶ (R₁).obj sq.X₂)
-    change e.app X₀ ≫ 𝟙 ((r).obj ((A).obj X₀)) ≫ (r).map z ≫
-      (r).map ((s).map g) ≫ b sq.X₂ = (q).map f ≫ (localizedRepresentableIso (Cor.mk sq.X₂)).hom
-    have hz : z ≫ (s).map g = (A).map f ≫ δ sq.X₂ :=
-      ordinaryCoverRowIso_hom₂_fst k sq
-    have he : (q).map f ≫ e.app ((R₀).obj sq.X₂) = e.app X₀ ≫ (r).map ((A).map f) :=
-      e.naturality f
-    exact map_projection_of_commSq r (e.app X₀) (e.app ((R₀).obj sq.X₂)) ((q).map f)
-      z ((s).map g) ((A).map f) (δ sq.X₂) (b sq.X₂) _ hz he
-      (reflectedDerivedMotiveRepresentableIso k sq.X₂)
-  · simp only [biprod.mapIso_hom, Functor.mapBiprod_hom, Category.assoc,
-      biprod.map_snd, biprod.lift_snd_assoc]
-    let f := (biprod.snd : X₀ ⟶ (R₀).obj sq.X₃)
-    let g := (biprod.snd : X ⟶ (R₁).obj sq.X₃)
-    change e.app X₀ ≫ 𝟙 ((r).obj ((A).obj X₀)) ≫ (r).map z ≫
-      (r).map ((s).map g) ≫ b sq.X₃ = (q).map f ≫ (localizedRepresentableIso (Cor.mk sq.X₃)).hom
-    have hz : z ≫ (s).map g = (A).map f ≫ δ sq.X₃ :=
-      ordinaryCoverRowIso_hom₂_snd k sq
-    have he : (q).map f ≫ e.app ((R₀).obj sq.X₃) = e.app X₀ ≫ (r).map ((A).map f) :=
-      e.naturality f
-    exact map_projection_of_commSq r (e.app X₀) (e.app ((R₀).obj sq.X₃)) ((q).map f)
-      z ((s).map g) ((A).map f) (δ sq.X₃) (b sq.X₃) _ hz he
-      (reflectedDerivedMotiveRepresentableIso k sq.X₃)
+  simp only [Functor.mapTriangleComparisonIso_hom₂, signedRowTriangleToTransferIso_hom₂,
+    effectiveMayerVietorisTriangleOfPushoutIso_hom₂]
+  exact hm
 
 set_option maxHeartbeats 1100000 in
 -- Compare the two actual component maps before composing with the inverse.
@@ -350,8 +316,8 @@ theorem effectivePairProductOpenCoverTriangleIso_hom₁ (sq : Square Sm(k))
   let g := (effectivePairProductRightIso k j sq.X₁).hom
   let c := (pairCoverToEffectiveCompIso k j).hom.app ((R₀).obj sq.X₁)
   let p := (derivedProductPairEndIso k j sq.X₁).hom
-  refine map_inv_comp_of_comp_hom R (Triangle.π₁.mapIso O) g V.hom.hom₁ ?_
-  have hO : (Triangle.π₁.mapIso O).hom = L.hom := ordinaryCoverProjection_hom₁ k sq h
+  refine Functor.mapTriangleComparisonIsoOfComp_hom₁_of_comp q R O V g ?_
+  have hO : O.hom.hom₁ = L.hom := ordinaryCoverProjection_hom₁ k sq h
   have hV : V.hom.hom₁ = c ≫ (r).map p := pairCoverProjection_hom₁ k j sq h'
   exact hV.trans ((reflectedDerivedProductPairEndIso k j sq.X₁).trans
     (congrArg (fun a => R.map a ≫ g) hO.symm))
@@ -373,8 +339,8 @@ theorem effectivePairProductOpenCoverTriangleIso_hom₃ (sq : Square Sm(k))
   let g := (effectivePairProductRightIso k j sq.X₄).hom
   let c := (pairCoverToEffectiveCompIso k j).hom
   let p := (derivedProductPairEndIso k j sq.X₄).hom
-  refine map_inv_comp_of_comp_hom R (Triangle.π₃.mapIso O) g V.hom.hom₃ ?_
-  have hO : (Triangle.π₃.mapIso O).hom = (q).map f ≫ L.hom :=
+  refine Functor.mapTriangleComparisonIsoOfComp_hom₃_of_comp q R O V g ?_
+  have hO : O.hom.hom₃ = (q).map f ≫ L.hom :=
     ordinaryCoverProjection_hom₃ k sq h
   let m := (F).map f
   let x := c.app T.obj₃
@@ -399,9 +365,7 @@ theorem pairCoverProjection_hom₂ (sq : Square Sm(k))
           (r).map (pairCoverRowIso k j sq).hom.τ₂ ≫
             (effectivePairOpenCoverTriangleIso k h').hom.hom₂ := by
   dsimp only [pairCoverProjection]
-  simp only [Iso.trans_hom, Iso.app_hom, comp_hom₂, Functor.mapTriangleIso_hom_app_hom₂,
-    Functor.mapTriangleCompIso_hom_app_hom₂, Functor.mapIso_hom, Functor.mapTriangle_map_hom₂,
-    signedRowTriangleToTransferIso_hom₂]
+  simp only [Functor.mapTriangleComparisonIso_hom₂, signedRowTriangleToTransferIso_hom₂]
 
 set_option maxHeartbeats 650000 in
 -- The identity component of the functor-composition comparison is already fixed.
@@ -415,8 +379,7 @@ theorem effectivePairProductOpenCoverTriangleIso_hom₂_of_comp (sq : Square Sm(
     (hf : (pairCoverProjection k j sq h').hom.hom₂ =
       (tensorLeft (effectivePairMotive k j)).map (ordinaryCoverProjection k sq h).hom.hom₂ ≫ f) :
     (effectivePairProductOpenCoverTriangleIso k j sq h h').hom.hom₂ = f :=
-  map_inv_comp_of_comp_hom (tensorLeft (effectivePairMotive k j))
-    (Triangle.π₂.mapIso (ordinaryCoverProjection k sq h)) f
-    (pairCoverProjection k j sq h').hom.hom₂ hf
+  Functor.mapTriangleComparisonIsoOfComp_hom₂_of_comp q (tensorLeft (effectivePairMotive k j))
+    (ordinaryCoverProjection k sq h) (pairCoverProjection k j sq h') f hf
 
 end AlgebraicGeometry.MotivicHomotopy

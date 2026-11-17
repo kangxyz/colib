@@ -6,7 +6,7 @@ Authors: Colib contributors
 module
 
 public import Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Pairs.TransferTriangle
-public import Colib.CategoryTheory.Triangulated.SpecifiedCompletion
+public import Colib.CategoryTheory.Triangulated.ShortComplexComparison
 public import Mathlib.CategoryTheory.Abelian.CommSq
 public import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Biproducts
 
@@ -144,24 +144,12 @@ def signedRowTriangleToTransferIso {R : ShortComplex D} (T : SignedRowTriangle R
   have hW : W ∈ distTriang _ := singleTransferSheafTriangle_distinguished k h
   let I := DerivedCategory.Minus.ι (C := NST(k))
   let a := ShortComplex.π₁.mapIso e
-  let b := ShortComplex.π₂.mapIso e
-  let c := ShortComplex.π₃.mapIso e
   have ha : I.obj V.obj₁ ≅ (DerivedCategory.singleFunctor NST(k) 0).obj L.X₁ := I.mapIso a
   have h0 : Subsingleton (V.obj₁⟦(1 : ℤ)⟧ ⟶ W.obj₃) :=
     derivedMinus_shift_hom_subsingleton_of_single ha
       (show I.obj W.obj₃ ≅ (DerivedCategory.singleFunctor NST(k) 0).obj L.X₃ from Iso.refl _)
-  have h₁ : V.mor₁ ≫ b.hom = a.hom ≫ W.mor₁ := e.hom.comm₁₂.symm
-  have h₂ : V.mor₂ ≫ F.map T.augmentation ≫ c.hom = b.hom ≫ W.mor₂ := by
-    change F.map T.mor₂ ≫ F.map T.augmentation ≫ c.hom = _
-    rw [← F.map_comp_assoc, T.augmentation_fac]
-    exact e.hom.comm₂₃.symm
-  let f := triangleMorphismOfSubsingleton hV hW h0 a.hom b.hom
-    (F.map T.augmentation ≫ c.hom) h₁ h₂
-  let : IsIso f.hom₁ := inferInstanceAs (IsIso a.hom)
-  let : IsIso f.hom₂ := inferInstanceAs (IsIso b.hom)
-  let : IsIso f.hom₃ := isIso₃_of_isIso₁₂ f hV hW inferInstance inferInstance
-  let : IsIso f := Triangle.isIso_of_isIsos f inferInstance inferInstance inferInstance
-  exact asIso f
+  exact triangleIsoOfShortComplexComparison F (R := R) (L := L.map (s(k)))
+    T.mor₂ T.connecting T.augmentation T.augmentation_fac W.mor₃ hV hW h0 e
 
 
 variable {R : ShortComplex D} (T : SignedRowTriangle R)
@@ -172,23 +160,20 @@ variable {R : ShortComplex D} (T : SignedRowTriangle R)
 @[simp]
 theorem signedRowTriangleToTransferIso_hom₁ :
     (signedRowTriangleToTransferIso k T F h e).hom.hom₁ = e.hom.τ₁ := by
-  unfold signedRowTriangleToTransferIso
-  rfl
+  simp only [signedRowTriangleToTransferIso, triangleIsoOfShortComplexComparison_hom₁]
 
 /-- The middle comparison is the original coefficient comparison. -/
 @[simp]
 theorem signedRowTriangleToTransferIso_hom₂ :
     (signedRowTriangleToTransferIso k T F h e).hom.hom₂ = e.hom.τ₂ := by
-  unfold signedRowTriangleToTransferIso
-  rfl
+  simp only [signedRowTriangleToTransferIso, triangleIsoOfShortComplexComparison_hom₂]
 
 /-- The map from the chosen cofiber is its specified augmentation. -/
 @[simp]
 theorem signedRowTriangleToTransferIso_hom₃ :
     (signedRowTriangleToTransferIso k T F h e).hom.hom₃ =
       F.map T.augmentation ≫ e.hom.τ₃ := by
-  unfold signedRowTriangleToTransferIso
-  rfl
+  simp only [signedRowTriangleToTransferIso, triangleIsoOfShortComplexComparison_hom₃]
 
 end Comparison
 
