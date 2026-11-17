@@ -198,35 +198,67 @@ private def reflectionUnit (K : DerivedCategory.Minus NST) :
   (sheafificationPresheafLiftIso k K).inv ≫
     (singularPresheafToEffectiveUnit k).app (presheafLift k K)
 
-private def reflectionHomEquiv (K : DerivedCategory.Minus NST) (E : EffectiveMotivesMinus k) :
+omit [PerfectField k] in
+private def reflectionHomEquiv
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj))
+    (K : DerivedCategory.Minus NST) (E : EffectiveMotivesMinus k) :
     (reflectionObject k K ⟶ E) ≃ (K ⟶ (Ieff).obj E) :=
   Equiv.ofBijective (fun f => reflectionUnit k K ≫ (Ieff).map f) (by
     let e := sheafificationPresheafLiftIso k K
-    have h := bijective_precomp_singularPresheafToEffectiveUnit k (presheafLift k K) E
+    have h := bijective_precomp_singularPresheafToEffectiveUnit_of_strict
+      k (presheafLift k K) E (hStrict E)
     let f (g : reflectionObject k K ⟶ E) :=
       (singularPresheafToEffectiveUnit k).app (presheafLift k K) ≫ (Ieff).map g
     have hc : (fun g : reflectionObject k K ⟶ E => reflectionUnit k K ≫ (Ieff).map g) =
         e.homFromEquiv ∘ f := funext fun g => Category.assoc _ _ _
     exact hc.symm ▸ e.homFromEquiv.bijective.comp h)
 
-private theorem reflectionHomEquiv_naturality (K : DerivedCategory.Minus NST)
+omit [PerfectField k] in
+private theorem reflectionHomEquiv_naturality
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj))
+    (K : DerivedCategory.Minus NST)
     {E E' : EffectiveMotivesMinus k} (g : E ⟶ E') (f : reflectionObject k K ⟶ E) :
-    reflectionHomEquiv k K E' (f ≫ g) =
-      reflectionHomEquiv k K E f ≫ (Ieff).map g := by
+    reflectionHomEquiv k hStrict K E' (f ≫ g) =
+      reflectionHomEquiv k hStrict K E f ≫ (Ieff).map g := by
   change reflectionUnit k K ≫ (Ieff).map (f ≫ g) =
     (reflectionUnit k K ≫ (Ieff).map f) ≫ (Ieff).map g
   rw [Functor.map_comp, Category.assoc]
 
-/-- The bounded-above Nisnevich A¹-localization, computed by the original
-singular total complex of a derived presheaf representative. -/
-def effectiveReflection : DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
-  Adjunction.leftAdjointOfEquiv (reflectionHomEquiv k) (fun _ _ _ =>
-    reflectionHomEquiv_naturality k _)
+omit [PerfectField k] in
+/-- The bounded-above Nisnevich reflection under explicit strictness of all targets. -/
+def effectiveReflectionOfStrict
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj)) :
+    DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
+  Adjunction.leftAdjointOfEquiv (reflectionHomEquiv k hStrict) (fun _ _ _ =>
+    reflectionHomEquiv_naturality k hStrict _)
 
-/-- Effective motives are reflective in the actual bounded-above derived category. -/
-def effectiveReflectionAdjunction : effectiveReflection k ⊣ Ieff :=
-  Adjunction.adjunctionOfEquivLeft (reflectionHomEquiv k) (fun _ _ _ =>
-    reflectionHomEquiv_naturality k _)
+omit [PerfectField k] in
+/-- Strictness of every effective target supplies the native reflection adjunction. -/
+def effectiveReflectionAdjunctionOfStrict
+    (hStrict : ∀ (E : EffectiveMotivesMinus k) (q : ℤ),
+      SheafWithTransfers.IsStrictA1Invariant
+        ((DerivedCategory.homologyFunctor NST q).obj E.obj.obj)) :
+    effectiveReflectionOfStrict k hStrict ⊣ Ieff :=
+  Adjunction.adjunctionOfEquivLeft (reflectionHomEquiv k hStrict) (fun _ _ _ =>
+    reflectionHomEquiv_naturality k hStrict _)
+
+
+/-- The original perfect-field reflection specializes the explicit strict-target
+construction without changing its objects or unit. -/
+abbrev effectiveReflection : DerivedCategory.Minus NST ⥤ EffectiveMotivesMinus k :=
+  effectiveReflectionOfStrict k
+    (fun E q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (E.property q))
+
+/-- The original perfect-field adjunction is the strict-target adjunction. -/
+abbrev effectiveReflectionAdjunction : effectiveReflection k ⊣ Ieff :=
+  effectiveReflectionAdjunctionOfStrict k
+    (fun E q => SheafWithTransfers.isStrictA1Invariant_of_perfect _ (E.property q))
 
 /-- Reflection after exact sheafification is the original sheafified
 singular construction. The component is the unique isomorphism under
