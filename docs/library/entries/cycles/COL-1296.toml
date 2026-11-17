@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1296"
+title = "Exterior interchange over an arbitrary field"
+kind = "theorem"
+section = "symmetric-correspondences"
+order = 10
+primary = "AlgebraicGeometry.Cor.exteriorInterchange"
+statement = '''
+Let \(k\) be a field. For finite correspondences \(a:X\to Y\),
+\(b:Y\to Z\), \(c:U\to V\) and \(d:V\to W\) between smooth
+separated finite-type \(k\)-schemes, the native exterior product satisfies
+\[
+(a\boxtimes c);(b\boxtimes d)=(a;b)\boxtimes(c;d).
+\]
+Here semicolon denotes composition in traversal order. Both products retain
+all associated-cycle multiplicities and all residue-field degrees.
+'''
+scope = '''
+No perfect-field hypothesis is imposed. Products of integral supports need
+not be reduced: the local Tor calculation retains the length of the reduced
+closure product and identifies it with the native exterior-cycle coefficient.
+This concerns finite correspondences and their actual composition, not an
+unconditional strict homotopy invariance theorem or a cancellation theorem.
+The exterior-product convention is [@MVW2006, Lecture 1, Definition 1.9];
+its associated-cycle multiplicities are those of Construction 1.3.
+'''
+proof_kind = "outline"
+proof = '''
+Reduce by additive extensionality to four prime correspondences. Decompose the
+support incidences into generic components and apply the weighted Tor-length
+product formula. Closed product embeddings preserve the native coefficient;
+the residual product length is its fundamental-cycle weight, rather than one.
+Finite regrouping and proper pushforward preserve the weights and give the
+prime equality. Extend in all four signed variables by additivity.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-17"

@@ -372,3 +372,15 @@ Canonical pullback and outer-map comparisons carry them to the original
 finite correspondence: zero at zero, and the original principal pushforward
 at one, without taking a rational-equivalence quotient.
 '''
+
+[[sections]]
+id = "symmetric-correspondences"
+title = "Exterior interchange and the symmetric tensor"
+order = 25
+introduction = '''
+For two arbitrary signed correspondences, exterior product must retain the
+associated-cycle multiplicities of products of integral supports. Over a
+non-perfect field these products need not be reduced. The weighted local
+Tor comparison yields interchange and hence the native symmetric additive
+tensor, without replacing these coefficients by one.
+'''

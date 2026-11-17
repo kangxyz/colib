@@ -5,6 +5,8 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductIdeal
+
 public import Colib.AlgebraicGeometry.Chow.FiniteFlatBaseChange
 public import Colib.AlgebraicGeometry.Chow.FiniteOpenRestriction
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Exterior
@@ -198,6 +200,22 @@ def exteriorPointCycle (x : A) (y : B) : AlgebraicCycle (pullback a b) ℤ :=
   finiteCyclePushforward (pullback.map (ι(x) ≫ a) (ι(y) ≫ b) a b ι(x) ι(y) (𝟙 (Spec (.of k)))
       (by simp) (by simp)) (AlgebraicCycle.fundamentalCycle _)
 
+/-- The native exterior point cycle retains the full generic length, even for
+nonreduced products of the reduced point closures. -/
+theorem exteriorPointCycle_apply_generic (x : A) (y : B)
+    (z : genericPoints (pullback (C := Scheme) (ι(x) ≫ a) (ι(y) ≫ b))) :
+    exteriorPointCycle a b x y
+        (Scheme.Hom.productClosedMap a b ι(x) ι(y) z.val) =
+      ((Module.length
+        ((pullback (ι(x) ≫ a) (ι(y) ≫ b)).presheaf.stalk z.val)
+        ((pullback (ι(x) ≫ a) (ι(y) ≫ b)).presheaf.stalk z.val)).toNat : ℤ) := by
+  let := Scheme.isNoetherian_of_finiteType_of_isNoetherian
+    (pullback.fst (ι(x) ≫ a) (ι(y) ≫ b) ≫ ι(x) ≫ a)
+  change finiteCyclePushforward (Scheme.Hom.productClosedMap a b ι(x) ι(y))
+    (AlgebraicCycle.fundamentalCycle _) _ = _
+  rw [finiteCyclePushforward_apply_of_isClosedImmersion,
+    AlgebraicCycle.fundamentalCycle_apply_generic]
+
 variable (a' : A' ⟶ Spec (.of k)) [LocallyOfFiniteType a'] [QuasiCompact a']
   (b' : B' ⟶ Spec (.of k)) [LocallyOfFiniteType b'] [QuasiCompact b']
   (f : A ⟶ A') [IsFinite f] (g : B ⟶ B') [IsFinite g]
@@ -269,6 +287,26 @@ theorem finiteCyclePushforward_exteriorPointCycle (x : A) (y : B) :
     _ = _ := by
       rw [← finiteCyclePushforward_comp_apply, hproduct, map_zsmul,
         residueDegree_integralComponentMap f x, residueDegree_integralComponentMap g y]
+
+/-- Closed embeddings preserve the actual exterior coefficient at every image point;
+the residue degrees are one, but the product's generic length is not discarded. -/
+theorem exteriorPointCycle_apply_closedProduct
+    [IsClosedImmersion f] [IsClosedImmersion g] (x : A) (y : B)
+    (z : pullback (C := Scheme) a b) :
+    exteriorPointCycle a b x y z =
+      exteriorPointCycle a' b' (f x) (g y)
+        (pullback.map a b a' b' f g (𝟙 (Spec (.of k)))
+          ((Category.comp_id _).trans hf) ((Category.comp_id _).trans hg) z) := by
+  let : IsClosedImmersion (pullback.map a b a' b' f g (𝟙 (Spec (.of k)))
+      ((Category.comp_id _).trans hf) ((Category.comp_id _).trans hg)) :=
+    MorphismProperty.pullbackMap (P := @IsClosedImmersion) inferInstance inferInstance hf hg
+  have h := finiteCyclePushforward_exteriorPointCycle a b a' b' f g hf hg x y
+  simp only [residueDegree_eq_one_of_isClosedImmersion, Nat.cast_one, one_mul, one_smul] at h
+  have he := congrArg (fun c => c
+    (pullback.map a b a' b' f g (𝟙 (Spec (.of k)))
+      ((Category.comp_id _).trans hf) ((Category.comp_id _).trans hg) z)) h
+  rw [finiteCyclePushforward_apply_of_isClosedImmersion] at he
+  exact he
 
 end ExteriorPrimes
 

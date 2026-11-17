@@ -1,0 +1,32 @@
+[entry]
+id = "COL-1297"
+title = "The symmetric additive tensor on finite correspondences"
+kind = "definition"
+section = "symmetric-correspondences"
+order = 20
+primary = "AlgebraicGeometry.Cor.monoidalCategory"
+statement = '''
+Over any field \(k\), the native category \(\operatorname{Cor}_k\) is
+symmetric monoidal and monoidal preadditive. The tensor of objects is their
+scheme product over \(k\); tensor of arrows is the native signed exterior
+product. The unit is \(\operatorname{Spec} k\), and associators, unitors and
+symmetry are graphs of the corresponding scheme isomorphisms. The graph
+functor from smooth schemes is strong braided for these tensors.
+'''
+scope = '''
+This uses the existing finite-correspondence objects and graph functor, not a
+new realization of correspondences. No perfectness assumption is needed.
+Comparison with the pre-existing fixed-parameter operation retains that
+operation's geometrically integral parameter hypothesis. This item does not
+claim an arbitrary-field effective-motive tensor or cancellation theorem.
+The convention for the tensor is [@MVW2006, Lecture 1, Definition 1.9].
+'''
+proof_kind = "outline"
+proof = '''
+Use COL-1296 for compatibility with composition. The actual product maps and
+their graphs supply the constraints and their naturality. Their original
+scheme coherence identities give the symmetric monoidal laws. Additivity of
+the native exterior cycle in each variable gives monoidal preadditivity.
+'''
+review = "author_checked"
+source_checked_on = "2026-11-17"
