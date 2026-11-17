@@ -102,7 +102,8 @@ variable [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (CommRingCat.of k))) AddCommGrpCat.{u + 1})]
 
 private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
-    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant)
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj))
     (b i : ℤ) : ((DerivedCategory.homologyFunctor PST i).obj
       (boundedTruncation k ((U).obj K.obj.obj) b).obj).IsA1Invariant := by
   let R := (U).obj K.obj.obj
@@ -121,7 +122,8 @@ private theorem isA1Invariant_truncated_forget (K : EffectiveMotivesMinus k)
 
 private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategory.Minus PST)
     (K : EffectiveMotivesMinus k)
-    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant) :
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj)) :
     Function.Bijective (fun f : ((Sing).obj P).obj ⟶ (U).obj K.obj.obj =>
       ((η).app P).hom ≫ f) := by
   obtain ⟨b, hP, hC⟩ := exists_common_bound k P
@@ -145,7 +147,8 @@ private theorem bijective_precomp_singularUnit_derivedForget (P : DerivedCategor
 bijective for every effective target. -/
 theorem bijective_precomp_singularPresheafToEffectiveUnit_of_strict (P : DerivedCategory.Minus PST)
     (K : EffectiveMotivesMinus k)
-    (hStrict : ∀ q, ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj).IsStrictA1Invariant) :
+    (hStrict : ∀ q, SheafWithTransfers.IsStrictA1Invariant
+      ((DerivedCategory.homologyFunctor NST q).obj K.obj.obj)) :
     Function.Bijective (fun f : (singularPresheafToEffective k).obj P ⟶ K =>
       (singularPresheafToEffectiveUnit k).app P ≫ (Ieff).map f) := by
   let I := effectiveMotivesMinusToDerived k
