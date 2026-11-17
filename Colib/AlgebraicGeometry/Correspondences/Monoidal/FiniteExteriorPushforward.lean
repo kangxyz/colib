@@ -5,6 +5,8 @@ Authors: Colib contributors
 -/
 module
 
+public import Colib.AlgebraicGeometry.Correspondences.Monoidal.ProductIdeal
+
 public import Colib.AlgebraicGeometry.Chow.FiniteFlatBaseChange
 public import Colib.AlgebraicGeometry.Chow.FiniteOpenRestriction
 public import Colib.AlgebraicGeometry.Correspondences.Monoidal.Exterior
@@ -295,6 +297,9 @@ theorem exteriorPointCycle_apply_closedProduct
       exteriorPointCycle a' b' (f x) (g y)
         (pullback.map a b a' b' f g (𝟙 (Spec (.of k)))
           ((Category.comp_id _).trans hf) ((Category.comp_id _).trans hg) z) := by
+  let : IsClosedImmersion (pullback.map a b a' b' f g (𝟙 (Spec (.of k)))
+      ((Category.comp_id _).trans hf) ((Category.comp_id _).trans hg)) :=
+    MorphismProperty.pullbackMap (P := @IsClosedImmersion) inferInstance inferInstance hf hg
   have h := finiteCyclePushforward_exteriorPointCycle a b a' b' f g hf hg x y
   simp only [residueDegree_eq_one_of_isClosedImmersion, Nat.cast_one, one_mul, one_smul] at h
   have he := congrArg (fun c => c
