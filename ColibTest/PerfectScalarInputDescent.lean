@@ -1,8 +1,8 @@
 module
 
-import Colib.AlgebraicGeometry.KTheory.PerfectScalarSelfTrackRelativeBoundary
+import Colib.AlgebraicGeometry.KTheory.PerfectQcqsScalarBoundary
 
-open CategoryTheory AlgebraicGeometry Topology SSet
+open CategoryTheory AlgebraicGeometry Topology SSet TopologicalSpace
 open CategoryTheory.Waldhausen CategoryTheory.Waldhausen.Additivity
 open CategoryTheory.Waldhausen.Fibration CategoryTheory.Waldhausen.IteratedS
 open AlgebraicGeometry.Scheme.Modules
@@ -114,3 +114,33 @@ example {Y : Sort w'} (f g : V.K n → Y)
   separatedFirstCube_funext V n f g h
 
 end GeneralUniverses
+
+section Qcqs
+
+universe d
+
+variable [CompactSpace X] [QuasiSeparatedSpace X] [CompactSpace U]
+  [HasDerivedCategory.{d} U.Modules]
+
+-- The homomorphism form has the original positive cone sign on the actual qcqs boundary.
+example :
+    (perfectQcqsConnectingHom j n).comp
+      (originalKSelfTrackOperation (RingedSpace.perfectComplexesWaldhausen X.toRingedSpace)
+        (RingedSpace.perfectComplexesWaldhausen U.toRingedSpace) (perfectFlatUnitHomotopy j q) n) =
+      (perfectAcyclicSupportedKEquiv j n).toMonoidHom.comp
+        (perfectOpenScalarConeKMap j r q hq n) :=
+  (perfectQcqsConnectingHom_comp_scalarUnitOperation j r q hq n).trans
+    (perfectAcyclicSupportedKEquiv_scalarConeKMap j r q hq n).symm
+
+-- In particular the original flat-unit operation on an arbitrary K-zero class is covered.
+example (a : (RingedSpace.perfectComplexesWaldhausen X.toRingedSpace).K 0) :
+    perfectQcqsConnectingHom j 0
+      (originalKSelfTrackOperation (RingedSpace.perfectComplexesWaldhausen X.toRingedSpace)
+        (RingedSpace.perfectComplexesWaldhausen U.toRingedSpace)
+        (perfectFlatUnitHomotopy j q) 0 a) =
+      perfectAcyclicSupportedKEquiv j 0 (perfectOpenScalarConeKMap j r q hq 0 a) :=
+  DFunLike.congr_fun
+    ((perfectQcqsConnectingHom_comp_scalarUnitOperation j r q hq 0).trans
+      (perfectAcyclicSupportedKEquiv_scalarConeKMap j r q hq 0).symm) a
+
+end Qcqs

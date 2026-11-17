@@ -61,7 +61,18 @@ wrappers belong to `AlgebraicGeometry.Scheme.Modules`. No Quillen or Aglib compa
 namespace or dependency is introduced. The implementation uses the existing native
 `GenLoop.postcomp`, `SSet.diagonalSSet` and perfect-complex object property.
 
-## Exact remaining boundary
+## Scope at the COL-0320 checkpoint
+
+The remaining steps listed below were open at COL-0320, not at current main.
+COL-0324 identifies the same prescribed return with the actual original K-operation;
+see [scalar-track operation](scalar-track-operation.md).
+COL-0329 proves subdivision-cube class surjectivity and derives the relative boundary
+formula on arbitrary original classes, including degree zero.
+`PerfectQcqsScalarBoundary.perfectQcqsConnectingHom_comp_scalarUnitOperation` is the
+scheme-level qcqs formula with the literal supported cone. Its conversion to the original
+acyclic-cone presentation is `perfectAcyclicSupportedKEquiv_scalarConeKMap`.
+
+### Historical remaining steps
 
 The prescribed return class is now compared with the actual canonical fiber and connecting
 map. It has not yet been identified with `originalKSelfTrackOperation`. That original
