@@ -1,0 +1,29 @@
+[entry]
+id = "COL-1238"
+title = "Transporting the third object of a distinguished triangle"
+kind = "lemma"
+section = "triangulated-categories"
+order = 10
+primary = "CategoryTheory.Pretriangulated.Triangle.ofIso₃_distinguished"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(A\xrightarrow{f}B\xrightarrow{g}C\xrightarrow{h}A[1]\) be a
+distinguished triangle in a pretriangulated category and
+\(e\colon C\xrightarrow{\sim}C'\) a specified isomorphism.
+The triangle
+\[
+A\xrightarrow{f}B\xrightarrow{e\circ g}C'\xrightarrow{h\circ e^{-1}}A[1]
+\]
+is distinguished. The comparison from the original triangle has
+components \(1_A\), \(1_B\) and \(e\).
+'''
+scope = '''
+This is the third-object instance of isomorphism invariance in TR1.
+[@stacks, Tag 0145]
+'''
+proof = '''
+Use the specified three components to construct an isomorphism of
+triangles. The last square commutes because the shift sends \(1_A\) to
+\(1_{A[1]}\) and \(e^{-1}e=1_C\). Apply TR1.
+'''

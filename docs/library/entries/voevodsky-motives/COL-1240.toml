@@ -1,0 +1,35 @@
+[entry]
+id = "COL-1240"
+title = "The Gysin triangle of the diagonal"
+kind = "theorem"
+section = "motivic-purity-and-gysin"
+order = 30
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveDiagonalGysinTriangle_distinguished"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(X\) be smooth, separated and of finite type over a perfect field
+\(k\), of pure dimension \(d\). Put \(U_\Delta=(X\times_kX)\setminus\Delta_X(X)\).
+The diagonal gives a distinguished triangle in the integral category
+\(DM_-^{\mathrm{eff}}(k)\).
+\[
+M(U_\Delta)\longrightarrow M(X\times_kX)
+ \xrightarrow{\Delta_X^!} M(X)(d)[2d]
+ \longrightarrow M(U_\Delta)[1].
+\]
+The first map is induced by the open inclusion. The middle map and the
+boundary are those of COL-1226 for the diagonal, transported using the
+codimension equality \((d+d)-d=d\).
+'''
+scope = '''
+Separatedness makes the diagonal a closed immersion. The triangle has
+the form of [@Voevodsky2000TriangulatedMotives, Proposition 3.5.4] for this
+closed pair. Its maps in the bounded-above effective category come from
+COL-1226, with the Gysin morphism denoted \(\Delta_X^!\).
+'''
+proof = '''
+The square \(X\times_kX\) has pure dimension \(d+d\), and its diagonal
+has pure dimension \(d\). Apply COL-1226 with these dimensions.
+Transport its third object along the resulting equality of Lefschetz
+exponents using COL-1238.
+'''

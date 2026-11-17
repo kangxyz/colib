@@ -621,6 +621,12 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.TorusSheafification.DerivedComparison.SingularEvaluation",
             "geometric-motives":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.GeometricMotives.Stable",
+            "motivic-purity-and-gysin":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.Gysin.ClosedImmersion",
+            "shifts-and-functors":
+                "Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithfulData",
+            "triangulated-categories":
+                "Colib.CategoryTheory.Triangulated.Stabilization.Stages",
             "classifying-spaces": "Colib.Topology.ClassifyingSpace.Basic",
             "functor-constructions": "Colib.CategoryTheory.Functor.Rebase",
             "geometric-realization": "Colib.Analysis.Convex.StdSimplex.PathHomotopy",
@@ -889,6 +895,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.TorusCancellation.Suslin",
             "COL-1046":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.TateTwist",
+            "COL-1223":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.GeometricMotives.Effective",
             "COL-1116": "Colib.CategoryTheory.Prespectrum.StableComparison",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",

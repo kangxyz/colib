@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1305"
+title = "The two deformation fibre comparisons"
+kind = "comparison"
+section = "motivic-purity-and-gysin"
+order = 2
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveDeformationComparison"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(Z\hookrightarrow X\) be a closed immersion of smooth separated
+finite-type schemes over a perfect field, with \(X\) and \(Z\) of pure
+dimensions. Write \(M_Z(X)\) for the motive
+of the relative transfer cokernel of \(X\setminus Z\subset X\).
+Let \(D_ZX\to\mathbb A^1\) be the deformation to the normal bundle
+and \(N=N_{Z/X}\). The inclusions of the fibre \(X\) at one and the
+fibre \(N\) at zero induce integral isomorphisms
+\[
+M_Z(X)\xrightarrow{\sigma_{1*}}M_{Z\times\mathbb A^1}(D_ZX)
+      \xleftarrow{\sigma_{0*}}M_Z(N)
+\]
+in \(DM_-^{\mathrm{eff}}(k)\). The comparison
+\(d_{X,Z}\colon M_Z(X)\xrightarrow{\sim}M_Z(N)\) is determined by
+\(\sigma_{0*}\circ d_{X,Z}=\sigma_{1*}\).
+'''
+scope = '''
+The support in \(N\) is its zero section. In the extended Rees
+deformation \(D_ZX\) the support is the embedded constant centre
+\(Z\times\mathbb A^1\). The maps come from the actual fibre squares for
+this deformation. The normal cone is the open part of the special
+fibre in the blow-up construction of [@stacks, Tag 0FBG]. Morel and
+Voevodsky compare pointed quotients using the blow-up and its
+projective exceptional divisor.
+Déglise uses the two fibres to construct purity on relative motives.
+[@MorelVoevodsky1999, Section 3.2, Proposition 2.24, page 115]
+[@Deglise2012GysinI, formula (2.14.a)]
+'''
+proof = '''
+The étale coordinate model of [@stacks, Tag 0FUE] gives a pullback of
+a coordinate subspace of affine space. Étale excision reduces the
+fibre comparisons to this local model. In the cylinder model the
+inclusion of a fibre is inverted by the affine-line projection.
+Relative open-cover descent gives the isomorphisms for the given pair.
+'''

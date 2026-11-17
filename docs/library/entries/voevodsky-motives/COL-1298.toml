@@ -1,0 +1,46 @@
+[entry]
+id = "COL-1298"
+title = "The normalized Thom isomorphism of the normal bundle"
+kind = "theorem"
+section = "motivic-purity-and-gysin"
+order = 5
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveNormalBundleThomIso"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(N=N_{Z/X}\) be the normal bundle of a closed immersion of smooth
+separated finite-type schemes over a perfect field. Assume \(X\) and
+\(Z\) have pure dimensions \(n\) and \(m\), respectively.
+Put \(c=n-m\) in \(\mathbb N\) and use support along the zero
+section of \(N\). The normalized Thom class
+\(t_N\colon M_Z(N)\to\mathbb Z(c)[2c]\) gives an isomorphism
+\[
+\tau_N\colon M_Z(N)\xrightarrow{\sim}M(Z)(c)[2c]
+\]
+in \(DM_-^{\mathrm{eff}}(k)\). The graph of the bundle projection maps
+the pair \((N,N\setminus Z)\) to its product with \(Z\). Apply the
+inverse supported-product comparison to obtain
+\(M_Z(N)\otimes M(Z)\). The map then applies \(t_N\otimes 1_{M(Z)}\)
+and the Lefschetz-power tensor comparison.
+'''
+scope = '''
+Each added zero coordinate uses the signed boundary for nested open
+pairs and then the shifted projection to the reduced torus summand.
+This is the complement of the summand split off by the unit section.
+Déglise specifies the Thom class using the top projector on the
+projective completion and describes the zero-section Gysin map using
+the bundle projection and Thom class.
+[@Deglise2012GysinI, Theorem 2.14(2)]
+[@Deglise2012GysinI, Example 2.21 and formula (2.21.b)]
+'''
+proof = '''
+The normalized class on a trivial bundle is the product of the
+line-pair classes. Changes of basis preserve it on chart intersections.
+Relative Mayer–Vietoris glues the class on a finite affine cover.
+The graph map with this class is invertible on each affine chart and
+its affine subopens by the trivial-bundle comparison. The signed
+relative cover triangle compares with the tensor of the ordinary
+cover triangle, including their boundaries. The triangle criterion
+for isomorphisms extends invertibility from the chart intersections
+and chart unions to the whole base.
+'''

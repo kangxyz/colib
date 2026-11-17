@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1239"
+title = "The exact symmetric tensor on geometric motives"
+kind = "theorem"
+section = "geometric-motives"
+order = 30
+primary = "AlgebraicGeometry.MotivicHomotopy.geometricMotivesTensorLeft_exact"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+For a perfect field \(k\), the integral category \(DM_{\mathrm{gm}}(k)\)
+of COL-1224 has an additive symmetric tensor which is exact in either
+variable. The inclusion of the effective geometric category is braided
+monoidal. The tensor unit is the geometric motive of \(\operatorname{Spec}k\).
+For smooth separated finite-type \(k\)-schemes \(X,Y\) there is an
+isomorphism
+\[
+\mu_{X,Y}\colon M_{\mathrm{gm}}(X)\otimes M_{\mathrm{gm}}(Y)
+              \xrightarrow{\sim}M_{\mathrm{gm}}(X\times_k Y).
+\]
+For finite correspondences \(f\colon X\to X'\) and \(g\colon Y\to Y'\),
+\(\mu_{X',Y'}\circ(M_{\mathrm{gm}}(f)\otimes M_{\mathrm{gm}}(g)) =M_{\mathrm{gm}}(f\boxtimes g)\circ\mu_{X,Y}\).
+Under \(\mu\), the braiding is the graph of the exchange of factors.
+'''
+scope = '''
+The projective representables and signed derived convolution supply the
+tensor on effective motives. The comparison on geometric generators
+uses their original finite correspondences and the same exterior product.
+This is the product formula of
+[@Voevodsky2000TriangulatedMotives, Proposition 2.1.3] after formal Tate
+inversion, with the self-braiding condition of
+[@Voevodsky2000TriangulatedMotives, Corollary 2.1.5].
+'''
+proof = '''
+The effective tensor is exact in both variables. Its product formula
+puts the tensor of two smooth generators in the geometric subcategory,
+and exactness and retract closure extend this to every geometric object.
+The Lefschetz twist identifies with right tensoring by the Lefschetz
+object, including its signed shift comparison. Apply COL-1304 and
+transport the tensor along this identification. On two original smooth
+motives, the comparison is the tensorator of the stage-zero inclusion
+followed by the effective comparison with the product representable.
+'''

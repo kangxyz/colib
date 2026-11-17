@@ -2,7 +2,7 @@
 id = "category-theory"
 title = "Category Theory"
 order = 5
-introduction = "Colib's categorical interfaces for algebraic K-theory and coefficient diagrams. The sections collect the Lean structures, functors and comparison theorems used in these constructions."
+introduction = "Exact categories, spans and functor constructions supply diagrams for algebraic K-theory. Later sections describe integer shifts, distinguished triangles and inversion of fully faithful exact endofunctors."
 
 [[sections]]
 id = "exact-categories"
@@ -295,4 +295,47 @@ With the required shift closure, degree reversal supplies the component cylinder
 opposite complexes from the identity-cone construction. The functorial comparisons,
 including restriction of perfect complexes along an open immersion, provide the endpoint
 and projection equations used in the preceding assembly.
+'''
+
+[[sections]]
+id = "shifts-and-functors"
+title = "Shifts and Functors"
+order = 60
+introduction = '''
+Two compatible shift comparisons determine how a bifunctor carries
+shifts in its two arguments. The comparisons commute with the sign
+\((-1)^{rs}\) for shifts by \(r\) and \(s\). Postcomposition by an additive
+functor preserves this sign, and full faithfulness lets one reflect the
+comparison and its equations.
+'''
+
+[[sections]]
+id = "triangulated-categories"
+title = "Triangulated Categories and Stabilization"
+order = 70
+introduction = '''
+A chosen isomorphism at the third object of a distinguished triangle
+determines the transport of its two adjacent maps. To invert a fully
+faithful exact endofunctor, one can realize each finite diagram at a
+common stage and transport its shift and triangle structure. For a
+right tensor functor, the braiding and shift comparisons govern the
+tensor on the resulting category.
+'''
+
+[[sections.topics]]
+id = "triangle-transport"
+title = "Transport of distinguished triangles"
+start = "COL-1238"
+
+[[sections.topics]]
+id = "exact-inversion"
+title = "Inverting an exact endofunctor"
+start = "COL-1235"
+
+[sections.transitions]
+COL-1304 = '''
+For stages associated with right tensoring by \(L\), the tensor of pairs
+adds their inverse exponents. Exactness uses the comparison between
+tensoring before and after raising the stage, including the induced
+map on the boundary.
 '''

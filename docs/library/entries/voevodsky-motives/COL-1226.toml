@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1226"
+title = "The Gysin triangle of a smooth closed immersion"
+kind = "theorem"
+section = "motivic-purity-and-gysin"
+order = 20
+primary = "AlgebraicGeometry.MotivicHomotopy.effectiveGysinTriangle_distinguished"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Under the hypotheses of COL-1225, put \(j\colon U=X\setminus Z\hookrightarrow X\).
+Let \(q\colon M(X)\to M_Z(X)\) and
+\(\partial\colon M_Z(X)\to M(U)[1]\) be the quotient and boundary of the
+relative triangle. In the integral category \(DM_-^{\mathrm{eff}}(k)\)
+the following triangle is distinguished.
+\[
+M(U)\xrightarrow{M(j)}M(X)
+ \xrightarrow{p_{X,Z}\circ q} M(Z)(c)[2c]
+ \xrightarrow{\partial\circ p_{X,Z}^{-1}} M(U)[1].
+\]
+The middle map is the Gysin morphism of \(i\). The last map is its
+residue.
+'''
+scope = '''
+The first map comes from the graph of the complementary open immersion.
+The boundary comes from the short exact sequence of transfer sheaves
+defining the relative motive. In
+[@Voevodsky2000TriangulatedMotives, Proposition 3.5.4] the triangle is
+in the effective geometric category for an immersion of constant
+codimension. The pure dimensions here specify the exponent \(c=n-m\),
+and the triangle is constructed in the bounded-above effective
+category. The quotient and residue use the purity isomorphism as in
+[@Deglise2012GysinI, Definition 2.20].
+'''
+proof = '''
+Apply COL-1238 to the relative triangle with third-object isomorphism
+\(p_{X,Z}\) from COL-1225. The transport gives the displayed quotient
+and boundary with the indicated directions.
+'''

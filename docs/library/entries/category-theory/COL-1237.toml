@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1237"
+title = "Transport of signed shifts of a bifunctor"
+kind = "comparison"
+section = "shifts-and-functors"
+order = 10
+primary = "CategoryTheory.Functor.CommShift₂.ofFullyFaithfulInt_commShiftObj"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Consider bifunctors with chosen commutation with integer shifts in
+each variable. Their target categories are preadditive with additive
+shift functors. For shifts by \(r\) and \(s\), the two shift comparisons
+interchange with the sign \((-1)^{rs}\). Postcomposing with an additive
+shift-compatible functor preserves this sign. If that functor is fully
+faithful, signed shift data of the composite reflect to the original
+bifunctor. For each fixed parameter the reflected comparison is the
+one-variable reflection along the identity identification of the
+composite functor.
+
+If \(B\) is a bifunctor on \(\mathcal D\), \(I\colon\mathcal C\to\mathcal D\)
+respects shifts, and \(V\colon\mathcal D\to\mathcal C\) is additive and
+respects shifts, the comparison of \(V B(I-,I-)\) in a fixed variable is
+the composite of those of \(I\), the corresponding fixed-parameter
+functor of \(B\), and \(V\).
+'''
+scope = '''
+The statements identify the actual chosen one-variable shift structures
+in both slots. Reflection uses Mathlib's one-variable construction
+[@mathlib_stable_localization_pin, Mathlib/CategoryTheory/Shift/CommShift.lean:533-589].
+'''
+proof = '''
+Apply the one-variable fully faithful reflection to each slot. After
+postcomposition, the component is the image of the reflected component
+followed by the shift comparison of the postcomposing functor. Its
+faithfulness reflects the naturality and signed interchange equations.
+Additivity preserves the integer multiple of the identity defining the
+sign. For the precomposition and postcomposition formula, compare the
+chosen structures at each fixed parameter and use the one-variable
+composition law.
+'''

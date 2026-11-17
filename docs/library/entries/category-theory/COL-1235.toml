@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1235"
+title = "Stabilization at a fully faithful exact endofunctor"
+kind = "definition"
+section = "triangulated-categories"
+order = 20
+primary = "CategoryTheory.Stabilization"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(\mathcal C\) be a triangulated category and \(T\colon\mathcal C\to \mathcal C\) a fully faithful exact endofunctor with a chosen shift
+comparison. Form the category of pairs \((X,a)\), \(a\in\mathbb N\), with
+morphisms at any common stage \(r\ge a,b\) given by
+\[
+\operatorname{Hom}_{\mathcal C}(T^{r-a}X,T^{r-b}Y).
+\]
+Enlarging the stage uses the corresponding power of \(T\), with the
+canonical identifications of the iterates. Composition is computed at
+a common stage. A triangle is distinguished when its stage triangle is
+distinguished in \(\mathcal C\), with its boundary transported by the
+chosen shift comparison. These data give a triangulated category.
+Every functor \(X\mapsto(X,a)\) is fully faithful and exact. The twist
+extends to an exact autoequivalence, and the stabilization is
+idempotent complete if \(\mathcal C\) is.
+'''
+scope = '''
+The stored Hom set is the one at \(r=\max(a,b)\).
+Full faithfulness gives the bijection from that set to every larger
+common stage. This construction generalizes the finite-stage Hom
+calculation implicit in the formal Tate inversion of
+[@Voevodsky2000TriangulatedMotives, Section 2.1, after Proposition 2.1.3].
+'''
+proof = '''
+Apply full faithfulness to the iterated transitions. At a common stage
+these identifications preserve composition and commute with shifts.
+An octahedron involves finitely many objects and maps, so the three
+input triangles and their commuting arrows have a common stage.
+Construct the octahedron there and carry the remaining arrows and
+triangle back. An idempotent on \((X,a)\) splits at stage \(a\) whenever
+idempotents split in \(\mathcal C\).
+'''

@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1304"
+title = "Exact symmetric tensor after inverting an object"
+kind = "theorem"
+section = "triangulated-categories"
+order = 30
+primary = "CategoryTheory.Stabilization.stableTensorLeft_isTriangulated"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(\mathcal C\) be a symmetric monoidal triangulated category.
+Suppose tensoring on the right by \(L\) is fully faithful and exact and
+the symmetry \(\beta_{L,L}\) is the identity. The stabilization of COL-1235
+has a symmetric tensor with
+\[
+(A,a)\otimes(B,b)=(A\otimes B,a+b).
+\]
+Fix \((B,b)\) and assume \(B\otimes-\) is exact with a chosen shift
+comparison. If the associativity comparison for commuting
+\(B\otimes-\) with \(-\otimes L\) respects those shift comparisons,
+then tensoring by \((B,b)\) is exact on both sides.
+'''
+scope = '''
+The comparison at \(X\) is the inverse associator
+\(B\otimes(X\otimes L)\to (B\otimes X)\otimes L\).
+The exactness assertion uses the induced shift on each stabilized tensor
+functor. The symmetry hypothesis is the object-inversion condition used
+in [@Voevodsky2000TriangulatedMotives, Section 2.1 and Corollary 2.1.5].
+'''
+proof = '''
+Represent the input morphisms at stages \(r,s\). Tensor their
+representatives and use the iterate and braiding comparisons to get
+a morphism at stage \(r+s\). The identity self-braiding gives
+compatibility with raising the chosen stages and with symmetry.
+For left exactness, the representative at stage \(b+r\) of the tensor of
+a triangle at stage \(r\) is isomorphic to its image under \(B\otimes-\).
+The shift equation makes this an isomorphism of triangles, including the
+boundary. The braiding carries the result to right tensoring.
+'''

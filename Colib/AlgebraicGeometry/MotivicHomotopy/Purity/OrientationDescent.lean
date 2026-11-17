@@ -299,6 +299,14 @@ def relativeOpenRestrictionTopIso :
   exact (effectivePairMotiveFunctor k).mapIso (asIso a)
 
 omit [IsOpenImmersion j.left] in
+/-- The comparison at the whole base is induced by the actual top-open inclusion of pairs. -/
+theorem relativeOpenRestrictionTopIso_hom :
+    (relativeOpenRestrictionTopIso k p j).hom =
+      (effectivePairMotiveFunctor k).map
+        (pairArrowOpenInclusion j (p.left ⁻¹ᵁ (⊤ : Y.left.Opens))) := by
+  simp only [relativeOpenRestrictionTopIso, Functor.mapIso_hom, asIso_hom]
+
+omit [IsOpenImmersion j.left] in
 /-- The restricted motive over the empty open vanishes. -/
 theorem isZero_relativeOpenRestrictionMotive_bot :
     IsZero ((relativeOpenRestrictionMotive k p j).obj ⊥) := by

@@ -1,36 +1,42 @@
 [entry]
 id = "COL-1224"
-title = "The triangulated stabilization of effective geometric motives"
+title = "Geometric motives by inversion of the Lefschetz twist"
 kind = "definition"
 section = "geometric-motives"
 order = 20
 primary = "AlgebraicGeometry.MotivicHomotopy.GeometricMotives"
 review = "author_checked"
-source_checked_on = "2026-11-13"
+source_checked_on = "2026-11-16"
 statement = '''
-Let \(k\) be a perfect field and let \(L\) be the Lefschetz twist on the
-effective geometric category. An object of the triangulated stabilization
-is represented by \((A,a)\), with \(a\) a nonnegative integer. For any
-\(m \geq a,b\), the group of morphisms from \((A,a)\) to \((B,b)\)
-identifies with \(\operatorname{Hom}(L^{m-a}A,L^{m-b}B)\).
+Let \(k\) be a perfect field. On \(DM_{\mathrm{gm}}^{\mathrm{eff}}(k)\),
+write \(T\) for the Lefschetz twist \(A\mapsto A(1)[2]\). An object of
+\(DM_{\mathrm{gm}}(k)\) is a pair \((A,a)\) with \(A\) effective geometric
+and \(a\in\mathbb N\), representing \(T^{-a}A\). For \(r\ge a,b\) there is
+a compatible identification
+\[
+\operatorname{Hom}_{DM_{\mathrm{gm}}(k)}((A,a),(B,b))
+ \cong \operatorname{Hom}_{DM_{\mathrm{gm}}^{\mathrm{eff}}(k)}
+        (T^{r-a}A,T^{r-b}B).
+\]
+Composition is computed at a common stage for the three objects.
+The inclusion \(A\mapsto(A,0)\) is exact and fully faithful.
+The category is idempotent complete and triangulated, and \(T\) extends
+to an exact autoequivalence.
 '''
 scope = '''
-The coefficient ring is \(\mathbb Z\). The transition is the reduced
-torus tensor followed by the signed shift \([1]\). The stabilized
-category is triangulated and idempotent complete. The inclusion at
-denominator zero is exact and fully faithful. The Lefschetz twist
-extends to an exact autoequivalence. The symmetric tensor is additive
-and exact in each variable. The original smooth motives tensor to the
-motive of the product, compatibly with correspondence maps and symmetry.
+The transition is tensoring with the reduced torus motive followed by
+the signed shift \([1]\). The reduction is taken along the unit section
+of \(\mathbb G_m\). Inverting the Lefschetz twist inverts the Tate twist
+because the translation functor already has an inverse.
 [@Voevodsky2000TriangulatedMotives, Section 2.1, after Proposition 2.1.3]
+uses all integer Tate twists and a direct limit of effective Hom groups.
+Here the inverse Lefschetz exponent \(a\) is nonnegative and cancellation
+identifies that limit with its value at any common stage.
 '''
 proof = '''
-Use cancellation to identify the Hom groups at larger common stages.
-Composition is computed at a stage bounding the three denominators.
-The signed commutation of the Lefschetz twist with the shift determines
-the shift of a stable object. Lift the data of each triangulated axiom
-to one common stage, including the six vertices of the octahedron.
-An idempotent splits at the stage of its object. Compare the effective
-Lefschetz tensor with the original twist. Its signed shift comparison
-transports exactness to the stabilized tensor.
+Integral cancellation in COL-1046 gives full faithfulness of the reduced
+torus tensor, and the signed shift gives an exact transition. Restrict it
+to the geometric subcategory of COL-1223 and apply COL-1235. The signed
+shift comparison transports the boundary of a stage triangle to the shift
+of its first object. Each idempotent splits at the stage of its object.
 '''

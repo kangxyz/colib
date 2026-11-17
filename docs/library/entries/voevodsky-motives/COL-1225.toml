@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1225"
+title = "Motivic purity for a smooth closed pair"
+kind = "theorem"
+section = "motivic-purity-and-gysin"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.effectivePurity"
+review = "author_checked"
+source_checked_on = "2026-11-16"
+statement = '''
+Let \(i\colon Z\hookrightarrow X\) be a closed immersion of smooth
+separated finite-type schemes over a perfect field \(k\). Assume \(X\)
+and \(Z\) have pure dimensions \(n\) and \(m\), respectively, and put
+\(c=n-m\) in \(\mathbb N\). Write \(U=X\setminus Z\) and let \(M_Z(X)\)
+be the effective motive of the relative transfer cokernel for \(U\subset X\).
+There is a specified integral purity isomorphism
+\[
+p_{X,Z}\colon M_Z(X)\xrightarrow{\sim}M(Z)(c)[2c]
+\qquad\text{in } DM_-^{\mathrm{eff}}(k).
+\]
+If \(N=N_{Z/X}\), the maps \(\sigma_1\) and \(\sigma_0\) from the fibres
+\(X\) and \(N\) into the deformation space induce relative isomorphisms
+\(\sigma_{1*}\) and \(\sigma_{0*}\). With \(\tau_N\) the normalized Thom
+isomorphism of \(N\) along its zero section, the map is
+\(p_{X,Z}=\tau_N\circ\sigma_{0*}^{-1}\circ\sigma_{1*}\).
+'''
+scope = '''
+The relative object is obtained by placing the cokernel of the map of
+Nisnevich transfer representables in degree zero and applying effective
+reflection. Thus support on \(Z\) is represented by the pair \((X,U)\).
+The target is the \(c\)-fold effective Lefschetz twist of \(M(Z)\).
+The construction follows the order of the fibre maps in
+[@Deglise2012GysinI, Theorem 2.14 and formula (2.14.a)].
+Déglise formulates the final normalization on the projective completion.
+Here the Thom comparison uses the open normal bundle and its affine
+trivializations.
+'''
+proof = '''
+The two fibre maps of COL-1305 compare the original relative
+motive with the motive supported on the zero section. Apply COL-1298
+to that normal bundle. Their composition gives the indicated
+\(p_{X,Z}\).
+'''
