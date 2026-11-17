@@ -31,6 +31,12 @@ native two-sided Steinberg ideal, not only a new tuple presentation.
 In positive degrees, n kills every ordered tuple value by COL-1299.
 Native tuple-symbol extensionality COL-0030 then shows n kills the entire
 map. The ordinary quotient universal property yields the modulo-n map.
+The supporting diagonal comparison criterion reduces equality for an
+independently constructed map out of integral motivic cohomology to its
+values on the original rational graph classes. Native tuple-symbol
+extensionality and the existing motivic diagonal equivalence COL-1026
+prove the criterion and uniqueness; the same criterion gives annihilation
+by n and quotient descent in positive degrees.
 '''
 scope = '''
 This constructs an ordinary small-etale module Ext-valued Milnor symbol,

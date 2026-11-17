@@ -1,0 +1,9 @@
+module
+
+import Colib.AlgebraicGeometry.EtaleCohomology.MotivicDiagonalKummerComparison
+
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.diagonalKummerComparison_iff
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.diagonalKummerComparison_unique
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.diagonalKummerComparison_nsmul
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.diagonalModuloKummerComparison
+#print axioms AlgebraicGeometry.EtaleCohomology.MilnorKummer.diagonalModuloKummerComparison_symbol
