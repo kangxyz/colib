@@ -3420,6 +3420,18 @@ public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.Represent
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.RepresentableTranspose
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.TorusTensor.RepresentableUnit
 public import Colib.AlgebraicGeometry.SheavesWithTransfers.UnderlyingExactness
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.ChangeOfTopology
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.DerivedSections
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.LocalZero
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Opens
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Opens.LocalZero
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Relative
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Relative.Edge
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Relative.Edge.Sections
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Restriction
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Sheafification
+public import Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Sheafification.LocalZero
 public import Colib.AlgebraicGeometry.Simplex.AffineBoundaryOneComplex
 public import Colib.AlgebraicGeometry.Simplex.AffineRelativeComparison
 public import Colib.AlgebraicGeometry.Simplex.AffineUnitProjection
@@ -3825,6 +3837,8 @@ public import Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitComplex
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitHomotopyInvariance
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitNormalization
 public import Colib.AlgebraicGeometry.Sites.Smooth.Units.UnitSheafification
+public import Colib.AlgebraicGeometry.Sites.Smooth.Zariski.Opens
+public import Colib.AlgebraicGeometry.Sites.Smooth.Zariski.Topology
 public import Colib.AlgebraicGeometry.WeilRestriction.Affine.ActualPair
 public import Colib.AlgebraicGeometry.WeilRestriction.Affine.FiniteFree.Basic
 public import Colib.AlgebraicGeometry.WeilRestriction.Affine.FiniteFree.Pair
@@ -3889,6 +3903,7 @@ public import Colib.CategoryTheory.Abelian.Projective.Ext
 public import Colib.CategoryTheory.Abelian.Projective.ExtZero
 public import Colib.CategoryTheory.Abelian.RightDerived.Cochain
 public import Colib.CategoryTheory.Abelian.RightDerived.CochainNaturality
+public import Colib.CategoryTheory.Abelian.RightDerived.EdgePostcompose
 public import Colib.CategoryTheory.Abelian.SerreClass.FiniteProducts
 public import Colib.CategoryTheory.Abelian.SerreClass.ImageSubobjects
 public import Colib.CategoryTheory.Abelian.SerreClass.KernelPushout

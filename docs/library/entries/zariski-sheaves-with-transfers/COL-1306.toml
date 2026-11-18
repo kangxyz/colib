@@ -1,0 +1,49 @@
+[entry]
+id = "COL-1306"
+title = "Zariski sheafification of a homotopy-invariant presheaf with transfers"
+kind = "comparison"
+section = "zariski-nisnevich-comparison"
+order = 10
+primary = "AlgebraicGeometry.PresheafWithTransfers.isIso_zariskiSheafifyUnderlyingComparison"
+review = "author_checked"
+source_checked_on = "2026-11-18"
+statement = '''
+Let \(k\) be a field and \(P\) a homotopy-invariant presheaf with transfers
+on smooth separated finite-type \(k\)-schemes. Write \(P_{\mathrm{gr}}\)
+for restriction along graph correspondences and \(L_{\mathrm{Nis}}P\) for
+the Nisnevich sheafification with transfers. The canonical map
+\[
+a_{\mathrm{Zar}}P_{\mathrm{gr}}
+\longrightarrow (L_{\mathrm{Nis}}P)_{\mathrm{gr}}
+\]
+is a natural isomorphism of ordinary Zariski sheaves. Its composite with
+the ordinary Zariski unit is the graph restriction of the Nisnevich
+transfer unit. The Zariski sheafification is homotopy invariant and has a
+compatible lift to presheaves with transfers, unique up to a unique
+compatible isomorphism. In particular, if \(P_{\mathrm{gr}}\) is already
+a Zariski sheaf, it satisfies Nisnevich descent.
+'''
+scope = '''
+The Nisnevich lift is the reflector of COL-0372. A compatible lift is
+equipped with a transfer map from \(P\) and an identification of its
+graph restriction with \(a_{\mathrm{Zar}}P_{\mathrm{gr}}\) that
+identifies the units. The isomorphism from \(L_{\mathrm{Nis}}P\) is
+unique with these two compatibilities.
+
+[@MVW2006, Lecture 22, Theorems 22.1, 22.2 and 22.15].
+'''
+proof = '''
+The source and target of the Nisnevich transfer unit are homotopy
+invariant by the hypothesis and COL-1028. Its pointwise kernel and
+cokernel inherit homotopy invariance and are Nisnevich locally zero.
+Over the generic point of an integral smooth scheme, a Nisnevich cover
+has a lift with the same residue field. The lift spreads to a generic
+open, on which the section vanishes. The local vanishing theorem for
+integral affine smooth schemes gives a Zariski neighborhood of each
+point on which the section vanishes.
+
+Exact Zariski sheafification now makes the unit invertible. The
+isomorphism transports homotopy invariance to the Zariski sheafification.
+Any compatible lift has an underlying Nisnevich sheaf, so the Nisnevich
+transfer adjunction gives the unique isomorphism of lifts.
+'''

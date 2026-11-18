@@ -1,0 +1,33 @@
+[chapter]
+id = "zariski-sheaves-with-transfers"
+title = "Zariski Sheaves with Transfers"
+order = 52
+introduction = '''
+Zariski descent is tested on open covers of smooth separated finite-type
+schemes over a field. For a homotopy-invariant presheaf with transfers,
+Zariski sheafification carries the original transfers and satisfies
+Nisnevich descent. Over a perfect field, change of topology also identifies
+the ordinary Zariski and Nisnevich cohomology presheaves.
+'''
+
+[[sections]]
+id = "zariski-nisnevich-comparison"
+title = "Zariski and Nisnevich Comparison"
+order = 10
+introduction = '''
+On an integral affine smooth scheme, the transfer argument turns
+vanishing on a generic open into local vanishing at each point.
+The two comparisons apply this argument to different presheaves.
+'''
+
+[sections.transitions]
+COL-1307 = '''
+The sheafification comparison uses local vanishing of the kernel and
+cokernel of the Nisnevich transfer unit. Strict homotopy invariance from
+COL-1029 lets the same argument apply to positive-degree Nisnevich cohomology.
+'''
+
+COL-1308 = '''
+Apply inverse image to the relative cokernel to compare the two
+localization sequences and their signed connecting maps.
+'''

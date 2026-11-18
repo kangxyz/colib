@@ -1,0 +1,50 @@
+[entry]
+id = "COL-1307"
+title = "Zariski and Nisnevich cohomology of homotopy-invariant transfer sheaves"
+kind = "comparison"
+section = "zariski-nisnevich-comparison"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers.isIso_zariskiCohomologyComparison"
+review = "author_checked"
+source_checked_on = "2026-11-18"
+statement = '''
+Let \(k\) be a perfect field and \(F\) a homotopy-invariant Nisnevich sheaf with
+transfers. Let \(\epsilon\) be the morphism from the Nisnevich to the Zariski
+topos on smooth separated finite-type \(k\)-schemes. For every such \(X\)
+and \(n\geq 0\), the canonical map
+\[
+H^n_{\mathrm{Zar}}(X,\epsilon_*F_{\mathrm{gr}})
+\longrightarrow H^n_{\mathrm{Nis}}(X,F_{\mathrm{gr}})
+\]
+is an isomorphism. The comparison is natural in \(F\) and commutes with
+restriction along morphisms of smooth schemes.
+'''
+scope = '''
+Here \(F_{\mathrm{gr}}\) is the ordinary abelian Nisnevich sheaf obtained
+by restriction along graphs. The comparison is the right-derived edge map
+for \(\Gamma(X,-)\circ\epsilon_*\). In degree zero it identifies sections
+of the same underlying presheaf.
+
+On the ordinary site of opens of \(X\), the same comparison identifies
+the cohomology presheaf of the restricted Zariski coefficient with the
+restriction of the smooth-site Nisnevich cohomology presheaf.
+
+[@MVW2006, Proposition 13.9] gives the comparison for Nisnevich sheaves with
+transfers. The formulation for pretheories is
+[@Voevodsky2000CohomologicalTransfers, Theorem 5.7].
+'''
+proof = '''
+For \(q>0\), the Nisnevich \(q\)-th cohomology presheaf has transfers
+and is homotopy invariant by COL-1029. Each class on an integral smooth
+scheme vanishes on a generic open. The local vanishing argument of
+COL-1306 then makes the Zariski sheafification of this cohomology
+presheaf zero. This sheafification computes \(R^q\epsilon_*F_{\mathrm{gr}}\).
+
+The resulting vanishing for every \(q>0\) makes the edge map invertible
+in every degree. The construction at the presheaf level preserves the
+restriction maps in \(X\).
+
+Restriction from the smooth Zariski site to the ordinary opens is exact
+and preserves injectives. It therefore carries the cohomology presheaf
+to the cohomology presheaf of the restricted coefficient.
+'''

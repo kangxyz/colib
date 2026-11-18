@@ -397,6 +397,14 @@ year = 2012
 version = "arXiv:1207.3121v1"
 url = "https://arxiv.org/pdf/1207.3121v1"
 
+[sources.Voevodsky2000CohomologicalTransfers]
+kind = "article"
+title = "Cohomological theory of presheaves with transfers"
+authors = ["Vladimir Voevodsky"]
+year = 2000
+version = "Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, pages 87–137"
+url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s3.pdf"
+
 [sources.Voevodsky2000TriangulatedMotives]
 kind = "article"
 title = "Triangulated categories of motives over a field"

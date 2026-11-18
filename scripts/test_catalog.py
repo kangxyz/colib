@@ -98,6 +98,7 @@ class LibraryTests(unittest.TestCase):
                                          1094, 1098, 1103, 1105, 1106, 1211, 1302],
             "nisnevich-sheaves-with-transfers": [369, 370, 371, 372, 373, 381,
                                                391, 392, 1028, 1029, 1294, 1295],
+            "zariski-sheaves-with-transfers": [1306, 1307, 1308],
         }
         for chapter, numbers in expected.items():
             actual = {identifier for identifier, entry in self.library["entries"].items()
@@ -120,7 +121,8 @@ class LibraryTests(unittest.TestCase):
         self.assertFalse((output / "chapters/transfers").exists())
         home = (output / "index.html").read_text()
         chapters = ["cycles", "presheaves-with-transfers", "nisnevich-sheaves-with-transfers",
-                    "etale-motivic-theory", "voevodsky-motives", "motivic-cohomology"]
+                    "zariski-sheaves-with-transfers", "etale-motivic-theory",
+                    "voevodsky-motives", "motivic-cohomology"]
         foundations = ["category-theory", "commutative-algebra", "homological-algebra",
                        "algebraic-geometry", "topology", "milnor-k-theory"]
         self.assertEqual([chapter["id"] for chapter in self.library["chapters"][:6]],
@@ -552,6 +554,8 @@ class LibraryTests(unittest.TestCase):
             "transfer-singular-complexes": "Colib.AlgebraicGeometry.PresheavesWithTransfers.SingularComplex.Presheaf",
             "affine-line-invariance":
                 "Colib.AlgebraicGeometry.SheavesWithTransfers.Cohomology.StrictA1.PerfectField",
+            "zariski-nisnevich-comparison":
+                "Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology",
             "canonical-motivic-complexes": "Colib.AlgebraicGeometry.MotivicCohomology.Complex",
             "motivic-hypercohomology": "Colib.AlgebraicGeometry.MotivicCohomology.Hypercohomology",
             "weight-one-norm": "Colib.AlgebraicGeometry.MotivicCohomology.WeightOne.QuasiIso",
@@ -900,6 +904,8 @@ class LibraryTests(unittest.TestCase):
             "COL-1116": "Colib.CategoryTheory.Prespectrum.StableComparison",
             "COL-1028":
                 "Colib.AlgebraicGeometry.PresheavesWithTransfers.Sheafification.HomotopyInvariance",
+            "COL-1306": "Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Sheafification",
+            "COL-1308": "Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Relative",
         }
         native["modules"] = [
             {"name": name, "imports": []}
@@ -1194,9 +1200,9 @@ class LibraryTests(unittest.TestCase):
                           "transfer-convolution", "affine-line-invariance"])
         order = [chapter["id"] for chapter in self.library["chapters"]]
         start = order.index("cycles")
-        self.assertEqual(order[start:start + 6], ["cycles", "presheaves-with-transfers",
-                         "nisnevich-sheaves-with-transfers", "etale-motivic-theory",
-                         "voevodsky-motives", "motivic-cohomology"])
+        self.assertEqual(order[start:start + 7], ["cycles", "presheaves-with-transfers",
+                         "nisnevich-sheaves-with-transfers", "zariski-sheaves-with-transfers",
+                         "etale-motivic-theory", "voevodsky-motives", "motivic-cohomology"])
         self.assertEqual(chapters["algebraic-geometry"]["sections"],
                          ["affine-open-pairs", "scheme-products-and-index-squares",
                           "perfect-complexes", "nisnevich-sites", "affine-curve-parameters",

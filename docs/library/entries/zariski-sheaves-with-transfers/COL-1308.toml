@@ -1,0 +1,54 @@
+[entry]
+id = "COL-1308"
+title = "Change of topology for relative cohomology of transfer sheaves"
+kind = "comparison"
+section = "zariski-nisnevich-comparison"
+order = 30
+primary = "AlgebraicGeometry.SheafWithTransfers.isIso_zariskiRelativeCohomologyComparison"
+review = "author_checked"
+statement = '''
+Let \(k\) be a perfect field and \(F\) a homotopy-invariant Nisnevich sheaf
+with transfers. For a morphism \(j\colon U\to X\) of smooth separated
+finite-type \(k\)-schemes, write
+\[
+H^n_\tau(X,U;F_\tau)=
+\operatorname{Ext}^n\!\left(
+\operatorname{coker}(\mathbb Z_\tau[U]\to\mathbb Z_\tau[X]), F_\tau
+\right)
+\]
+on the ordinary smooth site for \(\tau\in\{\mathrm{Zar},\mathrm{Nis}\}\).
+Here \(F_{\mathrm{Nis}}\) is the
+graph restriction and \(F_{\mathrm{Zar}}\) is the same sheaf read in the
+Zariski topology. For every \(n\geq 0\) the canonical map
+\[
+H^n_{\mathrm{Zar}}(X,U;F_{\mathrm{Zar}})
+\longrightarrow H^n_{\mathrm{Nis}}(X,U;F_{\mathrm{Nis}})
+\]
+is an isomorphism, covariantly natural in the coefficient and
+contravariantly natural in squares of pairs. For a monomorphism \(j\),
+including an open immersion,
+it commutes with the signed connecting map from the cohomology of \(U\)
+and with the map to the cohomology of \(X\), using COL-1307 on the
+absolute terms.
+'''
+scope = '''
+The sheaf \(\mathbb Z_\tau[T]\) is the sheafification of the free
+abelian presheaf represented by \(T\). The comparison applies exact
+inverse image to the extension class, identifies the relative
+cokernels, and uses the counit on \(F\). The connecting map is
+\((-1)^{n+1}\) times the Yoneda connecting map in degree \(n\).
+
+The map and its compatibilities hold over every field for a
+Nisnevich sheaf with transfers. Perfectness and homotopy invariance
+give invertibility.
+'''
+proof = '''
+Exact inverse image identifies the free abelian representing sheaves
+and preserves their cokernel. The higher direct-image vanishing
+used in COL-1307 also appears in the proof of [@MVW2006, Proposition 13.9].
+The adjunction and this vanishing make the resulting map on Ext invertible.
+Naturality of the maps of short exact sequences identifies the
+extension classes and their signed connecting maps. Evaluation at a
+smooth scheme identifies the absolute change-of-topology edge with
+the same adjunction map on section cocycles.
+'''
