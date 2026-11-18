@@ -24,12 +24,12 @@ example :
 example (n : ℕ) :
     (boundedFiniteLocallyFreeOpenKRestrict j n).comp
       (KMap (changeWeak_exact (boundedFiniteLocallyFreeOpenNested j)) n) =
-        boundedFiniteLocallyFreeKRestrict j n :=
+        Scheme.boundedFiniteLocallyFreeKRestrict j n :=
   boundedFiniteLocallyFreeOpenKRestrict_comp_changeWeak j n
 
 example :
     (boundedFiniteLocallyFreeOpenKRestrict j 0).range =
-      (boundedFiniteLocallyFreeKRestrict j 0).range :=
+      (Scheme.boundedFiniteLocallyFreeKRestrict j 0).range :=
   range_boundedFiniteLocallyFreeOpenKRestrict_zero j
 
 example : Function.Surjective (boundedFiniteLocallyFreeOpenKZeroToImage j) :=
