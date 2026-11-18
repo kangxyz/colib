@@ -37,15 +37,15 @@ namespace AlgebraicGeometry.Scheme.Modules
 
 variable {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
 
-/-- The genuine weak class detected by open restriction on the same source category. -/
-def boundedFiniteLocallyFreeOpenWaldhausen :
-    Waldhausen.Structure (boundedFiniteLocallyFreeComplex X).FullSubcategory :=
-  Structure.withInverseImageWeak (boundedFiniteLocallyFreeRestrict_isExact j)
-
 /-- Original quasi-isomorphisms are weak equivalences after actual restriction. -/
 def boundedFiniteLocallyFreeOpenNested :
     NestedWeakEquivalences (boundedFiniteLocallyFreeWaldhausen X) :=
   Structure.inverseImageWeakNested (boundedFiniteLocallyFreeRestrict_isExact j)
+
+/-- The genuine weak class detected by open restriction on the same source category. -/
+abbrev boundedFiniteLocallyFreeOpenWaldhausen :
+    Waldhausen.Structure (boundedFiniteLocallyFreeComplex X).FullSubcategory :=
+  (boundedFiniteLocallyFreeOpenNested j).coarse
 
 /-- The same native restriction functor is exact for the larger weak class. -/
 theorem boundedFiniteLocallyFreeOpenRestrict_isExact :
@@ -107,8 +107,8 @@ theorem boundedFiniteLocallyFreeOpenKRestrict_comp_changeWeak (n : ℕ) :
     (boundedFiniteLocallyFreeOpenKRestrict j n).comp
       (KMap (changeWeak_exact (boundedFiniteLocallyFreeOpenNested j)) n) =
         boundedFiniteLocallyFreeKRestrict j n := by
-  unfold boundedFiniteLocallyFreeOpenKRestrict boundedFiniteLocallyFreeKRestrict
-  rw [KMap_comp_KMap]
+  exact KMap_comp_KMap (changeWeak_exact (boundedFiniteLocallyFreeOpenNested j))
+    (boundedFiniteLocallyFreeOpenRestrict_isExact j) n
 
 /-- Every relative degree-zero class has an original bounded vector-bundle representative. -/
 theorem boundedFiniteLocallyFreeOpen_changeWeak_KMap_zero_surjective :
@@ -120,9 +120,15 @@ theorem boundedFiniteLocallyFreeOpen_changeWeak_KMap_zero_surjective :
 theorem range_boundedFiniteLocallyFreeOpenKRestrict_zero :
     (boundedFiniteLocallyFreeOpenKRestrict j 0).range =
       (boundedFiniteLocallyFreeKRestrict j 0).range := by
-  rw [← boundedFiniteLocallyFreeOpenKRestrict_comp_changeWeak, MonoidHom.range_comp,
-    MonoidHom.range_eq_top.2 (boundedFiniteLocallyFreeOpen_changeWeak_KMap_zero_surjective j),
-    Subgroup.map_top]
+  ext x
+  constructor
+  · rintro ⟨a, rfl⟩
+    obtain ⟨b, rfl⟩ := boundedFiniteLocallyFreeOpen_changeWeak_KMap_zero_surjective j a
+    exact ⟨b, (DFunLike.congr_fun
+      (boundedFiniteLocallyFreeOpenKRestrict_comp_changeWeak j 0) b).symm⟩
+  · rintro ⟨b, rfl⟩
+    exact ⟨KMap (changeWeak_exact (boundedFiniteLocallyFreeOpenNested j)) 0 b,
+      DFunLike.congr_fun (boundedFiniteLocallyFreeOpenKRestrict_comp_changeWeak j 0) b⟩
 
 /-- Degree-zero classes in the actual image of fine restriction. -/
 abbrev BoundedFiniteLocallyFreeOpenKZeroImage := (boundedFiniteLocallyFreeKRestrict j 0).range
