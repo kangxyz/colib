@@ -36,8 +36,10 @@ def perfectQcqsOpenKEquiv {U X : Scheme.{u}} [CompactSpace X] [QuasiSeparatedSpa
     (RingedSpace.perfectComplexesWaldhausen U.toRingedSpace).K (n + 1) := by
   letI : Fact (OpenDerivedImage.HasDerivedRoofs j) :=
     ⟨OpenDerivedImage.hasDerivedRoofs_of_qcqs j⟩
-  exact OpenDerivedImage.relativeKRestrictEquiv j (OpenDerivedImage.hasPerfectComplements_of_qcqs j) n
+  exact OpenDerivedImage.relativeKRestrictEquiv j
+    (OpenDerivedImage.hasPerfectComplements_of_qcqs j) n
 
+/-- The positive equivalence is defined by the unchanged relative-open map. -/
 @[simp]
 theorem perfectQcqsOpenKEquiv_apply {U X : Scheme.{u}} [CompactSpace X] [QuasiSeparatedSpace X]
     [CompactSpace U] (j : U ⟶ X) [IsOpenImmersion j] [HasDerivedCategory.{d} U.Modules]
@@ -54,7 +56,7 @@ variable {A B : QuasiCompactOpenPairs.{u}}
 
 /-- The inverse positive comparison intertwines the relative-open and ordinary pullbacks. -/
 @[colib_ref "quillen"
-  "Quillen/AlgebraicGeometry/PerfectComplexes/GlobalLocalizationNaturality.lean:56-84"
+  "Quillen/AlgebraicGeometry/PerfectComplexes/GlobalLocalizationNaturality.lean:65-92"
   "adaptation" "Naturality of the inverse of actual positive open restriction"]
 theorem perfectQcqsOpenKEquiv_symm_pullback (f : A ⟶ B) (n : ℕ) :
     (perfectOpenKPullback f (n + 1)).comp
@@ -66,7 +68,10 @@ theorem perfectQcqsOpenKEquiv_symm_pullback (f : A ⟶ B) (n : ℕ) :
   apply (perfectQcqsOpenKEquiv A.obj.hom n).injective
   have h := DFunLike.congr_fun (perfectOpenKRestrict_pullback f (n + 1))
     ((perfectQcqsOpenKEquiv B.obj.hom n).symm x)
-  simp only [MonoidHom.comp_apply] at h
+  change perfectKPullback f.hom.left (n + 1)
+      (perfectOpenKRestrict B.obj.hom (n + 1) ((perfectQcqsOpenKEquiv B.obj.hom n).symm x)) =
+    perfectOpenKRestrict A.obj.hom (n + 1)
+      (perfectOpenKPullback f (n + 1) ((perfectQcqsOpenKEquiv B.obj.hom n).symm x)) at h
   simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
   rw [MulEquiv.apply_symm_apply, perfectQcqsOpenKEquiv_apply, ← h]
   change perfectKPullback f.hom.left (n + 1)
@@ -76,7 +81,7 @@ theorem perfectQcqsOpenKEquiv_symm_pullback (f : A ⟶ B) (n : ℕ) :
 /-- The supported boundary, forgetting support, and open restriction in the connective
 localization sequence all commute with a morphism of qcqs open pairs. -/
 @[colib_ref "quillen"
-  "Quillen/AlgebraicGeometry/PerfectComplexes/GlobalLocalizationNaturality.lean:86-104"
+  "Quillen/AlgebraicGeometry/PerfectComplexes/GlobalLocalizationNaturality.lean:94-111"
   "adaptation" "All three naturality squares on the actual connective localization maps"]
 theorem perfectQcqsLongExactSequence_pullback (f : A ⟶ B) (n : ℕ) :
     (perfectSupportedKPullback f n).comp (perfectQcqsConnectingHom B.obj.hom n) =
@@ -89,10 +94,8 @@ theorem perfectQcqsLongExactSequence_pullback (f : A ⟶ B) (n : ℕ) :
         (KMap (perfectComplexesRestrictOpenImmersion_isExact A.obj.hom) n).comp
           (perfectKPullback f.hom.right n) := by
   let : CompactSpace B.obj.left := inferInstanceAs (CompactSpace ((𝟭 Scheme).obj B.obj.left))
-  have hw : A.obj.hom ≫ f.hom.right = f.hom.left ≫ B.obj.hom := by
-    first | exact MorphismProperty.Arrow.w f.hom | exact (MorphismProperty.Arrow.w f.hom).symm
   exact ⟨perfectQcqsConnectingHom_pullback f n, perfectSupportedKMap_pullback f n,
     (perfectKPullback_restrict_square A.obj.hom B.obj.hom f.hom.right f.hom.left
-      hw n).symm⟩
+      (MorphismProperty.Arrow.w f.hom).symm n).symm⟩
 
 end AlgebraicGeometry.Scheme.Modules
