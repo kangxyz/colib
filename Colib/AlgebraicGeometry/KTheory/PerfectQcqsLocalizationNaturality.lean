@@ -76,7 +76,8 @@ theorem perfectQcqsOpenKEquiv_symm_pullback (f : A ⟶ B) (n : ℕ) :
   rw [MulEquiv.apply_symm_apply, perfectQcqsOpenKEquiv_apply, ← h]
   change perfectKPullback f.hom.left (n + 1)
       (perfectQcqsOpenKEquiv B.obj.hom n ((perfectQcqsOpenKEquiv B.obj.hom n).symm x)) = _
-  rw [MulEquiv.apply_symm_apply] <;> rfl
+  rw [MulEquiv.apply_symm_apply]
+  rfl
 
 /-- The supported boundary, forgetting support, and open restriction in the connective
 localization sequence all commute with a morphism of qcqs open pairs. -/
