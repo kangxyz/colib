@@ -8,7 +8,7 @@ open CategoryTheory CategoryTheory.Waldhausen AlgebraicGeometry AlgebraicGeometr
 
 universe u
 
-section
+noncomputable section
 
 variable {U X : Scheme.{u}} (j : U ⟶ X) [IsOpenImmersion j]
 
