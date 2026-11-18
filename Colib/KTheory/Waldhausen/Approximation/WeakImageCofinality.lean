@@ -1,0 +1,79 @@
+/-
+Copyright (c) 2026 Quillen K-theory contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: kangxyz
+-/
+module
+
+public import Colib.KTheory.Waldhausen.Cofinality.GeneralDense
+public import Colib.KTheory.Waldhausen.Approximation.WeakImageKEquivalence
+
+/-! # Original approximation and genuine categorical cofinality on the witnessed image
+
+Restricted actual App2 proves approximation onto the literal weak-image
+category. Genuine target density/cofiber data gives cofinality of its literal
+inclusion. Composing these original maps proves positive bijectivity and
+K-zero injectivity for the original exact functor, with the true exact image.
+
+Implementation provenance: `Quillen/Waldhausen/Approximation/WeakImageCofinality.lean`
+at Quillen commit `c561118b7795eb9780be9ed391c3251d6a4d0afd`.
+-/
+@[expose] public section
+
+open CategoryTheory.Waldhausen.Cofinality
+open CategoryTheory.Waldhausen.Fibration
+
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option backward.defeqAttrib.useBackward true
+open CategoryTheory CategoryTheory.Limits
+universe u v
+namespace CategoryTheory.Waldhausen.ApproximationImage
+open Fibration Cofinality
+variable {C D : Type u} [Category.{v} C] [Category.{v} D]
+  {W : Structure C} {V : Structure D} {F : C ⥤ D}
+  (h : HasApproximationOnImage W V F)
+  (hF : IsExact W.cof W.weq V.cof V.weq F)
+  [HasBinaryCoproducts D] (H : DenseCofiberData V (objects V F))
+
+/-- The two constructed inherited image structures retain exactly the same original data. -/
+theorem dense_waldhausenStructure_eq : H.waldhausenStructure = waldhausenStructure h hF := rfl
+
+variable [V.weq.HasTwoOutOfThreeProperty]
+  (J : RowFactorization.JointData (NestedWeakEquivalences.refl W))
+  (D' : RowFactorization.JointData (NestedWeakEquivalences.refl V))
+  (hs : RowFactorization.SecondEndpointSection (NestedWeakEquivalences.refl V) D')
+include h H J D' hs
+
+/-- The unchanged original KMap is injective in every degree, including K-zero. -/
+theorem original_KMap_injective_of_dense (n : ℕ) : Function.Injective (KMap hF n) := by
+  rw [← inclusion_KMap_comp_corestrict h hF n]
+  exact (H.inclusion_KMap_injective_general D' hs n).comp
+    (corestrict_KMap_bijective h hF J n).injective
+
+/-- The unchanged original KMap is bijective in every positive degree. -/
+theorem original_KMap_succ_bijective_of_dense (n : ℕ) : Function.Bijective (KMap hF (n + 1)) := by
+  rw [← inclusion_KMap_comp_corestrict h hF (n + 1)]
+  exact (H.inclusion_KMap_succ_bijective_general D' hs n).comp
+    (corestrict_KMap_bijective h hF J (n + 1))
+
+/-- The actual original positive approximation/cofinality equivalence. -/
+def originalKEquivOfDense (n : ℕ) : W.K (n + 1) ≃* V.K (n + 1) :=
+  MulEquiv.ofBijective (KMap hF (n + 1)) (original_KMap_succ_bijective_of_dense h hF H J D' hs n)
+
+/-- The original functor's image is exactly the true remaining coarse kernel. -/
+theorem original_range_KMap_of_dense (n : ℕ) :
+    (KMap hF n).range = (KMap (changeWeak_exact H.grading.nested) n).ker := by
+  rw [← range_inclusion_KMap h hF J n]
+  exact H.range_inclusion_KMap_general D' hs n
+
+/-- The original source K-zero embeds with its exact image, retaining the actual remaining
+endpoint. -/
+theorem original_KZero_exact_of_dense :
+    Function.Injective (KMap hF 0) ∧
+    (KMap hF 0).range = (KMap (changeWeak_exact H.grading.nested) 0).ker ∧
+    Function.Surjective (KMap (changeWeak_exact H.grading.nested) 0) :=
+  ⟨original_KMap_injective_of_dense h hF H J D' hs 0,
+    original_range_KMap_of_dense h hF H J D' hs 0, (H.inclusion_KZero_exact_general D' hs).2.2⟩
+
+end CategoryTheory.Waldhausen.ApproximationImage

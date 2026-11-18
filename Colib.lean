@@ -5258,6 +5258,8 @@ public import Colib.KTheory.Waldhausen.Approximation.GeneralKEquivalence
 public import Colib.KTheory.Waldhausen.Approximation.KEquivalence
 public import Colib.KTheory.Waldhausen.Approximation.RowWeakEquivalence
 public import Colib.KTheory.Waldhausen.Approximation.WeakEquivalence
+public import Colib.KTheory.Waldhausen.Approximation.WeakImageCofinality
+public import Colib.KTheory.Waldhausen.Approximation.WeakImageKEquivalence
 public import Colib.KTheory.Waldhausen.AsSmall.Acyclic
 public import Colib.KTheory.Waldhausen.AsSmall.Approximation
 public import Colib.KTheory.Waldhausen.AsSmall.Basic
