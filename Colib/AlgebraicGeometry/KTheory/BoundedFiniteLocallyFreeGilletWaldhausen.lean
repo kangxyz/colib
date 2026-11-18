@@ -88,19 +88,55 @@ def vectorBundleKToBoundedFiniteLocallyFreeKMap (X : Scheme.{u}) (n : ℕ) :
     ((QuillenComparison.comparisonKEquiv E n).symm.toMonoidHom.comp
       (E.smallModelToOriginal.{u + 1}.commonAmbientKMap n))
 
+/-- The original public Quillen-to-Waldhausen comparison is bijective. -/
+theorem vectorBundleKToBoundedFiniteLocallyFreeKMap_bijective (X : Scheme.{u}) (n : ℕ) :
+    Function.Bijective (X.vectorBundleKToBoundedFiniteLocallyFreeKMap n) := by
+  let E := Modules.vectorBundleExactStructure X
+  exact (X.vectorBundleToBoundedFiniteLocallyFreeKMap_bijective n).comp
+    ((QuillenComparison.comparisonKEquiv E n).symm.bijective.comp
+      (E.smallModelToOriginal.{u + 1}.commonAmbientKEquiv n).bijective)
+
 /-- Gillet–Waldhausen for schemes, with the actual degree-zero map and no extra hypothesis. -/
 def vectorBundleKToBoundedFiniteLocallyFreeKEquiv (X : Scheme.{u}) (n : ℕ) :
-    X.K n ≃* X.boundedFiniteLocallyFreeK n := by
-  let E := Modules.vectorBundleExactStructure X
-  exact MulEquiv.ofBijective (X.vectorBundleKToBoundedFiniteLocallyFreeKMap n)
-    ((X.vectorBundleToBoundedFiniteLocallyFreeKMap_bijective n).comp
-      ((QuillenComparison.comparisonKEquiv E n).symm.bijective.comp
-        (E.smallModelToOriginal.{u + 1}.commonAmbientKEquiv n).bijective))
+    X.K n ≃* X.boundedFiniteLocallyFreeK n :=
+  MulEquiv.ofBijective (X.vectorBundleKToBoundedFiniteLocallyFreeKMap n)
+    (X.vectorBundleKToBoundedFiniteLocallyFreeKMap_bijective n)
 
 @[simp]
 theorem vectorBundleKToBoundedFiniteLocallyFreeKEquiv_toMonoidHom
     (X : Scheme.{u}) (n : ℕ) :
     (X.vectorBundleKToBoundedFiniteLocallyFreeKEquiv n).toMonoidHom =
       X.vectorBundleKToBoundedFiniteLocallyFreeKMap n := rfl
+
+/-- The public comparison with perfect complexes is the degree-zero map followed by
+the canonical inclusion of bounded finite locally free complexes. -/
+def vectorBundleKToPerfectKMap (X : Scheme.{u}) (n : ℕ) :
+    X.K n →* (RingedSpace.perfectComplexesWaldhausen X.toRingedSpace).K n :=
+  (X.boundedFiniteLocallyFreeToPerfectKMap n).comp
+    (X.vectorBundleKToBoundedFiniteLocallyFreeKMap n)
+
+/-- The actual bounded-to-perfect chain inclusion commutes with degree-zero insertion. -/
+@[simp]
+theorem boundedFiniteLocallyFreeToPerfectKMap_comp_vectorBundleKToBoundedFiniteLocallyFreeKMap
+    (X : Scheme.{u}) (n : ℕ) :
+    (X.boundedFiniteLocallyFreeToPerfectKMap n).comp
+      (X.vectorBundleKToBoundedFiniteLocallyFreeKMap n) = X.vectorBundleKToPerfectKMap n := rfl
+
+attribute [colib_tag "COL-1308",
+  colib_ref "quillen" "Quillen/AlgebraicGeometry/PerfectComplexes/GilletWaldhausen.lean:33-52"
+    "adaptation" "The actual degree-zero map between the original K-groups",
+  colib_ref "ThomasonTrobaugh1990" "Theorem 1.11.7, pp. 280–281"
+    "adaptation" "Connective K-group comparison using the native closure hypotheses"]
+  vectorBundleToBoundedFiniteLocallyFreeKMap_bijective
+  vectorBundleKToBoundedFiniteLocallyFreeKMap_bijective
+  vectorBundleKToBoundedFiniteLocallyFreeKEquiv
+  vectorBundleKToBoundedFiniteLocallyFreeKEquiv_toMonoidHom
+
+attribute [colib_tag "COL-1308",
+  colib_ref "quillen" "Quillen/AlgebraicGeometry/PerfectComplexes/QuillenComparison.lean:48-62"
+    "adaptation" "The actual public degree-zero maps and the commuting triangle"]
+  vectorBundleKToBoundedFiniteLocallyFreeKMap
+  vectorBundleKToPerfectKMap
+  boundedFiniteLocallyFreeToPerfectKMap_comp_vectorBundleKToBoundedFiniteLocallyFreeKMap
 
 end AlgebraicGeometry.Scheme

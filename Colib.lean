@@ -1182,6 +1182,7 @@ public import Colib.AlgebraicGeometry.KTheory.Bass.SupportedLocalizationBoundary
 public import Colib.AlgebraicGeometry.KTheory.Bass.SupportedLocalizationZeroTail
 public import Colib.AlgebraicGeometry.KTheory.BoundedFiniteLocallyFree
 public import Colib.AlgebraicGeometry.KTheory.BoundedFiniteLocallyFreeFlat
+public import Colib.AlgebraicGeometry.KTheory.BoundedFiniteLocallyFreeGilletWaldhausen
 public import Colib.AlgebraicGeometry.KTheory.BoundedFiniteLocallyFreePullback
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineBassSquare
 public import Colib.AlgebraicGeometry.KTheory.BoundedFlatAffineBassStep
