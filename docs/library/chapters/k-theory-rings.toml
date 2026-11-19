@@ -11,7 +11,8 @@ $G_n(R)=K_n(\mathcal M(R))$. These are different inputs to the same construction
 are not identified without a comparison theorem.
 
 The first section relates projective $K_0$ and the positive K-groups to group completion and the
-plus construction. Over a field, dimension computes $K_0$ and Matsumoto's theorem identifies
+plus construction. Change of rings compares tensor extension with matrix-image base change.
+Over a field, dimension computes $K_0$ and Matsumoto's theorem identifies
 $K_2$ with Milnor $K_2$. The last two sections apply localization and dévissage to the G-theory
 of a localized ring and to the residue fields of a Dedekind domain.
 '''
@@ -62,6 +63,18 @@ COL-0378 = 'Every short exact sequence in $\mathcal P(R)$ splits, so the direct-
 COL-0513 = 'The group-completion calculation gives $K_0$. On the zero component, the map from the stable general linear group exhibits the elementary subgroup as the kernel on $\pi_1$; the local-coefficient comparison supplies the homological plus property.'
 COL-0602 = 'The comparison from the projective completion to the Quillen loop space restricts to a homotopy equivalence on the zero components, with its basepoint homotopy preserved.'
 COL-0606 = 'The continuous $K_0$ map labels the open components of the loop space. Translating by a chosen loop in each component gives the product decomposition, with the identity representative chosen at zero.'
+
+[[sections]]
+id = "projective-base-change"
+title = "Change of rings"
+order = 15
+introduction = '''
+A ring map \(R\to S\) changes the coefficients of finite projective right modules
+without a flatness hypothesis. Tensoring with \(S\) and applying the ring map
+entrywise to representing idempotents give naturally isomorphic exact functors.
+The comparison identifies their maps on Quillen groups, not merely the
+isomorphism class of each image.
+'''
 
 [[sections]]
 id = "k-zero-of-fields"

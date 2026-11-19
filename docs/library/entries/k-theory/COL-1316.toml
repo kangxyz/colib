@@ -1,0 +1,31 @@
+[entry]
+id = "COL-1316"
+title = "Cofinality of the original functor through its weak image"
+kind = "theorem"
+section = "additivity-approximation-and-comparison-theorems"
+order = 75
+primary = "CategoryTheory.Waldhausen.ApproximationImage.originalKEquivOfDense"
+statement = '''
+Let \(F\colon\mathcal C\to\mathcal D\) be an exact Waldhausen functor with
+the restricted approximation property on its witnessed weak image
+\(\operatorname{Im}_w(F)\). The induced map \(F_*\) factors as the
+approximation equivalence for the corestriction followed by the actual
+inclusion map. If this image supplies the dense cofiber data of COL-0268,
+then the original \(F_*\) is injective in every nonnegative degree and an
+isomorphism in positive degrees. Its range is the kernel of the
+change-of-weak-equivalences map \(q_*\). The actual maps give a short exact
+sequence
+\[
+0\to K_0(\mathcal C)\xrightarrow{F_*}K_0(\mathcal D)\xrightarrow{q_*}K_0(\mathcal D_{\mathrm{coarse}})\to0.
+\]
+'''
+scope = '''
+The image contains target objects weakly connected to values of the original
+functor, with the inherited Waldhausen structure. Exactness and the restricted
+approximation data are assumed. The cofinality conclusion retains target
+two-out-of-three, binary coproducts, dense cofiber data, source and target joint
+factorizations, and the target second-endpoint section. No degree-zero
+surjectivity of \(F_*\) is claimed.
+'''
+review = "author_checked"
+provenance = "quillen"

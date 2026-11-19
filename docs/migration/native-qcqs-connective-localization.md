@@ -71,8 +71,13 @@ prescribed Eilenberg–MacLane construction. The group boundary is transported t
 proved positive comparison and preserves its original relative map and sign conventions.
 
 This is fixed-pair TT 5.1.1, not all of TT 5.1. The auxiliary closed support Z in 5.1.2 needs
-its own supported geometric development. Arbitrary open-pair pullback naturality from
-Quillen GlobalLocalizationNaturality remains separate. TT 7.4 (printed p. 365) is the
+its own supported geometric development. The group-level naturality from Quillen
+[GlobalLocalizationNaturality](https://github.com/kangxyz/quillen-k-theory/blob/c561118b7795eb9780be9ed391c3251d6a4d0afd/Quillen/AlgebraicGeometry/PerfectComplexes/GlobalLocalizationNaturality.lean)
+is recorded separately: `perfectQcqsConnectingHom_pullback` intertwines the actual boundary,
+`perfectQcqsOpenKEquiv_symm_pullback` compares the inverse positive restriction, and
+`perfectQcqsLongExactSequence_pullback` assembles the three squares, including the boundary into
+supported K-zero. This applies to commutative maps of qcqs open pairs, without flatness or
+cartesianness, and does not assert a natural fiber sequence of spectra. TT 7.4 (printed p. 365) is the
 nonconnective Bass localization theorem; integer indexing and negative vanishing of these
 connective spectra do not establish it.
 

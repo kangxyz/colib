@@ -6,6 +6,7 @@ Authors: kangxyz
 module
 
 public import Colib.AlgebraicGeometry.KTheory.PerfectOpenRestrictionRange
+public import Mathlib.GroupTheory.QuotientGroup.Basic
 
 /-!
 # The actual degree-zero restriction-image subgroup
@@ -58,6 +59,35 @@ theorem perfectOpenKZeroToImage_surjective : Function.Surjective (perfectOpenKZe
   ext a
   change (perfectOpenKZeroToImage j a = 1) ↔ perfectOpenKRestrict j 0 a = 1
   exact Subtype.ext_iff
+
+/-- The actual degree-zero restriction image is the quotient of relative K-theory by
+the kernel of its codomain-restricted map. No injectivity assumption is needed. -/
+def perfectOpenKZeroQuotientImageEquiv :
+    PerfectOpenK j 0 ⧸ (perfectOpenKZeroToImage j).ker ≃* PerfectOpenKZeroImage j :=
+  QuotientGroup.quotientKerEquivOfSurjective (perfectOpenKZeroToImage j)
+    (perfectOpenKZeroToImage_surjective j)
+
+/-- On representatives the quotient equivalence is the actual open restriction. -/
+@[simp] theorem perfectOpenKZeroQuotientImageEquiv_mk (a : PerfectOpenK j 0) :
+    (perfectOpenKZeroQuotientImageEquiv j (QuotientGroup.mk a) :
+      (RingedSpace.perfectComplexesWaldhausen U.toRingedSpace).K 0) =
+        perfectOpenKRestrict j 0 a := rfl
+
+/-- Relative restriction is onto all K₀ of the open exactly when fine restriction is. -/
+theorem perfectOpenKRestrict_zero_surjective_iff :
+    Function.Surjective (perfectOpenKRestrict j 0) ↔
+      Function.Surjective (KMap (perfectComplexesRestrictOpenImmersion_isExact j) 0) := by
+  constructor
+  · intro hs y
+    obtain ⟨a, ha⟩ := hs y
+    obtain ⟨b, hb⟩ := perfectOpenKMap_zero_surjective j a
+    refine ⟨b, ?_⟩
+    rw [← DFunLike.congr_fun (perfectOpenKRestrict_comp_perfectOpenKMap j 0) b,
+      MonoidHom.comp_apply, hb, ha]
+  · intro hs y
+    obtain ⟨a, rfl⟩ := hs y
+    exact ⟨perfectOpenKMap j 0 a,
+      DFunLike.congr_fun (perfectOpenKRestrict_comp_perfectOpenKMap j 0) a⟩
 
 end AlgebraicGeometry.Scheme.Modules
 

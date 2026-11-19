@@ -1,0 +1,39 @@
+[entry]
+id = "COL-1312"
+title = "Gillet–Waldhausen for vector bundles on a scheme"
+kind = "theorem"
+section = "derived-pullback-and-flat-resolutions"
+order = 5
+statement = '''
+Let \(X\) be a scheme. Equip the category \(\operatorname{Vect}(X)\) of finite
+locally free \(\mathcal O_X\)-modules with its inherited exact structure and
+the category of bounded complexes of vector bundles with admissible
+cofibrations and quasi-isomorphisms. In every degree \(n\geq 0\), degree-zero
+insertion induces an isomorphism
+\[
+K_n\bigl(\operatorname{Vect}(X)\bigr)
+ \xrightarrow{\ \sim\ }
+K_n\bigl(\operatorname{Ch}^{b}(\operatorname{Vect}(X)),\mathrm{qis}\bigr).
+\]
+'''
+scope = '''
+The source is the public small-model Quillen K-group; the target is
+Waldhausen K-theory of actual globally bounded complexes of finite locally
+free modules. No quasi-compactness, regularity or resolution property is
+required. The comparison to all locally perfect complexes factors
+through the literal chain inclusion of COL-0313. This further map is not
+asserted to be an equivalence, and no negative-degree conclusion is claimed.
+For pullback on the bounded complexes, see COL-0322.
+'''
+proof = '''
+The finite locally free modules are closed under extensions and under kernels
+of surjections between them. The term-bound description identifies the
+existing bounded-complex category with the one in COL-0260, and both functors
+place the same vector bundle in degree zero. Apply COL-0260 to the resulting
+Waldhausen map and use the canonical Quillen–Waldhausen comparison of COL-0243
+and the exact small-model equivalence on the source.
+'''
+proof_kind = "outline"
+review = "author_checked"
+primary = "AlgebraicGeometry.Scheme.vectorBundleKToBoundedFiniteLocallyFreeKEquiv"
+provenance = "quillen"

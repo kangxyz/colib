@@ -1,0 +1,45 @@
+[entry]
+id = "COL-1317"
+title = "Tensor scalar extension and change of rings on Quillen K-groups"
+kind = "comparison"
+section = "projective-base-change"
+order = 10
+statement = '''
+Let \(f:R\to S\) be a unital ring homomorphism. For a right \(R\)-module \(M\),
+form the balanced tensor \(M\otimes_R S\) as the quotient of \(S\otimes_{\mathbb Z}M\) by
+the relations \(f(r)s\otimes m-s\otimes(mr)\). If \(M\) is finite projective, so is
+this quotient as a right \(S\)-module. Its natural comparison with the chosen
+matrix-image base change sends \(m\otimes s\) to \(u_f(m)s\), where \(u_f\) is the
+semilinear unit. On the image of a representing idempotent \(p\), the comparison
+sends \(x\otimes s\) to \((f(x_i)s)_i\). Its inverse on \(y\in\operatorname{im}f(p)\) is
+\[
+y\longmapsto\sum_j p(-,j)\otimes y_j.
+\]
+Both exact functors induce the same map \(K_n(R)\to K_n(S)\) for every \(n\geq 0\).
+'''
+scope = '''
+Neither ring need be commutative, and no flatness is required. The quotient
+construction, matrix formula and lifted natural comparison allow independent
+ring universes. The equality of the two zero-normalized Quillen maps uses a
+common ring universe and asserts no equality in negative degrees.
+'''
+proof = '''
+Right multiplication preserves the balancing relations and gives the quotient
+its right \(S\)-action. The universal lifts from the tensor quotient and the
+mapped matrix image are inverse, since their composites agree with the
+identities on the corresponding semilinear units. Evaluating the extension
+on the standard basis gives the inverse column formula. The comparisons for
+composite ring maps are associative; on an iterated generator they preserve
+the order of the right coefficients.
+
+The natural comparison gives finite generation and projectivity of the
+literal quotient. Every conflation of finite projectives splits, so the
+additive tensor functor preserves conflations. The natural comparison then
+identifies the specified zero-normalized Quillen maps. For tensor base change
+on projectives and the degree-zero map, see
+[@WeibelKBook, II, Additive Functors 2.8 and Example 2.8.1].
+'''
+proof_kind = "outline"
+primary = "ModuleCat.FiniteProjective.rightTensorBaseChangeExact_KMap"
+review = "author_checked"
+provenance = "quillen"
