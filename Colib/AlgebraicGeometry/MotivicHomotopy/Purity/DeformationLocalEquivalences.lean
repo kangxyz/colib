@@ -181,7 +181,8 @@ private theorem coordinateSupportChangeIso_snd [Flat b.left] :
 
 omit [PerfectField k] [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (LargeSheaves k)] [HasExt.{u + 1}
-    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
+    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
+  [IsAffineHom a.left] in
 private theorem coordinateSupportChangeIso_comm (hs : j ≫ q = 𝟙 Z) [Flat b.left] :
     (deformationSupportInclusion j).left ≫
         (coordinateDeformationChangeIso k m n j a b h q c).hom.left =
@@ -229,6 +230,7 @@ private theorem coordinateSupportChangeIso_comm (hs : j ≫ q = 𝟙 Z) [Flat b.
     rw [← Category.assoc, deformationSupportMap_toBase, Category.assoc,
       ← Category.assoc j.left.liftCoborder, Scheme.Hom.liftCoborder_ι, hjq, Category.comp_id]
 
+omit [IsAffineHom a.left] in
 include h c in
 /-- The fibre at one is an equivalence on the original pair pulled back along
 an étale map of coordinate centres. -/
@@ -269,6 +271,7 @@ theorem isIso_effectivePairMotiveMap_coordinateChangeOne (hs : j ≫ q = 𝟙 Z)
 
 set_option maxHeartbeats 500000 in
 -- The two pullback identifications are formed using the actual extended-Rees and normal fibres.
+omit [IsAffineHom a.left] in
 include h c in
 /-- The original zero fibre is an equivalence after the same coordinate base change. -/
 theorem isIso_effectivePairMotiveMap_coordinateChangeZero (hs : j ≫ q = 𝟙 Z) :

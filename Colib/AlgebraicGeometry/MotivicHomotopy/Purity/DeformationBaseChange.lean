@@ -25,14 +25,62 @@ open Stacks.Deformation
 
 universe u
 
-namespace AlgebraicGeometry.MotivicHomotopy
+namespace Stacks.Deformation
 
-section BaseChange
+open Opposite Stacks.AffineAlgebraEquivalence Stacks.RelativeSpec Stacks.SymAlgSheaf
 
-open Opposite
+section Sections
 
-private theorem deformationMapOver_comp_of_isAffineHom
-    {X Y Z : Scheme.{u}} (f : Y ⟶ X) (g : Z ⟶ Y) [IsAffineHom f]
+variable {U U' : Scheme.{u}} (h : U' ⟶ U) (J : U.IdealSheafData) (J' : U'.IdealSheafData)
+  (hJ : J.comap h ≤ J')
+
+-- Adapted from the affine formula `Stacks.Deformation.deformationMap_appLE_chartIncl`.
+/-- The original morphism of deformations pulls back homogeneous sections over every open. -/
+theorem deformationMap_appLE_chartIncl_of_opens (W : U.Opens) (k : ℤ)
+    (x : ((extReesGradedAlgebra J).piece k).val.obj (op W))
+    (hle : (deformationSpaceToBase J' ≫ h) ⁻¹ᵁ W ≤
+      deformationMap h J J' hJ ⁻¹ᵁ (deformationSpaceToBase J ⁻¹ᵁ W)) :
+    ((deformationMap h J J' hJ).appLE (deformationSpaceToBase J ⁻¹ᵁ W)
+        ((deformationSpaceToBase J' ≫ h) ⁻¹ᵁ W) hle).hom (chartIncl J k W x) =
+      chartIncl J' k (h ⁻¹ᵁ W) (extReesPullback h J J' hJ k W x) := by
+  have happLE := pairToHom_appLE_of_opens (deformationPair h J J' hJ) W hle
+  refine (congrArg (fun φ => φ.hom (((ungradedAlgebraSheafIsoGradedAlgebraSheaf U
+    (extReesGradedAlgebra J) (extReesGradedAlgebra_mul_comm J)).hom.right.hom.app (op W)).hom
+      (ungradedAlgebraSheafIncl U (extReesGradedAlgebra J) (extReesGradedAlgebra_mul_comm J) k
+        W x))) happLE).trans ?_
+  have hinv : ((ungradedAlgebraSheafIsoGradedAlgebraSheaf U (extReesGradedAlgebra J)
+      (extReesGradedAlgebra_mul_comm J)).inv.right.hom.app (op W)).hom
+      (((ungradedAlgebraSheafIsoGradedAlgebraSheaf U (extReesGradedAlgebra J)
+        (extReesGradedAlgebra_mul_comm J)).hom.right.hom.app (op W)).hom
+        (ungradedAlgebraSheafIncl U (extReesGradedAlgebra J) (extReesGradedAlgebra_mul_comm J) k
+          W x)) =
+      ungradedAlgebraSheafIncl U (extReesGradedAlgebra J) (extReesGradedAlgebra_mul_comm J) k
+        W x :=
+    congrArg (fun k' : ungradedAlgebraSheaf U (extReesGradedAlgebra J)
+        (extReesGradedAlgebra_mul_comm J) ⟶ ungradedAlgebraSheaf U (extReesGradedAlgebra J)
+        (extReesGradedAlgebra_mul_comm J) => (k'.right.hom.app (op W)).hom
+          (ungradedAlgebraSheafIncl U (extReesGradedAlgebra J) (extReesGradedAlgebra_mul_comm J) k
+            W x))
+      (ungradedAlgebraSheafIsoGradedAlgebraSheaf U (extReesGradedAlgebra J)
+        (extReesGradedAlgebra_mul_comm J)).hom_inv_id
+  change ((universalAlgebraMap (extReesSituation J')).right.app (op (h ⁻¹ᵁ W))).hom
+      (((ungradedAlgebraSheafIsoGradedAlgebraSheaf U' (extReesGradedAlgebra J')
+        (extReesGradedAlgebra_mul_comm J')).hom.right.hom.app (op (h ⁻¹ᵁ W))).hom
+        (((deformationUngradedHom h J J' hJ).right.hom.app (op W)).hom
+          (((ungradedAlgebraSheafIsoGradedAlgebraSheaf U (extReesGradedAlgebra J)
+            (extReesGradedAlgebra_mul_comm J)).inv.right.hom.app (op W)).hom
+            (((ungradedAlgebraSheafIsoGradedAlgebraSheaf U (extReesGradedAlgebra J)
+              (extReesGradedAlgebra_mul_comm J)).hom.right.hom.app (op W)).hom
+              (ungradedAlgebraSheafIncl U (extReesGradedAlgebra J)
+                (extReesGradedAlgebra_mul_comm J) k W x))))) = _
+  rw [hinv, deformationUngradedHom_app_incl]
+  rfl
+
+end Sections
+
+/-- The original morphisms of deformation spaces compose according to their base maps. -/
+theorem deformationMap_comp
+    {X Y Z : Scheme.{u}} (f : Y ⟶ X) (g : Z ⟶ Y)
     (I : X.IdealSheafData) (J : Y.IdealSheafData) (K : Z.IdealSheafData)
     (hf : I.comap f ≤ J) (hg : J.comap g ≤ K) (hfg : I.comap (g ≫ f) ≤ K) :
     deformationMap g J K hg ≫ deformationMap f I J hf = deformationMap (g ≫ f) I K hfg := by
@@ -49,21 +97,21 @@ private theorem deformationMapOver_comp_of_isAffineHom
     rw [Category.assoc, ha, ← Category.assoc, hb, Category.assoc]
   refine hom_ext_deformationSpace I (b ≫ a) c (hd.trans hc.symm) ?_
   intro W d x h₁ h₂
-  let V : Y.affineOpens := ⟨f ⁻¹ᵁ W.1, W.2.preimage f⟩
+  let V : Y.Opens := f ⁻¹ᵁ W.1
   let U := ((b ≫ a) ≫ πI) ⁻¹ᵁ W.1
-  have hU : U = πK ⁻¹ᵁ (g ⁻¹ᵁ V.1) := by
+  have hU : U = πK ⁻¹ᵁ (g ⁻¹ᵁ V) := by
     change (((b ≫ a) ≫ πI) ⁻¹ᵁ W.1) = _
     rw [hd]
     rfl
-  have hA : πJ ⁻¹ᵁ V.1 ≤ a ⁻¹ᵁ (πI ⁻¹ᵁ W.1) := by
+  have hA : πJ ⁻¹ᵁ V ≤ a ⁻¹ᵁ (πI ⁻¹ᵁ W.1) := by
     exact le_of_eq (congrArg (fun f => f ⁻¹ᵁ W.1) ha.symm)
-  have hB : πK ⁻¹ᵁ (g ⁻¹ᵁ V.1) ≤ b ⁻¹ᵁ (πJ ⁻¹ᵁ V.1) := by
-    exact le_of_eq (congrArg (fun f => f ⁻¹ᵁ V.1) hb.symm)
+  have hB : πK ⁻¹ᵁ (g ⁻¹ᵁ V) ≤ b ⁻¹ᵁ (πJ ⁻¹ᵁ V) := by
+    exact le_of_eq (congrArg (fun f => f ⁻¹ᵁ V) hb.symm)
   let hCa : πK ⁻¹ᵁ ((g ≫ f) ⁻¹ᵁ W.1) ≤ c ⁻¹ᵁ (πI ⁻¹ᵁ W.1) := by
     exact le_of_eq (congrArg (fun f => f ⁻¹ᵁ W.1) hc.symm)
-  let hBa : πK ⁻¹ᵁ (g ⁻¹ᵁ V.1) ≤ (b ≫ a) ⁻¹ᵁ (πI ⁻¹ᵁ W.1) := by
+  let hBa : πK ⁻¹ᵁ (g ⁻¹ᵁ V) ≤ (b ≫ a) ⁻¹ᵁ (πI ⁻¹ᵁ W.1) := by
     exact le_of_eq (congrArg (fun f => f ⁻¹ᵁ W.1) hd.symm)
-  suffices he : ((b ≫ a).appLE (πI ⁻¹ᵁ W.1) (πK ⁻¹ᵁ (g ⁻¹ᵁ V.1)) hBa).hom
+  suffices he : ((b ≫ a).appLE (πI ⁻¹ᵁ W.1) (πK ⁻¹ᵁ (g ⁻¹ᵁ V)) hBa).hom
       (chartIncl I d W.1 x) =
     (c.appLE (πI ⁻¹ᵁ W.1) (πK ⁻¹ᵁ ((g ≫ f) ⁻¹ᵁ W.1)) hCa).hom
       (chartIncl I d W.1 x) by
@@ -71,17 +119,29 @@ private theorem deformationMapOver_comp_of_isAffineHom
       ((b ≫ a).appLE (πI ⁻¹ᵁ W.1) V' h₁').hom (chartIncl I d W.1 x) =
         (c.appLE (πI ⁻¹ᵁ W.1) V' h₂').hom (chartIncl I d W.1 x))
       (fun _ _ => he) hU.symm h₁ h₂
-  have hcomp := Scheme.Hom.appLE_comp_appLE b a (πI ⁻¹ᵁ W.1) (πJ ⁻¹ᵁ V.1)
-    (πK ⁻¹ᵁ (g ⁻¹ᵁ V.1)) hA hB
-  rw [← hcomp, CommRingCat.comp_apply, deformationMap_appLE_chartIncl' f I J hf W d x hA,
-    deformationMap_appLE_chartIncl' g J K hg V d _ hB,
-    deformationMap_appLE_chartIncl' (g ≫ f) I K hfg W d x hCa]
-  apply congrArg (chartIncl K d (g ⁻¹ᵁ V.1))
-  apply extReesAmbient_injective K d (g ⁻¹ᵁ V.1)
+  have hcomp := Scheme.Hom.appLE_comp_appLE b a (πI ⁻¹ᵁ W.1) (πJ ⁻¹ᵁ V)
+    (πK ⁻¹ᵁ (g ⁻¹ᵁ V)) hA hB
+  let x' := extReesPullback f I J hf d W.1 x
+  have h₁' := deformationMap_appLE_chartIncl' f I J hf W d x hA
+  have h₂' := deformationMap_appLE_chartIncl_of_opens g J K hg V d x' hB
+  have h₃' := deformationMap_appLE_chartIncl' (g ≫ f) I K hfg W d x hCa
+  rw [← hcomp, CommRingCat.comp_apply]
+  refine (congrArg ((b.appLE (πJ ⁻¹ᵁ V) (πK ⁻¹ᵁ (g ⁻¹ᵁ V)) hB).hom) h₁').trans
+    (h₂'.trans (Eq.trans ?_ h₃'.symm))
+  apply congrArg (chartIncl K d (g ⁻¹ᵁ V))
+  apply extReesAmbient_injective K d (g ⁻¹ᵁ V)
   rw [extReesAmbient_extReesPullback, extReesAmbient_extReesPullback]
   have hc' := extReesAmbient_extReesPullback (g ≫ f) I K hfg d W.1 x
   rw [Scheme.Hom.comp_app, CommRingCat.comp_apply] at hc'
   exact hc'.symm
+
+end Stacks.Deformation
+
+namespace AlgebraicGeometry.MotivicHomotopy
+
+section BaseChange
+
+open Opposite
 
 variable {Z X Z' X' : Scheme.{u}} {i : Z ⟶ X} {j : Z' ⟶ X'}
   [IsClosedImmersion i] [IsClosedImmersion j] {a : X' ⟶ X} {b : Z' ⟶ Z}
@@ -133,29 +193,20 @@ def deformationCentreMap :
 
 include h in
 /-- The native deformation morphism commutes with the original closed support maps. -/
-theorem deformationSupportMap_deformationMapOver [IsAffineHom a] :
+theorem deformationSupportMap_deformationMapOver :
     deformationSupportMap j ≫ deformationMapOver h =
       deformationCentreMap (b := b) ≫ deformationSupportMap i := by
   let f := coborderMapOver i j a
   let I := Stacks.Conormal.coborderIdeal i
   let J := Stacks.Conormal.coborderIdeal j
-  have : IsAffineHom f := by
-    have : IsIso i.coborderRange.ι := isIso_coborderRange_ι_of_isClosedImmersion i
-    have : IsIso j.coborderRange.ι := isIso_coborderRange_ι_of_isClosedImmersion j
-    have hf : f = j.coborderRange.ι ≫ a ≫ inv i.coborderRange.ι := by
-      apply (cancel_mono i.coborderRange.ι).1
-      rw [coborderMapOver_ι, Category.assoc, Category.assoc, IsIso.inv_hom_id,
-        Category.comp_id]
-    rw [hf]
-    infer_instance
   have hh : j.liftCoborder ≫ f = b ≫ i.liftCoborder := (isPullback_liftCoborder h).w
   have h₁ : I.comap (j.liftCoborder ≫ f) ≤ (⊥ : Z'.IdealSheafData) := by
     rw [Scheme.IdealSheafData.comap_comp, coborderIdeal_baseChange h,
       coborderIdeal_comap_liftCoborder]
   have h₂ : I.comap (b ≫ i.liftCoborder) ≤ (⊥ : Z'.IdealSheafData) := hh ▸ h₁
-  have l := deformationMapOver_comp_of_isAffineHom f j.liftCoborder I J ⊥
+  have l := deformationMap_comp f j.liftCoborder I J ⊥
     (coborderIdeal_baseChange h).le (coborderIdeal_comap_liftCoborder j).le h₁
-  have r := deformationMapOver_comp_of_isAffineHom i.liftCoborder b I ⊥ ⊥
+  have r := deformationMap_comp i.liftCoborder b I ⊥ ⊥
     (coborderIdeal_comap_liftCoborder i).le (by rw [Scheme.IdealSheafData.comap_bot]) h₂
   have hcongr (f₁ f₂ : Z' ⟶ i.coborderRange.toScheme) (hf : f₁ = f₂)
       (h₁ : I.comap f₁ ≤ (⊥ : Z'.IdealSheafData))
@@ -182,14 +233,13 @@ theorem isPullback_deformationCentreMap [Flat b] :
       (deformationSpaceFlatPullbackIso_hom_snd b I)
   exact H _ hI
 
-/-- The square of literal closed deformation supports over an affine étale
-map of pairs is cartesian. -/
-theorem isPullback_deformationSupportMap_deformationMapOver [IsAffineHom a] [Etale a] :
+/-- The square of literal closed deformation supports over a flat map of pairs is cartesian. -/
+theorem isPullback_deformationSupportMap_deformationMapOver [Flat a] :
     IsPullback (deformationSupportMap j) (deformationCentreMap (b := b))
       (deformationMapOver h) (deformationSupportMap i) := by
   let f := coborderMapOver i j a
-  have : Etale b := MorphismProperty.of_isPullback h (inferInstance : Etale a)
-  have hf : Etale f := by
+  have : Flat b := MorphismProperty.of_isPullback h (inferInstance : Flat a)
+  have hf : Flat f := by
     have : IsIso i.coborderRange.ι := isIso_coborderRange_ι_of_isClosedImmersion i
     have : IsIso j.coborderRange.ι := isIso_coborderRange_ι_of_isClosedImmersion j
     have h₀ : f = j.coborderRange.ι ≫ a ≫ inv i.coborderRange.ι := by
@@ -267,7 +317,7 @@ abbrev actualNormalZeroSection {Z X : Scheme.{u}} (i : Z ⟶ X) [IsClosedImmersi
 
 /-- The map induced on the normal fibres takes the actual zero section to
 the actual zero section over the original centre map. -/
-theorem deformationNormalFibreMap_zeroSection [IsAffineHom a] :
+theorem deformationNormalFibreMap_zeroSection :
     actualNormalZeroSection j ≫ deformationNormalFibreMap h p p' =
       b ≫ actualNormalZeroSection i := by
   apply (cancel_mono (Stacks.Deformation.normalBundleToDeformation i p)).1
@@ -281,7 +331,7 @@ theorem deformationNormalFibreMap_zeroSection [IsAffineHom a] :
 
 /-- The map of literal normal-bundle pairs is cartesian over the corresponding
 map of closed deformation pairs. -/
-theorem isPullback_deformationNormalZeroSection [IsAffineHom a] [Etale a] :
+theorem isPullback_deformationNormalZeroSection [Flat a] :
     IsPullback (actualNormalZeroSection j) b (deformationNormalFibreMap h p p')
       (actualNormalZeroSection i) := by
   let D := deformationMapOver h

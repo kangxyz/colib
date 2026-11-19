@@ -50,7 +50,7 @@ section Etale
 
 variable {Z X Z' X' : Sm(k)} {i : Z ⟶ X} {j : Z' ⟶ X'}
   [IsClosedImmersion i.left] [IsClosedImmersion j.left] {a : X' ⟶ X} {b : Z' ⟶ Z}
-  (h : IsPullback j.left b.left a.left i.left) [IsAffineHom a.left] [Etale a.left]
+  (h : IsPullback j.left b.left a.left i.left) [Etale a.left]
 
 /-- The original morphism of deformations under étale base change is over the field. -/
 @[expose] def smoothDeformationBaseChange : closedPairDeformation j ⟶ closedPairDeformation i :=
@@ -65,8 +65,7 @@ variable {Z X Z' X' : Sm(k)} {i : Z ⟶ X} {j : Z' ⟶ X'}
 
 omit [PerfectField k] [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (LargeSheaves k)] [HasExt.{u + 1}
-    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
-  [IsAffineHom a.left] in
+    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
 private theorem etale_deformationMapOver : Etale (deformationMapOver h) := by
   let f := coborderMapOver i.left j.left a.left
   have hf : Etale f := by
@@ -104,12 +103,25 @@ theorem pairSquareArrow_comm_of_ambient {S : Scheme.{u}}
   · exact hr
 
 
+/-- The native morphism of zero-ideal deformations, viewed over the original field. -/
+@[expose] def smoothDeformationSupportBaseChange (b : Z' ⟶ Z) :
+    deformationSupport Z' ⟶ deformationSupport Z := by
+  let d := deformationCentreMap (b := b.left)
+  have e : d ≫ deformationSpaceToBase (⊥ : Z.left.IdealSheafData) =
+      deformationSpaceToBase (⊥ : Z'.left.IdealSheafData) ≫ b.left :=
+    deformationMap_toBase b.left ⊥ ⊥ _
+  refine homMk d ?_
+  change d ≫ deformationSpaceToBase (⊥ : Z.left.IdealSheafData) ≫ Z.hom =
+    deformationSpaceToBase (⊥ : Z'.left.IdealSheafData) ≫ Z'.hom
+  rw [← Category.assoc, e, Category.assoc, MorphismProperty.Over.w b]
+
 omit [PerfectField k] [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (LargeSheaves k)] [HasExt.{u + 1}
-    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
+    (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})]
+  [Etale a.left] in
 /-- The original support square for a flat base change of the deformation. -/
-theorem smoothDeformationSupportBaseChange_isPullback :
-    IsPullback (deformationSupportInclusion j).left (deformationCentreMap (b := b.left))
+theorem smoothDeformationSupportBaseChange_isPullback [Flat a.left] :
+    IsPullback (deformationSupportInclusion j).left (smoothDeformationSupportBaseChange k b).left
       (smoothDeformationBaseChange k h).left (deformationSupportInclusion i).left :=
   isPullback_deformationSupportMap_deformationMapOver h
 
@@ -125,13 +137,14 @@ theorem isIso_effectivePairMotiveMap_deformationBaseChange [IsIso b.left] :
   have : Flat b.left := inferInstance
   have hc : IsIso (deformationCentreMap (b := b.left)) :=
     (isPullback_deformationCentreMap (b := b.left)).isIso_fst_of_isIso hb
+  let : IsIso (smoothDeformationSupportBaseChange k b).left := hc
   let : Etale (smoothDeformationBaseChange k h).left := etale_deformationMapOver k h
   exact isIso_effectivePairMotiveMap_closedPairSquare k
     (z := (deformationSupportInclusion j).left) (w := (deformationSupportInclusion i).left)
     (smoothDeformationSupportBaseChange_isPullback k h)
 
 include h in
-/-- An affine étale neighborhood inducing an isomorphism on the closed
+/-- An étale neighborhood inducing an isomorphism on the closed
 centre detects invertibility of the original fibre-one comparison. -/
 theorem isIso_effectivePairMotiveMap_deformationOne_iff_of_etale [IsIso b.left] :
     IsIso (effectivePairMotiveMap k (deformationOneSquare j)) ↔
@@ -179,7 +192,7 @@ theorem isIso_effectivePairMotiveMap_deformationOne_iff_of_etale [IsIso b.left] 
   rw [← h₁, ← Category.assoc, ← hN, Category.assoc, h₃, h₂]
 
 include h in
-/-- An affine étale neighborhood inducing an isomorphism on the closed centre
+/-- An étale neighborhood inducing an isomorphism on the closed centre
 detects invertibility of the actual normal-fibre comparison. -/
 theorem isIso_effectivePairMotiveMap_deformationZero_iff_of_etale [IsIso b.left] :
     IsIso (effectivePairMotiveMap k (deformationZeroSquareOfSmooth j)) ↔
@@ -223,13 +236,35 @@ end Etale
     (closedPairDeformation i).left ⟶ X.left :=
   deformationSpaceToBase (Stacks.Conormal.coborderIdeal i.left) ≫ i.left.coborderRange.ι
 
+/-- The deformation projection retains the original smooth-site structure map. -/
+@[expose] def smoothDeformationAmbientProjection {S : Scheme.{u}} {Z X : SmoothSite S}
+    (i : Z ⟶ X) [IsClosedImmersion i.left] : closedPairDeformation i ⟶ X :=
+  homMk (deformationAmbientProjection i) (Category.assoc _ _ _)
+
+/-- The ambient deformation projection restricts to the identity on the fibre at one. -/
+theorem deformationOneMap_ambientProjection {S : Scheme.{u}} {Z X : SmoothSite S}
+    (i : Z ⟶ X) [IsClosedImmersion i.left] :
+    deformationOneMap i ≫ smoothDeformationAmbientProjection i = 𝟙 X := by
+  apply MorphismProperty.Over.Hom.ext
+  exact closedPairOneSection_toAmbient i.left
+
+/-- On the original normal fibre the ambient projection factors through the centre. -/
+theorem deformationNormalMap_ambientProjection {S : Scheme.{u}} {Z X : SmoothSite S}
+    (i : Z ⟶ X) [IsClosedImmersion i.left] {n m : ℕ}
+    (hX : RelativeDimension X.hom n) (hZ : RelativeDimension Z.hom m) :
+    deformationNormalMapOfSmooth i ≫ smoothDeformationAmbientProjection i =
+      normalBundleProjection i hX hZ ≫ i := by
+  let := smooth_closedPair_comp i
+  apply MorphismProperty.Over.Hom.ext
+  exact normalBundleToDeformation_toAmbient i.left X.hom
+
 omit [PerfectField k] [HasDerivedCategory.{w} (PresheafWithTransfers.{u + 1} k)]
   [HasDerivedCategory.{w'} (LargeSheaves k)] [HasExt.{u + 1}
     (Sheaf (SmoothSite.nisnevichTopology (Spec (.of k))) AddCommGrpCat.{u + 1})] in
-/-- Étale base change of the original ambient deformation projection is cartesian. -/
+/-- Flat base change of the original ambient deformation projection is cartesian. -/
 theorem isPullback_deformationMapOver_ambient {Z X Z' X' : Sm(k)}
     {i : Z ⟶ X} {j : Z' ⟶ X'} [IsClosedImmersion i.left] [IsClosedImmersion j.left]
-    {a : X' ⟶ X} {b : Z' ⟶ Z} (h : IsPullback j.left b.left a.left i.left) [Etale a.left] :
+    {a : X' ⟶ X} {b : Z' ⟶ Z} (h : IsPullback j.left b.left a.left i.left) [Flat a.left] :
     IsPullback (deformationMapOver h) (deformationAmbientProjection j)
       (deformationAmbientProjection i) a.left := by
   let f := coborderMapOver i.left j.left a.left
@@ -239,7 +274,7 @@ theorem isPullback_deformationMapOver_ambient {Z X Z' X' : Sm(k)}
     apply (cancel_mono i.left.coborderRange.ι).1
     rw [coborderMapOver_ι, Category.assoc, Category.assoc,
         IsIso.inv_hom_id, Category.comp_id]
-  let : Etale f := by rw [hf]; infer_instance
+  let : Flat f := by rw [hf]; infer_instance
   have hc : IsPullback f j.left.coborderRange.ι i.left.coborderRange.ι a.left :=
     IsPullback.of_vert_isIso ⟨coborderMapOver_ι i.left j.left a.left⟩
   exact (isPullback_deformationMapOver_coborder h).paste_vert hc

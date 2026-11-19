@@ -1,0 +1,47 @@
+[entry]
+id = "COL-1310"
+title = "The finite flasque Gersten resolution"
+kind = "theorem"
+section = "gersten-resolution"
+order = 20
+primary = "AlgebraicGeometry.SheafWithTransfers.Gersten.gerstenComplex_exactAt_succ"
+review = "author_checked"
+source_checked_on = "2026-11-19"
+statement = '''
+Let \(k\) be a perfect field, \(X\) a smooth separated finite-type
+\(k\)-scheme, and \(F\) a homotopy-invariant Nisnevich sheaf with
+transfers. Its ordinary Zariski sheaf on \(X\) has a finite
+flasque resolution \(C^\bullet\). The degree-\(p\) term is the
+coproduct of the point sheaves of the groups \(H^p_x(X,F)\)
+over points \(x\) of codimension \(p\). The section complex on
+each open \(U\subseteq X\) computes ordinary positive-degree
+Zariski cohomology on \(U\). In degree zero the augmentation
+identifies \(F(U)\) with the kernel of the first differential
+on sections.
+'''
+scope = '''
+The point groups are the represented support groups of COL-1309,
+which identifies their degree-\(p\) values with contraction germs
+on smooth models. The differential is the signed localization
+boundary from one relative support layer to the next support
+stage, followed by the map to the next relative support layer.
+The finite bound comes from the topological Krull dimension.
+
+[@Voevodsky2000CohomologicalTransfers, Theorem 4.37].
+'''
+proof = '''
+The adjacent support sequences give a finite exact tower. Point
+purity makes each relative support layer vanish away from its
+codimension. Excision identifies the remaining layers with the
+point coproduct sheaves and matches restriction with discarding
+summands outside the smaller open. These sheaves are flasque
+because restriction has a section given by extension by zero.
+
+The positive-degree unrestricted cohomology presheaves vanish
+locally. The exact tower then gives the kernel at the
+augmentation and exactness in positive degrees. On each open the
+diagonal window presheaves already satisfy descent. Evaluating
+the same tower on that open computes cohomology of the section
+complex, and COL-1307 identifies it with ordinary Zariski
+cohomology.
+'''

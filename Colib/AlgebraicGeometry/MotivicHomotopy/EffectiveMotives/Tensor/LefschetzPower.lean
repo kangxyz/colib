@@ -76,4 +76,61 @@ def effectiveLefschetzPowerTensorIso (A : E) (c : ℕ) :
       α_ C K A ≪≫ (tensorLeft C).mapIso (β_ K A) ≪≫ (α_ C A K).symm ≪≫
       e.app (C ⊗ A) ≪≫ (L).mapIso h
 
+set_option Elab.async false in
+set_option maxHeartbeats 900000 in
+-- Move the morphism through the original unit, associativity and symmetry comparisons.
+/-- The Lefschetz-power tensor comparison is natural in the effective motive. -/
+@[reassoc]
+theorem effectiveLefschetzPowerTensorIso_naturality {A A' : E} (f : A ⟶ A') (c : ℕ) :
+    ((Stabilization.iterate L c).obj ((M).obj B) ◁ f) ≫
+        (effectiveLefschetzPowerTensorIso k A' c).hom =
+      (effectiveLefschetzPowerTensorIso k A c).hom ≫ (Stabilization.iterate L c).map f := by
+  let K := effectiveLefschetzMotive k
+  let e : tensorRight K ≅ L := effectiveLefschetzTensorIso k
+  induction c with
+  | zero =>
+    let d : (M).obj B ⟶ 𝟙_ E := (effectiveSignedConvolutionUnitIso θ).inv
+    have hex : (((M).obj B) ◁ f) ≫ (d ▷ A') = (d ▷ A) ≫ ((𝟙_ E) ◁ f) :=
+      whisker_exchange d f
+    change (((M).obj B) ◁ f) ≫ (d ▷ A') ≫ (λ_ A').hom = ((d ▷ A) ≫ (λ_ A).hom) ≫ f
+    calc
+      _ = ((d ▷ A) ≫ ((𝟙_ E) ◁ f)) ≫ (λ_ A').hom :=
+        (Category.assoc _ _ _).symm.trans (congrArg (· ≫ (λ_ A').hom) hex)
+      _ = _ := by rw [Category.assoc, leftUnitor_naturality, Category.assoc]
+  | succ c ih =>
+    let D := (Stabilization.iterate L c).obj ((M).obj (SmoothSite.base S))
+    let a := effectiveLefschetzPowerTensorIso k A c
+    let b := effectiveLefschetzPowerTensorIso k A' c
+    have hex : ((L).obj D ◁ f) ≫ (e.inv.app D ▷ A') =
+        (e.inv.app D ▷ A) ≫ ((D ⊗ K) ◁ f) := whisker_exchange (e.inv.app D) f
+    have hβ : (D ◁ (K ◁ f)) ≫ (D ◁ (β_ K A').hom) =
+        (D ◁ (β_ K A).hom) ≫ (D ◁ (f ▷ K)) := by
+      rw [← whiskerLeft_comp, braiding_naturality_right, whiskerLeft_comp]
+    have he : ((D ◁ f) ▷ K) ≫ e.hom.app (D ⊗ A') =
+        e.hom.app (D ⊗ A) ≫ (L).map (D ◁ f) := e.hom.naturality (D ◁ f)
+    change ((L).obj D ◁ f) ≫
+        (e.inv.app D ▷ A') ≫ (α_ D K A').hom ≫ D ◁ (β_ K A').hom ≫
+        (α_ D A' K).inv ≫ e.hom.app (D ⊗ A') ≫ (L).map b.hom =
+      ((e.inv.app D ▷ A) ≫ (α_ D K A).hom ≫ D ◁ (β_ K A).hom ≫
+        (α_ D A K).inv ≫ e.hom.app (D ⊗ A) ≫ (L).map a.hom) ≫
+          (L).map ((Stabilization.iterate L c).map f)
+    let q := (α_ D K A').hom ≫ D ◁ (β_ K A').hom ≫ (α_ D A' K).inv ≫
+      e.hom.app (D ⊗ A') ≫ (L).map b.hom
+    refine ((Category.assoc _ _ q).symm.trans (congrArg (· ≫ q) hex)).trans ?_
+    dsimp only [q]
+    simp only [Category.assoc]
+    rw [associator_naturality_right_assoc, reassoc_of% hβ,
+      associator_inv_naturality_middle_assoc, reassoc_of% he]
+    have htail : (L).map (D ◁ f) ≫ (L).map b.hom =
+        (L).map a.hom ≫ (L).map ((Stabilization.iterate L c).map f) :=
+      ((L).map_comp (D ◁ f) b.hom).symm.trans
+        (((L).congr_map ih).trans ((L).map_comp a.hom ((Stabilization.iterate L c).map f)))
+    change (e.inv.app D ▷ A) ≫ (α_ D K A).hom ≫ D ◁ (β_ K A).hom ≫
+        (α_ D A K).inv ≫ e.hom.app (D ⊗ A) ≫ ((L).map (D ◁ f) ≫ (L).map b.hom) =
+      (e.inv.app D ▷ A) ≫ (α_ D K A).hom ≫ D ◁ (β_ K A).hom ≫
+        (α_ D A K).inv ≫ e.hom.app (D ⊗ A) ≫
+          ((L).map a.hom ≫ (L).map ((Stabilization.iterate L c).map f))
+    exact congrArg (fun t ↦ (e.inv.app D ▷ A) ≫ (α_ D K A).hom ≫ D ◁ (β_ K A).hom ≫
+      (α_ D A K).inv ≫ e.hom.app (D ⊗ A) ≫ t) htail
+
 end AlgebraicGeometry.MotivicHomotopy

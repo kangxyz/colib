@@ -7,7 +7,8 @@ Zariski descent is tested on open covers of smooth separated finite-type
 schemes over a field. For a homotopy-invariant presheaf with transfers,
 Zariski sheafification carries the original transfers and satisfies
 Nisnevich descent. Over a perfect field, change of topology also identifies
-the ordinary Zariski and Nisnevich cohomology presheaves.
+the ordinary Zariski and Nisnevich cohomology presheaves. Filtering supports
+by codimension gives a flasque resolution on each smooth scheme.
 '''
 
 [[sections]]
@@ -30,4 +31,22 @@ COL-1029 lets the same argument apply to positive-degree Nisnevich cohomology.
 COL-1308 = '''
 Apply inverse image to the relative cokernel to compare the two
 localization sequences and their signed connecting maps.
+'''
+
+[[sections]]
+id = "gersten-resolution"
+title = "Gersten Resolution"
+order = 20
+introduction = '''
+Filter closed supports by codimension on a smooth scheme. The groups
+at points come from the original neighborhood diagrams. Their
+concentration in the codimension degree selects the diagonal of
+the support tower.
+'''
+
+[sections.transitions]
+COL-1310 = '''
+The localization boundary maps a relative window to the next support
+stage. Following it by the map to the next window puts the point groups
+into a single complex.
 '''

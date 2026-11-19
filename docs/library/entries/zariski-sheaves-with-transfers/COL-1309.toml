@@ -1,0 +1,42 @@
+[entry]
+id = "COL-1309"
+title = "Cohomology supported at a point"
+kind = "theorem"
+section = "gersten-resolution"
+order = 10
+primary = "AlgebraicGeometry.SheafWithTransfers.Gersten.isZero_pointSupportCohomology_of_ne"
+review = "author_checked"
+source_checked_on = "2026-11-19"
+statement = '''
+Let \(k\) be a perfect field, \(X\) a smooth separated finite-type
+\(k\)-scheme, and \(F\) a homotopy-invariant Nisnevich sheaf with
+transfers. For a point \(x\) of codimension \(p\), its represented
+support cohomology vanishes in every integer degree \(n\ne p\).
+In degree \(p\) it is additively isomorphic to the section germ of
+the \(p\)-fold contraction \(F_{-p}\) at the generic point of a
+smooth model of the reduced closure of \(x\).
+'''
+scope = '''
+The support group is the colimit of the shifted Hom groups from
+the original effective pair motives of
+\((U,U\setminus\overline{\{x\}})\) into the effective degree-zero
+coefficient, over the actual open neighborhoods \(U\) of \(x\).
+The degree-\(p\) comparison uses a smooth model with a marked
+generic point whose residue field is \(\kappa(x)\). The point-only
+statement supplies such a model.
+
+[@Voevodsky2000CohomologicalTransfers, Lemma 4.36].
+'''
+proof = '''
+Shrink around \(x\) so its reduced closure is smooth and has
+codimension \(p\) in the chosen open. The smaller ambient opens
+are cofinal in the original support diagram. Gysin identifies
+each group with shifted cohomology on the smooth closure with
+coefficient \(F_{-p}\), and commutes with the actual open
+restrictions.
+
+Below \(p\), the shifted motive groups are zero. Above \(p\),
+each positive-degree Nisnevich cohomology class vanishes on a
+smaller generic open. At \(p\), the degree-zero comparison gives
+the section germ on the smooth model.
+'''

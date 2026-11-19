@@ -257,7 +257,7 @@ theorem isIso_deformationOneMapOnOpen_of_restriction (U : X.left.Opens) [IsAffin
 private theorem isIso_deformationZeroMapOnOpen_of_cartesian
     {Z' X' : Sm(k)} {j : Z' ⟶ X'} [IsClosedImmersion j.left]
     {a : X' ⟶ X} {b : Z' ⟶ Z}
-    [IsOpenImmersion a.left] [IsAffineHom a.left]
+    [IsOpenImmersion a.left]
     (h : IsPullback j.left b.left a.left i.left)
     (V : (closedPairDeformation i).left.Opens)
     (hV : Set.range (smoothDeformationBaseChange k h).left =
