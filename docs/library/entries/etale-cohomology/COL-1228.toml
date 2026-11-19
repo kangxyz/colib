@@ -1,0 +1,37 @@
+[entry]
+id = "COL-1228"
+title = "Exact change of topology on free-source derived Hom groups"
+kind = "definition"
+section = "smooth-etale-sites"
+order = 45
+primary = "AlgebraicGeometry.Scheme.SmoothSite.nisnevichToEtaleDerivedHomMap"
+review = "author_checked"
+statement = '''
+Let S be a scheme, X an object of its smooth site, K a cochain complex of
+abelian Nisnevich sheaves, and p an integer. Exact change from Nisnevich to
+étale sheaves defines an additive map from derived morphisms from the
+free abelian Nisnevich sheaf represented by X, placed in degree zero, to
+Q(K)[p], into derived morphisms from the corresponding free étale sheaf
+to Q(aK)[p]. Here a is the actual change-of-topology sheafification functor
+and Q is localization at quasi-isomorphisms in the respective categories.
+The construction retains the native free-source, single-complex and shift
+comparison isomorphisms.
+'''
+proof = '''
+Uniqueness of left adjoints identifies successive Nisnevich and étale
+sheafification with étale sheafification, giving the free-source
+isomorphism. Apply the exact functor's mapDerivedCategory to the original
+morphism, precompose with that source isomorphism and the inverse native
+single-complex comparison, then postcompose with the native shift and Q
+comparison. Additivity follows from additivity of the derived functor
+and composition. The exact-functor construction and its comparisons are
+provided by the pinned Mathlib ExactFunctor module.
+'''
+scope = '''
+This is an additive map on actual derived Hom groups for abelian sheaves
+on the smooth site, with the explicit sheafification and derived-category
+instances and their universe parameters retained. It is not asserted to
+be an isomorphism. It does not identify motivic complexes with étale Tate
+twists, prove compatibility with a motivic product, or replace the smooth
+étale site by the base scheme's small étale site.
+'''
