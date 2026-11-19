@@ -78,6 +78,8 @@ jobs:
   lean:
     if: >-
       ${{
+        (github.event_name != 'pull_request' ||
+         github.event.pull_request.head.repo.full_name != github.repository) &&
         !((github.event_name == 'workflow_dispatch' && inputs.mode == 'library-only') ||
           (github.event_name == 'push' && github.ref_type == 'branch' &&
            contains(github.event.head_commit.message, '[library revision]')))

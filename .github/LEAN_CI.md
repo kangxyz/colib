@@ -24,13 +24,19 @@ are read. A job deadline reserves time for staging and saving completed work aft
 compiler failure. Resource samples are retained as workflow artifacts.
 
 With `COLIB_SELF_HOSTED_ENABLED=true` and `COLIB_PARALLEL_RUNNER_ENABLED=true`,
-owner pushes and manual runs on Colib branches default to EC2. Pull requests and
+owner pushes and manual runs on Colib branches default to EC2. Fork pull requests and
 the explicit `hosted` profile use GitHub-hosted runners. Setting either variable
 to `false` routes new runs to GitHub-hosted runners with their usual resource limits.
 
 CI queues separately for each ref. The EC2 controller admits up to three attempts
 across branches. Build and Test use the same per-attempt runner label and share the
 checkout and native store. The controller releases the instance when the attempt ends.
+
+Pushes run CI on every branch. A same-repository pull request skips the duplicate
+native jobs and uses the checks attached to its head commit by the branch push.
+Fork pull requests run native CI on GitHub's proposed merge result. A push to
+`main` after merging runs CI for the integrated revision and publishes its cache
+and Library artifacts.
 
 The [EC2 operating guide](../infra/ci/ec2/README.md) documents the controller and
 deployment. The root-owned marker is `colib-ci-runner-v1` in
@@ -117,7 +123,7 @@ on a GitHub-hosted runner. The push may change `docs/library/`, `docs/site/`,
 `docs/LIBRARY.md`, and `docs/references.toml`. CI checks the full diff from the
 previous branch tip, or from the merge base with `main` for a new branch. If
 any other path changed, run full CI for that revision. GitHub suppresses the
-push workflow if the commit also uses `[skip ci]`. Pull request events run
+push workflow if the commit also uses `[skip ci]`. Fork pull request events run
 full CI on the merge result.
 
 The manual **Colib CI → Run workflow → library-only** entry checks and builds
