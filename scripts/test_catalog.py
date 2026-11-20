@@ -98,7 +98,7 @@ class LibraryTests(unittest.TestCase):
                                          1094, 1098, 1103, 1105, 1106, 1211, 1302],
             "nisnevich-sheaves-with-transfers": [369, 370, 371, 372, 373, 381,
                                                391, 392, 1028, 1029, 1294, 1295],
-            "zariski-sheaves-with-transfers": [1306, 1307, 1308, 1309, 1310],
+            "zariski-sheaves-with-transfers": [1306, 1307, 1308, 1309, 1310, 1319],
         }
         for chapter, numbers in expected.items():
             actual = {identifier for identifier, entry in self.library["entries"].items()
@@ -648,6 +648,8 @@ class LibraryTests(unittest.TestCase):
                 "Colib.AlgebraicGeometry.MotivicHomotopy.GeometricMotives.Stable",
             "motivic-purity-and-gysin":
                 "Colib.AlgebraicGeometry.MotivicHomotopy.Gysin.ClosedImmersion",
+            "motivic-coniveau":
+                "Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Supports.SpectralSequence.Convergence",
             "shifts-and-functors":
                 "Colib.CategoryTheory.Shift.CommShiftTwoFullyFaithfulData",
             "triangulated-categories":
@@ -930,6 +932,7 @@ class LibraryTests(unittest.TestCase):
             "COL-1306": "Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Sheafification",
             "COL-1308": "Colib.AlgebraicGeometry.SheavesWithTransfers.Zariski.Cohomology.Relative",
             "COL-1310": "Colib.AlgebraicGeometry.SheavesWithTransfers.Gersten.Basic",
+            "COL-1319": "Colib.AlgebraicGeometry.SheavesWithTransfers.Gersten.Coniveau",
         }
         native["modules"] = [
             {"name": name, "imports": []}

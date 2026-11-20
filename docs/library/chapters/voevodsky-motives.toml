@@ -103,3 +103,14 @@ For the diagonal of a pure \(d\)-dimensional smooth scheme, the
 ambient dimension is \(2d\) and the centre has dimension \(d\).
 The same quotient and boundary describe the diagonal triangle.
 '''
+
+[[sections]]
+id = "motivic-coniveau"
+title = "The Coniveau Spectral Sequence"
+order = 50
+introduction = '''
+Nest closed supports by their codimension and apply represented
+cohomology to the localization triangles of the complementary opens.
+The adjacent support groups give the first page. The support filtration
+on the absolute group gives the stable terms.
+'''

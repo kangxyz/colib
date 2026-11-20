@@ -234,3 +234,114 @@ gives the actual square with the stage maps before the colimit
 injection. The public generator formulas keep the original
 component maps. Full declaration lint tests the resulting declaration
 types at the same limit.
+
+## Opposite triangles in the closed-support spectral object
+
+`Supports.SpectralSequence.ClosedSupports` moves the middle object of
+each original nested-open triangle through the identity-component
+arrow isomorphism. The spectral-object field requires an opposite
+triangle on the exact coface maps. In the first revision the kernel
+expanded the effective motive at that field. The second revision
+moved the conversion to a separate concrete theorem and hit the
+elaborator limit there. The direct `rfl` of the represented
+connecting map also timed out in the kernel.
+
+| Source revision | Native job | ClosedSupports result |
+|---|---|---|
+| `e64c6549ebab486a1aab3c923d5e2ce2d23e2a2b` | `ca111ed20a112026bc60de0000000003` | Kernel timeout in the distinguishedness field after 689 seconds with two Lake threads. |
+| `e117d027d194601ad72f1b31ec18e3c1d6f1b3e7` | `ca111ed20a112026bc60de0000000005` | Concrete opposite-triangle comparison timed out in `whnf` at 900000 heartbeats. The boundary comparison timed out in the kernel. Module time 491 seconds with one thread. |
+| `207f75e7e6ae46498481de839f4e9aa08eef865b` | `ca111ed20a112026bc60de0000000006` | Exit 0 after building the leaf in 572 seconds with two threads. |
+
+The accepted version restores the original positive middle comparison.
+The generic `ofOppositeBoundaries` constructor takes an arrow diagram,
+the typed signed boundary and the positive distinguished triangles.
+It applies `op_distinguished` in the abstract category. The
+represented connecting-map calculation also runs in the abstract
+category, using that the two triangles have the same endpoints and
+third map. The accepted file SHA-256 is
+`1144ca4512ce5f91bc3871d288f653e9da4ca17e4420c0c5825b7f1c2c3b8222`.
+
+```sh
+lake build Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Supports.SpectralSequence.ClosedSupports
+```
+
+## Weakening relative window bounds
+
+At `75c310abfc08d9c4beb9f609d626d45dbd094960`, the two-thread
+job `75c310abfc08d9c4beb9f609d626d401` ran `WindowColimits` for
+59 seconds. Applying `colimit.pre` timed out in `isDefEq` at
+200000 heartbeats while identifying its composite diagram with
+the original source diagram.
+
+The repaired map uses `colimit.desc` on a cocone typed over the
+original source diagram. Its legs are the target injections for the
+same supports with weakened bounds. It derives naturality from
+`colimit.w` and the generator formula from `colimit.ι_desc`.
+With the same dependency pins, job `fa8a2a9b14228f7cab2766970a26d0ba`
+at `fa8a2a9b14228f7cab2766970a26d0bade2fc220` built the repaired
+`WindowColimits` in 54 seconds and its `SpectralObject` consumer in
+13 seconds with one thread. Separate modules failed in that job.
+The accepted `WindowColimits.lean` file SHA-256 is
+`b59285eb39c15d479911d37055a64c4fe528ac37e885e458869ee7aae7b50aab`.
+
+```sh
+lake build Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Supports.SpectralSequence.WindowColimits.SpectralObject
+```
+
+## Composing the weakening and absolute stage maps
+
+In `AbsoluteWindows` the weakening square compares four maps on
+coniveau colimits. Native job `d59700ca8f646df64203c9f2252ba399`
+timed out at 750000 heartbeats in `whnf` in the concrete square
+and reported a universe error in its generated reassociation.
+The module ran for 86 seconds.
+
+Give the categorical composition lemma the four typed generator
+laws. Keep the represented cohomology functor locally opaque and
+omit the unused generated reassociation. At
+`b4684f92d3d478313d64b663b6246f93c286f6f6`, native job
+`30c0e43802c048e18b1d92f0f1b54562` checked the exact repaired
+leaf in 43 seconds at the same heartbeat limit, with one thread.
+The current file has Git blob `08e789e10f7ef54939e7c3ec15ae3fb677a25e7e`.
+This comparison measures the changes together.
+
+## Comparing the signed representative boundaries
+
+`Boundary.Representatives` compares the localization boundary of
+a closed-support flag beginning at the empty support with the
+original boundary into the absolute support group followed by
+restriction. The first comparison was made in the concrete
+effective motive category with both triangles and all coefficient
+instances in scope.
+
+New Lit job `022b776d393caec06f8a709d9186fb07` at
+`022b776d393caec06f8a709d9186fb07045d93a3` reported two `whnf`
+timeouts during the 221-second module build. The scoped heartbeat
+profile `684f336daebc4b6c9323ac85dcc19ede` on the same source timed
+out after recording 650013 heartbeats for the geometry equation
+and 900015 for the represented comparison. Its generic
+postcomposition proof used 331 heartbeats.
+
+The repair factors the geometry equation through the actual
+naturality of the nested-pair boundary with identity first map.
+It proves the shifted Hom equality in an abstract category and
+then passes the two original signed representative formulas to it.
+The graph and transfer representable stay locally opaque during
+the specialization. Job `9b2cee56bd959cf364e309f9104cdb58` at
+`9b2cee56bd959cf364e309f9104cdb58684de132` built the repaired
+leaf in 232 seconds using the default eight threads. The checked
+file has Git blob `83af1d81900215877af89c57237fdd16175dd945`.
+
+```sh
+lake build Colib.AlgebraicGeometry.MotivicHomotopy.EffectiveMotives.Supports.SpectralSequence.Boundary.Representatives
+```
+
+The upper `Boundary` comparison also timed out in `whnf` at
+900000 heartbeats in the same job, after 208 seconds. Its
+repair passes the four typed colimit generator equations to
+an abstract categorical proof. The resulting `Boundary.lean`
+blob `829218ec34ee5fe6aa7466e7ae923cd59719c1d4` compiled in
+92 seconds in job `5023170fe74c37b72e6bdd76752afcae` at
+`5023170fe74c37b72e6bdd76752afcaee45e6c65`. That job also
+built `FirstPage` in 24 seconds and the umbrella in 10 seconds
+with the same native default of eight threads.

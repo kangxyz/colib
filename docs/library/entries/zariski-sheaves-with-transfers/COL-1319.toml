@@ -1,0 +1,38 @@
+[entry]
+id = "COL-1319"
+title = "Coniveau degeneration for a homotopy-invariant transfer sheaf"
+kind = "theorem"
+section = "gersten-resolution"
+order = 30
+primary = "AlgebraicGeometry.SheafWithTransfers.Gersten.coniveauSecondPageZariskiCohomologyIso"
+review = "author_checked"
+source_checked_on = "2026-11-20"
+statement = '''
+Let \(F\) be a homotopy-invariant Nisnevich sheaf with transfers over a
+perfect field and \(X\) a smooth separated finite-type scheme over that
+field. For the degree-zero coefficient \(F[0]\) in COL-1318, the first
+page is concentrated in row \(q=0\). The coniveau spectral sequence
+degenerates at \(E_2\), and
+\[
+E_2^{p,0}\cong H^p_{\mathrm{Zar}}(X,F) \qquad (p\ge 0).
+\]
+In degree \(n\ge 0\) the coniveau filtration is the full cohomology
+group through stage \(n\) and is zero at the higher stages.
+'''
+scope = '''
+The cohomology is the ordinary cohomology of the underlying abelian
+sheaf on the Zariski opens of \(X\). The first differential uses the
+same localization boundary and relative support map as the Gersten
+resolution in COL-1310.
+'''
+proof = '''
+Point purity in COL-1309 puts each point term in its codimension
+degree. Every higher differential then has a zero source or target.
+The transitions to stages below the matching codimension are epic.
+Above it, the stages vanish by descending from the finite support
+bound. The stable graded piece in bidegree
+\((p,0)\) is therefore the entire represented group in degree \(p\).
+The ordinary Nisnevich comparison for the degree-zero effective
+coefficient and COL-1307 identify that group with ordinary Zariski
+cohomology, including degree zero.
+'''

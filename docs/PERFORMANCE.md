@@ -61,6 +61,12 @@ diagram. Apply `colimit.desc` to that named cocone. The
 [point window case](performance/coniveau-stage-colimit-conversion.md#colimit-descent-for-the-point-to-window-map)
 records the successful separation of these declarations.
 
+For a spectral object of opposite triangles, supply the original typed
+boundary, naturality, and distinguishedness of the normalized positive
+triangle. Assemble the opposite triangles in the abstract category.
+The [closed-support case](performance/coniveau-stage-colimit-conversion.md#opposite-triangles-in-the-closed-support-spectral-object)
+records the successful split and checks the represented boundary.
+
 If `checkType` times out on a private naturality statement after
 production compilation succeeds, inspect the stored statement under
 the linter's default reducibility. Pass the concrete equality to the

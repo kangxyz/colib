@@ -413,6 +413,14 @@ year = 2000
 version = "Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, pages 188–238"
 url = "https://www.math.ias.edu/Voevodsky/files/files-original/Dropbox/Published_papers/Motives/Collection/s5.pdf"
 
+[sources.Deglise2011Coniveau]
+kind = "article"
+title = "Coniveau filtration and mixed motives"
+authors = ["Frédéric Déglise"]
+year = 2011
+version = "arXiv:1106.0905v1"
+url = "https://arxiv.org/pdf/1106.0905v1"
+
 [sources.Voevodsky2008NisnevichCD]
 kind = "article"
 title = "Unstable motivic homotopy categories in Nisnevich and cdh-topologies"

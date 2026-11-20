@@ -1,0 +1,50 @@
+[entry]
+id = "COL-1318"
+title = "The coniveau spectral sequence of represented effective cohomology"
+kind = "theorem"
+section = "motivic-coniveau"
+order = 10
+primary = "AlgebraicGeometry.MotivicHomotopy.coniveauSpectralSequencePageStableIso"
+review = "author_checked"
+source_checked_on = "2026-11-20"
+statement = '''
+Let \(k\) be a perfect field, \(X\) a smooth separated finite-type
+\(k\)-scheme, and \(K\) an object of \(DM^{\mathrm{eff}}_-(k)\). The
+codimension filtration on closed supports gives a cohomological spectral
+sequence whose terms for \(p\ge 0\) are
+\[
+E_1^{p,q}\cong \bigoplus_{x\in X^{(p)}}H_x^{p+q}(X;K)
+\quad\Longrightarrow\quad
+\operatorname{Hom}(M(X),K[p+q]).
+\]
+The differential \(d_1\) is the signed localization boundary from a
+relative support window to the next support stage, followed by the map
+to its relative window. If \(d\) is a natural upper bound on the
+dimension of \(X\), the pages are supported in columns \(0,\dots,d\).
+For \(r>d\) and \(p\ge 0\), the \((p,q)\) term is isomorphic to the
+\(p\)-th graded piece of the coniveau filtration on the group in
+degree \(p+q\).
+'''
+scope = '''
+The point groups use the original neighborhood diagrams of effective
+pair motives. The filtration on the abutment is by images of cohomology
+supported in codimension at least \(p\). The graded piece is the
+quotient of the \(p\)-th image by the next image.
+
+Compare [@Deglise2011Coniveau, Definition 1.6 and equations (2.1.c) and (2.1.d)].
+'''
+proof = '''
+Take the exact localization sequences for three nested complementary
+opens. Each projection from nested support flags to the corresponding
+support pairs is final. Exactness of filtered colimits gives the
+spectral object of codimension windows with the original connecting
+maps. The adjacent windows form the first page, and disjoint-support
+excision splits them into the point groups.
+
+For \(r>d\) and \(0\le p\le d\), the source window identifies with
+support stage \(p\). Its map to the target window passes through
+the quotient of the absolute group by the image of stage \(p+1\).
+The quotient embeds in the target window. The image of the map
+is the \(p\)-th graded piece. For \(p>d\), both the page term
+and the graded piece vanish.
+'''

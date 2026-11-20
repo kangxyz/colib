@@ -48,18 +48,23 @@ variable (X : SmoothSite (Spec (CommRingCat.of k)))
 local notation "K" => effectiveHICoefficient k F hF
 local notation "J" => _root_.Opens.grothendieckTopology X.left.carrier
 
-/-- Point purity and the disjoint-support comparison force every off-diagonal
-support window of a homotopy-invariant transfer sheaf to vanish. -/
-theorem isZero_coniveauWindow_of_ne (Y : SmoothSite S) (p n : ℕ) (h : p ≠ n) :
-    IsZero (coniveauRelativeSupportCohomology k Y K (n : ℤ) p (p + 1)) := by
-  let A := fun x : ConiveauPoints k Y p ↦ pointSupportCohomology k Y K (n : ℤ) x.1
+/-- Point purity and disjoint-support excision make the relative support
+window vanish in every integer degree different from its codimension. -/
+theorem isZero_coniveauWindow_of_degree_ne_codimension (Y : SmoothSite S)
+    (p : ℕ) (n : ℤ) (h : n ≠ (p : ℤ)) :
+    IsZero (coniveauRelativeSupportCohomology k Y K n p (p + 1)) := by
+  let A := fun x : ConiveauPoints k Y p ↦ pointSupportCohomology k Y K n x.1
   have hA : IsZero (∐ A) := by
     apply (IsZero.iff_id_eq_zero _).2
     apply Sigma.hom_ext
     intro x
-    exact (isZero_pointSupportCohomology_of_ne k Y x.1 F hF x.2 (n : ℤ) (by
-      exact_mod_cast h.symm)).eq_of_src _ _
-  exact hA.of_iso (coniveauWindowPointSumIso k Y K (n : ℤ) p).symm
+    exact (isZero_pointSupportCohomology_of_ne k Y x.1 F hF x.2 n h).eq_of_src _ _
+  exact hA.of_iso (coniveauWindowPointSumIso k Y K n p).symm
+
+/-- Every off-diagonal window in nonnegative degree is zero. -/
+theorem isZero_coniveauWindow_of_ne (Y : SmoothSite S) (p n : ℕ) (h : p ≠ n) :
+    IsZero (coniveauRelativeSupportCohomology k Y K (n : ℤ) p (p + 1)) :=
+  isZero_coniveauWindow_of_degree_ne_codimension k F hF Y p (n : ℤ) (by exact_mod_cast h.symm)
 
 local notation "H" => fun U p n h ↦
   isZero_coniveauWindow_of_ne k F hF (Functor.obj (SmoothSite.opensFunctor X) U) p n h

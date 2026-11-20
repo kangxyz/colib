@@ -50,3 +50,10 @@ The localization boundary maps a relative window to the next support
 stage. Following it by the map to the next window puts the point groups
 into a single complex.
 '''
+
+COL-1319 = '''
+The coniveau spectral sequence of COL-1318 uses this localization
+differential. Point purity leaves the Gersten row as the only row on
+the first page for a homotopy-invariant Nisnevich sheaf with transfers
+placed in degree zero.
+'''
