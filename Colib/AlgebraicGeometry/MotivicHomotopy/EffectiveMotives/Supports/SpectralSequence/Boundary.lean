@@ -78,13 +78,14 @@ theorem coniveauWindowConnecting_eq_boundary (K : DM(k)) (n : ℤ) {a b c : ℕ}
   let M := coniveauWindowConnecting k X K n (n + 1) rfl hab hbc
   let B := coniveauWindowBoundary k X K n hab
   let S := coniveauCohomologyToWindow k X K (n + 1) b c
-  let δ := (closedSupportSpectralObject k X K).δ
-    (homOfLE (bot_le : (⊥ : Closeds X.left) ≤ ZW.1.1.1)) (homOfLE ZW.2) n (n + 1) rfl
+  let δ := coniveauEmptyFlagBoundary k X K n (c := c) ZW
   let β := (coniveauRelativeSupportBoundary k X K n a b).app ZW
   let ρ := (coniveauRelativeSupportRestriction k X K (n + 1) b c).app A
   let i := colimit.ι (coniveauRelativeSupportDiagram k X K (n + 1) b c) A
   let t := colimit.ι (coniveauCohomologyDiagram k X K (n + 1) b) ZW.1.1
-  have hM : j ≫ M = δ ≫ i := ι_coniveauWindowConnecting k X K n (n + 1) rfl hab hbc T
+  have hM : j ≫ M = δ ≫ i := by
+    unfold δ coniveauEmptyFlagBoundary
+    exact ι_coniveauWindowConnecting k X K n (n + 1) rfl hab hbc T
   have hB : j ≫ B = β ≫ t := ι_coniveauWindowBoundary k X K n hab ZW
   have hS : t ≫ S = ρ ≫ i := ι_coniveauCohomologyToWindow k X K (n + 1) A
   have hδ : δ = β ≫ ρ := closedSupportSpectralObject_δ_bot k X K n (c := c) ZW

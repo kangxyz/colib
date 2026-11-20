@@ -98,18 +98,32 @@ private theorem nestedPairBoundary_change_ambient {U V W Y : Sm(k)}
     (effectiveNestedPairBoundary k i j) (effectiveNestedPairBoundary k i j')
     (effectiveNestedPairBoundary_naturality k i j i j' (𝟙 U) (𝟙 V) e hi h)
 
+set_option maxHeartbeats 650000 in
+-- The spectral object and the relative diagrams evaluate the same complementary opens.
+/-- The signed spectral boundary on a flag obtained by placing the empty support first. -/
+def coniveauEmptyFlagBoundary (K : DM(k)) (n : ℤ) {a b c : ℕ}
+    (ZW : ConiveauSupportPairs k X a b) :
+    (coniveauRelativeSupportDiagram k X K n a b).obj ZW ⟶
+      (coniveauRelativeSupportDiagram k X K (n + 1) b c).obj
+        (coniveauEmptySupportPair k X (b := c) ZW.1.1) :=
+  (closedSupportSpectralObject k X K).δ
+    (homOfLE (bot_le : (⊥ : Closeds X.left) ≤ ZW.1.1.1)) (homOfLE ZW.2) n (n + 1) rfl
+
 set_option maxHeartbeats 900000 in
 -- Compare the published signed formulas on each represented cohomology class.
 /-- The connecting map on a flag starting at the empty support agrees with the original
 absolute nested-pair boundary followed by the empty-support comparison. -/
 theorem closedSupportSpectralObject_δ_bot (K : DM(k)) (n : ℤ) {a b c : ℕ}
     (ZW : ConiveauSupportPairs k X a b) :
-    (closedSupportSpectralObject k X K).δ
-        (homOfLE (bot_le : (⊥ : Closeds X.left) ≤ ZW.1.1.1)) (homOfLE ZW.2)
-        n (n + 1) rfl =
-      (coniveauRelativeSupportBoundary k X K n a b).app ZW ≫
-        (coniveauRelativeSupportRestriction k X K (n + 1) b c).app
-          (coniveauEmptySupportPair k X (b := c) ZW.1.1) := by
+    let β : (coniveauRelativeSupportDiagram k X K n a b).obj ZW ⟶
+        (coniveauCohomologyDiagram k X K (n + 1) b).obj ZW.1.1 :=
+      (coniveauRelativeSupportBoundary k X K n a b).app ZW
+    let ρ : (coniveauCohomologyDiagram k X K (n + 1) b).obj ZW.1.1 ⟶
+        (coniveauRelativeSupportDiagram k X K (n + 1) b c).obj
+          (coniveauEmptySupportPair k X (b := c) ZW.1.1) :=
+      (coniveauRelativeSupportRestriction k X K (n + 1) b c).app
+        (coniveauEmptySupportPair k X (b := c) ZW.1.1)
+    coniveauEmptyFlagBoundary k X K n (c := c) ZW = β ≫ ρ := by
   let i := supportOpenMap k X ZW.2
   let h : (⊥ : Closeds X.left) ≤ ZW.1.1.1 := bot_le
   let j := supportOpenMap k X h
@@ -129,6 +143,7 @@ theorem closedSupportSpectralObject_δ_bot (K : DM(k)) (n : ℤ) {a b c : ℕ}
   let r := (coniveauRelativeSupportRestriction k X K (n + 1) b c).app A
   let v (x : effectivePairMotive k i ⟶ K⟦n⟧) :=
     x⟦(1 : ℤ)⟧' ≫ (shiftFunctorAdd' DM(k) n 1 (n + 1) rfl).inv.app K
+  change norm = original ≫ r
   exact boundary_eq_of_formulas _ (F.map ρ) δ δ' hδ r norm original v
     (closedSupportSpectralObject_δ_apply k X K n (n + 1) rfl h ZW.2)
     (coniveauRelativeSupportBoundary_app_apply k X K n ZW) (fun _ ↦ rfl)

@@ -139,14 +139,23 @@ variable [PerfectField k]
 attribute [local irreducible] effectivePairCohomology
 
 set_option maxHeartbeats 550000 in
+-- The two indexing objects have the same complementary opens.
+/-- The colimit injection at the weakened pair, viewed from the original pair cohomology. -/
+def coniveauWindowMapGenerator (K : EffectiveMotivesMinus k) (n : ℤ)
+    {a b a' b' : ℕ} (ha : a' ≤ a) (hb : b' ≤ b) (T : ConiveauSupportPairs k X a b) :
+    (coniveauRelativeSupportDiagram k X K n a b).obj T ⟶
+      coniveauRelativeSupportCohomology k X K n a' b' :=
+  colimit.ι (coniveauRelativeSupportDiagram k X K n a' b')
+    ((coniveauSupportPairsWeaken k X ha hb).obj T)
+
+set_option maxHeartbeats 550000 in
 -- Check naturality on the unchanged pair of opens for each support inclusion.
 private def coniveauWindowMapCocone (K : EffectiveMotivesMinus k) (n : ℤ)
     {a b a' b' : ℕ} (ha : a' ≤ a) (hb : b' ≤ b) :
     Cocone (coniveauRelativeSupportDiagram k X K n a b) where
   pt := coniveauRelativeSupportCohomology k X K n a' b'
   ι :=
-    { app T := colimit.ι (coniveauRelativeSupportDiagram k X K n a' b')
-        ((coniveauSupportPairsWeaken k X ha hb).obj T)
+    { app := coniveauWindowMapGenerator k X K n ha hb
       naturality T U f := by
         let F := coniveauRelativeSupportDiagram k X K n a' b'
         let P := coniveauSupportPairsWeaken k X ha hb
@@ -165,13 +174,10 @@ def coniveauWindowMap (K : EffectiveMotivesMinus k) (n : ℤ)
 set_option maxHeartbeats 550000 in
 -- The generator statement uses the literal window diagrams at both sets of bounds.
 /-- The window map takes each generator to the generator on the same pair of closed supports. -/
-@[reassoc]
 theorem ι_coniveauWindowMap (K : EffectiveMotivesMinus k) (n : ℤ)
     {a b a' b' : ℕ} (ha : a' ≤ a) (hb : b' ≤ b) (T : ConiveauSupportPairs k X a b) :
-    colimit.ι (coniveauRelativeSupportDiagram k X K n a b) T ≫
-        coniveauWindowMap k X K n ha hb =
-      colimit.ι (coniveauRelativeSupportDiagram k X K n a' b')
-        ((coniveauSupportPairsWeaken k X ha hb).obj T) :=
+    colimit.ι (coniveauRelativeSupportDiagram k X K n a b) T ≫ coniveauWindowMap k X K n ha hb =
+      coniveauWindowMapGenerator k X K n ha hb T :=
   colimit.ι_desc (coniveauWindowMapCocone k X K n ha hb) T
 
 end AlgebraicGeometry.MotivicHomotopy

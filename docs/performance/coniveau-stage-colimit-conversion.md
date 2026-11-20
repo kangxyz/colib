@@ -345,3 +345,19 @@ blob `829218ec34ee5fe6aa7466e7ae923cd59719c1d4` compiled in
 `5023170fe74c37b72e6bdd76752afcaee45e6c65`. That job also
 built `FirstPage` in 24 seconds and the umbrella in 10 seconds
 with the same native default of eight threads.
+
+## Typing the coniveau generators for declaration lint
+
+Job `06be681ec05efef6c6cfaf24026ffab5` at
+`06be681ec05efef6c6cfaf24026ffab58744b712` built all 34,165
+production targets. The `checkType` pass over 118,383
+declarations timed out at 200000 heartbeats in
+`closedSupportSpectralObject_δ_bot`, `ι_coniveauWindowMap`,
+and the latter's generated reassociation.
+
+Name the original flag boundary and weakened-pair injection
+as morphisms with the literal relative-diagram endpoints.
+The equations use these typed maps. The weakening proof
+uses its original cocone legs directly and omits the unused
+reassociation. The flag comparison uses the same signed
+boundary and original support restriction.
