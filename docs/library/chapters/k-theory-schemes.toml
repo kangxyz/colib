@@ -117,6 +117,8 @@ Let \(\pi:\mathbf P^1_X\to X\) be the projective line over a quasi-compact schem
 [sections.transitions]
 COL-1292 = "Apply the ordinary formula to the ambient scheme and its open. Compare the actual localization boundaries to recover the formula with support."
 COL-1293 = "Compare the formula on two opens and their intersection. The relative boundary becomes the connecting map in the five-term Mayer–Vietoris sequence."
+COL-1340 = "For the two standard opens of the projective line over an affine base, identify the charts with polynomial spectra and the intersection with the Laurent spectrum. Transport the restriction differences and the same connecting homomorphism to these coordinates."
+COL-1341 = "A square of exact functors with specified restriction isomorphisms induces maps on the actual supported categories, hence on excision inverses and connective Mayer–Vietoris boundaries."
 
 [[sections]]
 id = "units-tensor-products-and-localization-boundaries"

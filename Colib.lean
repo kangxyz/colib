@@ -1811,6 +1811,7 @@ public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedOpenSupport
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedPairPullback
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedPrespectrum
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedQcqsConnectiveLocalization
+public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedRestrictionExactFunctor
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedUnionFiberComparison
 public import Colib.AlgebraicGeometry.KTheory.PerfectSupportedUnionPrespectrum
 public import Colib.AlgebraicGeometry.KTheory.PerfectVectorBundleTensor
@@ -2892,6 +2893,7 @@ public import Colib.AlgebraicGeometry.PresheavesWithTransfers.YonedaLarge
 public import Colib.AlgebraicGeometry.Products.Diagonal.Parameter
 public import Colib.AlgebraicGeometry.Products.Diagonal.ParameterBaseChange
 public import Colib.AlgebraicGeometry.ProjectiveLine.AffineBassMiddleExactness
+public import Colib.AlgebraicGeometry.ProjectiveLine.AffineBassPositiveExactness
 public import Colib.AlgebraicGeometry.ProjectiveLine.AffineLaurentRankOne
 public import Colib.AlgebraicGeometry.ProjectiveLine.AffineParameter
 public import Colib.AlgebraicGeometry.ProjectiveLine.BaseOpenCover

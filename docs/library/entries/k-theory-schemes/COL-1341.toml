@@ -1,0 +1,44 @@
+[entry]
+id = "COL-1341"
+title = "Naturality of connective Mayer–Vietoris under exact functors"
+kind = "theorem"
+section = "projective-bundle-formula"
+order = 50
+statement = '''
+Consider two two-open covers \(X=V\cup T\) and \(X'=V'\cup T'\) and
+write \(W=V\cap T\), \(W'=V'\cap T'\). Suppose exact functors on
+perfect complexes from \(X,T,V,W\) to \(X',T',V',W'\) respectively
+come with natural isomorphisms commuting with restriction from
+\(X\) to \(T\), from \(X\) to \(V\), and from \(V\) to \(W\).
+The induced maps on perfect complexes acyclic on \(T\) and \(W\)
+commute with the supported restriction and its excision inverse
+on K-groups. If \(V,V'\) are quasi-compact and quasi-separated and
+\(W,W'\) are quasi-compact, the maps induced by the overlap functor
+and the ambient functor commute with the actual connective
+Mayer–Vietoris boundary
+\[
+\partial\colon K_{n+1}(W)\longrightarrow K_n(X)
+\]
+for each \(n\geq 0\), including \(K_1(W)\to K_0(X)\).
+'''
+scope = '''
+One member of each cover is presented as an open immersion and
+the other as an ambient open. The exact functors give the actual
+maps on the supported full subcategories; no compatibility
+equations on K-groups are assumed. This compares the specified
+connective connecting homomorphisms with their original sign,
+not a Bass or nonconnective boundary.
+'''
+proof = '''
+The given restriction isomorphisms identify restrictions
+of complexes after applying the induced functors on the
+supported full subcategories. The resulting square on K-groups
+commutes, so it commutes after inverting the two excision
+isomorphisms. The relative boundary and forget-support squares
+then give the asserted comparison for the actual connecting map.
+'''
+proof_kind = "outline"
+primary = "AlgebraicGeometry.Scheme.Modules.PerfectMayerVietoris.connectingHom_natural_of_exactFunctors"
+review = "author_checked"
+provenance = "quillen"
+source_checked_on = "2026-11-24"

@@ -1,0 +1,43 @@
+[entry]
+id = "COL-1340"
+title = "Mayer–Vietoris in polynomial and Laurent coordinates"
+kind = "theorem"
+section = "projective-bundle-formula"
+order = 40
+statement = '''
+Let \(R\) be a commutative ring, \(P=\mathbf P^1_R\),
+\(A=\operatorname{Spec} R[t]\), and \(L=\operatorname{Spec} R[t,t^{-1}]\).
+For every \(n\geq 0\), the row
+\[
+K_{n+1}(P)\longrightarrow K_{n+1}(A)\oplus K_{n+1}(A)
+\longrightarrow K_{n+1}(L)\xrightarrow{\partial} K_n(P)
+\longrightarrow K_n(A)\oplus K_n(A)
+\]
+is exact at its three interior terms. The pairs of maps from \(P\)
+are restriction to the positive and negative charts, in that order.
+The map from the pair in degree \(n+1\) is the positive restriction
+minus the negative restriction: the ring maps to the Laurent
+ring send the two polynomial coordinates to \(t\) and \(t^{-1}\).
+The map \(\partial\) is the original connective Mayer–Vietoris
+connecting homomorphism, after the overlap is identified with \(L\).
+'''
+scope = '''
+These are connective K-groups of perfect complexes on the indicated schemes.
+There is no regularity or Noetherian hypothesis on \(R\). In the Lean
+multiplicative group notation, the difference is the positive restriction
+times the inverse of the negative restriction. The row includes the boundary
+\(K_1(L)\to K_0(P)\); it does not assert exactness at the two displayed ends
+or identify a negative-degree boundary.
+'''
+proof = '''
+The chart and overlap isomorphisms give isomorphisms on the local
+K-groups. Functoriality of pullback compares the restriction pairs
+and the signed overlap map. The overlap isomorphism transports
+the original connecting homomorphism without changing its target.
+These three commuting squares transport exactness from COL-1293.
+'''
+proof_kind = "outline"
+primary = "AlgebraicGeometry.Scheme.ProjectiveLine.affineBassPositiveExactSequence"
+review = "author_checked"
+provenance = "quillen"
+source_checked_on = "2026-11-24"
