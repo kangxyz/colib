@@ -33,6 +33,14 @@ example (X : Scheme.{u}ᵒᵖ) :
       (boundedAboveFlatPerfectWaldhausen X.unop.toRingedSpace)).obj.Obj :=
   evaluationModelEquivalence X
 
+example (X : Scheme.{u}ᵒᵖ) (n : ℕ) :
+    Topology.IsWeakHomotopyEquivalence ((prespectrumMap (evaluationModel X)).map n) :=
+  evaluationModel_level_isWeakHomotopyEquivalence X n
+
+example (X : Scheme.{u}ᵒᵖ) :
+    Topology.IsWeakHomotopyEquivalence ((prespectrumMap (evaluationModel X)).map 0) :=
+  evaluationModel_level_isWeakHomotopyEquivalence X 0
+
 example (X : Scheme.{u}ᵒᵖ) :
     IsStableEquivalence (prespectrumMap (evaluationModel X)) :=
   evaluationModel_isStableEquivalence X

@@ -12,8 +12,8 @@ public import Mathlib.AlgebraicTopology.FundamentalGroupoid.Basic
 /-! Implementation source: `Quillen/Topology/Path/CarrierSquareDescent.lean`
 at `c561118b7795eb9780be9ed391c3251d6a4d0afd`. Actual maps, coordinates,
 whole boundary traces and universe parameters are retained with native owners.
-The literal square data are extracted from `CarrierSquareBoundary.lean`, lines 27–36,
-at the same revision; unrelated terminal-pause results are not imported.
+The literal square data and forward boundary extraction come from
+`CarrierSquareBoundary.lean` at the same revision.
 -/
 @[expose] public section
 noncomputable section
@@ -101,6 +101,61 @@ private theorem path_pasted_right (p : Path a₁ b₁) (l : Path a₀ a₁) (m :
     apply Subtype.ext
     dsimp [Topology.ThreeSideSquare.rightTime, unitInterval.symm]
     ring
+
+private theorem boundary_time_cases (s : unitInterval) :
+    (∃ r, s = ThreeSideSquare.leftTime r) ∨
+    (∃ r, s = ThreeSideSquare.topTime r) ∨
+    (∃ r, s = ThreeSideSquare.rightTime r) := by
+  by_cases h : (s : ℝ) ≤ 1 / 4
+  · left
+    refine ⟨⟨4 * s, by constructor <;> linarith [s.2.1]⟩, ?_⟩
+    apply Subtype.ext
+    dsimp [ThreeSideSquare.leftTime]
+    ring
+  · by_cases h' : (s : ℝ) ≤ 1 / 2
+    · right; left
+      refine ⟨⟨4 * s - 1, by constructor <;> linarith⟩, ?_⟩
+      apply Subtype.ext
+      dsimp [ThreeSideSquare.topTime]
+      ring
+    · right; right
+      refine ⟨⟨2 - 2 * s, by constructor <;> linarith [s.2.2]⟩, ?_⟩
+      apply Subtype.ext
+      dsimp [ThreeSideSquare.rightTime]
+      ring
+
+/-- The actual collapsed upper boundary is the exact original left-associated path pasting. -/
+theorem Square.collapse_top (Q : Square p₀ p₁ l m) (s : unitInterval) :
+    Q.parameter (ThreeSideSquare.collapse (1, s)) =
+      ((l.trans p₁).trans m.symm) s := by
+  rcases boundary_time_cases s with ⟨r, rfl⟩ | ⟨r, rfl⟩ | ⟨r, rfl⟩
+  · rw [ThreeSideSquare.collapse_leftTime]
+    exact (Q.left r).trans (path_pasted_left p₁ l m r).symm
+  · rw [ThreeSideSquare.collapse_topTime]
+    exact (Q.at_one r).trans (path_pasted_top p₁ l m r).symm
+  · rw [ThreeSideSquare.collapse_rightTime]
+    exact (Q.right r).trans (path_pasted_right p₁ l m r).symm
+
+/-- Extract the carrier boundary by the same parameter collapse as the native moving square. -/
+def Square.toBoundary (Q : Square p₀ p₁ l m) :
+    p₀.Homotopy ((l.trans p₁).trans m.symm) where
+  toFun z := Q.parameter (ThreeSideSquare.collapse z)
+  continuous_toFun := Q.parameter.continuous.comp ThreeSideSquare.continuous_collapse
+  map_zero_left s := by rw [ThreeSideSquare.collapse_zero]; exact Q.at_zero s
+  map_one_left := Q.collapse_top
+  prop' r s hs := by
+    change Q.parameter (ThreeSideSquare.collapse (r, s)) = p₀ s
+    rcases hs with hs | hs
+    · subst s
+      rw [ThreeSideSquare.collapse_left]
+      exact Q.at_zero 0
+    · subst s
+      rw [ThreeSideSquare.collapse_right]
+      exact Q.at_zero 1
+
+/-- Boundary extraction retains every interior coordinate of the original collapse. -/
+theorem Square.toBoundary_apply (Q : Square p₀ p₁ l m) (r s : unitInterval) :
+    Q.toBoundary (r, s) = Q.parameter (ThreeSideSquare.collapse (r, s)) := rfl
 
 /-- The supplied boundary comparison as a family with a trivial extra parameter. -/
 def boundaryFamily (J : p₀.Homotopy ((l.trans p₁).trans m.symm)) :

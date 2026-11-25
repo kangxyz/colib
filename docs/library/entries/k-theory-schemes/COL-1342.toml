@@ -1,0 +1,41 @@
+[entry]
+id = "COL-1342"
+title = "One-step Bass evaluation for schemes"
+kind = "comparison"
+section = "bass-k-theory-and-geometric-delooping"
+order = 125
+statement = '''
+For a scheme \(X\), apply the one-step Bass construction to the square on
+\(X\), its two affine-line charts, and their Laurent intersection.
+Evaluation from the section model to the bounded-above flat
+perfect-complex model induces a stable equivalence on the resulting
+one-step spectra. For each scheme map \(g\colon X\to Y\), the two
+routes from the section spectrum over \(Y\) to the original one-step
+spectrum over \(X\) are homotopic.
+
+The Laurent-unit seed comparison uses the original relative
+homotopy. For \(X\xrightarrow{f}Y\xrightarrow{g}Z\), the original
+span maps for \(g\circ f\) and successive pullback along \(g,f\)
+are homotopic. For \(\mathrm{id}_X\), the original transition
+homotopy and the identity tracks bound the specified homotopy square.
+'''
+scope = '''
+Arbitrary schemes and scheme morphisms. These are one-step results for
+the stated models, not an iterated comparison or a claim that the
+original construction is strictly functorial. The Bass construction
+itself is described in [@ThomasonTrobaugh1990, 6.3–6.4]; the evaluation
+and the specified homotopies compare the formal models used here.
+'''
+proof = '''
+The levelwise weak equivalence on the original models and the proved
+point homotopy extension properties pass through the reduced span,
+cone and parameter looping. The stable equivalence follows. The
+comparison cube gives the arrowwise homotopy; the relative seed,
+composition track and identity square retain the original Laurent
+action and null homotopies.
+'''
+proof_kind = "outline"
+primary = "AlgebraicGeometry.Scheme.Modules.GlobalBassEvaluation.stepEvaluation_isStableEquivalence"
+review = "author_checked"
+provenance = "quillen"
+source_checked_on = "2026-11-25"

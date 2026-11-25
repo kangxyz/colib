@@ -57,6 +57,16 @@ def evaluationModelEquivalence (X : Scheme.{u}ᵒᵖ) :
       (boundedAboveFlatPerfectWaldhausen X.unop.toRingedSpace)).obj.Obj :=
   (evaluationSmallEquivalence X).changeFunctor (evaluationNormalizationIso X)
 
+/-- The actual normalized global evaluation is a weak homotopy equivalence at every level. -/
+@[colib_ref "quillen"
+ "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/GlobalBassEvaluationEquivalence.lean:35-40"
+  "adaptation" "Levelwise weak equivalence of the same chosen global evaluation map"]
+theorem evaluationModel_level_isWeakHomotopyEquivalence (X : Scheme.{u}ᵒᵖ) (n : ℕ) :
+    Topology.IsWeakHomotopyEquivalence ((prespectrumMap (evaluationModel X)).map n) :=
+  ExactModelEquivalence.level_isWeakHomotopyEquivalence (evaluationModelEquivalence X)
+    (evaluationModel X).hom.isExact (evaluationSmallEquivalence_inverse_exact X)
+    (evaluationModel X).property n
+
 /-- The original normalized evaluation has an actual exact categorical inverse. -/
 @[colib_ref "quillen"
   "Quillen/AlgebraicGeometry/PerfectComplexes/BoundedFlat/GlobalEvaluationStableComparison.lean:52"
